@@ -46,3 +46,4 @@
 /tests/mcu
 /tests/periph
 /tests/reports
+/*.log
