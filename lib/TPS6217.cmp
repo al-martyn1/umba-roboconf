@@ -1,0 +1,8 @@
+(componentDefinition "TPS6217*"
+    (nameMatch simple (single "x")(any "*"))
+    (package "*")
+    (description "Step-Down Converters with DCS-Control")
+    (purpose "POWER::STEPDOWN")
+    (datasheet "tps62170.pdf")
+    
+

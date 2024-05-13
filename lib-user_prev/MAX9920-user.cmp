@@ -1,0 +1,5 @@
+(componentDefinition "MAX9918" "MAX9919" "MAX9920"
+    (pin "3" "" ("~SHUTDOWN" "IN" "GPIO") )
+    (pin "5" "" ("OUT" "ADC") )
+    (pin "6" "" ("PINTYPE_IGNORE") )
+)

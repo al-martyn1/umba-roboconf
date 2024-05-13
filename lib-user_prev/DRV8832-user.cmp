@@ -1,0 +1,6 @@
+(componentDefinition "DRV8832"
+    (pin "6" "" ("OUT" "GPIO") )
+    (pin "7" "" ("IN" "DAC") )
+    (pin "9" "" ("IN" "GPIO") )
+    (pin "10" "" ("IN" "GPIO") )
+)

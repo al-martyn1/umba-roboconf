@@ -1,0 +1,16 @@
+(componentDefinition "ISO1050DUB" "ISO1050"
+    (nameMatch exact)
+    (package "*")
+    (purpose "DRIVER:CAN")
+    (description "ISO1050 Isolated CAN Transceiver")
+    (datasheet "iso1050.pdf")
+
+    (pin "1" "Supply Digital-side supply voltage (3 to 5.5 V)" ("VCC" "VCC1") )
+    (pin "2" "CAN receive data output (LOW for dominant and HIGH for recessive bus states)" ("RXD" "O") )
+    (pin "3" "CAN transmit data input (LOW for dominant and HIGH for recessive bus states)" ("TXD" "I") )
+    (pin "4" "Ground Digital-side ground connection" ("GND" "GND1") )
+    (pin "5" "Ground Transceiver-side ground connection" ("GND" "GND2") )
+    (pin "6" "I/O Low-level CAN bus line" ("CANL") )
+    (pin "7" "I/O High-level CAN bus line" ("CANH") )
+    (pin "8" "Supply Transceiver-side supply voltage (5 V)" ("VCC" "VCC2") )
+)

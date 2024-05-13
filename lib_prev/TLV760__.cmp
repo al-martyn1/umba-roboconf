@@ -1,0 +1,8 @@
+(componentDefinition "TLV760" "TLV760_" "TLV760__"
+    (description "Fixed-Output Linear-Voltage Regulator")
+    (purpose "DC_REGULATOR")
+    (datasheet "tlv760.pdf")
+    (pin "1" "" ("OUT" ) )
+    (pin "2" "" ("IN" ) )
+    (pin "3" "" ("GND" ) )
+)

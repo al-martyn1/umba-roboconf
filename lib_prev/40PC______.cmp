@@ -1,0 +1,8 @@
+(componentDefinition "40PC150G2A"
+    (description "Honeywell Pressure Port Style O-ring interface (Analog)")
+    (purpose "SENSOR:ADC:PRESSURE")
+    (datasheet "Honeywell-40PC150G2A-datasheet.pdf")
+    (pin "1" "" ("Vin" ) )
+    (pin "2" "" ("GND" ) )
+    (pin "3" "" ("Vout" ) )
+)

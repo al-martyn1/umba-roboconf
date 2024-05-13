@@ -1,0 +1,13 @@
+(componentDefinition "IRF7509"
+    (description "Power MOSFET (HEXFET)")
+    (purpose "SWITCH")
+    (datasheet "irf7509pbf.pdf")
+    (pin "1" "" ("S1" ) )
+    (pin "2" "" ("G1" ) )
+    (pin "3" "" ("S2" ) )
+    (pin "4" "" ("G2" ) )
+    (pin "5" "" ("D2" ) )
+    (pin "6" "" ("D2" ) )
+    (pin "7" "" ("D1" ) )
+    (pin "8" "" ("D1" ) )
+)

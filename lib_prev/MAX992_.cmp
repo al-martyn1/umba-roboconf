@@ -1,0 +1,13 @@
+(componentDefinition "MAX9928" "MAX9929"
+    (description "Current-Sense Amplifiers, Micropower, Uni-/Bidirectional")
+    (purpose "OPAMP")
+    (datasheet "MAX9928-MAX9929.pdf")
+    (pin "1" "" ("RS-" ) )
+    (pin "2" "" ("SIGN" ) )
+    (pin "3" "" ("RS+" ) )
+    (pin "4" "" ("NC" ) )
+    (pin "5" "" ("NC" ) )
+    (pin "6" "" ("VCC" ) )
+    (pin "7" "" ("GND" ) )
+    (pin "8" "" ("OUT" ) )
+)

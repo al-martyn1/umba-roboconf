@@ -1,0 +1,1 @@
+call roboconf_mk_netcache.bat > log-roboconf_mk_netcache.txt

@@ -1,0 +1,4 @@
+*.uvprojx  text eol=lf
+*.uvproj   text eol=lf
+*.uvoptx   text eol=lf
+*.uvopt    text eol=lf

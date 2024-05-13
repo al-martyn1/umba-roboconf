@@ -1,0 +1,13 @@
+(componentDefinition "MAX9918" "MAX9919" "MAX9920"
+    (description "Precision Uni-/Bidirectional Current Sensor with analog output")
+    (purpose "SENSOR:ADC:CURRENT")
+    (datasheet "MAX9918-MAX9920.pdf")
+    (pin "1" "" ("RS+" ) )
+    (pin "2" "" ("RS-" ) )
+    (pin "3" "" ("SHDN" ) )
+    (pin "4" "" ("GND" ) )
+    (pin "5" "" ("OUT" ) )
+    (pin "6" "" ("FB" ) )
+    (pin "7" "" ("REFIN" ) )
+    (pin "8" "" ("VCC" ) )
+)

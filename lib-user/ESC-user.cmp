@@ -1,0 +1,7 @@
+(componentDefinition "ESC"
+    (description "Brushless DC Motor Driver 50Hz 0.9-2.1ms PWM")
+    (purpose "DRIVER:PWM:MOTOR")
+    (pin "1" "" ("PWM" "IN") )
+    (pin "2" "" ("VCC" ) )
+    (pin "3" "" ("GND" ) )
+)

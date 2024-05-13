@@ -1,0 +1,1 @@
+git subtree add --prefix=src/umba/time_service            http://gitblit.dep111.rtc.local/r/EmbeddedLibs/time_service.git             external       --squash

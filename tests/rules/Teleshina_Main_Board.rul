@@ -1,0 +1,28 @@
+(modify "mcuNet" replaceSingle "MOTOR"          "$({P})TVKO_MOTOR$({S})")
+(modify "mcuNet" replaceSingle "LINK_DE_RIGHT"  "$({P})RS485_RIGHT_LINK_DE$({S})")
+(modify "mcuNet" replaceSingle "UART_TX_RIGHT"  "$({P})RS485_RIGHT_TX$({S})")
+(modify "mcuNet" replaceSingle "UART_RX_RIGHT"  "$({P})RS485_RIGHT_RX$({S})")
+(modify "mcuNet" replaceSingle "LINK_DE_LEFT"   "$({P})RS485_LEFT_LINK_DE$({S})")
+(modify "mcuNet" replaceSingle "UART_TX_LEFT"   "$({P})RS485_LEFT_TX$({S})")
+(modify "mcuNet" replaceSingle "UART_RX_LEFT"   "$({P})RS485_LEFT_RX$({S})")
+(modify "mcuNet" replaceSingle "PRES"  "$({P})BATTERY_PRESENT$({S})")
+(--modify "mcuNet" replaceSingle ""  "$({P})$({S})")
+
+(modify "mcuNet" replaceSingle "UART_TX_TVKO"   "$({P})TVKO_UART_TX$({S})")
+(modify "mcuNet" replaceSingle "UART_RX_TVKO"   "$({P})TVKO_UART_RX$({S})")
+
+
+(-- Голем UART1 - term, UART2 - data)
+(-- MCU UART2 -> GOLEM UART2)
+(modify "mcuNet" replaceSingle "^UART2"   "$({P})GOLEM_UART_DATA$({S})")
+(-- MCU UART6 -> GOLEM UART1)
+(modify "mcuNet" replaceSingle "^UART6"   "$({P})GOLEM_UART_TERM$({S})")
+
+(-- forceGroup)
+(-- forceUngroup)
+(-- keepGroup ("RS485_LEFT_LINK_DE	") )
+(-- keepGroup "RS485_LEFT")
+
+(-- forceGroup "STATE_LEDS" ("LED_ERROR" "LED_LINK") )
+(-- forceGroup "CAMERAS_PWR" ("CAMERA1_EN" "CAMERA2_EN" "TVKO_EN" ) )
+

@@ -1,0 +1,14 @@
+(modify "mcuNet" replaceSingle "^TEMP_BOARD" "BOARD_TEMPERATURE")
+(modify "mcuNet" replaceSingle "^SWITCH$"    "ZERO_POSITION_FLAG_SWITCH")
+
+(modify "mcuNet" replaceSingle "CAM_(R|T)X" "CAM_UART_$({1})X")
+
+(modify "mcuNet" replaceSingle "^CAN_LBK" "CANABUS_CAN_LOOPBACK")
+(modify "mcuNet" replaceSingle "^CAN_(.*)" "CANABUS_CAN_$({1})")
+
+(modify "mcuNet" replaceSingle "^MOTOR(\d*)_AMPLIF_SHDN$"  "MOTOR$({1})_CURRENT_SENSOR_SHDN")
+(modify "mcuNet" replaceSingle "^MOTOR(\d*)_CURRENT$"      "MOTOR$({1})_CURRENT_SENSOR")
+
+(connect device "ENDSTOP" as "DD"
+    ("SWITCH" to "X2.SING")
+)

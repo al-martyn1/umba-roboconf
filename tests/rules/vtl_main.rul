@@ -1,0 +1,34 @@
+(modify "mcuNet" replaceSingle "^UART(\d{1,2})_(R|T)X$" "DEBUG_TERMINAL_UART_$({2})X")
+
+(modify "mcuNet" replaceSingle "^MOTOR(\d*)_SHDN$"     "MOTOR$({1})_CURRENT_SENSOR_SHDN")
+(modify "mcuNet" replaceSingle "^MOTOR(\d*)_CURRENT$"  "MOTOR$({1})_CURRENT_SENSOR")
+
+
+
+(connect device "AS5040" as "DD"
+    ("PWM" to "X9.SIGN")
+)
+
+(connect device "AS5040" as "DD"
+    ("PWM" to "X8.SIGN")
+)
+
+(connect device "AS5040" as "DD"
+    ("PWM" to "X11.SIGN")
+)
+
+(connect device "AS5040" as "DD"
+    ("PWM" to "X10.SIGN")
+)
+
+(connect device "APC220" as "DD"
+    ("RXD" to "X12.RXD")
+    ("TXD" to "X12.TXD")
+    ("EN" to "X12.EN")
+    ("SET" to "X12.SET")
+)
+
+(connect device "BATTERYKOROL" as "DD"
+    ("PRES_FLAG" to "X1.PRES_FLAG")
+    ("CHG_DTCT"  to "X1.CHG_DTCT")
+)

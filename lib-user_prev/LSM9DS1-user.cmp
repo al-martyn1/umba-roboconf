@@ -1,0 +1,9 @@
+(componentDefinition "LSM9DS1"
+    (package "<ANY>")
+    (pin "2" "" ("CLK") )
+    (pin "4" "" ("MOSI") )
+    (pin "5" "" ("SDO" "A" "MISO") )
+    (pin "6" "" ("SDO" "M" "MISO") )
+    (pin "7" "" ("CS_G" "CS_AG" "IN") )
+    (pin "8" "" ("CS_M" "IN") )
+)

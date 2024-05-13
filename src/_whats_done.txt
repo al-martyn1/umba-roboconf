@@ -1,0 +1,151 @@
+1)  Сделан импорт описаний STMок из куба.
+
+2)  Пины переделаны на строки
+
+3) Переехали на новый способ вывода сообщений об ошибках
+
+4) Сделан новый шаблонный парсинг списков
+
+5) package
+   packageAlias
+   packageAssign
+   (package "SOT23-3" numPins 3 (SOT23 TO236AB SOT346 SC59A TO236AA SMT3) )
+   (packageAlias "SOT23-3" ("WSWSOIC23-5" "SOIC23-5B-AEFC") )
+   (packageAssign (designator "DD4")(package "SSOP36") )
+
+6) powerNet по маске
+   Доделать: вывести список сетей, которые попали под маску и их тип - net-list-stp
+
+7) Сделано чтение package'ей из default.packages
+
+8) Сделано чтение power (stop) цепей из default.power
+
+9) Переехали на автодетект кодировки
+
+10) Заведены правила для определения типа компонента (deviceType) - DD, DA, A, R, C, HL, Q
+   (componentClass  (match designator)  (matchTo "^DD\d+" )  (set DD)               )
+   (componentClass  (match designator)  (matchTo "^DA\d+" )  (set DA)               )
+   (componentClass  (match designator)  (matchTo "^AA\d+" )  (set AA)               )
+   (componentClass  (match designator)  (matchTo "^A\d+"  )  (set AA)               )
+   (componentClass  (match compRef)     (matchTo ".*езисторная_сборка_x2.*" ) (set RESISTOR) (assembly 2) )
+
+11) Заведен ключик --class-rules=имя
+   Считывается набор из rules/classes или default.classes, если ничего не задано
+
+12) Заведены типы компонентов - FUSE и JUMPER.
+   Пока ничего больше по ним не сделано
+
+13) (packageAssign (designator "A1" "A2" "A3")
+   Теперь можно за один раз задать package для пачки десигнаторов.
+
+14) winconhelpers.h - оказалось, что под Win10 мой автодетект консоли не работает.
+    Допилил чтобы работало под Win10
+
+15) Сделан вывод дампа списков
+
+16) Переименован текущий парсер списка из EDIF в ACCEL_ASCII
+
+17) Переделан ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE
+    Сделаны дополнения:
+
+    Замена следующего условия на упрощенный макрос
+    ROBOCONF_CHECK_PARSE_READ_LIST_EXPECTED_RET_FALSE_FALSE("msg")
+    ROBOCONF_CHECK_PARSE_READ_LIST_EXPECTED_RET_FALSE_FALSE_OBJ(obj, "msg")
+    if (!readFieldsRes)
+    {
+        LOG_ERR_OBJ(netlist)<<"EDIF input file': expected "<<expected<<", but found "<<found<<"\n";
+        return false; // ExpressionParsingResult::failed;
+    }
+
+    ROBOCONF_CHECK_PARSE_READ_LIST_EXPECTED_RET("msg")
+    ROBOCONF_CHECK_PARSE_READ_LIST_EXPECTED_RET_OBJ(obj, "msg")
+    if (!readFieldsRes)
+    {
+        LOG_ERR_OBJ(rule)<<"processing rule 'componentClass': expected "<<expected<<", but found "<<found<<"\n";
+        return ExpressionParsingResult::failed;
+    }
+
+    ROBOCONF_CHECK_PARSE_READ_LIST_NOT_SUCCESS_CONTINUE
+    ROBOCONF_CHECK_PARSE_READ_LIST_NOT_SUCCESS_CONTINUE_OBJ
+
+    readFieldsRes, expected, found - подразумеваются неявно
+
+
+    ROBOCONF_CHECK_PARSE_READ_RESULT_RET_SKIP
+    Проверка на скип и возврат его.
+
+17) Сделать условные правила
+    (conditional (matchValue "mcu")(matchCase i|ignore|c|s|case|sensitive)(matchType exact|regex|prefix)(matchTo "STM32") )
+    (conditional (matchValue "netlistType")(matchType exact|regex|prefix)(matchTo "") )
+    (conditional or  (matchValue "netlistType") (conditional ...) )
+
+    Составное условие, состояит из нескольких подусловий, объединяется по OR/AND
+    (conditional and (matchValue "netlistType") 
+                     (conditional 1 ...)
+                     (conditional 2 ...)
+                     ( подусловные выражения )    
+    )
+
+    Иерархия условий (аналогично объединению по AND)
+    (conditional (matchValue "netlistType") 
+                 (conditional ...
+                     ( подусловные выражения )
+                 )
+    )
+
+    Если matchTo начинается с символа !, то инвертируем результат проверки.
+
+    При этом разные условия следует проверять в разные моменты:
+    а) netlistType - после определения типа нетилиста, но до его разбора
+    б) mcu - после того, как определили тип MCU
+
+    По умолчанию
+    matchCase: ignore
+    matchType: prefix
+
+    matchValue, matchType, matchCase - можно не задавать для дочерних условий
+    matchTo - обязательный параметр, маска, префикс или полное значение
+              Если первый символ строки - '!', то инвертируем результат.
+
+    При поиске подусловных списков мы задаем условие matchValue. 
+    Если оно не совпадает с тем, которое указано в conditional, то условие считается ложным.
+
+    На входе и на выходе - вектор указателей на список
+
+
+18) Переименован текущий парсер
+
+
+19) Переделать текущий парсер нетлиста с использованием хлеперов
+
+20) Сделать парсер EDIF - нынеший называется EDIF по ошибке - EDIF это другой формат.
+    
+21) Поиск корпусов нужно сделать в зависимости от производителя
+    Как узнать производителя, если у нас неизвестен корпус и мы не можем считать подходящий CMP файл?
+    Сразу после чтения схемоты у нас есть количество пинов микрухи?
+    Если есть, то поиск корпуса нужно производить в два этапа - сначала как есть, а потом - 
+    с суффиксом -N, где N - количество пинов
+
+22) Manufacturer.
+    Для каждого компонента нужно указывать manufacturer'а.
+
+    Нужно ли делать список Manufacturer'ов?
+
+    Пожалуй, сделаем. И тогда базу корпусов можно набить, просто подставляя производителей
+    в условный поиск.
+
+    Как бы ускорить, и по возможности разделить тэги на те, которые без условия, и те, которые с условием,
+    и вот уже только по последним прогонять condition тесты?
+
+23) Надо бы все CMP файлы проиндексировать на предмет масок компонентов.
+    И важен порядок обработки - индексировать нужно сначала файлы с самыми длинными именами (без корпусной части)
+    Корпусная часть отделяется символом минуса, но сама по себе корпусная часть может содержать символ минуса.
+    Поэтому нужно откусывать хвост по частям, и искать его в базе корпусов. Когда нашли, то это и есть корпусной хвост,
+    его надо отрезать, и потом уже сортировать по длине.
+    Суффикс -user отрезается, и используется если сравненние по длине и содержимому дало равенство.
+
+    И важен список директорий для поиска компонентов - для разного набора индексы разные.
+    roboconf_HASH_cmp.idx, где HASH - SHA хэш нормализованного списка каталогов.
+
+
+

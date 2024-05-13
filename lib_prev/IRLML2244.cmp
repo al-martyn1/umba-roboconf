@@ -1,0 +1,8 @@
+(componentDefinition "IRLML2244"
+    (description "Power MOSFET (HEXFET) Load/System Switch")
+    (purpose "SWITCH")
+    (datasheet "irlml2244pbf.pdf")
+    (pin "1" "" ("G" ) )
+    (pin "2" "" ("S" ) )
+    (pin "3" "" ("D" ) )
+)

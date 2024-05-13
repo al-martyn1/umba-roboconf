@@ -1,0 +1,5 @@
+(componentDefinition "AD8541" "AD8542" "AD8544"
+    (pin "1" "" ("ADC" ) )
+    (pin "3" "" ("PINTYPE_IGNORE") )
+    (pin "4" "" ("PINTYPE_IGNORE" ) )
+)

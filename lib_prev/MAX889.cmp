@@ -1,0 +1,13 @@
+(componentDefinition "MAX889"
+    (description "High-Frequency, Regulated, Inverting Charge Pump")
+    (purpose "POWER_CONVERTER")
+    (datasheet "MAX889.pdf")
+    (pin "1" "" ("IN" ) )
+    (pin "2" "" ("CAP+" ) )
+    (pin "3" "" ("GND" ) )
+    (pin "4" "" ("CAP-" ) )
+    (pin "5" "" ("OUT" ) )
+    (pin "6" "" ("S\H\D\N\" ) )
+    (pin "7" "" ("FB" ) )
+    (pin "8" "" ("AGND" ) )
+)

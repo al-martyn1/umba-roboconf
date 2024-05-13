@@ -1,0 +1,13 @@
+(componentDefinition "TPD2S017*"
+    (nameMatch simple (single "x")(any "*"))
+    (package "*")
+    (description "2-Channel Ultra-Low Clamp Voltage ESD (electrostatic discharge) Solution")
+    (purpose "PROTECTION")
+    (datasheet "tpd2s017.pdf")
+    (pin "1" "" ("OUT1" "IN" "OUT") )
+    (pin "2" "" ("GND" ) )
+    (pin "3" "" ("IN1" "IN" "OUT") )
+    (pin "4" "" ("IN2" "IN" "OUT") )
+    (pin "5" "" ("VCC" ) )
+    (pin "6" "" ("OUT2" "IN" "OUT") )
+)

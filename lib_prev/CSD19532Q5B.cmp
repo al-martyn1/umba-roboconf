@@ -1,0 +1,13 @@
+(componentDefinition "CSD19532Q5B"
+    (description "100 V N-Channel NexFET Power MOSFET")
+    (purpose "SWITCH")
+    (datasheet "csd19532q5b.pdf")
+    (pin "1" "" ("S" ) )
+    (pin "2" "" ("S" ) )
+    (pin "3" "" ("S" ) )
+    (pin "4" "" ("G" ) )
+    (pin "5" "" ("D" ) )
+    (pin "6" "" ("D" ) )
+    (pin "7" "" ("D" ) )
+    (pin "8" "" ("D" ) )
+)

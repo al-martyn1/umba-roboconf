@@ -1,0 +1,13 @@
+(componentDefinition "MAX31855"
+    (description "Cold-Junction Compensated Thermocouple-to-Digital Converter")
+    (purpose "SENSOR:SPI:TEMPERATURE")
+    (datasheet "MAX31855.pdf")
+    (pin "1" "" ("GND" ) )
+    (pin "2" "" ("T-" ) )
+    (pin "3" "" ("T+" ) )
+    (pin "4" "" ("VCC" ) )
+    (pin "5" "" ("SCK" ) )
+    (pin "6" "" ("\C\S" ) )
+    (pin "7" "" ("SO" ) )
+    (pin "8" "" ("DNC" ) )
+)

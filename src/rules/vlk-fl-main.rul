@@ -1,0 +1,14 @@
+(modify "mcuNet" replaceSingle "GOLEM_UART4_(R|T)X" "GOLEM_TERMINAL_UART_$({1})X")
+(modify "mcuNet" replaceSingle "GOLEM_UART2_(R|T)X" "GOLEM_DATA_UART_$({1})X")
+(modify "mcuNet" replaceSingle "LED_EN" "BACKLIGHT_LED_EN")
+
+(connect device "VL53L0X" as "DD"
+    ("GPIO1" to "X14.INTERRUPT")
+    ("XSHUT" to "X14.RESET")
+    ("SCL" to "X14.SCL")
+    ("SDA" to "X14.SDA")
+)
+
+(connect device "SERVO" as "DD"
+    ("PWM" to "X7.Control_PWM")
+)

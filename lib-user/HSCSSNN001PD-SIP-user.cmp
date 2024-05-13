@@ -1,0 +1,47 @@
+(componentDefinition "HSCSSNN001PD2A3"
+    (description "High Accuracy, Compensated/Amplified Pressure Sensor +-1psi I2C addr 0x28")
+    (purpose "SENSOR:I2C:PRESSURE")
+    (datasheet "honeywell-sensing-trustability-hsc-series-high-acc-708740.pdf")
+    (refman "honeywell-sensing-i2c-communications-digital-output-force-technical-note_008291-1-en.pdf")
+    (package "SIP")
+    (pin "1" "" ("GND" ) )
+    (pin "2" "" ("Vsupply" ) )
+    (pin "3" "" ("SDA" ) )
+    (pin "4" "" ("SCL" ) )
+)
+
+(//
+
+Figure 4. Nomenclature and Order Guide
+
+HSCSSNN001PD2a3
+HSC S SN N 001PD 2 a 3
+
+HSC   - High Accuracy, Compensated/Amplified
+S     - SIP (Single Inline Pin)
+          D DIP (Dual Inline Pin)
+          M SMT (Surface Mount Technology)
+SN    - Manifold mount, inner diameter seal
+N     - Dry gases only, no diagnostics
+001PD - Pressure Range: +- 1 psi
+2     - Output Type: I2C, Address 0x28
+a     - Transfer Function: 10% to 90% of Vsupply (analog), 214 counts (digital)
+3     - Supply Voltage - 3.3 Vdc
+
+
+
+Pinouts for DIP and SMT Packages
+        Pin 1   Pin 2    Pin 3   Pin 4   Pin 5   Pin 6   Pin 7    Pin 8
+I2C     GND     Vsupply  SDA     SCL     NC      NC      NC       NC
+SPI     GND     Vsupply  MISO    SCLK    SS      NC      NC       NC
+Analog  NC      Vsupply  Vout    GND     NC      NC      NC       NC
+
+Pinouts for SIP Packages
+       Pin 1   Pin 2     Pin 3    Pin 4
+I2C    GND     Vsupply   SDA      SCL
+Analog NC      Vsupply   Vout     GND
+
+-O=refman:honeywell-sensing-i2c-communications-digital-output-force-technical-note_008291-1-en
+-O=datasheet:honeywell-sensing-trustability-hsc-series-high-acc-708740
+
+)

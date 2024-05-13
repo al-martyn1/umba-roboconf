@@ -1,0 +1,8 @@
+(componentDefinition "LM60"
+    (description "Temperature Sensor (Analog)")
+    (purpose "SENSOR:ADC:TEMPERATURE")
+    (datasheet "lm60.pdf")
+    (pin "1" "" ("Vs" ) )
+    (pin "2" "" ("Vout" ) )
+    (pin "3" "" ("GND" ) )
+)

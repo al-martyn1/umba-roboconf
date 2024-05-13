@@ -1,0 +1,11 @@
+(componentDefinition "TS5A3159"
+    (description "SPDT Analog Switch")
+    (purpose "SWITCH")
+    (datasheet "ts5a3159.pdf")
+    (pin "1" "" ("NO" ) )
+    (pin "2" "" ("GND" ) )
+    (pin "3" "" ("NC" ) )
+    (pin "4" "" ("COM" ) )
+    (pin "5" "" ("VCC" ) )
+    (pin "6" "" ("IN" ) )
+)

@@ -1,0 +1,110 @@
+(conditional or (matchValue "netlistType")(matchCase ignore)(matchType exact)
+                (conditional (matchTo "ACCEL") )
+        (
+
+            (-- Resistors assemly detection)
+           
+            (-- english xN)
+           
+            (componentClass  (match compRef      )  (matchTo ".*езисторная_сборка_x2.*" ) (set RESISTOR) (assembly 2 ) )
+            (componentClass  (match compRef      )  (matchTo ".*езисторная_сборка_x4.*" ) (set RESISTOR) (assembly 4 ) )
+            (componentClass  (match compRef      )  (matchTo ".*езисторная_сборка_x8.*" ) (set RESISTOR) (assembly 8 ) )
+            (componentClass  (match compRef      )  (matchTo ".*езисторная_сборка_x16.*") (set RESISTOR) (assembly 16) )
+
+            (componentClass  (match originalName )  (matchTo ".*езисторная_сборка_x2.*" ) (set RESISTOR) (assembly 2 ) )
+            (componentClass  (match originalName )  (matchTo ".*езисторная_сборка_x4.*" ) (set RESISTOR) (assembly 4 ) )
+            (componentClass  (match originalName )  (matchTo ".*езисторная_сборка_x8.*" ) (set RESISTOR) (assembly 8 ) )
+            (componentClass  (match originalName )  (matchTo ".*езисторная_сборка_x16.*") (set RESISTOR) (assembly 16) )
+            
+            (-- russian xN)
+            
+            (componentClass (match compRef      )  (matchTo ".*езисторная_сборка_х2.*" )  (set RESISTOR) (assembly 2 ) )
+            (componentClass (match compRef      )  (matchTo ".*езисторная_сборка_х4.*" )  (set RESISTOR) (assembly 4 ) )
+            (componentClass (match compRef      )  (matchTo ".*езисторная_сборка_х8.*" )  (set RESISTOR) (assembly 8 ) )
+            (componentClass (match compRef      )  (matchTo ".*езисторная_сборка_х16.*")  (set RESISTOR) (assembly 16) )
+                                                                                                                       
+            (componentClass (match originalName )  (matchTo ".*езисторная_сборка_х2.*" )  (set RESISTOR) (assembly 2 ) )
+            (componentClass (match originalName )  (matchTo ".*езисторная_сборка_х4.*" )  (set RESISTOR) (assembly 4 ) )
+            (componentClass (match originalName )  (matchTo ".*езисторная_сборка_х8.*" )  (set RESISTOR) (assembly 8 ) )
+            (componentClass (match originalName )  (matchTo ".*езисторная_сборка_х16.*")  (set RESISTOR) (assembly 16) )
+                                                                                                                       
+            (-- Common resistro assemlbies )                                             
+                                                                                                                       
+            (componentClass (match compRef      )  (matchTo ".*RESISTOR-X2.*"          )  (set RESISTOR) (assembly 2 ) )
+            (componentClass (match compRef      )  (matchTo ".*RESISTOR-X4.*"          )  (set RESISTOR) (assembly 4 ) )
+            (componentClass (match compRef      )  (matchTo ".*RESISTOR-X8.*"          )  (set RESISTOR) (assembly 8 ) )
+            (componentClass (match compRef      )  (matchTo ".*RESISTOR-X16.*"         )  (set RESISTOR) (assembly 16) )
+                                                                                                                       
+            (componentClass (match compRef      )  (matchTo ".*RESISTOR_X2.*"          )  (set RESISTOR) (assembly 2 ) )
+            (componentClass (match compRef      )  (matchTo ".*RESISTOR_X4.*"          )  (set RESISTOR) (assembly 4 ) )
+            (componentClass (match compRef      )  (matchTo ".*RESISTOR_X8.*"          )  (set RESISTOR) (assembly 8 ) )
+            (componentClass (match compRef      )  (matchTo ".*RESISTOR_X16.*"         )  (set RESISTOR) (assembly 16) )
+                                                                                                                       
+            (componentClass (match originalName )  (matchTo ".*RESISTOR-X2.*"          )  (set RESISTOR) (assembly 2 ) )
+            (componentClass (match originalName )  (matchTo ".*RESISTOR-X4.*"          )  (set RESISTOR) (assembly 4 ) )
+            (componentClass (match originalName )  (matchTo ".*RESISTOR-X8.*"          )  (set RESISTOR) (assembly 8 ) )
+            (componentClass (match originalName )  (matchTo ".*RESISTOR-X16.*"         )  (set RESISTOR) (assembly 16) )
+                                                                                                                       
+            (componentClass (match originalName )  (matchTo ".*RESISTOR_X2.*"          )  (set RESISTOR) (assembly 2 ) )
+            (componentClass (match originalName )  (matchTo ".*RESISTOR_X4.*"          )  (set RESISTOR) (assembly 4 ) )
+            (componentClass (match originalName )  (matchTo ".*RESISTOR_X8.*"          )  (set RESISTOR) (assembly 8 ) )
+            (componentClass (match originalName )  (matchTo ".*RESISTOR_X16.*"         )  (set RESISTOR) (assembly 16) )
+            
+            (-- Common resistors )
+            
+            (componentClass  (match attrDescription)  (matchTo ".*езистор.*" )  (set RESISTOR) )
+            (componentClass  (match compRef        )  (matchTo ".*езистор.*" )  (set RESISTOR) )
+            (componentClass  (match compRef        )  (matchTo ".*RESISTOR.*")  (set RESISTOR) )
+            (componentClass  (match originalName   )  (matchTo ".*езистор.*" )  (set RESISTOR) )
+            (componentClass  (match originalName   )  (matchTo ".*RESISTOR.*")  (set RESISTOR) )
+            
+            (componentClass  (match designator     )  (matchTo "^R\d+"       )  (set RESISTOR) )
+            
+            (-- Headers )
+            
+            (componentClass (match compRef     )  (matchTo "^HEADER.+"   )  (set HEADER)    )
+            (componentClass (match originalName)  (matchTo "^HEADER.+"   )  (set HEADER)    )
+            
+            (-- Fuses )
+            
+            (componentClass (match compRef     )  (matchTo "^FUSE.+"     )  (set FUSE  )    )
+            (componentClass (match originalName)  (matchTo "^FUSE.+"     )  (set FUSE  )    )
+            (componentClass (match designator  )  (matchTo "^FU.+"       )  (set FUSE  )    )
+            
+            (-- Jumpers )
+           
+            (componentClass (match compRef     )  (matchTo "^jumper.+"   )  (set HEADER)    )
+            (componentClass (match originalName)  (matchTo "^jumper.+"   )  (set HEADER)    )
+            (componentClass (match compRef     )  (matchTo ".*жампер.+"  )  (set HEADER)    )
+            (componentClass (match originalName)  (matchTo ".*жампер.+"  )  (set HEADER)    )
+            (componentClass (match designator  )  (matchTo "^J.+"        )  (set HEADER)    )
+            (componentClass (match designator  )  (matchTo "^XP.+"       )  (set HEADER)    )
+            
+            (-- All other )
+            
+            (componentClass (match designator  )  (matchTo "^DD\d+"      )  (set DD)        )
+            (componentClass (match designator  )  (matchTo "^DA\d+"      )  (set DA)        )
+            (componentClass (match designator  )  (matchTo "^AA\d+"      )  (set AA)        )
+            (componentClass (match designator  )  (matchTo "^A\d+"       )  (set AA)        )
+            (componentClass (match designator  )  (matchTo "^VT\d+"      )  (set TRANSISTOR))
+            (componentClass (match designator  )  (matchTo "^T\d+"       )  (set TRANSISTOR))
+            (componentClass (match designator  )  (matchTo "^VD\d+"      )  (set DIODE)     )
+            (componentClass (match designator  )  (matchTo "^D\d+"       )  (set DIODE)     )
+            (componentClass (match designator  )  (matchTo "^VU\d+"      )  (set OPTOPAIR)  )
+            (componentClass (match designator  )  (matchTo "^C\d+"       )  (set CAPACITOR) )
+            (componentClass (match designator  )  (matchTo "^L\d+"       )  (set INDUCTOR)  )
+            (componentClass (match designator  )  (matchTo "^HL\d+"      )  (set LED)       )
+            (componentClass (match designator  )  (matchTo "^LED_.+"     )  (set LED)       )
+            (componentClass (match designator  )  (matchTo "^Q\d+"       )  (set QUARTZ)    )
+            (componentClass (match designator  )  (matchTo "^BQ\d+"      )  (set QUARTZ)    )
+            (componentClass (match designator  )  (matchTo "^Z\d+"       )  (set QUARTZ)    )
+            
+            (componentClass (match compRef     )  (matchTo "^TESTPOINT.+")  (set TESTPOINT) )
+            (componentClass (match originalName)  (matchTo "^TESTPOINT.+")  (set TESTPOINT) )
+            (componentClass (match compRef     )  (matchTo "^TEST.+"     )  (set TESTPOINT) )
+            (componentClass (match originalName)  (matchTo "^TEST.+"     )  (set TESTPOINT) )
+
+        )
+)(-- end of conditional or)
+
+          

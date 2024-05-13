@@ -1,0 +1,26 @@
+(modify "mcuNet" replaceSingle "SWITCH(\d+)" "ENDSTOP_SWITCH$({P})$({1})")
+
+(modify "mcuNet" replaceSingle "^MOTOR(\d*)_AMPLIF_SHDN$"  "MOTOR$({1})_CURRENT_SENSOR_SHDN")
+(modify "mcuNet" replaceSingle "^MOTOR(\d*)_CURRENT$"      "MOTOR$({1})_CURRENT_SENSOR")
+
+
+(modify "mcuNet" replaceSingle "^CAN_(.*)" "CANABUS_CAN_$({1})")
+(modify "mcuNet" replaceSingle "^CANABUS_LBK" "CANABUS_CAN_LOOPBACK")
+
+(modify "mcuNet" replaceSingle "^TEMP_BOARD" "BOARD_TEMPERATURE")
+
+(modify "mcuNet" replaceSingle "NICH_DIM(\d+)"   "HOTEND$({1})_NICH_DIM")
+
+(modify "mcuNet" replaceSingle "TERMCPL_CS(\d+)" "HOTEND$({1})_TERMCPL_CS")
+(modify "mcuNet" replaceSingle "TERMCPL_SCK"     "HOTEND_TERMCPL_SCK")
+(modify "mcuNet" replaceSingle "TERMCPL_SO"      "HOTEND_TERMCPL_MISO")
+
+
+
+(connect device "ENDSTOP" as "DD"
+    ("SWITCH" to "X2.SING")
+)
+
+(connect device "ENDSTOP" as "DD"
+    ("SWITCH" to "X3.SING")
+)

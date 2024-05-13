@@ -1,0 +1,1 @@
+call main_board_master_MCU_Calay.bat > log-main_board_master_MCU_Calay.txt

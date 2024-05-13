@@ -1,0 +1,1914 @@
+{COMPONENT PROTEL.PCB
+  {ENVIRONMENT PROTEL.SCH}
+  {DETAIL
+    {SUBCOMP
+      {I LMR16006.PRT A1
+        {CN
+        1 +14,4Â
+        2 +14,4Â
+        3 SGND
+        4 SGND
+        5 NetA1_5
+        6 +3,3Â
+        7 +3,3Â
+        8 +3,3Â
+        9 SGND
+       10 SGND
+        }
+      }
+      {I LMR16006.PRT A2
+        {CN
+        1 +14,4Â
+        2 +14,4Â
+        3 SGND
+        4 SGND
+        5 NetA2_5
+        6 +12Â
+        7 +12Â
+        8 +12Â
+        9 SGND
+       10 SGND
+        }
+      }
+      {I LMR16006.PRT A3
+        {CN
+        1 +14,4Â
+        2 +14,4Â
+        3 SGND
+        4 SGND
+        5 NetA3_5
+        6 +8,5Â
+        7 +8,5Â
+        8 +8,5Â
+        9 SGND
+       10 SGND
+        }
+      }
+      {I C0603_A.PRT C1
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0603_A.PRT C2
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0603_A.PRT C3
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C1206_A.PRT C4
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0402_A.PRT C5
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0402_A.PRT C6
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0402_A.PRT C7
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0402_A.PRT C8
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0402_A.PRT C9
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0402_A.PRT C10
+        {CN
+        1 SGND
+        2 NetC10_2
+        }
+      }
+      {I C0805_A.PRT C11
+        {CN
+        1 SGND
+        2 NetC11_2
+        }
+      }
+      {I C0805_A.PRT C12
+        {CN
+        1 SGND
+        2 NetC12_2
+        }
+      }
+      {I C0402_A.PRT C13
+        {CN
+        1 SGND
+        2 MCU_NRST
+        }
+      }
+      {I C1206_A.PRT C14
+        {CN
+        1 SGND
+        2 +14,4Â
+        }
+      }
+      {I C0603_A.PRT C15
+        {CN
+        1 SGND
+        2 NetC15_2
+        }
+      }
+      {I C0603_A.PRT C16
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0603_A.PRT C17
+        {CN
+        1 NetC17_1
+        2 +5Â_À
+        }
+      }
+      {I C1206_A.PRT C18
+        {CN
+        1 SGND
+        2 +5Â_À
+        }
+      }
+      {I C0603_A.PRT C19
+        {CN
+        1 SGND
+        2 NetC19_2
+        }
+      }
+      {I CE10x16_put.PRT C20
+        {CN
+        1 +14,4Â
+        2 PGND
+        }
+      }
+      {I C1206_A.PRT C21
+        {CN
+        1 SGND
+        2 +5Â_À
+        }
+      }
+      {I C1206_A.PRT C22
+        {CN
+        1 SGND
+        2 +5Â_À
+        }
+      }
+      {I CE10x16_put.PRT C23
+        {CN
+        1 +14,4Â
+        2 PGND
+        }
+      }
+      {I C1206_A.PRT C24
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0603_A.PRT C25
+        {CN
+        1 SGND
+        2 NetC25_2
+        }
+      }
+      {I C0603_A.PRT C26
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0603_A.PRT C27
+        {CN
+        1 SGND
+        2 NetC27_2
+        }
+      }
+      {I C0805_A.PRT C28
+        {CN
+        1 SGND
+        2 +8,5Â
+        }
+      }
+      {I C0603_A.PRT C29
+        {CN
+        1 SGND
+        2 MCU_CAN2_RX
+        }
+      }
+      {I C0603_A.PRT C30
+        {CN
+        1 SGND
+        2 +8,5Â
+        }
+      }
+      {I C0603_A.PRT C31
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0603_A.PRT C32
+        {CN
+        1 SGND
+        2 NetC32_2
+        }
+      }
+      {I C0603_A.PRT C33
+        {CN
+        1 SGND
+        2 CAN_L
+        }
+      }
+      {I C0805_A.PRT C34
+        {CN
+        1 SGND
+        2 NetC34_2
+        }
+      }
+      {I C0603_A.PRT C35
+        {CN
+        1 SGND
+        2 CAN_H
+        }
+      }
+      {I C0603_A.PRT C36
+        {CN
+        1 SGND
+        2 NetC34_2
+        }
+      }
+      {I C0805_A.PRT C37
+        {CN
+        1 NetC37_1
+        2 VIDEO1
+        }
+      }
+      {I C0805_A.PRT C38
+        {CN
+        1 NetC38_1
+        2 VIDEO2
+        }
+      }
+      {I C0805_A.PRT C39
+        {CN
+        1 NetC39_1
+        2 VIDEO3
+        }
+      }
+      {I C0805_A.PRT C40
+        {CN
+        1 NetC40_1
+        2 NetC40_2
+        }
+      }
+      {I C0805_A.PRT C41
+        {CN
+        1 SGND
+        2 NetC41_2
+        }
+      }
+      {I C0805_A.PRT C42
+        {CN
+        1 SGND
+        2 NetC42_2
+        }
+      }
+      {I C0805_A.PRT C43
+        {CN
+        1 SGND
+        2 NetC43_2
+        }
+      }
+      {I C0805_A.PRT C44
+        {CN
+        1 SGND
+        2 NetC44_2
+        }
+      }
+      {I C0603_A.PRT C45
+        {CN
+        1 SGND
+        2 +5Â_À
+        }
+      }
+      {I C0603_A.PRT C46
+        {CN
+        1 SGND
+        2 +5Â_À
+        }
+      }
+      {I C0603_A.PRT C47
+        {CN
+        1 SGND
+        2 +5Â_À
+        }
+      }
+      {I C0603_A.PRT C48
+        {CN
+        1 SGND
+        2 +5Â_À
+        }
+      }
+      {I C0603_A.PRT C49
+        {CN
+        1 SGND
+        2 +3,3Â
+        }
+      }
+      {I C0805_A.PRT C50
+        {CN
+        1 NetC50_1
+        2 NetC50_2
+        }
+      }
+      {I C0805_A.PRT C51
+        {CN
+        1 SGND
+        2 NetC51_2
+        }
+      }
+      {I C0603_A.PRT C52
+        {CN
+        1 SGND
+        2 +5Â_À
+        }
+      }
+      {I SOT23-6_A.PRT DA1
+        {CN
+        1 NetDA1_1
+        2 SGND
+        3 NetDA1_3
+        4 NetDA1_4
+        5 +3,3Â
+        6 NetDA1_6
+        }
+      }
+      {I SOT23-6_A.PRT DA2
+        {CN
+        1 NetDA2_1
+        2 SGND
+        3 NetDA2_3
+        4 NetDA2_4
+        5 +3,3Â
+        6 NetDA2_6
+        }
+      }
+      {I SOT23-6_A.PRT DA3
+        {CN
+        1 NetDA3_1
+        2 SGND
+        3 NetDA3_3
+        4 NetDA3_4
+        5 +3,3Â
+        6 NetDA3_6
+        }
+      }
+      {I LGA-24.PRT DA4
+        {CN
+        1 +3,3Â
+        2 NetDA4_2
+        3 +3,3Â
+        4 NetDA4_4
+        5 NetDA4_5
+        6 NetDA4_5
+        7 NetDA4_7
+        8 NetDA4_8
+        9 NetDA4_9
+       10 NetDA4_10
+       11 NetDA4_11
+       12 NetDA4_12
+       13 NetDA4_13
+       14 SGND
+       15 SGND
+       16 SGND
+       17 SGND
+       18 SGND
+       19 SGND
+       20 SGND
+       21 NetC27_2
+       22 +3,3Â
+       23 +3,3Â
+       24 NetC25_2
+        }
+      }
+      {I SOIC8_A_PowerPad.PRT DA5
+        {CN
+        1 VIDEO4+
+        2 NetDA5_2
+        3 NetDA5_3
+        4 VIDEO4-
+        5 SGND
+        6 NetDA5_6
+        7 NetDA5_7
+        8 +8,5Â
+        9 SGND
+        }
+      }
+      {I SC-70-6.PRT DA6
+        {CN
+        1 NetC37_1
+        2 SGND
+        3 NetDA6_3
+        4 NetDA6_3
+        5 NetDA6_5
+        6 +5Â_À
+        }
+      }
+      {I SC-70-6.PRT DA7
+        {CN
+        1 NetC38_1
+        2 SGND
+        3 NetDA7_3
+        4 NetDA7_3
+        5 NetDA7_5
+        6 +5Â_À
+        }
+      }
+      {I SC-70-6.PRT DA8
+        {CN
+        1 NetC39_1
+        2 SGND
+        3 NetDA8_3
+        4 NetDA8_3
+        5 NetDA8_5
+        6 +5Â_À
+        }
+      }
+      {I SC-70-6.PRT DA9
+        {CN
+        1 NetC40_1
+        2 SGND
+        3 NetDA9_3
+        4 NetDA9_3
+        5 NetDA9_5
+        6 +5Â_À
+        }
+      }
+      {I TSSOP14_A.PRT DA10
+        {CN
+        1 NetDA10_1
+        2 NetDA10_2
+        3 SGND
+        4 NetDA10_4
+        5 NetDA10_5
+        6 NetDA10_6
+        7 NetDA10_7
+        8 NetDA10_8
+        9 NetDA10_9
+       10 NetDA10_10
+       11 NetDA10_11
+       12 +3,3Â
+       13 SGND
+       14 NetDA10_14
+        }
+      }
+      {I SC-70-6.PRT DA11
+        {CN
+        1 NetC50_1
+        2 SGND
+        3 NetDA11_3
+        4 NetDA11_3
+        5 +5Â_À
+        6 +5Â_À
+        }
+      }
+      {I LQFP64_L.PRT DD1
+        {CN
+        1 +3,3Â
+        2 MCU_VIDEO1_PWR_EN
+        3 MCU_VIDEO2_PWR_EN
+        4 MCU_VIDEO4_PWR_EN
+        5 NetDD1_5
+        6 NetDD1_6
+        7 MCU_NRST
+        8 NetDD1_8
+        9 MCU_MUX_EN
+       10 MCU_MUX_A0
+       11 MCU_MUX_A1
+       12 SGND
+       13 NetC10_2
+       14 MCU_UART4_TX
+       15 MCU_UART4_RX
+       16 MCU_UART2_TX
+       17 MCU_UART2_RX
+       18 SGND
+       19 +3,3Â
+       20 MCU_LMZ_5V_EN
+       21 MCU_LED_RED
+       22 MCU_LED_GREEN
+       23 NetDD1_23
+       24 NetDD1_24
+       25 NetDD1_25
+       26 MCU_GYRO_CS_XM
+       27 MCU_GYRO_CS_G
+       28 NetDD1_28
+       29 MCU_GYRO_SPI_CLK
+       30 MCU_CAN_LOOPBACK
+       31 NetC12_2
+       32 +3,3Â
+       33 MCU_CAN2_RX
+       34 MCU_CAN2_TX
+       35 MCU_GYRO_SPI_MISO
+       36 MCU_GYRO_SPI_MOSI
+       37 MCU_UART6_TX
+       38 MCU_UART6_RX
+       39 NetDD1_39
+       40 MCU_SDA_PSensor
+       41 MCU_SCL_PSensor
+       42 MCU_PWM_ESC
+       43 NetDD1_43
+       44 NetDD1_44
+       45 NetDD1_45
+       46 MCU_SWDIO
+       47 NetC11_2
+       48 +3,3Â
+       49 MCU_SWCLK
+       50 NetDD1_50
+       51 NetDD1_51
+       52 MCU_PRES_FLAG
+       53 MCU_RS485_TX_BAT
+       54 MCU_RS485_RX_BAT
+       55 MCU_TRACE
+       56 NetDD1_56
+       57 MCU_RS485_DE_BAT
+       58 MCU_VIDEO3_EN
+       59 MCU_VIDEO1_EN
+       60 SGND
+       61 MCU_VIDEO2_EN
+       62 MCU_VIDEO4_EN
+       63 SGND
+       64 +3,3Â
+        }
+      }
+      {I TO-PMOD-7.PRT DD2
+        {CN
+        1 +14,4Â
+        2 NetDD2_2
+        3 NetC19_2
+        4 SGND
+        5 NetC15_2
+        6 NetC17_1
+        7 +5Â_À
+        8 SGND
+        }
+      }
+      {I SOIC8_A.PRT DD3
+        {CN
+        1 MCU_RS485_RX_BAT
+        2 MCU_RS485_DE_BAT
+        3 MCU_RS485_DE_BAT
+        4 MCU_RS485_TX_BAT
+        5 SGND
+        6 NetDD3_6
+        7 NetDD3_7
+        8 +3,3Â
+        }
+      }
+      {I SOIC8_A.PRT DD4
+        {CN
+        1 NetDD4_1
+        2 SGND
+        3 +3,3Â
+        4 NetDD4_4
+        5 NetDD4_5
+        6 CAN_L
+        7 CAN_H
+        8 NetDD4_8
+        }
+      }
+      {I Led_0603_RED.PRT HL1
+        {CN
+        1 SGND
+        2 NetHL1_2
+        }
+      }
+      {I Led_0603_green.PRT HL2
+        {CN
+        1 SGND
+        2 NetHL2_2
+        }
+      }
+      {I Led_0603_green.PRT HL3
+        {CN
+        1 SGND
+        2 NetHL3_2
+        }
+      }
+      {I Led_0603_Blue.PRT HL4
+        {CN
+        1 SGND
+        2 NetHL4_2
+        }
+      }
+      {I Led_0603_Blue.PRT HL5
+        {CN
+        1 SGND
+        2 NetHL5_2
+        }
+      }
+      {I Led_0603_Blue.PRT HL6
+        {CN
+        1 SGND
+        2 NetHL6_2
+        }
+      }
+      {I Led_0603_RED.PRT HL7
+        {CN
+        1 NetDA5_6
+        2 NetHL7_2
+        }
+      }
+      {I L0603_A.PRT L1
+        {CN
+        1 +3,3Â
+        2 NetC10_2
+        }
+      }
+      {I CDRH127.PRT L2
+        {CN
+        1 NetL2_1
+        2 NetL2_2
+        }
+      }
+      {I CDRH127.PRT L3
+        {CN
+        1 NetL3_1
+        2 NetL3_2
+        }
+      }
+      {I CDRH127.PRT L4
+        {CN
+        1 NetL4_1
+        2 NetL4_2
+        }
+      }
+      {I CDRH127.PRT L5
+        {CN
+        1 NetL5_1
+        2 NetL5_2
+        }
+      }
+      {I CDRH127.PRT L6
+        {CN
+        1 NetL6_1
+        2 NetL6_2
+        }
+      }
+      {I CDRH127.PRT L7
+        {CN
+        1 NetL7_1
+        2 NetL7_2
+        }
+      }
+      {I R0603_A.PRT R1
+        {CN
+        1 NetHL1_2
+        2 MCU_LED_RED
+        }
+      }
+      {I R0603_A.PRT R2
+        {CN
+        1 NetHL2_2
+        2 MCU_LED_GREEN
+        }
+      }
+      {I R0603_A.PRT R3
+        {CN
+        1 NetDA2_3
+        2 MCU_SWCLK
+        }
+      }
+      {I R0603_A.PRT R4
+        {CN
+        1 NetDA2_4
+        2 MCU_SWDIO
+        }
+      }
+      {I R0603_A.PRT R5
+        {CN
+        1 NetDA3_3
+        2 MCU_NRST
+        }
+      }
+      {I R0603_A.PRT R6
+        {CN
+        1 NetDA3_4
+        2 MCU_TRACE
+        }
+      }
+      {I R0603_A.PRT R7
+        {CN
+        1 NetDA1_3
+        2 MCU_UART6_RX
+        }
+      }
+      {I R0603_A.PRT R8
+        {CN
+        1 NetDA1_4
+        2 MCU_UART6_TX
+        }
+      }
+      {I R0603_A.PRT R9
+        {CN
+        1 NetDD2_2
+        2 +14,4Â
+        }
+      }
+      {I R0603_A.PRT R10
+        {CN
+        1 SGND
+        2 NetC19_2
+        }
+      }
+      {I R0603_A.PRT R11
+        {CN
+        1 NetR11_1
+        2 +14,4Â
+        }
+      }
+      {I R1206_A.PRT R12
+        {CN
+        1 NetDD3_7
+        2 NetDD3_6
+        }
+      }
+      {I R0603_A.PRT R13
+        {CN
+        1 +5Â_À
+        2 NetC17_1
+        }
+      }
+      {I R0603_A.PRT R14
+        {CN
+        1 NetC17_1
+        2 SGND
+        }
+      }
+      {I R0603_A.PRT R15
+        {CN
+        1 MCU_PRES_FLAG
+        2 NetR15_2
+        }
+      }
+      {I R0603_A.PRT R16
+        {CN
+        1 MCU_LMZ_5V_EN
+        2 NetC19_2
+        }
+      }
+      {I R0603_A.PRT R17
+        {CN
+        1 SGND
+        2 MCU_RS485_DE_BAT
+        }
+      }
+      {I R0603_A.PRT R18
+        {CN
+        1 MCU_PRES_FLAG
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R19
+        {CN
+        1 MCU_RS485_RX_BAT
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R20
+        {CN
+        1 +5Â_À
+        2 NetHL3_2
+        }
+      }
+      {I R0603_A.PRT R21
+        {CN
+        1 PGND
+        2 SGND
+        }
+      }
+      {I R0603_A.PRT R22
+        {CN
+        1 NetHL4_2
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R23
+        {CN
+        1 NetHL5_2
+        2 +12Â
+        }
+      }
+      {I R0603_A.PRT R24
+        {CN
+        1 NetHL6_2
+        2 +8,5Â
+        }
+      }
+      {I R0603_A.PRT R25
+        {CN
+        1 MCU_GYRO_SPI_MISO
+        2 NetDA4_5
+        }
+      }
+      {I R0603_A.PRT R26
+        {CN
+        1 MCU_GYRO_SPI_CLK
+        2 NetDA4_2
+        }
+      }
+      {I R0603_A.PRT R27
+        {CN
+        1 MCU_GYRO_SPI_MOSI
+        2 NetDA4_4
+        }
+      }
+      {I R0603_A.PRT R28
+        {CN
+        1 MCU_GYRO_CS_G
+        2 NetDA4_7
+        }
+      }
+      {I R0603_A.PRT R29
+        {CN
+        1 MCU_GYRO_CS_XM
+        2 NetDA4_8
+        }
+      }
+      {I R0603x4.PRT R30
+        {CN
+        1 NetR30_1
+        2 MCU_UART4_TX
+        3 NetR30_3
+        4 MCU_UART4_RX
+        5 NetR30_5
+        6 MCU_UART2_TX
+        7 NetR30_7
+        8 MCU_UART2_RX
+        }
+      }
+      {I R0603_A.PRT R31
+        {CN
+        1 MCU_GYRO_SPI_MISO
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R32
+        {CN
+        1 MCU_GYRO_CS_G
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R33
+        {CN
+        1 MCU_UART4_RX
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R34
+        {CN
+        1 MCU_GYRO_CS_XM
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R35
+        {CN
+        1 MCU_UART2_RX
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R36
+        {CN
+        1 +8,5Â
+        2 NetHL7_2
+        }
+      }
+      {I R0603_A.PRT R37
+        {CN
+        1 NetDD4_1
+        2 MCU_CAN2_TX
+        }
+      }
+      {I R0603_A.PRT R38
+        {CN
+        1 NetDD4_4
+        2 MCU_CAN2_RX
+        }
+      }
+      {I R0603_A.PRT R39
+        {CN
+        1 NetDD4_5
+        2 MCU_CAN_LOOPBACK
+        }
+      }
+      {I R0603_A.PRT R40
+        {CN
+        1 NetDA5_7
+        2 VIDEO4
+        }
+      }
+      {I R0603_A.PRT R41
+        {CN
+        1 SGND
+        2 NetDD4_8
+        }
+      }
+      {I R0603_A.PRT R42
+        {CN
+        1 NetDA5_2
+        2 NetDA5_3
+        }
+      }
+      {I R0603_A.PRT R43
+        {CN
+        1 SGND
+        2 MCU_SCL_PSensor
+        }
+      }
+      {I R0603_A.PRT R44
+        {CN
+        1 SGND
+        2 MCU_PWM_ESC
+        }
+      }
+      {I R0603_A.PRT R45
+        {CN
+        1 SGND
+        2 MCU_SDA_PSensor
+        }
+      }
+      {I R0603_A.PRT R46
+        {CN
+        1 NetC32_2
+        2 CAN_H
+        }
+      }
+      {I R0603_A.PRT R47
+        {CN
+        1 CAN_L
+        2 NetC32_2
+        }
+      }
+      {I R0603_A.PRT R48
+        {CN
+        1 NetR48_1
+        2 MCU_PWM_ESC
+        }
+      }
+      {I R0603_A.PRT R49
+        {CN
+        1 NetR49_1
+        2 MCU_SDA_PSensor
+        }
+      }
+      {I R0603_A.PRT R50
+        {CN
+        1 NetR50_1
+        2 MCU_SCL_PSensor
+        }
+      }
+      {I R0603_A.PRT R51
+        {CN
+        1 NetC34_2
+        2 VIDEO4+
+        }
+      }
+      {I R0603_A.PRT R52
+        {CN
+        1 VIDEO4-
+        2 NetC34_2
+        }
+      }
+      {I R0603_A.PRT R53
+        {CN
+        1 SGND
+        2 MCU_VIDEO1_EN
+        }
+      }
+      {I R0603_A.PRT R54
+        {CN
+        1 SGND
+        2 MCU_VIDEO2_EN
+        }
+      }
+      {I R0603_A.PRT R55
+        {CN
+        1 SGND
+        2 MCU_VIDEO3_EN
+        }
+      }
+      {I R0603_A.PRT R56
+        {CN
+        1 SGND
+        2 MCU_VIDEO4_EN
+        }
+      }
+      {I R0603_A.PRT R57
+        {CN
+        1 NetC40_2
+        2 VIDEO4
+        }
+      }
+      {I R0603_A.PRT R58
+        {CN
+        1 SGND
+        2 MCU_VIDEO1_PWR_EN
+        }
+      }
+      {I R0603_A.PRT R59
+        {CN
+        1 SGND
+        2 MCU_VIDEO4_PWR_EN
+        }
+      }
+      {I R0603_A.PRT R60
+        {CN
+        1 SGND
+        2 MCU_VIDEO2_PWR_EN
+        }
+      }
+      {I R0603_A.PRT R61
+        {CN
+        1 NetC40_2
+        2 NetR61_2
+        }
+      }
+      {I R0603_A.PRT R62
+        {CN
+        1 NetDA6_5
+        2 MCU_VIDEO1_EN
+        }
+      }
+      {I R0603_A.PRT R63
+        {CN
+        1 NetDA7_5
+        2 MCU_VIDEO2_EN
+        }
+      }
+      {I R0603_A.PRT R64
+        {CN
+        1 NetDA8_5
+        2 MCU_VIDEO3_EN
+        }
+      }
+      {I R0603_A.PRT R65
+        {CN
+        1 NetDA9_5
+        2 MCU_VIDEO4_EN
+        }
+      }
+      {I R0603_A.PRT R66
+        {CN
+        1 SGND
+        2 VIDEO1
+        }
+      }
+      {I R0603_A.PRT R67
+        {CN
+        1 SGND
+        2 VIDEO2
+        }
+      }
+      {I R0603_A.PRT R68
+        {CN
+        1 SGND
+        2 VIDEO3
+        }
+      }
+      {I R0603_A.PRT R69
+        {CN
+        1 SGND
+        2 NetC40_2
+        }
+      }
+      {I R0603_A.PRT R70
+        {CN
+        1 NetR70_1
+        2 MCU_VIDEO1_PWR_EN
+        }
+      }
+      {I R0603_A.PRT R71
+        {CN
+        1 NetR71_1
+        2 MCU_VIDEO4_PWR_EN
+        }
+      }
+      {I R0603_A.PRT R72
+        {CN
+        1 NetR72_1
+        2 MCU_VIDEO2_PWR_EN
+        }
+      }
+      {I R0603_A.PRT R73
+        {CN
+        1 SGND
+        2 NetC37_1
+        }
+      }
+      {I R0603_A.PRT R74
+        {CN
+        1 SGND
+        2 NetC38_1
+        }
+      }
+      {I R0603_A.PRT R75
+        {CN
+        1 SGND
+        2 NetC39_1
+        }
+      }
+      {I R0603_A.PRT R76
+        {CN
+        1 SGND
+        2 NetC40_1
+        }
+      }
+      {I R0603_A.PRT R77
+        {CN
+        1 NetR77_1
+        2 +12Â
+        }
+      }
+      {I R0603_A.PRT R78
+        {CN
+        1 NetR78_1
+        2 +12Â
+        }
+      }
+      {I R0603_A.PRT R79
+        {CN
+        1 NetR79_1
+        2 +12Â
+        }
+      }
+      {I R0603_A.PRT R80
+        {CN
+        1 SGND
+        2 NetC41_2
+        }
+      }
+      {I R0603_A.PRT R81
+        {CN
+        1 SGND
+        2 NetC42_2
+        }
+      }
+      {I R0603_A.PRT R82
+        {CN
+        1 SGND
+        2 NetC43_2
+        }
+      }
+      {I R0603_A.PRT R83
+        {CN
+        1 SGND
+        2 NetC44_2
+        }
+      }
+      {I R0603_A.PRT R84
+        {CN
+        1 NetC41_2
+        2 +5Â_À
+        }
+      }
+      {I R0603_A.PRT R85
+        {CN
+        1 NetC42_2
+        2 +5Â_À
+        }
+      }
+      {I R0603_A.PRT R86
+        {CN
+        1 NetC43_2
+        2 +5Â_À
+        }
+      }
+      {I R0603_A.PRT R87
+        {CN
+        1 NetC44_2
+        2 +5Â_À
+        }
+      }
+      {I R0603_A.PRT R88
+        {CN
+        1 NetDA10_4
+        2 NetDA6_3
+        }
+      }
+      {I R0603_A.PRT R89
+        {CN
+        1 NetDA10_5
+        2 NetDA7_3
+        }
+      }
+      {I R0603_A.PRT R90
+        {CN
+        1 NetDA10_11
+        2 NetDA8_3
+        }
+      }
+      {I R0603_A.PRT R91
+        {CN
+        1 NetDA10_10
+        2 NetDA9_3
+        }
+      }
+      {I R0603_A.PRT R92
+        {CN
+        1 NetDA10_4
+        2 SGND
+        }
+      }
+      {I R0603_A.PRT R93
+        {CN
+        1 NetDA10_5
+        2 SGND
+        }
+      }
+      {I R0603_A.PRT R94
+        {CN
+        1 NetDA10_11
+        2 SGND
+        }
+      }
+      {I R0603_A.PRT R95
+        {CN
+        1 NetDA10_10
+        2 SGND
+        }
+      }
+      {I R0603_A.PRT R96
+        {CN
+        1 NetC50_2
+        2 NetDA10_6
+        }
+      }
+      {I R0603_A.PRT R97
+        {CN
+        1 NetC50_2
+        2 SGND
+        }
+      }
+      {I R0603_A.PRT R98
+        {CN
+        1 SGND
+        2 NetC50_1
+        }
+      }
+      {I R0603_A.PRT R99
+        {CN
+        1 SGND
+        2 NetC51_2
+        }
+      }
+      {I R0603_A.PRT R100
+        {CN
+        1 NetC51_2
+        2 +5Â_À
+        }
+      }
+      {I R0603_A.PRT R101
+        {CN
+        1 MCU_MUX_EN
+        2 NetDA10_2
+        }
+      }
+      {I R0603_A.PRT R102
+        {CN
+        1 MCU_MUX_A0
+        2 NetDA10_1
+        }
+      }
+      {I R0603_A.PRT R103
+        {CN
+        1 MCU_MUX_A1
+        2 NetDA10_14
+        }
+      }
+      {I R0603_A.PRT R104
+        {CN
+        1 MCU_MUX_A0
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R105
+        {CN
+        1 MCU_MUX_A1
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R106
+        {CN
+        1 NetDA11_3
+        2 NetR106_2
+        }
+      }
+      {I R0603_A.PRT R107
+        {CN
+        1 SGND
+        2 MCU_MUX_EN
+        }
+      }
+      {I R0603x4.PRT R108
+        {CN
+        1 SGND
+        2 NetR108_2
+        3 +3,3Â
+        4 30
+        5 SGND
+        6 31
+        7 SGND
+        8 32
+        }
+      }
+      {I R0603x4.PRT R109
+        {CN
+        1 +3,3Â
+        2 129
+        3 +3,3Â
+        4 NetR109_4
+        5 SGND
+        6 131
+        7 SGND
+        8 132
+        }
+      }
+      {I R0603x4.PRT R110
+        {CN
+        1 NetR110_1
+        2 NetR110_2
+        3 NetR110_3
+        4 NetR110_4
+        5 NetR110_5
+        6 NetR110_6
+        7 NetR110_7
+        8 NetR110_8
+        }
+      }
+      {I R0603x4.PRT R111
+        {CN
+        1 NetR111_1
+        2 NetR111_2
+        3 NetR111_3
+        4 NetR111_4
+        5 NetR111_5
+        6 NetR111_6
+        7 NetR111_7
+        8 NetR111_8
+        }
+      }
+      {I R0603_A.PRT R112
+        {CN
+        1 NetR110_7
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R113
+        {CN
+        1 NetR111_7
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R114
+        {CN
+        1 NetR110_5
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R115
+        {CN
+        1 NetR111_5
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R116
+        {CN
+        1 NetR110_3
+        2 +3,3Â
+        }
+      }
+      {I R0603_A.PRT R117
+        {CN
+        1 NetR111_3
+        2 +3,3Â
+        }
+      }
+      {I SMA_A.PRT VD1
+        {CN
+        1 NetVD1_1
+        2 +3,3Â
+        }
+      }
+      {I SOT23-3_A.PRT VD2
+        {CN
+        1 NetDD3_7
+        2 NetDD3_6
+        3 SGND
+        }
+      }
+      {I SOT23-3_A.PRT VD3
+        {CN
+        1 CAN_H
+        2 CAN_L
+        3 SGND
+        }
+      }
+      {I SOD123FL.PRT VD4
+        {CN
+        1 NetC37_1
+        2 NetC41_2
+        }
+      }
+      {I SOD123FL.PRT VD5
+        {CN
+        1 NetC38_1
+        2 NetC42_2
+        }
+      }
+      {I SOD123FL.PRT VD6
+        {CN
+        1 NetC39_1
+        2 NetC43_2
+        }
+      }
+      {I SOD123FL.PRT VD7
+        {CN
+        1 NetC40_1
+        2 NetC44_2
+        }
+      }
+      {I SOD123FL.PRT VD8
+        {CN
+        1 NetC50_1
+        2 NetC51_2
+        }
+      }
+      {I DFN5.PRT VT1
+        {CN
+        1 PGND
+        2 PGND
+        3 PGND
+        4 NetR11_1
+        5 NetVT1_5
+        6 NetVT1_5
+        7 NetVT1_5
+        8 NetVT1_5
+        }
+      }
+      {I Micro8_A.PRT VT2
+        {CN
+        1 SGND
+        2 NetR70_1
+        3 +12Â
+        4 NetR77_1
+        5 NetVT2_5
+        6 NetVT2_5
+        7 NetR77_1
+        8 NetR77_1
+        }
+      }
+      {I Micro8_A.PRT VT3
+        {CN
+        1 SGND
+        2 NetR71_1
+        3 +12Â
+        4 NetR78_1
+        5 NetVT3_5
+        6 NetVT3_5
+        7 NetR78_1
+        8 NetR78_1
+        }
+      }
+      {I Micro8_A.PRT VT4
+        {CN
+        1 SGND
+        2 NetR72_1
+        3 +12Â
+        4 NetR79_1
+        5 NetVT4_5
+        6 NetVT4_5
+        7 NetR79_1
+        8 NetR79_1
+        }
+      }
+      {I PLS_3.PRT X1
+        {CN
+        1 NetDA1_1
+        2 NetDA1_6
+        3 SGND
+        }
+      }
+      {I PLS_6.PRT X2
+        {CN
+        1 NetVD1_1
+        2 NetDA2_1
+        3 SGND
+        4 NetDA2_6
+        5 NetDA3_1
+        6 NetDA3_6
+        }
+      }
+      {I Molex_MK_43045-1000.PRT X3
+        {CN
+        1 +14,4Â
+        2 +14,4Â
+        3 NetDD3_6
+        4 NetDD3_7
+        5 NetX3_5
+        6 NetX3_6
+        7 NetVT1_5
+        8 NetR15_2
+        9 NetVT1_5
+       10 NetVT1_5
+        }
+      }
+      {I MOLEX_Click-Mate 2.PRT X4
+        {CN
+        1 NetX3_6
+        2 NetX3_5
+        }
+      }
+      {I OMRON XF2W-2415-1A.PRT X5
+        {CN
+        1 NetR30_7
+        2 NetR30_5
+        3 NetR30_3
+        4 NetR30_1
+        5 NetX5_5
+        6 NetX5_6
+        7 NetX5_5
+        8 SGND
+        9 SGND
+       10 +5Â_À
+       11 +5Â_À
+       12 +5Â_À
+       13 +5Â_À
+       14 +5Â_À
+       15 +5Â_À
+       16 SGND
+       17 SGND
+       18 NetX5_5
+       19 NetX5_6
+       20 NetX5_5
+       21 NetR30_1
+       22 NetR30_3
+       23 NetR30_5
+       24 NetR30_7
+        }
+      }
+      {I MOLEX_Click-Mate 3.PRT X6
+        {CN
+        1 +3,3Â
+        2 NetX5_6
+        3 NetX5_5
+        }
+      }
+      {I MOLEX_Click-Mate 5.PRT X7
+        {CN
+        1 VIDEO4+
+        2 VIDEO4-
+        3 CAN_H
+        4 CAN_L
+        5 SGND
+        }
+      }
+      {I MOLEX_MK 43045-0401.PRT X8
+        {CN
+        1 CAN_H
+        2 CAN_L
+        3 +14,4Â
+        4 PGND
+        }
+      }
+      {I MOLEX_MK 43045-0401.PRT X9
+        {CN
+        1 CAN_H
+        2 CAN_L
+        3 +14,4Â
+        4 PGND
+        }
+      }
+      {I MOLEX_Click-Mate 8.PRT X10
+        {CN
+        1 +14,4Â
+        2 +14,4Â
+        3 CAN_H
+        4 CAN_L
+        5 VIDEO3
+        6 SGND
+        7 PGND
+        8 PGND
+        }
+      }
+      {I MOLEX_MK 43045-0401.PRT X11
+        {CN
+        1 NetR48_1
+        2 SGND
+        3 +14,4Â
+        4 PGND
+        }
+      }
+      {I MOLEX_Click-Mate 4.PRT X12
+        {CN
+        1 SGND
+        2 +3,3Â
+        3 NetR49_1
+        4 NetR50_1
+        }
+      }
+      {I MOLEX_Click-Mate 3.PRT X13
+        {CN
+        1 NetVT3_5
+        2 SGND
+        3 NetR61_2
+        }
+      }
+      {I MOLEX_Click-Mate 3.PRT X14
+        {CN
+        1 NetVT2_5
+        2 SGND
+        3 VIDEO1
+        }
+      }
+      {I MOLEX_Click-Mate 3.PRT X15
+        {CN
+        1 NetVT4_5
+        2 SGND
+        3 VIDEO2
+        }
+      }
+      {I MOLEX_Click-Mate 3.PRT X16
+        {CN
+        1 NetR106_2
+        2 SGND
+        3 SGND
+        }
+      }
+      {I SSM-123-L-DV.PRT X17
+        {CN
+        1 1
+        2 2
+        3 3
+        4 4
+        5 5
+        6 6
+        7 7
+        8 8
+        9 9
+       10 10
+       11 11
+       12 12
+       13 13
+       14 14
+       15 NetX17_15
+       16 SGND
+       17 17
+       18 18
+       19 19
+       20 20
+       21 21
+       22 22
+       23 23
+       24 24
+       25 25
+       26 26
+       27 27
+       28 28
+       29 NetR108_2
+       30 30
+       31 31
+       32 32
+       33 33
+       34 34
+       35 CAN_H
+       36 CAN_L
+       37 SGND
+       38 SGND
+       39 39
+       40 40
+       41 41
+       42 42
+       43 43
+       44 44
+       45 45
+       46 46
+        }
+      }
+      {I SSM-123-L-DV.PRT X18
+        {CN
+        1 101
+        2 102
+        3 103
+        4 104
+        5 105
+        6 106
+        7 107
+        8 108
+        9 109
+       10 110
+       11 111
+       12 NetX18_12
+       13 113
+       14 114
+       15 NetX18_15
+       16 SGND
+       17 117
+       18 118
+       19 119
+       20 120
+       21 121
+       22 122
+       23 123
+       24 124
+       25 125
+       26 126
+       27 127
+       28 128
+       29 129
+       30 NetR109_4
+       31 131
+       32 132
+       33 133
+       34 134
+       35 CAN_H
+       36 CAN_L
+       37 SGND
+       38 SGND
+       39 139
+       40 140
+       41 141
+       42 142
+       43 143
+       44 144
+       45 145
+       46 146
+        }
+      }
+      {I SSM-116-L-DV.PRT X19
+        {CN
+        1 NetL2_1
+        2 NetL2_1
+        3 NetL2_1
+        4 NetL2_1
+        5 NetL3_1
+        6 NetL3_1
+        7 NetL3_1
+        8 NetL3_1
+        9 NetL4_1
+       10 NetL4_1
+       11 NetL4_1
+       12 NetL4_1
+       13 +14,4Â
+       14 +14,4Â
+       15 +14,4Â
+       16 +14,4Â
+       17 +14,4Â
+       18 PGND
+       19 PGND
+       20 PGND
+       21 PGND
+       22 PGND
+       23 NetR110_4
+       24 NetR110_6
+       25 NetR110_8
+       26 NetX19_26
+       27 227
+       28 228
+       29 229
+       30 230
+       31 231
+       32 232
+        }
+      }
+      {I PBS-6.PRT X20
+        {CN
+        1 NetX20_1
+        2 NetX20_2
+        3 NetX20_3
+        4 NetX20_4
+        5 NetX20_5
+        6 NetX20_6
+        }
+      }
+      {I SSM-116-L-DV.PRT X21
+        {CN
+        1 NetL5_1
+        2 NetL5_1
+        3 NetL5_1
+        4 NetL5_1
+        5 NetL6_1
+        6 NetL6_1
+        7 NetL6_1
+        8 NetL6_1
+        9 NetL7_1
+       10 NetL7_1
+       11 NetL7_1
+       12 NetL7_1
+       13 +14,4Â
+       14 +14,4Â
+       15 +14,4Â
+       16 +14,4Â
+       17 +14,4Â
+       18 PGND
+       19 PGND
+       20 PGND
+       21 PGND
+       22 PGND
+       23 NetR111_4
+       24 NetR111_6
+       25 NetR111_8
+       26 NetX21_26
+       27 327
+       28 328
+       29 329
+       30 330
+       31 331
+       32 332
+        }
+      }
+      {I PBS-6.PRT X22
+        {CN
+        1 NetX22_1
+        2 NetX22_2
+        3 NetX22_3
+        4 NetX22_4
+        5 NetX22_5
+        6 NetX22_6
+        }
+      }
+      {I Molex_MK_43045-0427.PRT X23
+        {CN
+        1 NetL2_2
+        2 NetL3_2
+        3 NetL4_2
+        4 +5Â_À
+        5 SGND
+        6 NetR110_3
+        7 NetR110_5
+        8 NetR110_7
+        }
+      }
+      {I Molex_MK_43045-0427.PRT X24
+        {CN
+        1 NetL5_2
+        2 NetL6_2
+        3 NetL7_2
+        4 +5Â_À
+        5 SGND
+        6 NetR111_3
+        7 NetR111_5
+        8 NetR111_7
+        }
+      }
+      {I PLS_6.PRT X25
+        {CN
+        1 NetX20_1
+        2 NetX20_2
+        3 NetX20_3
+        4 NetX20_4
+        5 NetX20_5
+        6 NetX20_6
+        }
+      }
+      {I PLS_6.PRT X26
+        {CN
+        1 NetX22_1
+        2 NetX22_2
+        3 NetX22_3
+        4 NetX22_4
+        5 NetX22_5
+        6 NetX22_6
+        }
+      }
+      {I CSTCE.PRT Z1
+        {CN
+        1 NetDD1_6
+        2 SGND
+        3 NetDD1_5
+        }
+      }
+    }
+  }
+}

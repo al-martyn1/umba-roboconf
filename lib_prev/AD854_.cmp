@@ -1,0 +1,10 @@
+(componentDefinition "AD8541" "AD8542" "AD8544"
+    (description "CMOS Rail-to-Rail General-Purpose Amplifiers")
+    (purpose "OPAMP")
+    (datasheet "AD8541_8542_8544.pdf")
+    (pin "1" "" ("OUT" ) )
+    (pin "2" "" ("V-" ) )
+    (pin "3" "" ("+IN" "A" ) )
+    (pin "4" "" ("-IN" "A" ) )
+    (pin "5" "" ("V+" ) )
+)

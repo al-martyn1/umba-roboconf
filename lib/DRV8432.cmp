@@ -1,0 +1,60 @@
+(componentDefinition "DRV8432"
+    (package "*")
+    (-- hssop-36)
+    (description "Dual Full-Bridge PWM Motor Driver")
+    (-- purpose "DRIVER:HBRIDGE:MOTOR")
+    (purpose "DRIVER:PWM:MOTOR")
+    (datasheet "drv8432.pdf")
+
+    (pin "9"  "Analog ground, connect to GND with 1 Ohm resistor" ("AGND" "GND") )
+
+    (pin "35" "High side bootstrap supply (BST), external capacitor 0.1uF to OUT_A required" ("BST_A" ) )
+    (pin "28" "High side bootstrap supply (BST), external capacitor 0.1uF to OUT_B required" ("BST_B" ) )
+    (pin "27" "High side bootstrap supply (BST), external capacitor 0.1uF to OUT_C required" ("BST_C" ) )
+    (pin "20" "High side bootstrap supply (BST), external capacitor 0.1uF to OUT_D required" ("BST_D" ) )
+
+    (pin "8"  "Ground" ("GND" ) )
+
+    (pin "32" "Power ground for half-bridge A" ("GND_A" "GND") )
+    (pin "31" "Power ground for half-bridge B" ("GND_B" "GND") )
+    (pin "24" "Power ground for half-bridge C" ("GND_C" "GND") )
+    (pin "23" "Power ground for half-bridge D" ("GND_D" "GND") )
+
+    (pin "36" "Gate-drive voltage supply" ("GVDD_A" "GVDD" "VDD") )
+    (pin "1"  "Gate-drive voltage supply" ("GVDD_B" "GVDD" "VDD") )
+    (pin "18" "Gate-drive voltage supply" ("GVDD_C" "GVDD" "VDD") )
+    (pin "19" "Gate-drive voltage supply" ("GVDD_D" "GVDD" "VDD") )
+
+    (pin "13" "Mode selection pin" ("M1" ) "IN" "GPIO")
+    (pin "12" "Mode selection pin" ("M2" ) "IN" "GPIO")
+    (pin "11" "Mode selection pin" ("M3" ) "IN" "GPIO")
+
+    (pin "7"  "Analog overcurrent programming pin, requires resistor to AGND" ("OC_ADJ" ) )
+
+    (pin "2"  "Overtemperature warning signal, open-drain, active-low" ("nOTW" "OUT" "GPIO") )
+
+    (pin "33" "Output, half-bridge A" ("OUT_A" "OUT") )
+    (pin "30" "Output, half-bridge B" ("OUT_B" "OUT") )
+    (pin "25" "Output, half-bridge C" ("OUT_C" "OUT") )
+    (pin "22" "Output, half-bridge D" ("OUT_D" "OUT") )
+
+    (pin "34" "Power supply input for half-bridge A requires close decoupling capacitor 0.1uF to ground." ("PVDD_A" "PVDD" "VDD") )
+    (pin "29" "Power supply input for half-bridge B requires close decoupling capacitor 0.1uF to ground." ("PVDD_B" "PVDD" "VDD") )
+    (pin "26" "Power supply input for half-bridge C requires close decoupling capacitor 0.1uF to ground." ("PVDD_C" "PVDD" "VDD") )
+    (pin "21" "Power supply input for half-bridge D requires close decoupling capacitor 0.1uF to ground." ("PVDD_D" "PVDD" "VDD") )
+
+    (pin "4"  "Input signal for half-bridge A" ("PWM_A" "IN" "PWM" "GPIO") )
+    (pin "6"  "Input signal for half-bridge B" ("PWM_B" "IN" "PWM" "GPIO") )
+    (pin "14" "Input signal for half-bridge C" ("PWM_C" "IN" "PWM" "GPIO") )
+    (pin "16" "Input signal for half-bridge D" ("PWM_D" "IN" "PWM" "GPIO") )
+
+    (pin "5"  "Reset signal for half-bridge A and half-bridge B, active-low" ("nRESET_AB" "IN" "GPIO") )
+    (pin "15" "Reset signal for half-bridge C and half-bridge D, active-low" ("nRESET_CD" "IN" "GPIO") )
+
+    (pin "3"  "Fault signal, open-drain, active-low" ("nFAULT" "OUT" "GPIO") )
+
+    (pin "17" "Power supply for digital voltage regulator requires capacitor to ground for decoupling." ("VDD" ) )
+
+    (pin "10" "Digital regulator supply filter pin requires 0.1-μF capacitor to AGND" ("VREG" ) )
+)
+

@@ -1,0 +1,812 @@
+PARTS LIST
+
+LMR16006          LMR16006        A1
+LMR16006          LMR16006        A2
+LMR16006          LMR16006        A3
+0,1לך             C0603_A         C1
+0,1לך             C0603_A         C2
+0,1לך             C0603_A         C3
+10לך              C1206_A         C4
+0,1לך             C0402_A         C5
+0,1לך             C0402_A         C6
+0,1לך             C0402_A         C7
+0,1לך             C0402_A         C8
+0,1לך             C0402_A         C9
+0,1לך             C0402_A         C10
+2,2לך             C0805_A         C11
+2,2לך             C0805_A         C12
+0,1לך             C0402_A         C13
+10לך              C1206_A         C14
+4700              C0603_A         C15
+0,1לך             C0603_A         C16
+0,022לך           C0603_A         C17
+10לך              C1206_A         C18
+0,1לך             C0603_A         C19
+470לך             CE10x16_put     C20
+10לך              C1206_A         C21
+10לך              C1206_A         C22
+470לך             CE10x16_put     C23
+10לך              C1206_A         C24
+0,1לך             C0603_A         C25
+0,1לך             C0603_A         C26
+0,01לך            C0603_A         C27
+4,7לך             C0805_A         C28
+15                C0603_A         C29
+0,1לך             C0603_A         C30
+0,1לך             C0603_A         C31
+4700              C0603_A         C32
+0,1לך             C0603_A         C33
+10לך              C0805_A         C34
+0,1לך             C0603_A         C35
+0,1לך             C0603_A         C36
+4,7לך             C0805_A         C37
+4,7לך             C0805_A         C38
+4,7לך             C0805_A         C39
+4,7לך             C0805_A         C40
+4,7לך             C0805_A         C41
+4,7לך             C0805_A         C42
+4,7לך             C0805_A         C43
+4,7לך             C0805_A         C44
+0,1לך             C0603_A         C45
+0,1לך             C0603_A         C46
+0,1לך             C0603_A         C47
+0,1לך             C0603_A         C48
+0,1לך             C0603_A         C49
+4,7לך             C0805_A         C50
+4,7לך             C0805_A         C51
+0,1לך             C0603_A         C52
+TPD2S017          SOT23-6_A       DA1
+TPD2S017          SOT23-6_A       DA2
+TPD2S017          SOT23-6_A       DA3
+LSM9DS1           LGA-24          DA4
+MAX9547           SOIC8_A_PowerPadDA5
+ADA4430           SC-70-6         DA6
+ADA4430           SC-70-6         DA7
+ADA4430           SC-70-6         DA8
+ADA4430           SC-70-6         DA9
+ADG1604BRUZ       TSSOP14_A       DA10
+ADA4430           SC-70-6         DA11
+STM32F405RG       LQFP64_L        DD1
+LMZ14203HTZ       TO-PMOD-7       DD2
+SN65HVD1781       SOIC8_A         DD3
+SN65HVD233D       SOIC8_A         DD4
+KP-1608EC         Led_0603_RED    HL1
+KP-1608MGC        Led_0603_green  HL2
+KP-1608MGC        Led_0603_green  HL3
+KP-1608QBC-D      Led_0603_Blue   HL4
+KP-1608QBC-D      Led_0603_Blue   HL5
+KP-1608QBC-D      Led_0603_Blue   HL6
+                  Led_0603_RED    HL7
+180 ־ל            L0603_A         L1
+56לךֳם            CDRH127         L2
+56לךֳם            CDRH127         L3
+56לךֳם            CDRH127         L4
+56לךֳם            CDRH127         L5
+56לךֳם            CDRH127         L6
+56לךֳם            CDRH127         L7
+330               R0603_A         R1
+330               R0603_A         R2
+100               R0603_A         R3
+100               R0603_A         R4
+100               R0603_A         R5
+100               R0603_A         R6
+100               R0603_A         R7
+100               R0603_A         R8
+39ך               R0603_A         R9
+10ך               R0603_A         R10
+47ך               R0603_A         R11
+                  R1206_A         R12
+36ך               R0603_A         R13
+6,8ך              R0603_A         R14
+100               R0603_A         R15
+100               R0603_A         R16
+47ך               R0603_A         R17
+47ך               R0603_A         R18
+47ך               R0603_A         R19
+510               R0603_A         R20
+0                 R0603_A         R21
+330               R0603_A         R22
+330               R0603_A         R23
+330               R0603_A         R24
+100               R0603_A         R25
+100               R0603_A         R26
+100               R0603_A         R27
+100               R0603_A         R28
+100               R0603_A         R29
+100               R0603x4         R30
+47ך               R0603_A         R31
+47ך               R0603_A         R32
+47ך               R0603_A         R33
+47ך               R0603_A         R34
+47ך               R0603_A         R35
+820               R0603_A         R36
+100               R0603_A         R37
+100               R0603_A         R38
+100               R0603_A         R39
+75                R0603_A         R40
+10ך               R0603_A         R41
+75                R0603_A         R42
+47ך               R0603_A         R43
+47ך               R0603_A         R44
+47ך               R0603_A         R45
+62                R0603_A         R46
+62                R0603_A         R47
+100               R0603_A         R48
+100               R0603_A         R49
+100               R0603_A         R50
+62                R0603_A         R51
+62                R0603_A         R52
+47ך               R0603_A         R53
+47ך               R0603_A         R54
+47ך               R0603_A         R55
+47ך               R0603_A         R56
+0                 R0603_A         R57
+47ך               R0603_A         R58
+47ך               R0603_A         R59
+47ך               R0603_A         R60
+0                 R0603_A         R61
+100               R0603_A         R62
+100               R0603_A         R63
+100               R0603_A         R64
+100               R0603_A         R65
+75                R0603_A         R66
+75                R0603_A         R67
+75                R0603_A         R68
+75                R0603_A         R69
+100               R0603_A         R70
+100               R0603_A         R71
+100               R0603_A         R72
+10ך               R0603_A         R73
+10ך               R0603_A         R74
+10ך               R0603_A         R75
+10ך               R0603_A         R76
+47ך               R0603_A         R77
+47ך               R0603_A         R78
+47ך               R0603_A         R79
+470               R0603_A         R80
+470               R0603_A         R81
+470               R0603_A         R82
+470               R0603_A         R83
+2,4ך              R0603_A         R84
+2,4ך              R0603_A         R85
+2,4ך              R0603_A         R86
+2,4ך              R0603_A         R87
+75                R0603_A         R88
+75                R0603_A         R89
+75                R0603_A         R90
+75                R0603_A         R91
+75                R0603_A         R92
+75                R0603_A         R93
+75                R0603_A         R94
+75                R0603_A         R95
+75                R0603_A         R96
+75                R0603_A         R97
+10ך               R0603_A         R98
+470               R0603_A         R99
+2,4ך              R0603_A         R100
+100               R0603_A         R101
+100               R0603_A         R102
+100               R0603_A         R103
+47ך               R0603_A         R104
+47ך               R0603_A         R105
+75                R0603_A         R106
+47ך               R0603_A         R107
+10ך               R0603x4         R108
+10ך               R0603x4         R109
+100               R0603x4         R110
+100               R0603x4         R111
+47ך               R0603_A         R112
+47ך               R0603_A         R113
+47ך               R0603_A         R114
+47ך               R0603_A         R115
+47ך               R0603_A         R116
+47ך               R0603_A         R117
+MBR2H100SFT3G     SMA_A           VD1
+SM712             SOT23-3_A       VD2
+AQ24CANFD         SOT23-3_A       VD3
+MBR2H100SFT3G     SOD123FL        VD4
+MBR2H100SFT3G     SOD123FL        VD5
+MBR2H100SFT3G     SOD123FL        VD6
+MBR2H100SFT3G     SOD123FL        VD7
+MBR2H100SFT3G     SOD123FL        VD8
+NTMFS5H409NL      DFN5            VT1
+IRF7509           Micro8_A        VT2
+IRF7509           Micro8_A        VT3
+IRF7509           Micro8_A        VT4
+PLS-3             PLS_3           X1
+PLS-6             PLS_6           X2
+Micro-Fit 43045-1000Molex_MK_43045-1000X3
+Clik-Mate 5025840270MOLEX_Click-Mate 2X4
+OMRON XF2W-2415-1AOMRON XF2W-2415-1AX5
+Clik-Mate 5025840370MOLEX_Click-Mate 3X6
+Clik-Mate 5025840570MOLEX_Click-Mate 5X7
+Micro-Fit 43045-0401MOLEX_MK 43045-0401X8
+Micro-Fit 43045-0401MOLEX_MK 43045-0401X9
+Clik-Mate 5025840870MOLEX_Click-Mate 8X10
+Micro-Fit 43045-0401MOLEX_MK 43045-0401X11
+Clik-Mate 5025840470MOLEX_Click-Mate 4X12
+Clik-Mate 5025840370MOLEX_Click-Mate 3X13
+Clik-Mate 5025840370MOLEX_Click-Mate 3X14
+Clik-Mate 5025840370MOLEX_Click-Mate 3X15
+Clik-Mate 5025840370MOLEX_Click-Mate 3X16
+SSM-123-L-DV      SSM-123-L-DV    X17
+SSM-123-L-DV      SSM-123-L-DV    X18
+SSM-116-L-DV      SSM-116-L-DV    X19
+PBS-06-SMD        PBS-6           X20
+SSM-116-L-DV      SSM-116-L-DV    X21
+PBS-06-SMD        PBS-6           X22
+Micro-Fit 43045-0800Molex_MK_43045-0427X23
+Micro-Fit 43045-0800Molex_MK_43045-0427X24
+PLS-6             PLS_6           X25
+PLS-6             PLS_6           X26
+CSTCE12M0G52-R0   CSTCE           Z1
+EOS
+NET LIST
+
+NODENAME VIDEO2           $
+    C38        2  R67        2  X15        3
+NODENAME VIDEO1           $
+    C37        2  R66        2  X14        3
+NODENAME NetVT4-5         $
+    VT4        5  VT4        6  X15        1
+NODENAME NetVT3-5         $
+    VT3        5  VT3        6  X13        1
+NODENAME NetVT2-5         $
+    VT2        5  VT2        6  X14        1
+NODENAME NetR106-2        $
+    R106       2  X16        1
+NODENAME NetR79-1         $
+    R79        1  VT4        4  VT4        7  VT4        8
+NODENAME NetR78-1         $
+    R78        1  VT3        4  VT3        7  VT3        8
+NODENAME NetR77-1         $
+    R77        1  VT2        4  VT2        7  VT2        8
+NODENAME NetR72-1         $
+    R72        1  VT4        2
+NODENAME NetR71-1         $
+    R71        1  VT3        2
+NODENAME NetR70-1         $
+    R70        1  VT2        2
+NODENAME NetR61-2         $
+    R61        2  X13        3
+NODENAME NetDA11-3        $
+    DA11       3  DA11       4  R106       1
+NODENAME NetDA10-14       $
+    DA10      14  R103       2
+NODENAME NetDA10-11       $
+    DA10      11  R90        1  R94        1
+NODENAME NetDA10-10       $
+    DA10      10  R91        1  R95        1
+NODENAME NetDA10-6        $
+    DA10       6  R96        2
+NODENAME NetDA10-5        $
+    DA10       5  R89        1  R93        1
+NODENAME NetDA10-4        $
+    DA10       4  R88        1  R92        1
+NODENAME NetDA10-2        $
+    DA10       2  R101       2
+NODENAME NetDA10-1        $
+    DA10       1  R102       2
+NODENAME NetDA9-5         $
+    DA9        5  R65        1
+NODENAME NetDA9-3         $
+    DA9        3  DA9        4  R91        2
+NODENAME NetDA8-5         $
+    DA8        5  R64        1
+NODENAME NetDA8-3         $
+    DA8        3  DA8        4  R90        2
+NODENAME NetDA7-5         $
+    DA7        5  R63        1
+NODENAME NetDA7-3         $
+    DA7        3  DA7        4  R89        2
+NODENAME NetDA6-5         $
+    DA6        5  R62        1
+NODENAME NetDA6-3         $
+    DA6        3  DA6        4  R88        2
+NODENAME NetC51-2         $
+    C51        2  R99        2  R100       1  VD8        2
+NODENAME NetC50-2         $
+    C50        2  R96        1  R97        1
+NODENAME NetC50-1         $
+    C50        1  DA11       1  R98        2  VD8        1
+NODENAME NetC44-2         $
+    C44        2  R83        2  R87        1  VD7        2
+NODENAME NetC43-2         $
+    C43        2  R82        2  R86        1  VD6        2
+NODENAME NetC42-2         $
+    C42        2  R81        2  R85        1  VD5        2
+NODENAME NetC41-2         $
+    C41        2  R80        2  R84        1  VD4        2
+NODENAME NetC40-2         $
+    C40        2  R57        1  R61        1  R69        2
+NODENAME NetC40-1         $
+    C40        1  DA9        1  R76        2  VD7        1
+NODENAME NetC39-1         $
+    C39        1  DA8        1  R75        2  VD6        1
+NODENAME NetC38-1         $
+    C38        1  DA7        1  R74        2  VD5        1
+NODENAME NetC37-1         $
+    C37        1  DA6        1  R73        2  VD4        1
+NODENAME NetX3-6          $
+    X3         6  X4         1
+NODENAME NetX3-5          $
+    X3         5  X4         2
+NODENAME NetVT1-5         $
+    VT1        5  VT1        6  VT1        7  VT1        8  X3         7  X3         9  X3        10
+NODENAME NetR15-2         $
+    R15        2  X3         8
+NODENAME NetR11-1         $
+    R11        1  VT1        4
+NODENAME NetHL6-2         $
+    HL6        2  R24        1
+NODENAME NetHL5-2         $
+    HL5        2  R23        1
+NODENAME NetHL4-2         $
+    HL4        2  R22        1
+NODENAME NetHL3-2         $
+    HL3        2  R20        2
+NODENAME NetDD3-7         $
+    DD3        7  R12        1  VD2        1  X3         4
+NODENAME NetDD3-6         $
+    DD3        6  R12        2  VD2        2  X3         3
+NODENAME NetDD2-2         $
+    DD2        2  R9         1
+NODENAME NetC19-2         $
+    C19        2  DD2        3  R10        2  R16        2
+NODENAME NetC17-1         $
+    C17        1  DD2        6  R13        2  R14        1
+NODENAME NetC15-2         $
+    C15        2  DD2        5
+NODENAME +12ֲ             $
+    A2         6  A2         7  A2         8  R23        2  R77        2  R78        2  R79        2  VT2        3  VT3        3  VT4        3
+NODENAME VIDEO4-          $
+    DA5        4  R52        1  X7         2
+NODENAME VIDEO4+          $
+    DA5        1  R51        2  X7         1
+NODENAME VIDEO4           $
+    R40        2  R57        2
+NODENAME VIDEO3           $
+    C39        2  R68        2  X10        5
+NODENAME NetX5-6          $
+    X5         6  X5        19  X6         2
+NODENAME NetX5-5          $
+    X5         5  X5         7  X5        18  X5        20  X6         3
+NODENAME NetR50-1         $
+    R50        1  X12        4
+NODENAME NetR49-1         $
+    R49        1  X12        3
+NODENAME NetR48-1         $
+    R48        1  X11        1
+NODENAME NetR30-7         $
+    R30        7  X5         1  X5        24
+NODENAME NetR30-5         $
+    R30        5  X5         2  X5        23
+NODENAME NetR30-3         $
+    R30        3  X5         3  X5        22
+NODENAME NetR30-1         $
+    R30        1  X5         4  X5        21
+NODENAME NetHL7-2         $
+    HL7        2  R36        2
+NODENAME NetDD4-8         $
+    DD4        8  R41        2
+NODENAME NetDD4-5         $
+    DD4        5  R39        1
+NODENAME NetDD4-4         $
+    DD4        4  R38        1
+NODENAME NetDD4-1         $
+    DD4        1  R37        1
+NODENAME NetDA5-7         $
+    DA5        7  R40        1
+NODENAME NetDA5-6         $
+    DA5        6  HL7        1
+NODENAME NetDA5-3         $
+    DA5        3  R42        2
+NODENAME NetDA5-2         $
+    DA5        2  R42        1
+NODENAME NetDA4-8         $
+    DA4        8  R29        2
+NODENAME NetDA4-7         $
+    DA4        7  R28        2
+NODENAME NetDA4-5         $
+    DA4        5  DA4        6  R25        2
+NODENAME NetDA4-4         $
+    DA4        4  R27        2
+NODENAME NetDA4-2         $
+    DA4        2  R26        2
+NODENAME NetC34-2         $
+    C34        2  C36        2  R51        1  R52        2
+NODENAME NetC32-2         $
+    C32        2  R46        1  R47        2
+NODENAME NetC27-2         $
+    C27        2  DA4       21
+NODENAME NetC25-2         $
+    C25        2  DA4       24
+NODENAME +8,5ֲ            $
+    A3         6  A3         7  A3         8  C28        2  C30        2  DA5        8  R24        2  R36        1
+NODENAME PGND             $
+    C20        2  C23        2  R21        1  VT1        1  VT1        2  VT1        3  X8         4  X9         4  X10        7  X10        8  X11        4  X19       18  X19       19  X19       20  X19       21  X19       22  X21       18  X21       19  X21       20  X21       21  X21       22
+NODENAME NetX22-6         $
+    X22        6  X26        6
+NODENAME NetX22-5         $
+    X22        5  X26        5
+NODENAME NetX22-4         $
+    X22        4  X26        4
+NODENAME NetX22-3         $
+    X22        3  X26        3
+NODENAME NetX22-2         $
+    X22        2  X26        2
+NODENAME NetX22-1         $
+    X22        1  X26        1
+NODENAME NetX20-6         $
+    X20        6  X25        6
+NODENAME NetX20-5         $
+    X20        5  X25        5
+NODENAME NetX20-4         $
+    X20        4  X25        4
+NODENAME NetX20-3         $
+    X20        3  X25        3
+NODENAME NetX20-2         $
+    X20        2  X25        2
+NODENAME NetX20-1         $
+    X20        1  X25        1
+NODENAME NetR111-8        $
+    R111       8  X21       25
+NODENAME NetR111-7        $
+    R111       7  R113       1  X24        8
+NODENAME NetR111-6        $
+    R111       6  X21       24
+NODENAME NetR111-5        $
+    R111       5  R115       1  X24        7
+NODENAME NetR111-4        $
+    R111       4  X21       23
+NODENAME NetR111-3        $
+    R111       3  R117       1  X24        6
+NODENAME NetR110-8        $
+    R110       8  X19       25
+NODENAME NetR110-7        $
+    R110       7  R112       1  X23        8
+NODENAME NetR110-6        $
+    R110       6  X19       24
+NODENAME NetR110-5        $
+    R110       5  R114       1  X23        7
+NODENAME NetR110-4        $
+    R110       4  X19       23
+NODENAME NetR110-3        $
+    R110       3  R116       1  X23        6
+NODENAME NetR109-4        $
+    R109       4  X18       30
+NODENAME NetR108-2        $
+    R108       2  X17       29
+NODENAME NetL7-2          $
+    L7         2  X24        3
+NODENAME NetL7-1          $
+    L7         1  X21        9  X21       10  X21       11  X21       12
+NODENAME NetL6-2          $
+    L6         2  X24        2
+NODENAME NetL6-1          $
+    L6         1  X21        5  X21        6  X21        7  X21        8
+NODENAME NetL5-2          $
+    L5         2  X24        1
+NODENAME NetL5-1          $
+    L5         1  X21        1  X21        2  X21        3  X21        4
+NODENAME NetL4-2          $
+    L4         2  X23        3
+NODENAME NetL4-1          $
+    L4         1  X19        9  X19       10  X19       11  X19       12
+NODENAME NetL3-2          $
+    L3         2  X23        2
+NODENAME NetL3-1          $
+    L3         1  X19        5  X19        6  X19        7  X19        8
+NODENAME NetL2-2          $
+    L2         2  X23        1
+NODENAME NetL2-1          $
+    L2         1  X19        1  X19        2  X19        3  X19        4
+NODENAME CAN_L            $
+    C33        2  DD4        6  R47        1  VD3        2  X7         4  X8         2  X9         2  X10        4  X17       36  X18       36
+NODENAME CAN_H            $
+    C35        2  DD4        7  R46        2  VD3        1  X7         3  X8         1  X9         1  X10        3  X17       35  X18       35
+NODENAME 332              $
+    X21       32
+NODENAME 331              $
+    X21       31
+NODENAME 330              $
+    X21       30
+NODENAME 329              $
+    X21       29
+NODENAME 328              $
+    X21       28
+NODENAME 327              $
+    X21       27
+NODENAME 232              $
+    X19       32
+NODENAME 231              $
+    X19       31
+NODENAME 230              $
+    X19       30
+NODENAME 229              $
+    X19       29
+NODENAME 228              $
+    X19       28
+NODENAME 227              $
+    X19       27
+NODENAME 146              $
+    X18       46
+NODENAME 145              $
+    X18       45
+NODENAME 144              $
+    X18       44
+NODENAME 143              $
+    X18       43
+NODENAME 142              $
+    X18       42
+NODENAME 141              $
+    X18       41
+NODENAME 140              $
+    X18       40
+NODENAME 139              $
+    X18       39
+NODENAME 134              $
+    X18       34
+NODENAME 133              $
+    X18       33
+NODENAME 132              $
+    R109       8  X18       32
+NODENAME 131              $
+    R109       6  X18       31
+NODENAME 129              $
+    R109       2  X18       29
+NODENAME 128              $
+    X18       28
+NODENAME 127              $
+    X18       27
+NODENAME 126              $
+    X18       26
+NODENAME 125              $
+    X18       25
+NODENAME 124              $
+    X18       24
+NODENAME 123              $
+    X18       23
+NODENAME 122              $
+    X18       22
+NODENAME 121              $
+    X18       21
+NODENAME 120              $
+    X18       20
+NODENAME 119              $
+    X18       19
+NODENAME 118              $
+    X18       18
+NODENAME 117              $
+    X18       17
+NODENAME 114              $
+    X18       14
+NODENAME 113              $
+    X18       13
+NODENAME 112              $
+  
+NODENAME 111              $
+    X18       11
+NODENAME 110              $
+    X18       10
+NODENAME 109              $
+    X18        9
+NODENAME 108              $
+    X18        8
+NODENAME 107              $
+    X18        7
+NODENAME 106              $
+    X18        6
+NODENAME 105              $
+    X18        5
+NODENAME 104              $
+    X18        4
+NODENAME 103              $
+    X18        3
+NODENAME 102              $
+    X18        2
+NODENAME 101              $
+    X18        1
+NODENAME 46               $
+    X17       46
+NODENAME 45               $
+    X17       45
+NODENAME 44               $
+    X17       44
+NODENAME 43               $
+    X17       43
+NODENAME 42               $
+    X17       42
+NODENAME 41               $
+    X17       41
+NODENAME 40               $
+    X17       40
+NODENAME 39               $
+    X17       39
+NODENAME 34               $
+    X17       34
+NODENAME 33               $
+    X17       33
+NODENAME 32               $
+    R108       8  X17       32
+NODENAME 31               $
+    R108       6  X17       31
+NODENAME 30               $
+    R108       4  X17       30
+NODENAME 28               $
+    X17       28
+NODENAME 27               $
+    X17       27
+NODENAME 26               $
+    X17       26
+NODENAME 25               $
+    X17       25
+NODENAME 24               $
+    X17       24
+NODENAME 23               $
+    X17       23
+NODENAME 22               $
+    X17       22
+NODENAME 21               $
+    X17       21
+NODENAME 20               $
+    X17       20
+NODENAME 19               $
+    X17       19
+NODENAME 18               $
+    X17       18
+NODENAME 17               $
+    X17       17
+NODENAME 14               $
+    X17       14
+NODENAME 13               $
+    X17       13
+NODENAME 12               $
+    X17       12
+NODENAME 11               $
+    X17       11
+NODENAME 10               $
+    X17       10
+NODENAME 9                $
+    X17        9
+NODENAME 8                $
+    X17        8
+NODENAME 7                $
+    X17        7
+NODENAME 6                $
+    X17        6
+NODENAME 5                $
+    X17        5
+NODENAME 4                $
+    X17        4
+NODENAME 3                $
+    X17        3
+NODENAME 2                $
+    X17        2
+NODENAME 1                $
+    X17        1
+NODENAME +14,4ֲ           $
+    A1         1  A1         2  A2         1  A2         2  A3         1  A3         2  C14        2  C20        1  C23        1  DD2        1  R9         2  R11        2  X3         1  X3         2  X8         3  X9         3  X10        1  X10        2  X11        3  X19       13  X19       14  X19       15  X19       16  X19       17  X21       13  X21       14  X21       15  X21       16  X21       17
+NODENAME +5ֲ_ְ            $
+    C17        2  C18        2  C21        2  C22        2  C45        2  C46        2  C47        2  C48        2  C52        2  DA6        6  DA7        6  DA8        6  DA9        6  DA11       5  DA11       6  DD2        7  R13        1  R20        1  R84        2  R85        2  R86        2  R87        2  R100       2  X5        10  X5        11  X5        12  X5        13  X5        14  X5        15  X23        4  X24        4
+NODENAME SGND             $
+    A1         3  A1         4  A1         9  A1        10  A2         3  A2         4  A2         9  A2        10  A3         3  A3         4  A3         9  A3        10  C1         1  C2         1  C3         1  C4         1  C5         1  C6         1  C7         1  C8         1  C9         1  C10        1  C11        1  C12        1  C13        1  C14        1  C15        1  C16        1  C18        1  C19        1  C21        1  C22        1  C24        1  C25        1  C26        1  C27        1  C28        1  C29        1  C30        1  C31        1  C32        1  C33        1  C34        1  C35        1  C36        1  C41        1  C42        1  C43        1  C44        1  C45        1  C46        1  C47        1  C48        1  C49        1  C51        1  C52        1  DA1        2  DA2        2  DA3        2  DA4       14  DA4       15  DA4       16  DA4       17  DA4       18  DA4       19  DA4       20  DA5        5  DA5        9  DA6        2  DA7        2  DA8        2  DA9        2  DA10       3  DA10      13  DA11       2  DD1       12  DD1       18  DD1       60  DD1       63  DD2        4  DD2        8  DD3        5  DD4        2  HL1        1  HL2        1  HL3        1  HL4        1  HL5        1  HL6        1  R10        1  R14        2  R17        1  R21        2  R41        1  R43        1  R44        1  R45        1  R53        1  R54        1  R55        1  R56        1  R58        1  R59        1  R60        1  R66        1  R67        1  R68        1  R69        1  R73        1  R74        1  R75        1  R76        1  R80        1  R81        1  R82        1  R83        1  R92        2  R93        2  R94        2  R95        2  R97        2  R98        1  R99        1  R107       1  R108       1  R108       5  R108       7  R109       5  R109       7  VD2        3  VD3        3  VT2        1  VT3        1  VT4        1  X1         3  X2         3  X5         8  X5         9  X5        16  X5        17  X7         5  X10        6  X11        2  X12        1  X13        2  X14        2  X15        2  X16        2  X16        3  X17       16  X17       37  X17       38  X18       16  X18       37  X18       38  X23        5  X24        5  Z1         2
+NODENAME NetVD1-1         $
+    VD1        1  X2         1
+NODENAME NetHL2-2         $
+    HL2        2  R2         1
+NODENAME NetHL1-2         $
+    HL1        2  R1         1
+NODENAME NetDD1-6         $
+    DD1        6  Z1         1
+NODENAME NetDD1-5         $
+    DD1        5  Z1         3
+NODENAME NetDA3-6         $
+    DA3        6  X2         6
+NODENAME NetDA3-4         $
+    DA3        4  R6         1
+NODENAME NetDA3-3         $
+    DA3        3  R5         1
+NODENAME NetDA3-1         $
+    DA3        1  X2         5
+NODENAME NetDA2-6         $
+    DA2        6  X2         4
+NODENAME NetDA2-4         $
+    DA2        4  R4         1
+NODENAME NetDA2-3         $
+    DA2        3  R3         1
+NODENAME NetDA2-1         $
+    DA2        1  X2         2
+NODENAME NetDA1-6         $
+    DA1        6  X1         2
+NODENAME NetDA1-4         $
+    DA1        4  R8         1
+NODENAME NetDA1-3         $
+    DA1        3  R7         1
+NODENAME NetDA1-1         $
+    DA1        1  X1         1
+NODENAME NetC12-2         $
+    C12        2  DD1       31
+NODENAME NetC11-2         $
+    C11        2  DD1       47
+NODENAME NetC10-2         $
+    C10        2  DD1       13  L1         2
+NODENAME MCU_VIDEO4_PWR_EN$
+    DD1        4  R59        2  R71        2
+NODENAME MCU_VIDEO4_EN    $
+    DD1       62  R56        2  R65        2
+NODENAME MCU_VIDEO3_EN    $
+    DD1       58  R55        2  R64        2
+NODENAME MCU_VIDEO2_PWR_EN$
+    DD1        3  R60        2  R72        2
+NODENAME MCU_VIDEO2_EN    $
+    DD1       61  R54        2  R63        2
+NODENAME MCU_VIDEO1_PWR_EN$
+    DD1        2  R58        2  R70        2
+NODENAME MCU_VIDEO1_EN    $
+    DD1       59  R53        2  R62        2
+NODENAME MCU_UART6_TX     $
+    DD1       37  R8         2
+NODENAME MCU_UART6_RX     $
+    DD1       38  R7         2
+NODENAME MCU_UART4_TX     $
+    DD1       14  R30        2
+NODENAME MCU_UART4_RX     $
+    DD1       15  R30        4  R33        1
+NODENAME MCU_UART2_TX     $
+    DD1       16  R30        6
+NODENAME MCU_UART2_RX     $
+    DD1       17  R30        8  R35        1
+NODENAME MCU_TRACE        $
+    DD1       55  R6         2
+NODENAME MCU_SWDIO        $
+    DD1       46  R4         2
+NODENAME MCU_SWCLK        $
+    DD1       49  R3         2
+NODENAME MCU_SDA_PSensor  $
+    DD1       40  R45        2  R49        2
+NODENAME MCU_SCL_PSensor  $
+    DD1       41  R43        2  R50        2
+NODENAME MCU_RS485_TX_BAT $
+    DD1       53  DD3        4
+NODENAME MCU_RS485_RX_BAT $
+    DD1       54  DD3        1  R19        1
+NODENAME MCU_RS485_DE_BAT $
+    DD1       57  DD3        2  DD3        3  R17        2
+NODENAME MCU_PWM_ESC      $
+    DD1       42  R44        2  R48        2
+NODENAME MCU_PRES_FLAG    $
+    DD1       52  R15        1  R18        1
+NODENAME MCU_NRST         $
+    C13        2  DD1        7  R5         2
+NODENAME MCU_MUX_EN       $
+    DD1        9  R101       1  R107       2
+NODENAME MCU_MUX_A1       $
+    DD1       11  R103       1  R105       1
+NODENAME MCU_MUX_A0       $
+    DD1       10  R102       1  R104       1
+NODENAME MCU_LMZ_5V_EN    $
+    DD1       20  R16        1
+NODENAME MCU_LED_RED      $
+    DD1       21  R1         2
+NODENAME MCU_LED_GREEN    $
+    DD1       22  R2         2
+NODENAME MCU_GYRO_SPI_MOSI$
+    DD1       36  R27        1
+NODENAME MCU_GYRO_SPI_MISO$
+    DD1       35  R25        1  R31        1
+NODENAME MCU_GYRO_SPI_CLK $
+    DD1       29  R26        1
+NODENAME MCU_GYRO_CS_XM   $
+    DD1       26  R29        1  R34        1
+NODENAME MCU_GYRO_CS_G    $
+    DD1       27  R28        1  R32        1
+NODENAME MCU_CAN_LOOPBACK $
+    DD1       30  R39        2
+NODENAME MCU_CAN2_TX      $
+    DD1       34  R37        2
+NODENAME MCU_CAN2_RX      $
+    C29        2  DD1       33  R38        2
+NODENAME +3,3ֲ            $
+    A1         6  A1         7  A1         8  C1         2  C2         2  C3         2  C4         2  C5         2  C6         2  C7         2  C8         2  C9         2  C16        2  C24        2  C26        2  C31        2  C49        2  DA1        5  DA2        5  DA3        5  DA4        1  DA4        3  DA4       22  DA4       23  DA10      12  DD1        1  DD1       19  DD1       32  DD1       48  DD1       64  DD3        8  DD4        3  L1         1  R18        2  R19        2  R22        2  R31        2  R32        2  R33        2  R34        2  R35        2  R104       2  R105       2  R108       3  R109       1  R109       3  R112       2  R113       2  R114       2  R115       2  R116       2  R117       2  VD1        2  X6         1  X12        2
+EOS

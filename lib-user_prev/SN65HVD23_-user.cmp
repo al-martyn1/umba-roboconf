@@ -1,0 +1,6 @@
+(componentDefinition "SN65HVD23_"
+    (pin "1" "" ("D" "IN") )
+    (pin "4" "" ("R" "OUT") )
+    (pin "5" "" ("LOOPBACK" "IN" "GPIO") )
+    (pin "8" "" ("IN", "GPIO" "MODE" ) )
+)

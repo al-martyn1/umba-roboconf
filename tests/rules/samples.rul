@@ -1,0 +1,14 @@
+(-- LMR16006)
+(packageAssign (designator "A1") (package "TSOT-6L") )
+
+(-- STM32F405RG)
+(packageAssign (designator "DD1") (package "LQFP64") )
+
+(-- LMZ14203HTZ)
+(packageAssign (designator "DD2") (package "TO-PMOD-7") )
+
+(-- NTMFS5H409NL (DFN5 SO-8FL))
+(packageAssign (designator "VT1") (package "DFN5") )
+
+(-- IRF7509 - MICRO8)
+(packageAssign (designator "VT2") (package "MICRO8") )

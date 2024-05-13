@@ -1,0 +1,1 @@
+call import.bat 2>&1 > log-import.txt

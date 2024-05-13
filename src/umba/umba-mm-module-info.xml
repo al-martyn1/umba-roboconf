@@ -1,0 +1,36 @@
+<umba-mm-module-info>
+
+    <options>
+      <options-list type="cpp_defines">UMBA_STRICT</options-list>
+    </options>
+
+    <options>
+      <options-list type="cpp_includes">.</options-list>
+    </options>
+
+    <options match-var="Toolchain" match-to="keil-v*/armcc-v*">
+      <options-list type="cpp_options">--cpp11</options-list>
+    </options>
+
+    <options match-var="Toolchain" match-to="keil-v*/armclang-v*,*/gcc*">
+      <options-list type="cpp_options">-std=c++11</options-list>
+    </options>
+
+    <!-- Supported since Visual C++ 2013 Update 3 -->
+    <options match-var="Toolchain" match-to="msvs-v201*/msc_v*">
+      <options-list type="cpp_options">/std:c++14</options-list>
+    </options>
+
+    <file>
+      <file-path>_readme.txt</file-path>
+    </file>
+
+    <file>
+      <file-path>critical_section.cpp</file-path>
+    </file>
+
+    <file>
+      <file-path>time_service.cpp</file-path>
+    </file>
+
+</umba-mm-module-info>

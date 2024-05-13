@@ -1,0 +1,10 @@
+(componentDefinition "IRLML6402*"
+    (nameMatch simple (single "x")(any "*"))
+    (package "*")
+    (description "HEXFET Power MOSFET")
+    (purpose "SWITCH")
+    (datasheet "irlml6402pbf.pdf")
+    (pin "1" "" ("G" "GATE") )
+    (pin "2" "" ("S" "SOURCE") )
+    (pin "3" "" ("D" "DRAIN") )
+)

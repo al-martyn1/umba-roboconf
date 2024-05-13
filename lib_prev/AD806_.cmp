@@ -1,0 +1,13 @@
+(componentDefinition "AD8061" "AD8062" "AD8063"
+    (description "Rail-to-Rail Amplifier")
+    (purpose "OPAMP")
+    (datasheet "ad8061_8062_8063.pdf")
+    (pin "1" "" ("Vout1" ) )
+    (pin "2" "" ("-IN1" ) )
+    (pin "3" "" ("+IN1" ) )
+    (pin "4" "" ("-Vs" ) )
+    (pin "5" "" ("+IN2" ) )
+    (pin "6" "" ("-IN2" ) )
+    (pin "7" "" ("Vout2" ) )
+    (pin "8" "" ("+Vs" ) )
+)

@@ -1,0 +1,1729 @@
+Wire List
+
+<<< Component List >>>
+LMR16006                        A1             LMR16006
+LMR16006                        A2             LMR16006
+LMR16006                        A3             LMR16006
+0,1לך                           C1             C0603_A
+0,1לך                           C2             C0603_A
+0,1לך                           C3             C0603_A
+10לך                            C4             C1206_A
+0,1לך                           C5             C0402_A
+0,1לך                           C6             C0402_A
+0,1לך                           C7             C0402_A
+0,1לך                           C8             C0402_A
+0,1לך                           C9             C0402_A
+0,1לך                           C10            C0402_A
+2,2לך                           C11            C0805_A
+2,2לך                           C12            C0805_A
+0,1לך                           C13            C0402_A
+10לך                            C14            C1206_A
+4700                            C15            C0603_A
+0,1לך                           C16            C0603_A
+0,022לך                         C17            C0603_A
+10לך                            C18            C1206_A
+0,1לך                           C19            C0603_A
+470לך                           C20            CE10x16_put
+10לך                            C21            C1206_A
+10לך                            C22            C1206_A
+470לך                           C23            CE10x16_put
+10לך                            C24            C1206_A
+0,1לך                           C25            C0603_A
+0,1לך                           C26            C0603_A
+0,01לך                          C27            C0603_A
+4,7לך                           C28            C0805_A
+15                              C29            C0603_A
+0,1לך                           C30            C0603_A
+0,1לך                           C31            C0603_A
+4700                            C32            C0603_A
+0,1לך                           C33            C0603_A
+10לך                            C34            C0805_A
+0,1לך                           C35            C0603_A
+0,1לך                           C36            C0603_A
+4,7לך                           C37            C0805_A
+4,7לך                           C38            C0805_A
+4,7לך                           C39            C0805_A
+4,7לך                           C40            C0805_A
+4,7לך                           C41            C0805_A
+4,7לך                           C42            C0805_A
+4,7לך                           C43            C0805_A
+4,7לך                           C44            C0805_A
+0,1לך                           C45            C0603_A
+0,1לך                           C46            C0603_A
+0,1לך                           C47            C0603_A
+0,1לך                           C48            C0603_A
+0,1לך                           C49            C0603_A
+4,7לך                           C50            C0805_A
+4,7לך                           C51            C0805_A
+0,1לך                           C52            C0603_A
+TPD2S017                        DA1            SOT23-6_A
+TPD2S017                        DA2            SOT23-6_A
+TPD2S017                        DA3            SOT23-6_A
+LSM9DS1                         DA4            LGA-24
+MAX9547                         DA5            SOIC8_A_PowerPad
+ADA4430                         DA6            SC-70-6
+ADA4430                         DA7            SC-70-6
+ADA4430                         DA8            SC-70-6
+ADA4430                         DA9            SC-70-6
+ADG1604BRUZ                     DA10           TSSOP14_A
+ADA4430                         DA11           SC-70-6
+STM32F405RG                     DD1            LQFP64_L
+LMZ14203HTZ                     DD2            TO-PMOD-7
+SN65HVD1781                     DD3            SOIC8_A
+SN65HVD233D                     DD4            SOIC8_A
+KP-1608EC                       HL1            Led_0603_RED
+KP-1608MGC                      HL2            Led_0603_green
+KP-1608MGC                      HL3            Led_0603_green
+KP-1608QBC-D                    HL4            Led_0603_Blue
+KP-1608QBC-D                    HL5            Led_0603_Blue
+KP-1608QBC-D                    HL6            Led_0603_Blue
+                                HL7            Led_0603_RED
+180 ־ל                          L1             L0603_A
+56לךֳם                          L2             CDRH127
+56לךֳם                          L3             CDRH127
+56לךֳם                          L4             CDRH127
+56לךֳם                          L5             CDRH127
+56לךֳם                          L6             CDRH127
+56לךֳם                          L7             CDRH127
+330                             R1             R0603_A
+330                             R2             R0603_A
+100                             R3             R0603_A
+100                             R4             R0603_A
+100                             R5             R0603_A
+100                             R6             R0603_A
+100                             R7             R0603_A
+100                             R8             R0603_A
+39ך                             R9             R0603_A
+10ך                             R10            R0603_A
+47ך                             R11            R0603_A
+                                R12            R1206_A
+36ך                             R13            R0603_A
+6,8ך                            R14            R0603_A
+100                             R15            R0603_A
+100                             R16            R0603_A
+47ך                             R17            R0603_A
+47ך                             R18            R0603_A
+47ך                             R19            R0603_A
+510                             R20            R0603_A
+0                               R21            R0603_A
+330                             R22            R0603_A
+330                             R23            R0603_A
+330                             R24            R0603_A
+100                             R25            R0603_A
+100                             R26            R0603_A
+100                             R27            R0603_A
+100                             R28            R0603_A
+100                             R29            R0603_A
+100                             R30            R0603x4
+47ך                             R31            R0603_A
+47ך                             R32            R0603_A
+47ך                             R33            R0603_A
+47ך                             R34            R0603_A
+47ך                             R35            R0603_A
+820                             R36            R0603_A
+100                             R37            R0603_A
+100                             R38            R0603_A
+100                             R39            R0603_A
+75                              R40            R0603_A
+10ך                             R41            R0603_A
+75                              R42            R0603_A
+47ך                             R43            R0603_A
+47ך                             R44            R0603_A
+47ך                             R45            R0603_A
+62                              R46            R0603_A
+62                              R47            R0603_A
+100                             R48            R0603_A
+100                             R49            R0603_A
+100                             R50            R0603_A
+62                              R51            R0603_A
+62                              R52            R0603_A
+47ך                             R53            R0603_A
+47ך                             R54            R0603_A
+47ך                             R55            R0603_A
+47ך                             R56            R0603_A
+0                               R57            R0603_A
+47ך                             R58            R0603_A
+47ך                             R59            R0603_A
+47ך                             R60            R0603_A
+0                               R61            R0603_A
+100                             R62            R0603_A
+100                             R63            R0603_A
+100                             R64            R0603_A
+100                             R65            R0603_A
+75                              R66            R0603_A
+75                              R67            R0603_A
+75                              R68            R0603_A
+75                              R69            R0603_A
+100                             R70            R0603_A
+100                             R71            R0603_A
+100                             R72            R0603_A
+10ך                             R73            R0603_A
+10ך                             R74            R0603_A
+10ך                             R75            R0603_A
+10ך                             R76            R0603_A
+47ך                             R77            R0603_A
+47ך                             R78            R0603_A
+47ך                             R79            R0603_A
+470                             R80            R0603_A
+470                             R81            R0603_A
+470                             R82            R0603_A
+470                             R83            R0603_A
+2,4ך                            R84            R0603_A
+2,4ך                            R85            R0603_A
+2,4ך                            R86            R0603_A
+2,4ך                            R87            R0603_A
+75                              R88            R0603_A
+75                              R89            R0603_A
+75                              R90            R0603_A
+75                              R91            R0603_A
+75                              R92            R0603_A
+75                              R93            R0603_A
+75                              R94            R0603_A
+75                              R95            R0603_A
+75                              R96            R0603_A
+75                              R97            R0603_A
+10ך                             R98            R0603_A
+470                             R99            R0603_A
+2,4ך                            R100           R0603_A
+100                             R101           R0603_A
+100                             R102           R0603_A
+100                             R103           R0603_A
+47ך                             R104           R0603_A
+47ך                             R105           R0603_A
+75                              R106           R0603_A
+47ך                             R107           R0603_A
+10ך                             R108           R0603x4
+10ך                             R109           R0603x4
+100                             R110           R0603x4
+100                             R111           R0603x4
+47ך                             R112           R0603_A
+47ך                             R113           R0603_A
+47ך                             R114           R0603_A
+47ך                             R115           R0603_A
+47ך                             R116           R0603_A
+47ך                             R117           R0603_A
+MBR2H100SFT3G                   VD1            SMA_A
+SM712                           VD2            SOT23-3_A
+AQ24CANFD                       VD3            SOT23-3_A
+MBR2H100SFT3G                   VD4            SOD123FL
+MBR2H100SFT3G                   VD5            SOD123FL
+MBR2H100SFT3G                   VD6            SOD123FL
+MBR2H100SFT3G                   VD7            SOD123FL
+MBR2H100SFT3G                   VD8            SOD123FL
+NTMFS5H409NL                    VT1            DFN5
+IRF7509                         VT2            Micro8_A
+IRF7509                         VT3            Micro8_A
+IRF7509                         VT4            Micro8_A
+PLS-3                           X1             PLS_3
+PLS-6                           X2             PLS_6
+Micro-Fit 43045-1000            X3             Molex_MK_43045-1000
+Clik-Mate 5025840270            X4             MOLEX_Click-Mate 2
+OMRON XF2W-2415-1A              X5             OMRON XF2W-2415-1A
+Clik-Mate 5025840370            X6             MOLEX_Click-Mate 3
+Clik-Mate 5025840570            X7             MOLEX_Click-Mate 5
+Micro-Fit 43045-0401            X8             MOLEX_MK 43045-0401
+Micro-Fit 43045-0401            X9             MOLEX_MK 43045-0401
+Clik-Mate 5025840870            X10            MOLEX_Click-Mate 8
+Micro-Fit 43045-0401            X11            MOLEX_MK 43045-0401
+Clik-Mate 5025840470            X12            MOLEX_Click-Mate 4
+Clik-Mate 5025840370            X13            MOLEX_Click-Mate 3
+Clik-Mate 5025840370            X14            MOLEX_Click-Mate 3
+Clik-Mate 5025840370            X15            MOLEX_Click-Mate 3
+Clik-Mate 5025840370            X16            MOLEX_Click-Mate 3
+SSM-123-L-DV                    X17            SSM-123-L-DV
+SSM-123-L-DV                    X18            SSM-123-L-DV
+SSM-116-L-DV                    X19            SSM-116-L-DV
+PBS-06-SMD                      X20            PBS-6
+SSM-116-L-DV                    X21            SSM-116-L-DV
+PBS-06-SMD                      X22            PBS-6
+Micro-Fit 43045-0800            X23            Molex_MK_43045-0427
+Micro-Fit 43045-0800            X24            Molex_MK_43045-0427
+PLS-6                           X25            PLS_6
+PLS-6                           X26            PLS_6
+CSTCE12M0G52-R0                 Z1             CSTCE
+
+<<< Wire List >>>
+
+  NODE  REFERENCE  PIN #   PIN NAME       PIN TYPE    PART VALUE
+
+[00001] VIDEO2
+        C38        2       2              PASSIVE     4,7לך
+        R67        2       2              PASSIVE     75
+        X15        3       3              PASSIVE     Clik-Mate 5025840370
+
+[00002] VIDEO1
+        C37        2       2              PASSIVE     4,7לך
+        R66        2       2              PASSIVE     75
+        X14        3       3              PASSIVE     Clik-Mate 5025840370
+
+[00003] NetVT4_5
+        VT4        5       D2             PASSIVE     IRF7509
+        VT4        6       D2             PASSIVE     IRF7509
+        X15        1       1              PASSIVE     Clik-Mate 5025840370
+
+[00004] NetVT3_5
+        VT3        5       D2             PASSIVE     IRF7509
+        VT3        6       D2             PASSIVE     IRF7509
+        X13        1       1              PASSIVE     Clik-Mate 5025840370
+
+[00005] NetVT2_5
+        VT2        5       D2             PASSIVE     IRF7509
+        VT2        6       D2             PASSIVE     IRF7509
+        X14        1       1              PASSIVE     Clik-Mate 5025840370
+
+[00006] NetR106_2
+        R106       2       2              PASSIVE     75
+        X16        1       1              PASSIVE     Clik-Mate 5025840370
+
+[00007] NetR79_1
+        R79        1       1              PASSIVE     47ך
+        VT4        4       G2             PASSIVE     IRF7509
+        VT4        7       D1             PASSIVE     IRF7509
+        VT4        8       D1             PASSIVE     IRF7509
+
+[00008] NetR78_1
+        R78        1       1              PASSIVE     47ך
+        VT3        4       G2             PASSIVE     IRF7509
+        VT3        7       D1             PASSIVE     IRF7509
+        VT3        8       D1             PASSIVE     IRF7509
+
+[00009] NetR77_1
+        R77        1       1              PASSIVE     47ך
+        VT2        4       G2             PASSIVE     IRF7509
+        VT2        7       D1             PASSIVE     IRF7509
+        VT2        8       D1             PASSIVE     IRF7509
+
+[00010] NetR72_1
+        R72        1       1              PASSIVE     100
+        VT4        2       G1             PASSIVE     IRF7509
+
+[00011] NetR71_1
+        R71        1       1              PASSIVE     100
+        VT3        2       G1             PASSIVE     IRF7509
+
+[00012] NetR70_1
+        R70        1       1              PASSIVE     100
+        VT2        2       G1             PASSIVE     IRF7509
+
+[00013] NetR61_2
+        R61        2       2              PASSIVE     0
+        X13        3       3              PASSIVE     Clik-Mate 5025840370
+
+[00014] NetDA11_3
+        DA11       3       SAG            PASSIVE     ADA4430
+        DA11       4       OUT            PASSIVE     ADA4430
+        R106       1       1              PASSIVE     75
+
+[00015] NetDA10_14
+        DA10       14      A1             PASSIVE     ADG1604BRUZ
+        R103       2       2              PASSIVE     100
+
+[00016] NetDA10_11
+        DA10       11      S3             PASSIVE     ADG1604BRUZ
+        R90        1       1              PASSIVE     75
+        R94        1       1              PASSIVE     75
+
+[00017] NetDA10_10
+        DA10       10      S4             PASSIVE     ADG1604BRUZ
+        R91        1       1              PASSIVE     75
+        R95        1       1              PASSIVE     75
+
+[00021] NetDA10_6
+        DA10       6       D              PASSIVE     ADG1604BRUZ
+        R96        2       2              PASSIVE     75
+
+[00022] NetDA10_5
+        DA10       5       S2             PASSIVE     ADG1604BRUZ
+        R89        1       1              PASSIVE     75
+        R93        1       1              PASSIVE     75
+
+[00023] NetDA10_4
+        DA10       4       S1             PASSIVE     ADG1604BRUZ
+        R88        1       1              PASSIVE     75
+        R92        1       1              PASSIVE     75
+
+[00024] NetDA10_2
+        DA10       2       EN             PASSIVE     ADG1604BRUZ
+        R101       2       2              PASSIVE     100
+
+[00025] NetDA10_1
+        DA10       1       A0             PASSIVE     ADG1604BRUZ
+        R102       2       2              PASSIVE     100
+
+[00026] NetDA9_5
+        DA9        5       D\I\S\         PASSIVE     ADA4430
+        R65        1       1              PASSIVE     100
+
+[00027] NetDA9_3
+        DA9        3       SAG            PASSIVE     ADA4430
+        DA9        4       OUT            PASSIVE     ADA4430
+        R91        2       2              PASSIVE     75
+
+[00028] NetDA8_5
+        DA8        5       D\I\S\         PASSIVE     ADA4430
+        R64        1       1              PASSIVE     100
+
+[00029] NetDA8_3
+        DA8        3       SAG            PASSIVE     ADA4430
+        DA8        4       OUT            PASSIVE     ADA4430
+        R90        2       2              PASSIVE     75
+
+[00030] NetDA7_5
+        DA7        5       D\I\S\         PASSIVE     ADA4430
+        R63        1       1              PASSIVE     100
+
+[00031] NetDA7_3
+        DA7        3       SAG            PASSIVE     ADA4430
+        DA7        4       OUT            PASSIVE     ADA4430
+        R89        2       2              PASSIVE     75
+
+[00032] NetDA6_5
+        DA6        5       D\I\S\         PASSIVE     ADA4430
+        R62        1       1              PASSIVE     100
+
+[00033] NetDA6_3
+        DA6        3       SAG            PASSIVE     ADA4430
+        DA6        4       OUT            PASSIVE     ADA4430
+        R88        2       2              PASSIVE     75
+
+[00034] NetC51_2
+        C51        2       2              PASSIVE     4,7לך
+        R99        2       2              PASSIVE     470
+        R100       1       1              PASSIVE     2,4ך
+        VD8        2       A              PASSIVE     MBR2H100SFT3G
+
+[00035] NetC50_2
+        C50        2       2              PASSIVE     4,7לך
+        R96        1       1              PASSIVE     75
+        R97        1       1              PASSIVE     75
+
+[00036] NetC50_1
+        C50        1       1              PASSIVE     4,7לך
+        DA11       1       IN             PASSIVE     ADA4430
+        R98        2       2              PASSIVE     10ך
+        VD8        1       K              PASSIVE     MBR2H100SFT3G
+
+[00037] NetC44_2
+        C44        2       2              PASSIVE     4,7לך
+        R83        2       2              PASSIVE     470
+        R87        1       1              PASSIVE     2,4ך
+        VD7        2       A              PASSIVE     MBR2H100SFT3G
+
+[00038] NetC43_2
+        C43        2       2              PASSIVE     4,7לך
+        R82        2       2              PASSIVE     470
+        R86        1       1              PASSIVE     2,4ך
+        VD6        2       A              PASSIVE     MBR2H100SFT3G
+
+[00039] NetC42_2
+        C42        2       2              PASSIVE     4,7לך
+        R81        2       2              PASSIVE     470
+        R85        1       1              PASSIVE     2,4ך
+        VD5        2       A              PASSIVE     MBR2H100SFT3G
+
+[00040] NetC41_2
+        C41        2       2              PASSIVE     4,7לך
+        R80        2       2              PASSIVE     470
+        R84        1       1              PASSIVE     2,4ך
+        VD4        2       A              PASSIVE     MBR2H100SFT3G
+
+[00041] NetC40_2
+        C40        2       2              PASSIVE     4,7לך
+        R57        1       1              PASSIVE     0
+        R61        1       1              PASSIVE     0
+        R69        2       2              PASSIVE     75
+
+[00042] NetC40_1
+        C40        1       1              PASSIVE     4,7לך
+        DA9        1       IN             PASSIVE     ADA4430
+        R76        2       2              PASSIVE     10ך
+        VD7        1       K              PASSIVE     MBR2H100SFT3G
+
+[00043] NetC39_1
+        C39        1       1              PASSIVE     4,7לך
+        DA8        1       IN             PASSIVE     ADA4430
+        R75        2       2              PASSIVE     10ך
+        VD6        1       K              PASSIVE     MBR2H100SFT3G
+
+[00044] NetC38_1
+        C38        1       1              PASSIVE     4,7לך
+        DA7        1       IN             PASSIVE     ADA4430
+        R74        2       2              PASSIVE     10ך
+        VD5        1       K              PASSIVE     MBR2H100SFT3G
+
+[00045] NetC37_1
+        C37        1       1              PASSIVE     4,7לך
+        DA6        1       IN             PASSIVE     ADA4430
+        R73        2       2              PASSIVE     10ך
+        VD4        1       K              PASSIVE     MBR2H100SFT3G
+
+[00046] NetX3_6
+        X3         6       6              PASSIVE     Micro-Fit 43045-1000
+        X4         1       1              PASSIVE     Clik-Mate 5025840270
+
+[00047] NetX3_5
+        X3         5       5              PASSIVE     Micro-Fit 43045-1000
+        X4         2       2              PASSIVE     Clik-Mate 5025840270
+
+[00048] NetVT1_5
+        VT1        5       D              PASSIVE     NTMFS5H409NL
+        VT1        6       D              PASSIVE     NTMFS5H409NL
+        VT1        7       D              PASSIVE     NTMFS5H409NL
+        VT1        8       D              PASSIVE     NTMFS5H409NL
+        X3         7       7              PASSIVE     Micro-Fit 43045-1000
+        X3         9       9              PASSIVE     Micro-Fit 43045-1000
+        X3         10      10             PASSIVE     Micro-Fit 43045-1000
+
+[00049] NetR15_2
+        R15        2       2              PASSIVE     100
+        X3         8       8              PASSIVE     Micro-Fit 43045-1000
+
+[00050] NetR11_1
+        R11        1       1              PASSIVE     47ך
+        VT1        4       G              PASSIVE     NTMFS5H409NL
+
+[00051] NetHL6_2
+        HL6        2       A              PASSIVE     KP-1608QBC-D
+        R24        1       1              PASSIVE     330
+
+[00052] NetHL5_2
+        HL5        2       A              PASSIVE     KP-1608QBC-D
+        R23        1       1              PASSIVE     330
+
+[00053] NetHL4_2
+        HL4        2       A              PASSIVE     KP-1608QBC-D
+        R22        1       1              PASSIVE     330
+
+[00054] NetHL3_2
+        HL3        2       A              PASSIVE     KP-1608MGC
+        R20        2       2              PASSIVE     510
+
+[00055] NetDD3_7
+        DD3        7       B              PASSIVE     SN65HVD1781
+        R12        1       1              PASSIVE     
+        VD2        1                      PASSIVE     SM712
+        X3         4       4              PASSIVE     Micro-Fit 43045-1000
+
+[00056] NetDD3_6
+        DD3        6       A              PASSIVE     SN65HVD1781
+        R12        2       2              PASSIVE     
+        VD2        2                      PASSIVE     SM712
+        X3         3       3              PASSIVE     Micro-Fit 43045-1000
+
+[00057] NetDD2_2
+        DD2        2       RON            PASSIVE     LMZ14203HTZ
+        R9         1       1              PASSIVE     39ך
+
+[00058] NetC19_2
+        C19        2       2              PASSIVE     0,1לך
+        DD2        3       EN             PASSIVE     LMZ14203HTZ
+        R10        2       2              PASSIVE     10ך
+        R16        2       2              PASSIVE     100
+
+[00059] NetC17_1
+        C17        1       1              PASSIVE     0,022לך
+        DD2        6       FB             PASSIVE     LMZ14203HTZ
+        R13        2       2              PASSIVE     36ך
+        R14        1       1              PASSIVE     6,8ך
+
+[00060] NetC15_2
+        C15        2       2              PASSIVE     4700
+        DD2        5       SS             PASSIVE     LMZ14203HTZ
+
+[00064] +12ֲ
+        A2         6       VOUT           PASSIVE     LMR16006
+        A2         7       VOUT           PASSIVE     LMR16006
+        A2         8       VOUT           PASSIVE     LMR16006
+        R23        2       2              PASSIVE     330
+        R77        2       2              PASSIVE     47ך
+        R78        2       2              PASSIVE     47ך
+        R79        2       2              PASSIVE     47ך
+        VT2        3       S2             PASSIVE     IRF7509
+        VT3        3       S2             PASSIVE     IRF7509
+        VT4        3       S2             PASSIVE     IRF7509
+
+[00065] VIDEO4-
+        DA5        4       IN-            PASSIVE     MAX9547
+        R52        1       1              PASSIVE     62
+        X7         2       2              PASSIVE     Clik-Mate 5025840570
+
+[00066] VIDEO4+
+        DA5        1       IN+            PASSIVE     MAX9547
+        R51        2       2              PASSIVE     62
+        X7         1       1              PASSIVE     Clik-Mate 5025840570
+
+[00067] VIDEO4
+        R40        2       2              PASSIVE     75
+        R57        2       2              PASSIVE     0
+
+[00068] VIDEO3
+        C39        2       2              PASSIVE     4,7לך
+        R68        2       2              PASSIVE     75
+        X10        5       5              PASSIVE     Clik-Mate 5025840870
+
+[00069] NetX5_6
+        X5         6       6              PASSIVE     OMRON XF2W-2415-1A
+        X5         19      19             PASSIVE     OMRON XF2W-2415-1A
+        X6         2       2              PASSIVE     Clik-Mate 5025840370
+
+[00070] NetX5_5
+        X5         5       5              PASSIVE     OMRON XF2W-2415-1A
+        X5         7       7              PASSIVE     OMRON XF2W-2415-1A
+        X5         18      18             PASSIVE     OMRON XF2W-2415-1A
+        X5         20      20             PASSIVE     OMRON XF2W-2415-1A
+        X6         3       3              PASSIVE     Clik-Mate 5025840370
+
+[00071] NetR50_1
+        R50        1       1              PASSIVE     100
+        X12        4       4              PASSIVE     Clik-Mate 5025840470
+
+[00072] NetR49_1
+        R49        1       1              PASSIVE     100
+        X12        3       3              PASSIVE     Clik-Mate 5025840470
+
+[00073] NetR48_1
+        R48        1       1              PASSIVE     100
+        X11        1       1              PASSIVE     Micro-Fit 43045-0401
+
+[00074] NetR30_7
+        R30        7       7              PASSIVE     100
+        X5         1       1              PASSIVE     OMRON XF2W-2415-1A
+        X5         24      24             PASSIVE     OMRON XF2W-2415-1A
+
+[00075] NetR30_5
+        R30        5       5              PASSIVE     100
+        X5         2       2              PASSIVE     OMRON XF2W-2415-1A
+        X5         23      23             PASSIVE     OMRON XF2W-2415-1A
+
+[00076] NetR30_3
+        R30        3       3              PASSIVE     100
+        X5         3       3              PASSIVE     OMRON XF2W-2415-1A
+        X5         22      22             PASSIVE     OMRON XF2W-2415-1A
+
+[00077] NetR30_1
+        R30        1       1              PASSIVE     100
+        X5         4       4              PASSIVE     OMRON XF2W-2415-1A
+        X5         21      21             PASSIVE     OMRON XF2W-2415-1A
+
+[00078] NetHL7_2
+        HL7        2       A              PASSIVE     
+        R36        2       2              PASSIVE     820
+
+[00079] NetDD4_8
+        DD4        8       Rs             PASSIVE     SN65HVD233D
+        R41        2       2              PASSIVE     10ך
+
+[00080] NetDD4_5
+        DD4        5       LBK            PASSIVE     SN65HVD233D
+        R39        1       1              PASSIVE     100
+
+[00081] NetDD4_4
+        DD4        4       R              PASSIVE     SN65HVD233D
+        R38        1       1              PASSIVE     100
+
+[00082] NetDD4_1
+        DD4        1       D              PASSIVE     SN65HVD233D
+        R37        1       1              PASSIVE     100
+
+[00083] NetDA5_7
+        DA5        7       VOUT           PASSIVE     MAX9547
+        R40        1       1              PASSIVE     75
+
+[00084] NetDA5_6
+        DA5        6       L\O\S\         PASSIVE     MAX9547
+        HL7        1       C              PASSIVE     
+
+[00085] NetDA5_3
+        DA5        3       ZT-            PASSIVE     MAX9547
+        R42        2       2              PASSIVE     75
+
+[00086] NetDA5_2
+        DA5        2       ZT+            PASSIVE     MAX9547
+        R42        1       1              PASSIVE     75
+
+[00092] NetDA4_8
+        DA4        8       CS_M           PASSIVE     LSM9DS1
+        R29        2       2              PASSIVE     100
+
+[00093] NetDA4_7
+        DA4        7       CS_A/G         PASSIVE     LSM9DS1
+        R28        2       2              PASSIVE     100
+
+[00094] NetDA4_5
+        DA4        5       SDO_A/G        PASSIVE     LSM9DS1
+        DA4        6       SDO_M          PASSIVE     LSM9DS1
+        R25        2       2              PASSIVE     100
+
+[00095] NetDA4_4
+        DA4        4       SDA/SDI/SDO    PASSIVE     LSM9DS1
+        R27        2       2              PASSIVE     100
+
+[00096] NetDA4_2
+        DA4        2       SCL/SPC        PASSIVE     LSM9DS1
+        R26        2       2              PASSIVE     100
+
+[00097] NetC34_2
+        C34        2       2              PASSIVE     10לך
+        C36        2       2              PASSIVE     0,1לך
+        R51        1       1              PASSIVE     62
+        R52        2       2              PASSIVE     62
+
+[00098] NetC32_2
+        C32        2       2              PASSIVE     4700
+        R46        1       1              PASSIVE     62
+        R47        2       2              PASSIVE     62
+
+[00099] NetC27_2
+        C27        2       2              PASSIVE     0,01לך
+        DA4        21      CAP            PASSIVE     LSM9DS1
+
+[00100] NetC25_2
+        C25        2       2              PASSIVE     0,1לך
+        DA4        24      C1             PASSIVE     LSM9DS1
+
+[00101] +8,5ֲ
+        A3         6       VOUT           PASSIVE     LMR16006
+        A3         7       VOUT           PASSIVE     LMR16006
+        A3         8       VOUT           PASSIVE     LMR16006
+        C28        2       2              PASSIVE     4,7לך
+        C30        2       2              PASSIVE     0,1לך
+        DA5        8       VCC            PASSIVE     MAX9547
+        R24        2       2              PASSIVE     330
+        R36        1       1              PASSIVE     820
+
+[00102] PGND
+        C20        2       2              PASSIVE     470לך
+        C23        2       2              PASSIVE     470לך
+        R21        1       1              PASSIVE     0
+        VT1        1       S              PASSIVE     NTMFS5H409NL
+        VT1        2       S              PASSIVE     NTMFS5H409NL
+        VT1        3       S              PASSIVE     NTMFS5H409NL
+        X8         4       4              PASSIVE     Micro-Fit 43045-0401
+        X9         4       4              PASSIVE     Micro-Fit 43045-0401
+        X10        7       7              PASSIVE     Clik-Mate 5025840870
+        X10        8       8              PASSIVE     Clik-Mate 5025840870
+        X11        4       4              PASSIVE     Micro-Fit 43045-0401
+        X19        18      18             PASSIVE     SSM-116-L-DV
+        X19        19      19             PASSIVE     SSM-116-L-DV
+        X19        20      20             PASSIVE     SSM-116-L-DV
+        X19        21      21             PASSIVE     SSM-116-L-DV
+        X19        22      22             PASSIVE     SSM-116-L-DV
+        X21        18      18             PASSIVE     SSM-116-L-DV
+        X21        19      19             PASSIVE     SSM-116-L-DV
+        X21        20      20             PASSIVE     SSM-116-L-DV
+        X21        21      21             PASSIVE     SSM-116-L-DV
+        X21        22      22             PASSIVE     SSM-116-L-DV
+
+[00103] NetX22_6
+        X22        6       6              PASSIVE     PBS-06-SMD
+        X26        6       6              PASSIVE     PLS-6
+
+[00104] NetX22_5
+        X22        5       5              PASSIVE     PBS-06-SMD
+        X26        5       5              PASSIVE     PLS-6
+
+[00105] NetX22_4
+        X22        4       4              PASSIVE     PBS-06-SMD
+        X26        4       4              PASSIVE     PLS-6
+
+[00106] NetX22_3
+        X22        3       3              PASSIVE     PBS-06-SMD
+        X26        3       3              PASSIVE     PLS-6
+
+[00107] NetX22_2
+        X22        2       2              PASSIVE     PBS-06-SMD
+        X26        2       2              PASSIVE     PLS-6
+
+[00108] NetX22_1
+        X22        1       1              PASSIVE     PBS-06-SMD
+        X26        1       1              PASSIVE     PLS-6
+
+[00110] NetX20_6
+        X20        6       6              PASSIVE     PBS-06-SMD
+        X25        6       6              PASSIVE     PLS-6
+
+[00111] NetX20_5
+        X20        5       5              PASSIVE     PBS-06-SMD
+        X25        5       5              PASSIVE     PLS-6
+
+[00112] NetX20_4
+        X20        4       4              PASSIVE     PBS-06-SMD
+        X25        4       4              PASSIVE     PLS-6
+
+[00113] NetX20_3
+        X20        3       3              PASSIVE     PBS-06-SMD
+        X25        3       3              PASSIVE     PLS-6
+
+[00114] NetX20_2
+        X20        2       2              PASSIVE     PBS-06-SMD
+        X25        2       2              PASSIVE     PLS-6
+
+[00115] NetX20_1
+        X20        1       1              PASSIVE     PBS-06-SMD
+        X25        1       1              PASSIVE     PLS-6
+
+[00120] NetR111_8
+        R111       8       8              PASSIVE     100
+        X21        25      25             PASSIVE     SSM-116-L-DV
+
+[00121] NetR111_7
+        R111       7       7              PASSIVE     100
+        R113       1       1              PASSIVE     47ך
+        X24        8       8              PASSIVE     Micro-Fit 43045-0800
+
+[00122] NetR111_6
+        R111       6       6              PASSIVE     100
+        X21        24      24             PASSIVE     SSM-116-L-DV
+
+[00123] NetR111_5
+        R111       5       5              PASSIVE     100
+        R115       1       1              PASSIVE     47ך
+        X24        7       7              PASSIVE     Micro-Fit 43045-0800
+
+[00124] NetR111_4
+        R111       4       4              PASSIVE     100
+        X21        23      23             PASSIVE     SSM-116-L-DV
+
+[00125] NetR111_3
+        R111       3       3              PASSIVE     100
+        R117       1       1              PASSIVE     47ך
+        X24        6       6              PASSIVE     Micro-Fit 43045-0800
+
+[00128] NetR110_8
+        R110       8       8              PASSIVE     100
+        X19        25      25             PASSIVE     SSM-116-L-DV
+
+[00129] NetR110_7
+        R110       7       7              PASSIVE     100
+        R112       1       1              PASSIVE     47ך
+        X23        8       8              PASSIVE     Micro-Fit 43045-0800
+
+[00130] NetR110_6
+        R110       6       6              PASSIVE     100
+        X19        24      24             PASSIVE     SSM-116-L-DV
+
+[00131] NetR110_5
+        R110       5       5              PASSIVE     100
+        R114       1       1              PASSIVE     47ך
+        X23        7       7              PASSIVE     Micro-Fit 43045-0800
+
+[00132] NetR110_4
+        R110       4       4              PASSIVE     100
+        X19        23      23             PASSIVE     SSM-116-L-DV
+
+[00133] NetR110_3
+        R110       3       3              PASSIVE     100
+        R116       1       1              PASSIVE     47ך
+        X23        6       6              PASSIVE     Micro-Fit 43045-0800
+
+[00136] NetR109_4
+        R109       4       4              PASSIVE     10ך
+        X18        30      30             PASSIVE     SSM-123-L-DV
+
+[00137] NetR108_2
+        R108       2       2              PASSIVE     10ך
+        X17        29      29             PASSIVE     SSM-123-L-DV
+
+[00138] NetL7_2
+        L7         2       2              PASSIVE     56לךֳם
+        X24        3       3              PASSIVE     Micro-Fit 43045-0800
+
+[00139] NetL7_1
+        L7         1       1              PASSIVE     56לךֳם
+        X21        9       9              PASSIVE     SSM-116-L-DV
+        X21        10      10             PASSIVE     SSM-116-L-DV
+        X21        11      11             PASSIVE     SSM-116-L-DV
+        X21        12      12             PASSIVE     SSM-116-L-DV
+
+[00140] NetL6_2
+        L6         2       2              PASSIVE     56לךֳם
+        X24        2       2              PASSIVE     Micro-Fit 43045-0800
+
+[00141] NetL6_1
+        L6         1       1              PASSIVE     56לךֳם
+        X21        5       5              PASSIVE     SSM-116-L-DV
+        X21        6       6              PASSIVE     SSM-116-L-DV
+        X21        7       7              PASSIVE     SSM-116-L-DV
+        X21        8       8              PASSIVE     SSM-116-L-DV
+
+[00142] NetL5_2
+        L5         2       2              PASSIVE     56לךֳם
+        X24        1       1              PASSIVE     Micro-Fit 43045-0800
+
+[00143] NetL5_1
+        L5         1       1              PASSIVE     56לךֳם
+        X21        1       1              PASSIVE     SSM-116-L-DV
+        X21        2       2              PASSIVE     SSM-116-L-DV
+        X21        3       3              PASSIVE     SSM-116-L-DV
+        X21        4       4              PASSIVE     SSM-116-L-DV
+
+[00144] NetL4_2
+        L4         2       2              PASSIVE     56לךֳם
+        X23        3       3              PASSIVE     Micro-Fit 43045-0800
+
+[00145] NetL4_1
+        L4         1       1              PASSIVE     56לךֳם
+        X19        9       9              PASSIVE     SSM-116-L-DV
+        X19        10      10             PASSIVE     SSM-116-L-DV
+        X19        11      11             PASSIVE     SSM-116-L-DV
+        X19        12      12             PASSIVE     SSM-116-L-DV
+
+[00146] NetL3_2
+        L3         2       2              PASSIVE     56לךֳם
+        X23        2       2              PASSIVE     Micro-Fit 43045-0800
+
+[00147] NetL3_1
+        L3         1       1              PASSIVE     56לךֳם
+        X19        5       5              PASSIVE     SSM-116-L-DV
+        X19        6       6              PASSIVE     SSM-116-L-DV
+        X19        7       7              PASSIVE     SSM-116-L-DV
+        X19        8       8              PASSIVE     SSM-116-L-DV
+
+[00148] NetL2_2
+        L2         2       2              PASSIVE     56לךֳם
+        X23        1       1              PASSIVE     Micro-Fit 43045-0800
+
+[00149] NetL2_1
+        L2         1       1              PASSIVE     56לךֳם
+        X19        1       1              PASSIVE     SSM-116-L-DV
+        X19        2       2              PASSIVE     SSM-116-L-DV
+        X19        3       3              PASSIVE     SSM-116-L-DV
+        X19        4       4              PASSIVE     SSM-116-L-DV
+
+[00150] CAN_L
+        C33        2       2              PASSIVE     0,1לך
+        DD4        6       CANL           PASSIVE     SN65HVD233D
+        R47        1       1              PASSIVE     62
+        VD3        2                      PASSIVE     AQ24CANFD
+        X7         4       4              PASSIVE     Clik-Mate 5025840570
+        X8         2       2              PASSIVE     Micro-Fit 43045-0401
+        X9         2       2              PASSIVE     Micro-Fit 43045-0401
+        X10        4       4              PASSIVE     Clik-Mate 5025840870
+        X17        36      36             PASSIVE     SSM-123-L-DV
+        X18        36      36             PASSIVE     SSM-123-L-DV
+
+[00151] CAN_H
+        C35        2       2              PASSIVE     0,1לך
+        DD4        7       CANH           PASSIVE     SN65HVD233D
+        R46        2       2              PASSIVE     62
+        VD3        1                      PASSIVE     AQ24CANFD
+        X7         3       3              PASSIVE     Clik-Mate 5025840570
+        X8         1       1              PASSIVE     Micro-Fit 43045-0401
+        X9         1       1              PASSIVE     Micro-Fit 43045-0401
+        X10        3       3              PASSIVE     Clik-Mate 5025840870
+        X17        35      35             PASSIVE     SSM-123-L-DV
+        X18        35      35             PASSIVE     SSM-123-L-DV
+
+[00152] 332
+        X21        32      32             PASSIVE     SSM-116-L-DV
+
+[00153] 331
+        X21        31      31             PASSIVE     SSM-116-L-DV
+
+[00154] 330
+        X21        30      30             PASSIVE     SSM-116-L-DV
+
+[00155] 329
+        X21        29      29             PASSIVE     SSM-116-L-DV
+
+[00156] 328
+        X21        28      28             PASSIVE     SSM-116-L-DV
+
+[00157] 327
+        X21        27      27             PASSIVE     SSM-116-L-DV
+
+[00158] 232
+        X19        32      32             PASSIVE     SSM-116-L-DV
+
+[00159] 231
+        X19        31      31             PASSIVE     SSM-116-L-DV
+
+[00160] 230
+        X19        30      30             PASSIVE     SSM-116-L-DV
+
+[00161] 229
+        X19        29      29             PASSIVE     SSM-116-L-DV
+
+[00162] 228
+        X19        28      28             PASSIVE     SSM-116-L-DV
+
+[00163] 227
+        X19        27      27             PASSIVE     SSM-116-L-DV
+
+[00164] 146
+        X18        46      46             PASSIVE     SSM-123-L-DV
+
+[00165] 145
+        X18        45      45             PASSIVE     SSM-123-L-DV
+
+[00166] 144
+        X18        44      44             PASSIVE     SSM-123-L-DV
+
+[00167] 143
+        X18        43      43             PASSIVE     SSM-123-L-DV
+
+[00168] 142
+        X18        42      42             PASSIVE     SSM-123-L-DV
+
+[00169] 141
+        X18        41      41             PASSIVE     SSM-123-L-DV
+
+[00170] 140
+        X18        40      40             PASSIVE     SSM-123-L-DV
+
+[00171] 139
+        X18        39      39             PASSIVE     SSM-123-L-DV
+
+[00172] 134
+        X18        34      34             PASSIVE     SSM-123-L-DV
+
+[00173] 133
+        X18        33      33             PASSIVE     SSM-123-L-DV
+
+[00174] 132
+        R109       8       8              PASSIVE     10ך
+        X18        32      32             PASSIVE     SSM-123-L-DV
+
+[00175] 131
+        R109       6       6              PASSIVE     10ך
+        X18        31      31             PASSIVE     SSM-123-L-DV
+
+[00176] 129
+        R109       2       2              PASSIVE     10ך
+        X18        29      29             PASSIVE     SSM-123-L-DV
+
+[00177] 128
+        X18        28      28             PASSIVE     SSM-123-L-DV
+
+[00178] 127
+        X18        27      27             PASSIVE     SSM-123-L-DV
+
+[00179] 126
+        X18        26      26             PASSIVE     SSM-123-L-DV
+
+[00180] 125
+        X18        25      25             PASSIVE     SSM-123-L-DV
+
+[00181] 124
+        X18        24      24             PASSIVE     SSM-123-L-DV
+
+[00182] 123
+        X18        23      23             PASSIVE     SSM-123-L-DV
+
+[00183] 122
+        X18        22      22             PASSIVE     SSM-123-L-DV
+
+[00184] 121
+        X18        21      21             PASSIVE     SSM-123-L-DV
+
+[00185] 120
+        X18        20      20             PASSIVE     SSM-123-L-DV
+
+[00186] 119
+        X18        19      19             PASSIVE     SSM-123-L-DV
+
+[00187] 118
+        X18        18      18             PASSIVE     SSM-123-L-DV
+
+[00188] 117
+        X18        17      17             PASSIVE     SSM-123-L-DV
+
+[00189] 114
+        X18        14      14             PASSIVE     SSM-123-L-DV
+
+[00190] 113
+        X18        13      13             PASSIVE     SSM-123-L-DV
+
+[00191] 112
+
+[00192] 111
+        X18        11      11             PASSIVE     SSM-123-L-DV
+
+[00193] 110
+        X18        10      10             PASSIVE     SSM-123-L-DV
+
+[00194] 109
+        X18        9       9              PASSIVE     SSM-123-L-DV
+
+[00195] 108
+        X18        8       8              PASSIVE     SSM-123-L-DV
+
+[00196] 107
+        X18        7       7              PASSIVE     SSM-123-L-DV
+
+[00197] 106
+        X18        6       6              PASSIVE     SSM-123-L-DV
+
+[00198] 105
+        X18        5       5              PASSIVE     SSM-123-L-DV
+
+[00199] 104
+        X18        4       4              PASSIVE     SSM-123-L-DV
+
+[00200] 103
+        X18        3       3              PASSIVE     SSM-123-L-DV
+
+[00201] 102
+        X18        2       2              PASSIVE     SSM-123-L-DV
+
+[00202] 101
+        X18        1       1              PASSIVE     SSM-123-L-DV
+
+[00203] 46
+        X17        46      46             PASSIVE     SSM-123-L-DV
+
+[00204] 45
+        X17        45      45             PASSIVE     SSM-123-L-DV
+
+[00205] 44
+        X17        44      44             PASSIVE     SSM-123-L-DV
+
+[00206] 43
+        X17        43      43             PASSIVE     SSM-123-L-DV
+
+[00207] 42
+        X17        42      42             PASSIVE     SSM-123-L-DV
+
+[00208] 41
+        X17        41      41             PASSIVE     SSM-123-L-DV
+
+[00209] 40
+        X17        40      40             PASSIVE     SSM-123-L-DV
+
+[00210] 39
+        X17        39      39             PASSIVE     SSM-123-L-DV
+
+[00211] 34
+        X17        34      34             PASSIVE     SSM-123-L-DV
+
+[00212] 33
+        X17        33      33             PASSIVE     SSM-123-L-DV
+
+[00213] 32
+        R108       8       8              PASSIVE     10ך
+        X17        32      32             PASSIVE     SSM-123-L-DV
+
+[00214] 31
+        R108       6       6              PASSIVE     10ך
+        X17        31      31             PASSIVE     SSM-123-L-DV
+
+[00215] 30
+        R108       4       4              PASSIVE     10ך
+        X17        30      30             PASSIVE     SSM-123-L-DV
+
+[00216] 28
+        X17        28      28             PASSIVE     SSM-123-L-DV
+
+[00217] 27
+        X17        27      27             PASSIVE     SSM-123-L-DV
+
+[00218] 26
+        X17        26      26             PASSIVE     SSM-123-L-DV
+
+[00219] 25
+        X17        25      25             PASSIVE     SSM-123-L-DV
+
+[00220] 24
+        X17        24      24             PASSIVE     SSM-123-L-DV
+
+[00221] 23
+        X17        23      23             PASSIVE     SSM-123-L-DV
+
+[00222] 22
+        X17        22      22             PASSIVE     SSM-123-L-DV
+
+[00223] 21
+        X17        21      21             PASSIVE     SSM-123-L-DV
+
+[00224] 20
+        X17        20      20             PASSIVE     SSM-123-L-DV
+
+[00225] 19
+        X17        19      19             PASSIVE     SSM-123-L-DV
+
+[00226] 18
+        X17        18      18             PASSIVE     SSM-123-L-DV
+
+[00227] 17
+        X17        17      17             PASSIVE     SSM-123-L-DV
+
+[00228] 14
+        X17        14      14             PASSIVE     SSM-123-L-DV
+
+[00229] 13
+        X17        13      13             PASSIVE     SSM-123-L-DV
+
+[00230] 12
+        X17        12      12             PASSIVE     SSM-123-L-DV
+
+[00231] 11
+        X17        11      11             PASSIVE     SSM-123-L-DV
+
+[00232] 10
+        X17        10      10             PASSIVE     SSM-123-L-DV
+
+[00233] 9
+        X17        9       9              PASSIVE     SSM-123-L-DV
+
+[00234] 8
+        X17        8       8              PASSIVE     SSM-123-L-DV
+
+[00235] 7
+        X17        7       7              PASSIVE     SSM-123-L-DV
+
+[00236] 6
+        X17        6       6              PASSIVE     SSM-123-L-DV
+
+[00237] 5
+        X17        5       5              PASSIVE     SSM-123-L-DV
+
+[00238] 4
+        X17        4       4              PASSIVE     SSM-123-L-DV
+
+[00239] 3
+        X17        3       3              PASSIVE     SSM-123-L-DV
+
+[00240] 2
+        X17        2       2              PASSIVE     SSM-123-L-DV
+
+[00241] 1
+        X17        1       1              PASSIVE     SSM-123-L-DV
+
+[00242] +14,4ֲ
+        A1         1       VIN            PASSIVE     LMR16006
+        A1         2       VIN            PASSIVE     LMR16006
+        A2         1       VIN            PASSIVE     LMR16006
+        A2         2       VIN            PASSIVE     LMR16006
+        A3         1       VIN            PASSIVE     LMR16006
+        A3         2       VIN            PASSIVE     LMR16006
+        C14        2       2              PASSIVE     10לך
+        C20        1       1              PASSIVE     470לך
+        C23        1       1              PASSIVE     470לך
+        DD2        1       VIN            PASSIVE     LMZ14203HTZ
+        R9         2       2              PASSIVE     39ך
+        R11        2       2              PASSIVE     47ך
+        X3         1       1              PASSIVE     Micro-Fit 43045-1000
+        X3         2       2              PASSIVE     Micro-Fit 43045-1000
+        X8         3       3              PASSIVE     Micro-Fit 43045-0401
+        X9         3       3              PASSIVE     Micro-Fit 43045-0401
+        X10        1       1              PASSIVE     Clik-Mate 5025840870
+        X10        2       2              PASSIVE     Clik-Mate 5025840870
+        X11        3       3              PASSIVE     Micro-Fit 43045-0401
+        X19        13      13             PASSIVE     SSM-116-L-DV
+        X19        14      14             PASSIVE     SSM-116-L-DV
+        X19        15      15             PASSIVE     SSM-116-L-DV
+        X19        16      16             PASSIVE     SSM-116-L-DV
+        X19        17      17             PASSIVE     SSM-116-L-DV
+        X21        13      13             PASSIVE     SSM-116-L-DV
+        X21        14      14             PASSIVE     SSM-116-L-DV
+        X21        15      15             PASSIVE     SSM-116-L-DV
+        X21        16      16             PASSIVE     SSM-116-L-DV
+        X21        17      17             PASSIVE     SSM-116-L-DV
+
+[00243] +5ֲ_ְ
+        C17        2       2              PASSIVE     0,022לך
+        C18        2       2              PASSIVE     10לך
+        C21        2       2              PASSIVE     10לך
+        C22        2       2              PASSIVE     10לך
+        C45        2       2              PASSIVE     0,1לך
+        C46        2       2              PASSIVE     0,1לך
+        C47        2       2              PASSIVE     0,1לך
+        C48        2       2              PASSIVE     0,1לך
+        C52        2       2              PASSIVE     0,1לך
+        DA6        6       VS             PASSIVE     ADA4430
+        DA7        6       VS             PASSIVE     ADA4430
+        DA8        6       VS             PASSIVE     ADA4430
+        DA9        6       VS             PASSIVE     ADA4430
+        DA11       5       D\I\S\         PASSIVE     ADA4430
+        DA11       6       VS             PASSIVE     ADA4430
+        DD2        7       VOUT           PASSIVE     LMZ14203HTZ
+        R13        1       1              PASSIVE     36ך
+        R20        1       1              PASSIVE     510
+        R84        2       2              PASSIVE     2,4ך
+        R85        2       2              PASSIVE     2,4ך
+        R86        2       2              PASSIVE     2,4ך
+        R87        2       2              PASSIVE     2,4ך
+        R100       2       2              PASSIVE     2,4ך
+        X5         10      10             PASSIVE     OMRON XF2W-2415-1A
+        X5         11      11             PASSIVE     OMRON XF2W-2415-1A
+        X5         12      12             PASSIVE     OMRON XF2W-2415-1A
+        X5         13      13             PASSIVE     OMRON XF2W-2415-1A
+        X5         14      14             PASSIVE     OMRON XF2W-2415-1A
+        X5         15      15             PASSIVE     OMRON XF2W-2415-1A
+        X23        4       4              PASSIVE     Micro-Fit 43045-0800
+        X24        4       4              PASSIVE     Micro-Fit 43045-0800
+
+[00244] SGND
+        A1         3       GND            PASSIVE     LMR16006
+        A1         4       GND            PASSIVE     LMR16006
+        A1         9       GND            PASSIVE     LMR16006
+        A1         10      GND            PASSIVE     LMR16006
+        A2         3       GND            PASSIVE     LMR16006
+        A2         4       GND            PASSIVE     LMR16006
+        A2         9       GND            PASSIVE     LMR16006
+        A2         10      GND            PASSIVE     LMR16006
+        A3         3       GND            PASSIVE     LMR16006
+        A3         4       GND            PASSIVE     LMR16006
+        A3         9       GND            PASSIVE     LMR16006
+        A3         10      GND            PASSIVE     LMR16006
+        C1         1       1              PASSIVE     0,1לך
+        C2         1       1              PASSIVE     0,1לך
+        C3         1       1              PASSIVE     0,1לך
+        C4         1       1              PASSIVE     10לך
+        C5         1       1              PASSIVE     0,1לך
+        C6         1       1              PASSIVE     0,1לך
+        C7         1       1              PASSIVE     0,1לך
+        C8         1       1              PASSIVE     0,1לך
+        C9         1       1              PASSIVE     0,1לך
+        C10        1       1              PASSIVE     0,1לך
+        C11        1       1              PASSIVE     2,2לך
+        C12        1       1              PASSIVE     2,2לך
+        C13        1       1              PASSIVE     0,1לך
+        C14        1       1              PASSIVE     10לך
+        C15        1       1              PASSIVE     4700
+        C16        1       1              PASSIVE     0,1לך
+        C18        1       1              PASSIVE     10לך
+        C19        1       1              PASSIVE     0,1לך
+        C21        1       1              PASSIVE     10לך
+        C22        1       1              PASSIVE     10לך
+        C24        1       1              PASSIVE     10לך
+        C25        1       1              PASSIVE     0,1לך
+        C26        1       1              PASSIVE     0,1לך
+        C27        1       1              PASSIVE     0,01לך
+        C28        1       1              PASSIVE     4,7לך
+        C29        1       1              PASSIVE     15
+        C30        1       1              PASSIVE     0,1לך
+        C31        1       1              PASSIVE     0,1לך
+        C32        1       1              PASSIVE     4700
+        C33        1       1              PASSIVE     0,1לך
+        C34        1       1              PASSIVE     10לך
+        C35        1       1              PASSIVE     0,1לך
+        C36        1       1              PASSIVE     0,1לך
+        C41        1       1              PASSIVE     4,7לך
+        C42        1       1              PASSIVE     4,7לך
+        C43        1       1              PASSIVE     4,7לך
+        C44        1       1              PASSIVE     4,7לך
+        C45        1       1              PASSIVE     0,1לך
+        C46        1       1              PASSIVE     0,1לך
+        C47        1       1              PASSIVE     0,1לך
+        C48        1       1              PASSIVE     0,1לך
+        C49        1       1              PASSIVE     0,1לך
+        C51        1       1              PASSIVE     4,7לך
+        C52        1       1              PASSIVE     0,1לך
+        DA1        2       GND            PASSIVE     TPD2S017
+        DA2        2       GND            PASSIVE     TPD2S017
+        DA3        2       GND            PASSIVE     TPD2S017
+        DA4        14      RES            PASSIVE     LSM9DS1
+        DA4        15      RES            PASSIVE     LSM9DS1
+        DA4        16      RES            PASSIVE     LSM9DS1
+        DA4        17      RES            PASSIVE     LSM9DS1
+        DA4        18      RES            PASSIVE     LSM9DS1
+        DA4        19      GND            PASSIVE     LSM9DS1
+        DA4        20      GND            PASSIVE     LSM9DS1
+        DA5        5       GND            PASSIVE     MAX9547
+        DA5        9       PPAD           PASSIVE     MAX9547
+        DA6        2       GND            PASSIVE     ADA4430
+        DA7        2       GND            PASSIVE     ADA4430
+        DA8        2       GND            PASSIVE     ADA4430
+        DA9        2       GND            PASSIVE     ADA4430
+        DA10       3       VSS            PASSIVE     ADG1604BRUZ
+        DA10       13      GND            PASSIVE     ADG1604BRUZ
+        DA11       2       GND            PASSIVE     ADA4430
+        DD1        12      VSSA           PASSIVE     STM32F405RG
+        DD1        18      VSS            PASSIVE     STM32F405RG
+        DD1        60      BOOT0/VPP      PASSIVE     STM32F405RG
+        DD1        63      VSS            PASSIVE     STM32F405RG
+        DD2        4       GND            PASSIVE     LMZ14203HTZ
+        DD2        8       PPAD           PASSIVE     LMZ14203HTZ
+        DD3        5       GND            PASSIVE     SN65HVD1781
+        DD4        2       GND            PASSIVE     SN65HVD233D
+        HL1        1       C              PASSIVE     KP-1608EC
+        HL2        1       C              PASSIVE     KP-1608MGC
+        HL3        1       C              PASSIVE     KP-1608MGC
+        HL4        1       C              PASSIVE     KP-1608QBC-D
+        HL5        1       C              PASSIVE     KP-1608QBC-D
+        HL6        1       C              PASSIVE     KP-1608QBC-D
+        R10        1       1              PASSIVE     10ך
+        R14        2       2              PASSIVE     6,8ך
+        R17        1       1              PASSIVE     47ך
+        R21        2       2              PASSIVE     0
+        R41        1       1              PASSIVE     10ך
+        R43        1       1              PASSIVE     47ך
+        R44        1       1              PASSIVE     47ך
+        R45        1       1              PASSIVE     47ך
+        R53        1       1              PASSIVE     47ך
+        R54        1       1              PASSIVE     47ך
+        R55        1       1              PASSIVE     47ך
+        R56        1       1              PASSIVE     47ך
+        R58        1       1              PASSIVE     47ך
+        R59        1       1              PASSIVE     47ך
+        R60        1       1              PASSIVE     47ך
+        R66        1       1              PASSIVE     75
+        R67        1       1              PASSIVE     75
+        R68        1       1              PASSIVE     75
+        R69        1       1              PASSIVE     75
+        R73        1       1              PASSIVE     10ך
+        R74        1       1              PASSIVE     10ך
+        R75        1       1              PASSIVE     10ך
+        R76        1       1              PASSIVE     10ך
+        R80        1       1              PASSIVE     470
+        R81        1       1              PASSIVE     470
+        R82        1       1              PASSIVE     470
+        R83        1       1              PASSIVE     470
+        R92        2       2              PASSIVE     75
+        R93        2       2              PASSIVE     75
+        R94        2       2              PASSIVE     75
+        R95        2       2              PASSIVE     75
+        R97        2       2              PASSIVE     75
+        R98        1       1              PASSIVE     10ך
+        R99        1       1              PASSIVE     470
+        R107       1       1              PASSIVE     47ך
+        R108       1       1              PASSIVE     10ך
+        R108       5       5              PASSIVE     10ך
+        R108       7       7              PASSIVE     10ך
+        R109       5       5              PASSIVE     10ך
+        R109       7       7              PASSIVE     10ך
+        VD2        3                      PASSIVE     SM712
+        VD3        3                      PASSIVE     AQ24CANFD
+        VT2        1       S1             PASSIVE     IRF7509
+        VT3        1       S1             PASSIVE     IRF7509
+        VT4        1       S1             PASSIVE     IRF7509
+        X1         3       3              PASSIVE     PLS-3
+        X2         3       3              PASSIVE     PLS-6
+        X5         8       8              PASSIVE     OMRON XF2W-2415-1A
+        X5         9       9              PASSIVE     OMRON XF2W-2415-1A
+        X5         16      16             PASSIVE     OMRON XF2W-2415-1A
+        X5         17      17             PASSIVE     OMRON XF2W-2415-1A
+        X7         5       5              PASSIVE     Clik-Mate 5025840570
+        X10        6       6              PASSIVE     Clik-Mate 5025840870
+        X11        2       2              PASSIVE     Micro-Fit 43045-0401
+        X12        1       1              PASSIVE     Clik-Mate 5025840470
+        X13        2       2              PASSIVE     Clik-Mate 5025840370
+        X14        2       2              PASSIVE     Clik-Mate 5025840370
+        X15        2       2              PASSIVE     Clik-Mate 5025840370
+        X16        2       2              PASSIVE     Clik-Mate 5025840370
+        X16        3       3              PASSIVE     Clik-Mate 5025840370
+        X17        16      16             PASSIVE     SSM-123-L-DV
+        X17        37      37             PASSIVE     SSM-123-L-DV
+        X17        38      38             PASSIVE     SSM-123-L-DV
+        X18        16      16             PASSIVE     SSM-123-L-DV
+        X18        37      37             PASSIVE     SSM-123-L-DV
+        X18        38      38             PASSIVE     SSM-123-L-DV
+        X23        5       5              PASSIVE     Micro-Fit 43045-0800
+        X24        5       5              PASSIVE     Micro-Fit 43045-0800
+        Z1         2       2              PASSIVE     CSTCE12M0G52-R0
+
+[00245] NetVD1_1
+        VD1        1       K              PASSIVE     MBR2H100SFT3G
+        X2         1       1              PASSIVE     PLS-6
+
+[00246] NetHL2_2
+        HL2        2       A              PASSIVE     KP-1608MGC
+        R2         1       1              PASSIVE     330
+
+[00247] NetHL1_2
+        HL1        2       A              PASSIVE     KP-1608EC
+        R1         1       1              PASSIVE     330
+
+[00260] NetDD1_6
+        DD1        6       PH1/OSC_OUT    PASSIVE     STM32F405RG
+        Z1         1       1              PASSIVE     CSTCE12M0G52-R0
+
+[00261] NetDD1_5
+        DD1        5       PH0/OSC_IN     PASSIVE     STM32F405RG
+        Z1         3       3              PASSIVE     CSTCE12M0G52-R0
+
+[00262] NetDA3_6
+        DA3        6       OUT2           PASSIVE     TPD2S017
+        X2         6       6              PASSIVE     PLS-6
+
+[00263] NetDA3_4
+        DA3        4       IN2            PASSIVE     TPD2S017
+        R6         1       1              PASSIVE     100
+
+[00264] NetDA3_3
+        DA3        3       IN1            PASSIVE     TPD2S017
+        R5         1       1              PASSIVE     100
+
+[00265] NetDA3_1
+        DA3        1       OUT1           PASSIVE     TPD2S017
+        X2         5       5              PASSIVE     PLS-6
+
+[00266] NetDA2_6
+        DA2        6       OUT2           PASSIVE     TPD2S017
+        X2         4       4              PASSIVE     PLS-6
+
+[00267] NetDA2_4
+        DA2        4       IN2            PASSIVE     TPD2S017
+        R4         1       1              PASSIVE     100
+
+[00268] NetDA2_3
+        DA2        3       IN1            PASSIVE     TPD2S017
+        R3         1       1              PASSIVE     100
+
+[00269] NetDA2_1
+        DA2        1       OUT1           PASSIVE     TPD2S017
+        X2         2       2              PASSIVE     PLS-6
+
+[00270] NetDA1_6
+        DA1        6       OUT2           PASSIVE     TPD2S017
+        X1         2       2              PASSIVE     PLS-3
+
+[00271] NetDA1_4
+        DA1        4       IN2            PASSIVE     TPD2S017
+        R8         1       1              PASSIVE     100
+
+[00272] NetDA1_3
+        DA1        3       IN1            PASSIVE     TPD2S017
+        R7         1       1              PASSIVE     100
+
+[00273] NetDA1_1
+        DA1        1       OUT1           PASSIVE     TPD2S017
+        X1         1       1              PASSIVE     PLS-3
+
+[00274] NetC12_2
+        C12        2       2              PASSIVE     2,2לך
+        DD1        31      VCAP_1         PASSIVE     STM32F405RG
+
+[00275] NetC11_2
+        C11        2       2              PASSIVE     2,2לך
+        DD1        47      VCAP_2         PASSIVE     STM32F405RG
+
+[00276] NetC10_2
+        C10        2       2              PASSIVE     0,1לך
+        DD1        13      VDDA           PASSIVE     STM32F405RG
+        L1         2       2              PASSIVE     180 ־ל
+
+[00277] MCU_VIDEO4_PWR_EN
+        DD1        4       PC15 / OSC32_OUPASSIVE     STM32F405RG
+        R59        2       2              PASSIVE     47ך
+        R71        2       2              PASSIVE     100
+
+[00278] MCU_VIDEO4_EN
+        DD1        62      PB9 / SPI2_NSS PASSIVE     STM32F405RG
+        R56        2       2              PASSIVE     47ך
+        R65        2       2              PASSIVE     100
+
+[00279] MCU_VIDEO3_EN
+        DD1        58      PB6 / I2C1_SCL PASSIVE     STM32F405RG
+        R55        2       2              PASSIVE     47ך
+        R64        2       2              PASSIVE     100
+
+[00280] MCU_VIDEO2_PWR_EN
+        DD1        3       PC14 / OSC32_INPASSIVE     STM32F405RG
+        R60        2       2              PASSIVE     47ך
+        R72        2       2              PASSIVE     100
+
+[00281] MCU_VIDEO2_EN
+        DD1        61      PB8 / TIM4_CH3 PASSIVE     STM32F405RG
+        R54        2       2              PASSIVE     47ך
+        R63        2       2              PASSIVE     100
+
+[00282] MCU_VIDEO1_PWR_EN
+        DD1        2       PC13 / RTC_AF1 PASSIVE     STM32F405RG
+        R58        2       2              PASSIVE     47ך
+        R70        2       2              PASSIVE     100
+
+[00283] MCU_VIDEO1_EN
+        DD1        59      PB7 / I2C1_SDA PASSIVE     STM32F405RG
+        R53        2       2              PASSIVE     47ך
+        R62        2       2              PASSIVE     100
+
+[00284] MCU_UART6_TX
+        DD1        37      PC6 / I2S2_MCK PASSIVE     STM32F405RG
+        R8         2       2              PASSIVE     100
+
+[00285] MCU_UART6_RX
+        DD1        38      PC7 / I2S3_MCK PASSIVE     STM32F405RG
+        R7         2       2              PASSIVE     100
+
+[00286] MCU_UART4_TX
+        DD1        14      PA0 / WKUP / USPASSIVE     STM32F405RG
+        R30        2       2              PASSIVE     100
+
+[00287] MCU_UART4_RX
+        DD1        15      PA1 / USART2_RTPASSIVE     STM32F405RG
+        R30        4       4              PASSIVE     100
+        R33        1       1              PASSIVE     47ך
+
+[00288] MCU_UART2_TX
+        DD1        16      PA2 / USART2_TXPASSIVE     STM32F405RG
+        R30        6       6              PASSIVE     100
+
+[00289] MCU_UART2_RX
+        DD1        17      PA3 / USART2_RXPASSIVE     STM32F405RG
+        R30        8       8              PASSIVE     100
+        R35        1       1              PASSIVE     47ך
+
+[00290] MCU_TRACE
+        DD1        55      PB3 / JTDO / TRPASSIVE     STM32F405RG
+        R6         2       2              PASSIVE     100
+
+[00291] MCU_SWDIO
+        DD1        46      PA13 / JTMS / SPASSIVE     STM32F405RG
+        R4         2       2              PASSIVE     100
+
+[00292] MCU_SWCLK
+        DD1        49      PA14 / JTCK / SPASSIVE     STM32F405RG
+        R3         2       2              PASSIVE     100
+
+[00293] MCU_SDA_PSensor
+        DD1        40      PC9 / I2S_CKIN PASSIVE     STM32F405RG
+        R45        2       2              PASSIVE     47ך
+        R49        2       2              PASSIVE     100
+
+[00294] MCU_SCL_PSensor
+        DD1        41      PA8 / MCO1 / USPASSIVE     STM32F405RG
+        R43        2       2              PASSIVE     47ך
+        R50        2       2              PASSIVE     100
+
+[00295] MCU_RS485_TX_BAT
+        DD1        53      PC12 / UART5_TXPASSIVE     STM32F405RG
+        DD3        4       DI             PASSIVE     SN65HVD1781
+
+[00296] MCU_RS485_RX_BAT
+        DD1        54      PD2 / TIM3_ETR PASSIVE     STM32F405RG
+        DD3        1       RO             PASSIVE     SN65HVD1781
+        R19        1       1              PASSIVE     47ך
+
+[00297] MCU_RS485_DE_BAT
+        DD1        57      PB5 / I2C1_SMBAPASSIVE     STM32F405RG
+        DD3        2       R\E\           PASSIVE     SN65HVD1781
+        DD3        3       DE             PASSIVE     SN65HVD1781
+        R17        2       2              PASSIVE     47ך
+
+[00298] MCU_PWM_ESC
+        DD1        42      PA9 / USART1_TXPASSIVE     STM32F405RG
+        R44        2       2              PASSIVE     47ך
+        R48        2       2              PASSIVE     100
+
+[00299] MCU_PRES_FLAG
+        DD1        52      PC11 / UART4_RXPASSIVE     STM32F405RG
+        R15        1       1              PASSIVE     100
+        R18        1       1              PASSIVE     47ך
+
+[00300] MCU_NRST
+        C13        2       2              PASSIVE     0,1לך
+        DD1        7       NRST           PASSIVE     STM32F405RG
+        R5         2       2              PASSIVE     100
+
+[00301] MCU_MUX_EN
+        DD1        9       PC1 / ADC123_INPASSIVE     STM32F405RG
+        R101       1       1              PASSIVE     100
+        R107       2       2              PASSIVE     47ך
+
+[00302] MCU_MUX_A1
+        DD1        11      PC3 / SPI2_MOSIPASSIVE     STM32F405RG
+        R103       1       1              PASSIVE     100
+        R105       1       1              PASSIVE     47ך
+
+[00303] MCU_MUX_A0
+        DD1        10      PC2 / SPI2_MISOPASSIVE     STM32F405RG
+        R102       1       1              PASSIVE     100
+        R104       1       1              PASSIVE     47ך
+
+[00304] MCU_LMZ_5V_EN
+        DD1        20      PA4 / SPI1_NSS PASSIVE     STM32F405RG
+        R16        1       1              PASSIVE     100
+
+[00305] MCU_LED_RED
+        DD1        21      PA5 / SPI1_SCK PASSIVE     STM32F405RG
+        R1         2       2              PASSIVE     330
+
+[00306] MCU_LED_GREEN
+        DD1        22      PA6 / SPI1_MISOPASSIVE     STM32F405RG
+        R2         2       2              PASSIVE     330
+
+[00307] MCU_GYRO_SPI_MOSI
+        DD1        36      PB15 / SPI2_MOSPASSIVE     STM32F405RG
+        R27        1       1              PASSIVE     100
+
+[00308] MCU_GYRO_SPI_MISO
+        DD1        35      PB14 / SPI2_MISPASSIVE     STM32F405RG
+        R25        1       1              PASSIVE     100
+        R31        1       1              PASSIVE     47ך
+
+[00309] MCU_GYRO_SPI_CLK
+        DD1        29      PB10 / SPI2_SCKPASSIVE     STM32F405RG
+        R26        1       1              PASSIVE     100
+
+[00310] MCU_GYRO_CS_XM
+        DD1        26      PB0 / TIM3_CH3 PASSIVE     STM32F405RG
+        R29        1       1              PASSIVE     100
+        R34        1       1              PASSIVE     47ך
+
+[00311] MCU_GYRO_CS_G
+        DD1        27      PB1 / TIM3_CH4 PASSIVE     STM32F405RG
+        R28        1       1              PASSIVE     100
+        R32        1       1              PASSIVE     47ך
+
+[00312] MCU_CAN_LOOPBACK
+        DD1        30      PB11 / I2C2_SDAPASSIVE     STM32F405RG
+        R39        2       2              PASSIVE     100
+
+[00313] MCU_CAN2_TX
+        DD1        34      PB13 / SPI2_SCKPASSIVE     STM32F405RG
+        R37        2       2              PASSIVE     100
+
+[00314] MCU_CAN2_RX
+        C29        2       2              PASSIVE     15
+        DD1        33      PB12 / SPI2_NSSPASSIVE     STM32F405RG
+        R38        2       2              PASSIVE     100
+
+[00315] +3,3ֲ
+        A1         6       VOUT           PASSIVE     LMR16006
+        A1         7       VOUT           PASSIVE     LMR16006
+        A1         8       VOUT           PASSIVE     LMR16006
+        C1         2       2              PASSIVE     0,1לך
+        C2         2       2              PASSIVE     0,1לך
+        C3         2       2              PASSIVE     0,1לך
+        C4         2       2              PASSIVE     10לך
+        C5         2       2              PASSIVE     0,1לך
+        C6         2       2              PASSIVE     0,1לך
+        C7         2       2              PASSIVE     0,1לך
+        C8         2       2              PASSIVE     0,1לך
+        C9         2       2              PASSIVE     0,1לך
+        C16        2       2              PASSIVE     0,1לך
+        C24        2       2              PASSIVE     10לך
+        C26        2       2              PASSIVE     0,1לך
+        C31        2       2              PASSIVE     0,1לך
+        C49        2       2              PASSIVE     0,1לך
+        DA1        5       VCC            PASSIVE     TPD2S017
+        DA2        5       VCC            PASSIVE     TPD2S017
+        DA3        5       VCC            PASSIVE     TPD2S017
+        DA4        1       VDDIO          PASSIVE     LSM9DS1
+        DA4        3       VDDIO          PASSIVE     LSM9DS1
+        DA4        22      VDD            PASSIVE     LSM9DS1
+        DA4        23      VDD            PASSIVE     LSM9DS1
+        DA10       12      VDD            PASSIVE     ADG1604BRUZ
+        DD1        1       VBAT           PASSIVE     STM32F405RG
+        DD1        19      VDD            PASSIVE     STM32F405RG
+        DD1        32      VDD            PASSIVE     STM32F405RG
+        DD1        48      VDD            PASSIVE     STM32F405RG
+        DD1        64      VDD            PASSIVE     STM32F405RG
+        DD3        8       Vcc            PASSIVE     SN65HVD1781
+        DD4        3       Vcc            PASSIVE     SN65HVD233D
+        L1         1       1              PASSIVE     180 ־ל
+        R18        2       2              PASSIVE     47ך
+        R19        2       2              PASSIVE     47ך
+        R22        2       2              PASSIVE     330
+        R31        2       2              PASSIVE     47ך
+        R32        2       2              PASSIVE     47ך
+        R33        2       2              PASSIVE     47ך
+        R34        2       2              PASSIVE     47ך
+        R35        2       2              PASSIVE     47ך
+        R104       2       2              PASSIVE     47ך
+        R105       2       2              PASSIVE     47ך
+        R108       3       3              PASSIVE     10ך
+        R109       1       1              PASSIVE     10ך
+        R109       3       3              PASSIVE     10ך
+        R112       2       2              PASSIVE     47ך
+        R113       2       2              PASSIVE     47ך
+        R114       2       2              PASSIVE     47ך
+        R115       2       2              PASSIVE     47ך
+        R116       2       2              PASSIVE     47ך
+        R117       2       2              PASSIVE     47ך
+        VD1        2       A              PASSIVE     MBR2H100SFT3G
+        X6         1       1              PASSIVE     Clik-Mate 5025840370
+        X12        2       2              PASSIVE     Clik-Mate 5025840470
+

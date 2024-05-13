@@ -1,0 +1,1 @@
+call jud_TriggersControl_v2_3_Driver.bat > jud_TriggersControl_v2_3_Driver.txt 2>&1

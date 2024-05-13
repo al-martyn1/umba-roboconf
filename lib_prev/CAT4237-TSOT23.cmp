@@ -1,0 +1,11 @@
+(componentDefinition "CAT4237"
+    (description "High Voltage CMOS Boost White LED Driver")
+    (purpose "GATE")
+    (datasheet "CAT4237-D.PDF")
+    (package "TSOT23")
+    (pin "1" "" ("SW" ) )
+    (pin "2" "" ("GND" ) )
+    (pin "3" "" ("FB" ) )
+    (pin "4" "" ("S\H\D\N\" ) )
+    (pin "5" "" ("Vin" ) )
+)

@@ -1,0 +1,63 @@
+(-- AD8541ARTZ)
+
+(--
+(packageAssign (designator "DA1")
+               (package "SOT-23-5")
+)
+(packageAssign (designator "DA4")
+               (package "SOT-23-5")
+)
+(packageAssign (designator "DA5")
+               (package "SOT-23-5")
+)
+(packageAssign 
+   (designator "DD4")
+               (package "SSOP36")
+)
+
+(packageAssign 
+   (designator "A1" "A2")
+               (package "TSOT-6L")
+)
+
+(-- JEDEC STANDARDS MS-012-AA )
+(-- ADM3485E )
+(packageAssign 
+   (designator "DA2" "DA3" "DA6")
+               (package "SOIC_N-8")
+)
+
+(-- SN65HVD233)
+(packageAssign 
+   (designator "DD2")
+               (package "SOIC-8")
+)
+
+(-- CP2104-F03-GM)
+(packageAssign 
+   (designator "DD3")
+               (package "QFN-24")
+)
+
+(-- VT1/VT2 - IRLML0060 - SOT-23)
+(packageAssign 
+   (designator "VT1" "VT2")
+               (package "SOT-23")
+)
+
+(--
+IRLML0060
+warning(no-pkg): component 'Netlist_1.VT1' (N-MOSFET) - no package type taken
+warning(no-pkg): component 'Netlist_1.VT2' (N-MOSFET) - no package type taken
+
+  (compInst "VT1"
+    (compRef "N-MOSFET")
+    (originalName "N-MOSFET")
+    (attr "Description" "N-канальный транзистор" (textStyleRef "(Default)"))
+    (attr "Library Name" "Lib_KOR_Lab.SchLib" (textStyleRef "(Default)"))
+    (attr "Name" "IRLML0060" (textStyleRef "(Default)"))
+    (attr "Sheet" "2.Peripheral" (textStyleRef "(Default)"))
+  )
+)
+
+)

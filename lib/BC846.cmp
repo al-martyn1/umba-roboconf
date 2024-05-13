@@ -1,0 +1,18 @@
+(componentDefinition "BC846AMTF" "BC846"
+                     "BC846BMTF" "BC846"
+                     "BC846CMTF" "BC846"
+                     "BC847AMTF" "BC847"
+                     "BC847BMTF" "BC847"
+                     "BC847CMTF" "BC847"
+                     "BC848BMTF" "BC848"
+                     "BC848CMTF" "BC848"
+                     "BC850AMTF" "BC850"
+                     "BC850CMTF" "BC850"
+    (package "*")
+    (description "NPN Epitaxial Silicon Transistor")
+    (purpose "SWITCH")
+    (datasheet "BC846-D.PDF")
+    (pin "1" "" ("BASE" "GATE") )
+    (pin "2" "" ("EMMITER") )
+    (pin "3" "" ("COLLECTOR") )
+)

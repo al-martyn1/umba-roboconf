@@ -1,0 +1,5 @@
+(componentDefinition "LM60"
+    (pin "1" "" ("Vs" ) )
+    (pin "2" "" ("OUT" "ADC") )
+    (pin "3" "" ("GND" ) )
+)

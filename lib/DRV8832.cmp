@@ -1,0 +1,18 @@
+(componentDefinition "DRV8832"
+    (package "*")
+    (description "Low-Voltage Motor Driver IC")
+    (purpose "DRIVER:HBRIDGE:MOTOR")
+    (datasheet "drv8832.pdf")
+    (pin "1" "" ("OUT2" ) )
+    (pin "2" "" ("ISENSE" ) )
+    (pin "3" "" ("OUT1" ) )
+    (pin "4" "" ("VCC" ) )
+    (pin "5" "" ("GND" ) )
+    (pin "6" "" ("FAULTn" "OUT" "GPIO") )
+    (pin "7" "" ("VSET" "IN" "DAC") )
+    (pin "8" "" ("VREF" ) )
+    (pin "9" "" ("IN1" "IN" "GPIO") )
+    (pin "10" "" ("IN2" "IN" "GPIO") )
+    (pin "11" "" ("PPAD" ) )
+)
+

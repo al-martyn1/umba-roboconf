@@ -1,0 +1,15 @@
+(componentDefinition "BATTERYKOROL"
+    (description "Battery module designed by Korolev")
+    (purpose "SENSOR:GPIO")
+    (pin "1" "" ("PACK+") )
+    (pin "2" "" ("PACK+") )
+    (pin "3" "" ("RS485_A") )
+    (pin "4" "" ("RS485_B") )
+    (pin "5" "" ("BTN1") )
+    (pin "6" "" ("BTN2") )
+    (pin "7" "" ("CHG_DTCT" "GPIO" "IN") )
+    (pin "8" "" ("PRES_FLAG" "GPIO" "OUT") )
+    (pin "9" "" ("GND") )
+    (pin "9" "" ("GND") )
+)
+

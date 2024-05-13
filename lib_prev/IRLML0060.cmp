@@ -1,0 +1,8 @@
+(componentDefinition "IRLML0060"
+    (description "Power MOSFET (HEXFET) Load/System Switch")
+    (purpose "SWITCH")
+    (datasheet "Infineon-IRLML0060-DS-v01_01-EN.pdf")
+    (pin "1" "" ("G" ) )
+    (pin "2" "" ("S" ) )
+    (pin "3" "" ("D" ) )
+)

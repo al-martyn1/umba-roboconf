@@ -1,0 +1,20 @@
+(modify "mcuNet" replaceSingle "^UART(\d{1,2})_(R|T)X$" "DEBUG_TERMINAL_UART_$({2})X")
+
+(modify "mcuNet" replaceSingle "^MOTOR(\d*)_SHDN$"     "MOTOR$({1})_CURRENT_SENSOR_SHDN")
+(modify "mcuNet" replaceSingle "^MOTOR(\d*)_CURRENT$"  "MOTOR$({1})_CURRENT_SENSOR")
+
+(modify "mcuNet" replaceSingle "RS485_(R|T)X" "BATTERY_RS485_$({1})X")
+(modify "mcuNet" replaceSingle "RS485_DE" "BATTERY_RS485_DE")
+
+(connect device "AS5040" as "DD"
+    ("PWM" to "X5.SIGN")
+)
+
+(connect device "ESC" as "DD"
+    ("PWM" to "X7.DATA")
+)
+
+(connect device "HSCSSNN001PD2A3" package "SIP4" as "DD"
+    ("SDA" to "X6.SDA")
+    ("SCL" to "X6.SCL")
+)

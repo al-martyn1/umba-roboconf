@@ -1,0 +1,12 @@
+(componentDefinition "TEN 5-1211"
+    (description "DC/DC Converter")
+    (purpose "POWER_CONVERTER")
+    (datasheet "ten5.pdf")
+    (pin "2" "" ("GND" ) )
+    (pin "3" "" ("GND" ) )
+    (pin "11" "" ("NC" ) )
+    (pin "14" "" ("+Vout" ) )
+    (pin "16" "" ("-Vout" ) )
+    (pin "22" "" ("Vcc" ) )
+    (pin "23" "" ("Vcc" ) )
+)

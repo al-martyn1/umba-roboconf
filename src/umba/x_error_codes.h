@@ -1,0 +1,45 @@
+/*! \file
+\brief Коды ошибок
+*/
+UMBA_DECLARE_ERROR_CODE      (ok               ,  0, "Ok, no error")
+UMBA_DECLARE_ERROR_CODE_ALIAS(success          , ok, "Ok, operation successfully completed")
+UMBA_DECLARE_ERROR_CODE_ALIAS(done             , ok, "Ok, operation done")
+UMBA_DECLARE_ERROR_CODE_ALIAS(no_error         , ok, "Ok, no error")
+UMBA_DECLARE_ERROR_CODE_ALIAS(bool_true        , ok, "True condition")
+UMBA_DECLARE_ERROR_CODE      (already          ,  1, "Ok, but already done")
+UMBA_DECLARE_ERROR_CODE      (need_reopen      ,  2, "Device need to be reopened before changes will take effect")
+
+UMBA_DECLARE_ERROR_CODE(bool_false             ,  0 | errorFlag, "False condition")
+UMBA_DECLARE_ERROR_CODE(fail                   ,  1 | errorFlag, "Generic fail")
+UMBA_DECLARE_ERROR_CODE(not_implemented        ,  2 | errorFlag, "Method/function not implemented")
+UMBA_DECLARE_ERROR_CODE(would_block            ,  3 | errorFlag, "Blocking mode required / Operation would block")
+UMBA_DECLARE_ERROR_CODE(connection_in_progess  ,  4 | errorFlag, "Asynchonous connection in progress")
+UMBA_DECLARE_ERROR_CODE(shutdown_in_progess    ,  5 | errorFlag, "Asynchonous shutdown in progress")
+UMBA_DECLARE_ERROR_CODE(wrong_io_mode          ,  6 | errorFlag, "Wrong IO mode - attempt to read on write only, attemp to write to read only etc")
+UMBA_DECLARE_ERROR_CODE(bus_addr_not_bound     ,  7 | errorFlag, "Attempt to write to bus stream, but device bus address not bound")
+UMBA_DECLARE_ERROR_CODE(invalid_bus_addr       ,  8 | errorFlag, "Invalid bus adress taken")
+UMBA_DECLARE_ERROR_CODE(unknown_bus_addr       ,  9 | errorFlag, "Unknown bus adress")
+UMBA_DECLARE_ERROR_CODE(not_required           , 10 | errorFlag, "Operation not required")
+UMBA_DECLARE_ERROR_CODE(permission_denied      , 11 | errorFlag, "Permission denied")
+UMBA_DECLARE_ERROR_CODE(device_busy            , 12 | errorFlag, "Device is busy (already opened by another process)")
+UMBA_DECLARE_ERROR_CODE(device_not_found       , 13 | errorFlag, "Device not found")
+UMBA_DECLARE_ERROR_CODE(device_already_online  , 14 | errorFlag, "Device is already opened/online")
+UMBA_DECLARE_ERROR_CODE(device_required_online , 15 | errorFlag, "Device must be online to perform this operation")
+UMBA_DECLARE_ERROR_CODE(device_removed         , 16 | errorFlag, "Device unexpectedly removed from the system")
+UMBA_DECLARE_ERROR_CODE(read_failed            , 17 | errorFlag, "Read operation failed (generic read error)")
+UMBA_DECLARE_ERROR_CODE(write_failed           , 18 | errorFlag, "Write operation failed (generic write error)")
+UMBA_DECLARE_ERROR_CODE(not_supported          , 19 | errorFlag, "Operation is not supported")
+UMBA_DECLARE_ERROR_CODE(prohibited             , 20 | errorFlag, "Operation prohibited by the underlying layer")
+UMBA_DECLARE_ERROR_CODE(timed_out              , 21 | errorFlag, "Operation was timed out")
+UMBA_DECLARE_ERROR_CODE(invalid_param          , 22 | errorFlag, "Invalid parameter taken")
+UMBA_DECLARE_ERROR_CODE(invalid_state          , 23 | errorFlag, "Object is in invalid state")
+UMBA_DECLARE_ERROR_CODE(protocol_not_ready     , 24 | errorFlag, "Protocol not ready to perform this operation")
+UMBA_DECLARE_ERROR_CODE(too_much               , 25 | errorFlag, "Too much data")
+UMBA_DECLARE_ERROR_CODE(stream_not_assigned    , 26 | errorFlag, "Stream not assigned")
+UMBA_DECLARE_ERROR_CODE(unknown_interface      , 27 | errorFlag, "Unknown (unsupported) interface")
+UMBA_DECLARE_ERROR_CODE(crc                    , 28 | errorFlag, "CRC error")
+
+
+
+//UMBA_DECLARE_ERROR_CODE(       ,  | errorFlag, "")
+    

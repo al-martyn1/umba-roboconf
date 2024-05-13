@@ -1,0 +1,10 @@
+(componentDefinition "IRLML0030*"
+    (nameMatch simple (single "x")(any "*"))
+    (package "*")
+    (description "Power MOSFET (HEXFET) Load/System Switch")
+    (purpose "SWITCH")
+    (datasheet "irlml0030pbf.pdf")
+    (pin "1" "" ("G" "GATE") )
+    (pin "2" "" ("S" "SOURCE") )
+    (pin "3" "" ("D" "DRAIN") )
+)

@@ -1,0 +1,28 @@
+(componentDefinition "STM32______"
+    (package "<ANY>")
+
+    (pinFunctionMatch "^VBAT.*"     ("DONT_ANALYSE") )
+    (pinFunctionMatch "^VSS.*"      ("DONT_ANALYSE") )
+    (pinFunctionMatch "^VREF.*"     ("DONT_ANALYSE") )
+    (pinFunctionMatch "^VDD.*"      ("DONT_ANALYSE") )
+    (pinFunctionMatch "^RST$"       ("DONT_ANALYSE") )
+    (pinFunctionMatch "^BOOT0$"     ("DONT_ANALYSE") )
+    (pinFunctionMatch "^NRST$"      ("DONT_ANALYSE") )
+    (pinFunctionMatch "^nRST$"      ("DONT_ANALYSE") )
+    (pinFunctionMatch "^~RST$"      ("DONT_ANALYSE") )
+    (pinFunctionMatch "^VCAP_.*"    ("DONT_ANALYSE") )
+    (pinFunctionMatch "^SWDAT$"     ("DONT_ANALYSE") )
+    (pinFunctionMatch "^SWCLK$"     ("DONT_ANALYSE") )
+    (pinFunctionMatch "^JTMS$"      ("DONT_ANALYSE") )
+    (pinFunctionMatch "^JTCK$"      ("DONT_ANALYSE") )
+    (-- pinFunctionMatch "^JTDI$"      ("DONT_ANALYSE") )
+    (pinFunctionMatch "^JTDO$"      ("DONT_ANALYSE") )
+    (pinFunctionMatch "^TRACE$"     ("DONT_ANALYSE") )
+
+    (pinFunctionMatch "(.*)USART(.*)"   ("-" "$({PREFIX})$({1})UART$({2})$({SUFFIX})") )
+    (pinFunctionMatch "ADC123_(.*)"     ("-" "ADC1_$({1})" "ADC2_$({1})" "ADC3_$({1})") )
+    (pinFunctionMatch "ADC12_(.*)"      ("-" "ADC1_$({1})" "ADC2_$({1})" ) )
+
+    (-- pinFunctionMatch "P(A|B|C|D|E|F|G|H)(\d{1,2})"   ("GPIO_PORT_GPIO$({1})" "GPIO_PIN_$({2})") )
+)
+

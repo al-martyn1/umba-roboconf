@@ -1,0 +1,13 @@
+(componentDefinition "CMXDM7002A"
+
+    (pin "1" "" ("G" ) )
+    (pin "2" "" ("S" ) )
+    (pin "3" "" ("D" ) )
+
+    (pin "4" "" ("G" ) )
+    (pin "5" "" ("S" ) )
+    (pin "6" "" ("D" ) )
+
+    (partPins "1" "2" "3")
+    (partPins "4" "5" "6")
+)

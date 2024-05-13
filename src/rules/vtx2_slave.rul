@@ -1,0 +1,41 @@
+(modify "mcuNet" replaceSingle "^UART(\d{1,2})_(R|T)X$" "DEBUG_TERMINAL_UART_$({2})X")
+
+(modify "mcuNet" replaceSingle "LMZ5V_EN" "POWER_5V_EN")
+(modify "mcuNet" replaceSingle "^TERMINAL(\d+)" "PWM_ROTARY_ENCODER$({1})")
+
+(modify "mcuNet" replaceSingle "^CAN_LOOPBACK" "CANABUS_CAN_LOOPBACK")
+(modify "mcuNet" replaceSingle "^CAN1_(.*)" "CANABUS_CAN_$({1})")
+
+
+(modify "mcuNet" replaceSingle "^VIDEO4_EN"     "VIDEO4_BACK_CAM_EN")
+(modify "mcuNet" replaceSingle "^VIDEO4_PWR_EN" "VIDEO4_BACK_CAM_PWR_EN")
+
+(modify "mcuNet" replaceSingle "^MOTOR(\d*)_SHDN$"     "MOTOR$({1})_CURRENT_SENSOR_SHDN")
+(modify "mcuNet" replaceSingle "^MOTOR(\d*)_CURRENT$"  "MOTOR$({1})_CURRENT_SENSOR")
+
+
+
+(connect device "AS5145" as "DD"
+    ("PWM" to "X5.PWM")
+)
+
+(connect device "AS5145" as "DD"
+    ("PWM" to "X6.PWM")
+)
+
+(connect device "ESC" as "DD"
+    ("PWM" to "X13.DATA")
+)
+
+(connect device "HSCSSNN001PD2A3" package "SIP4" as "DD"
+    ("SDA" to "X12.SDA")
+    ("SCL" to "X12.SCL")
+)
+
+(connect device "BATTERYKOROL" as "DD"
+    ("PRES_FLAG" to "X3.PRES_FLAG")
+    (-- "CHG_DTCT"  to "X3.CHG_DTCT")
+)
+
+
+

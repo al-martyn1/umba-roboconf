@@ -1,0 +1,12 @@
+(componentDefinition "PSD1-A*"
+    (nameMatch simple (single "x")(any "*"))
+    (package "*")
+    (description "Single output DC/DC converter")
+    (purpose "PWR:DC")
+    (datasheet "peak_psd-1a.pdf")
+    (pin "1" "" ("-Vin" ) )
+    (pin "2" "" ("+Vin" ) )
+    (pin "4" "" ("-Vout" ) )
+    (pin "5" "" ("+Vout" ) )
+    (pin "8" "" ("NC" ) )
+)

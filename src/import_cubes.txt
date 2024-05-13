@@ -1,0 +1,3 @@
+CubeMX root : C:\Program Files (x86)\STMicroelectronics\STM32Cube\STM32CubeMX
+Target root : ..\lib-cube
+Reading     : C:\Program Files (x86)\STMicroelectronics\STM32Cube\STM32CubeMX/db/mcu/families.xml

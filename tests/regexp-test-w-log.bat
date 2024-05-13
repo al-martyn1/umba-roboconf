@@ -1,0 +1,1 @@
+call regexp-test.bat > log-regexp-test.txt

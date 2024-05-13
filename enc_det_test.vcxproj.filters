@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include=".\src\enc_det_test.cpp" />
+    <ClCompile Include="src\enc_det\compact_enc_det\compact_enc_det.cc">
+      <Filter>enc_det</Filter>
+    </ClCompile>
+    <ClCompile Include="src\enc_det\compact_enc_det\compact_enc_det_hint_code.cc">
+      <Filter>enc_det</Filter>
+    </ClCompile>
+    <ClCompile Include="src\enc_det\util\encodings\encodings.cc">
+      <Filter>enc_det</Filter>
+    </ClCompile>
+    <ClCompile Include="src\enc_det\util\languages\languages.cc">
+      <Filter>enc_det</Filter>
+    </ClCompile>
+    <ClCompile Include="src\encoding.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="enc_det">
+      <UniqueIdentifier>{7df85936-74e0-4d67-8336-4aeb573d3fb9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

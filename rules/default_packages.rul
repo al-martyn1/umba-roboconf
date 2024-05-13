@@ -1,0 +1,286 @@
+(-- Типы корпусов микросхем - https://ru.wikipedia.org/wiki/%D0%A2%D0%B8%D0%BF%D1%8B_%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%D0%BE%D0%B2_%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%81%D1%85%D0%B5%D0%BC )
+(-- http://www.amiga-stuff.com/hardware/pinnumbering.html )
+(-- https://en.wikipedia.org/wiki/List_of_integrated_circuit_packaging_types )
+(package "SOT23-3" numPins 3 (SOT23 TO236AB SOT346 SC59A TO236AA SMT3) )
+(package "SOT323"  numPins 3 (SC70-3 UMT3) )
+(package "SOT416"  numPins 3 (SOT523 SC75A SC90 EMT3) )
+
+(package "SOT23-5" numPins 5 (SOT25 SC74A SOT753 SMT5 SOT23-5A SOT23-5B) )
+(package "SOT353"  numPins 5 (SC70-5 SC88A TSSOP-5 UMT5) )
+
+(package "SOT23-6" numPins 6 (SOT26 SC59-6 SC74 TSOP-6 SMT6 SM6 Mini6 SOT457 TSOT-6 TSOT-6L TSOT-23 TSOT-23-6) )
+(package "SOT363"  numPins 6 (SC70-6 SC88 TSSOP-6 UMT6 US6 S-Mini6) )
+
+(package "SOT23-8" numPins 8 (SOT28 TSOT-23-8) )
+
+(package "TO-92" numPins 3 (SOT54) )
+
+(package "SOT143" numPins 4 (TO253) )
+(package "SOT343" numPins 4 )
+
+(package "SOT490" numPins 3 (SOT523F SC89 EMT3F) )
+
+(package "SOT89-3" numPins 3 (SOT89-4 TO243AA SC62 MPT3) )
+
+(package "SOT89-5" numPins 5 (SOT89-6) )
+
+(package "SOT223-4" numPins 4 (SC73 TO261AA) )
+
+(package "SOT223-5" numPins 5 )
+
+(package "SOT223-8" numPins 8 (SM-8) )
+
+(package "SOT97-1" numPins 8 (SC-504-8) )
+
+(package "SOT27-1" numPins 14 (SC-501-14) )
+
+(package "SOT38-1" numPins 16 (SC-503-16) )
+
+(package "SOT38-4" numPins 16 )
+
+(package "SOT146-1" numPins 20 (SC-603) )
+
+(package "SOT101-1" numPins 24 (SC-509-24) )
+
+(package "SOT117-1" numPins 28 (SC-510-28) )
+
+(package "SOT117-2" numPins 28 )
+
+(package "SOT129-1" numPins 40 (SC-511-40) )
+
+(package "SOT240-1" numPins 48 )
+
+(package "TO252-3" numPins 3 ("TO252") )
+(package "TO252-5" numPins 5 )
+
+(package "TO-PMOD" numPins 7 (TO-PMOD-7) )
+(package "TO-PMOD-11" numPins 11 )
+
+(package "TSSOP14" numPins 14 )
+(package "TSSOP16" numPins 16 )
+(package "TSSOP20" numPins 20 )
+(package "TSSOP20-TP " numPins 20 )
+(package "TSSOP24" numPins 24 )
+
+(package "SOT1397-3" numPins 20 )
+(package "SOT1397-4" numPins 20 )
+(package "SOT1397-5" numPins 20 )
+(package "SOT1397-6" numPins 20 )
+(package "SOT1397-7" numPins 25 )
+(package "SOT1397-8" numPins 20 )
+
+(package "WLCSP20"   numPins 20 )
+(package "WLCSP25"   numPins 25 )
+(package "WLCSP36"   numPins 36 )
+(package "WLCSP49"   numPins 49 )
+(package "WLCSP63"   numPins 63 )
+(package "WLCSP64"   numPins 64 )
+(package "WLCSP66"   numPins 66 )
+(package "WLCSP81"   numPins 91 )
+(package "WLCSP72"   numPins 72 )
+(package "WLCSP90"   numPins 90 )
+(package "WLCSP100"  numPins 100)
+(package "WLCSP104"  numPins 104)
+(package "WLCSP143"  numPins 143)
+(package "WLCSP144"  numPins 144)
+(package "WLCSP168"  numPins 168)
+(package "WLCSP180"  numPins 180)
+
+(package "EWLCSP49"  numPins 49   )
+(package "EWLCSP66"  numPins 66   )
+
+(package "QFN6"   numPins 6   ("HVQFN6"   "HWQFN6"   "FQFN6"   "FCQFN6"   "PQFN6"   "TQFN6"   "UQFN6"   "VQFN6"   "VFQFN6"   "WQFN6"   "TQFN-6EP"   "TQFN-6-EP"   "TQFN-EP-6"   "TQFN-EP6"  ) )
+(package "QFN8"   numPins 8   ("HVQFN8"   "HWQFN8"   "FQFN8"   "FCQFN8"   "PQFN8"   "TQFN8"   "UQFN8"   "VQFN8"   "VFQFN8"   "WQFN8"   "TQFN-8EP"   "TQFN-8-EP"   "TQFN-EP-8"   "TQFN-EP8"  ) )
+(package "QFN10"  numPins 10  ("HVQFN10"  "HWQFN10"  "FQFN10"  "FCQFN10"  "PQFN10"  "TQFN10"  "UQFN10"  "VQFN10"  "VFQFN10"  "WQFN10"  "TQFN-10EP"  "TQFN-10-EP"  "TQFN-EP-10"  "TQFN-EP10" ) )
+(package "QFN12"  numPins 12  ("HVQFN12"  "HWQFN12"  "FQFN12"  "FCQFN12"  "PQFN12"  "TQFN12"  "UQFN12"  "VQFN12"  "VFQFN12"  "WQFN12"  "TQFN-12EP"  "TQFN-12-EP"  "TQFN-EP-12"  "TQFN-EP12" ) )
+(package "QFN14"  numPins 14  ("HVQFN14"  "HWQFN14"  "FQFN14"  "FCQFN14"  "PQFN14"  "TQFN14"  "UQFN14"  "VQFN14"  "VFQFN14"  "WQFN14"  "TQFN-14EP"  "TQFN-14-EP"  "TQFN-EP-14"  "TQFN-EP14" ) )
+(package "QFN16"  numPins 16  ("HVQFN16"  "HWQFN16"  "FQFN16"  "FCQFN16"  "PQFN16"  "TQFN16"  "UQFN16"  "VQFN16"  "VFQFN16"  "WQFN16"  "TQFN-16EP"  "TQFN-16-EP"  "TQFN-EP-16"  "TQFN-EP16" ) )
+(package "QFN20"  numPins 20  ("HVQFN20"  "HWQFN20"  "FQFN20"  "FCQFN20"  "PQFN20"  "TQFN20"  "UQFN20"  "VQFN20"  "VFQFN20"  "WQFN20"  "TQFN-20EP"  "TQFN-20-EP"  "TQFN-EP-20"  "TQFN-EP20" ) )
+(package "QFN24"  numPins 24  ("HVQFN24"  "HWQFN24"  "FQFN24"  "FCQFN24"  "PQFN24"  "TQFN24"  "UQFN24"  "VQFN24"  "VFQFN24"  "WQFN24"  "TQFN-24EP"  "TQFN-24-EP"  "TQFN-EP-24"  "TQFN-EP24" ) )
+(package "QFN28"  numPins 28  ("HVQFN28"  "HWQFN28"  "FQFN28"  "FCQFN28"  "PQFN28"  "TQFN28"  "UQFN28"  "VQFN28"  "VFQFN28"  "WQFN28"  "TQFN-28EP"  "TQFN-28-EP"  "TQFN-EP-28"  "TQFN-EP28" ) )
+(package "QFN32"  numPins 32  ("HVQFN32"  "HWQFN32"  "FQFN32"  "FCQFN32"  "PQFN32"  "TQFN32"  "UQFN32"  "VQFN32"  "VFQFN32"  "WQFN32"  "TQFN-32EP"  "TQFN-32-EP"  "TQFN-EP-32"  "TQFN-EP32" ) )
+(package "QFN34"  numPins 34  ("HVQFN34"  "HWQFN34"  "FQFN34"  "FCQFN34"  "PQFN34"  "TQFN34"  "UQFN34"  "VQFN34"  "VFQFN34"  "WQFN34"  "TQFN-34EP"  "TQFN-34-EP"  "TQFN-EP-34"  "TQFN-EP34" ) )
+(package "QFN36"  numPins 36  ("HVQFN36"  "HWQFN36"  "FQFN36"  "FCQFN36"  "PQFN36"  "TQFN36"  "UQFN36"  "VQFN36"  "VFQFN36"  "WQFN36"  "TQFN-36EP"  "TQFN-36-EP"  "TQFN-EP-36"  "TQFN-EP36" ) )
+(package "QFN40"  numPins 40  ("HVQFN40"  "HWQFN40"  "FQFN40"  "FCQFN40"  "PQFN40"  "TQFN40"  "UQFN40"  "VQFN40"  "VFQFN40"  "WQFN40"  "TQFN-40EP"  "TQFN-40-EP"  "TQFN-EP-40"  "TQFN-EP40" ) )
+(package "QFN44"  numPins 44  ("HVQFN44"  "HWQFN44"  "FQFN44"  "FCQFN44"  "PQFN44"  "TQFN44"  "UQFN44"  "VQFN44"  "VFQFN44"  "WQFN44"  "TQFN-44EP"  "TQFN-44-EP"  "TQFN-EP-44"  "TQFN-EP44" ) )
+(package "QFN48"  numPins 48  ("HVQFN48"  "HWQFN48"  "FQFN48"  "FCQFN48"  "PQFN48"  "TQFN48"  "UQFN48"  "VQFN48"  "VFQFN48"  "WQFN48"  "TQFN-48EP"  "TQFN-48-EP"  "TQFN-EP-48"  "TQFN-EP48" ) )
+(package "QFN56"  numPins 56  ("HVQFN56"  "HWQFN56"  "FQFN56"  "FCQFN56"  "PQFN56"  "TQFN56"  "UQFN56"  "VQFN56"  "VFQFN56"  "WQFN56"  "TQFN-56EP"  "TQFN-56-EP"  "TQFN-EP-56"  "TQFN-EP56" ) )
+(package "QFN64"  numPins 64  ("HVQFN64"  "HWQFN64"  "FQFN64"  "FCQFN64"  "PQFN64"  "TQFN64"  "UQFN64"  "VQFN64"  "VFQFN64"  "WQFN64"  "TQFN-64EP"  "TQFN-64-EP"  "TQFN-EP-64"  "TQFN-EP64" ) )
+(package "QFN68"  numPins 68  ("HVQFN68"  "HWQFN68"  "FQFN68"  "FCQFN68"  "PQFN68"  "TQFN68"  "UQFN68"  "VQFN68"  "VFQFN68"  "WQFN68"  "TQFN-68EP"  "TQFN-68-EP"  "TQFN-EP-68"  "TQFN-EP68" ) )
+(package "QFN72"  numPins 72  ("HVQFN72"  "HWQFN72"  "FQFN72"  "FCQFN72"  "PQFN72"  "TQFN72"  "UQFN72"  "VQFN72"  "VFQFN72"  "WQFN72"  "TQFN-72EP"  "TQFN-72-EP"  "TQFN-EP-72"  "TQFN-EP72" ) )
+(package "QFN100" numPins 100 ("HVQFN100" "HWQFN100" "FQFN100" "FCQFN100" "PQFN100" "TQFN100" "UQFN100" "VQFN100" "VFQFN100" "WQFN100" "TQFN-100EP" "TQFN-100-EP" "TQFN-EP-100" "TQFN-EP100") )
+(package "QFN132" numPins 132 ("HVQFN132" "HWQFN132" "FQFN132" "FCQFN132" "PQFN132" "TQFN132" "UQFN132" "VQFN132" "VFQFN132" "WQFN132" "TQFN-132EP" "TQFN-132-EP" "TQFN-EP-132" "TQFN-EP132") )
+(package "QFN144" numPins 144 ("HVQFN144" "HWQFN144" "FQFN144" "FCQFN144" "PQFN144" "TQFN144" "UQFN144" "VQFN144" "VFQFN144" "WQFN144" "TQFN-144EP" "TQFN-144-EP" "TQFN-EP-144" "TQFN-EP144") )
+(package "QFN176" numPins 176 ("HVQFN176" "HWQFN176" "FQFN176" "FCQFN176" "PQFN176" "TQFN176" "UQFN176" "VQFN176" "VFQFN176" "WQFN176" "TQFN-176EP" "TQFN-176-EP" "TQFN-EP-176" "TQFN-EP176") )
+(package "QFN208" numPins 208 ("HVQFN208" "HWQFN208" "FQFN208" "FCQFN208" "PQFN208" "TQFN208" "UQFN208" "VQFN208" "VFQFN208" "WQFN208" "TQFN-208EP" "TQFN-208-EP" "TQFN-EP-208" "TQFN-EP208") )
+(-- package "QFN20" numPins 20 ("HVQFN20" "HWQFN20" "FQFN20" "FCQFN20" "PQFN20" "TQFN20" "UQFN20" "VQFN20" "VFQFN20" "WQFN20" "TQFN-20EP" "TQFN-20-EP" "TQFN-EP-20" "TQFN-EP-20") )
+
+(-- 
+19*4=76
+20*4=80
+21*4=84
+22*4=88
+23*4=92
+24*4=96
+26*4=104
+27*4=108
+28*4=112
+29*4=116
+30*4=120
+31*4=124
+32*4=128
+34*4=136
+35*4=140
+37*4=148
+38*4=152
+39*4=156
+40*4=160
+41*4=164
+42*4=168
+43*4=172
+45*4=180
+46*4=184
+47*4=188
+48*4=192
+49*4=196
+50*4=200
+51*4=204
+53*4=212
+54*4=216
+55*4=220
+56*4=224
+57*4=228
+58*4=232
+59*4=236
+60*4=240
+)
+
+(package "UFQFPN20"  numPins 20   )
+(package "UFQFPN28"  numPins 28   )
+(package "UFQFPN32"  numPins 32   )
+(package "UFQFPN48"  numPins 48   )
+                                 
+(package "VFQFPN36"  numPins 36   )
+
+(package "SOT1780-1"  numPins 36 )
+(package "SOT1780-2"  numPins 36 )
+(package "SOT1780-4"  numPins 36 )
+(package "SOT1780-5"  numPins 36 )
+(package "SOT1780-6"  numPins 36 )
+(package "SOT1780-9"  numPins 36 )
+(package "SOT1780-10" numPins 36 )
+
+(package "SOT1444-4" numPins 49 )
+(package "SOT1444-5" numPins 49 )
+(package "SOT1444-8" numPins 49 )
+(package "SOT1444-10" numPins 49 )
+(package "SOT1444-12" numPins 49 )
+
+(package "SOT1782-1" numPins 64 )
+(package "SOT1782-2" numPins 64 )
+(package "SOT1782-3" numPins 64 )
+
+(package "SOT1966-1" numPins 81 )
+(package "SOT1966-2" numPins 81 )
+
+(package "SOT1073-1" numPins 64 )
+(package "SOT1073"   numPins 64 )
+(-- TFBGA64 )
+
+(package "SOT926-1" numPins 100 )
+(package "SOT926"   numPins 100 )
+(-- TFBGA100)
+
+(-- https://www.onsemi.com/pub/Collateral/846A-02.PDF )
+(-- http://www.irf.com/product-info/datasheets/data/irf7726.pdf )
+(package "MICRO8"  numPins 8  ("CASE846A-02" ) )
+
+(-- DFN5 бывают совсем разные, зависит от производителя )
+(-- https://toshiba.semicon-storage.com/us/design-support/package/detail.DFN5.html )
+(-- https://www.onsemi.com/pub/Collateral/AND9137-D.PDF )
+(-- https://www.onsemi.com/pub/Collateral/488AA.PDF )
+(-- https://www.st.com/content/st_com/en/campaigns/dfn5.html )
+(package "SO−8FL"  numPins 8 ("DFN5") ) 
+
+(package "SOIC8"  numPins 8  ("SO8"  "SOIC(8)" ) )
+(package "SOIC10" numPins 10 ("SO10" "SOIC(10)") )
+(package "SOIC12" numPins 12 ("SO12" "SOIC(12)") )
+(package "SOIC14" numPins 14 ("SO14" "SOIC(14)") )
+(package "SOIC16" numPins 16 ("SO16" "SOIC(16)") )
+(package "SOIC18" numPins 18 ("SO18" "SOIC(18)") )
+(package "SOIC20" numPins 20 ("SO20" "SOIC(20)") )
+(package "SOIC24" numPins 24 ("SO24" "SOIC(24)") )
+(package "SOIC28" numPins 28 ("SO28" "SOIC(28)") )
+(package "SOIC40" numPins 40 ("SO40" "SOIC(40)") )
+(package "SOIC48" numPins 48 ("SO48" "SOIC(48)") )
+
+(package "SOIC_N8"  numPins 8 )
+(package "SOIC_N16" numPins 16 )
+
+(package  "LQFP32"   numPins 32   )
+(package  "LQFP48"   numPins 48   )
+(package  "LQFP64"   numPins 64   )
+(package  "LQFP100"  numPins 100  )
+(package  "LQFP144"  numPins 144  )
+(package  "LQFP176"  numPins 176  )
+(package  "LQFP208"  numPins 208  )
+                                 
+                                 
+(package "UFBGA64"   numPins 64   )
+(package "UFBGA100"  numPins 100  )
+(package "UFBGA132"  numPins 132  )
+(package "UFBGA144"  numPins 144  )
+(package "UFBGA169"  numPins 169  )
+(package "UFBGA176"  numPins 176  )
+                                 
+(package "TFBGA64"   numPins 64   )
+(package "TFBGA100"  numPins 100  )
+(package "TFBGA216"  numPins 216  )
+(package "TFBGA240"  numPins 240  )
+                                 
+(package "LFBGA100"  numPins 100  )
+(package "LFBGA144"  numPins 144  )
+
+(package "MSOP8"     numPins 8  )
+(package "MSOP8-TP"  numPins 8  )
+(package "MSOP10"    numPins 10  )
+(package "MSOP12"    numPins 12  )
+(package "MSOP16"    numPins 16  )
+
+(package "SSOP20"    numPins 20  )
+(package "SSOP28"    numPins 28  )
+(package "SSOP36"    numPins 36  )
+(package "SSOP40"    numPins 40  )
+
+(package "DIP8"      numPins  8 (PDIP8  CDIP8 ) )
+(package "DIP10"     numPins 10 (PDIP10 CDIP10) )
+(package "DIP12"     numPins 10 (PDIP12 CDIP12) )
+(package "DIP14"     numPins 10 (PDIP14 CDIP14) )
+(package "DIP16"     numPins 10 (PDIP16 CDIP16) )
+(package "DIP20"     numPins 10 (PDIP20 CDIP20) )
+(package "DIP24"     numPins 10 (PDIP24 CDIP24) )
+(package "DIP28"     numPins 10 (PDIP28 CDIP28) )
+(package "DIP40"     numPins 10 (PDIP40 CDIP40) )
+(package "DIP48"     numPins 10 (PDIP48 CDIP48) )
+
+
+
+
+
+
+(-- packageAlias "SOT23-3" ("WSWSOIC23-5" "SOIC23-5B-AEFC") )
+
+
+
+
+    (-- packageAssign (designator "DD1")
+                   (netlist "Net1")
+                   (compare regex)
+                   (package "SOIC-8")
+    )
+
+    (-- packageAssign (designator "DD1")
+                   (netlist "Net1")
+                   (compare exact)
+                   (package "SOIC-8")
+    )

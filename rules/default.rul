@@ -1,0 +1,727 @@
+(-- ----------------- Global modify rules ----------------- )
+
+(-- remove 'MCU' prefix)
+(modify "mcuNet" replaceSingle "MCU_(.*)" "$({1})")
+
+(// convert all 'BLA_BLA_nSIGNAL' negations to 'BLA_BLA_~SIGNAL')
+(modify "mcuNet" replace "(.*_)n([A-Z].*)" "$({1})~$({2})")
+(modify "mcuNet" replace "(.*_)([A-Z].+)n$" "$({1})~$({2})")
+
+(-- modify "mcuNet" replace "(.*)_~([A-Z].+)" "$({1})_ACTIVE_LOW_$({2})")
+
+(modify "mcuNet" replaceSingle "USART"  "$({P})UART$({S})")
+
+
+(// AS5040_PWM3 -> AS5040U3_PWM ('U' from 'UNIT') )
+(modify "mcuNet" replaceSingle "([[:alpha:]]+\d{2,})_([[:alpha:]]+)(\d+)" "$({P})$({1})U$({3})_$({2})$({S})")
+(modify "mcuNet" replaceSingle "([[:alpha:]]+\d{2,})_([[:alpha:]]+)_(\d+)" "$({P})$({1})U$({3})_$({2})$({S})")
+
+(-- revert UART RS485 )
+(modify "mcuNet" replaceSingle "RS(\d+)U(\d+)_USART" "$({P})RS485_USART$({2})$({S})")
+(modify "mcuNet" replaceSingle "RS(\d+)U(\d+)_UART"  "$({P})RS485_UART$({2})$({S})")
+
+
+(// glue numbers to it_s designators - 'BLA_BLA_SOMETHING_1_BLA_BLA' to 'BLA_BLA_SOMETHING1_BLA_BLA' )
+(modify "mcuNet" replace "(.+)_(\d+)(.*)" "$({1})$({2})$({3})")
+
+(modify "mcuNet" toUpper)
+(// modify "mcuNet" toLower)
+
+(// expand MOTX abbr to full MOTORX term)
+(modify "mcuNet" replaceSingle "(.*)MOT(\d+)(.*)" "$({1})MOTOR$({2})$({3})")
+
+(// move PWM to end )
+(modify "mcuNet" replaceSingle "(.*)_PWM_(.*)" "$({1})_$({2})_PWM")
+(modify "mcuNet" replaceSingle "PWM_(.*)" "$({1})_PWM")
+
+(// move BAT from end )
+(modify "mcuNet" replaceSingle "(RS\d+)_(.+)_BAT" "BATTERY_$({P})$({1})_$({2})")
+(modify "mcuNet" replaceSingle "(.*)RE/DE(.*)" "$({P})$({1})DE$({2})$({S})")
+
+(modify "mcuNet" replaceSingle "PRES_FLAG" "BATTERY_PRESENT_FLAG")
+(modify "mcuNet" replaceSingle "PRESS_FLAG" "BATTERY_PRESENT_FLAG")
+(modify "mcuNet" replaceSingle "CHG_DTCT"  "BATTERY_CHARGE_DETECT")
+
+
+
+(//  Correct Diana_s misspellings )
+(modify "mcuNet" replaceSingle "(.*)ACSEL(.*)" "$({P})$({1})ACCEL$({2})$({S})")
+
+(modify "mcuNet" replaceSingle "(.*)EN_ACCEL/GYRO(.*)" "$({P})$({1})CS_G$({2})$({S})")
+(modify "mcuNet" replaceSingle "(.*)EN_MARNIT(.*)" "$({P})$({1})CS_XM$({2})$({S})")
+
+(-- remove dots )
+(modify "mcuNet" replace "(.*)\.(.*)" "$({P})$({1})$({2})$({S})")
+
+
+(modify "mcuNet" replaceSingle "LED_ERR"   "LED_ERROR")
+(modify "mcuNet" replaceSingle "LED_GREEN" "LED_LINK")
+(modify "mcuNet" replaceSingle "LED_RED"   "LED_ERROR")
+(forceGroup "STATE_LEDS" ("LED_ERR" "LED_ERROR" "LED_LINK" "LED_WORK" "LED_OK" "LED_GOOD") )
+
+(modify "unitPurpose" replaceSingle "^LED$"           "DRIVER:GPIO")
+(modify "unitPurpose" replaceSingle "^SWITCH$"        "DRIVER:GPIO")
+(modify "unitPurpose" replaceSingle "^DRIVER:RS485$"  "DRIVER:UART")
+(modify "unitPurpose" replaceSingle "^DRIVER:RS422$"  "DRIVER:UART")
+(modify "unitPurpose" replaceSingle "^DRIVER:RS232$"  "DRIVER:UART")
+
+
+
+
+(-- ----------------- Global grouping ----------------- )
+
+
+(forceGroup "CAMERAS_EN" ("CAMERA(\d+)_EN" "CAM(\d+)_EN" "CAMERA_(.*)_EN" "CAM_(.*)_EN" "TVKO_EN" ) )
+(forceGroup "CAMERAS_PWR" ("CAMERA(\d+)_PWR" "CAM(\d+)_PWR" "CAMERA_(.*)_PWR" "CAM_(.*)_PWR" "TVKO_PWR" "CAMERA(\d+)_POWER" "CAM(\d+)_POWER" "CAMERA_(.*)_POWER" "CAM_(.*)_POWER" "TVKO_POWER" ) )
+
+
+
+
+(// LINK ERROR ERR FAULT FLAG STATUS RX TX DE EN INV SLEW PWM SPC CLK MISO MOSI 
+    CS XM DIS IN GREEN RED BLUE WHITE CURRENT SHDN SCL SDA AMPLIF AMP SCK 
+    SO DIM LBK LOOPBACK SENSE SENSOR RATE SIGN
+    INTERRUPT RESET SPI SSI I2C
+)
+(// CH CHA CHB CHC CHD CHAN RD/DE)
+(// UART)
+
+
+(// modify "mcuNet" replaceSingle "" "")
+(// modify "unitType" replaceSingle "" "")
+(// modify "unitClass" replaceSingle "" "")
+(// modify "unitPurpose" replaceSingle "" "")
+
+
+(-- knownInterfaces "UART" "SPI" "I2C" "PWM" "DAC" "ADC" "GPIO")
+
+(-- match "token"    - lookup on mcu net tokens )
+(-- match "function" - lookup on target pin functions )
+
+(-- detect UART RX/TX - duplex)
+(detect "UART"
+    (and (match "token" (any "TXD{0,1}") set "TX" )
+         (match "token" (any "RXD{0,1}") set "RX" )
+    )
+)
+
+(-- detect UART RX/TX only - single direction)
+(detect "UART"
+    (or  (match "token" (any "TXD{0,1}") set "TX" )
+         (match "token" (any "RXD{0,1}") set "RX" )
+    )
+)
+
+(detect "CAN"
+    (and (match "token" (any "RX") set "RX" )
+         (match "token" (any "TX") set "TX" )
+         (match "token" (any "LBK" "LOOPBACK") set "GPIO:OUT" )
+    )
+)
+
+(detect "CAN"
+    (and (match "function" (any "RXD{0,1}") set "RX" )
+         (match "function" (any "TXD{0,1}") set "TX" )
+         (match "function" (any "LBK" "LOOPBACK") set "GPIO:OUT" )
+    )
+)
+
+(-- detect I2C by MCU net)
+(detect "I2C"
+    (and (match "token" (any "SCL") set "SCL" )
+         (match "token" (any "SDA") set "SDA" )
+    )
+)
+
+(-- detect SPI by MCU net)
+(detect "SPI"
+    (and (match "token" (any "MOSI") set "MOSI" )
+         (match "token" (any "MISO") set "MISO" )
+         (match "token" (any "SCLK" "CLK" "SPC" "SCK") set "SCK" )
+    )
+)
+
+(detect "SPI"
+    (and (match "token" (any "MISO") set "MISO" )
+         (match "token" (any "SCLK" "CLK" "SPC" "SCK") set "SCK" )
+    )
+)
+
+(detect "SPI"
+    (and (match "token" (any "MOSI") set "MOSI" )
+         (match "token" (any "SCLK" "CLK" "SPC" "SCK") set "SCK" )
+    )
+)
+
+(-- detect I2C by target unit pin function)
+(-- detect "I2C"
+    (and (match "function" (any "SCL") set "SCL" )
+         (match "function" (any "SDA") set "SDA" )
+    )
+)
+
+(-- detect SPI by target unit pin function)
+(-- detect "SPI"
+    (and (match "function" (any "MOSI") set "MOSI" )
+         (match "function" (any "MISO") set "MISO" )
+         (match "function" (any "SCLK" "CLK" "SPC" "SCK") set "SCK" )
+    )
+)
+
+(-- detect "SPI"
+    (and (match "function" (any "MISO") set "MISO" )
+         (match "function" (any "SCLK" "CLK" "SPC" "SCK") set "SCK" )
+    )
+)
+
+(--detect "SPI"
+    (and (match "function" (any "MOSI") set "MOSI" )
+         (match "function" (any "SCLK" "CLK" "SPC" "SCK") set "SCK" )
+    )
+)
+
+
+(detect "ADC"
+    (and (match "function" (any "ADC") set "ADC" )
+    )
+)
+
+(detect "DAC"
+    (and (match "function" (any "DAC") set "DAC" )
+    )
+)
+
+(detect "PWM"
+    (and (match "token"   (any "PWM")    set "PWM:" )
+    )
+)
+
+(detect "PWM"
+    (and (match "function" (any "PWM") set "PWM:" )
+    )
+)
+
+
+
+(detect "HBRIDGE"
+    (or (match "function" (any "DAC") set "DAC:DAC" )
+    )
+)
+
+
+
+(generatorInfo (name "h_conf")
+               (description "C-header config generator")
+               (defaultFileExtention "h")
+               (lineComment "//")
+               (commentStart "/*")
+               (commentEnd "*/")
+               (lineFormat "#define $(name)    $(value)")
+               (nameWidth  "42")
+)
+
+
+(-- match token|netToken|function|pinFunction|purpose|unitPurpose)
+(generator "h_conf" interface "GPIO:OUT"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"
+        (set ( ("$(NET_NAME)_GPIO"               to "GPIO$({1})")
+               ("$(NET_NAME)_GPIO_PIN_NO"        to "$({2})")
+               ("$(NET_NAME)_GPIO_PIN_ADDR"      to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_GPIO_PIN_ADDR_DIR"  to "UMBA_PINADDR_P$({1})$({2}), UMBA_GPIO_DIRECTION_OUT")
+               ("$(NET_NAME)_GPIO_PIN_SOURCE"    to "GPIO_PinSource$({2})")
+               ("$(NET_NAME)_GPIO_PIN_DIRECTION" to "UMBA_GPIO_DIRECTION_OUT")
+             )
+        )
+    )
+)
+
+(generator "h_conf" interface "GPIO:IN"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"
+        (set ( ("$(NET_NAME)_GPIO"                 to "GPIO$({1})")
+               ("$(NET_NAME)_GPIO_PIN_NO"          to "$({2})")
+               ("$(NET_NAME)_GPIO_PIN_ADDR"        to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_GPIO_PIN_ADDR_DIR"    to "UMBA_PINADDR_P$({1})$({2}), UMBA_GPIO_DIRECTION_IN")
+               ("$(NET_NAME)_GPIO_PIN_SOURCE"      to "GPIO_PinSource$({2})")
+               ("$(NET_NAME)_GPIO_PIN_DIRECTION"   to "UMBA_GPIO_DIRECTION_IN")
+             )
+        )
+    )
+)
+
+(generator "h_conf" interface "ADC:.*"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  
+        (set ( ("$(NET_NAME)_ADC_GPIO"             to "GPIO$({1})")
+               ("$(NET_NAME)_ADC_GPIO_PIN_NO"      to "$({2})")
+               ("$(NET_NAME)_ADC_GPIO_PIN_ADDR"    to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_ADC_GPIO_PIN_SOURCE"  to "GPIO_PinSource$({2})")
+             )
+        )
+    )
+    (match "function" to "ADC(\d{1,3})_IN(\d{1,2})"
+        (set ( ("$(NET_NAME)_ADC_CHANNEL"          to "ADC_Channel_$({2})")
+               ("$(NET_NAME)_ADC_CHANNEL_NO"       to "$({2})")
+               ("$(NET_NAME)_ADC"                  to "ADC$({1})" (-- comment "Informational only") )
+               ("USE_ADC$({1})"                    to "1" )
+             )
+        )
+    )
+)
+
+(generator "h_conf" interface "DAC:.*"
+    (match "function" to "DAC(\d{1,3})_OUT(\d{1,1})"
+        (set ( ("$(NET_NAME)_DAC"                to "DAC$({1})")
+               ("$(NET_NAME)_DAC_CHANNEL"        to "DAC_Channel_$({2})")
+               ("$(NET_NAME)_DAC_CHANNEL_NO"     to "$({2})")
+               ("USE_DAC$({1})"                  to "1" )
+             )
+        )
+    )
+    (match "function" to "DAC(\d{1,3})_OUT"
+        (set ( ("$(NET_NAME)_DAC"                to "DAC")
+               ("$(NET_NAME)_DAC_CHANNEL"        to "DAC_Channel_$({1})")
+               ("USE_DAC"                        to "1" )
+             )
+        )
+    )
+)
+
+
+
+(-- Соточка - один DAC на два канала
+#define DAC_Channel_1                      ((uint32_t)0x00000000)
+#define DAC_Channel_2                      ((uint32_t)0x00000010)
+)
+
+(-- Троечка - два DAC по два канала
+#define DAC1                ((DAC_TypeDef *) DAC1_BASE)
+#define DAC2                ((DAC_TypeDef *) DAC2_BASE)
+#define DAC                  DAC1
+
+#define DAC_Channel_1                     ((uint32_t)0x00000000)
+#define DAC_Channel_2                     ((uint32_t)0x00000010)
+
+)
+
+(-- Четверочка - один DAC два канала
+#define DAC                 ((DAC_TypeDef *) DAC_BASE)
+#define DAC_Channel_1                      ((uint32_t)0x00000000)
+#define DAC_Channel_2                      ((uint32_t)0x00000010)
+
+DAC2_OUT 
+)
+
+
+(----------- UART RX/TX )
+
+(generator "h_conf" interface "UART:RX"
+    (match "function" to "US{0,1}ART(\d{1,2})_RX"                 
+        (modify "NetName" replaceSingle "(.*)_UART(\d*)(.*)"  "$({1})$({3})")
+        (modify "NetName" replaceSingle "(.*)_RX$"  "$({1})")
+        (set ( ("$(NET_NAME)_UART"                           to "UART$({1})"         )
+               ("$(NET_NAME)_LEGACY_UART"                    to "uart::uart$({1})"   )
+               ("USE_UART$({1})"                             to "1" )
+             )
+        )
+    )
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  
+        (modify "NetName" replaceSingle "(.*)_UART(\d*)(.*)"  "$({1})$({3})")
+        (modify "NetName" replaceSingle "(.*)_RX$"  "$({1})")
+        (set ( ("$(NET_NAME)_UART_RX_GPIO"                   to "GPIO$({1})")
+               ("$(NET_NAME)_UART_RX_GPIO_PIN_NO"            to "$({2})")
+               ("$(NET_NAME)_UART_RX_GPIO_PIN_ADDR"          to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_UART_RX_GPIO_PIN_SOURCE"        to "GPIO_PinSource$({2})")
+               ("$(NET_NAME)_UART_RX_GPIO_PIN_DIRECTION"     to "UMBA_GPIO_DIRECTION_IN")
+             )
+        )
+    )
+)
+
+(generator "h_conf" interface "UART:TX"
+    (match "function" to "US{0,1}ART(\d{1,2})_TX"                 
+        (modify "NetName" replaceSingle "(.*)_UART(\d*)(.*)"  "$({1})$({3})")
+        (modify "NetName" replaceSingle "(.*)_TX$"  "$({1})")
+        (set ( ("$(NET_NAME)_UART"                           to "UART$({1})"         )
+               ("$(NET_NAME)_LEGACY_UART"                    to "uart::uart$({1})"   )
+               ("USE_UART$({1})"                             to "1" )
+             )
+        )
+    )
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  
+        (modify "NetName" replaceSingle "(.*)_UART(\d*)(.*)"  "$({1})$({3})")
+        (modify "NetName" replaceSingle "(.*)_TX$"  "$({1})")
+        (set ( ("$(NET_NAME)_UART_TX_GPIO"                   to "GPIO$({1})")
+               ("$(NET_NAME)_UART_TX_GPIO_PIN_NO"            to "$({2})")
+               ("$(NET_NAME)_UART_TX_GPIO_PIN_ADDR"          to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_UART_TX_GPIO_PIN_SOURCE"        to "GPIO_PinSource$({2})")
+               ("$(NET_NAME)_UART_TX_GPIO_PIN_DIRECTION"     to "UMBA_GPIO_DIRECTION_OUT")
+             )
+        )
+    )
+)
+
+
+
+
+(----------- CAN RX/TX )
+
+(generator "h_conf" interface "CAN:RX"
+    (match "function" to "CAN(\d{0,1})_RX"
+        (modify "NetName" replaceSingle "(.*)_CAN(\d*)(.*)"  "$({1})$({3})")
+        (modify "NetName" replaceSingle "(.*)_RX$"  "$({1})")
+        (set ( ("$(NET_NAME)_CAN"                            to "CAN$({1})")
+               ("USE_CAN$({1})"                              to "1" )
+             )
+        )
+    )
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  
+        (modify "NetName" replaceSingle "(.*)_CAN(\d*)(.*)"  "$({1})$({3})")
+        (modify "NetName" replaceSingle "(.*)_RX$"  "$({1})")
+        (set ( ("$(NET_NAME)_CAN_RX_GPIO"                    to "GPIO$({1})")
+               ("$(NET_NAME)_CAN_RX_GPIO_PIN_NO"             to "$({2})")
+               ("$(NET_NAME)_CAN_RX_GPIO_PIN_ADDR"           to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_CAN_RX_GPIO_PIN_SOURCE"         to "GPIO_PinSource$({2})")
+               ("$(NET_NAME)_CAN_RX_GPIO_PIN_DIRECTION"      to "UMBA_GPIO_DIRECTION_IN")
+             )
+        )
+    )
+)
+
+(generator "h_conf" interface "CAN:TX"
+    (match "function" to "CAN(\d{0,1})_TX"
+        (modify "NetName" replaceSingle "(.*)_CAN(\d*)(.*)"  "$({1})$({3})")
+        (modify "NetName" replaceSingle "(.*)_TX$"  "$({1})")
+        (set ( ("$(NET_NAME)_CAN"                            to "CAN$({1})")
+               ("USE_CAN$({1})"                              to "1" )
+             )
+        )
+    )
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  
+        (modify "NetName" replaceSingle "(.*)_CAN(\d*)(.*)"  "$({1})$({3})")
+        (modify "NetName" replaceSingle "(.*)_TX$"  "$({1})")
+        (set ( ("$(NET_NAME)_CAN_TX_GPIO"                    to "GPIO$({1})")
+               ("$(NET_NAME)_CAN_TX_GPIO_PIN_NO"             to "$({2})")
+               ("$(NET_NAME)_CAN_TX_GPIO_PIN_ADDR"           to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_CAN_TX_GPIO_PIN_SOURCE"         to "GPIO_PinSource$({2})")
+               ("$(NET_NAME)_CAN_TX_GPIO_PIN_DIRECTION"      to "UMBA_GPIO_DIRECTION_IN")
+             )
+        )
+    )
+)
+
+
+(----------- SPI )
+
+(generator "h_conf" interface "SPI:.*"
+    (match "function" to "SPI(\d{0,1})_(.*)"
+        (modify "NetName" replaceSingle "(.*)_SCK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SPC$"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_CLK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_CLK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SCLK$"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_MOSI$"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_MISO$"         "$({1})")
+        (modify "NetName" replaceSingle "^SCK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^SPC_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "^CLK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^CLK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^SCLK_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "^MOSI_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "^MISO_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SPI(\d*)(.*)"  "$({1})$({3})")
+        (set ( ("$(NET_NAME)_SPI"                            to "SPI$({1})")
+               ("USE_SPI$({1})"                              to "1" )
+             )
+        )
+    )
+)
+
+(generator "h_conf" interface "SPI:SCK"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  
+        (modify "NetName" replaceSingle "(.*)_SCK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SPC$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_CLK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_CLK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SCLK$"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_MOSI$"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_MISO$"         "$({1})")
+        (modify "NetName" replaceSingle "^SCK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^SPC_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^CLK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^CLK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^SCLK_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "^MOSI_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "^MISO_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SPI(\d*)(.*)"  "$({1})$({3})")
+        (set ( ("$(NET_NAME)_SPI_SCK_GPIO"                   to "GPIO$({1})")
+               ("$(NET_NAME)_SPI_SCK_GPIO_PIN_NO"            to "$({2})")
+               ("$(NET_NAME)_SPI_SCK_GPIO_PIN_ADDR"          to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_SPI_SCK_GPIO_PIN_ADDR_DIR"      to "UMBA_PINADDR_P$({1})$({2}), UMBA_GPIO_DIRECTION_OUT")
+               ("$(NET_NAME)_SPI_SCK_GPIO_PIN_SOURCE"        to "GPIO_PinSource$({2})")
+               ("$(NET_NAME)_SPI_SCK_GPIO_PIN_DIRECTION"     to "UMBA_GPIO_DIRECTION_OUT")
+             )
+        )
+    )
+)
+
+(generator "h_conf" interface "SPI:MOSI"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  
+        (modify "NetName" replaceSingle "(.*)_SCK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SPC$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_CLK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_CLK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SCLK$"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_MOSI$"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_MISO$"         "$({1})")
+        (modify "NetName" replaceSingle "^SCK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^SPC_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^CLK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^CLK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^SCLK_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "^MOSI_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "^MISO_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SPI(\d*)(.*)"  "$({1})$({3})")
+        (set ( ("$(NET_NAME)_SPI_MOSI_GPIO"                  to "GPIO$({1})")
+               ("$(NET_NAME)_SPI_MOSI_GPIO_PIN_NO"           to "$({2})")
+               ("$(NET_NAME)_SPI_MOSI_GPIO_PIN_ADDR"         to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_SPI_MOSI_GPIO_PIN_ADDR_DIR"     to "UMBA_PINADDR_P$({1})$({2}), UMBA_GPIO_DIRECTION_OUT")
+               ("$(NET_NAME)_SPI_MOSI_GPIO_PIN_SOURCE"       to "GPIO_PinSource$({2})")
+               ("$(NET_NAME)_SPI_MOSI_GPIO_PIN_DIRECTION"    to "UMBA_GPIO_DIRECTION_OUT")
+             )
+        )
+    )
+)
+
+(generator "h_conf" interface "SPI:MISO"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  
+        (modify "NetName" replaceSingle "(.*)_SCK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SPC$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_CLK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_CLK$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SCLK$"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_MOSI$"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_MISO$"         "$({1})")
+        (modify "NetName" replaceSingle "^SCK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^SPC_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^CLK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^CLK_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^SCLK_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "^MOSI_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "^MISO_(.*)"         "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SPI(\d*)(.*)"  "$({1})$({3})")
+        (set ( ("$(NET_NAME)_SPI_MISO_GPIO"                  to "GPIO$({1})")
+               ("$(NET_NAME)_SPI_MISO_GPIO_PIN_NO"           to "$({2})")
+               ("$(NET_NAME)_SPI_MISO_GPIO_PIN_ADDR"         to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_SPI_MISO_GPIO_PIN_ADDR_DIR"     to "UMBA_PINADDR_P$({1})$({2}), UMBA_GPIO_DIRECTION_IN")
+               ("$(NET_NAME)_SPI_MISO_GPIO_PIN_SOURCE"       to "GPIO_PinSource$({2})")
+               ("$(NET_NAME)_SPI_MISO_GPIO_PIN_DIRECTION"    to "UMBA_GPIO_DIRECTION_IN")
+             )
+        )
+    )
+)
+
+
+
+(----------- I2C )
+
+(generator "h_conf" interface "I2C:.*"
+    (match "function" to "I2C(\d{0,1})_(.*)"
+        (modify "NetName" replaceSingle "(.*)_SCL$"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_SDA$"          "$({1})")
+        (modify "NetName" replaceSingle "^SCL_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "^SDA_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_I2C(\d*)(.*)"  "$({1})$({3})")
+        (set ( ("$(NET_NAME)_I2C"                            to "I2C$({1})")
+               ("USE_I2C$({1})"                              to "1" )
+             )
+        )
+    )
+)
+
+(generator "h_conf" interface "I2C:SCL"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  
+        (modify "NetName" replaceSingle "(.*)_SCL$"          "$({1})")
+        (modify "NetName" replaceSingle "^SCL_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_I2C(\d*)(.*)"  "$({1})$({3})")
+        (set ( ("$(NET_NAME)_I2C_SCL_GPIO"                   to "GPIO$({1})")
+               ("$(NET_NAME)_I2C_SCL_GPIO_PIN_NO"            to "$({2})")
+               ("$(NET_NAME)_I2C_SCL_GPIO_PIN_ADDR"          to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_I2C_SCL_GPIO_PIN_SOURCE"        to "GPIO_PinSource$({2})")
+             )
+        )
+    )
+)
+
+(generator "h_conf" interface "I2C:SDA"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  
+        (modify "NetName" replaceSingle "(.*)_SDA$"          "$({1})")
+        (modify "NetName" replaceSingle "^SDA_(.*)"          "$({1})")
+        (modify "NetName" replaceSingle "(.*)_I2C(\d*)(.*)"  "$({1})$({3})")
+        (set ( ("$(NET_NAME)_I2C_SDA_GPIO"                   to "GPIO$({1})")
+               ("$(NET_NAME)_I2C_SDA_GPIO_PIN_NO"            to "$({2})")
+               ("$(NET_NAME)_I2C_SDA_GPIO_PIN_ADDR"          to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_I2C_SDA_GPIO_PIN_SOURCE"        to "GPIO_PinSource$({2})")
+             )
+        )
+    )
+)
+
+
+
+(generator "h_conf" interface "PWM:(OUT|PWM)"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  
+        (modify "NetName" replaceSingle "(.*)_PWM$"          "$({1})")
+        (modify "NetName" replaceSingle "^PWM_(.*)"          "$({1})")
+        (set ( ("$(NET_NAME)_PWM_GPIO"                       to "GPIO$({1})")
+               ("$(NET_NAME)_PWM_GPIO_PIN_NO"                to "$({2})")
+               ("$(NET_NAME)_PWM_GPIO_PIN_ADDR"              to "UMBA_PINADDR_P$({1})$({2})")
+               ("$(NET_NAME)_PWM_GPIO_PIN_ADDR_DIR"          to "UMBA_PINADDR_P$({1})$({2}), UMBA_GPIO_DIRECTION_OUT")
+               ("$(NET_NAME)_PWM_GPIO_PIN_SOURCE"            to "GPIO_PinSource$({2})")
+             )
+        )
+    )
+    (match "function" to "TIM(\d{1,2})_CH(\d{1,2})"
+        (modify "NetName" replaceSingle "(.*)_PWM$"          "$({1})")
+        (modify "NetName" replaceSingle "^PWM_(.*)"          "$({1})")
+        (set ( ("$(NET_NAME)_PWM_TIM_CHANNEL"                to "TIM_Channel_$({2})")
+               ("$(NET_NAME)_PWM_TIM_CHANNEL_NO"             to "$({2})")
+               ("$(NET_NAME)_PWM_TIM"                        to "TIM$({1})" (-- comment "Informational only") )
+               ("USE_TIM$({1})"                              to "1" )
+             )
+        )
+    )
+)
+
+
+
+(--
+
+CAN_LBK	GPIO_PIN_8 GPIO_PORT_GPIOA MCO PA8 TIM1_CH1	DD7.5
+(TVKO_Com)	GPIO IN LBK LOOPBACK	DD	DRIVER:CAN	SN65HVD233Datasheet	CAN Bus Transceiver
+DD1.32
+(CAN:RX)	MCU_CAN_RX
+CAN_RX	CAN_RX GPIO_PIN_11 GPIO_PORT_GPIOA PA11 TIM1_CH1N TIM1_CH4	DD7.4
+(TVKO_Com)	OUT R RXD	DD	DRIVER:CAN	SN65HVD233Datasheet	CAN Bus Transceiver
+DD1.33
+(CAN:TX)	MCU_CAN_TX
+CAN_TX
+
+)
+
+
+
+
+
+
+(generatorInfo (name "cpp_pins_camel")
+               (description "C++ pins config generator")
+               (defaultFileExtention "cpp")
+               (lineComment "//")
+               (commentStart "/*")
+               (commentEnd "*/")
+               (lineFormat "$(name)")
+               (nameWidth  "42")
+               (condenced  "true")
+)
+
+(generatorInfo (name "extern_cpp_pins_camel")
+               (description "C++ extern pins config generator")
+               (defaultFileExtention "h")
+               (lineComment "//")
+               (commentStart "/*")
+               (commentEnd "*/")
+               (lineFormat "$(name)")
+               (nameWidth  "42")
+               (condenced  "true")
+)
+
+(generatorInfo (name "cpp_pins_snake")
+               (description "C++ pins config generator")
+               (defaultFileExtention "cpp")
+               (lineComment "//")
+               (commentStart "/*")
+               (commentEnd "*/")
+               (lineFormat "$(name)")
+               (nameWidth  "42")
+               (condenced  "true")
+)
+
+(generatorInfo (name "extern_cpp_pins_snake")
+               (description "C++ extern pins config generator")
+               (defaultFileExtention "h")
+               (lineComment "//")
+               (commentStart "/*")
+               (commentEnd "*/")
+               (lineFormat "$(name)")
+               (nameWidth  "42")
+               (condenced  "true")
+)
+
+
+
+(-- // Use $(net_name) instead of $(netName) for snake names )
+
+(-- // match token|netToken|function|pinFunction|purpose|unitPurpose)
+(generator "cpp_pins_camel" interface "GPIO:OUT"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"
+        (set ( ("UMBA_PERIPH_DECLARE_PIN_EX( $(netName)Pin,\t UMBA_PINADDR_P$({1})$({2}),\tUMBA_GPIO_DIRECTION_OUT );" to "_")
+             )
+        )
+    )
+)
+
+(generator "cpp_pins_camel" interface "GPIO:IN"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"
+        (set ( ("UMBA_PERIPH_DECLARE_PIN_EX( $(netName)Pin,\tUMBA_PINADDR_P$({1})$({2}),\tUMBA_GPIO_DIRECTION_IN );"  to "_")
+             )
+        )
+    )
+)
+
+(generator "extern_cpp_pins_camel" interface "GPIO:OUT"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"
+        (set ( ("UMBA_PERIPH_EXTERN_PIN( $(netName)Pin );" to "_")
+             )
+        )
+    )
+)
+
+(generator "extern_cpp_pins_camel" interface "GPIO:IN"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"
+        (set ( ("UMBA_PERIPH_EXTERN_PIN( $(netName)Pin );"  to "_")
+             )
+        )
+    )
+)
+
+
+
+(generator "cpp_pins_snake" interface "GPIO:OUT"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"
+        (set ( ("UMBA_PERIPH_DECLARE_PIN_EX( $(net_name)_Pin,\t UMBA_PINADDR_P$({1})$({2}),\tUMBA_GPIO_DIRECTION_OUT );" to "_")
+             )
+        )
+    )
+)
+
+(generator "cpp_pins_snake" interface "GPIO:IN"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"
+        (set ( ("UMBA_PERIPH_DECLARE_PIN_EX( $(net_name)_Pin,\tUMBA_PINADDR_P$({1})$({2}),\tUMBA_GPIO_DIRECTION_IN );"  to "_")
+             )
+        )
+    )
+)
+
+(generator "extern_cpp_pins_snake" interface "GPIO:OUT"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"
+        (set ( ("UMBA_PERIPH_EXTERN_PIN( $(net_name)_Pin );" to "_")
+             )
+        )
+    )
+)
+
+(generator "extern_cpp_pins_snake" interface "GPIO:IN"
+    (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"
+        (set ( ("UMBA_PERIPH_EXTERN_PIN( $(net_name)_Pin );"  to "_")
+             )
+        )
+    )
+)

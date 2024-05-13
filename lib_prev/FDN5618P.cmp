@@ -1,0 +1,8 @@
+(componentDefinition "FDN5618P"
+    (description "60V P-Channel Logic Level PowerTrench MOSFET")
+    (purpose "SWITCH")
+    (datasheet "FDN5618P-D.PDF")
+    (pin "1" "" ("G" ) )
+    (pin "2" "" ("S" ) )
+    (pin "3" "" ("D" ) )
+)

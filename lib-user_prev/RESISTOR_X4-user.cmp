@@ -1,0 +1,7 @@
+(componentDefinition "RESISTOR_X4"
+    (internalNet "1" "2")
+    (internalNet "3" "4")
+    (internalNet "5" "6")
+    (internalNet "7" "8")
+)
+

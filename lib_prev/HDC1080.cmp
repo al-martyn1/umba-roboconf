@@ -1,0 +1,11 @@
+(componentDefinition "HDC1080"
+    (description "Digital Humidity Sensor with Temperature Sensor (I2C)")
+    (purpose "SENSOR:I2C:TEMPERATURE")
+    (datasheet "hdc1080.pdf")
+    (pin "1" "" ("SDA" ) )
+    (pin "2" "" ("GND" ) )
+    (pin "3" "" ("NC" ) )
+    (pin "4" "" ("NC" ) )
+    (pin "5" "" ("VDD" ) )
+    (pin "6" "" ("SCL" ) )
+)

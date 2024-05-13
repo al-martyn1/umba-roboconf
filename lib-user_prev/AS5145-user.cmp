@@ -1,0 +1,3 @@
+(componentDefinition "AS5145"
+    (pin "12" "" ("PWM" "OUT" ) )
+)

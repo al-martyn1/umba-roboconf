@@ -1,0 +1,343 @@
+1)  Нужно переделать пины - сейчас это int и это не совместимо с некоторыми
+    схемами.
+
+2)  Потом нужно будет перелопатить все элементы и все сети, где пины - не 
+    числовые - и заменить их на номера пинов из базы.
+
+3)  Нужно сделать чтение csv, которое экспортирует Cube - чтобы не расчитывать
+    на экспорт из альтиума. Считывать поле "Type".
+
+4)  Изменить формат библиотечных файлов и вкорячить туда поле type. При чтении
+    добавлять к пинам функции вида _TYPE_XXX, где XXX - считано из поля Type.
+
+5)  Завести базу корпусов. Для каждого типа корпуса можно задавать:
+    а) алиасы
+    б) количество пинов
+
+6)  Базу корпусов следует использовать для автодетекта поля, которое содержит
+    тип корпуса (patternName). Также тип корпуса может быть указан в имени типа
+    компонента в конце, слитно, через минус или через подчеркивание.
+
+7)  Завести базу компонентов (обновляем ручками), в которой задаем:
+    а) маску типа компонента
+    б) соответствующий тип компонента - DD, DA, VD, VT, R, C и тп
+    в) признак, сборка ли это
+    г) внутреннюю коммутацию
+
+8)  Сделать импорт описаний STMок из куба.
+    Импорт кубовских csv - не нужен
+
+
+
+
+F105
+DS6014  Connectivity line, ARM®-based 32-bit MCU with 64/256 KB Flash, USB OTG, Ethernet, 10 timers, 2 CANs, 2 ADCs, 14 communication interfaces  (version 10)
+RM0008  STM32F101xx, STM32F102xx, STM32F103xx, STM32F105xx and STM32F107xx advanced Arm®-based 32-bit MCUs  (version 19)
+PM0056  STM32F10xxx/20xxx/21xxx/L1xxxx Cortex®-M3 programming manual  (version 6)
+PM0075  STM32F10xxx Flash memory microcontrollers  (version 2.2)
+ES022  STM32F105xx and STM32F107xx revision Z connectivity line device limitations  (version 9)
+
+
+
+C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeMX\db\plugins\power\series.xml
+
+
+C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeMX\db\plugins\mcufinder\mcu\
+mcusDocs.json
+mcusFeaturesAndDescription.json
+
+
+                          CD00220364
+{"id_file": "555","name":"CD00220364","displayName":"DS6014","title":"Connectivity line, ARM®-based 32-bit MCU with 64/256 KB Flash, USB OTG, Ethernet, 10 timers, 2 CANs, 2 ADCs, 14 communication interfaces","URL":"http://www.st.com/resource/en/datasheet/CD00220364.pdf","type":"Datasheet" ,"versionNumber":"10","related_MCU_count":"10"}
+{"id_file":"1784","name":"DM00279326","displayName":"DB2885","title":"Multiprotocol wireless 32-bit MCU Arm®-based Cortex®-M4 with FPU, Bluetooth® Low Energy and 802.15.4 radio solution","URL":"http://www.st.com/resource/en/data_brief/DM00279326.pdf"                    ,"type":"Data brief","versionNumber":"2" ,"related_MCU_count":"3"}
+{"id_file":"466","name":"CD00171190","displayName":"RM0008","title":"STM32F101xx, STM32F102xx, STM32F103xx, STM32F105xx and STM32F107xx advanced ARM®-based 32-bit MCUs","URL":"http://www.st.com/resource/en/reference_manual/CD00171190.pdf","type":"Reference manual","versionNumber":"17","related_MCU_count":"76"}
+
+<Datasheet Ref="Yes" DocId="15274" Rev="10" InternetId="CD00220364" DS="6014">
+
+15274
+
+"type":"Datasheet" 
+"type":"Data brief"
+"type":"Application note"
+"type":"Programming manual"
+"type":"Reference manual"
+"type":"User manual"
+"type":"Errata sheet"
+
+        <Line Name="STM32F105/107">
+            <Die Number="418">
+                <Datasheets>
+                    <Datasheet DocID="15274">
+                        <PartNumber Name="STM32F105R8Tx"/>
+                        <PartNumber Name="STM32F105RBTx"/>
+                        <PartNumber Name="STM32F105RCTx"/>
+                        <PartNumber Name="STM32F105V8Tx"/>
+                        <PartNumber Name="STM32F105VBTx"/>
+                        <PartNumber Name="STM32F105VCTx"/>
+                        <PartNumber Name="STM32F105V8Hx"/>
+                        <PartNumber Name="STM32F105VBHx"/>
+                        <PartNumber Name="STM32F107RBTx"/>
+                        <PartNumber Name="STM32F107RCTx"/>
+                        <PartNumber Name="STM32F107VBTx"/>
+                        <PartNumber Name="STM32F107VCTx"/>
+                        <PartNumber Name="STM32F107VCHx"/>
+                    </Datasheet>
+                </Datasheets>
+            </Die>
+        </Line>
+
+C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeMX\db\contextual\serie\serie.xml
+    <serie ref="STM32F1">
+        <!-- Title of the contextual widget -->
+        <title>STM32 F1 series of mainstream MCUs</title>
+        <!-- Generic description displayed in the first panel of the tooltip -->
+        <extract>
+            <![CDATA[ST’s STM32 F1 series of mainstream MCUs covers the needs of a large variety of<br/>
+            applications in the industrial, medical and consumer markets. With this series, ST has pioneered<br/>
+            the world of ARM® Cortex™-M microcontrollers and set a milestone in the history of embedded applications.<br/>
+            High performance with first-class peripherals and low-power, low-voltage operation is paired with a high level<br/>
+            of integration at accessible prices with a simple architecture and easy-to-use tools.]]>
+        </extract>
+        <!-- Detailed information displayed in the expandable -->
+        <help_text>
+            <![CDATA[The series consists of five product lines which are pin-to-pin, peripheral and software compatible.<br/>
+            <p style="text-indent:20px;">- STM32F100 Value line  – 24 MHz CPU with motor control and CEC functions</p>
+            <p style="text-indent:20px;">- STM32F101 – 36 MHz CPU, up to 1 Mbyte of Flash</p>
+            <p style="text-indent:20px;">- STM32F102 – 48 MHz CPU with USB FS</p>
+            <p style="text-indent:20px;">- STM32F103 – 72 MHz, up to 1 Mbyte of Flash with motor control, USB and CAN</p>
+            <p style="text-indent:20px;">- STM32F105/107 – 72 MHz CPU with Ethernet MAC, CAN and USB 2.0 OTG</p>]]>
+        </help_text>
+        <!-- Links that will be displayed on the help widgets:
+        - display: string that will be displayed in front of the hyperlink
+        - type: the type of file you want to display ("txt" "pdf", "chm", "html", "dynamic")
+        dynamic stands for the document that have to be retrieved from the JSON database
+        - reference: path to the document to be displayed (http or local path)
+          If the file is dynamic, indicate the kind of file you want to display:
+            * dataSheet => for datasheet document type
+            * appNote => for application note document type
+            * refMan => for reference manual document type
+            * usrMan => for user Manual document type
+            * prgMan => for Programming Manual document type
+            * errSheet => for Errata Sheet document type
+        - index: for pdf,html and chm type it specifies the chapter where the viewer will point
+        for dynamic file it can specify a chapter except for application notes where it specifies
+        the document display name (e.g. AN1015). This field may be left blank, then the full document
+        is displayed -->
+        <link display="STM32F1 on ST website" type="html" reference="http://www.st.com/en/microcontrollers/stm32f1-series.html?querycriteria=productId=SS1031" index=""/>
+    </serie>
+
+
+
+
+package/patternName "TSSOP-20"
+compvalue "STM32F042Fxx"
+
+patternName "SOT23-5"
+compvalue "MIC5504-3_3YM5"
+
+(compinst "D3"
+  (patternName "DIO_0603")
+  (compvalue "LED_0603"))
+
+(compinst "R3"
+  (patternName "RES_0603")
+  (compvalue "RES_0603"))
+
+(compinst "J4"
+  (patternName "HDR-1x4T/2_54/10x2")
+  (compvalue "644456-4"))
+
+(compinst "J1"
+  (patternName "USB_MINI_B_Plated")
+  (compvalue "USB_MINI_B"))
+
+(compinst "J2"
+  (patternName "Shrouded_SWD_Target_Header")
+  (compvalue "IF"))
+
+(compinst "U1"
+  (patternName "TSSOP-20")
+  (compvalue "STM32F042Fxx"))
+(compinst "U2"
+  (patternName "SOT23-5")
+  (compvalue "MIC5504-3_3YM5"))
+
+(comp (ref U1)
+  (value STM32F446RE_LQFP64)
+  (footprint footprints_micromouse:STM32F446_LQFP64)
+
+(comp (ref LED_WHITE1)
+  (value Led_Small)
+  (footprint LEDs:LED_0603)
+
+
+
+(componentDefinition "STM32F103_8" "STM32F103_B"
+    (nameMatch exact)
+    (nameMatch regex)
+    (nameMatch simple (single "x")(any "*"))
+    (description "ARM Cortex-M3 MCU with 64/128 Kbytes Flash, 72 MHz CPU, motor control, USB, CAN, 7 timers, 2 ADCs, 9 com")
+    (purpose "MCU")
+    (nperiphs "ADC_12_BIT" "3")
+    (nperiphs "DAC_12_BIT" "2")
+    
+    (nperiphs "UART"   "2")
+    (nperiphs "USART"  "3")
+    (nperiphs "UARTX"  "5")
+
+----------------------
+1) чтение корпусов и их характеристик из конфиг файла packages.rul
+     (default.packages)
+     заодно реализовать чтение нескольких дефолтных файлов правил
+
+     (package "SOIC23" pinsNum 5 (aka-list...) )
+     Автоматом генерит алиас SOIC23-5
+
+     (packageAlias "SOIC23-5A" "SOIC23-5")
+     (packageAlias "SOIC23-5B" ("SOIC23-5" "SOIC23") )
+
+
+  2) Реализовать чтение нескольких пользовательских файлов .rul
+
+
+  3) реализовать возможность задания типа компонента и package
+     (designator "DD" netlist "NETLIST" assign package "SOIC-8" )
+     (designator "DD" netlist "NETLIST" assign type "AD854" )
+
+
+  4) реализовать возможность задать пину направление ввода-вывода вида
+     (designator "DD" netlist "NETLIST" pin "PA4" assign direction "OUT" )
+
+----------------------
+  1) Нужно прошерстить функции пина MCU на предмет совпадения с именем
+  сети. Если есть совпадение, то оставить сделать её приоритетной при
+  поиске
+
+  2) Как приоритезировать выбор альтернативы?
+  (periphPriority NET_NAME PERIPH_TOKEN)
+  Если не работает п.1, то используем это правило
+
+  3) Надо как-то вырезать использованное, но только если все пины
+  данной периферии выстрелили
+  А надо? Надо, но не так. Надо вырезать у всех других пинов
+----------------------
+1)  Правила package и packageAlias - обработаны. Кстати, может стоит
+    удалять обработанные правила?
+
+2)  Нужно описать текущий формат шаблона парсинга
+
+3)  Добавить новый шаблон парсинга - L, если уже занят, то - P
+    P3 - это значит, что в текущем списке нужно ждать подсписки и
+    парсить из них по три элемента, и класть в плоский список
+
+4)  P; - запись означает подсписок из пары
+
+5)  Или 'FN;', 'F;' - вместо P?
+    P - предполагалось pair, F - что такое? Уже и забыл
+
+6)  Шаблон M - предполагает map - сабсписок, первое значение - ключ,
+    последующие - значения.
+    ':' - идет список токенов, допустимых как ключи.
+    Ключ - всегда без скобок, значения - и так и так
+    В общем случае значений может быть много
+    M+ - multival map - second - vector строк
+    M  - single map, second - строка
+
+7)  Метасимволы
+    + - multival map (key->vector<val>), иначе key->val
+    * - допустимо любое число повторений, в тч 0
+    ? - допустимо любое число повторений, но как минимум одно требуется обязательно
+    0 - допустимо пустое значение
+    ' - не раскавычивать значения
+    " - не расскавычивать ключ
+    ! - не помню
+    ... - что-то еще
+
+    если токены - то никогда не раскавычивать
+
+8)  Нужен хелпер для парсинга метастроки.
+    Парсит фиксированный набор метасимволов, каждый из них - флаг
+    При вызове метапарсера мы строчкой задаем, что из метасимволов
+    допустимо, а что нет.
+    Если метастрока/метасимволы несовместимы/ошибочны - бросаем
+    исключение.
+
+    Возврат - а) найденные флаги
+              б) заданное число
+              в) признак числа - что оно найдено, обычный 0 - это зеро
+                 флаг
+              г) mapa кейвордов, если допустима
+
+9)  Сделать отдельный vcxproj для теста метапарсинга
+
+10) Сделать variant для возврата результатов парсинга.
+    Возможные значения:
+        token
+        value
+        value list
+        map key-val
+        map key-list
+
+11)  Нужно обработать правило packageAssign
+
+12)  packageAssign - нужно задать режим сравнения. Сейчас как:
+    (packageAssign designator "DD1" netlist "Net1" compare regex|exact package "SOIC-8")
+
+    Другой вариант:
+    (packageAssign (designator "DD1")
+                   (netlist "Net1")
+                   (compare regex|exact)
+                   (package "SOIC-8")
+    )
+
+
+13) Не нужно завершать работу при каждой ошибке, нужно взвести флаг, и
+    вернуть его
+
+14) Нужно переехать на новый способ вывода сообщений об ошибках
+
+
+15) Базу корпусов следует использовать для автодетекта поля, которое содержит
+    тип корпуса (patternName).
+
+16) Нужно завести правила для определения типа компонента (deviceType) - DD, DA, A, R, C, HL, Q
+    Описать, что 
+    (detectComponentType DIGITAL_DEVICE ("DD\d+") "Restrtiction note" )
+    (detectComponentType DIGITAL_ANALOG_DEVICE "DA\d+")
+    (detectComponentType ANALOG_DEVICE "A\d+") (-- Analog integrated circuit)
+    (detectComponentType TRANSISTOR "VT\d+")
+    (detectComponentType RESISTOR "R\d+")
+    (detectComponentType CAPACITOR "C\d+")
+
+17) Все компоненты в библиотеке должны иметь атрибут типа компонента (deviceType).
+    Для известных компонентов нужно проверять соответствие типа заданной схеме
+    и выводить варнинг.
+    Уже есть - purpose
+
+18) Нужно как-то ограничить вывод предупреждений об отсутствии package.
+    --check-package=DD,DA,A,VT. Иначе - all
+
+19) Для компонентов без указанного package нужно иметь возможность прочитать хоть какое-то
+    описание, в котором будет задан тип компонента (deviceType).
+    Нужно для реализации предыдущего пункта.
+    Уже есть - purpose
+
+20) Нужно задать правила для определения класса компонента:
+    (componentClass (set DD)        (assembly 4) designator match "DD.*" )
+    (componentClass (set HEADER)    (assembly 4) compRef match "HEADER.*" )
+    (componentClass (set TESTPOINT) (assembly 4) originalName match "TESTPOINT.*" )
+
+21) Нужно ввести ключик --class-rules=имя
+    Если имя задано, то проверяем расширение. Если не задано, то добавляем .rul.
+    Добавляем путь - classes\
+    Если имя не задано, то используем default.classes
+
+22) FUx - FUSE - предохранитель - коротыш
+    Jx  - джампер - коротыш или нет
+
+23) Как сейчас происходит определение стартового юнита?
+    Нужно по purpose=MCU
+
+24) 
+
+

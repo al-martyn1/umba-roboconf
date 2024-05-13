@@ -1,0 +1,5 @@
+http://www.xpdfreader.com/download.html
+https://stackoverflow.com/questions/3549541/best-tool-for-inspecting-pdf-files
+https://mupdf.com/downloads/
+https://superuser.com/questions/256997/browse-internal-pdf-structure
+http://ulc.canoo.com/ulccommunity/Overview.html

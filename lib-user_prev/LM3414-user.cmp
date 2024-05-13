@@ -1,0 +1,3 @@
+(componentDefinition "LM3414"
+    (pin "6" "" ("PWM" "IN") )
+)

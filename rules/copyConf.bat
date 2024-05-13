@@ -1,0 +1,1 @@
+call ../tests/copyConf.bat

@@ -1,0 +1,8 @@
+(componentDefinition "TLV431" "NCV431" "SCV431"
+    (description "Low Voltage Precision Adjustable Shunt Regulator")
+    (purpose "DRIVER")
+    (datasheet "TLV431A-D.PDF")
+    (pin "1" "" ("REF" ) )
+    (pin "2" "" ("Vout" ) )
+    (pin "3" "" ("GND" ) )
+)

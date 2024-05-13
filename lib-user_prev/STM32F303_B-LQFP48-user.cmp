@@ -1,0 +1,5 @@
+(componentDefinition "STM32F303_6" "STM32F303_8" "STM32F303_B" "STM32F303_C" "STM32F303_D" "STM32F303_E" "STM32F328_8" "STM32F358_C" "STM32F398_E"
+    (pin "25" "" ("SPI2_NSS"  ) ) (-- PB12 )
+    (pin "26" "" ("SPI2_SCK"  ) ) (-- PB13 )
+    (pin "27" "" ("SPI2_MISO" ) ) (-- PB14 )
+    (pin "28" "" ("SPI2_MOSI" ) ) (-- PB15 )

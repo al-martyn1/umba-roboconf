@@ -1,0 +1,13 @@
+(componentDefinition "SN65HVD1780" "SN65HVD1781" "SN65HVD1782"
+    (description "70-V Fault-Protected RS-485 Transceiver")
+    (purpose "DRIVER:RS485")
+    (datasheet "sn65hvd1781.pdf")
+    (pin "1" "" ("RO" ) )
+    (pin "2" "" ("R\E\" ) )
+    (pin "3" "" ("DE" ) )
+    (pin "4" "" ("DI" ) )
+    (pin "5" "" ("GND" ) )
+    (pin "6" "" ("A" ) )
+    (pin "7" "" ("B" ) )
+    (pin "8" "" ("Vcc" ) )
+)

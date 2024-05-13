@@ -1,0 +1,11 @@
+(--
+    static const int NET_GROUND_OPTION_UNKNOWN     = 0;
+    static const int NET_GROUND_OPTION_GND         = 1;
+    static const int NET_GROUND_OPTION_VCC_PLUS    = 2;
+    static const int NET_GROUND_OPTION_VCC_MINUS   = 3;
+)
+
+(powerNet ground ("SGND.*" "PGND.*" "AGND.*" "GND.*") )
+(powerNet plus   ("\+\d+.*" "\+VCC.*" "\+VDD.*") )
+(powerNet minus  ("-\d+.*"  "-VCC.*"  "-VDD.*") )
+

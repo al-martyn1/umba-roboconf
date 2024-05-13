@@ -1,0 +1,7 @@
+(componentDefinition "SERVO"
+    (description "Generic Servo PWM")
+    (purpose "DRIVER:PWM:SERVO")
+    (pin "1" "" ("PWM" "GPIO" "IN") )
+    (pin "2" "" ("VCC" ) )
+    (pin "3" "" ("GND" ) )
+)

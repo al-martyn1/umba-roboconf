@@ -1,0 +1,8 @@
+(componentDefinition "MCP10_"
+    (description "Reset controller")
+    (purpose "RESET_CONTROLLER")
+    (datasheet "11187f.pdf")
+    (pin "1" "" ("R\S\T\" ) )
+    (pin "2" "" ("VDD" ) )
+    (pin "3" "" ("VSS" ) )
+)

@@ -1,0 +1,13 @@
+(modify "mcuNet" replaceSingle "^UART_RX"  "$({P})DEBUG_UART_RX$({S})")
+(modify "mcuNet" replaceSingle "^UART_TX"  "$({P})DEBUG_UART_TX$({S})")
+
+(modify "mcuNet" replaceSingle "ESC_CUR"  "$({P})ESC_CURRENT$({S})")
+
+(modify "mcuNet" replaceSingle "SCL_PSENSOR"  "$({P})PSENSOR_SCL$({S})")
+(modify "mcuNet" replaceSingle "SDA_PSENSOR"  "$({P})PSENSOR_SDA$({S})")
+
+(modify "mcuNet" replaceSingle "PWM_ESC"  "$({P})ESC_PWM$({S})")
+
+(--modify "mcuNet" replaceSingle ""  "$({P})$({S})")
+
+

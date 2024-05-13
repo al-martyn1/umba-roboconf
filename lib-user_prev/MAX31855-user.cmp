@@ -1,0 +1,4 @@
+(componentDefinition "MAX31855"
+    (pin "6" "" ("IN" ) )
+    (pin "7" "" ("MISO" ) )
+)

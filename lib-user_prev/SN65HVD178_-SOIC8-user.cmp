@@ -1,0 +1,4 @@
+(componentDefinition "SN65HVD1780" "SN65HVD1781" "SN65HVD1782"
+    (pin "1" "" ("OUT") )
+    (pin "4" "" ("IN") )
+)

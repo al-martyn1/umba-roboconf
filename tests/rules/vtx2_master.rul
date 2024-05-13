@@ -1,0 +1,35 @@
+(modify "mcuNet" replaceSingle "UART2_(R|T)X" "GOLEM_TERMINAL_UART_$({1})X")
+(modify "mcuNet" replaceSingle "UART4_(R|T)X" "GOLEM_DATA_UART_$({1})X")
+
+(modify "mcuNet" replaceSingle "^UART(\d{1,2})_(R|T)X$" "DEBUG_TERMINAL_UART_$({2})X")
+
+(modify "mcuNet" replaceSingle "LMZ5V_EN" "POWER_5V_EN")
+
+(modify "mcuNet" replaceSingle "^CAN_LOOPBACK" "CANABUS_CAN_LOOPBACK")
+(modify "mcuNet" replaceSingle "^CAN2_(.*)" "CANABUS_CAN_$({1})")
+
+(modify "mcuNet" replaceSingle "^VIDEO1_EN"     "VIDEO1_FRONT_CAM_EN")
+(modify "mcuNet" replaceSingle "^VIDEO1_PWR_EN" "VIDEO1_FRONT_CAM_PWR_EN")
+(modify "mcuNet" replaceSingle "^VIDEO2_EN"     "VIDEO2_HOTEND_CAM_EN")
+(modify "mcuNet" replaceSingle "^VIDEO2_PWR_EN" "VIDEO2_HOTEND_CAM_PWR_EN")
+(modify "mcuNet" replaceSingle "^VIDEO4_EN"     "VIDEO4_BACK_CAM_EN")
+(modify "mcuNet" replaceSingle "^VIDEO4_PWR_EN" "VIDEO4_BACK_CAM_PWR_EN")
+(modify "mcuNet" replaceSingle "^VIDEO3_EN"     "VIDEO3_TVKO_CAM_EN")
+
+
+(connect device "HSCSSNN001PD2A3" package "SIP4" as "DD"
+    ("SDA" to "X12.SDA")
+    ("SCL" to "X12.SCL")
+)
+
+(connect device "ESC" as "DD"
+    ("PWM" to "X11.DATA")
+)
+
+(connect device "BATTERYKOROL" as "DD"
+    ("PRES_FLAG" to "X3.PRES_FLAG")
+    (-- "CHG_DTCT"  to "X3.CHG_DTCT")
+)
+
+(-- LMR16006)
+(packageAssign (designator "A1" "A2" "A3") (package "TSOT-6L") )

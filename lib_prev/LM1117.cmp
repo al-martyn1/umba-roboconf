@@ -1,0 +1,9 @@
+(componentDefinition "LM1117"
+    (description "Low-Dropout Linear Regulator")
+    (purpose "DRIVER")
+    (datasheet "LM1117.PDF")
+    (pin "1" "" ("ADJ" ) )
+    (pin "2" "" ("Vout" ) )
+    (pin "3" "" ("Vin" ) )
+    (pin "4" "" ("Vout" ) )
+)

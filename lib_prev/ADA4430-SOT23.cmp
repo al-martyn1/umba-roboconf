@@ -1,0 +1,12 @@
+(componentDefinition "ADA4430"
+    (description "Ultralow Power Video Filter with Power-Down")
+    (purpose "SWITCH")
+    (datasheet "ADA4430-1.pdf")
+    (package "SOT23")
+    (pin "1" "" ("IN" ) )
+    (pin "2" "" ("GND" ) )
+    (pin "3" "" ("SAG" ) )
+    (pin "4" "" ("OUT" ) )
+    (pin "5" "" ("D\I\S\" ) )
+    (pin "6" "" ("VS" ) )
+)

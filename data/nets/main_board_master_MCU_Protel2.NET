@@ -1,0 +1,12325 @@
+PROTEL NETLIST 2.0
+[
+DESIGNATOR
+A1
+FOOTPRINT
+LMR16006
+PARTTYPE
+LMR16006
+DESCRIPTION
+Преобразователь напряжения
+Comment
+LMR16006
+Component Kind
+Standard
+Description
+Преобразователь напряжения
+Footprint
+LMR16006
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LMR16006
+Name
+LMR16006
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+A2
+FOOTPRINT
+LMR16006
+PARTTYPE
+LMR16006
+DESCRIPTION
+Преобразователь напряжения
+Comment
+LMR16006
+Component Kind
+Standard
+Description
+Преобразователь напряжения
+Footprint
+LMR16006
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LMR16006
+Name
+LMR16006
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+A3
+FOOTPRINT
+LMR16006
+PARTTYPE
+LMR16006
+DESCRIPTION
+Преобразователь напряжения
+Comment
+LMR16006
+Component Kind
+Standard
+Description
+Преобразователь напряжения
+Footprint
+LMR16006
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LMR16006
+Name
+LMR16006
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C1
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C2
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C3
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C4
+FOOTPRINT
+C1206_A
+PARTTYPE
+10мк
+DESCRIPTION
+Конденсатор
+Comment
+10мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C1206_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+25В
+Name
+GRM31CR71E106KA12L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+10мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C5
+FOOTPRINT
+C0402_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0402_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM155R71H104KE14D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C6
+FOOTPRINT
+C0402_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0402_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM155R71H104KE14D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C7
+FOOTPRINT
+C0402_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0402_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM155R71H104KE14D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C8
+FOOTPRINT
+C0402_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0402_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM155R71H104KE14D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C9
+FOOTPRINT
+C0402_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0402_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM155R71H104KE14D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C10
+FOOTPRINT
+C0402_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0402_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM155R71H104KE14D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C11
+FOOTPRINT
+C0805_A
+PARTTYPE
+2,2мк
+DESCRIPTION
+Конденсатор
+Comment
+2,2мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+CC0805KKX7R9BB225
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+2,2мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C12
+FOOTPRINT
+C0805_A
+PARTTYPE
+2,2мк
+DESCRIPTION
+Конденсатор
+Comment
+2,2мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+CC0805KKX7R9BB225
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+2,2мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C13
+FOOTPRINT
+C0402_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0402_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM155R71H104KE14D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C14
+FOOTPRINT
+C1206_A
+PARTTYPE
+10мк
+DESCRIPTION
+Конденсатор
+ClassName
+pwr_5
+Comment
+10мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C1206_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+25В
+Name
+GRM31CR71E106KA12L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+10мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C15
+FOOTPRINT
+C0603_A
+PARTTYPE
+4700
+DESCRIPTION
+Конденсатор
+ClassName
+pwr_5
+Comment
+4700
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H472K
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4700
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C16
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C17
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,022мк
+DESCRIPTION
+Конденсатор
+ClassName
+pwr_5
+Comment
+0,022мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H223KA01D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,022мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C18
+FOOTPRINT
+C1206_A
+PARTTYPE
+10мк
+DESCRIPTION
+Конденсатор
+ClassName
+pwr_5
+Comment
+10мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C1206_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+25В
+Name
+GRM31CR71E106KA12L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+10мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C19
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C20
+FOOTPRINT
+CE10x16_put
+PARTTYPE
+470мк
+DESCRIPTION
+Конденсатор поляризованный
+Comment
+470мк
+Component Kind
+Standard
+Description
+Конденсатор поляризованный
+Footprint
+CE10x16_put
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor_polarized
+Max. voltage
+35В
+Name
+UVZ1V471MPD
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+VLE
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C21
+FOOTPRINT
+C1206_A
+PARTTYPE
+10мк
+DESCRIPTION
+Конденсатор
+ClassName
+pwr_5
+Comment
+10мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C1206_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+25В
+Name
+GRM31CR71E106KA12L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+10мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C22
+FOOTPRINT
+C1206_A
+PARTTYPE
+10мк
+DESCRIPTION
+Конденсатор
+ClassName
+pwr_5
+Comment
+10мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C1206_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+25В
+Name
+GRM31CR71E106KA12L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+10мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C23
+FOOTPRINT
+CE10x16_put
+PARTTYPE
+470мк
+DESCRIPTION
+Конденсатор поляризованный
+Comment
+470мк
+Component Kind
+Standard
+Description
+Конденсатор поляризованный
+Footprint
+CE10x16_put
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor_polarized
+Max. voltage
+35В
+Name
+UVZ1V471MPD
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+VLE
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C24
+FOOTPRINT
+C1206_A
+PARTTYPE
+10мк
+DESCRIPTION
+Конденсатор
+Comment
+10мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C1206_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+25В
+Name
+GRM31CR71E106KA12L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+10мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C25
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C26
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C27
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,01мк
+DESCRIPTION
+Конденсатор
+Comment
+0,01мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H103K
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,01мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C28
+FOOTPRINT
+C0805_A
+PARTTYPE
+4,7мк
+DESCRIPTION
+Конденсатор
+Comment
+4,7мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+25В
+Name
+CC0805KKX7R8BB475
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4,7мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C29
+FOOTPRINT
+C0603_A
+PARTTYPE
+15
+DESCRIPTION
+Конденсатор
+Comment
+15
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM1885C1H150JA01D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+15
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C30
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C31
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C32
+FOOTPRINT
+C0603_A
+PARTTYPE
+4700
+DESCRIPTION
+Конденсатор
+ClassName
+pwr_5
+Comment
+4700
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H472K
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4700
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C33
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C34
+FOOTPRINT
+C0805_A
+PARTTYPE
+10мк
+DESCRIPTION
+Конденсатор
+Comment
+10мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+10В
+Name
+CC0805KKX7R6BB106
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+10мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C35
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C36
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C37
+FOOTPRINT
+C0805_A
+PARTTYPE
+4,7мк
+DESCRIPTION
+Конденсатор
+ClassName
+video1
+Comment
+4,7мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+16В
+Name
+CC0805KKX7R7BB475
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4,7мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C38
+FOOTPRINT
+C0805_A
+PARTTYPE
+4,7мк
+DESCRIPTION
+Конденсатор
+ClassName
+video2
+Comment
+4,7мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+16В
+Name
+CC0805KKX7R7BB475
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4,7мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C39
+FOOTPRINT
+C0805_A
+PARTTYPE
+4,7мк
+DESCRIPTION
+Конденсатор
+ClassName
+video3
+Comment
+4,7мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+16В
+Name
+CC0805KKX7R7BB475
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4,7мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C40
+FOOTPRINT
+C0805_A
+PARTTYPE
+4,7мк
+DESCRIPTION
+Конденсатор
+ClassName
+Video4
+Comment
+4,7мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+16В
+Name
+CC0805KKX7R7BB475
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4,7мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C41
+FOOTPRINT
+C0805_A
+PARTTYPE
+4,7мк
+DESCRIPTION
+Конденсатор
+ClassName
+video1
+Comment
+4,7мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+16В
+Name
+CC0805KKX7R7BB475
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4,7мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C42
+FOOTPRINT
+C0805_A
+PARTTYPE
+4,7мк
+DESCRIPTION
+Конденсатор
+ClassName
+video2
+Comment
+4,7мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+16В
+Name
+CC0805KKX7R7BB475
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4,7мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C43
+FOOTPRINT
+C0805_A
+PARTTYPE
+4,7мк
+DESCRIPTION
+Конденсатор
+ClassName
+video3
+Comment
+4,7мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+16В
+Name
+CC0805KKX7R7BB475
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4,7мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C44
+FOOTPRINT
+C0805_A
+PARTTYPE
+4,7мк
+DESCRIPTION
+Конденсатор
+ClassName
+Video4
+Comment
+4,7мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+16В
+Name
+CC0805KKX7R7BB475
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4,7мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C45
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+ClassName
+video1
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C46
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+ClassName
+video2
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C47
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+ClassName
+video3
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C48
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+ClassName
+Video4
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C49
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C50
+FOOTPRINT
+C0805_A
+PARTTYPE
+4,7мк
+DESCRIPTION
+Конденсатор
+ClassName
+Video_com
+Comment
+4,7мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+16В
+Name
+CC0805KKX7R7BB475
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4,7мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C51
+FOOTPRINT
+C0805_A
+PARTTYPE
+4,7мк
+DESCRIPTION
+Конденсатор
+ClassName
+Video_com
+Comment
+4,7мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0805_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+16В
+Name
+CC0805KKX7R7BB475
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+4,7мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+C52
+FOOTPRINT
+C0603_A
+PARTTYPE
+0,1мк
+DESCRIPTION
+Конденсатор
+ClassName
+Video_com
+Comment
+0,1мк
+Component Kind
+Standard
+Description
+Конденсатор
+Footprint
+C0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Capacitor
+Max. voltage
+50В
+Name
+GRM188R71H104KA93
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Value
+0,1мк
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DA1
+FOOTPRINT
+SOT23-6_A
+PARTTYPE
+TPD2S017
+DESCRIPTION
+ESD защита
+Comment
+TPD2S017
+Component Kind
+Standard
+Description
+ESD защита
+Footprint
+SOT23-6_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+TPD2S017
+Manufacturer
+Texas Instruments
+Name
+TPD2S017
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DA2
+FOOTPRINT
+SOT23-6_A
+PARTTYPE
+TPD2S017
+DESCRIPTION
+ESD защита
+Comment
+TPD2S017
+Component Kind
+Standard
+Description
+ESD защита
+Footprint
+SOT23-6_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+TPD2S017
+Manufacturer
+Texas Instruments
+Name
+TPD2S017
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DA3
+FOOTPRINT
+SOT23-6_A
+PARTTYPE
+TPD2S017
+DESCRIPTION
+ESD защита
+Comment
+TPD2S017
+Component Kind
+Standard
+Description
+ESD защита
+Footprint
+SOT23-6_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+TPD2S017
+Manufacturer
+Texas Instruments
+Name
+TPD2S017
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DA4
+FOOTPRINT
+LGA-24
+PARTTYPE
+LSM9DS1
+DESCRIPTION
+Гироскоп, акселерометр, магнитоиметр
+Comment
+LSM9DS1
+Component Kind
+Standard
+Description
+Гироскоп, акселерометр, магнитоиметр
+Footprint
+LGA-24
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LSM9DS1
+Name
+LSM9DS1
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DA5
+FOOTPRINT
+SOIC8_A_PowerPad
+PARTTYPE
+MAX9547
+DESCRIPTION
+
+Comment
+MAX9547
+Component Kind
+Standard
+Description
+
+Footprint
+SOIC8_A_PowerPad
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+MAX9547
+Name
+MAX9547
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DA6
+FOOTPRINT
+SC-70-6
+PARTTYPE
+ADA4430
+DESCRIPTION
+FILT
+ClassName
+video1
+Comment
+ADA4430
+Component Kind
+Standard
+Description
+FILT
+Footprint
+SC-70-6
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+ADA4430
+Name
+ADA4430
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DA7
+FOOTPRINT
+SC-70-6
+PARTTYPE
+ADA4430
+DESCRIPTION
+FILT
+ClassName
+video2
+Comment
+ADA4430
+Component Kind
+Standard
+Description
+FILT
+Footprint
+SC-70-6
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+ADA4430
+Name
+ADA4430
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DA8
+FOOTPRINT
+SC-70-6
+PARTTYPE
+ADA4430
+DESCRIPTION
+FILT
+ClassName
+video3
+Comment
+ADA4430
+Component Kind
+Standard
+Description
+FILT
+Footprint
+SC-70-6
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+ADA4430
+Name
+ADA4430
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DA9
+FOOTPRINT
+SC-70-6
+PARTTYPE
+ADA4430
+DESCRIPTION
+FILT
+ClassName
+Video4
+Comment
+ADA4430
+Component Kind
+Standard
+Description
+FILT
+Footprint
+SC-70-6
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+ADA4430
+Name
+ADA4430
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DA10
+FOOTPRINT
+TSSOP14_A
+PARTTYPE
+ADG1604BRUZ
+DESCRIPTION
+4канальный мультиплексор
+Comment
+ADG1604BRUZ
+Component Kind
+Standard
+ComponentLink1Desciption
+Datasheet
+ComponentLink1URL
+
+Description
+4канальный мультиплексор
+Footprint
+TSSOP14_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+ADG1604BRUZ
+Manufacturer
+Analog Devices
+Name
+ADG1604BRUZ
+Package
+TSSOP-14
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Supply Current
+30mA
+
+*
+]
+[
+DESIGNATOR
+DA11
+FOOTPRINT
+SC-70-6
+PARTTYPE
+ADA4430
+DESCRIPTION
+FILT
+ClassName
+Video_com
+Comment
+ADA4430
+Component Kind
+Standard
+Description
+FILT
+Footprint
+SC-70-6
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+ADA4430
+Name
+ADA4430
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DD1
+FOOTPRINT
+LQFP64_L
+PARTTYPE
+STM32F405RG
+DESCRIPTION
+Микроконтроллер Cortex-M4
+Comment
+STM32F405RG
+Component Kind
+Standard
+Description
+Микроконтроллер Cortex-M4
+Footprint
+LQFP64_L
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+STM32F405RG
+Name
+STM32F405RG
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DD2
+FOOTPRINT
+TO-PMOD-7
+PARTTYPE
+LMZ14203HTZ
+DESCRIPTION
+LMZ14203 SIMPLE SWITCHER® 6-V to 42-V, 3-A Power Module
+ClassName
+pwr_5
+Comment
+LMZ14203HTZ
+Component Kind
+Standard
+Description
+LMZ14203 SIMPLE SWITCHER® 6-V to 42-V, 3-A Power Module
+Footprint
+TO-PMOD-7
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LMZ14203
+Name
+LMZ14203HTZ
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DD3
+FOOTPRINT
+SOIC8_A
+PARTTYPE
+SN65HVD1781
+DESCRIPTION
+Преобразователь RS-485 - UART
+Comment
+SN65HVD1781
+Component Kind
+Standard
+Description
+Преобразователь RS-485 - UART
+Footprint
+SOIC8_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+SN65HVD1781
+Name
+SN65HVD1781
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+DD4
+FOOTPRINT
+SOIC8_A
+PARTTYPE
+SN65HVD233D
+DESCRIPTION
+Приемопередатчик CAN
+Comment
+SN65HVD233D
+Component Kind
+Standard
+Description
+Приемопередатчик CAN
+Footprint
+SOIC8_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+SN65HVD233D
+Manufacture
+Texas Instrumentals
+Name
+SN65HVD233D
+Package
+SOIC(8)
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+HL1
+FOOTPRINT
+Led_0603_RED
+PARTTYPE
+KP-1608EC
+DESCRIPTION
+Светодиод
+Color
+
+Comment
+KP-1608EC
+Component Kind
+Standard
+Description
+Светодиод
+Footprint
+Led_0603_RED
+Ibis Model
+
+Imax
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LED
+Name
+KP-1608EC
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+
+Vr
+
+
+*
+
+*
+]
+[
+DESIGNATOR
+HL2
+FOOTPRINT
+Led_0603_green
+PARTTYPE
+KP-1608MGC
+DESCRIPTION
+Светодиод
+Color
+
+Comment
+KP-1608MGC
+Component Kind
+Standard
+Description
+Светодиод
+Footprint
+Led_0603_green
+Ibis Model
+
+Imax
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LED
+Name
+KP-1608MGC
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+
+Vr
+
+
+*
+
+*
+]
+[
+DESIGNATOR
+HL3
+FOOTPRINT
+Led_0603_green
+PARTTYPE
+KP-1608MGC
+DESCRIPTION
+Светодиод
+ClassName
+pwr_5
+Color
+
+Comment
+KP-1608MGC
+Component Kind
+Standard
+Description
+Светодиод
+Footprint
+Led_0603_green
+Ibis Model
+
+Imax
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LED
+Name
+KP-1608MGC
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+
+Vr
+
+
+*
+]
+[
+DESIGNATOR
+HL4
+FOOTPRINT
+Led_0603_Blue
+PARTTYPE
+KP-1608QBC-D
+DESCRIPTION
+Светодиод
+Color
+
+Comment
+KP-1608QBC-D
+Component Kind
+Standard
+Description
+Светодиод
+Footprint
+Led_0603_Blue
+Ibis Model
+
+Imax
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LED
+Name
+KP-1608QBC-D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+
+Vr
+
+
+*
+
+*
+]
+[
+DESIGNATOR
+HL5
+FOOTPRINT
+Led_0603_Blue
+PARTTYPE
+KP-1608QBC-D
+DESCRIPTION
+Светодиод
+Color
+
+Comment
+KP-1608QBC-D
+Component Kind
+Standard
+Description
+Светодиод
+Footprint
+Led_0603_Blue
+Ibis Model
+
+Imax
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LED
+Name
+KP-1608QBC-D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+
+Vr
+
+
+*
+
+*
+]
+[
+DESIGNATOR
+HL6
+FOOTPRINT
+Led_0603_Blue
+PARTTYPE
+KP-1608QBC-D
+DESCRIPTION
+Светодиод
+Color
+
+Comment
+KP-1608QBC-D
+Component Kind
+Standard
+Description
+Светодиод
+Footprint
+Led_0603_Blue
+Ibis Model
+
+Imax
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LED
+Name
+KP-1608QBC-D
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+
+Vr
+
+
+*
+
+*
+]
+[
+DESIGNATOR
+HL7
+FOOTPRINT
+Led_0603_RED
+PARTTYPE
+
+DESCRIPTION
+Светодиод
+Color
+
+Comment
+
+Component Kind
+Standard
+Description
+Светодиод
+Footprint
+Led_0603_RED
+Ibis Model
+
+Imax
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+LED
+Name
+
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+
+Vr
+
+
+*
+
+*
+]
+[
+DESIGNATOR
+L1
+FOOTPRINT
+L0603_A
+PARTTYPE
+180 Ом
+DESCRIPTION
+Катушка индуктивности
+Comment
+180 Ом
+Component Kind
+Standard
+Description
+Катушка индуктивности
+Footprint
+L0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Inductor
+Max. current
+1,5А
+Name
+BLM18PG181SN1
+PCB3D
+
+Resistance
+180
+Signal Integrity
+
+Simulation
+
+Value
+180 Ом
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+L2
+FOOTPRINT
+CDRH127
+PARTTYPE
+56мкГн
+DESCRIPTION
+Катушка индуктивности
+Comment
+56мкГн
+Component Kind
+Standard
+Description
+Катушка индуктивности
+Footprint
+CDRH127
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Inductor
+Max. current
+2,9А
+Name
+CDRH127/LDNP-560MC
+PCB3D
+
+Resistance
+
+Signal Integrity
+
+Simulation
+
+Value
+56мкГн
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+L3
+FOOTPRINT
+CDRH127
+PARTTYPE
+56мкГн
+DESCRIPTION
+Катушка индуктивности
+Comment
+56мкГн
+Component Kind
+Standard
+Description
+Катушка индуктивности
+Footprint
+CDRH127
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Inductor
+Max. current
+2,9А
+Name
+CDRH127/LDNP-560MC
+PCB3D
+
+Resistance
+
+Signal Integrity
+
+Simulation
+
+Value
+56мкГн
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+L4
+FOOTPRINT
+CDRH127
+PARTTYPE
+56мкГн
+DESCRIPTION
+Катушка индуктивности
+Comment
+56мкГн
+Component Kind
+Standard
+Description
+Катушка индуктивности
+Footprint
+CDRH127
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Inductor
+Max. current
+2,9А
+Name
+CDRH127/LDNP-560MC
+PCB3D
+
+Resistance
+
+Signal Integrity
+
+Simulation
+
+Value
+56мкГн
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+L5
+FOOTPRINT
+CDRH127
+PARTTYPE
+56мкГн
+DESCRIPTION
+Катушка индуктивности
+Comment
+56мкГн
+Component Kind
+Standard
+Description
+Катушка индуктивности
+Footprint
+CDRH127
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Inductor
+Max. current
+2,9А
+Name
+CDRH127/LDNP-560MC
+PCB3D
+
+Resistance
+
+Signal Integrity
+
+Simulation
+
+Value
+56мкГн
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+L6
+FOOTPRINT
+CDRH127
+PARTTYPE
+56мкГн
+DESCRIPTION
+Катушка индуктивности
+Comment
+56мкГн
+Component Kind
+Standard
+Description
+Катушка индуктивности
+Footprint
+CDRH127
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Inductor
+Max. current
+2,9А
+Name
+CDRH127/LDNP-560MC
+PCB3D
+
+Resistance
+
+Signal Integrity
+
+Simulation
+
+Value
+56мкГн
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+L7
+FOOTPRINT
+CDRH127
+PARTTYPE
+56мкГн
+DESCRIPTION
+Катушка индуктивности
+Comment
+56мкГн
+Component Kind
+Standard
+Description
+Катушка индуктивности
+Footprint
+CDRH127
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Inductor
+Max. current
+2,9А
+Name
+CDRH127/LDNP-560MC
+PCB3D
+
+Resistance
+
+Signal Integrity
+
+Simulation
+
+Value
+56мкГн
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R1
+FOOTPRINT
+R0603_A
+PARTTYPE
+330
+DESCRIPTION
+Резистор
+Comment
+330
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07330RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+330
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R2
+FOOTPRINT
+R0603_A
+PARTTYPE
+330
+DESCRIPTION
+Резистор
+Comment
+330
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07330RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+330
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R3
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R4
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R5
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R6
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R7
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R8
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R9
+FOOTPRINT
+R0603_A
+PARTTYPE
+39к
+DESCRIPTION
+Резистор
+ClassName
+pwr_5
+Comment
+39к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0739KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+39к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R10
+FOOTPRINT
+R0603_A
+PARTTYPE
+10к
+DESCRIPTION
+Резистор
+ClassName
+pwr_5
+Comment
+10к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0710KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+10к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R11
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R12
+FOOTPRINT
+R1206_A
+PARTTYPE
+
+DESCRIPTION
+Резистор
+Comment
+
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R1206_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,25
+Max. power dissipation
+0,25Вт
+Name
+
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R13
+FOOTPRINT
+R0603_A
+PARTTYPE
+36к
+DESCRIPTION
+Резистор
+ClassName
+pwr_5
+Comment
+36к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0736KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+36к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R14
+FOOTPRINT
+R0603_A
+PARTTYPE
+6,8к
+DESCRIPTION
+Резистор
+ClassName
+pwr_5
+Comment
+6,8к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-076K8L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+6,8к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R15
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R16
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R17
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R18
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R19
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R20
+FOOTPRINT
+R0603_A
+PARTTYPE
+510
+DESCRIPTION
+Резистор
+ClassName
+pwr_5
+Comment
+510
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07510RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+510
+
+*
+
+*
+]
+[
+DESIGNATOR
+R21
+FOOTPRINT
+R0603_A
+PARTTYPE
+0
+DESCRIPTION
+Резистор
+Comment
+0
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-070RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+0
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R22
+FOOTPRINT
+R0603_A
+PARTTYPE
+330
+DESCRIPTION
+Резистор
+Comment
+330
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07330RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+330
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R23
+FOOTPRINT
+R0603_A
+PARTTYPE
+330
+DESCRIPTION
+Резистор
+Comment
+330
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07330RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+330
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R24
+FOOTPRINT
+R0603_A
+PARTTYPE
+330
+DESCRIPTION
+Резистор
+Comment
+330
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07330RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+330
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R25
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R26
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R27
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R28
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R29
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R30
+FOOTPRINT
+R0603x4
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603x4
+Ibis Model
+
+Library Name
+main_board.SchLib
+Library Reference
+Resistor_x4
+Name
+CAT16-101J4
+PCB3D
+
+Power
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R31
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R32
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R33
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R34
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R35
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R36
+FOOTPRINT
+R0603_A
+PARTTYPE
+820
+DESCRIPTION
+Резистор
+Comment
+820
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07820RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+820
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R37
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R38
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R39
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R40
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R41
+FOOTPRINT
+R0603_A
+PARTTYPE
+10к
+DESCRIPTION
+Резистор
+Comment
+10к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0710KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+10к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R42
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R43
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R44
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R45
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R46
+FOOTPRINT
+R0603_A
+PARTTYPE
+62
+DESCRIPTION
+Резистор
+Comment
+62
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0762RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+62
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R47
+FOOTPRINT
+R0603_A
+PARTTYPE
+62
+DESCRIPTION
+Резистор
+Comment
+62
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0762RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+62
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R48
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R49
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R50
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R51
+FOOTPRINT
+R0603_A
+PARTTYPE
+62
+DESCRIPTION
+Резистор
+Comment
+62
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0762RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+62
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R52
+FOOTPRINT
+R0603_A
+PARTTYPE
+62
+DESCRIPTION
+Резистор
+Comment
+62
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-0762RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+62
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R53
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R54
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R55
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R56
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R57
+FOOTPRINT
+R0603_A
+PARTTYPE
+0
+DESCRIPTION
+Резистор
+Comment
+0
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-070RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+0
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R58
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R59
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R60
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R61
+FOOTPRINT
+R0603_A
+PARTTYPE
+0
+DESCRIPTION
+Резистор
+Comment
+0
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-070RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+0
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R62
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R63
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R64
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R65
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R66
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+ClassName
+video1
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+]
+[
+DESIGNATOR
+R67
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+ClassName
+video2
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+]
+[
+DESIGNATOR
+R68
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+ClassName
+video3
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+]
+[
+DESIGNATOR
+R69
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+ClassName
+Video4
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+]
+[
+DESIGNATOR
+R70
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R71
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R72
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R73
+FOOTPRINT
+R0603_A
+PARTTYPE
+10к
+DESCRIPTION
+Резистор
+ClassName
+video1
+Comment
+10к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0710KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+10к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R74
+FOOTPRINT
+R0603_A
+PARTTYPE
+10к
+DESCRIPTION
+Резистор
+ClassName
+video2
+Comment
+10к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0710KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+10к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R75
+FOOTPRINT
+R0603_A
+PARTTYPE
+10к
+DESCRIPTION
+Резистор
+ClassName
+video3
+Comment
+10к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0710KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+10к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R76
+FOOTPRINT
+R0603_A
+PARTTYPE
+10к
+DESCRIPTION
+Резистор
+ClassName
+Video4
+Comment
+10к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0710KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+10к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R77
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R78
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R79
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R80
+FOOTPRINT
+R0603_A
+PARTTYPE
+470
+DESCRIPTION
+Резистор
+ClassName
+video1
+Comment
+470
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-07470RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+470
+
+*
+
+*
+]
+[
+DESIGNATOR
+R81
+FOOTPRINT
+R0603_A
+PARTTYPE
+470
+DESCRIPTION
+Резистор
+ClassName
+video2
+Comment
+470
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-07470RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+470
+
+*
+
+*
+]
+[
+DESIGNATOR
+R82
+FOOTPRINT
+R0603_A
+PARTTYPE
+470
+DESCRIPTION
+Резистор
+ClassName
+video3
+Comment
+470
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-07470RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+470
+
+*
+
+*
+]
+[
+DESIGNATOR
+R83
+FOOTPRINT
+R0603_A
+PARTTYPE
+470
+DESCRIPTION
+Резистор
+ClassName
+Video4
+Comment
+470
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-07470RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+470
+
+*
+
+*
+]
+[
+DESIGNATOR
+R84
+FOOTPRINT
+R0603_A
+PARTTYPE
+2,4к
+DESCRIPTION
+Резистор
+ClassName
+video1
+Comment
+2,4к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-072K4L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+2,4к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R85
+FOOTPRINT
+R0603_A
+PARTTYPE
+2,4к
+DESCRIPTION
+Резистор
+ClassName
+video2
+Comment
+2,4к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-072K4L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+2,4к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R86
+FOOTPRINT
+R0603_A
+PARTTYPE
+2,4к
+DESCRIPTION
+Резистор
+ClassName
+video3
+Comment
+2,4к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-072K4L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+2,4к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R87
+FOOTPRINT
+R0603_A
+PARTTYPE
+2,4к
+DESCRIPTION
+Резистор
+ClassName
+Video4
+Comment
+2,4к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-072K4L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+2,4к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R88
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+ClassName
+video1
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+]
+[
+DESIGNATOR
+R89
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+ClassName
+video2
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+]
+[
+DESIGNATOR
+R90
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+ClassName
+video3
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+]
+[
+DESIGNATOR
+R91
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+ClassName
+Video4
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+]
+[
+DESIGNATOR
+R92
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R93
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R94
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R95
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R96
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R97
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+ClassName
+Video_com
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+]
+[
+DESIGNATOR
+R98
+FOOTPRINT
+R0603_A
+PARTTYPE
+10к
+DESCRIPTION
+Резистор
+ClassName
+Video_com
+Comment
+10к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0710KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+10к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R99
+FOOTPRINT
+R0603_A
+PARTTYPE
+470
+DESCRIPTION
+Резистор
+ClassName
+Video_com
+Comment
+470
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-07470RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+470
+
+*
+
+*
+]
+[
+DESIGNATOR
+R100
+FOOTPRINT
+R0603_A
+PARTTYPE
+2,4к
+DESCRIPTION
+Резистор
+ClassName
+Video_com
+Comment
+2,4к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-072K4L
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+2,4к
+
+*
+
+*
+]
+[
+DESIGNATOR
+R101
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R102
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R103
+FOOTPRINT
+R0603_A
+PARTTYPE
+100
+DESCRIPTION
+Резистор
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+
+Name
+RC0603FR-07100RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R104
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R105
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R106
+FOOTPRINT
+R0603_A
+PARTTYPE
+75
+DESCRIPTION
+Резистор
+ClassName
+Video_com
+Comment
+75
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0775RL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+75
+
+*
+
+*
+]
+[
+DESIGNATOR
+R107
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R108
+FOOTPRINT
+R0603x4
+PARTTYPE
+10к
+DESCRIPTION
+Резистор
+Comment
+10к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603x4
+Ibis Model
+
+Library Name
+main_board.SchLib
+Library Reference
+Resistor_x4
+Name
+CAT16-103J4
+PCB3D
+
+Power
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+10к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R109
+FOOTPRINT
+R0603x4
+PARTTYPE
+10к
+DESCRIPTION
+Резистор
+Comment
+10к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603x4
+Ibis Model
+
+Library Name
+main_board.SchLib
+Library Reference
+Resistor_x4
+Name
+CAT16-103J4
+PCB3D
+
+Power
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+10к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R110
+FOOTPRINT
+R0603x4
+PARTTYPE
+100
+DESCRIPTION
+Резистор инверсный
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор инверсный
+Footprint
+R0603x4
+Ibis Model
+
+Library Name
+VLK-2M.SCHLIB
+Library Reference
+Resistor_x4_inv
+Name
+CAT16-101J4
+PCB3D
+
+Power
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R111
+FOOTPRINT
+R0603x4
+PARTTYPE
+100
+DESCRIPTION
+Резистор инверсный
+Comment
+100
+Component Kind
+Standard
+Description
+Резистор инверсный
+Footprint
+R0603x4
+Ibis Model
+
+Library Name
+VLK-2M.SCHLIB
+Library Reference
+Resistor_x4_inv
+Name
+CAT16-101J4
+PCB3D
+
+Power
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R112
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R113
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R114
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R115
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R116
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+R117
+FOOTPRINT
+R0603_A
+PARTTYPE
+47к
+DESCRIPTION
+Резистор
+Comment
+47к
+Component Kind
+Standard
+Description
+Резистор
+Footprint
+R0603_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Resistor_0,05
+Max. power dissipation
+0,005
+Name
+RC0603FR-0747KL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Tolerance
+
+Value
+47к
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+VD1
+FOOTPRINT
+SMA_A
+PARTTYPE
+MBR2H100SFT3G
+DESCRIPTION
+Диод Шоттки
+Comment
+MBR2H100SFT3G
+Component Kind
+Standard
+Description
+Диод Шоттки
+Footprint
+SMA_A
+Ibis Model
+
+Imax
+2А
+Library Name
+PCH_Lib.SchLib
+Library Reference
+DiodeSchottky
+Name
+MBR2H100SFT3G
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+0,5
+Vr
+100
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+VD2
+FOOTPRINT
+SOT23-3_A
+PARTTYPE
+SM712
+DESCRIPTION
+Сборка TVS-диодов
+Comment
+SM712
+Component Kind
+Standard
+Description
+Сборка TVS-диодов
+Footprint
+SOT23-3_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+SM712
+Name
+SM712
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+VD3
+FOOTPRINT
+SOT23-3_A
+PARTTYPE
+AQ24CANFD
+DESCRIPTION
+Сборка TVS-диодов для RS485
+Comment
+AQ24CANFD
+Component Kind
+Standard
+Description
+Сборка TVS-диодов для RS485
+Footprint
+SOT23-3_A
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+AQ24
+Name
+AQ24CANFD
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+VD4
+FOOTPRINT
+SOD123FL
+PARTTYPE
+MBR2H100SFT3G
+DESCRIPTION
+Диод Шоттки
+ClassName
+video1
+Comment
+MBR2H100SFT3G
+Component Kind
+Standard
+Description
+Диод Шоттки
+Footprint
+SOD123FL
+Ibis Model
+
+Imax
+2А
+Library Name
+PCH_Lib.SchLib
+Library Reference
+DiodeSchottky
+Name
+MBR2H100SFT3G
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+0,5
+Vr
+100
+
+*
+
+*
+]
+[
+DESIGNATOR
+VD5
+FOOTPRINT
+SOD123FL
+PARTTYPE
+MBR2H100SFT3G
+DESCRIPTION
+Диод Шоттки
+ClassName
+video2
+Comment
+MBR2H100SFT3G
+Component Kind
+Standard
+Description
+Диод Шоттки
+Footprint
+SOD123FL
+Ibis Model
+
+Imax
+2А
+Library Name
+PCH_Lib.SchLib
+Library Reference
+DiodeSchottky
+Name
+MBR2H100SFT3G
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+0,5
+Vr
+100
+
+*
+
+*
+]
+[
+DESIGNATOR
+VD6
+FOOTPRINT
+SOD123FL
+PARTTYPE
+MBR2H100SFT3G
+DESCRIPTION
+Диод Шоттки
+ClassName
+video3
+Comment
+MBR2H100SFT3G
+Component Kind
+Standard
+Description
+Диод Шоттки
+Footprint
+SOD123FL
+Ibis Model
+
+Imax
+2А
+Library Name
+PCH_Lib.SchLib
+Library Reference
+DiodeSchottky
+Name
+MBR2H100SFT3G
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+0,5
+Vr
+100
+
+*
+
+*
+]
+[
+DESIGNATOR
+VD7
+FOOTPRINT
+SOD123FL
+PARTTYPE
+MBR2H100SFT3G
+DESCRIPTION
+Диод Шоттки
+ClassName
+Video4
+Comment
+MBR2H100SFT3G
+Component Kind
+Standard
+Description
+Диод Шоттки
+Footprint
+SOD123FL
+Ibis Model
+
+Imax
+2А
+Library Name
+PCH_Lib.SchLib
+Library Reference
+DiodeSchottky
+Name
+MBR2H100SFT3G
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+0,5
+Vr
+100
+
+*
+
+*
+]
+[
+DESIGNATOR
+VD8
+FOOTPRINT
+SOD123FL
+PARTTYPE
+MBR2H100SFT3G
+DESCRIPTION
+Диод Шоттки
+ClassName
+Video_com
+Comment
+MBR2H100SFT3G
+Component Kind
+Standard
+Description
+Диод Шоттки
+Footprint
+SOD123FL
+Ibis Model
+
+Imax
+2А
+Library Name
+PCH_Lib.SchLib
+Library Reference
+DiodeSchottky
+Name
+MBR2H100SFT3G
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+Vf
+0,5
+Vr
+100
+
+*
+
+*
+]
+[
+DESIGNATOR
+VT1
+FOOTPRINT
+DFN5
+PARTTYPE
+NTMFS5H409NL
+DESCRIPTION
+40 V, 1.1 m, 270 A, Single N Channel
+Comment
+NTMFS5H409NL
+Component Kind
+Standard
+Description
+40 V, 1.1 m, 270 A, Single N Channel
+Footprint
+DFN5
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+NTMFS5H409NL
+Name
+NTMFS5H409NL
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+VT2
+FOOTPRINT
+Micro8_A
+PARTTYPE
+IRF7509
+DESCRIPTION
+Комплементарная сборка МОП
+Comment
+IRF7509
+Component Kind
+Standard
+Description
+Комплементарная сборка МОП
+Footprint
+Micro8_A
+Ibis Model
+
+Library Name
+CifLib.SchLib
+Library Reference
+IRF7509
+Name
+IRF7509
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+VT3
+FOOTPRINT
+Micro8_A
+PARTTYPE
+IRF7509
+DESCRIPTION
+Комплементарная сборка МОП
+Comment
+IRF7509
+Component Kind
+Standard
+Description
+Комплементарная сборка МОП
+Footprint
+Micro8_A
+Ibis Model
+
+Library Name
+CifLib.SchLib
+Library Reference
+IRF7509
+Name
+IRF7509
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+VT4
+FOOTPRINT
+Micro8_A
+PARTTYPE
+IRF7509
+DESCRIPTION
+Комплементарная сборка МОП
+Comment
+IRF7509
+Component Kind
+Standard
+Description
+Комплементарная сборка МОП
+Footprint
+Micro8_A
+Ibis Model
+
+Library Name
+CifLib.SchLib
+Library Reference
+IRF7509
+Name
+IRF7509
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+X1
+FOOTPRINT
+PLS_3
+PARTTYPE
+PLS-3
+DESCRIPTION
+Разъем - 3 конт. вилка
+Comment
+PLS-3
+Component Kind
+Standard
+Contact_1
+UART_RX
+Contact_2
+UART_TX
+Contact_3
+GND
+Description
+Разъем - 3 конт. вилка
+Footprint
+PLS_3
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_3_plg
+Name
+PLS-3
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+System
+Connector
+
+*
+
+*
+]
+[
+DESIGNATOR
+X2
+FOOTPRINT
+PLS_6
+PARTTYPE
+PLS-6
+DESCRIPTION
+Разъем - 6 конт. вилка
+Comment
+PLS-6
+Component Kind
+Standard
+Contact_1
++3,3
+Contact_2
+SWCLK
+Contact_3
+GND
+Contact_4
+SWDIO
+Contact_5
+NRST
+Contact_6
+TRACE
+Description
+Разъем - 6 конт. вилка
+Footprint
+PLS_6
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_6_plg
+Name
+PLS-6
+PCB3D
+
+Signal Integrity
+
+
+*
+]
+[
+DESIGNATOR
+X3
+FOOTPRINT
+Molex_MK_43045-1000
+PARTTYPE
+Micro-Fit 43045-1000
+DESCRIPTION
+Разъем - 10 конт. вилка
+Comment
+Micro-Fit 43045-1000
+Component Kind
+Standard
+Contact_1
+PACK +
+Contact_2
+PACK +
+Contact_3
+485_A
+Contact_4
+485_B
+Contact_5
+BTN_1
+Contact_6
+BTN_2
+Contact_7
+CHG_DTCT
+Contact_8
+PRES_FLAG
+Contact_9
+GND
+Contact_10
+GND
+Description
+Разъем - 10 конт. вилка
+Footprint
+Molex_MK_43045-1000
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+
+*
+]
+[
+DESIGNATOR
+X4
+FOOTPRINT
+MOLEX_Click-Mate 2
+PARTTYPE
+Clik-Mate 5025840270
+DESCRIPTION
+Разъем - 2 конт. вилка
+Comment
+Clik-Mate 5025840270
+Component Kind
+Standard
+Contact_1
+BTN1
+Contact_2
+BTN2
+Description
+Разъем - 2 конт. вилка
+Footprint
+MOLEX_Click-Mate 2
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_2_plg
+Name
+Clik-Mate 5025840270
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+System
+Connector
+
+*
+
+*
+
+*
+]
+[
+DESIGNATOR
+X5
+FOOTPRINT
+OMRON XF2W-2415-1A
+PARTTYPE
+OMRON XF2W-2415-1A
+DESCRIPTION
+Разъем - 24 конт. розетка
+Comment
+OMRON XF2W-2415-1A
+Component Kind
+Standard
+Contact_1
+UART1_RX
+Contact_2
+UART1_TX
+Contact_3
+UART2_RX
+Contact_4
+UART2_TX
+Contact_5
+GND
+Contact_6
+AUDIO
+Contact_7
+GND
+Contact_8
+GND
+Contact_9
+GND
+Contact_10
+VCC
+Contact_11
+VCC
+Contact_12
+VCC
+Contact_13
+VCC
+Contact_14
+VCC
+
+*
+]
+[
+DESIGNATOR
+X6
+FOOTPRINT
+MOLEX_Click-Mate 3
+PARTTYPE
+Clik-Mate 5025840370
+DESCRIPTION
+Разъем - 3 конт. вилка
+Comment
+Clik-Mate 5025840370
+Component Kind
+Standard
+Contact_1
+PWR
+Contact_2
+Audio
+Contact_3
+GND
+Description
+Разъем - 3 конт. вилка
+Footprint
+MOLEX_Click-Mate 3
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_3_plg
+Name
+Clik-Mate 5025840370
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+System
+Connector
+
+*
+
+*
+]
+[
+DESIGNATOR
+X7
+FOOTPRINT
+MOLEX_Click-Mate 5
+PARTTYPE
+Clik-Mate 5025840570
+DESCRIPTION
+Разъем - 5 конт. вилка
+Comment
+Clik-Mate 5025840570
+Component Kind
+Standard
+Contact_1
+VIDEO_4+
+Contact_2
+VIDEO_4-
+Contact_3
+CAN_H
+Contact_4
+CAN_L
+Contact_5
+SGND
+Description
+Разъем - 5 конт. вилка
+Footprint
+MOLEX_Click-Mate 5
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_5_plg
+Name
+Clik-Mate 5025840570
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+
+*
+]
+[
+DESIGNATOR
+X8
+FOOTPRINT
+MOLEX_MK 43045-0401
+PARTTYPE
+Micro-Fit 43045-0401
+DESCRIPTION
+Разъем - 4 конт. папа
+Comment
+Micro-Fit 43045-0401
+Component Kind
+Standard
+Contact_1
+CAN_H
+Contact_2
+CAN_L
+Contact_3
+PWR
+Contact_4
+GND
+Description
+Разъем - 4 конт. папа
+Footprint
+MOLEX_MK 43045-0401
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_4_plg
+Name
+Micro-Fit 43045-0401
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+System
+Connector
+
+*
+]
+[
+DESIGNATOR
+X9
+FOOTPRINT
+MOLEX_MK 43045-0401
+PARTTYPE
+Micro-Fit 43045-0401
+DESCRIPTION
+Разъем - 4 конт. папа
+Comment
+Micro-Fit 43045-0401
+Component Kind
+Standard
+Contact_1
+CAN_H
+Contact_2
+CAN_L
+Contact_3
+PWR
+Contact_4
+GND
+Description
+Разъем - 4 конт. папа
+Footprint
+MOLEX_MK 43045-0401
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_4_plg
+Name
+Micro-Fit 43045-0401
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+System
+Connector
+
+*
+]
+[
+DESIGNATOR
+X10
+FOOTPRINT
+MOLEX_Click-Mate 8
+PARTTYPE
+Clik-Mate 5025840870
+DESCRIPTION
+Разъем - 8 конт. розетка
+Comment
+Clik-Mate 5025840870
+Component Kind
+Standard
+Contact_1
++14,4V
+Contact_2
++14,4V
+Contact_3
+CAN_H
+Contact_4
+CAN_L
+Contact_5
+VIDEO_3
+Contact_6
+AGND
+Contact_7
+GND
+Contact_8
+GND
+Description
+Разъем - 8 конт. розетка
+Footprint
+MOLEX_Click-Mate 8
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_8_plg
+Name
+Clik-Mate 5025840870
+
+*
+]
+[
+DESIGNATOR
+X11
+FOOTPRINT
+MOLEX_MK 43045-0401
+PARTTYPE
+Micro-Fit 43045-0401
+DESCRIPTION
+Разъем - 4 конт. папа
+Comment
+Micro-Fit 43045-0401
+Component Kind
+Standard
+Contact_1
+DATA
+Contact_2
+GND
+Contact_3
+ESC+
+Contact_4
+ESC-
+Description
+Разъем - 4 конт. папа
+Footprint
+MOLEX_MK 43045-0401
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_4_plg
+Name
+Micro-Fit 43045-0401
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+System
+Connector
+
+*
+]
+[
+DESIGNATOR
+X12
+FOOTPRINT
+MOLEX_Click-Mate 4
+PARTTYPE
+Clik-Mate 5025840470
+DESCRIPTION
+Разъем - 4 конт. папа
+Comment
+Clik-Mate 5025840470
+Component Kind
+Standard
+Contact_1
+GND
+Contact_2
+PWR
+Contact_3
+SDA
+Contact_4
+SCL
+Description
+Разъем - 4 конт. папа
+Footprint
+MOLEX_Click-Mate 4
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_4_plg
+Name
+Clik-Mate 5025840470
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+System
+Connector
+
+*
+]
+[
+DESIGNATOR
+X13
+FOOTPRINT
+MOLEX_Click-Mate 3
+PARTTYPE
+Clik-Mate 5025840370
+DESCRIPTION
+Разъем - 3 конт. вилка
+Comment
+Clik-Mate 5025840370
+Component Kind
+Standard
+Contact_1
+PWR
+Contact_2
+GND
+Contact_3
+Video
+Description
+Разъем - 3 конт. вилка
+Footprint
+MOLEX_Click-Mate 3
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_3_plg
+Name
+Clik-Mate 5025840370
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+System
+Connector
+
+*
+
+*
+]
+[
+DESIGNATOR
+X14
+FOOTPRINT
+MOLEX_Click-Mate 3
+PARTTYPE
+Clik-Mate 5025840370
+DESCRIPTION
+Разъем - 3 конт. вилка
+Comment
+Clik-Mate 5025840370
+Component Kind
+Standard
+Contact_1
+PWR
+Contact_2
+GND
+Contact_3
+Video
+Description
+Разъем - 3 конт. вилка
+Footprint
+MOLEX_Click-Mate 3
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_3_plg
+Name
+Clik-Mate 5025840370
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+System
+Connector
+
+*
+
+*
+]
+[
+DESIGNATOR
+X15
+FOOTPRINT
+MOLEX_Click-Mate 3
+PARTTYPE
+Clik-Mate 5025840370
+DESCRIPTION
+Разъем - 3 конт. вилка
+Comment
+Clik-Mate 5025840370
+Component Kind
+Standard
+Contact_1
+PWR
+Contact_2
+GND
+Contact_3
+Video
+Description
+Разъем - 3 конт. вилка
+Footprint
+MOLEX_Click-Mate 3
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_3_plg
+Name
+Clik-Mate 5025840370
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+System
+Connector
+
+*
+
+*
+]
+[
+DESIGNATOR
+X16
+FOOTPRINT
+MOLEX_Click-Mate 3
+PARTTYPE
+Clik-Mate 5025840370
+DESCRIPTION
+Разъем - 3 конт. вилка
+Comment
+Clik-Mate 5025840370
+Component Kind
+Standard
+Contact_1
+Video_out
+Contact_2
+GND
+Contact_3
+SHLD
+Description
+Разъем - 3 конт. вилка
+Footprint
+MOLEX_Click-Mate 3
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_3_plg
+Name
+Clik-Mate 5025840370
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+System
+Connector
+
+*
+
+*
+]
+[
+DESIGNATOR
+X17
+FOOTPRINT
+SSM-123-L-DV
+PARTTYPE
+SSM-123-L-DV
+DESCRIPTION
+Разъем - 46 конт. розетка
+Comment
+SSM-123-L-DV
+Component Kind
+Standard
+Contact_1
+DigIN1
+Contact_2
+DigIN2
+Contact_3
+DigIN3
+Contact_4
+DigIN4
+Contact_5
+DigOUT1
+Contact_6
+DigOUT2
+Contact_7
+CH_A
+Contact_8
+CH_/A
+Contact_9
+CH_B
+Contact_10
+CH_B\
+Contact_11
+LIR_CLK
+Contact_12
+LIR_CLK\
+Contact_13
+LIR_DATA
+Contact_14
+LIR_DATA\
+
+*
+]
+[
+DESIGNATOR
+X18
+FOOTPRINT
+SSM-123-L-DV
+PARTTYPE
+SSM-123-L-DV
+DESCRIPTION
+Разъем - 46 конт. розетка
+Comment
+SSM-123-L-DV
+Component Kind
+Standard
+Contact_1
+DigIN1
+Contact_2
+DigIN2
+Contact_3
+DigIN3
+Contact_4
+DigIN4
+Contact_5
+DigOUT1
+Contact_6
+DigOUT2
+Contact_7
+CH_A
+Contact_8
+CH_/A
+Contact_9
+CH_B
+Contact_10
+CH_B\
+Contact_11
+LIR_CLK
+Contact_12
+LIR_CLK\
+Contact_13
+LIR_DATA
+Contact_14
+LIR_DATA\
+
+*
+]
+[
+DESIGNATOR
+X19
+FOOTPRINT
+SSM-116-L-DV
+PARTTYPE
+SSM-116-L-DV
+DESCRIPTION
+Разъем - 32 конт. розетка
+Comment
+SSM-116-L-DV
+Component Kind
+Standard
+Contact_1
+Winding 1
+Contact_2
+Winding 1
+Contact_3
+Winding 1
+Contact_4
+Winding 1
+Contact_5
+Winding 2
+Contact_6
+Winding 2
+Contact_7
+Winding 2
+Contact_8
+Winding 2
+Contact_9
+Winding 3
+Contact_10
+Winding 3
+Contact_11
+Winding 3
+Contact_12
+Winding 3
+Contact_13
+Power VCC
+Contact_14
+Power VCC
+
+*
+]
+[
+DESIGNATOR
+X20
+FOOTPRINT
+PBS-6
+PARTTYPE
+PBS-06-SMD
+DESCRIPTION
+Разъем - 6 конт. разъем
+Comment
+PBS-06-SMD
+Comment_1
+PBS-6
+Component Kind
+Standard
+Contact_1
++3,3В
+Contact_2
+SWCLK
+Contact_3
+GND
+Contact_4
+SWDIO
+Contact_5
+NRST
+Contact_6
+TRACE
+Description
+Разъем - 6 конт. разъем
+Footprint
+PBS-6
+Ibis Model
+
+Library Name
+DriverControl.SCHLIB
+Library Reference
+Header_6_sct
+manufacturer
+ConnFly
+Name
+PBS-6
+
+*
+]
+[
+DESIGNATOR
+X21
+FOOTPRINT
+SSM-116-L-DV
+PARTTYPE
+SSM-116-L-DV
+DESCRIPTION
+Разъем - 32 конт. розетка
+Comment
+SSM-116-L-DV
+Component Kind
+Standard
+Contact_1
+Winding 1
+Contact_2
+Winding 1
+Contact_3
+Winding 1
+Contact_4
+Winding 1
+Contact_5
+Winding 2
+Contact_6
+Winding 2
+Contact_7
+Winding 2
+Contact_8
+Winding 2
+Contact_9
+Winding 3
+Contact_10
+Winding 3
+Contact_11
+Winding 3
+Contact_12
+Winding 3
+Contact_13
+Power VCC
+Contact_14
+Power VCC
+
+*
+]
+[
+DESIGNATOR
+X22
+FOOTPRINT
+PBS-6
+PARTTYPE
+PBS-06-SMD
+DESCRIPTION
+Разъем - 6 конт. разъем
+Comment
+PBS-06-SMD
+Comment_1
+PBS-6
+Component Kind
+Standard
+Contact_1
++3,3В
+Contact_2
+SWCLK
+Contact_3
+GND
+Contact_4
+SWDIO
+Contact_5
+NRST
+Contact_6
+TRACE
+Description
+Разъем - 6 конт. разъем
+Footprint
+PBS-6
+Ibis Model
+
+Library Name
+DriverControl.SCHLIB
+Library Reference
+Header_6_sct
+manufacturer
+ConnFly
+Name
+PBS-6
+
+*
+]
+[
+DESIGNATOR
+X23
+FOOTPRINT
+Molex_MK_43045-0427
+PARTTYPE
+Micro-Fit 43045-0800
+DESCRIPTION
+Разъем - 8 конт. розетка
+Comment
+Micro-Fit 43045-0800
+Component Kind
+Standard
+Contact_1
+Winding_1
+Contact_2
+Winding_2
+Contact_3
+Winding_3
+Contact_4
+Vhall
+Contact_5
+GND
+Contact_6
+Hall_1
+Contact_7
+Hall_2
+Contact_8
+Hall_3
+Description
+Разъем - 8 конт. розетка
+Footprint
+Molex_MK_43045-0427
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_8_plg
+Name
+Micro-Fit 43045-0800
+
+*
+]
+[
+DESIGNATOR
+X24
+FOOTPRINT
+Molex_MK_43045-0427
+PARTTYPE
+Micro-Fit 43045-0800
+DESCRIPTION
+Разъем - 8 конт. розетка
+Comment
+Micro-Fit 43045-0800
+Component Kind
+Standard
+Contact_1
+Winding_1
+Contact_2
+Winding_2
+Contact_3
+Winding_3
+Contact_4
+Vhall
+Contact_5
+GND
+Contact_6
+Hall_1
+Contact_7
+Hall_2
+Contact_8
+Hall_3
+Description
+Разъем - 8 конт. розетка
+Footprint
+Molex_MK_43045-0427
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_8_plg
+Name
+Micro-Fit 43045-0800
+
+*
+]
+[
+DESIGNATOR
+X25
+FOOTPRINT
+PLS_6
+PARTTYPE
+PLS-6
+DESCRIPTION
+Разъем - 6 конт. вилка
+Comment
+PLS-6
+Component Kind
+Standard
+Contact_1
++3,3
+Contact_2
+SWCLK
+Contact_3
+GND
+Contact_4
+SWDIO
+Contact_5
+NRST
+Contact_6
+TRACE
+Description
+Разъем - 6 конт. вилка
+Footprint
+PLS_6
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_6_plg
+Name
+PLS-6
+PCB3D
+
+Signal Integrity
+
+
+*
+]
+[
+DESIGNATOR
+X26
+FOOTPRINT
+PLS_6
+PARTTYPE
+PLS-6
+DESCRIPTION
+Разъем - 6 конт. вилка
+Comment
+PLS-6
+Component Kind
+Standard
+Contact_1
++3,3
+Contact_2
+SWCLK
+Contact_3
+GND
+Contact_4
+SWDIO
+Contact_5
+NRST
+Contact_6
+TRACE
+Description
+Разъем - 6 конт. вилка
+Footprint
+PLS_6
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Header_6_plg
+Name
+PLS-6
+PCB3D
+
+Signal Integrity
+
+
+*
+]
+[
+DESIGNATOR
+Z1
+FOOTPRINT
+CSTCE
+PARTTYPE
+CSTCE12M0G52-R0
+DESCRIPTION
+Кварцевый резорнатор со встроенными нагрузочными конденсаторами
+Comment
+CSTCE12M0G52-R0
+Component Kind
+Standard
+Description
+Кварцевый резорнатор со встроенными нагрузочными конденсаторами
+Footprint
+CSTCE
+Ibis Model
+
+Library Name
+PCH_Lib.SchLib
+Library Reference
+Quartz_assembly
+Manufacturer
+Murata Electronics
+Name
+CSTCE12M0G52-R0
+PCB3D
+
+Signal Integrity
+
+Simulation
+
+T (°C) Ambient
+-40...+125
+Tolerance @25°C
+0,5%
+Value
+12МГц
+
+*
+
+*
+]
+(
+VIDEO2
+C38-2 4,7мк-2 Passive      
+R67-2 75-2 Passive      
+X15-3 Clik-Mate 5025840370-3 Passive      
+)
+(
+VIDEO1
+C37-2 4,7мк-2 Passive      
+R66-2 75-2 Passive      
+X14-3 Clik-Mate 5025840370-3 Passive      
+)
+(
+NetVT4_5
+VT4-5 IRF7509-D2 Passive      
+VT4-6 IRF7509-D2 Passive      
+X15-1 Clik-Mate 5025840370-1 Passive      
+)
+(
+NetVT3_5
+VT3-5 IRF7509-D2 Passive      
+VT3-6 IRF7509-D2 Passive      
+X13-1 Clik-Mate 5025840370-1 Passive      
+)
+(
+NetVT2_5
+VT2-5 IRF7509-D2 Passive      
+VT2-6 IRF7509-D2 Passive      
+X14-1 Clik-Mate 5025840370-1 Passive      
+)
+(
+NetR106_2
+R106-2 75-2 Passive      
+X16-1 Clik-Mate 5025840370-1 Passive      
+)
+(
+NetR79_1
+R79-1 47к-1 Passive      
+VT4-4 IRF7509-G2 Passive      
+VT4-7 IRF7509-D1 Passive      
+VT4-8 IRF7509-D1 Passive      
+)
+(
+NetR78_1
+R78-1 47к-1 Passive      
+VT3-4 IRF7509-G2 Passive      
+VT3-7 IRF7509-D1 Passive      
+VT3-8 IRF7509-D1 Passive      
+)
+(
+NetR77_1
+R77-1 47к-1 Passive      
+VT2-4 IRF7509-G2 Passive      
+VT2-7 IRF7509-D1 Passive      
+VT2-8 IRF7509-D1 Passive      
+)
+(
+NetR72_1
+R72-1 100-1 Passive      
+VT4-2 IRF7509-G1 Passive      
+)
+(
+NetR71_1
+R71-1 100-1 Passive      
+VT3-2 IRF7509-G1 Passive      
+)
+(
+NetR70_1
+R70-1 100-1 Passive      
+VT2-2 IRF7509-G1 Passive      
+)
+(
+NetR61_2
+R61-2 0-2 Passive      
+X13-3 Clik-Mate 5025840370-3 Passive      
+)
+(
+NetDA11_3
+DA11-3 ADA4430-SAG Passive      
+DA11-4 ADA4430-OUT Passive      
+R106-1 75-1 Passive      
+)
+(
+NetDA10_14
+DA10-14 ADG1604BRUZ-A1 Passive      
+R103-2 100-2 Passive      
+)
+(
+NetDA10_11
+DA10-11 ADG1604BRUZ-S3 Passive      
+R90-1 75-1 Passive      
+R94-1 75-1 Passive      
+)
+(
+NetDA10_10
+DA10-10 ADG1604BRUZ-S4 Passive      
+R91-1 75-1 Passive      
+R95-1 75-1 Passive      
+)
+(
+NetDA10_6
+DA10-6 ADG1604BRUZ-D Passive      
+R96-2 75-2 Passive      
+)
+(
+NetDA10_5
+DA10-5 ADG1604BRUZ-S2 Passive      
+R89-1 75-1 Passive      
+R93-1 75-1 Passive      
+)
+(
+NetDA10_4
+DA10-4 ADG1604BRUZ-S1 Passive      
+R88-1 75-1 Passive      
+R92-1 75-1 Passive      
+)
+(
+NetDA10_2
+DA10-2 ADG1604BRUZ-EN Passive      
+R101-2 100-2 Passive      
+)
+(
+NetDA10_1
+DA10-1 ADG1604BRUZ-A0 Passive      
+R102-2 100-2 Passive      
+)
+(
+NetDA9_5
+DA9-5 ADA4430-D\I\S\ Passive      
+R65-1 100-1 Passive      
+)
+(
+NetDA9_3
+DA9-3 ADA4430-SAG Passive      
+DA9-4 ADA4430-OUT Passive      
+R91-2 75-2 Passive      
+)
+(
+NetDA8_5
+DA8-5 ADA4430-D\I\S\ Passive      
+R64-1 100-1 Passive      
+)
+(
+NetDA8_3
+DA8-3 ADA4430-SAG Passive      
+DA8-4 ADA4430-OUT Passive      
+R90-2 75-2 Passive      
+)
+(
+NetDA7_5
+DA7-5 ADA4430-D\I\S\ Passive      
+R63-1 100-1 Passive      
+)
+(
+NetDA7_3
+DA7-3 ADA4430-SAG Passive      
+DA7-4 ADA4430-OUT Passive      
+R89-2 75-2 Passive      
+)
+(
+NetDA6_5
+DA6-5 ADA4430-D\I\S\ Passive      
+R62-1 100-1 Passive      
+)
+(
+NetDA6_3
+DA6-3 ADA4430-SAG Passive      
+DA6-4 ADA4430-OUT Passive      
+R88-2 75-2 Passive      
+)
+(
+NetC51_2
+C51-2 4,7мк-2 Passive      
+R99-2 470-2 Passive      
+R100-1 2,4к-1 Passive      
+VD8-2 MBR2H100SFT3G-A Passive      
+)
+(
+NetC50_2
+C50-2 4,7мк-2 Passive      
+R96-1 75-1 Passive      
+R97-1 75-1 Passive      
+)
+(
+NetC50_1
+C50-1 4,7мк-1 Passive      
+DA11-1 ADA4430-IN Passive      
+R98-2 10к-2 Passive      
+VD8-1 MBR2H100SFT3G-K Passive      
+)
+(
+NetC44_2
+C44-2 4,7мк-2 Passive      
+R83-2 470-2 Passive      
+R87-1 2,4к-1 Passive      
+VD7-2 MBR2H100SFT3G-A Passive      
+)
+(
+NetC43_2
+C43-2 4,7мк-2 Passive      
+R82-2 470-2 Passive      
+R86-1 2,4к-1 Passive      
+VD6-2 MBR2H100SFT3G-A Passive      
+)
+(
+NetC42_2
+C42-2 4,7мк-2 Passive      
+R81-2 470-2 Passive      
+R85-1 2,4к-1 Passive      
+VD5-2 MBR2H100SFT3G-A Passive      
+)
+(
+NetC41_2
+C41-2 4,7мк-2 Passive      
+R80-2 470-2 Passive      
+R84-1 2,4к-1 Passive      
+VD4-2 MBR2H100SFT3G-A Passive      
+)
+(
+NetC40_2
+C40-2 4,7мк-2 Passive      
+R57-1 0-1 Passive      
+R61-1 0-1 Passive      
+R69-2 75-2 Passive      
+)
+(
+NetC40_1
+C40-1 4,7мк-1 Passive      
+DA9-1 ADA4430-IN Passive      
+R76-2 10к-2 Passive      
+VD7-1 MBR2H100SFT3G-K Passive      
+)
+(
+NetC39_1
+C39-1 4,7мк-1 Passive      
+DA8-1 ADA4430-IN Passive      
+R75-2 10к-2 Passive      
+VD6-1 MBR2H100SFT3G-K Passive      
+)
+(
+NetC38_1
+C38-1 4,7мк-1 Passive      
+DA7-1 ADA4430-IN Passive      
+R74-2 10к-2 Passive      
+VD5-1 MBR2H100SFT3G-K Passive      
+)
+(
+NetC37_1
+C37-1 4,7мк-1 Passive      
+DA6-1 ADA4430-IN Passive      
+R73-2 10к-2 Passive      
+VD4-1 MBR2H100SFT3G-K Passive      
+)
+(
+NetX3_6
+X3-6 Micro-Fit 43045-1000-6 Passive      
+X4-1 Clik-Mate 5025840270-1 Passive      
+)
+(
+NetX3_5
+X3-5 Micro-Fit 43045-1000-5 Passive      
+X4-2 Clik-Mate 5025840270-2 Passive      
+)
+(
+NetVT1_5
+VT1-5 NTMFS5H409NL-D Passive      
+VT1-6 NTMFS5H409NL-D Passive      
+VT1-7 NTMFS5H409NL-D Passive      
+VT1-8 NTMFS5H409NL-D Passive      
+X3-7 Micro-Fit 43045-1000-7 Passive      
+X3-9 Micro-Fit 43045-1000-9 Passive      
+X3-10 Micro-Fit 43045-1000-10 Passive      
+)
+(
+NetR15_2
+R15-2 100-2 Passive      
+X3-8 Micro-Fit 43045-1000-8 Passive      
+)
+(
+NetR11_1
+R11-1 47к-1 Passive      
+VT1-4 NTMFS5H409NL-G Passive      
+)
+(
+NetHL6_2
+HL6-2 KP-1608QBC-D-A Passive      
+R24-1 330-1 Passive      
+)
+(
+NetHL5_2
+HL5-2 KP-1608QBC-D-A Passive      
+R23-1 330-1 Passive      
+)
+(
+NetHL4_2
+HL4-2 KP-1608QBC-D-A Passive      
+R22-1 330-1 Passive      
+)
+(
+NetHL3_2
+HL3-2 KP-1608MGC-A Passive      
+R20-2 510-2 Passive      
+)
+(
+NetDD3_7
+DD3-7 SN65HVD1781-B Passive      
+R12-1 -1 Passive      
+VD2-1 SM712- Passive      
+X3-4 Micro-Fit 43045-1000-4 Passive      
+)
+(
+NetDD3_6
+DD3-6 SN65HVD1781-A Passive      
+R12-2 -2 Passive      
+VD2-2 SM712- Passive      
+X3-3 Micro-Fit 43045-1000-3 Passive      
+)
+(
+NetDD2_2
+DD2-2 LMZ14203HTZ-RON Passive      
+R9-1 39к-1 Passive      
+)
+(
+NetC19_2
+C19-2 0,1мк-2 Passive      
+DD2-3 LMZ14203HTZ-EN Passive      
+R10-2 10к-2 Passive      
+R16-2 100-2 Passive      
+)
+(
+NetC17_1
+C17-1 0,022мк-1 Passive      
+DD2-6 LMZ14203HTZ-FB Passive      
+R13-2 36к-2 Passive      
+R14-1 6,8к-1 Passive      
+)
+(
+NetC15_2
+C15-2 4700-2 Passive      
+DD2-5 LMZ14203HTZ-SS Passive      
+)
+(
++12В
+A2-6 LMR16006-VOUT Passive      
+A2-7 LMR16006-VOUT Passive      
+A2-8 LMR16006-VOUT Passive      
+R23-2 330-2 Passive      
+R77-2 47к-2 Passive      
+R78-2 47к-2 Passive      
+R79-2 47к-2 Passive      
+VT2-3 IRF7509-S2 Passive      
+VT3-3 IRF7509-S2 Passive      
+VT4-3 IRF7509-S2 Passive      
+)
+(
+VIDEO4-
+DA5-4 MAX9547-IN- Passive      
+R52-1 62-1 Passive      
+X7-2 Clik-Mate 5025840570-2 Passive      
+)
+(
+VIDEO4+
+DA5-1 MAX9547-IN+ Passive      
+R51-2 62-2 Passive      
+X7-1 Clik-Mate 5025840570-1 Passive      
+)
+(
+VIDEO4
+R40-2 75-2 Passive      
+R57-2 0-2 Passive      
+)
+(
+VIDEO3
+C39-2 4,7мк-2 Passive      
+R68-2 75-2 Passive      
+X10-5 Clik-Mate 5025840870-5 Passive      
+)
+(
+NetX5_6
+X5-6 OMRON XF2W-2415-1A-6 Passive      
+X5-19 OMRON XF2W-2415-1A-19 Passive      
+X6-2 Clik-Mate 5025840370-2 Passive      
+)
+(
+NetX5_5
+X5-5 OMRON XF2W-2415-1A-5 Passive      
+X5-7 OMRON XF2W-2415-1A-7 Passive      
+X5-18 OMRON XF2W-2415-1A-18 Passive      
+X5-20 OMRON XF2W-2415-1A-20 Passive      
+X6-3 Clik-Mate 5025840370-3 Passive      
+)
+(
+NetR50_1
+R50-1 100-1 Passive      
+X12-4 Clik-Mate 5025840470-4 Passive      
+)
+(
+NetR49_1
+R49-1 100-1 Passive      
+X12-3 Clik-Mate 5025840470-3 Passive      
+)
+(
+NetR48_1
+R48-1 100-1 Passive      
+X11-1 Micro-Fit 43045-0401-1 Passive      
+)
+(
+NetR30_7
+R30-7 100-7 Passive      
+X5-1 OMRON XF2W-2415-1A-1 Passive      
+X5-24 OMRON XF2W-2415-1A-24 Passive      
+)
+(
+NetR30_5
+R30-5 100-5 Passive      
+X5-2 OMRON XF2W-2415-1A-2 Passive      
+X5-23 OMRON XF2W-2415-1A-23 Passive      
+)
+(
+NetR30_3
+R30-3 100-3 Passive      
+X5-3 OMRON XF2W-2415-1A-3 Passive      
+X5-22 OMRON XF2W-2415-1A-22 Passive      
+)
+(
+NetR30_1
+R30-1 100-1 Passive      
+X5-4 OMRON XF2W-2415-1A-4 Passive      
+X5-21 OMRON XF2W-2415-1A-21 Passive      
+)
+(
+NetHL7_2
+HL7-2 -A Passive      
+R36-2 820-2 Passive      
+)
+(
+NetDD4_8
+DD4-8 SN65HVD233D-Rs Passive      
+R41-2 10к-2 Passive      
+)
+(
+NetDD4_5
+DD4-5 SN65HVD233D-LBK Passive      
+R39-1 100-1 Passive      
+)
+(
+NetDD4_4
+DD4-4 SN65HVD233D-R Passive      
+R38-1 100-1 Passive      
+)
+(
+NetDD4_1
+DD4-1 SN65HVD233D-D Passive      
+R37-1 100-1 Passive      
+)
+(
+NetDA5_7
+DA5-7 MAX9547-VOUT Passive      
+R40-1 75-1 Passive      
+)
+(
+NetDA5_6
+DA5-6 MAX9547-L\O\S\ Passive      
+HL7-1 -C Passive      
+)
+(
+NetDA5_3
+DA5-3 MAX9547-ZT- Passive      
+R42-2 75-2 Passive      
+)
+(
+NetDA5_2
+DA5-2 MAX9547-ZT+ Passive      
+R42-1 75-1 Passive      
+)
+(
+NetDA4_8
+DA4-8 LSM9DS1-CS_M Passive      
+R29-2 100-2 Passive      
+)
+(
+NetDA4_7
+DA4-7 LSM9DS1-CS_A/G Passive      
+R28-2 100-2 Passive      
+)
+(
+NetDA4_5
+DA4-5 LSM9DS1-SDO_A/G Passive      
+DA4-6 LSM9DS1-SDO_M Passive      
+R25-2 100-2 Passive      
+)
+(
+NetDA4_4
+DA4-4 LSM9DS1-SDA/SDI/SDO Passive      
+R27-2 100-2 Passive      
+)
+(
+NetDA4_2
+DA4-2 LSM9DS1-SCL/SPC Passive      
+R26-2 100-2 Passive      
+)
+(
+NetC34_2
+C34-2 10мк-2 Passive      
+C36-2 0,1мк-2 Passive      
+R51-1 62-1 Passive      
+R52-2 62-2 Passive      
+)
+(
+NetC32_2
+C32-2 4700-2 Passive      
+R46-1 62-1 Passive      
+R47-2 62-2 Passive      
+)
+(
+NetC27_2
+C27-2 0,01мк-2 Passive      
+DA4-21 LSM9DS1-CAP Passive      
+)
+(
+NetC25_2
+C25-2 0,1мк-2 Passive      
+DA4-24 LSM9DS1-C1 Passive      
+)
+(
++8,5В
+A3-6 LMR16006-VOUT Passive      
+A3-7 LMR16006-VOUT Passive      
+A3-8 LMR16006-VOUT Passive      
+C28-2 4,7мк-2 Passive      
+C30-2 0,1мк-2 Passive      
+DA5-8 MAX9547-VCC Passive      
+R24-2 330-2 Passive      
+R36-1 820-1 Passive      
+)
+(
+PGND
+C20-2 470мк-2 Passive      
+C23-2 470мк-2 Passive      
+R21-1 0-1 Passive      
+VT1-1 NTMFS5H409NL-S Passive      
+VT1-2 NTMFS5H409NL-S Passive      
+VT1-3 NTMFS5H409NL-S Passive      
+X8-4 Micro-Fit 43045-0401-4 Passive      
+X9-4 Micro-Fit 43045-0401-4 Passive      
+X10-7 Clik-Mate 5025840870-7 Passive      
+X10-8 Clik-Mate 5025840870-8 Passive      
+X11-4 Micro-Fit 43045-0401-4 Passive      
+X19-18 SSM-116-L-DV-18 Passive      
+X19-19 SSM-116-L-DV-19 Passive      
+X19-20 SSM-116-L-DV-20 Passive      
+X19-21 SSM-116-L-DV-21 Passive      
+X19-22 SSM-116-L-DV-22 Passive      
+X21-18 SSM-116-L-DV-18 Passive      
+X21-19 SSM-116-L-DV-19 Passive      
+X21-20 SSM-116-L-DV-20 Passive      
+X21-21 SSM-116-L-DV-21 Passive      
+X21-22 SSM-116-L-DV-22 Passive      
+)
+(
+NetX22_6
+X22-6 PBS-06-SMD-6 Passive      
+X26-6 PLS-6-6 Passive      
+)
+(
+NetX22_5
+X22-5 PBS-06-SMD-5 Passive      
+X26-5 PLS-6-5 Passive      
+)
+(
+NetX22_4
+X22-4 PBS-06-SMD-4 Passive      
+X26-4 PLS-6-4 Passive      
+)
+(
+NetX22_3
+X22-3 PBS-06-SMD-3 Passive      
+X26-3 PLS-6-3 Passive      
+)
+(
+NetX22_2
+X22-2 PBS-06-SMD-2 Passive      
+X26-2 PLS-6-2 Passive      
+)
+(
+NetX22_1
+X22-1 PBS-06-SMD-1 Passive      
+X26-1 PLS-6-1 Passive      
+)
+(
+NetX20_6
+X20-6 PBS-06-SMD-6 Passive      
+X25-6 PLS-6-6 Passive      
+)
+(
+NetX20_5
+X20-5 PBS-06-SMD-5 Passive      
+X25-5 PLS-6-5 Passive      
+)
+(
+NetX20_4
+X20-4 PBS-06-SMD-4 Passive      
+X25-4 PLS-6-4 Passive      
+)
+(
+NetX20_3
+X20-3 PBS-06-SMD-3 Passive      
+X25-3 PLS-6-3 Passive      
+)
+(
+NetX20_2
+X20-2 PBS-06-SMD-2 Passive      
+X25-2 PLS-6-2 Passive      
+)
+(
+NetX20_1
+X20-1 PBS-06-SMD-1 Passive      
+X25-1 PLS-6-1 Passive      
+)
+(
+NetR111_8
+R111-8 100-8 Passive      
+X21-25 SSM-116-L-DV-25 Passive      
+)
+(
+NetR111_7
+R111-7 100-7 Passive      
+R113-1 47к-1 Passive      
+X24-8 Micro-Fit 43045-0800-8 Passive      
+)
+(
+NetR111_6
+R111-6 100-6 Passive      
+X21-24 SSM-116-L-DV-24 Passive      
+)
+(
+NetR111_5
+R111-5 100-5 Passive      
+R115-1 47к-1 Passive      
+X24-7 Micro-Fit 43045-0800-7 Passive      
+)
+(
+NetR111_4
+R111-4 100-4 Passive      
+X21-23 SSM-116-L-DV-23 Passive      
+)
+(
+NetR111_3
+R111-3 100-3 Passive      
+R117-1 47к-1 Passive      
+X24-6 Micro-Fit 43045-0800-6 Passive      
+)
+(
+NetR110_8
+R110-8 100-8 Passive      
+X19-25 SSM-116-L-DV-25 Passive      
+)
+(
+NetR110_7
+R110-7 100-7 Passive      
+R112-1 47к-1 Passive      
+X23-8 Micro-Fit 43045-0800-8 Passive      
+)
+(
+NetR110_6
+R110-6 100-6 Passive      
+X19-24 SSM-116-L-DV-24 Passive      
+)
+(
+NetR110_5
+R110-5 100-5 Passive      
+R114-1 47к-1 Passive      
+X23-7 Micro-Fit 43045-0800-7 Passive      
+)
+(
+NetR110_4
+R110-4 100-4 Passive      
+X19-23 SSM-116-L-DV-23 Passive      
+)
+(
+NetR110_3
+R110-3 100-3 Passive      
+R116-1 47к-1 Passive      
+X23-6 Micro-Fit 43045-0800-6 Passive      
+)
+(
+NetR109_4
+R109-4 10к-4 Passive      
+X18-30 SSM-123-L-DV-30 Passive      
+)
+(
+NetR108_2
+R108-2 10к-2 Passive      
+X17-29 SSM-123-L-DV-29 Passive      
+)
+(
+NetL7_2
+L7-2 56мкГн-2 Passive      
+X24-3 Micro-Fit 43045-0800-3 Passive      
+)
+(
+NetL7_1
+L7-1 56мкГн-1 Passive      
+X21-9 SSM-116-L-DV-9 Passive      
+X21-10 SSM-116-L-DV-10 Passive      
+X21-11 SSM-116-L-DV-11 Passive      
+X21-12 SSM-116-L-DV-12 Passive      
+)
+(
+NetL6_2
+L6-2 56мкГн-2 Passive      
+X24-2 Micro-Fit 43045-0800-2 Passive      
+)
+(
+NetL6_1
+L6-1 56мкГн-1 Passive      
+X21-5 SSM-116-L-DV-5 Passive      
+X21-6 SSM-116-L-DV-6 Passive      
+X21-7 SSM-116-L-DV-7 Passive      
+X21-8 SSM-116-L-DV-8 Passive      
+)
+(
+NetL5_2
+L5-2 56мкГн-2 Passive      
+X24-1 Micro-Fit 43045-0800-1 Passive      
+)
+(
+NetL5_1
+L5-1 56мкГн-1 Passive      
+X21-1 SSM-116-L-DV-1 Passive      
+X21-2 SSM-116-L-DV-2 Passive      
+X21-3 SSM-116-L-DV-3 Passive      
+X21-4 SSM-116-L-DV-4 Passive      
+)
+(
+NetL4_2
+L4-2 56мкГн-2 Passive      
+X23-3 Micro-Fit 43045-0800-3 Passive      
+)
+(
+NetL4_1
+L4-1 56мкГн-1 Passive      
+X19-9 SSM-116-L-DV-9 Passive      
+X19-10 SSM-116-L-DV-10 Passive      
+X19-11 SSM-116-L-DV-11 Passive      
+X19-12 SSM-116-L-DV-12 Passive      
+)
+(
+NetL3_2
+L3-2 56мкГн-2 Passive      
+X23-2 Micro-Fit 43045-0800-2 Passive      
+)
+(
+NetL3_1
+L3-1 56мкГн-1 Passive      
+X19-5 SSM-116-L-DV-5 Passive      
+X19-6 SSM-116-L-DV-6 Passive      
+X19-7 SSM-116-L-DV-7 Passive      
+X19-8 SSM-116-L-DV-8 Passive      
+)
+(
+NetL2_2
+L2-2 56мкГн-2 Passive      
+X23-1 Micro-Fit 43045-0800-1 Passive      
+)
+(
+NetL2_1
+L2-1 56мкГн-1 Passive      
+X19-1 SSM-116-L-DV-1 Passive      
+X19-2 SSM-116-L-DV-2 Passive      
+X19-3 SSM-116-L-DV-3 Passive      
+X19-4 SSM-116-L-DV-4 Passive      
+)
+(
+CAN_L
+C33-2 0,1мк-2 Passive      
+DD4-6 SN65HVD233D-CANL Passive      
+R47-1 62-1 Passive      
+VD3-2 AQ24CANFD- Passive      
+X7-4 Clik-Mate 5025840570-4 Passive      
+X8-2 Micro-Fit 43045-0401-2 Passive      
+X9-2 Micro-Fit 43045-0401-2 Passive      
+X10-4 Clik-Mate 5025840870-4 Passive      
+X17-36 SSM-123-L-DV-36 Passive      
+X18-36 SSM-123-L-DV-36 Passive      
+)
+(
+CAN_H
+C35-2 0,1мк-2 Passive      
+DD4-7 SN65HVD233D-CANH Passive      
+R46-2 62-2 Passive      
+VD3-1 AQ24CANFD- Passive      
+X7-3 Clik-Mate 5025840570-3 Passive      
+X8-1 Micro-Fit 43045-0401-1 Passive      
+X9-1 Micro-Fit 43045-0401-1 Passive      
+X10-3 Clik-Mate 5025840870-3 Passive      
+X17-35 SSM-123-L-DV-35 Passive      
+X18-35 SSM-123-L-DV-35 Passive      
+)
+(
+332
+X21-32 SSM-116-L-DV-32 Passive      
+)
+(
+331
+X21-31 SSM-116-L-DV-31 Passive      
+)
+(
+330
+X21-30 SSM-116-L-DV-30 Passive      
+)
+(
+329
+X21-29 SSM-116-L-DV-29 Passive      
+)
+(
+328
+X21-28 SSM-116-L-DV-28 Passive      
+)
+(
+327
+X21-27 SSM-116-L-DV-27 Passive      
+)
+(
+232
+X19-32 SSM-116-L-DV-32 Passive      
+)
+(
+231
+X19-31 SSM-116-L-DV-31 Passive      
+)
+(
+230
+X19-30 SSM-116-L-DV-30 Passive      
+)
+(
+229
+X19-29 SSM-116-L-DV-29 Passive      
+)
+(
+228
+X19-28 SSM-116-L-DV-28 Passive      
+)
+(
+227
+X19-27 SSM-116-L-DV-27 Passive      
+)
+(
+146
+X18-46 SSM-123-L-DV-46 Passive      
+)
+(
+145
+X18-45 SSM-123-L-DV-45 Passive      
+)
+(
+144
+X18-44 SSM-123-L-DV-44 Passive      
+)
+(
+143
+X18-43 SSM-123-L-DV-43 Passive      
+)
+(
+142
+X18-42 SSM-123-L-DV-42 Passive      
+)
+(
+141
+X18-41 SSM-123-L-DV-41 Passive      
+)
+(
+140
+X18-40 SSM-123-L-DV-40 Passive      
+)
+(
+139
+X18-39 SSM-123-L-DV-39 Passive      
+)
+(
+134
+X18-34 SSM-123-L-DV-34 Passive      
+)
+(
+133
+X18-33 SSM-123-L-DV-33 Passive      
+)
+(
+132
+R109-8 10к-8 Passive      
+X18-32 SSM-123-L-DV-32 Passive      
+)
+(
+131
+R109-6 10к-6 Passive      
+X18-31 SSM-123-L-DV-31 Passive      
+)
+(
+129
+R109-2 10к-2 Passive      
+X18-29 SSM-123-L-DV-29 Passive      
+)
+(
+128
+X18-28 SSM-123-L-DV-28 Passive      
+)
+(
+127
+X18-27 SSM-123-L-DV-27 Passive      
+)
+(
+126
+X18-26 SSM-123-L-DV-26 Passive      
+)
+(
+125
+X18-25 SSM-123-L-DV-25 Passive      
+)
+(
+124
+X18-24 SSM-123-L-DV-24 Passive      
+)
+(
+123
+X18-23 SSM-123-L-DV-23 Passive      
+)
+(
+122
+X18-22 SSM-123-L-DV-22 Passive      
+)
+(
+121
+X18-21 SSM-123-L-DV-21 Passive      
+)
+(
+120
+X18-20 SSM-123-L-DV-20 Passive      
+)
+(
+119
+X18-19 SSM-123-L-DV-19 Passive      
+)
+(
+118
+X18-18 SSM-123-L-DV-18 Passive      
+)
+(
+117
+X18-17 SSM-123-L-DV-17 Passive      
+)
+(
+114
+X18-14 SSM-123-L-DV-14 Passive      
+)
+(
+113
+X18-13 SSM-123-L-DV-13 Passive      
+)
+(
+112
+)
+(
+111
+X18-11 SSM-123-L-DV-11 Passive      
+)
+(
+110
+X18-10 SSM-123-L-DV-10 Passive      
+)
+(
+109
+X18-9 SSM-123-L-DV-9 Passive      
+)
+(
+108
+X18-8 SSM-123-L-DV-8 Passive      
+)
+(
+107
+X18-7 SSM-123-L-DV-7 Passive      
+)
+(
+106
+X18-6 SSM-123-L-DV-6 Passive      
+)
+(
+105
+X18-5 SSM-123-L-DV-5 Passive      
+)
+(
+104
+X18-4 SSM-123-L-DV-4 Passive      
+)
+(
+103
+X18-3 SSM-123-L-DV-3 Passive      
+)
+(
+102
+X18-2 SSM-123-L-DV-2 Passive      
+)
+(
+101
+X18-1 SSM-123-L-DV-1 Passive      
+)
+(
+46
+X17-46 SSM-123-L-DV-46 Passive      
+)
+(
+45
+X17-45 SSM-123-L-DV-45 Passive      
+)
+(
+44
+X17-44 SSM-123-L-DV-44 Passive      
+)
+(
+43
+X17-43 SSM-123-L-DV-43 Passive      
+)
+(
+42
+X17-42 SSM-123-L-DV-42 Passive      
+)
+(
+41
+X17-41 SSM-123-L-DV-41 Passive      
+)
+(
+40
+X17-40 SSM-123-L-DV-40 Passive      
+)
+(
+39
+X17-39 SSM-123-L-DV-39 Passive      
+)
+(
+34
+X17-34 SSM-123-L-DV-34 Passive      
+)
+(
+33
+X17-33 SSM-123-L-DV-33 Passive      
+)
+(
+32
+R108-8 10к-8 Passive      
+X17-32 SSM-123-L-DV-32 Passive      
+)
+(
+31
+R108-6 10к-6 Passive      
+X17-31 SSM-123-L-DV-31 Passive      
+)
+(
+30
+R108-4 10к-4 Passive      
+X17-30 SSM-123-L-DV-30 Passive      
+)
+(
+28
+X17-28 SSM-123-L-DV-28 Passive      
+)
+(
+27
+X17-27 SSM-123-L-DV-27 Passive      
+)
+(
+26
+X17-26 SSM-123-L-DV-26 Passive      
+)
+(
+25
+X17-25 SSM-123-L-DV-25 Passive      
+)
+(
+24
+X17-24 SSM-123-L-DV-24 Passive      
+)
+(
+23
+X17-23 SSM-123-L-DV-23 Passive      
+)
+(
+22
+X17-22 SSM-123-L-DV-22 Passive      
+)
+(
+21
+X17-21 SSM-123-L-DV-21 Passive      
+)
+(
+20
+X17-20 SSM-123-L-DV-20 Passive      
+)
+(
+19
+X17-19 SSM-123-L-DV-19 Passive      
+)
+(
+18
+X17-18 SSM-123-L-DV-18 Passive      
+)
+(
+17
+X17-17 SSM-123-L-DV-17 Passive      
+)
+(
+14
+X17-14 SSM-123-L-DV-14 Passive      
+)
+(
+13
+X17-13 SSM-123-L-DV-13 Passive      
+)
+(
+12
+X17-12 SSM-123-L-DV-12 Passive      
+)
+(
+11
+X17-11 SSM-123-L-DV-11 Passive      
+)
+(
+10
+X17-10 SSM-123-L-DV-10 Passive      
+)
+(
+9
+X17-9 SSM-123-L-DV-9 Passive      
+)
+(
+8
+X17-8 SSM-123-L-DV-8 Passive      
+)
+(
+7
+X17-7 SSM-123-L-DV-7 Passive      
+)
+(
+6
+X17-6 SSM-123-L-DV-6 Passive      
+)
+(
+5
+X17-5 SSM-123-L-DV-5 Passive      
+)
+(
+4
+X17-4 SSM-123-L-DV-4 Passive      
+)
+(
+3
+X17-3 SSM-123-L-DV-3 Passive      
+)
+(
+2
+X17-2 SSM-123-L-DV-2 Passive      
+)
+(
+1
+X17-1 SSM-123-L-DV-1 Passive      
+)
+(
++14,4В
+A1-1 LMR16006-VIN Passive      
+A1-2 LMR16006-VIN Passive      
+A2-1 LMR16006-VIN Passive      
+A2-2 LMR16006-VIN Passive      
+A3-1 LMR16006-VIN Passive      
+A3-2 LMR16006-VIN Passive      
+C14-2 10мк-2 Passive      
+C20-1 470мк-1 Passive      
+C23-1 470мк-1 Passive      
+DD2-1 LMZ14203HTZ-VIN Passive      
+R9-2 39к-2 Passive      
+R11-2 47к-2 Passive      
+X3-1 Micro-Fit 43045-1000-1 Passive      
+X3-2 Micro-Fit 43045-1000-2 Passive      
+X8-3 Micro-Fit 43045-0401-3 Passive      
+X9-3 Micro-Fit 43045-0401-3 Passive      
+X10-1 Clik-Mate 5025840870-1 Passive      
+X10-2 Clik-Mate 5025840870-2 Passive      
+X11-3 Micro-Fit 43045-0401-3 Passive      
+X19-13 SSM-116-L-DV-13 Passive      
+X19-14 SSM-116-L-DV-14 Passive      
+X19-15 SSM-116-L-DV-15 Passive      
+X19-16 SSM-116-L-DV-16 Passive      
+X19-17 SSM-116-L-DV-17 Passive      
+X21-13 SSM-116-L-DV-13 Passive      
+X21-14 SSM-116-L-DV-14 Passive      
+X21-15 SSM-116-L-DV-15 Passive      
+X21-16 SSM-116-L-DV-16 Passive      
+X21-17 SSM-116-L-DV-17 Passive      
+)
+(
++5В_А
+C17-2 0,022мк-2 Passive      
+C18-2 10мк-2 Passive      
+C21-2 10мк-2 Passive      
+C22-2 10мк-2 Passive      
+C45-2 0,1мк-2 Passive      
+C46-2 0,1мк-2 Passive      
+C47-2 0,1мк-2 Passive      
+C48-2 0,1мк-2 Passive      
+C52-2 0,1мк-2 Passive      
+DA6-6 ADA4430-VS Passive      
+DA7-6 ADA4430-VS Passive      
+DA8-6 ADA4430-VS Passive      
+DA9-6 ADA4430-VS Passive      
+DA11-5 ADA4430-D\I\S\ Passive      
+DA11-6 ADA4430-VS Passive      
+DD2-7 LMZ14203HTZ-VOUT Passive      
+R13-1 36к-1 Passive      
+R20-1 510-1 Passive      
+R84-2 2,4к-2 Passive      
+R85-2 2,4к-2 Passive      
+R86-2 2,4к-2 Passive      
+R87-2 2,4к-2 Passive      
+R100-2 2,4к-2 Passive      
+X5-10 OMRON XF2W-2415-1A-10 Passive      
+X5-11 OMRON XF2W-2415-1A-11 Passive      
+X5-12 OMRON XF2W-2415-1A-12 Passive      
+X5-13 OMRON XF2W-2415-1A-13 Passive      
+X5-14 OMRON XF2W-2415-1A-14 Passive      
+X5-15 OMRON XF2W-2415-1A-15 Passive      
+X23-4 Micro-Fit 43045-0800-4 Passive      
+X24-4 Micro-Fit 43045-0800-4 Passive      
+)
+(
+SGND
+A1-3 LMR16006-GND Passive      
+A1-4 LMR16006-GND Passive      
+A1-9 LMR16006-GND Passive      
+A1-10 LMR16006-GND Passive      
+A2-3 LMR16006-GND Passive      
+A2-4 LMR16006-GND Passive      
+A2-9 LMR16006-GND Passive      
+A2-10 LMR16006-GND Passive      
+A3-3 LMR16006-GND Passive      
+A3-4 LMR16006-GND Passive      
+A3-9 LMR16006-GND Passive      
+A3-10 LMR16006-GND Passive      
+C1-1 0,1мк-1 Passive      
+C2-1 0,1мк-1 Passive      
+C3-1 0,1мк-1 Passive      
+C4-1 10мк-1 Passive      
+C5-1 0,1мк-1 Passive      
+C6-1 0,1мк-1 Passive      
+C7-1 0,1мк-1 Passive      
+C8-1 0,1мк-1 Passive      
+C9-1 0,1мк-1 Passive      
+C10-1 0,1мк-1 Passive      
+C11-1 2,2мк-1 Passive      
+C12-1 2,2мк-1 Passive      
+C13-1 0,1мк-1 Passive      
+C14-1 10мк-1 Passive      
+C15-1 4700-1 Passive      
+C16-1 0,1мк-1 Passive      
+C18-1 10мк-1 Passive      
+C19-1 0,1мк-1 Passive      
+C21-1 10мк-1 Passive      
+C22-1 10мк-1 Passive      
+C24-1 10мк-1 Passive      
+C25-1 0,1мк-1 Passive      
+C26-1 0,1мк-1 Passive      
+C27-1 0,01мк-1 Passive      
+C28-1 4,7мк-1 Passive      
+C29-1 15-1 Passive      
+C30-1 0,1мк-1 Passive      
+C31-1 0,1мк-1 Passive      
+C32-1 4700-1 Passive      
+C33-1 0,1мк-1 Passive      
+C34-1 10мк-1 Passive      
+C35-1 0,1мк-1 Passive      
+C36-1 0,1мк-1 Passive      
+C41-1 4,7мк-1 Passive      
+C42-1 4,7мк-1 Passive      
+C43-1 4,7мк-1 Passive      
+C44-1 4,7мк-1 Passive      
+C45-1 0,1мк-1 Passive      
+C46-1 0,1мк-1 Passive      
+C47-1 0,1мк-1 Passive      
+C48-1 0,1мк-1 Passive      
+C49-1 0,1мк-1 Passive      
+C51-1 4,7мк-1 Passive      
+C52-1 0,1мк-1 Passive      
+DA1-2 TPD2S017-GND Passive      
+DA2-2 TPD2S017-GND Passive      
+DA3-2 TPD2S017-GND Passive      
+DA4-14 LSM9DS1-RES Passive      
+DA4-15 LSM9DS1-RES Passive      
+DA4-16 LSM9DS1-RES Passive      
+DA4-17 LSM9DS1-RES Passive      
+DA4-18 LSM9DS1-RES Passive      
+DA4-19 LSM9DS1-GND Passive      
+DA4-20 LSM9DS1-GND Passive      
+DA5-5 MAX9547-GND Passive      
+DA5-9 MAX9547-PPAD Passive      
+DA6-2 ADA4430-GND Passive      
+DA7-2 ADA4430-GND Passive      
+DA8-2 ADA4430-GND Passive      
+DA9-2 ADA4430-GND Passive      
+DA10-3 ADG1604BRUZ-VSS Passive      
+DA10-13 ADG1604BRUZ-GND Passive      
+DA11-2 ADA4430-GND Passive      
+DD1-12 STM32F405RG-VSSA Passive      
+DD1-18 STM32F405RG-VSS Passive      
+DD1-60 STM32F405RG-BOOT0/VPP Passive      
+DD1-63 STM32F405RG-VSS Passive      
+DD2-4 LMZ14203HTZ-GND Passive      
+DD2-8 LMZ14203HTZ-PPAD Passive      
+DD3-5 SN65HVD1781-GND Passive      
+DD4-2 SN65HVD233D-GND Passive      
+HL1-1 KP-1608EC-C Passive      
+HL2-1 KP-1608MGC-C Passive      
+HL3-1 KP-1608MGC-C Passive      
+HL4-1 KP-1608QBC-D-C Passive      
+HL5-1 KP-1608QBC-D-C Passive      
+HL6-1 KP-1608QBC-D-C Passive      
+R10-1 10к-1 Passive      
+R14-2 6,8к-2 Passive      
+R17-1 47к-1 Passive      
+R21-2 0-2 Passive      
+R41-1 10к-1 Passive      
+R43-1 47к-1 Passive      
+R44-1 47к-1 Passive      
+R45-1 47к-1 Passive      
+R53-1 47к-1 Passive      
+R54-1 47к-1 Passive      
+R55-1 47к-1 Passive      
+R56-1 47к-1 Passive      
+R58-1 47к-1 Passive      
+R59-1 47к-1 Passive      
+R60-1 47к-1 Passive      
+R66-1 75-1 Passive      
+R67-1 75-1 Passive      
+R68-1 75-1 Passive      
+R69-1 75-1 Passive      
+R73-1 10к-1 Passive      
+R74-1 10к-1 Passive      
+R75-1 10к-1 Passive      
+R76-1 10к-1 Passive      
+R80-1 470-1 Passive      
+R81-1 470-1 Passive      
+R82-1 470-1 Passive      
+R83-1 470-1 Passive      
+R92-2 75-2 Passive      
+R93-2 75-2 Passive      
+R94-2 75-2 Passive      
+R95-2 75-2 Passive      
+R97-2 75-2 Passive      
+R98-1 10к-1 Passive      
+R99-1 470-1 Passive      
+R107-1 47к-1 Passive      
+R108-1 10к-1 Passive      
+R108-5 10к-5 Passive      
+R108-7 10к-7 Passive      
+R109-5 10к-5 Passive      
+R109-7 10к-7 Passive      
+VD2-3 SM712- Passive      
+VD3-3 AQ24CANFD- Passive      
+VT2-1 IRF7509-S1 Passive      
+VT3-1 IRF7509-S1 Passive      
+VT4-1 IRF7509-S1 Passive      
+X1-3 PLS-3-3 Passive      
+X2-3 PLS-6-3 Passive      
+X5-8 OMRON XF2W-2415-1A-8 Passive      
+X5-9 OMRON XF2W-2415-1A-9 Passive      
+X5-16 OMRON XF2W-2415-1A-16 Passive      
+X5-17 OMRON XF2W-2415-1A-17 Passive      
+X7-5 Clik-Mate 5025840570-5 Passive      
+X10-6 Clik-Mate 5025840870-6 Passive      
+X11-2 Micro-Fit 43045-0401-2 Passive      
+X12-1 Clik-Mate 5025840470-1 Passive      
+X13-2 Clik-Mate 5025840370-2 Passive      
+X14-2 Clik-Mate 5025840370-2 Passive      
+X15-2 Clik-Mate 5025840370-2 Passive      
+X16-2 Clik-Mate 5025840370-2 Passive      
+X16-3 Clik-Mate 5025840370-3 Passive      
+X17-16 SSM-123-L-DV-16 Passive      
+X17-37 SSM-123-L-DV-37 Passive      
+X17-38 SSM-123-L-DV-38 Passive      
+X18-16 SSM-123-L-DV-16 Passive      
+X18-37 SSM-123-L-DV-37 Passive      
+X18-38 SSM-123-L-DV-38 Passive      
+X23-5 Micro-Fit 43045-0800-5 Passive      
+X24-5 Micro-Fit 43045-0800-5 Passive      
+Z1-2 CSTCE12M0G52-R0-2 Passive      
+)
+(
+NetVD1_1
+VD1-1 MBR2H100SFT3G-K Passive      
+X2-1 PLS-6-1 Passive      
+)
+(
+NetHL2_2
+HL2-2 KP-1608MGC-A Passive      
+R2-1 330-1 Passive      
+)
+(
+NetHL1_2
+HL1-2 KP-1608EC-A Passive      
+R1-1 330-1 Passive      
+)
+(
+NetDD1_6
+DD1-6 STM32F405RG-PH1/OSC_OUT Passive      
+Z1-1 CSTCE12M0G52-R0-1 Passive      
+)
+(
+NetDD1_5
+DD1-5 STM32F405RG-PH0/OSC_IN Passive      
+Z1-3 CSTCE12M0G52-R0-3 Passive      
+)
+(
+NetDA3_6
+DA3-6 TPD2S017-OUT2 Passive      
+X2-6 PLS-6-6 Passive      
+)
+(
+NetDA3_4
+DA3-4 TPD2S017-IN2 Passive      
+R6-1 100-1 Passive      
+)
+(
+NetDA3_3
+DA3-3 TPD2S017-IN1 Passive      
+R5-1 100-1 Passive      
+)
+(
+NetDA3_1
+DA3-1 TPD2S017-OUT1 Passive      
+X2-5 PLS-6-5 Passive      
+)
+(
+NetDA2_6
+DA2-6 TPD2S017-OUT2 Passive      
+X2-4 PLS-6-4 Passive      
+)
+(
+NetDA2_4
+DA2-4 TPD2S017-IN2 Passive      
+R4-1 100-1 Passive      
+)
+(
+NetDA2_3
+DA2-3 TPD2S017-IN1 Passive      
+R3-1 100-1 Passive      
+)
+(
+NetDA2_1
+DA2-1 TPD2S017-OUT1 Passive      
+X2-2 PLS-6-2 Passive      
+)
+(
+NetDA1_6
+DA1-6 TPD2S017-OUT2 Passive      
+X1-2 PLS-3-2 Passive      
+)
+(
+NetDA1_4
+DA1-4 TPD2S017-IN2 Passive      
+R8-1 100-1 Passive      
+)
+(
+NetDA1_3
+DA1-3 TPD2S017-IN1 Passive      
+R7-1 100-1 Passive      
+)
+(
+NetDA1_1
+DA1-1 TPD2S017-OUT1 Passive      
+X1-1 PLS-3-1 Passive      
+)
+(
+NetC12_2
+C12-2 2,2мк-2 Passive      
+DD1-31 STM32F405RG-VCAP_1 Passive      
+)
+(
+NetC11_2
+C11-2 2,2мк-2 Passive      
+DD1-47 STM32F405RG-VCAP_2 Passive      
+)
+(
+NetC10_2
+C10-2 0,1мк-2 Passive      
+DD1-13 STM32F405RG-VDDA Passive      
+L1-2 180 Ом-2 Passive      
+)
+(
+MCU_VIDEO4_PWR_EN
+DD1-4 STM32F405RG-PC15 / OSC32_OUT [*] Passive      
+R59-2 47к-2 Passive      
+R71-2 100-2 Passive      
+)
+(
+MCU_VIDEO4_EN
+DD1-62 STM32F405RG-PB9 / SPI2_NSS / I2S2_WS / TIM4_CH4 / TIM11_CH1 / SDIO_D5 / DCMI_D7 / I2C1_SDA / CAN1_TX [*] Passive      
+R56-2 47к-2 Passive      
+R65-2 100-2 Passive      
+)
+(
+MCU_VIDEO3_EN
+DD1-58 STM32F405RG-PB6 / I2C1_SCL / TIM4_CH1 / CAN2_TX / DCMI_D5 / USART1_TX [*] Passive      
+R55-2 47к-2 Passive      
+R64-2 100-2 Passive      
+)
+(
+MCU_VIDEO2_PWR_EN
+DD1-3 STM32F405RG-PC14 / OSC32_IN [*] Passive      
+R60-2 47к-2 Passive      
+R72-2 100-2 Passive      
+)
+(
+MCU_VIDEO2_EN
+DD1-61 STM32F405RG-PB8 / TIM4_CH3 / SDIO_D4 / TIM10_CH1 / DCMI_D6 / I2C1_SCL / CAN1_RX [*] Passive      
+R54-2 47к-2 Passive      
+R63-2 100-2 Passive      
+)
+(
+MCU_VIDEO1_PWR_EN
+DD1-2 STM32F405RG-PC13 / RTC_AF1 [*] Passive      
+R58-2 47к-2 Passive      
+R70-2 100-2 Passive      
+)
+(
+MCU_VIDEO1_EN
+DD1-59 STM32F405RG-PB7 / I2C1_SDA / FSMC_NL / DCMI_VSYNC / USART1_RX / TIM4_CH2 [*] Passive      
+R53-2 47к-2 Passive      
+R62-2 100-2 Passive      
+)
+(
+MCU_UART6_TX
+DD1-37 STM32F405RG-PC6 / I2S2_MCK / TIM8_CH1 / SDIO_D6 / USART6_TX / DCMI_D0 / TIM3_CH1 [*] Passive      
+R8-2 100-2 Passive      
+)
+(
+MCU_UART6_RX
+DD1-38 STM32F405RG-PC7 / I2S3_MCK / TIM8_CH2 / SDIO_D7 / USART6_RX / DCMI_D1 / TIM3_CH2 [*] Passive      
+R7-2 100-2 Passive      
+)
+(
+MCU_UART4_TX
+DD1-14 STM32F405RG-PA0 / WKUP / USART2_CTS / UART4_TX / TIM2_CH1_ETR / TIM5_CH1 / TIM8_ETR / ADC123_IN0 [*] Passive      
+R30-2 100-2 Passive      
+)
+(
+MCU_UART4_RX
+DD1-15 STM32F405RG-PA1 / USART2_RTS / UART4_RX / TIM5_CH2 / TIM2_CH2 / ADC123_IN1 [*] Passive      
+R30-4 100-4 Passive      
+R33-1 47к-1 Passive      
+)
+(
+MCU_UART2_TX
+DD1-16 STM32F405RG-PA2 / USART2_TX / TIM5_CH3 / TIM9_CH1 / TIM2_CH3 / ADC123_IN2 [*] Passive      
+R30-6 100-6 Passive      
+)
+(
+MCU_UART2_RX
+DD1-17 STM32F405RG-PA3 / USART2_RX / TIM5_CH4 / TIM9_CH2 / TIM2_CH4 / ADC123_IN3 [*] Passive      
+R30-8 100-8 Passive      
+R35-1 47к-1 Passive      
+)
+(
+MCU_TRACE
+DD1-55 STM32F405RG-PB3 / JTDO / TRACESWO / SPI3_SCK / I2S3_CK / TIM2_CH2 / SPI1_SCK [*] Passive      
+R6-2 100-2 Passive      
+)
+(
+MCU_SWDIO
+DD1-46 STM32F405RG-PA13 / JTMS / SWDIO [*] Passive      
+R4-2 100-2 Passive      
+)
+(
+MCU_SWCLK
+DD1-49 STM32F405RG-PA14 / JTCK / SWCLK [*] Passive      
+R3-2 100-2 Passive      
+)
+(
+MCU_SDA_PSensor
+DD1-40 STM32F405RG-PC9 / I2S_CKIN / MCO2 / TIM8_CH4 / SDIO_D1 / I2C3_SDA / DCMI_D3 / TIM3_CH4 [*] Passive      
+R45-2 47к-2 Passive      
+R49-2 100-2 Passive      
+)
+(
+MCU_SCL_PSensor
+DD1-41 STM32F405RG-PA8 / MCO1 / USART1_CK / TIM1_CH1 / I2C3_SCL [*] Passive      
+R43-2 47к-2 Passive      
+R50-2 100-2 Passive      
+)
+(
+MCU_RS485_TX_BAT
+DD1-53 STM32F405RG-PC12 / UART5_TX / SDIO_CK / DCMI_D9 / SPI3_MOSI / I2S3_SD / USART3_CK [*] Passive      
+DD3-4 SN65HVD1781-DI Passive      
+)
+(
+MCU_RS485_RX_BAT
+DD1-54 STM32F405RG-PD2 / TIM3_ETR / UART5_RX / SDIO_CMD / DCMI_D11 [*] Passive      
+DD3-1 SN65HVD1781-RO Passive      
+R19-1 47к-1 Passive      
+)
+(
+MCU_RS485_DE_BAT
+DD1-57 STM32F405RG-PB5 / I2C1_SMBA / CAN2_RX / TIM3_CH_2 / SPI1_MOSI / SPI3_MOSI / DCMI_D10 / I2S3_SD [*] Passive      
+DD3-2 SN65HVD1781-R\E\ Passive      
+DD3-3 SN65HVD1781-DE Passive      
+R17-2 47к-2 Passive      
+)
+(
+MCU_PWM_ESC
+DD1-42 STM32F405RG-PA9 / USART1_TX / TIM1_CH2 / I2C3_SMBA / DCMI_D0 [*] Passive      
+R44-2 47к-2 Passive      
+R48-2 100-2 Passive      
+)
+(
+MCU_PRES_FLAG
+DD1-52 STM32F405RG-PC11 / UART4_RX / SPI3_MISO / SDIO_D3 / DCMI_D4 / USART3_RX / I2S3ext_SD [*] Passive      
+R15-1 100-1 Passive      
+R18-1 47к-1 Passive      
+)
+(
+MCU_NRST
+C13-2 0,1мк-2 Passive      
+DD1-7 STM32F405RG-NRST Passive      
+R5-2 100-2 Passive      
+)
+(
+MCU_MUX_EN
+DD1-9 STM32F405RG-PC1 / ADC123_IN11 [*] Passive      
+R101-1 100-1 Passive      
+R107-2 47к-2 Passive      
+)
+(
+MCU_MUX_A1
+DD1-11 STM32F405RG-PC3 / SPI2_MOSI / I2S2_SD / ADC123_IN13 [*] Passive      
+R103-1 100-1 Passive      
+R105-1 47к-1 Passive      
+)
+(
+MCU_MUX_A0
+DD1-10 STM32F405RG-PC2 / SPI2_MISO / I2Sext_SD / ADC123_IN12 [*] Passive      
+R102-1 100-1 Passive      
+R104-1 47к-1 Passive      
+)
+(
+MCU_LMZ_5V_EN
+DD1-20 STM32F405RG-PA4 / SPI1_NSS / SPI3_NSS / USART2_CK /  DCMI_HSYNC / I2S3_WS / ADC12_IN4 / DAC1_OUT Passive      
+R16-1 100-1 Passive      
+)
+(
+MCU_LED_RED
+DD1-21 STM32F405RG-PA5 / SPI1_SCK / TIM2_CH1_ETR / TIM8_CH1N / ADC12_IN5 / DAC2_OUT Passive      
+R1-2 330-2 Passive      
+)
+(
+MCU_LED_GREEN
+DD1-22 STM32F405RG-PA6 / SPI1_MISO / TIM8_BKIN / TIM13_CH1 / DCMI_PIXCLK / TIM3_CH1 / TIM1_BKIN / ADC12_IN6 [*] Passive      
+R2-2 330-2 Passive      
+)
+(
+MCU_GYRO_SPI_MOSI
+DD1-36 STM32F405RG-PB15 / SPI2_MOSI / I2S2_SD / TIM1_CH3N / TIM8_CH3N / TIM12_CH2 [*] Passive      
+R27-1 100-1 Passive      
+)
+(
+MCU_GYRO_SPI_MISO
+DD1-35 STM32F405RG-PB14 / SPI2_MISO / TIM1_CH2N / TIM12_CH1 / USART3_RTS / TIM8_CH2N [*] Passive      
+R25-1 100-1 Passive      
+R31-1 47к-1 Passive      
+)
+(
+MCU_GYRO_SPI_CLK
+DD1-29 STM32F405RG-PB10 / SPI2_SCK / I2S2_CK / I2C2_SCL / USART3_TX / TIM2_CH3 [*] Passive      
+R26-1 100-1 Passive      
+)
+(
+MCU_GYRO_CS_XM
+DD1-26 STM32F405RG-PB0 / TIM3_CH3 / TIM8_CH2N / TIM1_CH2N / ADC12_IN8 [*] Passive      
+R29-1 100-1 Passive      
+R34-1 47к-1 Passive      
+)
+(
+MCU_GYRO_CS_G
+DD1-27 STM32F405RG-PB1 / TIM3_CH4 / TIM8_CH3N / TIM1_CH3N / ADC12_IN9 [*] Passive      
+R28-1 100-1 Passive      
+R32-1 47к-1 Passive      
+)
+(
+MCU_CAN_LOOPBACK
+DD1-30 STM32F405RG-PB11 / I2C2_SDA / USART3_RX / TIM2_CH4 [*] Passive      
+R39-2 100-2 Passive      
+)
+(
+MCU_CAN2_TX
+DD1-34 STM32F405RG-PB13 / SPI2_SCK / I2S2_CK / USART3_CTS / TIM1_CH1N / CAN2_TX [*] Passive      
+R37-2 100-2 Passive      
+)
+(
+MCU_CAN2_RX
+C29-2 15-2 Passive      
+DD1-33 STM32F405RG-PB12 / SPI2_NSS / I2S2_WS / I2C2_SMBA / USART3_CK / TIM1_BKIN / CAN2_RX [*] Passive      
+R38-2 100-2 Passive      
+)
+(
++3,3В
+A1-6 LMR16006-VOUT Passive      
+A1-7 LMR16006-VOUT Passive      
+A1-8 LMR16006-VOUT Passive      
+C1-2 0,1мк-2 Passive      
+C2-2 0,1мк-2 Passive      
+C3-2 0,1мк-2 Passive      
+C4-2 10мк-2 Passive      
+C5-2 0,1мк-2 Passive      
+C6-2 0,1мк-2 Passive      
+C7-2 0,1мк-2 Passive      
+C8-2 0,1мк-2 Passive      
+C9-2 0,1мк-2 Passive      
+C16-2 0,1мк-2 Passive      
+C24-2 10мк-2 Passive      
+C26-2 0,1мк-2 Passive      
+C31-2 0,1мк-2 Passive      
+C49-2 0,1мк-2 Passive      
+DA1-5 TPD2S017-VCC Passive      
+DA2-5 TPD2S017-VCC Passive      
+DA3-5 TPD2S017-VCC Passive      
+DA4-1 LSM9DS1-VDDIO Passive      
+DA4-3 LSM9DS1-VDDIO Passive      
+DA4-22 LSM9DS1-VDD Passive      
+DA4-23 LSM9DS1-VDD Passive      
+DA10-12 ADG1604BRUZ-VDD Passive      
+DD1-1 STM32F405RG-VBAT Passive      
+DD1-19 STM32F405RG-VDD Passive      
+DD1-32 STM32F405RG-VDD Passive      
+DD1-48 STM32F405RG-VDD Passive      
+DD1-64 STM32F405RG-VDD Passive      
+DD3-8 SN65HVD1781-Vcc Passive      
+DD4-3 SN65HVD233D-Vcc Passive      
+L1-1 180 Ом-1 Passive      
+R18-2 47к-2 Passive      
+R19-2 47к-2 Passive      
+R22-2 330-2 Passive      
+R31-2 47к-2 Passive      
+R32-2 47к-2 Passive      
+R33-2 47к-2 Passive      
+R34-2 47к-2 Passive      
+R35-2 47к-2 Passive      
+R104-2 47к-2 Passive      
+R105-2 47к-2 Passive      
+R108-3 10к-3 Passive      
+R109-1 10к-1 Passive      
+R109-3 10к-3 Passive      
+R112-2 47к-2 Passive      
+R113-2 47к-2 Passive      
+R114-2 47к-2 Passive      
+R115-2 47к-2 Passive      
+R116-2 47к-2 Passive      
+R117-2 47к-2 Passive      
+VD1-2 MBR2H100SFT3G-A Passive      
+X6-1 Clik-Mate 5025840370-1 Passive      
+X12-2 Clik-Mate 5025840470-2 Passive      
+)

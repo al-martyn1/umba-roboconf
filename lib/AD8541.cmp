@@ -1,0 +1,43 @@
+(componentDefinition "AD8541AKSZ-R2" "AD8541AKSZ-REEL7" "AD8541AKSZ"
+    (package "SC70-5")
+    (description "CMOS Rail-to-Rail General-Purpose Amplifiers")
+    (purpose "SENSOR:ADC")
+    (datasheet "AD8541_8542_8544.pdf")
+    (pin "1" "" ("OUT" ) )
+    (pin "2" "" ("V-" ) )
+    (pin "3" "" ("+IN" ) )
+    (pin "4" "" ("-IN" ) )
+    (pin "5" "" ("V+" ) )
+)
+
+(componentDefinition "AD8541ARTZ-R2" "AD8541ARTZ-REEL" "AD8541ARTZ-REEL7" "AD8541ARTZ"
+    (package "SOT-23-5")
+    (description "CMOS Rail-to-Rail General-Purpose Amplifiers")
+    (purpose "SENSOR:ADC")
+    (datasheet "AD8541_8542_8544.pdf")
+    (pin "1" "" ("OUT" ) )
+    (pin "2" "" ("V-" ) )
+    (pin "3" "" ("+IN" ) )
+    (pin "4" "" ("-IN" ) )
+    (pin "5" "" ("V+" ) )
+)
+
+
+(-- 8-Lead SOIC R Suffix )
+
+(componentDefinition "AD8541ARZ" "AD8541ARZ-REEL" "AD8541ARZ-REEL7"
+    (package "SOIC_N-8")
+    (description "CMOS Rail-to-Rail General-Purpose Amplifiers")
+    (purpose "SENSOR:ADC")
+    (datasheet "AD8541_8542_8544.pdf")
+    (pin "1" "" ("NC"))
+    (pin "2" "" ("-IN" ) )
+    (pin "3" "" ("+IN" ) )
+    (pin "4" "" ("V-" ) )
+    (pin "5" "" ("NC"))
+    (pin "6" "" ("OUT" ) )
+    (pin "7" "" ("V+" ) )
+    (pin "8" "" ("NC"))
+)
+
+(-- 5-Lead SC70 and 5-Lead SOT-23 KS and RJ Suffixes )

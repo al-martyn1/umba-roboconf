@@ -1,0 +1,5074 @@
+.HEA
+.APP "Protel 2004 Version 1.0.0.30000"
+.TIM 2018 10 16 15 38 35
+.TYP FULL
+
+.ADD_COM A1 "LMR16006" "LMR16006"
+.ATT_COM A1 "Comment" "LMR16006"
+.ATT_COM A1 "Component Kind" "Standard"
+.ATT_COM A1 "Description" "Преобразователь напряжения"
+.ATT_COM A1 "Footprint" "LMR16006"
+.ATT_COM A1 "Ibis Model" ""
+.ATT_COM A1 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM A1 "Library Reference" "LMR16006"
+.ATT_COM A1 "Name" "LMR16006"
+.ATT_COM A1 "PCB3D" ""
+.ATT_COM A1 "Signal Integrity" ""
+.ATT_COM A1 "Simulation" ""
+
+.ADD_COM A2 "LMR16006" "LMR16006"
+.ATT_COM A2 "Comment" "LMR16006"
+.ATT_COM A2 "Component Kind" "Standard"
+.ATT_COM A2 "Description" "Преобразователь напряжения"
+.ATT_COM A2 "Footprint" "LMR16006"
+.ATT_COM A2 "Ibis Model" ""
+.ATT_COM A2 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM A2 "Library Reference" "LMR16006"
+.ATT_COM A2 "Name" "LMR16006"
+.ATT_COM A2 "PCB3D" ""
+.ATT_COM A2 "Signal Integrity" ""
+.ATT_COM A2 "Simulation" ""
+
+.ADD_COM A3 "LMR16006" "LMR16006"
+.ATT_COM A3 "Comment" "LMR16006"
+.ATT_COM A3 "Component Kind" "Standard"
+.ATT_COM A3 "Description" "Преобразователь напряжения"
+.ATT_COM A3 "Footprint" "LMR16006"
+.ATT_COM A3 "Ibis Model" ""
+.ATT_COM A3 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM A3 "Library Reference" "LMR16006"
+.ATT_COM A3 "Name" "LMR16006"
+.ATT_COM A3 "PCB3D" ""
+.ATT_COM A3 "Signal Integrity" ""
+.ATT_COM A3 "Simulation" ""
+
+.ADD_COM C1 "Capacitor" "Capacitor"
+.ATT_COM C1 "Comment" "0,1мк"
+.ATT_COM C1 "Component Kind" "Standard"
+.ATT_COM C1 "Description" "Конденсатор"
+.ATT_COM C1 "Footprint" "C0603_A"
+.ATT_COM C1 "Ibis Model" ""
+.ATT_COM C1 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C1 "Library Reference" "Capacitor"
+.ATT_COM C1 "Max. voltage" "50В"
+.ATT_COM C1 "Name" "GRM188R71H104KA93"
+.ATT_COM C1 "PCB3D" ""
+.ATT_COM C1 "Signal Integrity" ""
+.ATT_COM C1 "Simulation" ""
+.ATT_COM C1 "Value" "0,1мк"
+
+.ADD_COM C2 "Capacitor" "Capacitor"
+.ATT_COM C2 "Comment" "0,1мк"
+.ATT_COM C2 "Component Kind" "Standard"
+.ATT_COM C2 "Description" "Конденсатор"
+.ATT_COM C2 "Footprint" "C0603_A"
+.ATT_COM C2 "Ibis Model" ""
+.ATT_COM C2 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C2 "Library Reference" "Capacitor"
+.ATT_COM C2 "Max. voltage" "50В"
+.ATT_COM C2 "Name" "GRM188R71H104KA93"
+.ATT_COM C2 "PCB3D" ""
+.ATT_COM C2 "Signal Integrity" ""
+.ATT_COM C2 "Simulation" ""
+.ATT_COM C2 "Value" "0,1мк"
+
+.ADD_COM C3 "Capacitor" "Capacitor"
+.ATT_COM C3 "Comment" "0,1мк"
+.ATT_COM C3 "Component Kind" "Standard"
+.ATT_COM C3 "Description" "Конденсатор"
+.ATT_COM C3 "Footprint" "C0603_A"
+.ATT_COM C3 "Ibis Model" ""
+.ATT_COM C3 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C3 "Library Reference" "Capacitor"
+.ATT_COM C3 "Max. voltage" "50В"
+.ATT_COM C3 "Name" "GRM188R71H104KA93"
+.ATT_COM C3 "PCB3D" ""
+.ATT_COM C3 "Signal Integrity" ""
+.ATT_COM C3 "Simulation" ""
+.ATT_COM C3 "Value" "0,1мк"
+
+.ADD_COM C4 "Capacitor" "Capacitor"
+.ATT_COM C4 "Comment" "10мк"
+.ATT_COM C4 "Component Kind" "Standard"
+.ATT_COM C4 "Description" "Конденсатор"
+.ATT_COM C4 "Footprint" "C1206_A"
+.ATT_COM C4 "Ibis Model" ""
+.ATT_COM C4 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C4 "Library Reference" "Capacitor"
+.ATT_COM C4 "Max. voltage" "25В"
+.ATT_COM C4 "Name" "GRM31CR71E106KA12L"
+.ATT_COM C4 "PCB3D" ""
+.ATT_COM C4 "Signal Integrity" ""
+.ATT_COM C4 "Simulation" ""
+.ATT_COM C4 "Value" "10мк"
+
+.ADD_COM C5 "Capacitor" "Capacitor"
+.ATT_COM C5 "Comment" "0,1мк"
+.ATT_COM C5 "Component Kind" "Standard"
+.ATT_COM C5 "Description" "Конденсатор"
+.ATT_COM C5 "Footprint" "C0402_A"
+.ATT_COM C5 "Ibis Model" ""
+.ATT_COM C5 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C5 "Library Reference" "Capacitor"
+.ATT_COM C5 "Max. voltage" "50В"
+.ATT_COM C5 "Name" "GRM155R71H104KE14D"
+.ATT_COM C5 "PCB3D" ""
+.ATT_COM C5 "Signal Integrity" ""
+.ATT_COM C5 "Simulation" ""
+.ATT_COM C5 "Value" "0,1мк"
+
+.ADD_COM C6 "Capacitor" "Capacitor"
+.ATT_COM C6 "Comment" "0,1мк"
+.ATT_COM C6 "Component Kind" "Standard"
+.ATT_COM C6 "Description" "Конденсатор"
+.ATT_COM C6 "Footprint" "C0402_A"
+.ATT_COM C6 "Ibis Model" ""
+.ATT_COM C6 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C6 "Library Reference" "Capacitor"
+.ATT_COM C6 "Max. voltage" "50В"
+.ATT_COM C6 "Name" "GRM155R71H104KE14D"
+.ATT_COM C6 "PCB3D" ""
+.ATT_COM C6 "Signal Integrity" ""
+.ATT_COM C6 "Simulation" ""
+.ATT_COM C6 "Value" "0,1мк"
+
+.ADD_COM C7 "Capacitor" "Capacitor"
+.ATT_COM C7 "Comment" "0,1мк"
+.ATT_COM C7 "Component Kind" "Standard"
+.ATT_COM C7 "Description" "Конденсатор"
+.ATT_COM C7 "Footprint" "C0402_A"
+.ATT_COM C7 "Ibis Model" ""
+.ATT_COM C7 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C7 "Library Reference" "Capacitor"
+.ATT_COM C7 "Max. voltage" "50В"
+.ATT_COM C7 "Name" "GRM155R71H104KE14D"
+.ATT_COM C7 "PCB3D" ""
+.ATT_COM C7 "Signal Integrity" ""
+.ATT_COM C7 "Simulation" ""
+.ATT_COM C7 "Value" "0,1мк"
+
+.ADD_COM C8 "Capacitor" "Capacitor"
+.ATT_COM C8 "Comment" "0,1мк"
+.ATT_COM C8 "Component Kind" "Standard"
+.ATT_COM C8 "Description" "Конденсатор"
+.ATT_COM C8 "Footprint" "C0402_A"
+.ATT_COM C8 "Ibis Model" ""
+.ATT_COM C8 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C8 "Library Reference" "Capacitor"
+.ATT_COM C8 "Max. voltage" "50В"
+.ATT_COM C8 "Name" "GRM155R71H104KE14D"
+.ATT_COM C8 "PCB3D" ""
+.ATT_COM C8 "Signal Integrity" ""
+.ATT_COM C8 "Simulation" ""
+.ATT_COM C8 "Value" "0,1мк"
+
+.ADD_COM C9 "Capacitor" "Capacitor"
+.ATT_COM C9 "Comment" "0,1мк"
+.ATT_COM C9 "Component Kind" "Standard"
+.ATT_COM C9 "Description" "Конденсатор"
+.ATT_COM C9 "Footprint" "C0402_A"
+.ATT_COM C9 "Ibis Model" ""
+.ATT_COM C9 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C9 "Library Reference" "Capacitor"
+.ATT_COM C9 "Max. voltage" "50В"
+.ATT_COM C9 "Name" "GRM155R71H104KE14D"
+.ATT_COM C9 "PCB3D" ""
+.ATT_COM C9 "Signal Integrity" ""
+.ATT_COM C9 "Simulation" ""
+.ATT_COM C9 "Value" "0,1мк"
+
+.ADD_COM C10 "Capacitor" "Capacitor"
+.ATT_COM C10 "Comment" "0,1мк"
+.ATT_COM C10 "Component Kind" "Standard"
+.ATT_COM C10 "Description" "Конденсатор"
+.ATT_COM C10 "Footprint" "C0402_A"
+.ATT_COM C10 "Ibis Model" ""
+.ATT_COM C10 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C10 "Library Reference" "Capacitor"
+.ATT_COM C10 "Max. voltage" "50В"
+.ATT_COM C10 "Name" "GRM155R71H104KE14D"
+.ATT_COM C10 "PCB3D" ""
+.ATT_COM C10 "Signal Integrity" ""
+.ATT_COM C10 "Simulation" ""
+.ATT_COM C10 "Value" "0,1мк"
+
+.ADD_COM C11 "Capacitor" "Capacitor"
+.ATT_COM C11 "Comment" "2,2мк"
+.ATT_COM C11 "Component Kind" "Standard"
+.ATT_COM C11 "Description" "Конденсатор"
+.ATT_COM C11 "Footprint" "C0805_A"
+.ATT_COM C11 "Ibis Model" ""
+.ATT_COM C11 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C11 "Library Reference" "Capacitor"
+.ATT_COM C11 "Max. voltage" "50В"
+.ATT_COM C11 "Name" "CC0805KKX7R9BB225"
+.ATT_COM C11 "PCB3D" ""
+.ATT_COM C11 "Signal Integrity" ""
+.ATT_COM C11 "Simulation" ""
+.ATT_COM C11 "Value" "2,2мк"
+
+.ADD_COM C12 "Capacitor" "Capacitor"
+.ATT_COM C12 "Comment" "2,2мк"
+.ATT_COM C12 "Component Kind" "Standard"
+.ATT_COM C12 "Description" "Конденсатор"
+.ATT_COM C12 "Footprint" "C0805_A"
+.ATT_COM C12 "Ibis Model" ""
+.ATT_COM C12 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C12 "Library Reference" "Capacitor"
+.ATT_COM C12 "Max. voltage" "50В"
+.ATT_COM C12 "Name" "CC0805KKX7R9BB225"
+.ATT_COM C12 "PCB3D" ""
+.ATT_COM C12 "Signal Integrity" ""
+.ATT_COM C12 "Simulation" ""
+.ATT_COM C12 "Value" "2,2мк"
+
+.ADD_COM C13 "Capacitor" "Capacitor"
+.ATT_COM C13 "Comment" "0,1мк"
+.ATT_COM C13 "Component Kind" "Standard"
+.ATT_COM C13 "Description" "Конденсатор"
+.ATT_COM C13 "Footprint" "C0402_A"
+.ATT_COM C13 "Ibis Model" ""
+.ATT_COM C13 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C13 "Library Reference" "Capacitor"
+.ATT_COM C13 "Max. voltage" "50В"
+.ATT_COM C13 "Name" "GRM155R71H104KE14D"
+.ATT_COM C13 "PCB3D" ""
+.ATT_COM C13 "Signal Integrity" ""
+.ATT_COM C13 "Simulation" ""
+.ATT_COM C13 "Value" "0,1мк"
+
+.ADD_COM C14 "Capacitor" "Capacitor"
+.ATT_COM C14 "ClassName" "pwr_5"
+.ATT_COM C14 "Comment" "10мк"
+.ATT_COM C14 "Component Kind" "Standard"
+.ATT_COM C14 "Description" "Конденсатор"
+.ATT_COM C14 "Footprint" "C1206_A"
+.ATT_COM C14 "Ibis Model" ""
+.ATT_COM C14 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C14 "Library Reference" "Capacitor"
+.ATT_COM C14 "Max. voltage" "25В"
+.ATT_COM C14 "Name" "GRM31CR71E106KA12L"
+.ATT_COM C14 "PCB3D" ""
+.ATT_COM C14 "Signal Integrity" ""
+.ATT_COM C14 "Simulation" ""
+.ATT_COM C14 "Value" "10мк"
+
+.ADD_COM C15 "Capacitor" "Capacitor"
+.ATT_COM C15 "ClassName" "pwr_5"
+.ATT_COM C15 "Comment" "4700"
+.ATT_COM C15 "Component Kind" "Standard"
+.ATT_COM C15 "Description" "Конденсатор"
+.ATT_COM C15 "Footprint" "C0603_A"
+.ATT_COM C15 "Ibis Model" ""
+.ATT_COM C15 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C15 "Library Reference" "Capacitor"
+.ATT_COM C15 "Max. voltage" "50В"
+.ATT_COM C15 "Name" "GRM188R71H472K"
+.ATT_COM C15 "PCB3D" ""
+.ATT_COM C15 "Signal Integrity" ""
+.ATT_COM C15 "Simulation" ""
+.ATT_COM C15 "Value" "4700"
+
+.ADD_COM C16 "Capacitor" "Capacitor"
+.ATT_COM C16 "Comment" "0,1мк"
+.ATT_COM C16 "Component Kind" "Standard"
+.ATT_COM C16 "Description" "Конденсатор"
+.ATT_COM C16 "Footprint" "C0603_A"
+.ATT_COM C16 "Ibis Model" ""
+.ATT_COM C16 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C16 "Library Reference" "Capacitor"
+.ATT_COM C16 "Max. voltage" "50В"
+.ATT_COM C16 "Name" "GRM188R71H104KA93"
+.ATT_COM C16 "PCB3D" ""
+.ATT_COM C16 "Signal Integrity" ""
+.ATT_COM C16 "Simulation" ""
+.ATT_COM C16 "Value" "0,1мк"
+
+.ADD_COM C17 "Capacitor" "Capacitor"
+.ATT_COM C17 "ClassName" "pwr_5"
+.ATT_COM C17 "Comment" "0,022мк"
+.ATT_COM C17 "Component Kind" "Standard"
+.ATT_COM C17 "Description" "Конденсатор"
+.ATT_COM C17 "Footprint" "C0603_A"
+.ATT_COM C17 "Ibis Model" ""
+.ATT_COM C17 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C17 "Library Reference" "Capacitor"
+.ATT_COM C17 "Max. voltage" "50В"
+.ATT_COM C17 "Name" "GRM188R71H223KA01D"
+.ATT_COM C17 "PCB3D" ""
+.ATT_COM C17 "Signal Integrity" ""
+.ATT_COM C17 "Simulation" ""
+.ATT_COM C17 "Value" "0,022мк"
+
+.ADD_COM C18 "Capacitor" "Capacitor"
+.ATT_COM C18 "ClassName" "pwr_5"
+.ATT_COM C18 "Comment" "10мк"
+.ATT_COM C18 "Component Kind" "Standard"
+.ATT_COM C18 "Description" "Конденсатор"
+.ATT_COM C18 "Footprint" "C1206_A"
+.ATT_COM C18 "Ibis Model" ""
+.ATT_COM C18 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C18 "Library Reference" "Capacitor"
+.ATT_COM C18 "Max. voltage" "25В"
+.ATT_COM C18 "Name" "GRM31CR71E106KA12L"
+.ATT_COM C18 "PCB3D" ""
+.ATT_COM C18 "Signal Integrity" ""
+.ATT_COM C18 "Simulation" ""
+.ATT_COM C18 "Value" "10мк"
+
+.ADD_COM C19 "Capacitor" "Capacitor"
+.ATT_COM C19 "Comment" "0,1мк"
+.ATT_COM C19 "Component Kind" "Standard"
+.ATT_COM C19 "Description" "Конденсатор"
+.ATT_COM C19 "Footprint" "C0603_A"
+.ATT_COM C19 "Ibis Model" ""
+.ATT_COM C19 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C19 "Library Reference" "Capacitor"
+.ATT_COM C19 "Max. voltage" "50В"
+.ATT_COM C19 "Name" "GRM188R71H104KA93"
+.ATT_COM C19 "PCB3D" ""
+.ATT_COM C19 "Signal Integrity" ""
+.ATT_COM C19 "Simulation" ""
+.ATT_COM C19 "Value" "0,1мк"
+
+.ADD_COM C20 "Capacitor_polarized" "Capacitor_polarized"
+.ATT_COM C20 "Comment" "470мк"
+.ATT_COM C20 "Component Kind" "Standard"
+.ATT_COM C20 "Description" "Конденсатор поляризованный"
+.ATT_COM C20 "Footprint" "CE10x16_put"
+.ATT_COM C20 "Ibis Model" ""
+.ATT_COM C20 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C20 "Library Reference" "Capacitor_polarized"
+.ATT_COM C20 "Max. voltage" "35В"
+.ATT_COM C20 "Name" "UVZ1V471MPD"
+.ATT_COM C20 "PCB3D" ""
+.ATT_COM C20 "Signal Integrity" ""
+.ATT_COM C20 "Simulation" ""
+.ATT_COM C20 "Value" "VLE"
+
+.ADD_COM C21 "Capacitor" "Capacitor"
+.ATT_COM C21 "ClassName" "pwr_5"
+.ATT_COM C21 "Comment" "10мк"
+.ATT_COM C21 "Component Kind" "Standard"
+.ATT_COM C21 "Description" "Конденсатор"
+.ATT_COM C21 "Footprint" "C1206_A"
+.ATT_COM C21 "Ibis Model" ""
+.ATT_COM C21 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C21 "Library Reference" "Capacitor"
+.ATT_COM C21 "Max. voltage" "25В"
+.ATT_COM C21 "Name" "GRM31CR71E106KA12L"
+.ATT_COM C21 "PCB3D" ""
+.ATT_COM C21 "Signal Integrity" ""
+.ATT_COM C21 "Simulation" ""
+.ATT_COM C21 "Value" "10мк"
+
+.ADD_COM C22 "Capacitor" "Capacitor"
+.ATT_COM C22 "ClassName" "pwr_5"
+.ATT_COM C22 "Comment" "10мк"
+.ATT_COM C22 "Component Kind" "Standard"
+.ATT_COM C22 "Description" "Конденсатор"
+.ATT_COM C22 "Footprint" "C1206_A"
+.ATT_COM C22 "Ibis Model" ""
+.ATT_COM C22 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C22 "Library Reference" "Capacitor"
+.ATT_COM C22 "Max. voltage" "25В"
+.ATT_COM C22 "Name" "GRM31CR71E106KA12L"
+.ATT_COM C22 "PCB3D" ""
+.ATT_COM C22 "Signal Integrity" ""
+.ATT_COM C22 "Simulation" ""
+.ATT_COM C22 "Value" "10мк"
+
+.ADD_COM C23 "Capacitor_polarized" "Capacitor_polarized"
+.ATT_COM C23 "Comment" "470мк"
+.ATT_COM C23 "Component Kind" "Standard"
+.ATT_COM C23 "Description" "Конденсатор поляризованный"
+.ATT_COM C23 "Footprint" "CE10x16_put"
+.ATT_COM C23 "Ibis Model" ""
+.ATT_COM C23 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C23 "Library Reference" "Capacitor_polarized"
+.ATT_COM C23 "Max. voltage" "35В"
+.ATT_COM C23 "Name" "UVZ1V471MPD"
+.ATT_COM C23 "PCB3D" ""
+.ATT_COM C23 "Signal Integrity" ""
+.ATT_COM C23 "Simulation" ""
+.ATT_COM C23 "Value" "VLE"
+
+.ADD_COM C24 "Capacitor" "Capacitor"
+.ATT_COM C24 "Comment" "10мк"
+.ATT_COM C24 "Component Kind" "Standard"
+.ATT_COM C24 "Description" "Конденсатор"
+.ATT_COM C24 "Footprint" "C1206_A"
+.ATT_COM C24 "Ibis Model" ""
+.ATT_COM C24 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C24 "Library Reference" "Capacitor"
+.ATT_COM C24 "Max. voltage" "25В"
+.ATT_COM C24 "Name" "GRM31CR71E106KA12L"
+.ATT_COM C24 "PCB3D" ""
+.ATT_COM C24 "Signal Integrity" ""
+.ATT_COM C24 "Simulation" ""
+.ATT_COM C24 "Value" "10мк"
+
+.ADD_COM C25 "Capacitor" "Capacitor"
+.ATT_COM C25 "Comment" "0,1мк"
+.ATT_COM C25 "Component Kind" "Standard"
+.ATT_COM C25 "Description" "Конденсатор"
+.ATT_COM C25 "Footprint" "C0603_A"
+.ATT_COM C25 "Ibis Model" ""
+.ATT_COM C25 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C25 "Library Reference" "Capacitor"
+.ATT_COM C25 "Max. voltage" "50В"
+.ATT_COM C25 "Name" "GRM188R71H104KA93"
+.ATT_COM C25 "PCB3D" ""
+.ATT_COM C25 "Signal Integrity" ""
+.ATT_COM C25 "Simulation" ""
+.ATT_COM C25 "Value" "0,1мк"
+
+.ADD_COM C26 "Capacitor" "Capacitor"
+.ATT_COM C26 "Comment" "0,1мк"
+.ATT_COM C26 "Component Kind" "Standard"
+.ATT_COM C26 "Description" "Конденсатор"
+.ATT_COM C26 "Footprint" "C0603_A"
+.ATT_COM C26 "Ibis Model" ""
+.ATT_COM C26 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C26 "Library Reference" "Capacitor"
+.ATT_COM C26 "Max. voltage" "50В"
+.ATT_COM C26 "Name" "GRM188R71H104KA93"
+.ATT_COM C26 "PCB3D" ""
+.ATT_COM C26 "Signal Integrity" ""
+.ATT_COM C26 "Simulation" ""
+.ATT_COM C26 "Value" "0,1мк"
+
+.ADD_COM C27 "Capacitor" "Capacitor"
+.ATT_COM C27 "Comment" "0,01мк"
+.ATT_COM C27 "Component Kind" "Standard"
+.ATT_COM C27 "Description" "Конденсатор"
+.ATT_COM C27 "Footprint" "C0603_A"
+.ATT_COM C27 "Ibis Model" ""
+.ATT_COM C27 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C27 "Library Reference" "Capacitor"
+.ATT_COM C27 "Max. voltage" "50В"
+.ATT_COM C27 "Name" "GRM188R71H103K"
+.ATT_COM C27 "PCB3D" ""
+.ATT_COM C27 "Signal Integrity" ""
+.ATT_COM C27 "Simulation" ""
+.ATT_COM C27 "Value" "0,01мк"
+
+.ADD_COM C28 "Capacitor" "Capacitor"
+.ATT_COM C28 "Comment" "4,7мк"
+.ATT_COM C28 "Component Kind" "Standard"
+.ATT_COM C28 "Description" "Конденсатор"
+.ATT_COM C28 "Footprint" "C0805_A"
+.ATT_COM C28 "Ibis Model" ""
+.ATT_COM C28 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C28 "Library Reference" "Capacitor"
+.ATT_COM C28 "Max. voltage" "25В"
+.ATT_COM C28 "Name" "CC0805KKX7R8BB475"
+.ATT_COM C28 "PCB3D" ""
+.ATT_COM C28 "Signal Integrity" ""
+.ATT_COM C28 "Simulation" ""
+.ATT_COM C28 "Value" "4,7мк"
+
+.ADD_COM C29 "Capacitor" "Capacitor"
+.ATT_COM C29 "Comment" "15"
+.ATT_COM C29 "Component Kind" "Standard"
+.ATT_COM C29 "Description" "Конденсатор"
+.ATT_COM C29 "Footprint" "C0603_A"
+.ATT_COM C29 "Ibis Model" ""
+.ATT_COM C29 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C29 "Library Reference" "Capacitor"
+.ATT_COM C29 "Max. voltage" "50В"
+.ATT_COM C29 "Name" "GRM1885C1H150JA01D"
+.ATT_COM C29 "PCB3D" ""
+.ATT_COM C29 "Signal Integrity" ""
+.ATT_COM C29 "Simulation" ""
+.ATT_COM C29 "Value" "15"
+
+.ADD_COM C30 "Capacitor" "Capacitor"
+.ATT_COM C30 "Comment" "0,1мк"
+.ATT_COM C30 "Component Kind" "Standard"
+.ATT_COM C30 "Description" "Конденсатор"
+.ATT_COM C30 "Footprint" "C0603_A"
+.ATT_COM C30 "Ibis Model" ""
+.ATT_COM C30 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C30 "Library Reference" "Capacitor"
+.ATT_COM C30 "Max. voltage" "50В"
+.ATT_COM C30 "Name" "GRM188R71H104KA93"
+.ATT_COM C30 "PCB3D" ""
+.ATT_COM C30 "Signal Integrity" ""
+.ATT_COM C30 "Simulation" ""
+.ATT_COM C30 "Value" "0,1мк"
+
+.ADD_COM C31 "Capacitor" "Capacitor"
+.ATT_COM C31 "Comment" "0,1мк"
+.ATT_COM C31 "Component Kind" "Standard"
+.ATT_COM C31 "Description" "Конденсатор"
+.ATT_COM C31 "Footprint" "C0603_A"
+.ATT_COM C31 "Ibis Model" ""
+.ATT_COM C31 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C31 "Library Reference" "Capacitor"
+.ATT_COM C31 "Max. voltage" "50В"
+.ATT_COM C31 "Name" "GRM188R71H104KA93"
+.ATT_COM C31 "PCB3D" ""
+.ATT_COM C31 "Signal Integrity" ""
+.ATT_COM C31 "Simulation" ""
+.ATT_COM C31 "Value" "0,1мк"
+
+.ADD_COM C32 "Capacitor" "Capacitor"
+.ATT_COM C32 "ClassName" "pwr_5"
+.ATT_COM C32 "Comment" "4700"
+.ATT_COM C32 "Component Kind" "Standard"
+.ATT_COM C32 "Description" "Конденсатор"
+.ATT_COM C32 "Footprint" "C0603_A"
+.ATT_COM C32 "Ibis Model" ""
+.ATT_COM C32 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C32 "Library Reference" "Capacitor"
+.ATT_COM C32 "Max. voltage" "50В"
+.ATT_COM C32 "Name" "GRM188R71H472K"
+.ATT_COM C32 "PCB3D" ""
+.ATT_COM C32 "Signal Integrity" ""
+.ATT_COM C32 "Simulation" ""
+.ATT_COM C32 "Value" "4700"
+
+.ADD_COM C33 "Capacitor" "Capacitor"
+.ATT_COM C33 "Comment" "0,1мк"
+.ATT_COM C33 "Component Kind" "Standard"
+.ATT_COM C33 "Description" "Конденсатор"
+.ATT_COM C33 "Footprint" "C0603_A"
+.ATT_COM C33 "Ibis Model" ""
+.ATT_COM C33 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C33 "Library Reference" "Capacitor"
+.ATT_COM C33 "Max. voltage" "50В"
+.ATT_COM C33 "Name" "GRM188R71H104KA93"
+.ATT_COM C33 "PCB3D" ""
+.ATT_COM C33 "Signal Integrity" ""
+.ATT_COM C33 "Simulation" ""
+.ATT_COM C33 "Value" "0,1мк"
+
+.ADD_COM C34 "Capacitor" "Capacitor"
+.ATT_COM C34 "Comment" "10мк"
+.ATT_COM C34 "Component Kind" "Standard"
+.ATT_COM C34 "Description" "Конденсатор"
+.ATT_COM C34 "Footprint" "C0805_A"
+.ATT_COM C34 "Ibis Model" ""
+.ATT_COM C34 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C34 "Library Reference" "Capacitor"
+.ATT_COM C34 "Max. voltage" "10В"
+.ATT_COM C34 "Name" "CC0805KKX7R6BB106"
+.ATT_COM C34 "PCB3D" ""
+.ATT_COM C34 "Signal Integrity" ""
+.ATT_COM C34 "Simulation" ""
+.ATT_COM C34 "Value" "10мк"
+
+.ADD_COM C35 "Capacitor" "Capacitor"
+.ATT_COM C35 "Comment" "0,1мк"
+.ATT_COM C35 "Component Kind" "Standard"
+.ATT_COM C35 "Description" "Конденсатор"
+.ATT_COM C35 "Footprint" "C0603_A"
+.ATT_COM C35 "Ibis Model" ""
+.ATT_COM C35 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C35 "Library Reference" "Capacitor"
+.ATT_COM C35 "Max. voltage" "50В"
+.ATT_COM C35 "Name" "GRM188R71H104KA93"
+.ATT_COM C35 "PCB3D" ""
+.ATT_COM C35 "Signal Integrity" ""
+.ATT_COM C35 "Simulation" ""
+.ATT_COM C35 "Value" "0,1мк"
+
+.ADD_COM C36 "Capacitor" "Capacitor"
+.ATT_COM C36 "Comment" "0,1мк"
+.ATT_COM C36 "Component Kind" "Standard"
+.ATT_COM C36 "Description" "Конденсатор"
+.ATT_COM C36 "Footprint" "C0603_A"
+.ATT_COM C36 "Ibis Model" ""
+.ATT_COM C36 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C36 "Library Reference" "Capacitor"
+.ATT_COM C36 "Max. voltage" "50В"
+.ATT_COM C36 "Name" "GRM188R71H104KA93"
+.ATT_COM C36 "PCB3D" ""
+.ATT_COM C36 "Signal Integrity" ""
+.ATT_COM C36 "Simulation" ""
+.ATT_COM C36 "Value" "0,1мк"
+
+.ADD_COM C37 "Capacitor" "Capacitor"
+.ATT_COM C37 "ClassName" "video1"
+.ATT_COM C37 "Comment" "4,7мк"
+.ATT_COM C37 "Component Kind" "Standard"
+.ATT_COM C37 "Description" "Конденсатор"
+.ATT_COM C37 "Footprint" "C0805_A"
+.ATT_COM C37 "Ibis Model" ""
+.ATT_COM C37 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C37 "Library Reference" "Capacitor"
+.ATT_COM C37 "Max. voltage" "16В"
+.ATT_COM C37 "Name" "CC0805KKX7R7BB475"
+.ATT_COM C37 "PCB3D" ""
+.ATT_COM C37 "Signal Integrity" ""
+.ATT_COM C37 "Simulation" ""
+.ATT_COM C37 "Value" "4,7мк"
+
+.ADD_COM C38 "Capacitor" "Capacitor"
+.ATT_COM C38 "ClassName" "video2"
+.ATT_COM C38 "Comment" "4,7мк"
+.ATT_COM C38 "Component Kind" "Standard"
+.ATT_COM C38 "Description" "Конденсатор"
+.ATT_COM C38 "Footprint" "C0805_A"
+.ATT_COM C38 "Ibis Model" ""
+.ATT_COM C38 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C38 "Library Reference" "Capacitor"
+.ATT_COM C38 "Max. voltage" "16В"
+.ATT_COM C38 "Name" "CC0805KKX7R7BB475"
+.ATT_COM C38 "PCB3D" ""
+.ATT_COM C38 "Signal Integrity" ""
+.ATT_COM C38 "Simulation" ""
+.ATT_COM C38 "Value" "4,7мк"
+
+.ADD_COM C39 "Capacitor" "Capacitor"
+.ATT_COM C39 "ClassName" "video3"
+.ATT_COM C39 "Comment" "4,7мк"
+.ATT_COM C39 "Component Kind" "Standard"
+.ATT_COM C39 "Description" "Конденсатор"
+.ATT_COM C39 "Footprint" "C0805_A"
+.ATT_COM C39 "Ibis Model" ""
+.ATT_COM C39 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C39 "Library Reference" "Capacitor"
+.ATT_COM C39 "Max. voltage" "16В"
+.ATT_COM C39 "Name" "CC0805KKX7R7BB475"
+.ATT_COM C39 "PCB3D" ""
+.ATT_COM C39 "Signal Integrity" ""
+.ATT_COM C39 "Simulation" ""
+.ATT_COM C39 "Value" "4,7мк"
+
+.ADD_COM C40 "Capacitor" "Capacitor"
+.ATT_COM C40 "ClassName" "Video4"
+.ATT_COM C40 "Comment" "4,7мк"
+.ATT_COM C40 "Component Kind" "Standard"
+.ATT_COM C40 "Description" "Конденсатор"
+.ATT_COM C40 "Footprint" "C0805_A"
+.ATT_COM C40 "Ibis Model" ""
+.ATT_COM C40 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C40 "Library Reference" "Capacitor"
+.ATT_COM C40 "Max. voltage" "16В"
+.ATT_COM C40 "Name" "CC0805KKX7R7BB475"
+.ATT_COM C40 "PCB3D" ""
+.ATT_COM C40 "Signal Integrity" ""
+.ATT_COM C40 "Simulation" ""
+.ATT_COM C40 "Value" "4,7мк"
+
+.ADD_COM C41 "Capacitor" "Capacitor"
+.ATT_COM C41 "ClassName" "video1"
+.ATT_COM C41 "Comment" "4,7мк"
+.ATT_COM C41 "Component Kind" "Standard"
+.ATT_COM C41 "Description" "Конденсатор"
+.ATT_COM C41 "Footprint" "C0805_A"
+.ATT_COM C41 "Ibis Model" ""
+.ATT_COM C41 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C41 "Library Reference" "Capacitor"
+.ATT_COM C41 "Max. voltage" "16В"
+.ATT_COM C41 "Name" "CC0805KKX7R7BB475"
+.ATT_COM C41 "PCB3D" ""
+.ATT_COM C41 "Signal Integrity" ""
+.ATT_COM C41 "Simulation" ""
+.ATT_COM C41 "Value" "4,7мк"
+
+.ADD_COM C42 "Capacitor" "Capacitor"
+.ATT_COM C42 "ClassName" "video2"
+.ATT_COM C42 "Comment" "4,7мк"
+.ATT_COM C42 "Component Kind" "Standard"
+.ATT_COM C42 "Description" "Конденсатор"
+.ATT_COM C42 "Footprint" "C0805_A"
+.ATT_COM C42 "Ibis Model" ""
+.ATT_COM C42 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C42 "Library Reference" "Capacitor"
+.ATT_COM C42 "Max. voltage" "16В"
+.ATT_COM C42 "Name" "CC0805KKX7R7BB475"
+.ATT_COM C42 "PCB3D" ""
+.ATT_COM C42 "Signal Integrity" ""
+.ATT_COM C42 "Simulation" ""
+.ATT_COM C42 "Value" "4,7мк"
+
+.ADD_COM C43 "Capacitor" "Capacitor"
+.ATT_COM C43 "ClassName" "video3"
+.ATT_COM C43 "Comment" "4,7мк"
+.ATT_COM C43 "Component Kind" "Standard"
+.ATT_COM C43 "Description" "Конденсатор"
+.ATT_COM C43 "Footprint" "C0805_A"
+.ATT_COM C43 "Ibis Model" ""
+.ATT_COM C43 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C43 "Library Reference" "Capacitor"
+.ATT_COM C43 "Max. voltage" "16В"
+.ATT_COM C43 "Name" "CC0805KKX7R7BB475"
+.ATT_COM C43 "PCB3D" ""
+.ATT_COM C43 "Signal Integrity" ""
+.ATT_COM C43 "Simulation" ""
+.ATT_COM C43 "Value" "4,7мк"
+
+.ADD_COM C44 "Capacitor" "Capacitor"
+.ATT_COM C44 "ClassName" "Video4"
+.ATT_COM C44 "Comment" "4,7мк"
+.ATT_COM C44 "Component Kind" "Standard"
+.ATT_COM C44 "Description" "Конденсатор"
+.ATT_COM C44 "Footprint" "C0805_A"
+.ATT_COM C44 "Ibis Model" ""
+.ATT_COM C44 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C44 "Library Reference" "Capacitor"
+.ATT_COM C44 "Max. voltage" "16В"
+.ATT_COM C44 "Name" "CC0805KKX7R7BB475"
+.ATT_COM C44 "PCB3D" ""
+.ATT_COM C44 "Signal Integrity" ""
+.ATT_COM C44 "Simulation" ""
+.ATT_COM C44 "Value" "4,7мк"
+
+.ADD_COM C45 "Capacitor" "Capacitor"
+.ATT_COM C45 "ClassName" "video1"
+.ATT_COM C45 "Comment" "0,1мк"
+.ATT_COM C45 "Component Kind" "Standard"
+.ATT_COM C45 "Description" "Конденсатор"
+.ATT_COM C45 "Footprint" "C0603_A"
+.ATT_COM C45 "Ibis Model" ""
+.ATT_COM C45 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C45 "Library Reference" "Capacitor"
+.ATT_COM C45 "Max. voltage" "50В"
+.ATT_COM C45 "Name" "GRM188R71H104KA93"
+.ATT_COM C45 "PCB3D" ""
+.ATT_COM C45 "Signal Integrity" ""
+.ATT_COM C45 "Simulation" ""
+.ATT_COM C45 "Value" "0,1мк"
+
+.ADD_COM C46 "Capacitor" "Capacitor"
+.ATT_COM C46 "ClassName" "video2"
+.ATT_COM C46 "Comment" "0,1мк"
+.ATT_COM C46 "Component Kind" "Standard"
+.ATT_COM C46 "Description" "Конденсатор"
+.ATT_COM C46 "Footprint" "C0603_A"
+.ATT_COM C46 "Ibis Model" ""
+.ATT_COM C46 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C46 "Library Reference" "Capacitor"
+.ATT_COM C46 "Max. voltage" "50В"
+.ATT_COM C46 "Name" "GRM188R71H104KA93"
+.ATT_COM C46 "PCB3D" ""
+.ATT_COM C46 "Signal Integrity" ""
+.ATT_COM C46 "Simulation" ""
+.ATT_COM C46 "Value" "0,1мк"
+
+.ADD_COM C47 "Capacitor" "Capacitor"
+.ATT_COM C47 "ClassName" "video3"
+.ATT_COM C47 "Comment" "0,1мк"
+.ATT_COM C47 "Component Kind" "Standard"
+.ATT_COM C47 "Description" "Конденсатор"
+.ATT_COM C47 "Footprint" "C0603_A"
+.ATT_COM C47 "Ibis Model" ""
+.ATT_COM C47 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C47 "Library Reference" "Capacitor"
+.ATT_COM C47 "Max. voltage" "50В"
+.ATT_COM C47 "Name" "GRM188R71H104KA93"
+.ATT_COM C47 "PCB3D" ""
+.ATT_COM C47 "Signal Integrity" ""
+.ATT_COM C47 "Simulation" ""
+.ATT_COM C47 "Value" "0,1мк"
+
+.ADD_COM C48 "Capacitor" "Capacitor"
+.ATT_COM C48 "ClassName" "Video4"
+.ATT_COM C48 "Comment" "0,1мк"
+.ATT_COM C48 "Component Kind" "Standard"
+.ATT_COM C48 "Description" "Конденсатор"
+.ATT_COM C48 "Footprint" "C0603_A"
+.ATT_COM C48 "Ibis Model" ""
+.ATT_COM C48 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C48 "Library Reference" "Capacitor"
+.ATT_COM C48 "Max. voltage" "50В"
+.ATT_COM C48 "Name" "GRM188R71H104KA93"
+.ATT_COM C48 "PCB3D" ""
+.ATT_COM C48 "Signal Integrity" ""
+.ATT_COM C48 "Simulation" ""
+.ATT_COM C48 "Value" "0,1мк"
+
+.ADD_COM C49 "Capacitor" "Capacitor"
+.ATT_COM C49 "Comment" "0,1мк"
+.ATT_COM C49 "Component Kind" "Standard"
+.ATT_COM C49 "Description" "Конденсатор"
+.ATT_COM C49 "Footprint" "C0603_A"
+.ATT_COM C49 "Ibis Model" ""
+.ATT_COM C49 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C49 "Library Reference" "Capacitor"
+.ATT_COM C49 "Max. voltage" "50В"
+.ATT_COM C49 "Name" "GRM188R71H104KA93"
+.ATT_COM C49 "PCB3D" ""
+.ATT_COM C49 "Signal Integrity" ""
+.ATT_COM C49 "Simulation" ""
+.ATT_COM C49 "Value" "0,1мк"
+
+.ADD_COM C50 "Capacitor" "Capacitor"
+.ATT_COM C50 "ClassName" "Video_com"
+.ATT_COM C50 "Comment" "4,7мк"
+.ATT_COM C50 "Component Kind" "Standard"
+.ATT_COM C50 "Description" "Конденсатор"
+.ATT_COM C50 "Footprint" "C0805_A"
+.ATT_COM C50 "Ibis Model" ""
+.ATT_COM C50 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C50 "Library Reference" "Capacitor"
+.ATT_COM C50 "Max. voltage" "16В"
+.ATT_COM C50 "Name" "CC0805KKX7R7BB475"
+.ATT_COM C50 "PCB3D" ""
+.ATT_COM C50 "Signal Integrity" ""
+.ATT_COM C50 "Simulation" ""
+.ATT_COM C50 "Value" "4,7мк"
+
+.ADD_COM C51 "Capacitor" "Capacitor"
+.ATT_COM C51 "ClassName" "Video_com"
+.ATT_COM C51 "Comment" "4,7мк"
+.ATT_COM C51 "Component Kind" "Standard"
+.ATT_COM C51 "Description" "Конденсатор"
+.ATT_COM C51 "Footprint" "C0805_A"
+.ATT_COM C51 "Ibis Model" ""
+.ATT_COM C51 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C51 "Library Reference" "Capacitor"
+.ATT_COM C51 "Max. voltage" "16В"
+.ATT_COM C51 "Name" "CC0805KKX7R7BB475"
+.ATT_COM C51 "PCB3D" ""
+.ATT_COM C51 "Signal Integrity" ""
+.ATT_COM C51 "Simulation" ""
+.ATT_COM C51 "Value" "4,7мк"
+
+.ADD_COM C52 "Capacitor" "Capacitor"
+.ATT_COM C52 "ClassName" "Video_com"
+.ATT_COM C52 "Comment" "0,1мк"
+.ATT_COM C52 "Component Kind" "Standard"
+.ATT_COM C52 "Description" "Конденсатор"
+.ATT_COM C52 "Footprint" "C0603_A"
+.ATT_COM C52 "Ibis Model" ""
+.ATT_COM C52 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM C52 "Library Reference" "Capacitor"
+.ATT_COM C52 "Max. voltage" "50В"
+.ATT_COM C52 "Name" "GRM188R71H104KA93"
+.ATT_COM C52 "PCB3D" ""
+.ATT_COM C52 "Signal Integrity" ""
+.ATT_COM C52 "Simulation" ""
+.ATT_COM C52 "Value" "0,1мк"
+
+.ADD_COM DA1 "TPD2S017" "TPD2S017"
+.ATT_COM DA1 "Comment" "TPD2S017"
+.ATT_COM DA1 "Component Kind" "Standard"
+.ATT_COM DA1 "Description" "ESD защита"
+.ATT_COM DA1 "Footprint" "SOT23-6_A"
+.ATT_COM DA1 "Ibis Model" ""
+.ATT_COM DA1 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DA1 "Library Reference" "TPD2S017"
+.ATT_COM DA1 "Manufacturer" "Texas Instruments"
+.ATT_COM DA1 "Name" "TPD2S017"
+.ATT_COM DA1 "PCB3D" ""
+.ATT_COM DA1 "Signal Integrity" ""
+.ATT_COM DA1 "Simulation" ""
+
+.ADD_COM DA2 "TPD2S017" "TPD2S017"
+.ATT_COM DA2 "Comment" "TPD2S017"
+.ATT_COM DA2 "Component Kind" "Standard"
+.ATT_COM DA2 "Description" "ESD защита"
+.ATT_COM DA2 "Footprint" "SOT23-6_A"
+.ATT_COM DA2 "Ibis Model" ""
+.ATT_COM DA2 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DA2 "Library Reference" "TPD2S017"
+.ATT_COM DA2 "Manufacturer" "Texas Instruments"
+.ATT_COM DA2 "Name" "TPD2S017"
+.ATT_COM DA2 "PCB3D" ""
+.ATT_COM DA2 "Signal Integrity" ""
+.ATT_COM DA2 "Simulation" ""
+
+.ADD_COM DA3 "TPD2S017" "TPD2S017"
+.ATT_COM DA3 "Comment" "TPD2S017"
+.ATT_COM DA3 "Component Kind" "Standard"
+.ATT_COM DA3 "Description" "ESD защита"
+.ATT_COM DA3 "Footprint" "SOT23-6_A"
+.ATT_COM DA3 "Ibis Model" ""
+.ATT_COM DA3 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DA3 "Library Reference" "TPD2S017"
+.ATT_COM DA3 "Manufacturer" "Texas Instruments"
+.ATT_COM DA3 "Name" "TPD2S017"
+.ATT_COM DA3 "PCB3D" ""
+.ATT_COM DA3 "Signal Integrity" ""
+.ATT_COM DA3 "Simulation" ""
+
+.ADD_COM DA4 "LSM9DS1" "LSM9DS1"
+.ATT_COM DA4 "Comment" "LSM9DS1"
+.ATT_COM DA4 "Component Kind" "Standard"
+.ATT_COM DA4 "Description" "Гироскоп, акселерометр, магнитоиметр"
+.ATT_COM DA4 "Footprint" "LGA-24"
+.ATT_COM DA4 "Ibis Model" ""
+.ATT_COM DA4 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DA4 "Library Reference" "LSM9DS1"
+.ATT_COM DA4 "Name" "LSM9DS1"
+.ATT_COM DA4 "PCB3D" ""
+.ATT_COM DA4 "Signal Integrity" ""
+.ATT_COM DA4 "Simulation" ""
+
+.ADD_COM DA5 "MAX9547" "MAX9547"
+.ATT_COM DA5 "Comment" "MAX9547"
+.ATT_COM DA5 "Component Kind" "Standard"
+.ATT_COM DA5 "Description" ""
+.ATT_COM DA5 "Footprint" "SOIC8_A_PowerPad"
+.ATT_COM DA5 "Ibis Model" ""
+.ATT_COM DA5 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DA5 "Library Reference" "MAX9547"
+.ATT_COM DA5 "Name" "MAX9547"
+.ATT_COM DA5 "PCB3D" ""
+.ATT_COM DA5 "Signal Integrity" ""
+.ATT_COM DA5 "Simulation" ""
+
+.ADD_COM DA6 "ADA4430" "ADA4430"
+.ATT_COM DA6 "ClassName" "video1"
+.ATT_COM DA6 "Comment" "ADA4430"
+.ATT_COM DA6 "Component Kind" "Standard"
+.ATT_COM DA6 "Description" "FILT"
+.ATT_COM DA6 "Footprint" "SC-70-6"
+.ATT_COM DA6 "Ibis Model" ""
+.ATT_COM DA6 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DA6 "Library Reference" "ADA4430"
+.ATT_COM DA6 "Name" "ADA4430"
+.ATT_COM DA6 "PCB3D" ""
+.ATT_COM DA6 "Signal Integrity" ""
+.ATT_COM DA6 "Simulation" ""
+
+.ADD_COM DA7 "ADA4430" "ADA4430"
+.ATT_COM DA7 "ClassName" "video2"
+.ATT_COM DA7 "Comment" "ADA4430"
+.ATT_COM DA7 "Component Kind" "Standard"
+.ATT_COM DA7 "Description" "FILT"
+.ATT_COM DA7 "Footprint" "SC-70-6"
+.ATT_COM DA7 "Ibis Model" ""
+.ATT_COM DA7 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DA7 "Library Reference" "ADA4430"
+.ATT_COM DA7 "Name" "ADA4430"
+.ATT_COM DA7 "PCB3D" ""
+.ATT_COM DA7 "Signal Integrity" ""
+.ATT_COM DA7 "Simulation" ""
+
+.ADD_COM DA8 "ADA4430" "ADA4430"
+.ATT_COM DA8 "ClassName" "video3"
+.ATT_COM DA8 "Comment" "ADA4430"
+.ATT_COM DA8 "Component Kind" "Standard"
+.ATT_COM DA8 "Description" "FILT"
+.ATT_COM DA8 "Footprint" "SC-70-6"
+.ATT_COM DA8 "Ibis Model" ""
+.ATT_COM DA8 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DA8 "Library Reference" "ADA4430"
+.ATT_COM DA8 "Name" "ADA4430"
+.ATT_COM DA8 "PCB3D" ""
+.ATT_COM DA8 "Signal Integrity" ""
+.ATT_COM DA8 "Simulation" ""
+
+.ADD_COM DA9 "ADA4430" "ADA4430"
+.ATT_COM DA9 "ClassName" "Video4"
+.ATT_COM DA9 "Comment" "ADA4430"
+.ATT_COM DA9 "Component Kind" "Standard"
+.ATT_COM DA9 "Description" "FILT"
+.ATT_COM DA9 "Footprint" "SC-70-6"
+.ATT_COM DA9 "Ibis Model" ""
+.ATT_COM DA9 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DA9 "Library Reference" "ADA4430"
+.ATT_COM DA9 "Name" "ADA4430"
+.ATT_COM DA9 "PCB3D" ""
+.ATT_COM DA9 "Signal Integrity" ""
+.ATT_COM DA9 "Simulation" ""
+
+.ADD_COM DA10 "ADG1604BRUZ" "ADG1604BRUZ"
+.ATT_COM DA10 "Comment" "ADG1604BRUZ"
+.ATT_COM DA10 "Component Kind" "Standard"
+.ATT_COM DA10 "ComponentLink1Desciption" "Datasheet"
+.ATT_COM DA10 "ComponentLink1URL" ""
+.ATT_COM DA10 "Description" "4канальный мультиплексор"
+.ATT_COM DA10 "Footprint" "TSSOP14_A"
+.ATT_COM DA10 "Ibis Model" ""
+.ATT_COM DA10 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DA10 "Library Reference" "ADG1604BRUZ"
+.ATT_COM DA10 "Manufacturer" "Analog Devices"
+.ATT_COM DA10 "Name" "ADG1604BRUZ"
+.ATT_COM DA10 "Package" "TSSOP-14"
+.ATT_COM DA10 "PCB3D" ""
+.ATT_COM DA10 "Signal Integrity" ""
+.ATT_COM DA10 "Simulation" ""
+.ATT_COM DA10 "Supply Current" "30mA"
+.ATT_COM DA10 "Supply Voltage" "+3.3; +5; +12B"
+
+.ADD_COM DA11 "ADA4430" "ADA4430"
+.ATT_COM DA11 "ClassName" "Video_com"
+.ATT_COM DA11 "Comment" "ADA4430"
+.ATT_COM DA11 "Component Kind" "Standard"
+.ATT_COM DA11 "Description" "FILT"
+.ATT_COM DA11 "Footprint" "SC-70-6"
+.ATT_COM DA11 "Ibis Model" ""
+.ATT_COM DA11 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DA11 "Library Reference" "ADA4430"
+.ATT_COM DA11 "Name" "ADA4430"
+.ATT_COM DA11 "PCB3D" ""
+.ATT_COM DA11 "Signal Integrity" ""
+.ATT_COM DA11 "Simulation" ""
+
+.ADD_COM DD1 "STM32F405RG" "STM32F405RG"
+.ATT_COM DD1 "Comment" "STM32F405RG"
+.ATT_COM DD1 "Component Kind" "Standard"
+.ATT_COM DD1 "Description" "Микроконтроллер Cortex-M4"
+.ATT_COM DD1 "Footprint" "LQFP64_L"
+.ATT_COM DD1 "Ibis Model" ""
+.ATT_COM DD1 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DD1 "Library Reference" "STM32F405RG"
+.ATT_COM DD1 "Name" "STM32F405RG"
+.ATT_COM DD1 "PCB3D" ""
+.ATT_COM DD1 "Signal Integrity" ""
+.ATT_COM DD1 "Simulation" ""
+
+.ADD_COM DD2 "LMZ14203" "LMZ14203"
+.ATT_COM DD2 "ClassName" "pwr_5"
+.ATT_COM DD2 "Comment" "LMZ14203HTZ"
+.ATT_COM DD2 "Component Kind" "Standard"
+.ATT_COM DD2 "Description" "LMZ14203 SIMPLE SWITCHER® 6-V to 42-V, 3-A Power Module"
+.ATT_COM DD2 "Footprint" "TO-PMOD-7"
+.ATT_COM DD2 "Ibis Model" ""
+.ATT_COM DD2 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DD2 "Library Reference" "LMZ14203"
+.ATT_COM DD2 "Name" "LMZ14203HTZ"
+.ATT_COM DD2 "PCB3D" ""
+.ATT_COM DD2 "Signal Integrity" ""
+.ATT_COM DD2 "Simulation" ""
+
+.ADD_COM DD3 "SN65HVD1781" "SN65HVD1781"
+.ATT_COM DD3 "Comment" "SN65HVD1781"
+.ATT_COM DD3 "Component Kind" "Standard"
+.ATT_COM DD3 "Description" "Преобразователь RS-485 - UART"
+.ATT_COM DD3 "Footprint" "SOIC8_A"
+.ATT_COM DD3 "Ibis Model" ""
+.ATT_COM DD3 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DD3 "Library Reference" "SN65HVD1781"
+.ATT_COM DD3 "Name" "SN65HVD1781"
+.ATT_COM DD3 "PCB3D" ""
+.ATT_COM DD3 "Signal Integrity" ""
+.ATT_COM DD3 "Simulation" ""
+
+.ADD_COM DD4 "SN65HVD233D" "SN65HVD233D"
+.ATT_COM DD4 "Comment" "SN65HVD233D"
+.ATT_COM DD4 "Component Kind" "Standard"
+.ATT_COM DD4 "Description" "Приемопередатчик CAN"
+.ATT_COM DD4 "Footprint" "SOIC8_A"
+.ATT_COM DD4 "Ibis Model" ""
+.ATT_COM DD4 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM DD4 "Library Reference" "SN65HVD233D"
+.ATT_COM DD4 "Manufacture" "Texas Instrumentals"
+.ATT_COM DD4 "Name" "SN65HVD233D"
+.ATT_COM DD4 "Package" "SOIC(8)"
+.ATT_COM DD4 "PCB3D" ""
+.ATT_COM DD4 "Signal Integrity" ""
+.ATT_COM DD4 "Simulation" ""
+
+.ADD_COM HL1 "LED" "LED"
+.ATT_COM HL1 "Color" ""
+.ATT_COM HL1 "Comment" "KP-1608EC"
+.ATT_COM HL1 "Component Kind" "Standard"
+.ATT_COM HL1 "Description" "Светодиод"
+.ATT_COM HL1 "Footprint" "Led_0603_RED"
+.ATT_COM HL1 "Ibis Model" ""
+.ATT_COM HL1 "Imax" ""
+.ATT_COM HL1 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM HL1 "Library Reference" "LED"
+.ATT_COM HL1 "Name" "KP-1608EC"
+.ATT_COM HL1 "PCB3D" ""
+.ATT_COM HL1 "Signal Integrity" ""
+.ATT_COM HL1 "Simulation" ""
+.ATT_COM HL1 "Vf" ""
+.ATT_COM HL1 "Vr" ""
+
+.ADD_COM HL2 "LED" "LED"
+.ATT_COM HL2 "Color" ""
+.ATT_COM HL2 "Comment" "KP-1608MGC"
+.ATT_COM HL2 "Component Kind" "Standard"
+.ATT_COM HL2 "Description" "Светодиод"
+.ATT_COM HL2 "Footprint" "Led_0603_green"
+.ATT_COM HL2 "Ibis Model" ""
+.ATT_COM HL2 "Imax" ""
+.ATT_COM HL2 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM HL2 "Library Reference" "LED"
+.ATT_COM HL2 "Name" "KP-1608MGC"
+.ATT_COM HL2 "PCB3D" ""
+.ATT_COM HL2 "Signal Integrity" ""
+.ATT_COM HL2 "Simulation" ""
+.ATT_COM HL2 "Vf" ""
+.ATT_COM HL2 "Vr" ""
+
+.ADD_COM HL3 "LED" "LED"
+.ATT_COM HL3 "ClassName" "pwr_5"
+.ATT_COM HL3 "Color" ""
+.ATT_COM HL3 "Comment" "KP-1608MGC"
+.ATT_COM HL3 "Component Kind" "Standard"
+.ATT_COM HL3 "Description" "Светодиод"
+.ATT_COM HL3 "Footprint" "Led_0603_green"
+.ATT_COM HL3 "Ibis Model" ""
+.ATT_COM HL3 "Imax" ""
+.ATT_COM HL3 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM HL3 "Library Reference" "LED"
+.ATT_COM HL3 "Name" "KP-1608MGC"
+.ATT_COM HL3 "PCB3D" ""
+.ATT_COM HL3 "Signal Integrity" ""
+.ATT_COM HL3 "Simulation" ""
+.ATT_COM HL3 "Vf" ""
+.ATT_COM HL3 "Vr" ""
+
+.ADD_COM HL4 "LED" "LED"
+.ATT_COM HL4 "Color" ""
+.ATT_COM HL4 "Comment" "KP-1608QBC-D"
+.ATT_COM HL4 "Component Kind" "Standard"
+.ATT_COM HL4 "Description" "Светодиод"
+.ATT_COM HL4 "Footprint" "Led_0603_Blue"
+.ATT_COM HL4 "Ibis Model" ""
+.ATT_COM HL4 "Imax" ""
+.ATT_COM HL4 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM HL4 "Library Reference" "LED"
+.ATT_COM HL4 "Name" "KP-1608QBC-D"
+.ATT_COM HL4 "PCB3D" ""
+.ATT_COM HL4 "Signal Integrity" ""
+.ATT_COM HL4 "Simulation" ""
+.ATT_COM HL4 "Vf" ""
+.ATT_COM HL4 "Vr" ""
+
+.ADD_COM HL5 "LED" "LED"
+.ATT_COM HL5 "Color" ""
+.ATT_COM HL5 "Comment" "KP-1608QBC-D"
+.ATT_COM HL5 "Component Kind" "Standard"
+.ATT_COM HL5 "Description" "Светодиод"
+.ATT_COM HL5 "Footprint" "Led_0603_Blue"
+.ATT_COM HL5 "Ibis Model" ""
+.ATT_COM HL5 "Imax" ""
+.ATT_COM HL5 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM HL5 "Library Reference" "LED"
+.ATT_COM HL5 "Name" "KP-1608QBC-D"
+.ATT_COM HL5 "PCB3D" ""
+.ATT_COM HL5 "Signal Integrity" ""
+.ATT_COM HL5 "Simulation" ""
+.ATT_COM HL5 "Vf" ""
+.ATT_COM HL5 "Vr" ""
+
+.ADD_COM HL6 "LED" "LED"
+.ATT_COM HL6 "Color" ""
+.ATT_COM HL6 "Comment" "KP-1608QBC-D"
+.ATT_COM HL6 "Component Kind" "Standard"
+.ATT_COM HL6 "Description" "Светодиод"
+.ATT_COM HL6 "Footprint" "Led_0603_Blue"
+.ATT_COM HL6 "Ibis Model" ""
+.ATT_COM HL6 "Imax" ""
+.ATT_COM HL6 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM HL6 "Library Reference" "LED"
+.ATT_COM HL6 "Name" "KP-1608QBC-D"
+.ATT_COM HL6 "PCB3D" ""
+.ATT_COM HL6 "Signal Integrity" ""
+.ATT_COM HL6 "Simulation" ""
+.ATT_COM HL6 "Vf" ""
+.ATT_COM HL6 "Vr" ""
+
+.ADD_COM HL7 "LED" "LED"
+.ATT_COM HL7 "Color" ""
+.ATT_COM HL7 "Comment" ""
+.ATT_COM HL7 "Component Kind" "Standard"
+.ATT_COM HL7 "Description" "Светодиод"
+.ATT_COM HL7 "Footprint" "Led_0603_RED"
+.ATT_COM HL7 "Ibis Model" ""
+.ATT_COM HL7 "Imax" ""
+.ATT_COM HL7 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM HL7 "Library Reference" "LED"
+.ATT_COM HL7 "Name" ""
+.ATT_COM HL7 "PCB3D" ""
+.ATT_COM HL7 "Signal Integrity" ""
+.ATT_COM HL7 "Simulation" ""
+.ATT_COM HL7 "Vf" ""
+.ATT_COM HL7 "Vr" ""
+
+.ADD_COM L1 "Inductor" "Inductor"
+.ATT_COM L1 "Comment" "180 Ом"
+.ATT_COM L1 "Component Kind" "Standard"
+.ATT_COM L1 "Description" "Катушка индуктивности"
+.ATT_COM L1 "Footprint" "L0603_A"
+.ATT_COM L1 "Ibis Model" ""
+.ATT_COM L1 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM L1 "Library Reference" "Inductor"
+.ATT_COM L1 "Max. current" "1,5А"
+.ATT_COM L1 "Name" "BLM18PG181SN1"
+.ATT_COM L1 "PCB3D" ""
+.ATT_COM L1 "Resistance" "180"
+.ATT_COM L1 "Signal Integrity" ""
+.ATT_COM L1 "Simulation" ""
+.ATT_COM L1 "Value" "180 Ом"
+
+.ADD_COM L2 "Inductor" "Inductor"
+.ATT_COM L2 "Comment" "56мкГн"
+.ATT_COM L2 "Component Kind" "Standard"
+.ATT_COM L2 "Description" "Катушка индуктивности"
+.ATT_COM L2 "Footprint" "CDRH127"
+.ATT_COM L2 "Ibis Model" ""
+.ATT_COM L2 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM L2 "Library Reference" "Inductor"
+.ATT_COM L2 "Max. current" "2,9А"
+.ATT_COM L2 "Name" "CDRH127/LDNP-560MC"
+.ATT_COM L2 "PCB3D" ""
+.ATT_COM L2 "Resistance" ""
+.ATT_COM L2 "Signal Integrity" ""
+.ATT_COM L2 "Simulation" ""
+.ATT_COM L2 "Value" "56мкГн"
+
+.ADD_COM L3 "Inductor" "Inductor"
+.ATT_COM L3 "Comment" "56мкГн"
+.ATT_COM L3 "Component Kind" "Standard"
+.ATT_COM L3 "Description" "Катушка индуктивности"
+.ATT_COM L3 "Footprint" "CDRH127"
+.ATT_COM L3 "Ibis Model" ""
+.ATT_COM L3 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM L3 "Library Reference" "Inductor"
+.ATT_COM L3 "Max. current" "2,9А"
+.ATT_COM L3 "Name" "CDRH127/LDNP-560MC"
+.ATT_COM L3 "PCB3D" ""
+.ATT_COM L3 "Resistance" ""
+.ATT_COM L3 "Signal Integrity" ""
+.ATT_COM L3 "Simulation" ""
+.ATT_COM L3 "Value" "56мкГн"
+
+.ADD_COM L4 "Inductor" "Inductor"
+.ATT_COM L4 "Comment" "56мкГн"
+.ATT_COM L4 "Component Kind" "Standard"
+.ATT_COM L4 "Description" "Катушка индуктивности"
+.ATT_COM L4 "Footprint" "CDRH127"
+.ATT_COM L4 "Ibis Model" ""
+.ATT_COM L4 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM L4 "Library Reference" "Inductor"
+.ATT_COM L4 "Max. current" "2,9А"
+.ATT_COM L4 "Name" "CDRH127/LDNP-560MC"
+.ATT_COM L4 "PCB3D" ""
+.ATT_COM L4 "Resistance" ""
+.ATT_COM L4 "Signal Integrity" ""
+.ATT_COM L4 "Simulation" ""
+.ATT_COM L4 "Value" "56мкГн"
+
+.ADD_COM L5 "Inductor" "Inductor"
+.ATT_COM L5 "Comment" "56мкГн"
+.ATT_COM L5 "Component Kind" "Standard"
+.ATT_COM L5 "Description" "Катушка индуктивности"
+.ATT_COM L5 "Footprint" "CDRH127"
+.ATT_COM L5 "Ibis Model" ""
+.ATT_COM L5 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM L5 "Library Reference" "Inductor"
+.ATT_COM L5 "Max. current" "2,9А"
+.ATT_COM L5 "Name" "CDRH127/LDNP-560MC"
+.ATT_COM L5 "PCB3D" ""
+.ATT_COM L5 "Resistance" ""
+.ATT_COM L5 "Signal Integrity" ""
+.ATT_COM L5 "Simulation" ""
+.ATT_COM L5 "Value" "56мкГн"
+
+.ADD_COM L6 "Inductor" "Inductor"
+.ATT_COM L6 "Comment" "56мкГн"
+.ATT_COM L6 "Component Kind" "Standard"
+.ATT_COM L6 "Description" "Катушка индуктивности"
+.ATT_COM L6 "Footprint" "CDRH127"
+.ATT_COM L6 "Ibis Model" ""
+.ATT_COM L6 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM L6 "Library Reference" "Inductor"
+.ATT_COM L6 "Max. current" "2,9А"
+.ATT_COM L6 "Name" "CDRH127/LDNP-560MC"
+.ATT_COM L6 "PCB3D" ""
+.ATT_COM L6 "Resistance" ""
+.ATT_COM L6 "Signal Integrity" ""
+.ATT_COM L6 "Simulation" ""
+.ATT_COM L6 "Value" "56мкГн"
+
+.ADD_COM L7 "Inductor" "Inductor"
+.ATT_COM L7 "Comment" "56мкГн"
+.ATT_COM L7 "Component Kind" "Standard"
+.ATT_COM L7 "Description" "Катушка индуктивности"
+.ATT_COM L7 "Footprint" "CDRH127"
+.ATT_COM L7 "Ibis Model" ""
+.ATT_COM L7 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM L7 "Library Reference" "Inductor"
+.ATT_COM L7 "Max. current" "2,9А"
+.ATT_COM L7 "Name" "CDRH127/LDNP-560MC"
+.ATT_COM L7 "PCB3D" ""
+.ATT_COM L7 "Resistance" ""
+.ATT_COM L7 "Signal Integrity" ""
+.ATT_COM L7 "Simulation" ""
+.ATT_COM L7 "Value" "56мкГн"
+
+.ADD_COM R1 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R1 "Comment" "330"
+.ATT_COM R1 "Component Kind" "Standard"
+.ATT_COM R1 "Description" "Резистор"
+.ATT_COM R1 "Footprint" "R0603_A"
+.ATT_COM R1 "Ibis Model" ""
+.ATT_COM R1 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R1 "Library Reference" "Resistor_0,05"
+.ATT_COM R1 "Max. power dissipation" ""
+.ATT_COM R1 "Name" "RC0603FR-07330RL"
+.ATT_COM R1 "PCB3D" ""
+.ATT_COM R1 "Signal Integrity" ""
+.ATT_COM R1 "Simulation" ""
+.ATT_COM R1 "Tolerance" ""
+.ATT_COM R1 "Value" "330"
+
+.ADD_COM R2 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R2 "Comment" "330"
+.ATT_COM R2 "Component Kind" "Standard"
+.ATT_COM R2 "Description" "Резистор"
+.ATT_COM R2 "Footprint" "R0603_A"
+.ATT_COM R2 "Ibis Model" ""
+.ATT_COM R2 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R2 "Library Reference" "Resistor_0,05"
+.ATT_COM R2 "Max. power dissipation" ""
+.ATT_COM R2 "Name" "RC0603FR-07330RL"
+.ATT_COM R2 "PCB3D" ""
+.ATT_COM R2 "Signal Integrity" ""
+.ATT_COM R2 "Simulation" ""
+.ATT_COM R2 "Tolerance" ""
+.ATT_COM R2 "Value" "330"
+
+.ADD_COM R3 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R3 "Comment" "100"
+.ATT_COM R3 "Component Kind" "Standard"
+.ATT_COM R3 "Description" "Резистор"
+.ATT_COM R3 "Footprint" "R0603_A"
+.ATT_COM R3 "Ibis Model" ""
+.ATT_COM R3 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R3 "Library Reference" "Resistor_0,05"
+.ATT_COM R3 "Max. power dissipation" ""
+.ATT_COM R3 "Name" "RC0603FR-07100RL"
+.ATT_COM R3 "PCB3D" ""
+.ATT_COM R3 "Signal Integrity" ""
+.ATT_COM R3 "Simulation" ""
+.ATT_COM R3 "Tolerance" ""
+.ATT_COM R3 "Value" "100"
+
+.ADD_COM R4 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R4 "Comment" "100"
+.ATT_COM R4 "Component Kind" "Standard"
+.ATT_COM R4 "Description" "Резистор"
+.ATT_COM R4 "Footprint" "R0603_A"
+.ATT_COM R4 "Ibis Model" ""
+.ATT_COM R4 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R4 "Library Reference" "Resistor_0,05"
+.ATT_COM R4 "Max. power dissipation" ""
+.ATT_COM R4 "Name" "RC0603FR-07100RL"
+.ATT_COM R4 "PCB3D" ""
+.ATT_COM R4 "Signal Integrity" ""
+.ATT_COM R4 "Simulation" ""
+.ATT_COM R4 "Tolerance" ""
+.ATT_COM R4 "Value" "100"
+
+.ADD_COM R5 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R5 "Comment" "100"
+.ATT_COM R5 "Component Kind" "Standard"
+.ATT_COM R5 "Description" "Резистор"
+.ATT_COM R5 "Footprint" "R0603_A"
+.ATT_COM R5 "Ibis Model" ""
+.ATT_COM R5 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R5 "Library Reference" "Resistor_0,05"
+.ATT_COM R5 "Max. power dissipation" ""
+.ATT_COM R5 "Name" "RC0603FR-07100RL"
+.ATT_COM R5 "PCB3D" ""
+.ATT_COM R5 "Signal Integrity" ""
+.ATT_COM R5 "Simulation" ""
+.ATT_COM R5 "Tolerance" ""
+.ATT_COM R5 "Value" "100"
+
+.ADD_COM R6 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R6 "Comment" "100"
+.ATT_COM R6 "Component Kind" "Standard"
+.ATT_COM R6 "Description" "Резистор"
+.ATT_COM R6 "Footprint" "R0603_A"
+.ATT_COM R6 "Ibis Model" ""
+.ATT_COM R6 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R6 "Library Reference" "Resistor_0,05"
+.ATT_COM R6 "Max. power dissipation" ""
+.ATT_COM R6 "Name" "RC0603FR-07100RL"
+.ATT_COM R6 "PCB3D" ""
+.ATT_COM R6 "Signal Integrity" ""
+.ATT_COM R6 "Simulation" ""
+.ATT_COM R6 "Tolerance" ""
+.ATT_COM R6 "Value" "100"
+
+.ADD_COM R7 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R7 "Comment" "100"
+.ATT_COM R7 "Component Kind" "Standard"
+.ATT_COM R7 "Description" "Резистор"
+.ATT_COM R7 "Footprint" "R0603_A"
+.ATT_COM R7 "Ibis Model" ""
+.ATT_COM R7 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R7 "Library Reference" "Resistor_0,05"
+.ATT_COM R7 "Max. power dissipation" ""
+.ATT_COM R7 "Name" "RC0603FR-07100RL"
+.ATT_COM R7 "PCB3D" ""
+.ATT_COM R7 "Signal Integrity" ""
+.ATT_COM R7 "Simulation" ""
+.ATT_COM R7 "Tolerance" ""
+.ATT_COM R7 "Value" "100"
+
+.ADD_COM R8 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R8 "Comment" "100"
+.ATT_COM R8 "Component Kind" "Standard"
+.ATT_COM R8 "Description" "Резистор"
+.ATT_COM R8 "Footprint" "R0603_A"
+.ATT_COM R8 "Ibis Model" ""
+.ATT_COM R8 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R8 "Library Reference" "Resistor_0,05"
+.ATT_COM R8 "Max. power dissipation" ""
+.ATT_COM R8 "Name" "RC0603FR-07100RL"
+.ATT_COM R8 "PCB3D" ""
+.ATT_COM R8 "Signal Integrity" ""
+.ATT_COM R8 "Simulation" ""
+.ATT_COM R8 "Tolerance" ""
+.ATT_COM R8 "Value" "100"
+
+.ADD_COM R9 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R9 "ClassName" "pwr_5"
+.ATT_COM R9 "Comment" "39к"
+.ATT_COM R9 "Component Kind" "Standard"
+.ATT_COM R9 "Description" "Резистор"
+.ATT_COM R9 "Footprint" "R0603_A"
+.ATT_COM R9 "Ibis Model" ""
+.ATT_COM R9 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R9 "Library Reference" "Resistor_0,05"
+.ATT_COM R9 "Max. power dissipation" ""
+.ATT_COM R9 "Name" "RC0603FR-0739KL"
+.ATT_COM R9 "PCB3D" ""
+.ATT_COM R9 "Signal Integrity" ""
+.ATT_COM R9 "Simulation" ""
+.ATT_COM R9 "Tolerance" ""
+.ATT_COM R9 "Value" "39к"
+
+.ADD_COM R10 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R10 "ClassName" "pwr_5"
+.ATT_COM R10 "Comment" "10к"
+.ATT_COM R10 "Component Kind" "Standard"
+.ATT_COM R10 "Description" "Резистор"
+.ATT_COM R10 "Footprint" "R0603_A"
+.ATT_COM R10 "Ibis Model" ""
+.ATT_COM R10 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R10 "Library Reference" "Resistor_0,05"
+.ATT_COM R10 "Max. power dissipation" ""
+.ATT_COM R10 "Name" "RC0603FR-0710KL"
+.ATT_COM R10 "PCB3D" ""
+.ATT_COM R10 "Signal Integrity" ""
+.ATT_COM R10 "Simulation" ""
+.ATT_COM R10 "Tolerance" ""
+.ATT_COM R10 "Value" "10к"
+
+.ADD_COM R11 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R11 "Comment" "47к"
+.ATT_COM R11 "Component Kind" "Standard"
+.ATT_COM R11 "Description" "Резистор"
+.ATT_COM R11 "Footprint" "R0603_A"
+.ATT_COM R11 "Ibis Model" ""
+.ATT_COM R11 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R11 "Library Reference" "Resistor_0,05"
+.ATT_COM R11 "Max. power dissipation" ""
+.ATT_COM R11 "Name" "RC0603FR-0747KL"
+.ATT_COM R11 "PCB3D" ""
+.ATT_COM R11 "Signal Integrity" ""
+.ATT_COM R11 "Simulation" ""
+.ATT_COM R11 "Tolerance" ""
+.ATT_COM R11 "Value" "47к"
+
+.ADD_COM R12 "Resistor_0,25" "Resistor_0,25"
+.ATT_COM R12 "Comment" ""
+.ATT_COM R12 "Component Kind" "Standard"
+.ATT_COM R12 "Description" "Резистор"
+.ATT_COM R12 "Footprint" "R1206_A"
+.ATT_COM R12 "Ibis Model" ""
+.ATT_COM R12 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R12 "Library Reference" "Resistor_0,25"
+.ATT_COM R12 "Max. power dissipation" "0,25Вт"
+.ATT_COM R12 "Name" ""
+.ATT_COM R12 "PCB3D" ""
+.ATT_COM R12 "Signal Integrity" ""
+.ATT_COM R12 "Simulation" ""
+.ATT_COM R12 "Tolerance" ""
+.ATT_COM R12 "Value" ""
+
+.ADD_COM R13 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R13 "ClassName" "pwr_5"
+.ATT_COM R13 "Comment" "36к"
+.ATT_COM R13 "Component Kind" "Standard"
+.ATT_COM R13 "Description" "Резистор"
+.ATT_COM R13 "Footprint" "R0603_A"
+.ATT_COM R13 "Ibis Model" ""
+.ATT_COM R13 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R13 "Library Reference" "Resistor_0,05"
+.ATT_COM R13 "Max. power dissipation" ""
+.ATT_COM R13 "Name" "RC0603FR-0736KL"
+.ATT_COM R13 "PCB3D" ""
+.ATT_COM R13 "Signal Integrity" ""
+.ATT_COM R13 "Simulation" ""
+.ATT_COM R13 "Tolerance" ""
+.ATT_COM R13 "Value" "36к"
+
+.ADD_COM R14 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R14 "ClassName" "pwr_5"
+.ATT_COM R14 "Comment" "6,8к"
+.ATT_COM R14 "Component Kind" "Standard"
+.ATT_COM R14 "Description" "Резистор"
+.ATT_COM R14 "Footprint" "R0603_A"
+.ATT_COM R14 "Ibis Model" ""
+.ATT_COM R14 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R14 "Library Reference" "Resistor_0,05"
+.ATT_COM R14 "Max. power dissipation" ""
+.ATT_COM R14 "Name" "RC0603FR-076K8L"
+.ATT_COM R14 "PCB3D" ""
+.ATT_COM R14 "Signal Integrity" ""
+.ATT_COM R14 "Simulation" ""
+.ATT_COM R14 "Tolerance" ""
+.ATT_COM R14 "Value" "6,8к"
+
+.ADD_COM R15 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R15 "Comment" "100"
+.ATT_COM R15 "Component Kind" "Standard"
+.ATT_COM R15 "Description" "Резистор"
+.ATT_COM R15 "Footprint" "R0603_A"
+.ATT_COM R15 "Ibis Model" ""
+.ATT_COM R15 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R15 "Library Reference" "Resistor_0,05"
+.ATT_COM R15 "Max. power dissipation" ""
+.ATT_COM R15 "Name" "RC0603FR-07100RL"
+.ATT_COM R15 "PCB3D" ""
+.ATT_COM R15 "Signal Integrity" ""
+.ATT_COM R15 "Simulation" ""
+.ATT_COM R15 "Tolerance" ""
+.ATT_COM R15 "Value" "100"
+
+.ADD_COM R16 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R16 "Comment" "100"
+.ATT_COM R16 "Component Kind" "Standard"
+.ATT_COM R16 "Description" "Резистор"
+.ATT_COM R16 "Footprint" "R0603_A"
+.ATT_COM R16 "Ibis Model" ""
+.ATT_COM R16 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R16 "Library Reference" "Resistor_0,05"
+.ATT_COM R16 "Max. power dissipation" ""
+.ATT_COM R16 "Name" "RC0603FR-07100RL"
+.ATT_COM R16 "PCB3D" ""
+.ATT_COM R16 "Signal Integrity" ""
+.ATT_COM R16 "Simulation" ""
+.ATT_COM R16 "Tolerance" ""
+.ATT_COM R16 "Value" "100"
+
+.ADD_COM R17 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R17 "Comment" "47к"
+.ATT_COM R17 "Component Kind" "Standard"
+.ATT_COM R17 "Description" "Резистор"
+.ATT_COM R17 "Footprint" "R0603_A"
+.ATT_COM R17 "Ibis Model" ""
+.ATT_COM R17 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R17 "Library Reference" "Resistor_0,05"
+.ATT_COM R17 "Max. power dissipation" ""
+.ATT_COM R17 "Name" "RC0603FR-0747KL"
+.ATT_COM R17 "PCB3D" ""
+.ATT_COM R17 "Signal Integrity" ""
+.ATT_COM R17 "Simulation" ""
+.ATT_COM R17 "Tolerance" ""
+.ATT_COM R17 "Value" "47к"
+
+.ADD_COM R18 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R18 "Comment" "47к"
+.ATT_COM R18 "Component Kind" "Standard"
+.ATT_COM R18 "Description" "Резистор"
+.ATT_COM R18 "Footprint" "R0603_A"
+.ATT_COM R18 "Ibis Model" ""
+.ATT_COM R18 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R18 "Library Reference" "Resistor_0,05"
+.ATT_COM R18 "Max. power dissipation" ""
+.ATT_COM R18 "Name" "RC0603FR-0747KL"
+.ATT_COM R18 "PCB3D" ""
+.ATT_COM R18 "Signal Integrity" ""
+.ATT_COM R18 "Simulation" ""
+.ATT_COM R18 "Tolerance" ""
+.ATT_COM R18 "Value" "47к"
+
+.ADD_COM R19 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R19 "Comment" "47к"
+.ATT_COM R19 "Component Kind" "Standard"
+.ATT_COM R19 "Description" "Резистор"
+.ATT_COM R19 "Footprint" "R0603_A"
+.ATT_COM R19 "Ibis Model" ""
+.ATT_COM R19 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R19 "Library Reference" "Resistor_0,05"
+.ATT_COM R19 "Max. power dissipation" ""
+.ATT_COM R19 "Name" "RC0603FR-0747KL"
+.ATT_COM R19 "PCB3D" ""
+.ATT_COM R19 "Signal Integrity" ""
+.ATT_COM R19 "Simulation" ""
+.ATT_COM R19 "Tolerance" ""
+.ATT_COM R19 "Value" "47к"
+
+.ADD_COM R20 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R20 "ClassName" "pwr_5"
+.ATT_COM R20 "Comment" "510"
+.ATT_COM R20 "Component Kind" "Standard"
+.ATT_COM R20 "Description" "Резистор"
+.ATT_COM R20 "Footprint" "R0603_A"
+.ATT_COM R20 "Ibis Model" ""
+.ATT_COM R20 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R20 "Library Reference" "Resistor_0,05"
+.ATT_COM R20 "Max. power dissipation" ""
+.ATT_COM R20 "Name" "RC0603FR-07510RL"
+.ATT_COM R20 "PCB3D" ""
+.ATT_COM R20 "Signal Integrity" ""
+.ATT_COM R20 "Simulation" ""
+.ATT_COM R20 "Tolerance" ""
+.ATT_COM R20 "Value" "510"
+
+.ADD_COM R21 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R21 "Comment" "0"
+.ATT_COM R21 "Component Kind" "Standard"
+.ATT_COM R21 "Description" "Резистор"
+.ATT_COM R21 "Footprint" "R0603_A"
+.ATT_COM R21 "Ibis Model" ""
+.ATT_COM R21 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R21 "Library Reference" "Resistor_0,05"
+.ATT_COM R21 "Max. power dissipation" ""
+.ATT_COM R21 "Name" "RC0603FR-070RL"
+.ATT_COM R21 "PCB3D" ""
+.ATT_COM R21 "Signal Integrity" ""
+.ATT_COM R21 "Simulation" ""
+.ATT_COM R21 "Tolerance" ""
+.ATT_COM R21 "Value" "0"
+
+.ADD_COM R22 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R22 "Comment" "330"
+.ATT_COM R22 "Component Kind" "Standard"
+.ATT_COM R22 "Description" "Резистор"
+.ATT_COM R22 "Footprint" "R0603_A"
+.ATT_COM R22 "Ibis Model" ""
+.ATT_COM R22 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R22 "Library Reference" "Resistor_0,05"
+.ATT_COM R22 "Max. power dissipation" ""
+.ATT_COM R22 "Name" "RC0603FR-07330RL"
+.ATT_COM R22 "PCB3D" ""
+.ATT_COM R22 "Signal Integrity" ""
+.ATT_COM R22 "Simulation" ""
+.ATT_COM R22 "Tolerance" ""
+.ATT_COM R22 "Value" "330"
+
+.ADD_COM R23 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R23 "Comment" "330"
+.ATT_COM R23 "Component Kind" "Standard"
+.ATT_COM R23 "Description" "Резистор"
+.ATT_COM R23 "Footprint" "R0603_A"
+.ATT_COM R23 "Ibis Model" ""
+.ATT_COM R23 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R23 "Library Reference" "Resistor_0,05"
+.ATT_COM R23 "Max. power dissipation" ""
+.ATT_COM R23 "Name" "RC0603FR-07330RL"
+.ATT_COM R23 "PCB3D" ""
+.ATT_COM R23 "Signal Integrity" ""
+.ATT_COM R23 "Simulation" ""
+.ATT_COM R23 "Tolerance" ""
+.ATT_COM R23 "Value" "330"
+
+.ADD_COM R24 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R24 "Comment" "330"
+.ATT_COM R24 "Component Kind" "Standard"
+.ATT_COM R24 "Description" "Резистор"
+.ATT_COM R24 "Footprint" "R0603_A"
+.ATT_COM R24 "Ibis Model" ""
+.ATT_COM R24 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R24 "Library Reference" "Resistor_0,05"
+.ATT_COM R24 "Max. power dissipation" ""
+.ATT_COM R24 "Name" "RC0603FR-07330RL"
+.ATT_COM R24 "PCB3D" ""
+.ATT_COM R24 "Signal Integrity" ""
+.ATT_COM R24 "Simulation" ""
+.ATT_COM R24 "Tolerance" ""
+.ATT_COM R24 "Value" "330"
+
+.ADD_COM R25 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R25 "Comment" "100"
+.ATT_COM R25 "Component Kind" "Standard"
+.ATT_COM R25 "Description" "Резистор"
+.ATT_COM R25 "Footprint" "R0603_A"
+.ATT_COM R25 "Ibis Model" ""
+.ATT_COM R25 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R25 "Library Reference" "Resistor_0,05"
+.ATT_COM R25 "Max. power dissipation" ""
+.ATT_COM R25 "Name" "RC0603FR-07100RL"
+.ATT_COM R25 "PCB3D" ""
+.ATT_COM R25 "Signal Integrity" ""
+.ATT_COM R25 "Simulation" ""
+.ATT_COM R25 "Tolerance" ""
+.ATT_COM R25 "Value" "100"
+
+.ADD_COM R26 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R26 "Comment" "100"
+.ATT_COM R26 "Component Kind" "Standard"
+.ATT_COM R26 "Description" "Резистор"
+.ATT_COM R26 "Footprint" "R0603_A"
+.ATT_COM R26 "Ibis Model" ""
+.ATT_COM R26 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R26 "Library Reference" "Resistor_0,05"
+.ATT_COM R26 "Max. power dissipation" ""
+.ATT_COM R26 "Name" "RC0603FR-07100RL"
+.ATT_COM R26 "PCB3D" ""
+.ATT_COM R26 "Signal Integrity" ""
+.ATT_COM R26 "Simulation" ""
+.ATT_COM R26 "Tolerance" ""
+.ATT_COM R26 "Value" "100"
+
+.ADD_COM R27 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R27 "Comment" "100"
+.ATT_COM R27 "Component Kind" "Standard"
+.ATT_COM R27 "Description" "Резистор"
+.ATT_COM R27 "Footprint" "R0603_A"
+.ATT_COM R27 "Ibis Model" ""
+.ATT_COM R27 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R27 "Library Reference" "Resistor_0,05"
+.ATT_COM R27 "Max. power dissipation" ""
+.ATT_COM R27 "Name" "RC0603FR-07100RL"
+.ATT_COM R27 "PCB3D" ""
+.ATT_COM R27 "Signal Integrity" ""
+.ATT_COM R27 "Simulation" ""
+.ATT_COM R27 "Tolerance" ""
+.ATT_COM R27 "Value" "100"
+
+.ADD_COM R28 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R28 "Comment" "100"
+.ATT_COM R28 "Component Kind" "Standard"
+.ATT_COM R28 "Description" "Резистор"
+.ATT_COM R28 "Footprint" "R0603_A"
+.ATT_COM R28 "Ibis Model" ""
+.ATT_COM R28 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R28 "Library Reference" "Resistor_0,05"
+.ATT_COM R28 "Max. power dissipation" ""
+.ATT_COM R28 "Name" "RC0603FR-07100RL"
+.ATT_COM R28 "PCB3D" ""
+.ATT_COM R28 "Signal Integrity" ""
+.ATT_COM R28 "Simulation" ""
+.ATT_COM R28 "Tolerance" ""
+.ATT_COM R28 "Value" "100"
+
+.ADD_COM R29 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R29 "Comment" "100"
+.ATT_COM R29 "Component Kind" "Standard"
+.ATT_COM R29 "Description" "Резистор"
+.ATT_COM R29 "Footprint" "R0603_A"
+.ATT_COM R29 "Ibis Model" ""
+.ATT_COM R29 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R29 "Library Reference" "Resistor_0,05"
+.ATT_COM R29 "Max. power dissipation" ""
+.ATT_COM R29 "Name" "RC0603FR-07100RL"
+.ATT_COM R29 "PCB3D" ""
+.ATT_COM R29 "Signal Integrity" ""
+.ATT_COM R29 "Simulation" ""
+.ATT_COM R29 "Tolerance" ""
+.ATT_COM R29 "Value" "100"
+
+.ADD_COM R30 "Resistor_x4" "Resistor_x4"
+.ATT_COM R30 "Comment" "100"
+.ATT_COM R30 "Component Kind" "Standard"
+.ATT_COM R30 "Description" "Резистор"
+.ATT_COM R30 "Footprint" "R0603x4"
+.ATT_COM R30 "Ibis Model" ""
+.ATT_COM R30 "Library Name" "main_board.SchLib"
+.ATT_COM R30 "Library Reference" "Resistor_x4"
+.ATT_COM R30 "Name" "CAT16-101J4"
+.ATT_COM R30 "PCB3D" ""
+.ATT_COM R30 "Power" ""
+.ATT_COM R30 "Signal Integrity" ""
+.ATT_COM R30 "Simulation" ""
+.ATT_COM R30 "Tolerance" ""
+.ATT_COM R30 "Value" "100"
+
+.ADD_COM R31 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R31 "Comment" "47к"
+.ATT_COM R31 "Component Kind" "Standard"
+.ATT_COM R31 "Description" "Резистор"
+.ATT_COM R31 "Footprint" "R0603_A"
+.ATT_COM R31 "Ibis Model" ""
+.ATT_COM R31 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R31 "Library Reference" "Resistor_0,05"
+.ATT_COM R31 "Max. power dissipation" ""
+.ATT_COM R31 "Name" "RC0603FR-0747KL"
+.ATT_COM R31 "PCB3D" ""
+.ATT_COM R31 "Signal Integrity" ""
+.ATT_COM R31 "Simulation" ""
+.ATT_COM R31 "Tolerance" ""
+.ATT_COM R31 "Value" "47к"
+
+.ADD_COM R32 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R32 "Comment" "47к"
+.ATT_COM R32 "Component Kind" "Standard"
+.ATT_COM R32 "Description" "Резистор"
+.ATT_COM R32 "Footprint" "R0603_A"
+.ATT_COM R32 "Ibis Model" ""
+.ATT_COM R32 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R32 "Library Reference" "Resistor_0,05"
+.ATT_COM R32 "Max. power dissipation" ""
+.ATT_COM R32 "Name" "RC0603FR-0747KL"
+.ATT_COM R32 "PCB3D" ""
+.ATT_COM R32 "Signal Integrity" ""
+.ATT_COM R32 "Simulation" ""
+.ATT_COM R32 "Tolerance" ""
+.ATT_COM R32 "Value" "47к"
+
+.ADD_COM R33 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R33 "Comment" "47к"
+.ATT_COM R33 "Component Kind" "Standard"
+.ATT_COM R33 "Description" "Резистор"
+.ATT_COM R33 "Footprint" "R0603_A"
+.ATT_COM R33 "Ibis Model" ""
+.ATT_COM R33 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R33 "Library Reference" "Resistor_0,05"
+.ATT_COM R33 "Max. power dissipation" ""
+.ATT_COM R33 "Name" "RC0603FR-0747KL"
+.ATT_COM R33 "PCB3D" ""
+.ATT_COM R33 "Signal Integrity" ""
+.ATT_COM R33 "Simulation" ""
+.ATT_COM R33 "Tolerance" ""
+.ATT_COM R33 "Value" "47к"
+
+.ADD_COM R34 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R34 "Comment" "47к"
+.ATT_COM R34 "Component Kind" "Standard"
+.ATT_COM R34 "Description" "Резистор"
+.ATT_COM R34 "Footprint" "R0603_A"
+.ATT_COM R34 "Ibis Model" ""
+.ATT_COM R34 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R34 "Library Reference" "Resistor_0,05"
+.ATT_COM R34 "Max. power dissipation" ""
+.ATT_COM R34 "Name" "RC0603FR-0747KL"
+.ATT_COM R34 "PCB3D" ""
+.ATT_COM R34 "Signal Integrity" ""
+.ATT_COM R34 "Simulation" ""
+.ATT_COM R34 "Tolerance" ""
+.ATT_COM R34 "Value" "47к"
+
+.ADD_COM R35 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R35 "Comment" "47к"
+.ATT_COM R35 "Component Kind" "Standard"
+.ATT_COM R35 "Description" "Резистор"
+.ATT_COM R35 "Footprint" "R0603_A"
+.ATT_COM R35 "Ibis Model" ""
+.ATT_COM R35 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R35 "Library Reference" "Resistor_0,05"
+.ATT_COM R35 "Max. power dissipation" ""
+.ATT_COM R35 "Name" "RC0603FR-0747KL"
+.ATT_COM R35 "PCB3D" ""
+.ATT_COM R35 "Signal Integrity" ""
+.ATT_COM R35 "Simulation" ""
+.ATT_COM R35 "Tolerance" ""
+.ATT_COM R35 "Value" "47к"
+
+.ADD_COM R36 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R36 "Comment" "820"
+.ATT_COM R36 "Component Kind" "Standard"
+.ATT_COM R36 "Description" "Резистор"
+.ATT_COM R36 "Footprint" "R0603_A"
+.ATT_COM R36 "Ibis Model" ""
+.ATT_COM R36 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R36 "Library Reference" "Resistor_0,05"
+.ATT_COM R36 "Max. power dissipation" ""
+.ATT_COM R36 "Name" "RC0603FR-07820RL"
+.ATT_COM R36 "PCB3D" ""
+.ATT_COM R36 "Signal Integrity" ""
+.ATT_COM R36 "Simulation" ""
+.ATT_COM R36 "Tolerance" ""
+.ATT_COM R36 "Value" "820"
+
+.ADD_COM R37 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R37 "Comment" "100"
+.ATT_COM R37 "Component Kind" "Standard"
+.ATT_COM R37 "Description" "Резистор"
+.ATT_COM R37 "Footprint" "R0603_A"
+.ATT_COM R37 "Ibis Model" ""
+.ATT_COM R37 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R37 "Library Reference" "Resistor_0,05"
+.ATT_COM R37 "Max. power dissipation" ""
+.ATT_COM R37 "Name" "RC0603FR-07100RL"
+.ATT_COM R37 "PCB3D" ""
+.ATT_COM R37 "Signal Integrity" ""
+.ATT_COM R37 "Simulation" ""
+.ATT_COM R37 "Tolerance" ""
+.ATT_COM R37 "Value" "100"
+
+.ADD_COM R38 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R38 "Comment" "100"
+.ATT_COM R38 "Component Kind" "Standard"
+.ATT_COM R38 "Description" "Резистор"
+.ATT_COM R38 "Footprint" "R0603_A"
+.ATT_COM R38 "Ibis Model" ""
+.ATT_COM R38 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R38 "Library Reference" "Resistor_0,05"
+.ATT_COM R38 "Max. power dissipation" ""
+.ATT_COM R38 "Name" "RC0603FR-07100RL"
+.ATT_COM R38 "PCB3D" ""
+.ATT_COM R38 "Signal Integrity" ""
+.ATT_COM R38 "Simulation" ""
+.ATT_COM R38 "Tolerance" ""
+.ATT_COM R38 "Value" "100"
+
+.ADD_COM R39 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R39 "Comment" "100"
+.ATT_COM R39 "Component Kind" "Standard"
+.ATT_COM R39 "Description" "Резистор"
+.ATT_COM R39 "Footprint" "R0603_A"
+.ATT_COM R39 "Ibis Model" ""
+.ATT_COM R39 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R39 "Library Reference" "Resistor_0,05"
+.ATT_COM R39 "Max. power dissipation" ""
+.ATT_COM R39 "Name" "RC0603FR-07100RL"
+.ATT_COM R39 "PCB3D" ""
+.ATT_COM R39 "Signal Integrity" ""
+.ATT_COM R39 "Simulation" ""
+.ATT_COM R39 "Tolerance" ""
+.ATT_COM R39 "Value" "100"
+
+.ADD_COM R40 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R40 "Comment" "75"
+.ATT_COM R40 "Component Kind" "Standard"
+.ATT_COM R40 "Description" "Резистор"
+.ATT_COM R40 "Footprint" "R0603_A"
+.ATT_COM R40 "Ibis Model" ""
+.ATT_COM R40 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R40 "Library Reference" "Resistor_0,05"
+.ATT_COM R40 "Max. power dissipation" "0,005"
+.ATT_COM R40 "Name" "RC0603FR-0775RL"
+.ATT_COM R40 "PCB3D" ""
+.ATT_COM R40 "Signal Integrity" ""
+.ATT_COM R40 "Simulation" ""
+.ATT_COM R40 "Tolerance" ""
+.ATT_COM R40 "Value" "75"
+
+.ADD_COM R41 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R41 "Comment" "10к"
+.ATT_COM R41 "Component Kind" "Standard"
+.ATT_COM R41 "Description" "Резистор"
+.ATT_COM R41 "Footprint" "R0603_A"
+.ATT_COM R41 "Ibis Model" ""
+.ATT_COM R41 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R41 "Library Reference" "Resistor_0,05"
+.ATT_COM R41 "Max. power dissipation" ""
+.ATT_COM R41 "Name" "RC0603FR-0710KL"
+.ATT_COM R41 "PCB3D" ""
+.ATT_COM R41 "Signal Integrity" ""
+.ATT_COM R41 "Simulation" ""
+.ATT_COM R41 "Tolerance" ""
+.ATT_COM R41 "Value" "10к"
+
+.ADD_COM R42 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R42 "Comment" "75"
+.ATT_COM R42 "Component Kind" "Standard"
+.ATT_COM R42 "Description" "Резистор"
+.ATT_COM R42 "Footprint" "R0603_A"
+.ATT_COM R42 "Ibis Model" ""
+.ATT_COM R42 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R42 "Library Reference" "Resistor_0,05"
+.ATT_COM R42 "Max. power dissipation" "0,005"
+.ATT_COM R42 "Name" "RC0603FR-0775RL"
+.ATT_COM R42 "PCB3D" ""
+.ATT_COM R42 "Signal Integrity" ""
+.ATT_COM R42 "Simulation" ""
+.ATT_COM R42 "Tolerance" ""
+.ATT_COM R42 "Value" "75"
+
+.ADD_COM R43 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R43 "Comment" "47к"
+.ATT_COM R43 "Component Kind" "Standard"
+.ATT_COM R43 "Description" "Резистор"
+.ATT_COM R43 "Footprint" "R0603_A"
+.ATT_COM R43 "Ibis Model" ""
+.ATT_COM R43 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R43 "Library Reference" "Resistor_0,05"
+.ATT_COM R43 "Max. power dissipation" ""
+.ATT_COM R43 "Name" "RC0603FR-0747KL"
+.ATT_COM R43 "PCB3D" ""
+.ATT_COM R43 "Signal Integrity" ""
+.ATT_COM R43 "Simulation" ""
+.ATT_COM R43 "Tolerance" ""
+.ATT_COM R43 "Value" "47к"
+
+.ADD_COM R44 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R44 "Comment" "47к"
+.ATT_COM R44 "Component Kind" "Standard"
+.ATT_COM R44 "Description" "Резистор"
+.ATT_COM R44 "Footprint" "R0603_A"
+.ATT_COM R44 "Ibis Model" ""
+.ATT_COM R44 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R44 "Library Reference" "Resistor_0,05"
+.ATT_COM R44 "Max. power dissipation" ""
+.ATT_COM R44 "Name" "RC0603FR-0747KL"
+.ATT_COM R44 "PCB3D" ""
+.ATT_COM R44 "Signal Integrity" ""
+.ATT_COM R44 "Simulation" ""
+.ATT_COM R44 "Tolerance" ""
+.ATT_COM R44 "Value" "47к"
+
+.ADD_COM R45 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R45 "Comment" "47к"
+.ATT_COM R45 "Component Kind" "Standard"
+.ATT_COM R45 "Description" "Резистор"
+.ATT_COM R45 "Footprint" "R0603_A"
+.ATT_COM R45 "Ibis Model" ""
+.ATT_COM R45 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R45 "Library Reference" "Resistor_0,05"
+.ATT_COM R45 "Max. power dissipation" ""
+.ATT_COM R45 "Name" "RC0603FR-0747KL"
+.ATT_COM R45 "PCB3D" ""
+.ATT_COM R45 "Signal Integrity" ""
+.ATT_COM R45 "Simulation" ""
+.ATT_COM R45 "Tolerance" ""
+.ATT_COM R45 "Value" "47к"
+
+.ADD_COM R46 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R46 "Comment" "62"
+.ATT_COM R46 "Component Kind" "Standard"
+.ATT_COM R46 "Description" "Резистор"
+.ATT_COM R46 "Footprint" "R0603_A"
+.ATT_COM R46 "Ibis Model" ""
+.ATT_COM R46 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R46 "Library Reference" "Resistor_0,05"
+.ATT_COM R46 "Max. power dissipation" ""
+.ATT_COM R46 "Name" "RC0603FR-0762RL"
+.ATT_COM R46 "PCB3D" ""
+.ATT_COM R46 "Signal Integrity" ""
+.ATT_COM R46 "Simulation" ""
+.ATT_COM R46 "Tolerance" ""
+.ATT_COM R46 "Value" "62"
+
+.ADD_COM R47 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R47 "Comment" "62"
+.ATT_COM R47 "Component Kind" "Standard"
+.ATT_COM R47 "Description" "Резистор"
+.ATT_COM R47 "Footprint" "R0603_A"
+.ATT_COM R47 "Ibis Model" ""
+.ATT_COM R47 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R47 "Library Reference" "Resistor_0,05"
+.ATT_COM R47 "Max. power dissipation" ""
+.ATT_COM R47 "Name" "RC0603FR-0762RL"
+.ATT_COM R47 "PCB3D" ""
+.ATT_COM R47 "Signal Integrity" ""
+.ATT_COM R47 "Simulation" ""
+.ATT_COM R47 "Tolerance" ""
+.ATT_COM R47 "Value" "62"
+
+.ADD_COM R48 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R48 "Comment" "100"
+.ATT_COM R48 "Component Kind" "Standard"
+.ATT_COM R48 "Description" "Резистор"
+.ATT_COM R48 "Footprint" "R0603_A"
+.ATT_COM R48 "Ibis Model" ""
+.ATT_COM R48 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R48 "Library Reference" "Resistor_0,05"
+.ATT_COM R48 "Max. power dissipation" ""
+.ATT_COM R48 "Name" "RC0603FR-07100RL"
+.ATT_COM R48 "PCB3D" ""
+.ATT_COM R48 "Signal Integrity" ""
+.ATT_COM R48 "Simulation" ""
+.ATT_COM R48 "Tolerance" ""
+.ATT_COM R48 "Value" "100"
+
+.ADD_COM R49 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R49 "Comment" "100"
+.ATT_COM R49 "Component Kind" "Standard"
+.ATT_COM R49 "Description" "Резистор"
+.ATT_COM R49 "Footprint" "R0603_A"
+.ATT_COM R49 "Ibis Model" ""
+.ATT_COM R49 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R49 "Library Reference" "Resistor_0,05"
+.ATT_COM R49 "Max. power dissipation" ""
+.ATT_COM R49 "Name" "RC0603FR-07100RL"
+.ATT_COM R49 "PCB3D" ""
+.ATT_COM R49 "Signal Integrity" ""
+.ATT_COM R49 "Simulation" ""
+.ATT_COM R49 "Tolerance" ""
+.ATT_COM R49 "Value" "100"
+
+.ADD_COM R50 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R50 "Comment" "100"
+.ATT_COM R50 "Component Kind" "Standard"
+.ATT_COM R50 "Description" "Резистор"
+.ATT_COM R50 "Footprint" "R0603_A"
+.ATT_COM R50 "Ibis Model" ""
+.ATT_COM R50 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R50 "Library Reference" "Resistor_0,05"
+.ATT_COM R50 "Max. power dissipation" ""
+.ATT_COM R50 "Name" "RC0603FR-07100RL"
+.ATT_COM R50 "PCB3D" ""
+.ATT_COM R50 "Signal Integrity" ""
+.ATT_COM R50 "Simulation" ""
+.ATT_COM R50 "Tolerance" ""
+.ATT_COM R50 "Value" "100"
+
+.ADD_COM R51 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R51 "Comment" "62"
+.ATT_COM R51 "Component Kind" "Standard"
+.ATT_COM R51 "Description" "Резистор"
+.ATT_COM R51 "Footprint" "R0603_A"
+.ATT_COM R51 "Ibis Model" ""
+.ATT_COM R51 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R51 "Library Reference" "Resistor_0,05"
+.ATT_COM R51 "Max. power dissipation" ""
+.ATT_COM R51 "Name" "RC0603FR-0762RL"
+.ATT_COM R51 "PCB3D" ""
+.ATT_COM R51 "Signal Integrity" ""
+.ATT_COM R51 "Simulation" ""
+.ATT_COM R51 "Tolerance" ""
+.ATT_COM R51 "Value" "62"
+
+.ADD_COM R52 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R52 "Comment" "62"
+.ATT_COM R52 "Component Kind" "Standard"
+.ATT_COM R52 "Description" "Резистор"
+.ATT_COM R52 "Footprint" "R0603_A"
+.ATT_COM R52 "Ibis Model" ""
+.ATT_COM R52 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R52 "Library Reference" "Resistor_0,05"
+.ATT_COM R52 "Max. power dissipation" ""
+.ATT_COM R52 "Name" "RC0603FR-0762RL"
+.ATT_COM R52 "PCB3D" ""
+.ATT_COM R52 "Signal Integrity" ""
+.ATT_COM R52 "Simulation" ""
+.ATT_COM R52 "Tolerance" ""
+.ATT_COM R52 "Value" "62"
+
+.ADD_COM R53 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R53 "Comment" "47к"
+.ATT_COM R53 "Component Kind" "Standard"
+.ATT_COM R53 "Description" "Резистор"
+.ATT_COM R53 "Footprint" "R0603_A"
+.ATT_COM R53 "Ibis Model" ""
+.ATT_COM R53 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R53 "Library Reference" "Resistor_0,05"
+.ATT_COM R53 "Max. power dissipation" "0,005"
+.ATT_COM R53 "Name" "RC0603FR-0747KL"
+.ATT_COM R53 "PCB3D" ""
+.ATT_COM R53 "Signal Integrity" ""
+.ATT_COM R53 "Simulation" ""
+.ATT_COM R53 "Tolerance" ""
+.ATT_COM R53 "Value" "47к"
+
+.ADD_COM R54 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R54 "Comment" "47к"
+.ATT_COM R54 "Component Kind" "Standard"
+.ATT_COM R54 "Description" "Резистор"
+.ATT_COM R54 "Footprint" "R0603_A"
+.ATT_COM R54 "Ibis Model" ""
+.ATT_COM R54 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R54 "Library Reference" "Resistor_0,05"
+.ATT_COM R54 "Max. power dissipation" "0,005"
+.ATT_COM R54 "Name" "RC0603FR-0747KL"
+.ATT_COM R54 "PCB3D" ""
+.ATT_COM R54 "Signal Integrity" ""
+.ATT_COM R54 "Simulation" ""
+.ATT_COM R54 "Tolerance" ""
+.ATT_COM R54 "Value" "47к"
+
+.ADD_COM R55 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R55 "Comment" "47к"
+.ATT_COM R55 "Component Kind" "Standard"
+.ATT_COM R55 "Description" "Резистор"
+.ATT_COM R55 "Footprint" "R0603_A"
+.ATT_COM R55 "Ibis Model" ""
+.ATT_COM R55 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R55 "Library Reference" "Resistor_0,05"
+.ATT_COM R55 "Max. power dissipation" "0,005"
+.ATT_COM R55 "Name" "RC0603FR-0747KL"
+.ATT_COM R55 "PCB3D" ""
+.ATT_COM R55 "Signal Integrity" ""
+.ATT_COM R55 "Simulation" ""
+.ATT_COM R55 "Tolerance" ""
+.ATT_COM R55 "Value" "47к"
+
+.ADD_COM R56 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R56 "Comment" "47к"
+.ATT_COM R56 "Component Kind" "Standard"
+.ATT_COM R56 "Description" "Резистор"
+.ATT_COM R56 "Footprint" "R0603_A"
+.ATT_COM R56 "Ibis Model" ""
+.ATT_COM R56 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R56 "Library Reference" "Resistor_0,05"
+.ATT_COM R56 "Max. power dissipation" "0,005"
+.ATT_COM R56 "Name" "RC0603FR-0747KL"
+.ATT_COM R56 "PCB3D" ""
+.ATT_COM R56 "Signal Integrity" ""
+.ATT_COM R56 "Simulation" ""
+.ATT_COM R56 "Tolerance" ""
+.ATT_COM R56 "Value" "47к"
+
+.ADD_COM R57 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R57 "Comment" "0"
+.ATT_COM R57 "Component Kind" "Standard"
+.ATT_COM R57 "Description" "Резистор"
+.ATT_COM R57 "Footprint" "R0603_A"
+.ATT_COM R57 "Ibis Model" ""
+.ATT_COM R57 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R57 "Library Reference" "Resistor_0,05"
+.ATT_COM R57 "Max. power dissipation" ""
+.ATT_COM R57 "Name" "RC0603FR-070RL"
+.ATT_COM R57 "PCB3D" ""
+.ATT_COM R57 "Signal Integrity" ""
+.ATT_COM R57 "Simulation" ""
+.ATT_COM R57 "Tolerance" ""
+.ATT_COM R57 "Value" "0"
+
+.ADD_COM R58 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R58 "Comment" "47к"
+.ATT_COM R58 "Component Kind" "Standard"
+.ATT_COM R58 "Description" "Резистор"
+.ATT_COM R58 "Footprint" "R0603_A"
+.ATT_COM R58 "Ibis Model" ""
+.ATT_COM R58 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R58 "Library Reference" "Resistor_0,05"
+.ATT_COM R58 "Max. power dissipation" "0,005"
+.ATT_COM R58 "Name" "RC0603FR-0747KL"
+.ATT_COM R58 "PCB3D" ""
+.ATT_COM R58 "Signal Integrity" ""
+.ATT_COM R58 "Simulation" ""
+.ATT_COM R58 "Tolerance" ""
+.ATT_COM R58 "Value" "47к"
+
+.ADD_COM R59 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R59 "Comment" "47к"
+.ATT_COM R59 "Component Kind" "Standard"
+.ATT_COM R59 "Description" "Резистор"
+.ATT_COM R59 "Footprint" "R0603_A"
+.ATT_COM R59 "Ibis Model" ""
+.ATT_COM R59 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R59 "Library Reference" "Resistor_0,05"
+.ATT_COM R59 "Max. power dissipation" "0,005"
+.ATT_COM R59 "Name" "RC0603FR-0747KL"
+.ATT_COM R59 "PCB3D" ""
+.ATT_COM R59 "Signal Integrity" ""
+.ATT_COM R59 "Simulation" ""
+.ATT_COM R59 "Tolerance" ""
+.ATT_COM R59 "Value" "47к"
+
+.ADD_COM R60 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R60 "Comment" "47к"
+.ATT_COM R60 "Component Kind" "Standard"
+.ATT_COM R60 "Description" "Резистор"
+.ATT_COM R60 "Footprint" "R0603_A"
+.ATT_COM R60 "Ibis Model" ""
+.ATT_COM R60 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R60 "Library Reference" "Resistor_0,05"
+.ATT_COM R60 "Max. power dissipation" "0,005"
+.ATT_COM R60 "Name" "RC0603FR-0747KL"
+.ATT_COM R60 "PCB3D" ""
+.ATT_COM R60 "Signal Integrity" ""
+.ATT_COM R60 "Simulation" ""
+.ATT_COM R60 "Tolerance" ""
+.ATT_COM R60 "Value" "47к"
+
+.ADD_COM R61 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R61 "Comment" "0"
+.ATT_COM R61 "Component Kind" "Standard"
+.ATT_COM R61 "Description" "Резистор"
+.ATT_COM R61 "Footprint" "R0603_A"
+.ATT_COM R61 "Ibis Model" ""
+.ATT_COM R61 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R61 "Library Reference" "Resistor_0,05"
+.ATT_COM R61 "Max. power dissipation" ""
+.ATT_COM R61 "Name" "RC0603FR-070RL"
+.ATT_COM R61 "PCB3D" ""
+.ATT_COM R61 "Signal Integrity" ""
+.ATT_COM R61 "Simulation" ""
+.ATT_COM R61 "Tolerance" ""
+.ATT_COM R61 "Value" "0"
+
+.ADD_COM R62 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R62 "Comment" "100"
+.ATT_COM R62 "Component Kind" "Standard"
+.ATT_COM R62 "Description" "Резистор"
+.ATT_COM R62 "Footprint" "R0603_A"
+.ATT_COM R62 "Ibis Model" ""
+.ATT_COM R62 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R62 "Library Reference" "Resistor_0,05"
+.ATT_COM R62 "Max. power dissipation" ""
+.ATT_COM R62 "Name" "RC0603FR-07100RL"
+.ATT_COM R62 "PCB3D" ""
+.ATT_COM R62 "Signal Integrity" ""
+.ATT_COM R62 "Simulation" ""
+.ATT_COM R62 "Tolerance" ""
+.ATT_COM R62 "Value" "100"
+
+.ADD_COM R63 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R63 "Comment" "100"
+.ATT_COM R63 "Component Kind" "Standard"
+.ATT_COM R63 "Description" "Резистор"
+.ATT_COM R63 "Footprint" "R0603_A"
+.ATT_COM R63 "Ibis Model" ""
+.ATT_COM R63 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R63 "Library Reference" "Resistor_0,05"
+.ATT_COM R63 "Max. power dissipation" ""
+.ATT_COM R63 "Name" "RC0603FR-07100RL"
+.ATT_COM R63 "PCB3D" ""
+.ATT_COM R63 "Signal Integrity" ""
+.ATT_COM R63 "Simulation" ""
+.ATT_COM R63 "Tolerance" ""
+.ATT_COM R63 "Value" "100"
+
+.ADD_COM R64 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R64 "Comment" "100"
+.ATT_COM R64 "Component Kind" "Standard"
+.ATT_COM R64 "Description" "Резистор"
+.ATT_COM R64 "Footprint" "R0603_A"
+.ATT_COM R64 "Ibis Model" ""
+.ATT_COM R64 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R64 "Library Reference" "Resistor_0,05"
+.ATT_COM R64 "Max. power dissipation" ""
+.ATT_COM R64 "Name" "RC0603FR-07100RL"
+.ATT_COM R64 "PCB3D" ""
+.ATT_COM R64 "Signal Integrity" ""
+.ATT_COM R64 "Simulation" ""
+.ATT_COM R64 "Tolerance" ""
+.ATT_COM R64 "Value" "100"
+
+.ADD_COM R65 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R65 "Comment" "100"
+.ATT_COM R65 "Component Kind" "Standard"
+.ATT_COM R65 "Description" "Резистор"
+.ATT_COM R65 "Footprint" "R0603_A"
+.ATT_COM R65 "Ibis Model" ""
+.ATT_COM R65 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R65 "Library Reference" "Resistor_0,05"
+.ATT_COM R65 "Max. power dissipation" ""
+.ATT_COM R65 "Name" "RC0603FR-07100RL"
+.ATT_COM R65 "PCB3D" ""
+.ATT_COM R65 "Signal Integrity" ""
+.ATT_COM R65 "Simulation" ""
+.ATT_COM R65 "Tolerance" ""
+.ATT_COM R65 "Value" "100"
+
+.ADD_COM R66 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R66 "ClassName" "video1"
+.ATT_COM R66 "Comment" "75"
+.ATT_COM R66 "Component Kind" "Standard"
+.ATT_COM R66 "Description" "Резистор"
+.ATT_COM R66 "Footprint" "R0603_A"
+.ATT_COM R66 "Ibis Model" ""
+.ATT_COM R66 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R66 "Library Reference" "Resistor_0,05"
+.ATT_COM R66 "Max. power dissipation" "0,005"
+.ATT_COM R66 "Name" "RC0603FR-0775RL"
+.ATT_COM R66 "PCB3D" ""
+.ATT_COM R66 "Signal Integrity" ""
+.ATT_COM R66 "Simulation" ""
+.ATT_COM R66 "Tolerance" ""
+.ATT_COM R66 "Value" "75"
+
+.ADD_COM R67 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R67 "ClassName" "video2"
+.ATT_COM R67 "Comment" "75"
+.ATT_COM R67 "Component Kind" "Standard"
+.ATT_COM R67 "Description" "Резистор"
+.ATT_COM R67 "Footprint" "R0603_A"
+.ATT_COM R67 "Ibis Model" ""
+.ATT_COM R67 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R67 "Library Reference" "Resistor_0,05"
+.ATT_COM R67 "Max. power dissipation" "0,005"
+.ATT_COM R67 "Name" "RC0603FR-0775RL"
+.ATT_COM R67 "PCB3D" ""
+.ATT_COM R67 "Signal Integrity" ""
+.ATT_COM R67 "Simulation" ""
+.ATT_COM R67 "Tolerance" ""
+.ATT_COM R67 "Value" "75"
+
+.ADD_COM R68 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R68 "ClassName" "video3"
+.ATT_COM R68 "Comment" "75"
+.ATT_COM R68 "Component Kind" "Standard"
+.ATT_COM R68 "Description" "Резистор"
+.ATT_COM R68 "Footprint" "R0603_A"
+.ATT_COM R68 "Ibis Model" ""
+.ATT_COM R68 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R68 "Library Reference" "Resistor_0,05"
+.ATT_COM R68 "Max. power dissipation" "0,005"
+.ATT_COM R68 "Name" "RC0603FR-0775RL"
+.ATT_COM R68 "PCB3D" ""
+.ATT_COM R68 "Signal Integrity" ""
+.ATT_COM R68 "Simulation" ""
+.ATT_COM R68 "Tolerance" ""
+.ATT_COM R68 "Value" "75"
+
+.ADD_COM R69 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R69 "ClassName" "Video4"
+.ATT_COM R69 "Comment" "75"
+.ATT_COM R69 "Component Kind" "Standard"
+.ATT_COM R69 "Description" "Резистор"
+.ATT_COM R69 "Footprint" "R0603_A"
+.ATT_COM R69 "Ibis Model" ""
+.ATT_COM R69 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R69 "Library Reference" "Resistor_0,05"
+.ATT_COM R69 "Max. power dissipation" "0,005"
+.ATT_COM R69 "Name" "RC0603FR-0775RL"
+.ATT_COM R69 "PCB3D" ""
+.ATT_COM R69 "Signal Integrity" ""
+.ATT_COM R69 "Simulation" ""
+.ATT_COM R69 "Tolerance" ""
+.ATT_COM R69 "Value" "75"
+
+.ADD_COM R70 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R70 "Comment" "100"
+.ATT_COM R70 "Component Kind" "Standard"
+.ATT_COM R70 "Description" "Резистор"
+.ATT_COM R70 "Footprint" "R0603_A"
+.ATT_COM R70 "Ibis Model" ""
+.ATT_COM R70 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R70 "Library Reference" "Resistor_0,05"
+.ATT_COM R70 "Max. power dissipation" ""
+.ATT_COM R70 "Name" "RC0603FR-07100RL"
+.ATT_COM R70 "PCB3D" ""
+.ATT_COM R70 "Signal Integrity" ""
+.ATT_COM R70 "Simulation" ""
+.ATT_COM R70 "Tolerance" ""
+.ATT_COM R70 "Value" "100"
+
+.ADD_COM R71 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R71 "Comment" "100"
+.ATT_COM R71 "Component Kind" "Standard"
+.ATT_COM R71 "Description" "Резистор"
+.ATT_COM R71 "Footprint" "R0603_A"
+.ATT_COM R71 "Ibis Model" ""
+.ATT_COM R71 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R71 "Library Reference" "Resistor_0,05"
+.ATT_COM R71 "Max. power dissipation" ""
+.ATT_COM R71 "Name" "RC0603FR-07100RL"
+.ATT_COM R71 "PCB3D" ""
+.ATT_COM R71 "Signal Integrity" ""
+.ATT_COM R71 "Simulation" ""
+.ATT_COM R71 "Tolerance" ""
+.ATT_COM R71 "Value" "100"
+
+.ADD_COM R72 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R72 "Comment" "100"
+.ATT_COM R72 "Component Kind" "Standard"
+.ATT_COM R72 "Description" "Резистор"
+.ATT_COM R72 "Footprint" "R0603_A"
+.ATT_COM R72 "Ibis Model" ""
+.ATT_COM R72 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R72 "Library Reference" "Resistor_0,05"
+.ATT_COM R72 "Max. power dissipation" ""
+.ATT_COM R72 "Name" "RC0603FR-07100RL"
+.ATT_COM R72 "PCB3D" ""
+.ATT_COM R72 "Signal Integrity" ""
+.ATT_COM R72 "Simulation" ""
+.ATT_COM R72 "Tolerance" ""
+.ATT_COM R72 "Value" "100"
+
+.ADD_COM R73 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R73 "ClassName" "video1"
+.ATT_COM R73 "Comment" "10к"
+.ATT_COM R73 "Component Kind" "Standard"
+.ATT_COM R73 "Description" "Резистор"
+.ATT_COM R73 "Footprint" "R0603_A"
+.ATT_COM R73 "Ibis Model" ""
+.ATT_COM R73 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R73 "Library Reference" "Resistor_0,05"
+.ATT_COM R73 "Max. power dissipation" "0,005"
+.ATT_COM R73 "Name" "RC0603FR-0710KL"
+.ATT_COM R73 "PCB3D" ""
+.ATT_COM R73 "Signal Integrity" ""
+.ATT_COM R73 "Simulation" ""
+.ATT_COM R73 "Tolerance" ""
+.ATT_COM R73 "Value" "10к"
+
+.ADD_COM R74 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R74 "ClassName" "video2"
+.ATT_COM R74 "Comment" "10к"
+.ATT_COM R74 "Component Kind" "Standard"
+.ATT_COM R74 "Description" "Резистор"
+.ATT_COM R74 "Footprint" "R0603_A"
+.ATT_COM R74 "Ibis Model" ""
+.ATT_COM R74 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R74 "Library Reference" "Resistor_0,05"
+.ATT_COM R74 "Max. power dissipation" "0,005"
+.ATT_COM R74 "Name" "RC0603FR-0710KL"
+.ATT_COM R74 "PCB3D" ""
+.ATT_COM R74 "Signal Integrity" ""
+.ATT_COM R74 "Simulation" ""
+.ATT_COM R74 "Tolerance" ""
+.ATT_COM R74 "Value" "10к"
+
+.ADD_COM R75 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R75 "ClassName" "video3"
+.ATT_COM R75 "Comment" "10к"
+.ATT_COM R75 "Component Kind" "Standard"
+.ATT_COM R75 "Description" "Резистор"
+.ATT_COM R75 "Footprint" "R0603_A"
+.ATT_COM R75 "Ibis Model" ""
+.ATT_COM R75 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R75 "Library Reference" "Resistor_0,05"
+.ATT_COM R75 "Max. power dissipation" "0,005"
+.ATT_COM R75 "Name" "RC0603FR-0710KL"
+.ATT_COM R75 "PCB3D" ""
+.ATT_COM R75 "Signal Integrity" ""
+.ATT_COM R75 "Simulation" ""
+.ATT_COM R75 "Tolerance" ""
+.ATT_COM R75 "Value" "10к"
+
+.ADD_COM R76 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R76 "ClassName" "Video4"
+.ATT_COM R76 "Comment" "10к"
+.ATT_COM R76 "Component Kind" "Standard"
+.ATT_COM R76 "Description" "Резистор"
+.ATT_COM R76 "Footprint" "R0603_A"
+.ATT_COM R76 "Ibis Model" ""
+.ATT_COM R76 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R76 "Library Reference" "Resistor_0,05"
+.ATT_COM R76 "Max. power dissipation" "0,005"
+.ATT_COM R76 "Name" "RC0603FR-0710KL"
+.ATT_COM R76 "PCB3D" ""
+.ATT_COM R76 "Signal Integrity" ""
+.ATT_COM R76 "Simulation" ""
+.ATT_COM R76 "Tolerance" ""
+.ATT_COM R76 "Value" "10к"
+
+.ADD_COM R77 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R77 "Comment" "47к"
+.ATT_COM R77 "Component Kind" "Standard"
+.ATT_COM R77 "Description" "Резистор"
+.ATT_COM R77 "Footprint" "R0603_A"
+.ATT_COM R77 "Ibis Model" ""
+.ATT_COM R77 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R77 "Library Reference" "Resistor_0,05"
+.ATT_COM R77 "Max. power dissipation" "0,005"
+.ATT_COM R77 "Name" "RC0603FR-0747KL"
+.ATT_COM R77 "PCB3D" ""
+.ATT_COM R77 "Signal Integrity" ""
+.ATT_COM R77 "Simulation" ""
+.ATT_COM R77 "Tolerance" ""
+.ATT_COM R77 "Value" "47к"
+
+.ADD_COM R78 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R78 "Comment" "47к"
+.ATT_COM R78 "Component Kind" "Standard"
+.ATT_COM R78 "Description" "Резистор"
+.ATT_COM R78 "Footprint" "R0603_A"
+.ATT_COM R78 "Ibis Model" ""
+.ATT_COM R78 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R78 "Library Reference" "Resistor_0,05"
+.ATT_COM R78 "Max. power dissipation" "0,005"
+.ATT_COM R78 "Name" "RC0603FR-0747KL"
+.ATT_COM R78 "PCB3D" ""
+.ATT_COM R78 "Signal Integrity" ""
+.ATT_COM R78 "Simulation" ""
+.ATT_COM R78 "Tolerance" ""
+.ATT_COM R78 "Value" "47к"
+
+.ADD_COM R79 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R79 "Comment" "47к"
+.ATT_COM R79 "Component Kind" "Standard"
+.ATT_COM R79 "Description" "Резистор"
+.ATT_COM R79 "Footprint" "R0603_A"
+.ATT_COM R79 "Ibis Model" ""
+.ATT_COM R79 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R79 "Library Reference" "Resistor_0,05"
+.ATT_COM R79 "Max. power dissipation" "0,005"
+.ATT_COM R79 "Name" "RC0603FR-0747KL"
+.ATT_COM R79 "PCB3D" ""
+.ATT_COM R79 "Signal Integrity" ""
+.ATT_COM R79 "Simulation" ""
+.ATT_COM R79 "Tolerance" ""
+.ATT_COM R79 "Value" "47к"
+
+.ADD_COM R80 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R80 "ClassName" "video1"
+.ATT_COM R80 "Comment" "470"
+.ATT_COM R80 "Component Kind" "Standard"
+.ATT_COM R80 "Description" "Резистор"
+.ATT_COM R80 "Footprint" "R0603_A"
+.ATT_COM R80 "Ibis Model" ""
+.ATT_COM R80 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R80 "Library Reference" "Resistor_0,05"
+.ATT_COM R80 "Max. power dissipation" "0,005"
+.ATT_COM R80 "Name" "RC0603FR-07470RL"
+.ATT_COM R80 "PCB3D" ""
+.ATT_COM R80 "Signal Integrity" ""
+.ATT_COM R80 "Simulation" ""
+.ATT_COM R80 "Tolerance" ""
+.ATT_COM R80 "Value" "470"
+
+.ADD_COM R81 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R81 "ClassName" "video2"
+.ATT_COM R81 "Comment" "470"
+.ATT_COM R81 "Component Kind" "Standard"
+.ATT_COM R81 "Description" "Резистор"
+.ATT_COM R81 "Footprint" "R0603_A"
+.ATT_COM R81 "Ibis Model" ""
+.ATT_COM R81 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R81 "Library Reference" "Resistor_0,05"
+.ATT_COM R81 "Max. power dissipation" "0,005"
+.ATT_COM R81 "Name" "RC0603FR-07470RL"
+.ATT_COM R81 "PCB3D" ""
+.ATT_COM R81 "Signal Integrity" ""
+.ATT_COM R81 "Simulation" ""
+.ATT_COM R81 "Tolerance" ""
+.ATT_COM R81 "Value" "470"
+
+.ADD_COM R82 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R82 "ClassName" "video3"
+.ATT_COM R82 "Comment" "470"
+.ATT_COM R82 "Component Kind" "Standard"
+.ATT_COM R82 "Description" "Резистор"
+.ATT_COM R82 "Footprint" "R0603_A"
+.ATT_COM R82 "Ibis Model" ""
+.ATT_COM R82 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R82 "Library Reference" "Resistor_0,05"
+.ATT_COM R82 "Max. power dissipation" "0,005"
+.ATT_COM R82 "Name" "RC0603FR-07470RL"
+.ATT_COM R82 "PCB3D" ""
+.ATT_COM R82 "Signal Integrity" ""
+.ATT_COM R82 "Simulation" ""
+.ATT_COM R82 "Tolerance" ""
+.ATT_COM R82 "Value" "470"
+
+.ADD_COM R83 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R83 "ClassName" "Video4"
+.ATT_COM R83 "Comment" "470"
+.ATT_COM R83 "Component Kind" "Standard"
+.ATT_COM R83 "Description" "Резистор"
+.ATT_COM R83 "Footprint" "R0603_A"
+.ATT_COM R83 "Ibis Model" ""
+.ATT_COM R83 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R83 "Library Reference" "Resistor_0,05"
+.ATT_COM R83 "Max. power dissipation" "0,005"
+.ATT_COM R83 "Name" "RC0603FR-07470RL"
+.ATT_COM R83 "PCB3D" ""
+.ATT_COM R83 "Signal Integrity" ""
+.ATT_COM R83 "Simulation" ""
+.ATT_COM R83 "Tolerance" ""
+.ATT_COM R83 "Value" "470"
+
+.ADD_COM R84 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R84 "ClassName" "video1"
+.ATT_COM R84 "Comment" "2,4к"
+.ATT_COM R84 "Component Kind" "Standard"
+.ATT_COM R84 "Description" "Резистор"
+.ATT_COM R84 "Footprint" "R0603_A"
+.ATT_COM R84 "Ibis Model" ""
+.ATT_COM R84 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R84 "Library Reference" "Resistor_0,05"
+.ATT_COM R84 "Max. power dissipation" "0,005"
+.ATT_COM R84 "Name" "RC0603FR-072K4L"
+.ATT_COM R84 "PCB3D" ""
+.ATT_COM R84 "Signal Integrity" ""
+.ATT_COM R84 "Simulation" ""
+.ATT_COM R84 "Tolerance" ""
+.ATT_COM R84 "Value" "2,4к"
+
+.ADD_COM R85 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R85 "ClassName" "video2"
+.ATT_COM R85 "Comment" "2,4к"
+.ATT_COM R85 "Component Kind" "Standard"
+.ATT_COM R85 "Description" "Резистор"
+.ATT_COM R85 "Footprint" "R0603_A"
+.ATT_COM R85 "Ibis Model" ""
+.ATT_COM R85 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R85 "Library Reference" "Resistor_0,05"
+.ATT_COM R85 "Max. power dissipation" "0,005"
+.ATT_COM R85 "Name" "RC0603FR-072K4L"
+.ATT_COM R85 "PCB3D" ""
+.ATT_COM R85 "Signal Integrity" ""
+.ATT_COM R85 "Simulation" ""
+.ATT_COM R85 "Tolerance" ""
+.ATT_COM R85 "Value" "2,4к"
+
+.ADD_COM R86 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R86 "ClassName" "video3"
+.ATT_COM R86 "Comment" "2,4к"
+.ATT_COM R86 "Component Kind" "Standard"
+.ATT_COM R86 "Description" "Резистор"
+.ATT_COM R86 "Footprint" "R0603_A"
+.ATT_COM R86 "Ibis Model" ""
+.ATT_COM R86 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R86 "Library Reference" "Resistor_0,05"
+.ATT_COM R86 "Max. power dissipation" "0,005"
+.ATT_COM R86 "Name" "RC0603FR-072K4L"
+.ATT_COM R86 "PCB3D" ""
+.ATT_COM R86 "Signal Integrity" ""
+.ATT_COM R86 "Simulation" ""
+.ATT_COM R86 "Tolerance" ""
+.ATT_COM R86 "Value" "2,4к"
+
+.ADD_COM R87 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R87 "ClassName" "Video4"
+.ATT_COM R87 "Comment" "2,4к"
+.ATT_COM R87 "Component Kind" "Standard"
+.ATT_COM R87 "Description" "Резистор"
+.ATT_COM R87 "Footprint" "R0603_A"
+.ATT_COM R87 "Ibis Model" ""
+.ATT_COM R87 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R87 "Library Reference" "Resistor_0,05"
+.ATT_COM R87 "Max. power dissipation" "0,005"
+.ATT_COM R87 "Name" "RC0603FR-072K4L"
+.ATT_COM R87 "PCB3D" ""
+.ATT_COM R87 "Signal Integrity" ""
+.ATT_COM R87 "Simulation" ""
+.ATT_COM R87 "Tolerance" ""
+.ATT_COM R87 "Value" "2,4к"
+
+.ADD_COM R88 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R88 "ClassName" "video1"
+.ATT_COM R88 "Comment" "75"
+.ATT_COM R88 "Component Kind" "Standard"
+.ATT_COM R88 "Description" "Резистор"
+.ATT_COM R88 "Footprint" "R0603_A"
+.ATT_COM R88 "Ibis Model" ""
+.ATT_COM R88 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R88 "Library Reference" "Resistor_0,05"
+.ATT_COM R88 "Max. power dissipation" "0,005"
+.ATT_COM R88 "Name" "RC0603FR-0775RL"
+.ATT_COM R88 "PCB3D" ""
+.ATT_COM R88 "Signal Integrity" ""
+.ATT_COM R88 "Simulation" ""
+.ATT_COM R88 "Tolerance" ""
+.ATT_COM R88 "Value" "75"
+
+.ADD_COM R89 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R89 "ClassName" "video2"
+.ATT_COM R89 "Comment" "75"
+.ATT_COM R89 "Component Kind" "Standard"
+.ATT_COM R89 "Description" "Резистор"
+.ATT_COM R89 "Footprint" "R0603_A"
+.ATT_COM R89 "Ibis Model" ""
+.ATT_COM R89 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R89 "Library Reference" "Resistor_0,05"
+.ATT_COM R89 "Max. power dissipation" "0,005"
+.ATT_COM R89 "Name" "RC0603FR-0775RL"
+.ATT_COM R89 "PCB3D" ""
+.ATT_COM R89 "Signal Integrity" ""
+.ATT_COM R89 "Simulation" ""
+.ATT_COM R89 "Tolerance" ""
+.ATT_COM R89 "Value" "75"
+
+.ADD_COM R90 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R90 "ClassName" "video3"
+.ATT_COM R90 "Comment" "75"
+.ATT_COM R90 "Component Kind" "Standard"
+.ATT_COM R90 "Description" "Резистор"
+.ATT_COM R90 "Footprint" "R0603_A"
+.ATT_COM R90 "Ibis Model" ""
+.ATT_COM R90 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R90 "Library Reference" "Resistor_0,05"
+.ATT_COM R90 "Max. power dissipation" "0,005"
+.ATT_COM R90 "Name" "RC0603FR-0775RL"
+.ATT_COM R90 "PCB3D" ""
+.ATT_COM R90 "Signal Integrity" ""
+.ATT_COM R90 "Simulation" ""
+.ATT_COM R90 "Tolerance" ""
+.ATT_COM R90 "Value" "75"
+
+.ADD_COM R91 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R91 "ClassName" "Video4"
+.ATT_COM R91 "Comment" "75"
+.ATT_COM R91 "Component Kind" "Standard"
+.ATT_COM R91 "Description" "Резистор"
+.ATT_COM R91 "Footprint" "R0603_A"
+.ATT_COM R91 "Ibis Model" ""
+.ATT_COM R91 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R91 "Library Reference" "Resistor_0,05"
+.ATT_COM R91 "Max. power dissipation" "0,005"
+.ATT_COM R91 "Name" "RC0603FR-0775RL"
+.ATT_COM R91 "PCB3D" ""
+.ATT_COM R91 "Signal Integrity" ""
+.ATT_COM R91 "Simulation" ""
+.ATT_COM R91 "Tolerance" ""
+.ATT_COM R91 "Value" "75"
+
+.ADD_COM R92 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R92 "Comment" "75"
+.ATT_COM R92 "Component Kind" "Standard"
+.ATT_COM R92 "Description" "Резистор"
+.ATT_COM R92 "Footprint" "R0603_A"
+.ATT_COM R92 "Ibis Model" ""
+.ATT_COM R92 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R92 "Library Reference" "Resistor_0,05"
+.ATT_COM R92 "Max. power dissipation" "0,005"
+.ATT_COM R92 "Name" "RC0603FR-0775RL"
+.ATT_COM R92 "PCB3D" ""
+.ATT_COM R92 "Signal Integrity" ""
+.ATT_COM R92 "Simulation" ""
+.ATT_COM R92 "Tolerance" ""
+.ATT_COM R92 "Value" "75"
+
+.ADD_COM R93 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R93 "Comment" "75"
+.ATT_COM R93 "Component Kind" "Standard"
+.ATT_COM R93 "Description" "Резистор"
+.ATT_COM R93 "Footprint" "R0603_A"
+.ATT_COM R93 "Ibis Model" ""
+.ATT_COM R93 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R93 "Library Reference" "Resistor_0,05"
+.ATT_COM R93 "Max. power dissipation" "0,005"
+.ATT_COM R93 "Name" "RC0603FR-0775RL"
+.ATT_COM R93 "PCB3D" ""
+.ATT_COM R93 "Signal Integrity" ""
+.ATT_COM R93 "Simulation" ""
+.ATT_COM R93 "Tolerance" ""
+.ATT_COM R93 "Value" "75"
+
+.ADD_COM R94 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R94 "Comment" "75"
+.ATT_COM R94 "Component Kind" "Standard"
+.ATT_COM R94 "Description" "Резистор"
+.ATT_COM R94 "Footprint" "R0603_A"
+.ATT_COM R94 "Ibis Model" ""
+.ATT_COM R94 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R94 "Library Reference" "Resistor_0,05"
+.ATT_COM R94 "Max. power dissipation" "0,005"
+.ATT_COM R94 "Name" "RC0603FR-0775RL"
+.ATT_COM R94 "PCB3D" ""
+.ATT_COM R94 "Signal Integrity" ""
+.ATT_COM R94 "Simulation" ""
+.ATT_COM R94 "Tolerance" ""
+.ATT_COM R94 "Value" "75"
+
+.ADD_COM R95 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R95 "Comment" "75"
+.ATT_COM R95 "Component Kind" "Standard"
+.ATT_COM R95 "Description" "Резистор"
+.ATT_COM R95 "Footprint" "R0603_A"
+.ATT_COM R95 "Ibis Model" ""
+.ATT_COM R95 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R95 "Library Reference" "Resistor_0,05"
+.ATT_COM R95 "Max. power dissipation" "0,005"
+.ATT_COM R95 "Name" "RC0603FR-0775RL"
+.ATT_COM R95 "PCB3D" ""
+.ATT_COM R95 "Signal Integrity" ""
+.ATT_COM R95 "Simulation" ""
+.ATT_COM R95 "Tolerance" ""
+.ATT_COM R95 "Value" "75"
+
+.ADD_COM R96 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R96 "Comment" "75"
+.ATT_COM R96 "Component Kind" "Standard"
+.ATT_COM R96 "Description" "Резистор"
+.ATT_COM R96 "Footprint" "R0603_A"
+.ATT_COM R96 "Ibis Model" ""
+.ATT_COM R96 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R96 "Library Reference" "Resistor_0,05"
+.ATT_COM R96 "Max. power dissipation" "0,005"
+.ATT_COM R96 "Name" "RC0603FR-0775RL"
+.ATT_COM R96 "PCB3D" ""
+.ATT_COM R96 "Signal Integrity" ""
+.ATT_COM R96 "Simulation" ""
+.ATT_COM R96 "Tolerance" ""
+.ATT_COM R96 "Value" "75"
+
+.ADD_COM R97 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R97 "ClassName" "Video_com"
+.ATT_COM R97 "Comment" "75"
+.ATT_COM R97 "Component Kind" "Standard"
+.ATT_COM R97 "Description" "Резистор"
+.ATT_COM R97 "Footprint" "R0603_A"
+.ATT_COM R97 "Ibis Model" ""
+.ATT_COM R97 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R97 "Library Reference" "Resistor_0,05"
+.ATT_COM R97 "Max. power dissipation" "0,005"
+.ATT_COM R97 "Name" "RC0603FR-0775RL"
+.ATT_COM R97 "PCB3D" ""
+.ATT_COM R97 "Signal Integrity" ""
+.ATT_COM R97 "Simulation" ""
+.ATT_COM R97 "Tolerance" ""
+.ATT_COM R97 "Value" "75"
+
+.ADD_COM R98 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R98 "ClassName" "Video_com"
+.ATT_COM R98 "Comment" "10к"
+.ATT_COM R98 "Component Kind" "Standard"
+.ATT_COM R98 "Description" "Резистор"
+.ATT_COM R98 "Footprint" "R0603_A"
+.ATT_COM R98 "Ibis Model" ""
+.ATT_COM R98 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R98 "Library Reference" "Resistor_0,05"
+.ATT_COM R98 "Max. power dissipation" "0,005"
+.ATT_COM R98 "Name" "RC0603FR-0710KL"
+.ATT_COM R98 "PCB3D" ""
+.ATT_COM R98 "Signal Integrity" ""
+.ATT_COM R98 "Simulation" ""
+.ATT_COM R98 "Tolerance" ""
+.ATT_COM R98 "Value" "10к"
+
+.ADD_COM R99 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R99 "ClassName" "Video_com"
+.ATT_COM R99 "Comment" "470"
+.ATT_COM R99 "Component Kind" "Standard"
+.ATT_COM R99 "Description" "Резистор"
+.ATT_COM R99 "Footprint" "R0603_A"
+.ATT_COM R99 "Ibis Model" ""
+.ATT_COM R99 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R99 "Library Reference" "Resistor_0,05"
+.ATT_COM R99 "Max. power dissipation" "0,005"
+.ATT_COM R99 "Name" "RC0603FR-07470RL"
+.ATT_COM R99 "PCB3D" ""
+.ATT_COM R99 "Signal Integrity" ""
+.ATT_COM R99 "Simulation" ""
+.ATT_COM R99 "Tolerance" ""
+.ATT_COM R99 "Value" "470"
+
+.ADD_COM R100 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R100 "ClassName" "Video_com"
+.ATT_COM R100 "Comment" "2,4к"
+.ATT_COM R100 "Component Kind" "Standard"
+.ATT_COM R100 "Description" "Резистор"
+.ATT_COM R100 "Footprint" "R0603_A"
+.ATT_COM R100 "Ibis Model" ""
+.ATT_COM R100 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R100 "Library Reference" "Resistor_0,05"
+.ATT_COM R100 "Max. power dissipation" "0,005"
+.ATT_COM R100 "Name" "RC0603FR-072K4L"
+.ATT_COM R100 "PCB3D" ""
+.ATT_COM R100 "Signal Integrity" ""
+.ATT_COM R100 "Simulation" ""
+.ATT_COM R100 "Tolerance" ""
+.ATT_COM R100 "Value" "2,4к"
+
+.ADD_COM R101 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R101 "Comment" "100"
+.ATT_COM R101 "Component Kind" "Standard"
+.ATT_COM R101 "Description" "Резистор"
+.ATT_COM R101 "Footprint" "R0603_A"
+.ATT_COM R101 "Ibis Model" ""
+.ATT_COM R101 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R101 "Library Reference" "Resistor_0,05"
+.ATT_COM R101 "Max. power dissipation" ""
+.ATT_COM R101 "Name" "RC0603FR-07100RL"
+.ATT_COM R101 "PCB3D" ""
+.ATT_COM R101 "Signal Integrity" ""
+.ATT_COM R101 "Simulation" ""
+.ATT_COM R101 "Tolerance" ""
+.ATT_COM R101 "Value" "100"
+
+.ADD_COM R102 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R102 "Comment" "100"
+.ATT_COM R102 "Component Kind" "Standard"
+.ATT_COM R102 "Description" "Резистор"
+.ATT_COM R102 "Footprint" "R0603_A"
+.ATT_COM R102 "Ibis Model" ""
+.ATT_COM R102 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R102 "Library Reference" "Resistor_0,05"
+.ATT_COM R102 "Max. power dissipation" ""
+.ATT_COM R102 "Name" "RC0603FR-07100RL"
+.ATT_COM R102 "PCB3D" ""
+.ATT_COM R102 "Signal Integrity" ""
+.ATT_COM R102 "Simulation" ""
+.ATT_COM R102 "Tolerance" ""
+.ATT_COM R102 "Value" "100"
+
+.ADD_COM R103 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R103 "Comment" "100"
+.ATT_COM R103 "Component Kind" "Standard"
+.ATT_COM R103 "Description" "Резистор"
+.ATT_COM R103 "Footprint" "R0603_A"
+.ATT_COM R103 "Ibis Model" ""
+.ATT_COM R103 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R103 "Library Reference" "Resistor_0,05"
+.ATT_COM R103 "Max. power dissipation" ""
+.ATT_COM R103 "Name" "RC0603FR-07100RL"
+.ATT_COM R103 "PCB3D" ""
+.ATT_COM R103 "Signal Integrity" ""
+.ATT_COM R103 "Simulation" ""
+.ATT_COM R103 "Tolerance" ""
+.ATT_COM R103 "Value" "100"
+
+.ADD_COM R104 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R104 "Comment" "47к"
+.ATT_COM R104 "Component Kind" "Standard"
+.ATT_COM R104 "Description" "Резистор"
+.ATT_COM R104 "Footprint" "R0603_A"
+.ATT_COM R104 "Ibis Model" ""
+.ATT_COM R104 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R104 "Library Reference" "Resistor_0,05"
+.ATT_COM R104 "Max. power dissipation" "0,005"
+.ATT_COM R104 "Name" "RC0603FR-0747KL"
+.ATT_COM R104 "PCB3D" ""
+.ATT_COM R104 "Signal Integrity" ""
+.ATT_COM R104 "Simulation" ""
+.ATT_COM R104 "Tolerance" ""
+.ATT_COM R104 "Value" "47к"
+
+.ADD_COM R105 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R105 "Comment" "47к"
+.ATT_COM R105 "Component Kind" "Standard"
+.ATT_COM R105 "Description" "Резистор"
+.ATT_COM R105 "Footprint" "R0603_A"
+.ATT_COM R105 "Ibis Model" ""
+.ATT_COM R105 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R105 "Library Reference" "Resistor_0,05"
+.ATT_COM R105 "Max. power dissipation" "0,005"
+.ATT_COM R105 "Name" "RC0603FR-0747KL"
+.ATT_COM R105 "PCB3D" ""
+.ATT_COM R105 "Signal Integrity" ""
+.ATT_COM R105 "Simulation" ""
+.ATT_COM R105 "Tolerance" ""
+.ATT_COM R105 "Value" "47к"
+
+.ADD_COM R106 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R106 "ClassName" "Video_com"
+.ATT_COM R106 "Comment" "75"
+.ATT_COM R106 "Component Kind" "Standard"
+.ATT_COM R106 "Description" "Резистор"
+.ATT_COM R106 "Footprint" "R0603_A"
+.ATT_COM R106 "Ibis Model" ""
+.ATT_COM R106 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R106 "Library Reference" "Resistor_0,05"
+.ATT_COM R106 "Max. power dissipation" "0,005"
+.ATT_COM R106 "Name" "RC0603FR-0775RL"
+.ATT_COM R106 "PCB3D" ""
+.ATT_COM R106 "Signal Integrity" ""
+.ATT_COM R106 "Simulation" ""
+.ATT_COM R106 "Tolerance" ""
+.ATT_COM R106 "Value" "75"
+
+.ADD_COM R107 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R107 "Comment" "47к"
+.ATT_COM R107 "Component Kind" "Standard"
+.ATT_COM R107 "Description" "Резистор"
+.ATT_COM R107 "Footprint" "R0603_A"
+.ATT_COM R107 "Ibis Model" ""
+.ATT_COM R107 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R107 "Library Reference" "Resistor_0,05"
+.ATT_COM R107 "Max. power dissipation" "0,005"
+.ATT_COM R107 "Name" "RC0603FR-0747KL"
+.ATT_COM R107 "PCB3D" ""
+.ATT_COM R107 "Signal Integrity" ""
+.ATT_COM R107 "Simulation" ""
+.ATT_COM R107 "Tolerance" ""
+.ATT_COM R107 "Value" "47к"
+
+.ADD_COM R108 "Resistor_x4" "Resistor_x4"
+.ATT_COM R108 "Comment" "10к"
+.ATT_COM R108 "Component Kind" "Standard"
+.ATT_COM R108 "Description" "Резистор"
+.ATT_COM R108 "Footprint" "R0603x4"
+.ATT_COM R108 "Ibis Model" ""
+.ATT_COM R108 "Library Name" "main_board.SchLib"
+.ATT_COM R108 "Library Reference" "Resistor_x4"
+.ATT_COM R108 "Name" "CAT16-103J4"
+.ATT_COM R108 "PCB3D" ""
+.ATT_COM R108 "Power" ""
+.ATT_COM R108 "Signal Integrity" ""
+.ATT_COM R108 "Simulation" ""
+.ATT_COM R108 "Tolerance" ""
+.ATT_COM R108 "Value" "10к"
+
+.ADD_COM R109 "Resistor_x4" "Resistor_x4"
+.ATT_COM R109 "Comment" "10к"
+.ATT_COM R109 "Component Kind" "Standard"
+.ATT_COM R109 "Description" "Резистор"
+.ATT_COM R109 "Footprint" "R0603x4"
+.ATT_COM R109 "Ibis Model" ""
+.ATT_COM R109 "Library Name" "main_board.SchLib"
+.ATT_COM R109 "Library Reference" "Resistor_x4"
+.ATT_COM R109 "Name" "CAT16-103J4"
+.ATT_COM R109 "PCB3D" ""
+.ATT_COM R109 "Power" ""
+.ATT_COM R109 "Signal Integrity" ""
+.ATT_COM R109 "Simulation" ""
+.ATT_COM R109 "Tolerance" ""
+.ATT_COM R109 "Value" "10к"
+
+.ADD_COM R110 "Resistor_x4_inv" "Resistor_x4_inv"
+.ATT_COM R110 "Comment" "100"
+.ATT_COM R110 "Component Kind" "Standard"
+.ATT_COM R110 "Description" "Резистор инверсный"
+.ATT_COM R110 "Footprint" "R0603x4"
+.ATT_COM R110 "Ibis Model" ""
+.ATT_COM R110 "Library Name" "VLK-2M.SCHLIB"
+.ATT_COM R110 "Library Reference" "Resistor_x4_inv"
+.ATT_COM R110 "Name" "CAT16-101J4"
+.ATT_COM R110 "PCB3D" ""
+.ATT_COM R110 "Power" ""
+.ATT_COM R110 "Signal Integrity" ""
+.ATT_COM R110 "Simulation" ""
+.ATT_COM R110 "Tolerance" ""
+.ATT_COM R110 "Value" "100"
+
+.ADD_COM R111 "Resistor_x4_inv" "Resistor_x4_inv"
+.ATT_COM R111 "Comment" "100"
+.ATT_COM R111 "Component Kind" "Standard"
+.ATT_COM R111 "Description" "Резистор инверсный"
+.ATT_COM R111 "Footprint" "R0603x4"
+.ATT_COM R111 "Ibis Model" ""
+.ATT_COM R111 "Library Name" "VLK-2M.SCHLIB"
+.ATT_COM R111 "Library Reference" "Resistor_x4_inv"
+.ATT_COM R111 "Name" "CAT16-101J4"
+.ATT_COM R111 "PCB3D" ""
+.ATT_COM R111 "Power" ""
+.ATT_COM R111 "Signal Integrity" ""
+.ATT_COM R111 "Simulation" ""
+.ATT_COM R111 "Tolerance" ""
+.ATT_COM R111 "Value" "100"
+
+.ADD_COM R112 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R112 "Comment" "47к"
+.ATT_COM R112 "Component Kind" "Standard"
+.ATT_COM R112 "Description" "Резистор"
+.ATT_COM R112 "Footprint" "R0603_A"
+.ATT_COM R112 "Ibis Model" ""
+.ATT_COM R112 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R112 "Library Reference" "Resistor_0,05"
+.ATT_COM R112 "Max. power dissipation" "0,005"
+.ATT_COM R112 "Name" "RC0603FR-0747KL"
+.ATT_COM R112 "PCB3D" ""
+.ATT_COM R112 "Signal Integrity" ""
+.ATT_COM R112 "Simulation" ""
+.ATT_COM R112 "Tolerance" ""
+.ATT_COM R112 "Value" "47к"
+
+.ADD_COM R113 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R113 "Comment" "47к"
+.ATT_COM R113 "Component Kind" "Standard"
+.ATT_COM R113 "Description" "Резистор"
+.ATT_COM R113 "Footprint" "R0603_A"
+.ATT_COM R113 "Ibis Model" ""
+.ATT_COM R113 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R113 "Library Reference" "Resistor_0,05"
+.ATT_COM R113 "Max. power dissipation" "0,005"
+.ATT_COM R113 "Name" "RC0603FR-0747KL"
+.ATT_COM R113 "PCB3D" ""
+.ATT_COM R113 "Signal Integrity" ""
+.ATT_COM R113 "Simulation" ""
+.ATT_COM R113 "Tolerance" ""
+.ATT_COM R113 "Value" "47к"
+
+.ADD_COM R114 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R114 "Comment" "47к"
+.ATT_COM R114 "Component Kind" "Standard"
+.ATT_COM R114 "Description" "Резистор"
+.ATT_COM R114 "Footprint" "R0603_A"
+.ATT_COM R114 "Ibis Model" ""
+.ATT_COM R114 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R114 "Library Reference" "Resistor_0,05"
+.ATT_COM R114 "Max. power dissipation" "0,005"
+.ATT_COM R114 "Name" "RC0603FR-0747KL"
+.ATT_COM R114 "PCB3D" ""
+.ATT_COM R114 "Signal Integrity" ""
+.ATT_COM R114 "Simulation" ""
+.ATT_COM R114 "Tolerance" ""
+.ATT_COM R114 "Value" "47к"
+
+.ADD_COM R115 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R115 "Comment" "47к"
+.ATT_COM R115 "Component Kind" "Standard"
+.ATT_COM R115 "Description" "Резистор"
+.ATT_COM R115 "Footprint" "R0603_A"
+.ATT_COM R115 "Ibis Model" ""
+.ATT_COM R115 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R115 "Library Reference" "Resistor_0,05"
+.ATT_COM R115 "Max. power dissipation" "0,005"
+.ATT_COM R115 "Name" "RC0603FR-0747KL"
+.ATT_COM R115 "PCB3D" ""
+.ATT_COM R115 "Signal Integrity" ""
+.ATT_COM R115 "Simulation" ""
+.ATT_COM R115 "Tolerance" ""
+.ATT_COM R115 "Value" "47к"
+
+.ADD_COM R116 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R116 "Comment" "47к"
+.ATT_COM R116 "Component Kind" "Standard"
+.ATT_COM R116 "Description" "Резистор"
+.ATT_COM R116 "Footprint" "R0603_A"
+.ATT_COM R116 "Ibis Model" ""
+.ATT_COM R116 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R116 "Library Reference" "Resistor_0,05"
+.ATT_COM R116 "Max. power dissipation" "0,005"
+.ATT_COM R116 "Name" "RC0603FR-0747KL"
+.ATT_COM R116 "PCB3D" ""
+.ATT_COM R116 "Signal Integrity" ""
+.ATT_COM R116 "Simulation" ""
+.ATT_COM R116 "Tolerance" ""
+.ATT_COM R116 "Value" "47к"
+
+.ADD_COM R117 "Resistor_0,05" "Resistor_0,05"
+.ATT_COM R117 "Comment" "47к"
+.ATT_COM R117 "Component Kind" "Standard"
+.ATT_COM R117 "Description" "Резистор"
+.ATT_COM R117 "Footprint" "R0603_A"
+.ATT_COM R117 "Ibis Model" ""
+.ATT_COM R117 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM R117 "Library Reference" "Resistor_0,05"
+.ATT_COM R117 "Max. power dissipation" "0,005"
+.ATT_COM R117 "Name" "RC0603FR-0747KL"
+.ATT_COM R117 "PCB3D" ""
+.ATT_COM R117 "Signal Integrity" ""
+.ATT_COM R117 "Simulation" ""
+.ATT_COM R117 "Tolerance" ""
+.ATT_COM R117 "Value" "47к"
+
+.ADD_COM VD1 "DiodeSchottky" "DiodeSchottky"
+.ATT_COM VD1 "Comment" "MBR2H100SFT3G"
+.ATT_COM VD1 "Component Kind" "Standard"
+.ATT_COM VD1 "Description" "Диод Шоттки"
+.ATT_COM VD1 "Footprint" "SMA_A"
+.ATT_COM VD1 "Ibis Model" ""
+.ATT_COM VD1 "Imax" "2А"
+.ATT_COM VD1 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM VD1 "Library Reference" "DiodeSchottky"
+.ATT_COM VD1 "Name" "MBR2H100SFT3G"
+.ATT_COM VD1 "PCB3D" ""
+.ATT_COM VD1 "Signal Integrity" ""
+.ATT_COM VD1 "Simulation" ""
+.ATT_COM VD1 "Vf" "0,5"
+.ATT_COM VD1 "Vr" "100"
+
+.ADD_COM VD2 "SM712" "SM712"
+.ATT_COM VD2 "Comment" "SM712"
+.ATT_COM VD2 "Component Kind" "Standard"
+.ATT_COM VD2 "Description" "Сборка TVS-диодов"
+.ATT_COM VD2 "Footprint" "SOT23-3_A"
+.ATT_COM VD2 "Ibis Model" ""
+.ATT_COM VD2 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM VD2 "Library Reference" "SM712"
+.ATT_COM VD2 "Name" "SM712"
+.ATT_COM VD2 "PCB3D" ""
+.ATT_COM VD2 "Signal Integrity" ""
+.ATT_COM VD2 "Simulation" ""
+
+.ADD_COM VD3 "AQ24" "AQ24"
+.ATT_COM VD3 "Comment" "AQ24CANFD"
+.ATT_COM VD3 "Component Kind" "Standard"
+.ATT_COM VD3 "Description" "Сборка TVS-диодов для RS485"
+.ATT_COM VD3 "Footprint" "SOT23-3_A"
+.ATT_COM VD3 "Ibis Model" ""
+.ATT_COM VD3 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM VD3 "Library Reference" "AQ24"
+.ATT_COM VD3 "Name" "AQ24CANFD"
+.ATT_COM VD3 "PCB3D" ""
+.ATT_COM VD3 "Signal Integrity" ""
+.ATT_COM VD3 "Simulation" ""
+
+.ADD_COM VD4 "DiodeSchottky" "DiodeSchottky"
+.ATT_COM VD4 "ClassName" "video1"
+.ATT_COM VD4 "Comment" "MBR2H100SFT3G"
+.ATT_COM VD4 "Component Kind" "Standard"
+.ATT_COM VD4 "Description" "Диод Шоттки"
+.ATT_COM VD4 "Footprint" "SOD123FL"
+.ATT_COM VD4 "Ibis Model" ""
+.ATT_COM VD4 "Imax" "2А"
+.ATT_COM VD4 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM VD4 "Library Reference" "DiodeSchottky"
+.ATT_COM VD4 "Name" "MBR2H100SFT3G"
+.ATT_COM VD4 "PCB3D" ""
+.ATT_COM VD4 "Signal Integrity" ""
+.ATT_COM VD4 "Simulation" ""
+.ATT_COM VD4 "Vf" "0,5"
+.ATT_COM VD4 "Vr" "100"
+
+.ADD_COM VD5 "DiodeSchottky" "DiodeSchottky"
+.ATT_COM VD5 "ClassName" "video2"
+.ATT_COM VD5 "Comment" "MBR2H100SFT3G"
+.ATT_COM VD5 "Component Kind" "Standard"
+.ATT_COM VD5 "Description" "Диод Шоттки"
+.ATT_COM VD5 "Footprint" "SOD123FL"
+.ATT_COM VD5 "Ibis Model" ""
+.ATT_COM VD5 "Imax" "2А"
+.ATT_COM VD5 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM VD5 "Library Reference" "DiodeSchottky"
+.ATT_COM VD5 "Name" "MBR2H100SFT3G"
+.ATT_COM VD5 "PCB3D" ""
+.ATT_COM VD5 "Signal Integrity" ""
+.ATT_COM VD5 "Simulation" ""
+.ATT_COM VD5 "Vf" "0,5"
+.ATT_COM VD5 "Vr" "100"
+
+.ADD_COM VD6 "DiodeSchottky" "DiodeSchottky"
+.ATT_COM VD6 "ClassName" "video3"
+.ATT_COM VD6 "Comment" "MBR2H100SFT3G"
+.ATT_COM VD6 "Component Kind" "Standard"
+.ATT_COM VD6 "Description" "Диод Шоттки"
+.ATT_COM VD6 "Footprint" "SOD123FL"
+.ATT_COM VD6 "Ibis Model" ""
+.ATT_COM VD6 "Imax" "2А"
+.ATT_COM VD6 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM VD6 "Library Reference" "DiodeSchottky"
+.ATT_COM VD6 "Name" "MBR2H100SFT3G"
+.ATT_COM VD6 "PCB3D" ""
+.ATT_COM VD6 "Signal Integrity" ""
+.ATT_COM VD6 "Simulation" ""
+.ATT_COM VD6 "Vf" "0,5"
+.ATT_COM VD6 "Vr" "100"
+
+.ADD_COM VD7 "DiodeSchottky" "DiodeSchottky"
+.ATT_COM VD7 "ClassName" "Video4"
+.ATT_COM VD7 "Comment" "MBR2H100SFT3G"
+.ATT_COM VD7 "Component Kind" "Standard"
+.ATT_COM VD7 "Description" "Диод Шоттки"
+.ATT_COM VD7 "Footprint" "SOD123FL"
+.ATT_COM VD7 "Ibis Model" ""
+.ATT_COM VD7 "Imax" "2А"
+.ATT_COM VD7 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM VD7 "Library Reference" "DiodeSchottky"
+.ATT_COM VD7 "Name" "MBR2H100SFT3G"
+.ATT_COM VD7 "PCB3D" ""
+.ATT_COM VD7 "Signal Integrity" ""
+.ATT_COM VD7 "Simulation" ""
+.ATT_COM VD7 "Vf" "0,5"
+.ATT_COM VD7 "Vr" "100"
+
+.ADD_COM VD8 "DiodeSchottky" "DiodeSchottky"
+.ATT_COM VD8 "ClassName" "Video_com"
+.ATT_COM VD8 "Comment" "MBR2H100SFT3G"
+.ATT_COM VD8 "Component Kind" "Standard"
+.ATT_COM VD8 "Description" "Диод Шоттки"
+.ATT_COM VD8 "Footprint" "SOD123FL"
+.ATT_COM VD8 "Ibis Model" ""
+.ATT_COM VD8 "Imax" "2А"
+.ATT_COM VD8 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM VD8 "Library Reference" "DiodeSchottky"
+.ATT_COM VD8 "Name" "MBR2H100SFT3G"
+.ATT_COM VD8 "PCB3D" ""
+.ATT_COM VD8 "Signal Integrity" ""
+.ATT_COM VD8 "Simulation" ""
+.ATT_COM VD8 "Vf" "0,5"
+.ATT_COM VD8 "Vr" "100"
+
+.ADD_COM VT1 "NTMFS5H409NL" "NTMFS5H409NL"
+.ATT_COM VT1 "Comment" "NTMFS5H409NL"
+.ATT_COM VT1 "Component Kind" "Standard"
+.ATT_COM VT1 "Description" "40 V, 1.1 m, 270 A, Single N Channel"
+.ATT_COM VT1 "Footprint" "DFN5"
+.ATT_COM VT1 "Ibis Model" ""
+.ATT_COM VT1 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM VT1 "Library Reference" "NTMFS5H409NL"
+.ATT_COM VT1 "Name" "NTMFS5H409NL"
+.ATT_COM VT1 "PCB3D" ""
+.ATT_COM VT1 "Signal Integrity" ""
+.ATT_COM VT1 "Simulation" ""
+
+.ADD_COM VT2 "IRF7509" "IRF7509"
+.ATT_COM VT2 "Comment" "IRF7509"
+.ATT_COM VT2 "Component Kind" "Standard"
+.ATT_COM VT2 "Description" "Комплементарная сборка МОП"
+.ATT_COM VT2 "Footprint" "Micro8_A"
+.ATT_COM VT2 "Ibis Model" ""
+.ATT_COM VT2 "Library Name" "CifLib.SchLib"
+.ATT_COM VT2 "Library Reference" "IRF7509"
+.ATT_COM VT2 "Name" "IRF7509"
+.ATT_COM VT2 "PCB3D" ""
+.ATT_COM VT2 "Signal Integrity" ""
+.ATT_COM VT2 "Simulation" ""
+
+.ADD_COM VT3 "IRF7509" "IRF7509"
+.ATT_COM VT3 "Comment" "IRF7509"
+.ATT_COM VT3 "Component Kind" "Standard"
+.ATT_COM VT3 "Description" "Комплементарная сборка МОП"
+.ATT_COM VT3 "Footprint" "Micro8_A"
+.ATT_COM VT3 "Ibis Model" ""
+.ATT_COM VT3 "Library Name" "CifLib.SchLib"
+.ATT_COM VT3 "Library Reference" "IRF7509"
+.ATT_COM VT3 "Name" "IRF7509"
+.ATT_COM VT3 "PCB3D" ""
+.ATT_COM VT3 "Signal Integrity" ""
+.ATT_COM VT3 "Simulation" ""
+
+.ADD_COM VT4 "IRF7509" "IRF7509"
+.ATT_COM VT4 "Comment" "IRF7509"
+.ATT_COM VT4 "Component Kind" "Standard"
+.ATT_COM VT4 "Description" "Комплементарная сборка МОП"
+.ATT_COM VT4 "Footprint" "Micro8_A"
+.ATT_COM VT4 "Ibis Model" ""
+.ATT_COM VT4 "Library Name" "CifLib.SchLib"
+.ATT_COM VT4 "Library Reference" "IRF7509"
+.ATT_COM VT4 "Name" "IRF7509"
+.ATT_COM VT4 "PCB3D" ""
+.ATT_COM VT4 "Signal Integrity" ""
+.ATT_COM VT4 "Simulation" ""
+
+.ADD_COM X1 "Header_3_plg" "Header_3_plg"
+.ATT_COM X1 "Comment" "PLS-3"
+.ATT_COM X1 "Component Kind" "Standard"
+.ATT_COM X1 "Contact_1" "UART_RX"
+.ATT_COM X1 "Contact_2" "UART_TX"
+.ATT_COM X1 "Contact_3" "GND"
+.ATT_COM X1 "Description" "Разъем - 3 конт. вилка"
+.ATT_COM X1 "Footprint" "PLS_3"
+.ATT_COM X1 "Ibis Model" ""
+.ATT_COM X1 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X1 "Library Reference" "Header_3_plg"
+.ATT_COM X1 "Name" "PLS-3"
+.ATT_COM X1 "PCB3D" ""
+.ATT_COM X1 "Signal Integrity" ""
+.ATT_COM X1 "Simulation" ""
+.ATT_COM X1 "System" "Connector"
+
+.ADD_COM X2 "Header_6_plg" "Header_6_plg"
+.ATT_COM X2 "Comment" "PLS-6"
+.ATT_COM X2 "Component Kind" "Standard"
+.ATT_COM X2 "Contact_1" "+3,3"
+.ATT_COM X2 "Contact_2" "SWCLK"
+.ATT_COM X2 "Contact_3" "GND"
+.ATT_COM X2 "Contact_4" "SWDIO"
+.ATT_COM X2 "Contact_5" "NRST"
+.ATT_COM X2 "Contact_6" "TRACE"
+.ATT_COM X2 "Description" "Разъем - 6 конт. вилка"
+.ATT_COM X2 "Footprint" "PLS_6"
+.ATT_COM X2 "Ibis Model" ""
+.ATT_COM X2 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X2 "Library Reference" "Header_6_plg"
+.ATT_COM X2 "Name" "PLS-6"
+.ATT_COM X2 "PCB3D" ""
+.ATT_COM X2 "Signal Integrity" ""
+.ATT_COM X2 "Simulation" ""
+.ATT_COM X2 "System" "Connector"
+
+.ADD_COM X3 "Header_10_plg" "Header_10_plg"
+.ATT_COM X3 "Comment" "Micro-Fit 43045-1000"
+.ATT_COM X3 "Component Kind" "Standard"
+.ATT_COM X3 "Contact_1" "PACK +"
+.ATT_COM X3 "Contact_2" "PACK +"
+.ATT_COM X3 "Contact_3" "485_A"
+.ATT_COM X3 "Contact_4" "485_B"
+.ATT_COM X3 "Contact_5" "BTN_1"
+.ATT_COM X3 "Contact_6" "BTN_2"
+.ATT_COM X3 "Contact_7" "CHG_DTCT"
+.ATT_COM X3 "Contact_8" "PRES_FLAG"
+.ATT_COM X3 "Contact_9" "GND"
+.ATT_COM X3 "Contact_10" "GND"
+.ATT_COM X3 "Description" "Разъем - 10 конт. вилка"
+.ATT_COM X3 "Footprint" "Molex_MK_43045-1000"
+.ATT_COM X3 "Ibis Model" ""
+.ATT_COM X3 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X3 "Library Reference" "Header_10_plg"
+.ATT_COM X3 "Name" "Micro-Fit 43045-1000"
+.ATT_COM X3 "PCB3D" ""
+.ATT_COM X3 "Signal Integrity" ""
+.ATT_COM X3 "Simulation" ""
+.ATT_COM X3 "System" "Connector"
+
+.ADD_COM X4 "Header_2_plg" "Header_2_plg"
+.ATT_COM X4 "Comment" "Clik-Mate 5025840270"
+.ATT_COM X4 "Component Kind" "Standard"
+.ATT_COM X4 "Contact_1" "BTN1"
+.ATT_COM X4 "Contact_2" "BTN2"
+.ATT_COM X4 "Description" "Разъем - 2 конт. вилка"
+.ATT_COM X4 "Footprint" "MOLEX_Click-Mate 2"
+.ATT_COM X4 "Ibis Model" ""
+.ATT_COM X4 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X4 "Library Reference" "Header_2_plg"
+.ATT_COM X4 "Name" "Clik-Mate 5025840270"
+.ATT_COM X4 "PCB3D" ""
+.ATT_COM X4 "Signal Integrity" ""
+.ATT_COM X4 "Simulation" ""
+.ATT_COM X4 "System" "Connector"
+
+.ADD_COM X5 "Header_24_sct" "Header_24_sct"
+.ATT_COM X5 "Comment" "OMRON XF2W-2415-1A"
+.ATT_COM X5 "Component Kind" "Standard"
+.ATT_COM X5 "Contact_1" "UART1_RX"
+.ATT_COM X5 "Contact_2" "UART1_TX"
+.ATT_COM X5 "Contact_3" "UART2_RX"
+.ATT_COM X5 "Contact_4" "UART2_TX"
+.ATT_COM X5 "Contact_5" "GND"
+.ATT_COM X5 "Contact_6" "AUDIO"
+.ATT_COM X5 "Contact_7" "GND"
+.ATT_COM X5 "Contact_8" "GND"
+.ATT_COM X5 "Contact_9" "GND"
+.ATT_COM X5 "Contact_10" "VCC"
+.ATT_COM X5 "Contact_11" "VCC"
+.ATT_COM X5 "Contact_12" "VCC"
+.ATT_COM X5 "Contact_13" "VCC"
+.ATT_COM X5 "Contact_14" "VCC"
+.ATT_COM X5 "Contact_15" "VCC"
+.ATT_COM X5 "Contact_16" "GND"
+.ATT_COM X5 "Contact_17" "GND"
+.ATT_COM X5 "Contact_18" "GND"
+.ATT_COM X5 "Contact_19" "AUDIO"
+.ATT_COM X5 "Contact_20" "GND"
+.ATT_COM X5 "Contact_21" "UART2_TX"
+.ATT_COM X5 "Contact_22" "UART2_RX"
+.ATT_COM X5 "Contact_23" "UART1_TX"
+.ATT_COM X5 "Contact_24" "UART1_RX"
+.ATT_COM X5 "Description" "Разъем - 24 конт. розетка"
+.ATT_COM X5 "Footprint" "OMRON XF2W-2415-1A"
+.ATT_COM X5 "Ibis Model" ""
+.ATT_COM X5 "Library Name" "VolLib.SCHLIB"
+.ATT_COM X5 "Library Reference" "Header_24_sct"
+.ATT_COM X5 "Name" "OMRON XF2W-2415-1A"
+.ATT_COM X5 "PCB3D" ""
+.ATT_COM X5 "Signal Integrity" ""
+.ATT_COM X5 "Simulation" ""
+.ATT_COM X5 "System" "Connector"
+
+.ADD_COM X6 "Header_3_plg" "Header_3_plg"
+.ATT_COM X6 "Comment" "Clik-Mate 5025840370"
+.ATT_COM X6 "Component Kind" "Standard"
+.ATT_COM X6 "Contact_1" "PWR"
+.ATT_COM X6 "Contact_2" "Audio"
+.ATT_COM X6 "Contact_3" "GND"
+.ATT_COM X6 "Description" "Разъем - 3 конт. вилка"
+.ATT_COM X6 "Footprint" "MOLEX_Click-Mate 3"
+.ATT_COM X6 "Ibis Model" ""
+.ATT_COM X6 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X6 "Library Reference" "Header_3_plg"
+.ATT_COM X6 "Name" "Clik-Mate 5025840370"
+.ATT_COM X6 "PCB3D" ""
+.ATT_COM X6 "Signal Integrity" ""
+.ATT_COM X6 "Simulation" ""
+.ATT_COM X6 "System" "Connector"
+
+.ADD_COM X7 "Header_5_plg" "Header_5_plg"
+.ATT_COM X7 "Comment" "Clik-Mate 5025840570"
+.ATT_COM X7 "Component Kind" "Standard"
+.ATT_COM X7 "Contact_1" "VIDEO_4+"
+.ATT_COM X7 "Contact_2" "VIDEO_4-"
+.ATT_COM X7 "Contact_3" "CAN_H"
+.ATT_COM X7 "Contact_4" "CAN_L"
+.ATT_COM X7 "Contact_5" "SGND"
+.ATT_COM X7 "Description" "Разъем - 5 конт. вилка"
+.ATT_COM X7 "Footprint" "MOLEX_Click-Mate 5"
+.ATT_COM X7 "Ibis Model" ""
+.ATT_COM X7 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X7 "Library Reference" "Header_5_plg"
+.ATT_COM X7 "Name" "Clik-Mate 5025840570"
+.ATT_COM X7 "PCB3D" ""
+.ATT_COM X7 "Signal Integrity" ""
+.ATT_COM X7 "Simulation" ""
+.ATT_COM X7 "System" "Connector"
+
+.ADD_COM X8 "Header_4_plg" "Header_4_plg"
+.ATT_COM X8 "Comment" "Micro-Fit 43045-0401"
+.ATT_COM X8 "Component Kind" "Standard"
+.ATT_COM X8 "Contact_1" "CAN_H"
+.ATT_COM X8 "Contact_2" "CAN_L"
+.ATT_COM X8 "Contact_3" "PWR"
+.ATT_COM X8 "Contact_4" "GND"
+.ATT_COM X8 "Description" "Разъем - 4 конт. папа"
+.ATT_COM X8 "Footprint" "MOLEX_MK 43045-0401"
+.ATT_COM X8 "Ibis Model" ""
+.ATT_COM X8 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X8 "Library Reference" "Header_4_plg"
+.ATT_COM X8 "Name" "Micro-Fit 43045-0401"
+.ATT_COM X8 "PCB3D" ""
+.ATT_COM X8 "Signal Integrity" ""
+.ATT_COM X8 "Simulation" ""
+.ATT_COM X8 "System" "Connector"
+
+.ADD_COM X9 "Header_4_plg" "Header_4_plg"
+.ATT_COM X9 "Comment" "Micro-Fit 43045-0401"
+.ATT_COM X9 "Component Kind" "Standard"
+.ATT_COM X9 "Contact_1" "CAN_H"
+.ATT_COM X9 "Contact_2" "CAN_L"
+.ATT_COM X9 "Contact_3" "PWR"
+.ATT_COM X9 "Contact_4" "GND"
+.ATT_COM X9 "Description" "Разъем - 4 конт. папа"
+.ATT_COM X9 "Footprint" "MOLEX_MK 43045-0401"
+.ATT_COM X9 "Ibis Model" ""
+.ATT_COM X9 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X9 "Library Reference" "Header_4_plg"
+.ATT_COM X9 "Name" "Micro-Fit 43045-0401"
+.ATT_COM X9 "PCB3D" ""
+.ATT_COM X9 "Signal Integrity" ""
+.ATT_COM X9 "Simulation" ""
+.ATT_COM X9 "System" "Connector"
+
+.ADD_COM X10 "Header_8_plg" "Header_8_plg"
+.ATT_COM X10 "Comment" "Clik-Mate 5025840870"
+.ATT_COM X10 "Component Kind" "Standard"
+.ATT_COM X10 "Contact_1" "+14,4V"
+.ATT_COM X10 "Contact_2" "+14,4V"
+.ATT_COM X10 "Contact_3" "CAN_H"
+.ATT_COM X10 "Contact_4" "CAN_L"
+.ATT_COM X10 "Contact_5" "VIDEO_3"
+.ATT_COM X10 "Contact_6" "AGND"
+.ATT_COM X10 "Contact_7" "GND"
+.ATT_COM X10 "Contact_8" "GND"
+.ATT_COM X10 "Description" "Разъем - 8 конт. розетка"
+.ATT_COM X10 "Footprint" "MOLEX_Click-Mate 8"
+.ATT_COM X10 "Ibis Model" ""
+.ATT_COM X10 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X10 "Library Reference" "Header_8_plg"
+.ATT_COM X10 "Name" "Clik-Mate 5025840870"
+.ATT_COM X10 "PCB3D" ""
+.ATT_COM X10 "Signal Integrity" ""
+.ATT_COM X10 "Simulation" ""
+.ATT_COM X10 "System" "Connector"
+
+.ADD_COM X11 "Header_4_plg" "Header_4_plg"
+.ATT_COM X11 "Comment" "Micro-Fit 43045-0401"
+.ATT_COM X11 "Component Kind" "Standard"
+.ATT_COM X11 "Contact_1" "DATA"
+.ATT_COM X11 "Contact_2" "GND"
+.ATT_COM X11 "Contact_3" "ESC+"
+.ATT_COM X11 "Contact_4" "ESC-"
+.ATT_COM X11 "Description" "Разъем - 4 конт. папа"
+.ATT_COM X11 "Footprint" "MOLEX_MK 43045-0401"
+.ATT_COM X11 "Ibis Model" ""
+.ATT_COM X11 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X11 "Library Reference" "Header_4_plg"
+.ATT_COM X11 "Name" "Micro-Fit 43045-0401"
+.ATT_COM X11 "PCB3D" ""
+.ATT_COM X11 "Signal Integrity" ""
+.ATT_COM X11 "Simulation" ""
+.ATT_COM X11 "System" "Connector"
+
+.ADD_COM X12 "Header_4_plg" "Header_4_plg"
+.ATT_COM X12 "Comment" "Clik-Mate 5025840470"
+.ATT_COM X12 "Component Kind" "Standard"
+.ATT_COM X12 "Contact_1" "GND"
+.ATT_COM X12 "Contact_2" "PWR"
+.ATT_COM X12 "Contact_3" "SDA"
+.ATT_COM X12 "Contact_4" "SCL"
+.ATT_COM X12 "Description" "Разъем - 4 конт. папа"
+.ATT_COM X12 "Footprint" "MOLEX_Click-Mate 4"
+.ATT_COM X12 "Ibis Model" ""
+.ATT_COM X12 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X12 "Library Reference" "Header_4_plg"
+.ATT_COM X12 "Name" "Clik-Mate 5025840470"
+.ATT_COM X12 "PCB3D" ""
+.ATT_COM X12 "Signal Integrity" ""
+.ATT_COM X12 "Simulation" ""
+.ATT_COM X12 "System" "Connector"
+
+.ADD_COM X13 "Header_3_plg" "Header_3_plg"
+.ATT_COM X13 "Comment" "Clik-Mate 5025840370"
+.ATT_COM X13 "Component Kind" "Standard"
+.ATT_COM X13 "Contact_1" "PWR"
+.ATT_COM X13 "Contact_2" "GND"
+.ATT_COM X13 "Contact_3" "Video"
+.ATT_COM X13 "Description" "Разъем - 3 конт. вилка"
+.ATT_COM X13 "Footprint" "MOLEX_Click-Mate 3"
+.ATT_COM X13 "Ibis Model" ""
+.ATT_COM X13 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X13 "Library Reference" "Header_3_plg"
+.ATT_COM X13 "Name" "Clik-Mate 5025840370"
+.ATT_COM X13 "PCB3D" ""
+.ATT_COM X13 "Signal Integrity" ""
+.ATT_COM X13 "Simulation" ""
+.ATT_COM X13 "System" "Connector"
+
+.ADD_COM X14 "Header_3_plg" "Header_3_plg"
+.ATT_COM X14 "Comment" "Clik-Mate 5025840370"
+.ATT_COM X14 "Component Kind" "Standard"
+.ATT_COM X14 "Contact_1" "PWR"
+.ATT_COM X14 "Contact_2" "GND"
+.ATT_COM X14 "Contact_3" "Video"
+.ATT_COM X14 "Description" "Разъем - 3 конт. вилка"
+.ATT_COM X14 "Footprint" "MOLEX_Click-Mate 3"
+.ATT_COM X14 "Ibis Model" ""
+.ATT_COM X14 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X14 "Library Reference" "Header_3_plg"
+.ATT_COM X14 "Name" "Clik-Mate 5025840370"
+.ATT_COM X14 "PCB3D" ""
+.ATT_COM X14 "Signal Integrity" ""
+.ATT_COM X14 "Simulation" ""
+.ATT_COM X14 "System" "Connector"
+
+.ADD_COM X15 "Header_3_plg" "Header_3_plg"
+.ATT_COM X15 "Comment" "Clik-Mate 5025840370"
+.ATT_COM X15 "Component Kind" "Standard"
+.ATT_COM X15 "Contact_1" "PWR"
+.ATT_COM X15 "Contact_2" "GND"
+.ATT_COM X15 "Contact_3" "Video"
+.ATT_COM X15 "Description" "Разъем - 3 конт. вилка"
+.ATT_COM X15 "Footprint" "MOLEX_Click-Mate 3"
+.ATT_COM X15 "Ibis Model" ""
+.ATT_COM X15 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X15 "Library Reference" "Header_3_plg"
+.ATT_COM X15 "Name" "Clik-Mate 5025840370"
+.ATT_COM X15 "PCB3D" ""
+.ATT_COM X15 "Signal Integrity" ""
+.ATT_COM X15 "Simulation" ""
+.ATT_COM X15 "System" "Connector"
+
+.ADD_COM X16 "Header_3_plg" "Header_3_plg"
+.ATT_COM X16 "Comment" "Clik-Mate 5025840370"
+.ATT_COM X16 "Component Kind" "Standard"
+.ATT_COM X16 "Contact_1" "Video_out"
+.ATT_COM X16 "Contact_2" "GND"
+.ATT_COM X16 "Contact_3" "SHLD"
+.ATT_COM X16 "Description" "Разъем - 3 конт. вилка"
+.ATT_COM X16 "Footprint" "MOLEX_Click-Mate 3"
+.ATT_COM X16 "Ibis Model" ""
+.ATT_COM X16 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X16 "Library Reference" "Header_3_plg"
+.ATT_COM X16 "Name" "Clik-Mate 5025840370"
+.ATT_COM X16 "PCB3D" ""
+.ATT_COM X16 "Signal Integrity" ""
+.ATT_COM X16 "Simulation" ""
+.ATT_COM X16 "System" "Connector"
+
+.ADD_COM X17 "Header_46_1" "Header_46_1"
+.ATT_COM X17 "Comment" "SSM-123-L-DV"
+.ATT_COM X17 "Component Kind" "Standard"
+.ATT_COM X17 "Contact_1" "DigIN1"
+.ATT_COM X17 "Contact_2" "DigIN2"
+.ATT_COM X17 "Contact_3" "DigIN3"
+.ATT_COM X17 "Contact_4" "DigIN4"
+.ATT_COM X17 "Contact_5" "DigOUT1"
+.ATT_COM X17 "Contact_6" "DigOUT2"
+.ATT_COM X17 "Contact_7" "CH_A"
+.ATT_COM X17 "Contact_8" "CH_/A"
+.ATT_COM X17 "Contact_9" "CH_B"
+.ATT_COM X17 "Contact_10" "CH_B\"
+.ATT_COM X17 "Contact_11" "LIR_CLK"
+.ATT_COM X17 "Contact_12" "LIR_CLK\"
+.ATT_COM X17 "Contact_13" "LIR_DATA"
+.ATT_COM X17 "Contact_14" "LIR_DATA\"
+.ATT_COM X17 "Contact_15" "+5В"
+.ATT_COM X17 "Contact_16" "GND"
+.ATT_COM X17 "Contact_17" "STO-IN1+"
+.ATT_COM X17 "Contact_18" "STO-IN1-"
+.ATT_COM X17 "Contact_19" "STO-IN2+"
+.ATT_COM X17 "Contact_20" "STO-IN2-"
+.ATT_COM X17 "Contact_21" "STO-OUT+"
+.ATT_COM X17 "Contact_22" "STO-OUT-"
+.ATT_COM X17 "Contact_23" "AnIN1+"
+.ATT_COM X17 "Contact_24" "AnIN1-"
+.ATT_COM X17 "Contact_25" "AnIN2+"
+.ATT_COM X17 "Contact_26" "AnIN2-"
+.ATT_COM X17 "Contact_27" "AnOUT1"
+.ATT_COM X17 "Contact_28" "AnOUT2"
+.ATT_COM X17 "Contact_29" "CAN ID 1"
+.ATT_COM X17 "Contact_30" "CAN ID 2"
+.ATT_COM X17 "Contact_31" "CAN ID 3"
+.ATT_COM X17 "Contact_32" "CAN ID 4"
+.ATT_COM X17 "Contact_33" "CAN ID 5"
+.ATT_COM X17 "Contact_34" "BitRate"
+.ATT_COM X17 "Contact_35" "CAN HIGH"
+.ATT_COM X17 "Contact_36" "CAN LOW"
+.ATT_COM X17 "Contact_37" "GND"
+.ATT_COM X17 "Contact_38" "GND"
+.ATT_COM X17 "Contact_39" "UART_RX"
+.ATT_COM X17 "Contact_40" "UART_TX"
+.ATT_COM X17 "Contact_41" "SPI_CLK"
+.ATT_COM X17 "Contact_42" "SPI_IRQ"
+.ATT_COM X17 "Contact_43" "SPI_SOMI"
+.ATT_COM X17 "Contact_44" "SPI_SIMO"
+.ATT_COM X17 "Contact_45" "SPI_CS2"
+.ATT_COM X17 "Contact_46" "SPI_CS1"
+.ATT_COM X17 "Description" "Разъем - 46 конт. розетка"
+.ATT_COM X17 "Footprint" "SSM-123-L-DV"
+.ATT_COM X17 "Ibis Model" ""
+.ATT_COM X17 "Library Name" "VLK-2M.SCHLIB"
+.ATT_COM X17 "Library Reference" "Header_46_1"
+.ATT_COM X17 "Name" "SSM-123-L-DV"
+.ATT_COM X17 "PCB3D" ""
+.ATT_COM X17 "Signal Integrity" ""
+.ATT_COM X17 "Simulation" ""
+.ATT_COM X17 "System" "Connector"
+
+.ADD_COM X18 "Header_46_1" "Header_46_1"
+.ATT_COM X18 "Comment" "SSM-123-L-DV"
+.ATT_COM X18 "Component Kind" "Standard"
+.ATT_COM X18 "Contact_1" "DigIN1"
+.ATT_COM X18 "Contact_2" "DigIN2"
+.ATT_COM X18 "Contact_3" "DigIN3"
+.ATT_COM X18 "Contact_4" "DigIN4"
+.ATT_COM X18 "Contact_5" "DigOUT1"
+.ATT_COM X18 "Contact_6" "DigOUT2"
+.ATT_COM X18 "Contact_7" "CH_A"
+.ATT_COM X18 "Contact_8" "CH_/A"
+.ATT_COM X18 "Contact_9" "CH_B"
+.ATT_COM X18 "Contact_10" "CH_B\"
+.ATT_COM X18 "Contact_11" "LIR_CLK"
+.ATT_COM X18 "Contact_12" "LIR_CLK\"
+.ATT_COM X18 "Contact_13" "LIR_DATA"
+.ATT_COM X18 "Contact_14" "LIR_DATA\"
+.ATT_COM X18 "Contact_15" "+5В"
+.ATT_COM X18 "Contact_16" "GND"
+.ATT_COM X18 "Contact_17" "STO-IN1+"
+.ATT_COM X18 "Contact_18" "STO-IN1-"
+.ATT_COM X18 "Contact_19" "STO-IN2+"
+.ATT_COM X18 "Contact_20" "STO-IN2-"
+.ATT_COM X18 "Contact_21" "STO-OUT+"
+.ATT_COM X18 "Contact_22" "STO-OUT-"
+.ATT_COM X18 "Contact_23" "AnIN1+"
+.ATT_COM X18 "Contact_24" "AnIN1-"
+.ATT_COM X18 "Contact_25" "AnIN2+"
+.ATT_COM X18 "Contact_26" "AnIN2-"
+.ATT_COM X18 "Contact_27" "AnOUT1"
+.ATT_COM X18 "Contact_28" "AnOUT2"
+.ATT_COM X18 "Contact_29" "CAN ID 1"
+.ATT_COM X18 "Contact_30" "CAN ID 2"
+.ATT_COM X18 "Contact_31" "CAN ID 3"
+.ATT_COM X18 "Contact_32" "CAN ID 4"
+.ATT_COM X18 "Contact_33" "CAN ID 5"
+.ATT_COM X18 "Contact_34" "BitRate"
+.ATT_COM X18 "Contact_35" "CAN HIGH"
+.ATT_COM X18 "Contact_36" "CAN LOW"
+.ATT_COM X18 "Contact_37" "GND"
+.ATT_COM X18 "Contact_38" "GND"
+.ATT_COM X18 "Contact_39" "UART_RX"
+.ATT_COM X18 "Contact_40" "UART_TX"
+.ATT_COM X18 "Contact_41" "SPI_CLK"
+.ATT_COM X18 "Contact_42" "SPI_IRQ"
+.ATT_COM X18 "Contact_43" "SPI_SOMI"
+.ATT_COM X18 "Contact_44" "SPI_SIMO"
+.ATT_COM X18 "Contact_45" "SPI_CS2"
+.ATT_COM X18 "Contact_46" "SPI_CS1"
+.ATT_COM X18 "Description" "Разъем - 46 конт. розетка"
+.ATT_COM X18 "Footprint" "SSM-123-L-DV"
+.ATT_COM X18 "Ibis Model" ""
+.ATT_COM X18 "Library Name" "VLK-2M.SCHLIB"
+.ATT_COM X18 "Library Reference" "Header_46_1"
+.ATT_COM X18 "Name" "SSM-123-L-DV"
+.ATT_COM X18 "PCB3D" ""
+.ATT_COM X18 "Signal Integrity" ""
+.ATT_COM X18 "Simulation" ""
+.ATT_COM X18 "System" "Connector"
+
+.ADD_COM X19 "Header_32" "Header_32"
+.ATT_COM X19 "Comment" "SSM-116-L-DV"
+.ATT_COM X19 "Component Kind" "Standard"
+.ATT_COM X19 "Contact_1" "Winding 1"
+.ATT_COM X19 "Contact_2" "Winding 1"
+.ATT_COM X19 "Contact_3" "Winding 1"
+.ATT_COM X19 "Contact_4" "Winding 1"
+.ATT_COM X19 "Contact_5" "Winding 2"
+.ATT_COM X19 "Contact_6" "Winding 2"
+.ATT_COM X19 "Contact_7" "Winding 2"
+.ATT_COM X19 "Contact_8" "Winding 2"
+.ATT_COM X19 "Contact_9" "Winding 3"
+.ATT_COM X19 "Contact_10" "Winding 3"
+.ATT_COM X19 "Contact_11" "Winding 3"
+.ATT_COM X19 "Contact_12" "Winding 3"
+.ATT_COM X19 "Contact_13" "Power VCC"
+.ATT_COM X19 "Contact_14" "Power VCC"
+.ATT_COM X19 "Contact_15" "Power VCC"
+.ATT_COM X19 "Contact_16" "Power VCC"
+.ATT_COM X19 "Contact_17" "Logic VCC"
+.ATT_COM X19 "Contact_18" "GND"
+.ATT_COM X19 "Contact_19" "GND"
+.ATT_COM X19 "Contact_20" "GND"
+.ATT_COM X19 "Contact_21" "GND"
+.ATT_COM X19 "Contact_22" "GND"
+.ATT_COM X19 "Contact_23" "Hall 1"
+.ATT_COM X19 "Contact_24" "Hall 2"
+.ATT_COM X19 "Contact_25" "Hall 3"
+.ATT_COM X19 "Contact_26" "+5В"
+.ATT_COM X19 "Contact_27" "ENC_A"
+.ATT_COM X19 "Contact_28" "ENC_A\"
+.ATT_COM X19 "Contact_29" "ENC_B"
+.ATT_COM X19 "Contact_30" "ENC_B\"
+.ATT_COM X19 "Contact_31" "ENC_I"
+.ATT_COM X19 "Contact_32" "ENC_I\"
+.ATT_COM X19 "Description" "Разъем - 32 конт. розетка"
+.ATT_COM X19 "Footprint" "SSM-116-L-DV"
+.ATT_COM X19 "Ibis Model" ""
+.ATT_COM X19 "Library Name" "VLK-2M.SCHLIB"
+.ATT_COM X19 "Library Reference" "Header_32"
+.ATT_COM X19 "Name" "SSM-116-L-DV"
+.ATT_COM X19 "PCB3D" ""
+.ATT_COM X19 "Signal Integrity" ""
+.ATT_COM X19 "Simulation" ""
+.ATT_COM X19 "System" "Connector"
+
+.ADD_COM X20 "Header_6_sct" "Header_6_sct"
+.ATT_COM X20 "Comment" "PBS-06-SMD"
+.ATT_COM X20 "Comment_1" "PBS-6"
+.ATT_COM X20 "Component Kind" "Standard"
+.ATT_COM X20 "Contact_1" "+3,3В"
+.ATT_COM X20 "Contact_2" "SWCLK"
+.ATT_COM X20 "Contact_3" "GND"
+.ATT_COM X20 "Contact_4" "SWDIO"
+.ATT_COM X20 "Contact_5" "NRST"
+.ATT_COM X20 "Contact_6" "TRACE"
+.ATT_COM X20 "Description" "Разъем - 6 конт. разъем"
+.ATT_COM X20 "Footprint" "PBS-6"
+.ATT_COM X20 "Ibis Model" ""
+.ATT_COM X20 "Library Name" "DriverControl.SCHLIB"
+.ATT_COM X20 "Library Reference" "Header_6_sct"
+.ATT_COM X20 "manufacturer" "ConnFly"
+.ATT_COM X20 "Name" "PBS-6"
+.ATT_COM X20 "PCB3D" ""
+.ATT_COM X20 "Signal Integrity" ""
+.ATT_COM X20 "Simulation" ""
+.ATT_COM X20 "System" "Connector"
+
+.ADD_COM X21 "Header_32" "Header_32"
+.ATT_COM X21 "Comment" "SSM-116-L-DV"
+.ATT_COM X21 "Component Kind" "Standard"
+.ATT_COM X21 "Contact_1" "Winding 1"
+.ATT_COM X21 "Contact_2" "Winding 1"
+.ATT_COM X21 "Contact_3" "Winding 1"
+.ATT_COM X21 "Contact_4" "Winding 1"
+.ATT_COM X21 "Contact_5" "Winding 2"
+.ATT_COM X21 "Contact_6" "Winding 2"
+.ATT_COM X21 "Contact_7" "Winding 2"
+.ATT_COM X21 "Contact_8" "Winding 2"
+.ATT_COM X21 "Contact_9" "Winding 3"
+.ATT_COM X21 "Contact_10" "Winding 3"
+.ATT_COM X21 "Contact_11" "Winding 3"
+.ATT_COM X21 "Contact_12" "Winding 3"
+.ATT_COM X21 "Contact_13" "Power VCC"
+.ATT_COM X21 "Contact_14" "Power VCC"
+.ATT_COM X21 "Contact_15" "Power VCC"
+.ATT_COM X21 "Contact_16" "Power VCC"
+.ATT_COM X21 "Contact_17" "Logic VCC"
+.ATT_COM X21 "Contact_18" "GND"
+.ATT_COM X21 "Contact_19" "GND"
+.ATT_COM X21 "Contact_20" "GND"
+.ATT_COM X21 "Contact_21" "GND"
+.ATT_COM X21 "Contact_22" "GND"
+.ATT_COM X21 "Contact_23" "Hall 1"
+.ATT_COM X21 "Contact_24" "Hall 2"
+.ATT_COM X21 "Contact_25" "Hall 3"
+.ATT_COM X21 "Contact_26" "+5В"
+.ATT_COM X21 "Contact_27" "ENC_A"
+.ATT_COM X21 "Contact_28" "ENC_A\"
+.ATT_COM X21 "Contact_29" "ENC_B"
+.ATT_COM X21 "Contact_30" "ENC_B\"
+.ATT_COM X21 "Contact_31" "ENC_I"
+.ATT_COM X21 "Contact_32" "ENC_I\"
+.ATT_COM X21 "Description" "Разъем - 32 конт. розетка"
+.ATT_COM X21 "Footprint" "SSM-116-L-DV"
+.ATT_COM X21 "Ibis Model" ""
+.ATT_COM X21 "Library Name" "VLK-2M.SCHLIB"
+.ATT_COM X21 "Library Reference" "Header_32"
+.ATT_COM X21 "Name" "SSM-116-L-DV"
+.ATT_COM X21 "PCB3D" ""
+.ATT_COM X21 "Signal Integrity" ""
+.ATT_COM X21 "Simulation" ""
+.ATT_COM X21 "System" "Connector"
+
+.ADD_COM X22 "Header_6_sct" "Header_6_sct"
+.ATT_COM X22 "Comment" "PBS-06-SMD"
+.ATT_COM X22 "Comment_1" "PBS-6"
+.ATT_COM X22 "Component Kind" "Standard"
+.ATT_COM X22 "Contact_1" "+3,3В"
+.ATT_COM X22 "Contact_2" "SWCLK"
+.ATT_COM X22 "Contact_3" "GND"
+.ATT_COM X22 "Contact_4" "SWDIO"
+.ATT_COM X22 "Contact_5" "NRST"
+.ATT_COM X22 "Contact_6" "TRACE"
+.ATT_COM X22 "Description" "Разъем - 6 конт. разъем"
+.ATT_COM X22 "Footprint" "PBS-6"
+.ATT_COM X22 "Ibis Model" ""
+.ATT_COM X22 "Library Name" "DriverControl.SCHLIB"
+.ATT_COM X22 "Library Reference" "Header_6_sct"
+.ATT_COM X22 "manufacturer" "ConnFly"
+.ATT_COM X22 "Name" "PBS-6"
+.ATT_COM X22 "PCB3D" ""
+.ATT_COM X22 "Signal Integrity" ""
+.ATT_COM X22 "Simulation" ""
+.ATT_COM X22 "System" "Connector"
+
+.ADD_COM X23 "Header_8_plg" "Header_8_plg"
+.ATT_COM X23 "Comment" "Micro-Fit 43045-0800"
+.ATT_COM X23 "Component Kind" "Standard"
+.ATT_COM X23 "Contact_1" "Winding_1"
+.ATT_COM X23 "Contact_2" "Winding_2"
+.ATT_COM X23 "Contact_3" "Winding_3"
+.ATT_COM X23 "Contact_4" "Vhall"
+.ATT_COM X23 "Contact_5" "GND"
+.ATT_COM X23 "Contact_6" "Hall_1"
+.ATT_COM X23 "Contact_7" "Hall_2"
+.ATT_COM X23 "Contact_8" "Hall_3"
+.ATT_COM X23 "Description" "Разъем - 8 конт. розетка"
+.ATT_COM X23 "Footprint" "Molex_MK_43045-0427"
+.ATT_COM X23 "Ibis Model" ""
+.ATT_COM X23 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X23 "Library Reference" "Header_8_plg"
+.ATT_COM X23 "Name" "Micro-Fit 43045-0800"
+.ATT_COM X23 "PCB3D" ""
+.ATT_COM X23 "Signal Integrity" ""
+.ATT_COM X23 "Simulation" ""
+.ATT_COM X23 "System" "Connector"
+
+.ADD_COM X24 "Header_8_plg" "Header_8_plg"
+.ATT_COM X24 "Comment" "Micro-Fit 43045-0800"
+.ATT_COM X24 "Component Kind" "Standard"
+.ATT_COM X24 "Contact_1" "Winding_1"
+.ATT_COM X24 "Contact_2" "Winding_2"
+.ATT_COM X24 "Contact_3" "Winding_3"
+.ATT_COM X24 "Contact_4" "Vhall"
+.ATT_COM X24 "Contact_5" "GND"
+.ATT_COM X24 "Contact_6" "Hall_1"
+.ATT_COM X24 "Contact_7" "Hall_2"
+.ATT_COM X24 "Contact_8" "Hall_3"
+.ATT_COM X24 "Description" "Разъем - 8 конт. розетка"
+.ATT_COM X24 "Footprint" "Molex_MK_43045-0427"
+.ATT_COM X24 "Ibis Model" ""
+.ATT_COM X24 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X24 "Library Reference" "Header_8_plg"
+.ATT_COM X24 "Name" "Micro-Fit 43045-0800"
+.ATT_COM X24 "PCB3D" ""
+.ATT_COM X24 "Signal Integrity" ""
+.ATT_COM X24 "Simulation" ""
+.ATT_COM X24 "System" "Connector"
+
+.ADD_COM X25 "Header_6_plg" "Header_6_plg"
+.ATT_COM X25 "Comment" "PLS-6"
+.ATT_COM X25 "Component Kind" "Standard"
+.ATT_COM X25 "Contact_1" "+3,3"
+.ATT_COM X25 "Contact_2" "SWCLK"
+.ATT_COM X25 "Contact_3" "GND"
+.ATT_COM X25 "Contact_4" "SWDIO"
+.ATT_COM X25 "Contact_5" "NRST"
+.ATT_COM X25 "Contact_6" "TRACE"
+.ATT_COM X25 "Description" "Разъем - 6 конт. вилка"
+.ATT_COM X25 "Footprint" "PLS_6"
+.ATT_COM X25 "Ibis Model" ""
+.ATT_COM X25 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X25 "Library Reference" "Header_6_plg"
+.ATT_COM X25 "Name" "PLS-6"
+.ATT_COM X25 "PCB3D" ""
+.ATT_COM X25 "Signal Integrity" ""
+.ATT_COM X25 "Simulation" ""
+.ATT_COM X25 "System" "Connector"
+
+.ADD_COM X26 "Header_6_plg" "Header_6_plg"
+.ATT_COM X26 "Comment" "PLS-6"
+.ATT_COM X26 "Component Kind" "Standard"
+.ATT_COM X26 "Contact_1" "+3,3"
+.ATT_COM X26 "Contact_2" "SWCLK"
+.ATT_COM X26 "Contact_3" "GND"
+.ATT_COM X26 "Contact_4" "SWDIO"
+.ATT_COM X26 "Contact_5" "NRST"
+.ATT_COM X26 "Contact_6" "TRACE"
+.ATT_COM X26 "Description" "Разъем - 6 конт. вилка"
+.ATT_COM X26 "Footprint" "PLS_6"
+.ATT_COM X26 "Ibis Model" ""
+.ATT_COM X26 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM X26 "Library Reference" "Header_6_plg"
+.ATT_COM X26 "Name" "PLS-6"
+.ATT_COM X26 "PCB3D" ""
+.ATT_COM X26 "Signal Integrity" ""
+.ATT_COM X26 "Simulation" ""
+.ATT_COM X26 "System" "Connector"
+
+.ADD_COM Z1 "Quartz_assembly" "Quartz_assembly"
+.ATT_COM Z1 "Comment" "CSTCE12M0G52-R0"
+.ATT_COM Z1 "Component Kind" "Standard"
+.ATT_COM Z1 "Description" "Кварцевый резорнатор со встроенными нагрузочными конденсаторами"
+.ATT_COM Z1 "Footprint" "CSTCE"
+.ATT_COM Z1 "Ibis Model" ""
+.ATT_COM Z1 "Library Name" "PCH_Lib.SchLib"
+.ATT_COM Z1 "Library Reference" "Quartz_assembly"
+.ATT_COM Z1 "Manufacturer" "Murata Electronics"
+.ATT_COM Z1 "Name" "CSTCE12M0G52-R0"
+.ATT_COM Z1 "PCB3D" ""
+.ATT_COM Z1 "Signal Integrity" ""
+.ATT_COM Z1 "Simulation" ""
+.ATT_COM Z1 "T (°C) Ambient" "-40...+125"
+.ATT_COM Z1 "Tolerance @25°C" "0,5%"
+.ATT_COM Z1 "Value" "12МГц"
+
+
+.ADD_TER C38 2 "VIDEO2"
+.TER R67 2
+     X15 3
+
+.ADD_TER C37 2 "VIDEO1"
+.TER R66 2
+     X14 3
+
+.ADD_TER VT4 5 "NetVT4_5"
+.TER VT4 6
+     X15 1
+
+.ADD_TER VT3 5 "NetVT3_5"
+.TER VT3 6
+     X13 1
+
+.ADD_TER VT2 5 "NetVT2_5"
+.TER VT2 6
+     X14 1
+
+.ADD_TER R106 2 "NetR106_2"
+.TER X16 1
+
+.ADD_TER R79 1 "NetR79_1"
+.TER VT4 4
+     VT4 7
+     VT4 8
+
+.ADD_TER R78 1 "NetR78_1"
+.TER VT3 4
+     VT3 7
+     VT3 8
+
+.ADD_TER R77 1 "NetR77_1"
+.TER VT2 4
+     VT2 7
+     VT2 8
+
+.ADD_TER R72 1 "NetR72_1"
+.TER VT4 2
+
+.ADD_TER R71 1 "NetR71_1"
+.TER VT3 2
+
+.ADD_TER R70 1 "NetR70_1"
+.TER VT2 2
+
+.ADD_TER R61 2 "NetR61_2"
+.TER X13 3
+
+.ADD_TER DA11 3 "NetDA11_3"
+.TER DA11 4
+     R106 1
+
+.ADD_TER DA10 14 "NetDA10_14"
+.TER R103 2
+
+.ADD_TER DA10 11 "NetDA10_11"
+.TER R90 1
+     R94 1
+
+.ADD_TER DA10 10 "NetDA10_10"
+.TER R91 1
+     R95 1
+
+.ADD_TER DA10 6 "NetDA10_6"
+.TER R96 2
+
+.ADD_TER DA10 5 "NetDA10_5"
+.TER R89 1
+     R93 1
+
+.ADD_TER DA10 4 "NetDA10_4"
+.TER R88 1
+     R92 1
+
+.ADD_TER DA10 2 "NetDA10_2"
+.TER R101 2
+
+.ADD_TER DA10 1 "NetDA10_1"
+.TER R102 2
+
+.ADD_TER DA9 5 "NetDA9_5"
+.TER R65 1
+
+.ADD_TER DA9 3 "NetDA9_3"
+.TER DA9 4
+     R91 2
+
+.ADD_TER DA8 5 "NetDA8_5"
+.TER R64 1
+
+.ADD_TER DA8 3 "NetDA8_3"
+.TER DA8 4
+     R90 2
+
+.ADD_TER DA7 5 "NetDA7_5"
+.TER R63 1
+
+.ADD_TER DA7 3 "NetDA7_3"
+.TER DA7 4
+     R89 2
+
+.ADD_TER DA6 5 "NetDA6_5"
+.TER R62 1
+
+.ADD_TER DA6 3 "NetDA6_3"
+.TER DA6 4
+     R88 2
+
+.ADD_TER C51 2 "NetC51_2"
+.TER R99 2
+     R100 1
+     VD8 2
+
+.ADD_TER C50 2 "NetC50_2"
+.TER R96 1
+     R97 1
+
+.ADD_TER C50 1 "NetC50_1"
+.TER DA11 1
+     R98 2
+     VD8 1
+
+.ADD_TER C44 2 "NetC44_2"
+.TER R83 2
+     R87 1
+     VD7 2
+
+.ADD_TER C43 2 "NetC43_2"
+.TER R82 2
+     R86 1
+     VD6 2
+
+.ADD_TER C42 2 "NetC42_2"
+.TER R81 2
+     R85 1
+     VD5 2
+
+.ADD_TER C41 2 "NetC41_2"
+.TER R80 2
+     R84 1
+     VD4 2
+
+.ADD_TER C40 2 "NetC40_2"
+.TER R57 1
+     R61 1
+     R69 2
+
+.ADD_TER C40 1 "NetC40_1"
+.TER DA9 1
+     R76 2
+     VD7 1
+
+.ADD_TER C39 1 "NetC39_1"
+.TER DA8 1
+     R75 2
+     VD6 1
+
+.ADD_TER C38 1 "NetC38_1"
+.TER DA7 1
+     R74 2
+     VD5 1
+
+.ADD_TER C37 1 "NetC37_1"
+.TER DA6 1
+     R73 2
+     VD4 1
+
+.ADD_TER X3 6 "NetX3_6"
+.TER X4 1
+
+.ADD_TER X3 5 "NetX3_5"
+.TER X4 2
+
+.ADD_TER VT1 5 "NetVT1_5"
+.TER VT1 6
+     VT1 7
+     VT1 8
+     X3 7
+     X3 9
+     X3 10
+
+.ADD_TER R15 2 "NetR15_2"
+.TER X3 8
+
+.ADD_TER R11 1 "NetR11_1"
+.TER VT1 4
+
+.ADD_TER HL6 2 "NetHL6_2"
+.TER R24 1
+
+.ADD_TER HL5 2 "NetHL5_2"
+.TER R23 1
+
+.ADD_TER HL4 2 "NetHL4_2"
+.TER R22 1
+
+.ADD_TER HL3 2 "NetHL3_2"
+.TER R20 2
+
+.ADD_TER DD3 7 "NetDD3_7"
+.TER R12 1
+     VD2 1
+     X3 4
+
+.ADD_TER DD3 6 "NetDD3_6"
+.TER R12 2
+     VD2 2
+     X3 3
+
+.ADD_TER DD2 2 "NetDD2_2"
+.TER R9 1
+
+.ADD_TER C19 2 "NetC19_2"
+.TER DD2 3
+     R10 2
+     R16 2
+
+.ADD_TER C17 1 "NetC17_1"
+.TER DD2 6
+     R13 2
+     R14 1
+
+.ADD_TER C15 2 "NetC15_2"
+.TER DD2 5
+
+.ADD_TER A2 6 "+12В"
+.TER A2 7
+     A2 8
+     R23 2
+     R77 2
+     R78 2
+     R79 2
+     VT2 3
+     VT3 3
+     VT4 3
+
+.ADD_TER DA5 4 "VIDEO4-"
+.TER R52 1
+     X7 2
+
+.ADD_TER DA5 1 "VIDEO4+"
+.TER R51 2
+     X7 1
+
+.ADD_TER R40 2 "VIDEO4"
+.TER R57 2
+
+.ADD_TER C39 2 "VIDEO3"
+.TER R68 2
+     X10 5
+
+.ADD_TER X5 6 "NetX5_6"
+.TER X5 19
+     X6 2
+
+.ADD_TER X5 5 "NetX5_5"
+.TER X5 7
+     X5 18
+     X5 20
+     X6 3
+
+.ADD_TER R50 1 "NetR50_1"
+.TER X12 4
+
+.ADD_TER R49 1 "NetR49_1"
+.TER X12 3
+
+.ADD_TER R48 1 "NetR48_1"
+.TER X11 1
+
+.ADD_TER R30 7 "NetR30_7"
+.TER X5 1
+     X5 24
+
+.ADD_TER R30 5 "NetR30_5"
+.TER X5 2
+     X5 23
+
+.ADD_TER R30 3 "NetR30_3"
+.TER X5 3
+     X5 22
+
+.ADD_TER R30 1 "NetR30_1"
+.TER X5 4
+     X5 21
+
+.ADD_TER HL7 2 "NetHL7_2"
+.TER R36 2
+
+.ADD_TER DD4 8 "NetDD4_8"
+.TER R41 2
+
+.ADD_TER DD4 5 "NetDD4_5"
+.TER R39 1
+
+.ADD_TER DD4 4 "NetDD4_4"
+.TER R38 1
+
+.ADD_TER DD4 1 "NetDD4_1"
+.TER R37 1
+
+.ADD_TER DA5 7 "NetDA5_7"
+.TER R40 1
+
+.ADD_TER DA5 6 "NetDA5_6"
+.TER HL7 1
+
+.ADD_TER DA5 3 "NetDA5_3"
+.TER R42 2
+
+.ADD_TER DA5 2 "NetDA5_2"
+.TER R42 1
+
+.ADD_TER DA4 8 "NetDA4_8"
+.TER R29 2
+
+.ADD_TER DA4 7 "NetDA4_7"
+.TER R28 2
+
+.ADD_TER DA4 5 "NetDA4_5"
+.TER DA4 6
+     R25 2
+
+.ADD_TER DA4 4 "NetDA4_4"
+.TER R27 2
+
+.ADD_TER DA4 2 "NetDA4_2"
+.TER R26 2
+
+.ADD_TER C34 2 "NetC34_2"
+.TER C36 2
+     R51 1
+     R52 2
+
+.ADD_TER C32 2 "NetC32_2"
+.TER R46 1
+     R47 2
+
+.ADD_TER C27 2 "NetC27_2"
+.TER DA4 21
+
+.ADD_TER C25 2 "NetC25_2"
+.TER DA4 24
+
+.ADD_TER A3 6 "+8,5В"
+.TER A3 7
+     A3 8
+     C28 2
+     C30 2
+     DA5 8
+     R24 2
+     R36 1
+
+.ADD_TER C20 2 "PGND"
+.TER C23 2
+     R21 1
+     VT1 1
+     VT1 2
+     VT1 3
+     X8 4
+     X9 4
+     X10 7
+     X10 8
+     X11 4
+     X19 18
+     X19 19
+     X19 20
+     X19 21
+     X19 22
+     X21 18
+     X21 19
+     X21 20
+     X21 21
+     X21 22
+
+.ADD_TER X22 6 "NetX22_6"
+.TER X26 6
+
+.ADD_TER X22 5 "NetX22_5"
+.TER X26 5
+
+.ADD_TER X22 4 "NetX22_4"
+.TER X26 4
+
+.ADD_TER X22 3 "NetX22_3"
+.TER X26 3
+
+.ADD_TER X22 2 "NetX22_2"
+.TER X26 2
+
+.ADD_TER X22 1 "NetX22_1"
+.TER X26 1
+
+.ADD_TER X20 6 "NetX20_6"
+.TER X25 6
+
+.ADD_TER X20 5 "NetX20_5"
+.TER X25 5
+
+.ADD_TER X20 4 "NetX20_4"
+.TER X25 4
+
+.ADD_TER X20 3 "NetX20_3"
+.TER X25 3
+
+.ADD_TER X20 2 "NetX20_2"
+.TER X25 2
+
+.ADD_TER X20 1 "NetX20_1"
+.TER X25 1
+
+.ADD_TER R111 8 "NetR111_8"
+.TER X21 25
+
+.ADD_TER R111 7 "NetR111_7"
+.TER R113 1
+     X24 8
+
+.ADD_TER R111 6 "NetR111_6"
+.TER X21 24
+
+.ADD_TER R111 5 "NetR111_5"
+.TER R115 1
+     X24 7
+
+.ADD_TER R111 4 "NetR111_4"
+.TER X21 23
+
+.ADD_TER R111 3 "NetR111_3"
+.TER R117 1
+     X24 6
+
+.ADD_TER R110 8 "NetR110_8"
+.TER X19 25
+
+.ADD_TER R110 7 "NetR110_7"
+.TER R112 1
+     X23 8
+
+.ADD_TER R110 6 "NetR110_6"
+.TER X19 24
+
+.ADD_TER R110 5 "NetR110_5"
+.TER R114 1
+     X23 7
+
+.ADD_TER R110 4 "NetR110_4"
+.TER X19 23
+
+.ADD_TER R110 3 "NetR110_3"
+.TER R116 1
+     X23 6
+
+.ADD_TER R109 4 "NetR109_4"
+.TER X18 30
+
+.ADD_TER R108 2 "NetR108_2"
+.TER X17 29
+
+.ADD_TER L7 2 "NetL7_2"
+.TER X24 3
+
+.ADD_TER L7 1 "NetL7_1"
+.TER X21 9
+     X21 10
+     X21 11
+     X21 12
+
+.ADD_TER L6 2 "NetL6_2"
+.TER X24 2
+
+.ADD_TER L6 1 "NetL6_1"
+.TER X21 5
+     X21 6
+     X21 7
+     X21 8
+
+.ADD_TER L5 2 "NetL5_2"
+.TER X24 1
+
+.ADD_TER L5 1 "NetL5_1"
+.TER X21 1
+     X21 2
+     X21 3
+     X21 4
+
+.ADD_TER L4 2 "NetL4_2"
+.TER X23 3
+
+.ADD_TER L4 1 "NetL4_1"
+.TER X19 9
+     X19 10
+     X19 11
+     X19 12
+
+.ADD_TER L3 2 "NetL3_2"
+.TER X23 2
+
+.ADD_TER L3 1 "NetL3_1"
+.TER X19 5
+     X19 6
+     X19 7
+     X19 8
+
+.ADD_TER L2 2 "NetL2_2"
+.TER X23 1
+
+.ADD_TER L2 1 "NetL2_1"
+.TER X19 1
+     X19 2
+     X19 3
+     X19 4
+
+.ADD_TER C33 2 "CAN_L"
+.TER DD4 6
+     R47 1
+     VD3 2
+     X7 4
+     X8 2
+     X9 2
+     X10 4
+     X17 36
+     X18 36
+
+.ADD_TER C35 2 "CAN_H"
+.TER DD4 7
+     R46 2
+     VD3 1
+     X7 3
+     X8 1
+     X9 1
+     X10 3
+     X17 35
+     X18 35
+
+.ADD_TER R109 8 "132"
+.TER X18 32
+
+.ADD_TER R109 6 "131"
+.TER X18 31
+
+.ADD_TER R109 2 "129"
+.TER X18 29
+
+.ADD_TER R108 8 "32"
+.TER X17 32
+
+.ADD_TER R108 6 "31"
+.TER X17 31
+
+.ADD_TER R108 4 "30"
+.TER X17 30
+
+.ADD_TER A1 1 "+14,4В"
+.TER A1 2
+     A2 1
+     A2 2
+     A3 1
+     A3 2
+     C14 2
+     C20 1
+     C23 1
+     DD2 1
+     R9 2
+     R11 2
+     X3 1
+     X3 2
+     X8 3
+     X9 3
+     X10 1
+     X10 2
+     X11 3
+     X19 13
+     X19 14
+     X19 15
+     X19 16
+     X19 17
+     X21 13
+     X21 14
+     X21 15
+     X21 16
+     X21 17
+
+.ADD_TER C17 2 "+5В_А"
+.TER C18 2
+     C21 2
+     C22 2
+     C45 2
+     C46 2
+     C47 2
+     C48 2
+     C52 2
+     DA6 6
+     DA7 6
+     DA8 6
+     DA9 6
+     DA11 5
+     DA11 6
+     DD2 7
+     R13 1
+     R20 1
+     R84 2
+     R85 2
+     R86 2
+     R87 2
+     R100 2
+     X5 10
+     X5 11
+     X5 12
+     X5 13
+     X5 14
+     X5 15
+     X23 4
+     X24 4
+
+.ADD_TER A1 3 "SGND"
+.TER A1 4
+     A1 9
+     A1 10
+     A2 3
+     A2 4
+     A2 9
+     A2 10
+     A3 3
+     A3 4
+     A3 9
+     A3 10
+     C1 1
+     C2 1
+     C3 1
+     C4 1
+     C5 1
+     C6 1
+     C7 1
+     C8 1
+     C9 1
+     C10 1
+     C11 1
+     C12 1
+     C13 1
+     C14 1
+     C15 1
+     C16 1
+     C18 1
+     C19 1
+     C21 1
+     C22 1
+     C24 1
+     C25 1
+     C26 1
+     C27 1
+     C28 1
+     C29 1
+     C30 1
+     C31 1
+     C32 1
+     C33 1
+     C34 1
+     C35 1
+     C36 1
+     C41 1
+     C42 1
+     C43 1
+     C44 1
+     C45 1
+     C46 1
+     C47 1
+     C48 1
+     C49 1
+     C51 1
+     C52 1
+     DA1 2
+     DA2 2
+     DA3 2
+     DA4 14
+     DA4 15
+     DA4 16
+     DA4 17
+     DA4 18
+     DA4 19
+     DA4 20
+     DA5 5
+     DA5 9
+     DA6 2
+     DA7 2
+     DA8 2
+     DA9 2
+     DA10 3
+     DA10 13
+     DA11 2
+     DD1 12
+     DD1 18
+     DD1 60
+     DD1 63
+     DD2 4
+     DD2 8
+     DD3 5
+     DD4 2
+     HL1 1
+     HL2 1
+     HL3 1
+     HL4 1
+     HL5 1
+     HL6 1
+     R10 1
+     R14 2
+     R17 1
+     R21 2
+     R41 1
+     R43 1
+     R44 1
+     R45 1
+     R53 1
+     R54 1
+     R55 1
+     R56 1
+     R58 1
+     R59 1
+     R60 1
+     R66 1
+     R67 1
+     R68 1
+     R69 1
+     R73 1
+     R74 1
+     R75 1
+     R76 1
+     R80 1
+     R81 1
+     R82 1
+     R83 1
+     R92 2
+     R93 2
+     R94 2
+     R95 2
+     R97 2
+     R98 1
+     R99 1
+     R107 1
+     R108 1
+     R108 5
+     R108 7
+     R109 5
+     R109 7
+     VD2 3
+     VD3 3
+     VT2 1
+     VT3 1
+     VT4 1
+     X1 3
+     X2 3
+     X5 8
+     X5 9
+     X5 16
+     X5 17
+     X7 5
+     X10 6
+     X11 2
+     X12 1
+     X13 2
+     X14 2
+     X15 2
+     X16 2
+     X16 3
+     X17 16
+     X17 37
+     X17 38
+     X18 16
+     X18 37
+     X18 38
+     X23 5
+     X24 5
+     Z1 2
+
+.ADD_TER VD1 1 "NetVD1_1"
+.TER X2 1
+
+.ADD_TER HL2 2 "NetHL2_2"
+.TER R2 1
+
+.ADD_TER HL1 2 "NetHL1_2"
+.TER R1 1
+
+.ADD_TER DD1 6 "NetDD1_6"
+.TER Z1 1
+
+.ADD_TER DD1 5 "NetDD1_5"
+.TER Z1 3
+
+.ADD_TER DA3 6 "NetDA3_6"
+.TER X2 6
+
+.ADD_TER DA3 4 "NetDA3_4"
+.TER R6 1
+
+.ADD_TER DA3 3 "NetDA3_3"
+.TER R5 1
+
+.ADD_TER DA3 1 "NetDA3_1"
+.TER X2 5
+
+.ADD_TER DA2 6 "NetDA2_6"
+.TER X2 4
+
+.ADD_TER DA2 4 "NetDA2_4"
+.TER R4 1
+
+.ADD_TER DA2 3 "NetDA2_3"
+.TER R3 1
+
+.ADD_TER DA2 1 "NetDA2_1"
+.TER X2 2
+
+.ADD_TER DA1 6 "NetDA1_6"
+.TER X1 2
+
+.ADD_TER DA1 4 "NetDA1_4"
+.TER R8 1
+
+.ADD_TER DA1 3 "NetDA1_3"
+.TER R7 1
+
+.ADD_TER DA1 1 "NetDA1_1"
+.TER X1 1
+
+.ADD_TER C12 2 "NetC12_2"
+.TER DD1 31
+
+.ADD_TER C11 2 "NetC11_2"
+.TER DD1 47
+
+.ADD_TER C10 2 "NetC10_2"
+.TER DD1 13
+     L1 2
+
+.ADD_TER DD1 4 "MCU_VIDEO4_PWR_EN"
+.TER R59 2
+     R71 2
+
+.ADD_TER DD1 62 "MCU_VIDEO4_EN"
+.TER R56 2
+     R65 2
+
+.ADD_TER DD1 58 "MCU_VIDEO3_EN"
+.TER R55 2
+     R64 2
+
+.ADD_TER DD1 3 "MCU_VIDEO2_PWR_EN"
+.TER R60 2
+     R72 2
+
+.ADD_TER DD1 61 "MCU_VIDEO2_EN"
+.TER R54 2
+     R63 2
+
+.ADD_TER DD1 2 "MCU_VIDEO1_PWR_EN"
+.TER R58 2
+     R70 2
+
+.ADD_TER DD1 59 "MCU_VIDEO1_EN"
+.TER R53 2
+     R62 2
+
+.ADD_TER DD1 37 "MCU_UART6_TX"
+.TER R8 2
+
+.ADD_TER DD1 38 "MCU_UART6_RX"
+.TER R7 2
+
+.ADD_TER DD1 14 "MCU_UART4_TX"
+.TER R30 2
+
+.ADD_TER DD1 15 "MCU_UART4_RX"
+.TER R30 4
+     R33 1
+
+.ADD_TER DD1 16 "MCU_UART2_TX"
+.TER R30 6
+
+.ADD_TER DD1 17 "MCU_UART2_RX"
+.TER R30 8
+     R35 1
+
+.ADD_TER DD1 55 "MCU_TRACE"
+.TER R6 2
+
+.ADD_TER DD1 46 "MCU_SWDIO"
+.TER R4 2
+
+.ADD_TER DD1 49 "MCU_SWCLK"
+.TER R3 2
+
+.ADD_TER DD1 40 "MCU_SDA_PSensor"
+.TER R45 2
+     R49 2
+
+.ADD_TER DD1 41 "MCU_SCL_PSensor"
+.TER R43 2
+     R50 2
+
+.ADD_TER DD1 53 "MCU_RS485_TX_BAT"
+.TER DD3 4
+
+.ADD_TER DD1 54 "MCU_RS485_RX_BAT"
+.TER DD3 1
+     R19 1
+
+.ADD_TER DD1 57 "MCU_RS485_DE_BAT"
+.TER DD3 2
+     DD3 3
+     R17 2
+
+.ADD_TER DD1 42 "MCU_PWM_ESC"
+.TER R44 2
+     R48 2
+
+.ADD_TER DD1 52 "MCU_PRES_FLAG"
+.TER R15 1
+     R18 1
+
+.ADD_TER C13 2 "MCU_NRST"
+.TER DD1 7
+     R5 2
+
+.ADD_TER DD1 9 "MCU_MUX_EN"
+.TER R101 1
+     R107 2
+
+.ADD_TER DD1 11 "MCU_MUX_A1"
+.TER R103 1
+     R105 1
+
+.ADD_TER DD1 10 "MCU_MUX_A0"
+.TER R102 1
+     R104 1
+
+.ADD_TER DD1 20 "MCU_LMZ_5V_EN"
+.TER R16 1
+
+.ADD_TER DD1 21 "MCU_LED_RED"
+.TER R1 2
+
+.ADD_TER DD1 22 "MCU_LED_GREEN"
+.TER R2 2
+
+.ADD_TER DD1 36 "MCU_GYRO_SPI_MOSI"
+.TER R27 1
+
+.ADD_TER DD1 35 "MCU_GYRO_SPI_MISO"
+.TER R25 1
+     R31 1
+
+.ADD_TER DD1 29 "MCU_GYRO_SPI_CLK"
+.TER R26 1
+
+.ADD_TER DD1 26 "MCU_GYRO_CS_XM"
+.TER R29 1
+     R34 1
+
+.ADD_TER DD1 27 "MCU_GYRO_CS_G"
+.TER R28 1
+     R32 1
+
+.ADD_TER DD1 30 "MCU_CAN_LOOPBACK"
+.TER R39 2
+
+.ADD_TER DD1 34 "MCU_CAN2_TX"
+.TER R37 2
+
+.ADD_TER C29 2 "MCU_CAN2_RX"
+.TER DD1 33
+     R38 2
+
+.ADD_TER A1 6 "+3,3В"
+.TER A1 7
+     A1 8
+     C1 2
+     C2 2
+     C3 2
+     C4 2
+     C5 2
+     C6 2
+     C7 2
+     C8 2
+     C9 2
+     C16 2
+     C24 2
+     C26 2
+     C31 2
+     C49 2
+     DA1 5
+     DA2 5
+     DA3 5
+     DA4 1
+     DA4 3
+     DA4 22
+     DA4 23
+     DA10 12
+     DD1 1
+     DD1 19
+     DD1 32
+     DD1 48
+     DD1 64
+     DD3 8
+     DD4 3
+     L1 1
+     R18 2
+     R19 2
+     R22 2
+     R31 2
+     R32 2
+     R33 2
+     R34 2
+     R35 2
+     R104 2
+     R105 2
+     R108 3
+     R109 1
+     R109 3
+     R112 2
+     R113 2
+     R114 2
+     R115 2
+     R116 2
+     R117 2
+     VD1 2
+     X6 1
+     X12 2
+
+.END

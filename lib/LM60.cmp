@@ -1,0 +1,11 @@
+(componentDefinition "LM60BIM3" "LM60BIM3X" "LM60CIM3" "LM60CIM3X" "LM60QIM3" "LM60QIM3X" "LM60BIZ" "LM60CIZ"
+    (nameMatch exact)
+    (package "*")
+    (description "Temperature Sensor (Analog)")
+    (purpose "SENSOR:ADC:TEMPERATURE")
+    (datasheet "lm60.pdf")
+    (pin "1" "" ("Vs" ) )
+    (pin "2" "" ("Vout" "OUT" "ADC") )
+    (pin "3" "" ("GND" ) )
+)
+

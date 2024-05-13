@@ -1,0 +1,3 @@
+(modify "mcuNet" replaceSingle "UART2_(R|T)X" "GANJUBUS_RS485_$({1})X")
+(modify "mcuNet" replaceSingle "UART2_DE"     "GANJUBUS_RS485_DE")
+(modify "mcuNet" replaceSingle "UART4_(R|T)X" "DEBUG_UART_$({1})X")

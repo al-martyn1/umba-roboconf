@@ -1,0 +1,20 @@
+(componentDefinition 
+    "LM3414HVMR" "LM3414HVMRX" "L3414HVMR" "LM3414HVSD" "LM3414HVSDX" "LM3414MRX" "LM3414MR" "LM3414SDX"
+    "L3414HVMR" "L3414MR" "L3414MR" "LM3414SD" 
+    "L248B" "L248B"
+    "L249B" "L249B"
+
+    (package "*")
+    (description "1-A, 60-W Common Anode-Capable Constant Current Buck LED Driver PWM 240Hz")
+    (purpose "DRIVER:PWM")
+    (datasheet "lm3414hv.pdf")
+    (pin "1" "" ("Vcc" ) )
+    (pin "2" "" ("PGND" ) )
+    (pin "3" "" ("IADJ" ) )
+    (pin "4" "" ("GND" ) )
+    (pin "5" "" ("FS" ) )
+    (pin "6" "" ("DIM" ) )
+    (pin "7" "" ("LX" ) )
+    (pin "8" "" ("Vin" ) )
+    (pin "9" "" ("PGND" ) )
+)

@@ -1,0 +1,8 @@
+(componentDefinition "2N7002"
+    (description "60 V, 300 mA N-channel Trench MOSFET")
+    (purpose "SWITCH")
+    (datasheet "2N7002.pdf")
+    (pin "1" "" ("G" ) )
+    (pin "2" "" ("S" ) )
+    (pin "3" "" ("D" ) )
+)

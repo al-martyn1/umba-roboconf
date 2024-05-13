@@ -1,0 +1,6 @@
+(componentDefinition "TPD2S017"
+    (pin "1" "" ("IN" "OUT") )
+    (pin "3" "" ("IN" "OUT") )
+    (pin "4" "" ("IN" "OUT") )
+    (pin "6" "" ("IN" "OUT") )
+)

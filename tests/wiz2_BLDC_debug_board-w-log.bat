@@ -1,0 +1,1 @@
+call wiz2_BLDC_debug_board.bat > log-wiz2_BLDC_debug_board.txt

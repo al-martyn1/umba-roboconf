@@ -1,0 +1,10 @@
+(componentDefinition "INA19_"
+    (description "Current-Shunt Monitor")
+    (purpose "SENSOR")
+    (datasheet "ina198.pdf")
+    (pin "1" "" ("OUT" ) )
+    (pin "2" "" ("GND" ) )
+    (pin "3" "" ("VCC" ) )
+    (pin "4" "" ("Vin+" ) )
+    (pin "5" "" ("Vin-" ) )
+)
