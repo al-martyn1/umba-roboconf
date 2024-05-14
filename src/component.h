@@ -268,15 +268,20 @@ struct ComponentImportOptions
     std::vector<std::string>     modules;
     std::vector<std::string>     headers;
     std::string                  invalChars = "[]()/*";
+
+    char                         csvSeparator = ',';
+    std::string                  designatorFieldCaption = "Pin Designator"; // Altium 20, for 17 that is simple "Designator"
+    std::string                  nameFieldCaption       = "Display Name"; // Altium 20, for 17 that is simple "Name"
+
 }; // struct ComponentImportOptions
 
 
 //-----------------------------------------------------------------------------
 inline
-bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const ComponentImportOptions &opts, ComponentInfo &ci, char sep = ';' )
+bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const ComponentImportOptions &opts, ComponentInfo &ci /* , char sep = ';' */  )
 {
     std::vector< csv_line_t > csvLines;
-    if (!readCsv( in, csvLines, sep ))
+    if (!readCsv( in, csvLines, opts.csvSeparator ))
         return false;
 
 // "Pin Designator,Net Name,Display Name" -> "Designator,Net,Name"
@@ -308,6 +313,8 @@ bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const Co
     std::vector< csv_line_t > validLines;
     for( auto line : csvLines )
     {
+        // пропускаем всю левую шляпу
+
         if (line.size()<2)
             continue;
 
@@ -315,6 +322,9 @@ bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const Co
             continue;
 
         if (!line[0].empty() && startsWith(line[0], "Report Generated"))
+            continue;
+
+        if (!line[0].empty() && startsWith(line[0], "# Altium Pin Report File"))
             continue;
 
         if (csvLineFindContaining( line, "Report Generated")==0)
@@ -328,13 +338,16 @@ bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const Co
                 continue;
         }
 
+        // Вот тут пробуем найти индексы полей по их заголовкам
+    // std::string                  designatorFieldCaption = "Pin Designator"; // Altium 20, for 17 that is simple "Designator"
+    // std::string                  nameFieldCaption       = "Display Name"; // Altium 20, for 17 that is simple "Name"
 
         if (designatorIdx == (size_t)-1)
         {
-            designatorIdx = csvLineFindEqual(line, "Designator" );
+            designatorIdx = csvLineFindEqual(line, opts.designatorFieldCaption /* "Designator" */  );
             if (designatorIdx==(size_t)-1)
                 continue;
-            nameIdx = csvLineFindEqual( line, "Name", 1 );
+            nameIdx = csvLineFindEqual( line, opts.nameFieldCaption /* "Name" */  /* , 1 startFrom */  ); // Вот не факт, что они идут в том порядке, в котором я нашел их в какой-то версии альтиума
             continue;
         }
 

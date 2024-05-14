@@ -564,7 +564,7 @@ int safe_main(int argc, char* argv[])
     if (!componentImportOptions.namesList.empty())
     {
         ComponentInfo ci;
-        if (!componentImportFromCsv(rbcOpts, input, componentImportOptions, ci, ';' /* sep */ ))
+        if (!componentImportFromCsv(rbcOpts, input, componentImportOptions, ci /* , ';' */  /* sep */ ))
         {
             LOG_ERR_OPT<<"failed to import component from CSV\n";
             return 2;

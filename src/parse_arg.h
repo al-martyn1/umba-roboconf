@@ -72,6 +72,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
             if (hasHelpOption) return 0;
 
             //LOG_MSG_OPT<<exeFullName<<"\n";
+            std::cout << exeFullName << "\n";
             return 0;
         }
 /*
@@ -189,13 +190,34 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                 componentImportOptions.modules.insert( componentImportOptions.modules.end(), names.begin(), names.end() );
                 makeUniqueVector( componentImportOptions.modules );
             }
-            else if (importOptName=="headers")
+            else if (importOptName=="headers") // C/C++ headers required for component
             {
                 std::vector<std::string> names;
                 splitToVector(importOptVal, names, ',' );
                 componentImportOptions.headers.insert( componentImportOptions.headers.end(), names.begin(), names.end() );
                 makeUniqueVector( componentImportOptions.headers );
             }
+            else if (importOptName=="csv-separator")
+            {
+                if (importOptVal=="comma" || importOptVal==",")
+                    componentImportOptions.csvSeparator = ',';
+                else if (importOptVal=="semicolon" || importOptVal==";")
+                    componentImportOptions.csvSeparator = ';';
+                else
+                {
+                    LOG_ERR_OPT<<"invalid value in csv import option 'csv-separator' (--csv-import-option)\n";
+                    return -1;
+                }
+            }
+            else if (importOptName=="designator-field-title")
+            {
+                componentImportOptions.designatorFieldCaption = importOptVal;
+            }
+            else if (importOptName=="name-field-title")
+            {
+                componentImportOptions.nameFieldCaption = importOptVal;
+            }
+
         }
         else if (opt.isOption("make-cache") || opt.isOption('H') || opt.setDescription("Make net cache"))
         {
