@@ -4,6 +4,7 @@
 ;--lib-path=c:\roboconf\lib
 ;--lib-path=c:\roboconf\lib-user
 ;--lib-path=c:\roboconf\lib-cube
+--lib-path=$(RoboconfRoot)/lib
 --lib-path=$(RoboconfRoot)/lib-user
 --lib-path=$(RoboconfRoot)/lib-cube
 --lib-path=$(LibPath)
