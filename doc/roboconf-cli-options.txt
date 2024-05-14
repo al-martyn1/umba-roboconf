@@ -1,0 +1,30 @@
+--csv-component=C1,C2... - Список компонентов для импорта из CSV файла
+
+csv-import-option=NAME:VAL
+  pin-filter-chars: default, clear, "CHARS"
+
+--description=ComponentDescription
+--datasheet=ComponentDatasheet
+--refman
+--errate
+
+--package=
+--purpose=
+--modules=val[,val...]
+--headers=val[,val...]
+
+
+--var=NAME:VAL
+
+--dont-warn=warn-type
+
+
+Bool flags
+--make-cache
+--make-dump
+--show-components
+
+
+
+
+
