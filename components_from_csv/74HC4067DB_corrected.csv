@@ -1,0 +1,27 @@
+Report Generated From Altium Designer;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+Designator;Net;Name;IO Bank;IO Standard;Slew Rate;Drive Strength;IO Pin;Vref Pin;CLK Pin;Config Pin;Special Pin;Group;Differential Pair
+1;NetC45_1;Z;;;;;;;;;;;
+2;term_p1;Y7;;;;;;;;;;;
+3;term_p2;Y6;;;;;;;;;;;
+4;term_p3;Y5;;;;;;;;;;;
+5;term_p4;Y4;;;;;;;;;;;
+6;term_p5;Y3;;;;;;;;;;;
+7;term_p6;Y2;;;;;;;;;;;
+8;term_p7;Y1;;;;;;;;;;;
+9;term_p8;Y0;;;;;;;;;;;
+10;DMUX_S0;S0;;;;;;;;;;;
+11;DMUX_S1;S1;;;;;;;;;;;
+12;GND;GND;;;;;;;;;;;
+13;DMUX_S3;S3;;;;;;;;;;;
+14;DMUX_S2;S2;;;;;;;;;;;
+15;DMUX_E1;E\;;;;;;;;;;;
+16;term_p9;Y15;;;;;;;;;;;
+17;term_p10;Y14;;;;;;;;;;;
+18;term_p11;Y13;;;;;;;;;;;
+19;term_p12;Y12;;;;;;;;;;;
+20;term_p13;Y11;;;;;;;;;;;
+21;term_p14;Y10;;;;;;;;;;;
+22;term_p15;Y9;;;;;;;;;;;
+23;term_p16;Y8;;;;;;;;;;;
+24;3V3;VCC;;;;;;;;;;;
