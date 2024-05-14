@@ -48,3 +48,4 @@
 /tests/reports
 /*.log
 /setup_local.bat
+/subtree.bat
