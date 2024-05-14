@@ -279,6 +279,21 @@ bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const Co
     if (!readCsv( in, csvLines, sep ))
         return false;
 
+// "Pin Designator,Net Name,Display Name" -> "Designator,Net,Name"
+// "Altium Pin Report File" -> "Report Generated From Altium Designer;;;;;;;;;;;;;;;;;;;;;;;;"
+
+
+// Altium 20
+// # Altium Pin Report File
+// 
+// Pin Designator,Net Name,Display Name,IO Bank,IO Standard,Slew Rate,Drive Strength,IO Pin,Vref Pin,CLK Pin,Config Pin,Special Pin,Group,Differential Pair
+// 1,NetC45_1,Z,,,,,,,,,,,
+// 2,term_p1,Y7,,,,,,,,,,,
+// 3,term_p2,Y6,,,,,,,,,,,
+
+
+// Altium 17
+
 // ;;;;;;;;;;;;;;;;;;;;;;;;
 // Report Generated From Altium Designer;;;;;;;;;;;;;;;;;;;;;;;;
 // ;;;;;;;;;;;;;;;;;;;;;;;;
