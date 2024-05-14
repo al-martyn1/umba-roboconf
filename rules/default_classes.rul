@@ -70,6 +70,7 @@
             (componentClass (match compRef     )  (matchTo "^FUSE.+"     )  (set FUSE  )    )
             (componentClass (match originalName)  (matchTo "^FUSE.+"     )  (set FUSE  )    )
             (componentClass (match designator  )  (matchTo "^FU.+"       )  (set FUSE  )    )
+            (componentClass (match designator  )  (matchTo "^F.+"        )  (set FUSE  )    )
             
             (-- Jumpers )
            
@@ -79,26 +80,41 @@
             (componentClass (match originalName)  (matchTo ".*жампер.+"  )  (set HEADER)    )
             (componentClass (match designator  )  (matchTo "^J.+"        )  (set HEADER)    )
             (componentClass (match designator  )  (matchTo "^XP.+"       )  (set HEADER)    )
+            (componentClass (match designator  )  (matchTo "^X.+"        )  (set HEADER)    )
+            (componentClass (match compRef     )  (matchTo "^PLS.+"      )  (set HEADER)    )
+            (componentClass (match designator  )  (matchTo "^SW.+"       )  (set HEADER)    )
+            (componentClass (match compRef     )  (matchTo ".*CARD_HOLDER.*")(set HEADER)   )
             
             (-- All other )
             
+            (componentClass (match designator  )  (matchTo "^U\d+"       )  (set DD)        )
             (componentClass (match designator  )  (matchTo "^DD\d+"      )  (set DD)        )
             (componentClass (match designator  )  (matchTo "^DA\d+"      )  (set DA)        )
             (componentClass (match designator  )  (matchTo "^AA\d+"      )  (set AA)        )
             (componentClass (match designator  )  (matchTo "^A\d+"       )  (set AA)        )
+
             (componentClass (match designator  )  (matchTo "^VT\d+"      )  (set TRANSISTOR))
             (componentClass (match designator  )  (matchTo "^T\d+"       )  (set TRANSISTOR))
+
             (componentClass (match designator  )  (matchTo "^VD\d+"      )  (set DIODE)     )
             (componentClass (match designator  )  (matchTo "^D\d+"       )  (set DIODE)     )
+            (componentClass (match designator  )  (matchTo "^DZ\d+"       )  (set DIODE)     )
+
             (componentClass (match designator  )  (matchTo "^VU\d+"      )  (set OPTOPAIR)  )
+
             (componentClass (match designator  )  (matchTo "^C\d+"       )  (set CAPACITOR) )
+
             (componentClass (match designator  )  (matchTo "^L\d+"       )  (set INDUCTOR)  )
+
             (componentClass (match designator  )  (matchTo "^HL\d+"      )  (set LED)       )
             (componentClass (match designator  )  (matchTo "^LED_.+"     )  (set LED)       )
+            (componentClass (match designator  )  (matchTo "^LD.+"       )  (set LED)       )
+
             (componentClass (match designator  )  (matchTo "^Q\d+"       )  (set QUARTZ)    )
             (componentClass (match designator  )  (matchTo "^BQ\d+"      )  (set QUARTZ)    )
             (componentClass (match designator  )  (matchTo "^Z\d+"       )  (set QUARTZ)    )
-            
+            (componentClass (match compRef     )  (matchTo "^CRYSTAL.*"  )  (set QUARTZ)    )
+
             (componentClass (match compRef     )  (matchTo "^TESTPOINT.+")  (set TESTPOINT) )
             (componentClass (match originalName)  (matchTo "^TESTPOINT.+")  (set TESTPOINT) )
             (componentClass (match compRef     )  (matchTo "^TEST.+"     )  (set TESTPOINT) )
