@@ -6,7 +6,9 @@ if exist distr goto failed_remove_old
 
 @set RBC_ROOT=distr\umba-roboconf
 @call create_distr_folderes.bat
-@call deploy_conf_libs_rules.bat
+@call deploy_conf_impl.bat
+@call deploy_libs_impl.bat
+@call deploy_rules_impl.bat
 @call deploy_binaries.bat
 @rem copy out\msvc\Win32\Release\roboconf.exe distr\umba-roboconf\bin\roboconf.exe
 
