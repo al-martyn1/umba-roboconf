@@ -1,0 +1,14 @@
+# Altium Pin Report File
+
+Pin Designator,Net Name,Display Name,IO Bank,IO Standard,Slew Rate,Drive Strength,IO Pin,Vref Pin,CLK Pin,Config Pin,Special Pin,Group,Differential Pair
+0,GND,EP,,,,,,,,,,,
+1,GND,PGND,,,,,,,,,,,
+2,60Vb,Vin,,,,,,,,,,,
+3,12Vb_On,EN/UVLO,,,,,,,,,,,
+4,Vcc_12V,Vcc,,,,,,,,,,,
+5,FB_12V,FB,,,,,,,,,,,
+6,SS_12V,SS,,,,,,,,,,,
+7,CMP_12V,COMP,,,,,,,,,,,
+8,PG_12V,PG,,,,,,,,,,,
+9,GND,GND,,,,,,,,,,,
+10,LX_12V,LX,,,,,,,,,,,

@@ -1,0 +1,8 @@
+# Altium Pin Report File
+
+Pin Designator,Net Name,Display Name,IO Bank,IO Standard,Slew Rate,Drive Strength,IO Pin,Vref Pin,CLK Pin,Config Pin,Special Pin,Group,Differential Pair
+1,NetC68_1,OUT,,,,,,,,,,,
+2,GND,GND,,,,,,,,,,,
+3,60V,C+,,,,,,,,,,,
+4,60Vin,C-,,,,,,,,,,,
+5,60V,VCC,,,,,,,,,,,

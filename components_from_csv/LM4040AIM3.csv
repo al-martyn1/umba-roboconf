@@ -1,0 +1,6 @@
+# Altium Pin Report File
+
+Pin Designator,Net Name,Display Name,IO Bank,IO Standard,Slew Rate,Drive Strength,IO Pin,Vref Pin,CLK Pin,Config Pin,Special Pin,Group,Differential Pair
+1,3Vrefnb,1,,,,,,,,,,,
+2,GND,2,,,,,,,,,,,
+3,GND,3,,,,,,,,,,,

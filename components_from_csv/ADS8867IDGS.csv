@@ -1,0 +1,13 @@
+# Altium Pin Report File
+
+Pin Designator,Net Name,Display Name,IO Bank,IO Standard,Slew Rate,Drive Strength,IO Pin,Vref Pin,CLK Pin,Config Pin,Special Pin,Group,Differential Pair
+1,3Vref,REF,,,,,,,,,,,
+2,3V3a,AVDD,,,,,,,,,,,
+3,CSadcf_p,AINP,,,,,,,,,,,
+4,CSadcf_n,AINN,,,,,,,,,,,
+5,GND,GND,,,,,,,,,,,
+6,ADC_Cnvs,CONVST,,,,,,,,,,,
+7,ADC_Do0,DO,,,,,,,,,,,
+8,ADC_CK,SCLK,,,,,,,,,,,
+9,ADC_Din0,DIN,,,,,,,,,,,
+10,3V3,DVDD,,,,,,,,,,,
