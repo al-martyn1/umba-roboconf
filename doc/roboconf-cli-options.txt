@@ -1,17 +1,17 @@
---csv-component=C1,C2... - Список компонентов для импорта из CSV файла
+-S, --csv-component=C1,C2... - Список компонентов для импорта из CSV файла
 
-csv-import-option=NAME:VAL
+-O, --csv-import-option=NAME:VAL
   pin-filter-chars: default, clear, "CHARS"
 
---description=ComponentDescription
---datasheet=ComponentDatasheet
---refman
---errate
+  description=ComponentDescription
+  datasheet=ComponentDatasheet
+  refman
+  errate
 
---package=
---purpose=
---modules=val[,val...]
---headers=val[,val...]
+  package=
+  purpose=
+  modules=val[,val...]
+  headers=val[,val...]
 
 
 --var=NAME:VAL
