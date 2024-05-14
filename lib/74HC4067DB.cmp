@@ -1,0 +1,35 @@
+(componentDefinition "74HC4067DB"
+    (description "16:1 Analog Multiplexer")
+    (purpose "SWITCH:MUX")
+    (package "*")
+    (pin "1" "" ("Z" "OUT") )
+    (pin "10" "" ("S0" "IN" "GPIO") )
+    (pin "11" "" ("S1" "IN" "GPIO") )
+    (pin "12" "" ("GND" ) )
+    (pin "13" "" ("S3" "IN" "GPIO") )
+    (pin "14" "" ("S2" "IN" "GPIO") )
+    (pin "15" "" ("E\" "IN" "GPIO") )
+    (pin "16" "" ("Y15" ) )
+    (pin "17" "" ("Y14" ) )
+    (pin "18" "" ("Y13" ) )
+    (pin "19" "" ("Y12" ) )
+    (pin "2" "" ("Y7" ) )
+    (pin "20" "" ("Y11" ) )
+    (pin "21" "" ("Y10" ) )
+    (pin "22" "" ("Y9" ) )
+    (pin "23" "" ("Y8" ) )
+    (pin "24" "" ("VCC" ) )
+    (pin "3" "" ("Y6" ) )
+    (pin "4" "" ("Y5" ) )
+    (pin "5" "" ("Y4" ) )
+    (pin "6" "" ("Y3" ) )
+    (pin "7" "" ("Y2" ) )
+    (pin "8" "" ("Y1" ) )
+    (pin "9" "" ("Y0" ) )
+)
+
+(//
+"OUT"
+"IN" "PWM" "GPIO"
+)
+
