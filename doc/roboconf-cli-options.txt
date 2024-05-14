@@ -18,11 +18,28 @@ csv-import-option=NAME:VAL
 
 --dont-warn=warn-type
 
+--verbose=0-9
+
 
 Bool flags
 --make-cache
 --make-dump
 --show-components
+--log-source-code-pos
+
+
+
+--datasheet-path
+--lib-path
+--rules-path
+
+--class-rules
+--rules
+--no-default-rules
+
+
+--local-lib-cache
+
 
 
 
