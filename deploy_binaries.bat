@@ -1,11 +1,7 @@
 @if "%RBC_ROOT%"=="" goto ERR
-@if not exist out\msvc\Win32\Release\roboconf.exe goto EXE_ERR
+@if not exist %~dp0\out\msvc\Win32\Release\roboconf.exe goto EXE_ERR
 
-xcopy /E /Y /I lib\*.*      %RBC_ROOT%\lib
-xcopy /E /Y /I lib-user\*.* %RBC_ROOT%\lib-user
-xcopy /E /Y /I lib-cube\*.* %RBC_ROOT%\lib-cube
-xcopy /E /Y /I rules\*.*    %RBC_ROOT%\rules
-xcopy /E /Y /I conf\*.*     %RBC_ROOT%\conf
+@copy /Y /B %~dp0\out\msvc\Win32\Release\roboconf.exe %RBC_ROOT%\bin\roboconf.exe
 
 goto END
 

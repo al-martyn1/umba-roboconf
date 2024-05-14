@@ -1,6 +1,6 @@
 @if "%RBC_ROOT%"=="" goto ERR
 
-xcopy /E /Y /I rules\*.*    %RBC_ROOT%\rules
+xcopy /E /Y /I %~dp0\rules\*.*    %RBC_ROOT%\rules
 
 goto END
 
