@@ -7,6 +7,12 @@ if exist distr goto failed_remove_old
 @set RBC_ROOT=distr\umba-roboconf
 @call create_distr_folderes.bat
 @call deploy_conf_libs_rules.bat
+@call deploy_binaries.bat
+@rem copy out\msvc\Win32\Release\roboconf.exe distr\umba-roboconf\bin\roboconf.exe
+
+distr\umba-roboconf\bin\roboconf.exe --help >distr\umba-roboconf\doc\readme.txt
+copy /Y doc\*.png distr\umba-roboconf\doc\
+
 
 
 copy /Y data\nets\main_board_master_MCU.NET distr\umba-roboconf\samples\netlists\vtx2_master.NET
@@ -79,11 +85,6 @@ echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtl_periph.rul    netl
 echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtl_periph.rul    netlists\vtl_periph.NET      vtl_periph_conf.h                    >> distr\umba-roboconf\samples\samples.bat
 
 
-
-copy out\msvc\Win32\Release\roboconf.exe distr\umba-roboconf\bin\roboconf.exe
-
-distr\umba-roboconf\bin\roboconf.exe --help >distr\umba-roboconf\doc\readme.txt
-copy /Y doc\*.png distr\umba-roboconf\doc\
 
 
 rem xcopy /E /Y /I ..\distr s:\rdlc

@@ -4,3 +4,4 @@
 
 @call create_distr_folderes.bat
 @call deploy_conf_libs_rules.bat
+@call deploy_binaries.bat
