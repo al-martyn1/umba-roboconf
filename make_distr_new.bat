@@ -4,22 +4,9 @@ if exist distr rd /Q /S distr
 
 if exist distr goto failed_remove_old
 
-mkdir distr
-mkdir distr\umba-roboconf
-mkdir distr\umba-roboconf\bin
-mkdir distr\umba-roboconf\samples
-mkdir distr\umba-roboconf\samples\netlists
-mkdir distr\umba-roboconf\doc
-mkdir distr\umba-roboconf\conf
-mkdir distr\umba-roboconf\lib
-mkdir distr\umba-roboconf\lib-user
-mkdir distr\umba-roboconf\rules
-
-xcopy /E /Y /I lib\*.*      distr\umba-roboconf\lib
-xcopy /E /Y /I lib-user\*.* distr\umba-roboconf\lib-user
-xcopy /E /Y /I lib-cube\*.* distr\umba-roboconf\lib-cube
-xcopy /E /Y /I rules\*.*    distr\umba-roboconf\rules
-xcopy /E /Y /I conf\*.*     distr\umba-roboconf\conf
+@set RBC_ROOT=distr\umba-roboconf
+@call create_distr_folderes.bat
+@call deploy_conf_libs_rules.bat
 
 
 copy /Y data\nets\main_board_master_MCU.NET distr\umba-roboconf\samples\netlists\vtx2_master.NET
