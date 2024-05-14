@@ -1,0 +1,13 @@
+(componentDefinition "NTMFS5H409NL" "NTMFS5H409NLT1G"
+    (description "Power MOSFET")
+    (purpose "GATE")
+    (datasheet "NTMFS5H409NL-D.PDF")
+    (pin "1" "" ("S" ) )
+    (pin "2" "" ("S" ) )
+    (pin "3" "" ("S" ) )
+    (pin "4" "" ("G" ) )
+    (pin "5" "" ("D" ) )
+    (pin "6" "" ("D" ) )
+    (pin "7" "" ("D" ) )
+    (pin "8" "" ("D" ) )
+)
