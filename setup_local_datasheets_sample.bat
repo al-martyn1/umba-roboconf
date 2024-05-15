@@ -1,0 +1,1 @@
+@set LOCAL_DATASHEETS_PATH=C:\work\datasheets
