@@ -1,0 +1,13 @@
+(componentDefinition "INA152" "AMP_DIFFC_INA152"
+    (description "Single-Supply DIFFERENCE AMPLIFIER")
+    (purpose "GENERIC")
+    (package "*")
+    (pin "1" "" ("Vref1" ) )
+    (pin "2" "" ("IN-" ) )
+    (pin "3" "" ("IN+" ) )
+    (pin "4" "" ("-" ) )
+    (pin "5" "" ("Sense" ) )
+    (pin "6" "" ("Out" ) )
+    (pin "7" "" ("+" ) )
+    (pin "8" "" ("NC" ) )
+)

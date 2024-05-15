@@ -1,0 +1,11 @@
+(componentDefinition "INA168"
+    (description "INA1x8 High-Side Measurement Current Shunt Monitor")
+    (purpose "GENERIC")
+    (datasheet "INA138-168-chipdip-DOC001550995.pdf")
+    (package "*")
+    (pin "1" "" ("OUT" ) )
+    (pin "2" "" ("GND" ) )
+    (pin "3" "" ("C+" ) )
+    (pin "4" "" ("C-" ) )
+    (pin "5" "" ("VCC" ) )
+)

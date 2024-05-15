@@ -1,0 +1,1 @@
+@call ..\deploy_libs.bat

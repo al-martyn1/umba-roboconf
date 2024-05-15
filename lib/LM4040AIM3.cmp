@@ -1,0 +1,9 @@
+(componentDefinition "LM4040AIM3"
+    (description "Precision Micropower Shunt Voltage Reference")
+    (purpose "GENERIC")
+    (datasheet "LM4040AIM3-chipdip-DOC009395451.pdf")
+    (package "*")
+    (pin "1" "" ("1" ) )
+    (pin "2" "" ("2" ) )
+    (pin "3" "" ("3" ) )
+)

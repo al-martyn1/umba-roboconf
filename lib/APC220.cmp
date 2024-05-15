@@ -4,7 +4,7 @@
     (datasheet "APC220_Datasheet.pdf")
     (pin "1" "Grounding of Power Supply" ("GND") )
     (pin "2" "Power supply DC 3.5V-5.5V" ("VCC") )
-    (pin "3" "Power enable,≧1.6V or empty,≦0.5Vsleep." ("EN") )
+    (pin "3" "Power enable,1.6V or empty,0.5Vsleep." ("EN") )
     (pin "4" "UART input, TTL" ("RXD" "IN" "RX") )
     (pin "5" "UART output, TTL" ("TXD" "OUT" "TX") )
     (pin "6" "The pin is expanded for other functions" ("MUX") )
