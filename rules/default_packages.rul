@@ -1,6 +1,7 @@
 (-- Типы корпусов микросхем - https://ru.wikipedia.org/wiki/%D0%A2%D0%B8%D0%BF%D1%8B_%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%D0%BE%D0%B2_%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%81%D1%85%D0%B5%D0%BC )
 (-- http://www.amiga-stuff.com/hardware/pinnumbering.html )
 (-- https://en.wikipedia.org/wiki/List_of_integrated_circuit_packaging_types )
+(-- https://www.compel.ru/packages/ )
 (package "SOT23-3" numPins 3 (SOT23 TO236AB SOT346 SC59A TO236AA SMT3) )
 (package "SOT323"  numPins 3 (SC70-3 UMT3) )
 (package "SOT416"  numPins 3 (SOT523 SC75A SC90 EMT3) )
@@ -50,7 +51,7 @@
 
 (package "SOT240-1" numPins 48 )
 
-(package "TO252-3" numPins 3 ("TO252") )
+(package "TO252-3" numPins 3 ("TO252" "TO252AA" "TO252-AA" "DPAK" "D-PAK" "DPAK3" "D-PAK3") )
 (package "TO252-5" numPins 5 )
 
 (package "TO-PMOD" numPins 7 (TO-PMOD-7) )
@@ -61,6 +62,7 @@
 (package "TSSOP20" numPins 20 )
 (package "TSSOP20-TP " numPins 20 )
 (package "TSSOP24" numPins 24 )
+(package "TSSOP48" numPins 48 )
 
 (package "SOT1397-3" numPins 20 )
 (package "SOT1397-4" numPins 20 )
@@ -241,13 +243,14 @@
 (package "LFBGA100"  numPins 100  )
 (package "LFBGA144"  numPins 144  )
 
-(package "MSOP8"     numPins 8  )
+(package "MSOP8"     numPins 8 ("VSSOP8") )
 (package "MSOP8-TP"  numPins 8  )
-(package "MSOP10"    numPins 10  )
-(package "MSOP12"    numPins 12  )
-(package "MSOP16"    numPins 16  )
+(package "MSOP10"    numPins 10 ("VSSOP10") )
+(package "MSOP12"    numPins 12 ("VSSOP12") )
+(package "MSOP16"    numPins 16 ("VSSOP16") )
 
 (package "SSOP20"    numPins 20  )
+(package "SSOP24"    numPins 24  )
 (package "SSOP28"    numPins 28  )
 (package "SSOP36"    numPins 36  )
 (package "SSOP40"    numPins 40  )
@@ -263,8 +266,9 @@
 (package "DIP40"     numPins 10 (PDIP40 CDIP40) )
 (package "DIP48"     numPins 10 (PDIP48 CDIP48) )
 
+(package "WSON8"     numPins 8  )
 
-
+(package "TDFN10"    numPins 10 )
 
 
 
