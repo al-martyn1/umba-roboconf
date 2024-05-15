@@ -95,6 +95,7 @@
 
             (componentClass (match designator  )  (matchTo "^VT\d+"      )  (set TRANSISTOR))
             (componentClass (match designator  )  (matchTo "^T\d+"       )  (set TRANSISTOR))
+            (componentClass (match designator  )  (matchTo "^Q\d+"       )  (set TRANSISTOR)) (-- Теперь так начинаются десигнаторы ключевых транзисторов, а не кварцев)
 
             (componentClass (match designator  )  (matchTo "^VD\d+"      )  (set DIODE)     )
             (componentClass (match designator  )  (matchTo "^D\d+"       )  (set DIODE)     )
@@ -110,7 +111,7 @@
             (componentClass (match designator  )  (matchTo "^LED_.+"     )  (set LED)       )
             (componentClass (match designator  )  (matchTo "^LD.+"       )  (set LED)       )
 
-            (componentClass (match designator  )  (matchTo "^Q\d+"       )  (set QUARTZ)    )
+            (-- componentClass (match designator  )  (matchTo "^Q\d+"       )  (set QUARTZ)    )
             (componentClass (match designator  )  (matchTo "^BQ\d+"      )  (set QUARTZ)    )
             (componentClass (match designator  )  (matchTo "^Z\d+"       )  (set QUARTZ)    )
             (componentClass (match compRef     )  (matchTo "^CRYSTAL.*"  )  (set QUARTZ)    )
