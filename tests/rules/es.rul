@@ -1,0 +1,74 @@
+(--modify "mcuNet" replaceSingle "MOTOR1_CURRENT"     "$({P})EXTRUDER_MOTOR_CURRENT$({S})")
+(--modify "mcuNet" replaceSingle "MOTOR1_nFAULT"        "$({P})EXTRUDER_MOTOR_~FAULT$({S})")
+(-- modify "mcuNet" replaceSingle "UART2_(R|T)X" "GANJUBUS_RS485_$({1})X")
+(-- modify "mcuNet" replaceSingle "UART2_DE"     "GANJUBUS_RS485_DE")
+(-- modify "mcuNet" replaceSingle "UART4_(R|T)X" "DEBUG_UART_$({1})X")
+
+(-- PF0(UART8_nRxEN), PF1(UART8_TxEN), PE1(UART8_Tx), PE0(UART8_Rx), а MASTER_LINK_485_~RX_EN, MASTER_LINK_485_TX_EN, MASTER_LINK_485_RX, MASTER_LINK_485_TX )
+
+(-- LMR16006)
+(-- packageAssign (designator "A1") (package "TSOT-6L") )
+
+(-- componentClass (match designator  )  (matchTo "^U\d+"       )  (set DD)        )
+(-- componentClass (match designator  )  (matchTo "^DD\d+"      )  (set DD)        )
+(-- componentClass (match designator  )  (matchTo "^DA\d+"      )  (set DA)        )
+(-- componentClass (match designator  )  (matchTo "^AA\d+"      )  (set AA)        )
+(-- componentClass (match designator  )  (matchTo "^A\d+"       )  (set AA)        )
+
+(-- connect device "VL53L0X" as "DD"
+    ("GPIO1" to "X14.INTERRUPT")
+    ("XSHUT" to "X14.RESET")
+    ("SCL" to "X14.SCL")
+    ("SDA" to "X14.SDA")
+)
+
+(-- connect device "SERVO" as "DD"
+    ("PWM" to "X7.Control_PWM")
+)
+
+
+(-- connect device "AS5040" as "DD"
+    ("PWM" to "X9.SIGN")
+)
+
+(-- connect device "AS5040" as "DD"
+    ("PWM" to "X8.SIGN")
+)
+
+(-- connect device "AS5040" as "DD"
+    ("PWM" to "X11.SIGN")
+)
+
+(-- connect device "AS5040" as "DD"
+    ("PWM" to "X10.SIGN")
+)
+
+(-- connect device "APC220" as "DD"
+    ("RXD" to "X12.RXD")
+    ("TXD" to "X12.TXD")
+    ("EN" to "X12.EN")
+    ("SET" to "X12.SET")
+)
+
+(-- connect device "BATTERYKOROL" as "DD"
+    ("PRES_FLAG" to "X1.PRES_FLAG")
+    ("CHG_DTCT"  to "X1.CHG_DTCT")
+)
+
+
+(-- connect device "AS5040" as "DD"
+    ("PWM" to "X5.SIGN")
+)
+
+(-- connect device "ESC" as "DD"
+    ("PWM" to "X7.DATA")
+)
+
+(-- connect device "HSCSSNN001PD2A3" package "SIP4" as "DD"
+    ("SDA" to "X6.SDA")
+    ("SCL" to "X6.SCL")
+
+(connect device "ENDSTOP" as "DD"
+    ("SWITCH" to "X2.SING")
+)
+
