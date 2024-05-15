@@ -98,7 +98,7 @@
 
             (componentClass (match designator  )  (matchTo "^VD\d+"      )  (set DIODE)     )
             (componentClass (match designator  )  (matchTo "^D\d+"       )  (set DIODE)     )
-            (componentClass (match designator  )  (matchTo "^DZ\d+"       )  (set DIODE)     )
+            (componentClass (match designator  )  (matchTo "^DZ\d+"      )  (set DIODE)     )
 
             (componentClass (match designator  )  (matchTo "^VU\d+"      )  (set OPTOPAIR)  )
 
