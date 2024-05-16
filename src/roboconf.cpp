@@ -379,7 +379,7 @@ int safe_main(int argc, char* argv[])
 
     std::string userName     = platformGetUserName();
     if (userName.empty())
-        userName = "user";
+        userName = "USER";
     std::string computerName = platformGetComputerName();
     if (computerName.empty())
         computerName = "PC";
@@ -409,6 +409,19 @@ int safe_main(int argc, char* argv[])
             }
         }
 
+        // Общий пользовательский файл (не входящий в дистр)
+        {
+            std::string rbcOptsFileName = appendPath(progConfPath, std::string("/roboconf.custom.options"));
+            std::vector<std::string> opts;
+            readOptionsFile(rbcOptsFileName, opts );
+            for( const auto & o : opts)
+            {
+                int paRes = parseArg( o, &commandLineOptionCollector, false, false );
+                if (paRes)
+                   return paRes<0 ? 1 : 0;
+            }
+        }
+
         // Ключики для пользовательских баз добавлю потом
         {
             std::string aliasDbFileName = appendPath(progConfPath, std::string("/component-alias-db.txt"));
@@ -418,9 +431,27 @@ int safe_main(int argc, char* argv[])
                 componentAliasDbList.emplace_back(aliasDbFileName);
             }
         }
+
+        {
+            std::string aliasDbFileName = appendPath(progConfPath, std::string("/component-alias-db.custom.txt"));
+            std::ifstream input(aliasDbFileName);
+            if (input)
+            {
+                componentAliasDbList.emplace_back(aliasDbFileName);
+            }
+        }
         
         {
             std::string aliasDbFileName = appendPath(progConfPath, std::string("/datasheet-alias-db.txt"));
+            std::ifstream input(aliasDbFileName);
+            if (input)
+            {
+                datasheetAliasDbList.emplace_back(aliasDbFileName);
+            }
+        }
+
+        {
+            std::string aliasDbFileName = appendPath(progConfPath, std::string("/datasheet-alias-db.custom.txt"));
             std::ifstream input(aliasDbFileName);
             if (input)
             {
