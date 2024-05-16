@@ -1,5 +1,6 @@
 #include "umba/umba.h"
 #include "umba/simple_formatter.h"
+#include "umba/debug_helpers.h"
 
 #include <exception>
 #include <stdexcept>
@@ -258,6 +259,38 @@ int safe_main(int argc, char* argv[])
 */    
 
     std::vector<std::string> args = prepareArgs( argc, &argv[0] );
+
+    // #if defined(UMBA_GCC_COMPILER_USED)
+
+    // Под GCC мы собираем в VSCode, а там у CMakeTools нет возможности задать аргументы командной строки.
+    // Хотя, можно и под MSVC явно задавать аргументы в коде
+
+    if (umba::isDebuggerPresent())
+    {
+        args.clear();
+
+        std::string rootPath = ".";
+
+
+        args.emplace_back("--make-dump");
+        args.emplace_back("--log-source-code-pos");
+        args.emplace_back("-V=9");
+        args.emplace_back("-V=-conf-dump-short-rules-cls");
+        args.emplace_back("-V=-conf-dump-rules-cls");
+        args.emplace_back("-V=-data-dump-short");
+        args.emplace_back("-V=-net-chkstp-not-matched");
+        args.emplace_back("--report=periph");
+        args.emplace_back("--rules=" + rootPath + "/tests/es.rul");
+        args.emplace_back(rootPath + "/data/nets/ES.NET");
+        args.emplace_back(rootPath + "/tests/es/summary.html");
+
+        //args.emplace_back("");
+    }
+
+
+
+    // #endif
+
     hasHelpOption = argsFilterForHelpOption( args, argsNeedHelp /* , { "wiki", "bash", "clink" } */ );
 
     for( const auto & a : args)
