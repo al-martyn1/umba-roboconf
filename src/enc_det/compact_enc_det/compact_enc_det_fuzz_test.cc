@@ -18,6 +18,10 @@
 #include <stdlib.h>
 #include <memory>
 
+#if defined(UNICODE)
+    #undef UNICODE
+#endif
+
 #include "compact_enc_det/compact_enc_det.h"
 #include "util/encodings/encodings.h"
 #include "util/languages/languages.h"

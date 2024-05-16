@@ -9,6 +9,7 @@
 #include "incsearch.h"
 #include "list_dump.h"
 #include "list_conditional.h"
+#include "rdlc-core/textUtils.h"
 
 
 

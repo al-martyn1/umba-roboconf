@@ -15,6 +15,8 @@
 #include "detail_levels.h"
 
 #include "rdlc-core/macros.h"
+#include "rdlc-core/textUtils.h"
+
 
 #include "rdlc-core/log.h"
 

@@ -5,21 +5,21 @@
 #include "case.h"
 
 //bool isSpace( char ch, const std::string& spaceChars = "\t\n\v\f\r ");
-bool isDigit( char ch);
-bool isUpper( char ch );
-bool isLower( char ch );
-void strAlphaStat( const std::string &s, size_t &nUppers, size_t &nLowers, size_t &nDigits, size_t &nOthers );
-bool isUpperAlphasOnly( const std::string &s );
-bool isLowerAlphasOnly( const std::string &s );
+// bool isDigit( char ch);
+// bool isUpper( char ch );
+// bool isLower( char ch );
+// void strAlphaStat( const std::string &s, size_t &nUppers, size_t &nLowers, size_t &nDigits, size_t &nOthers );
+// bool isUpperAlphasOnly( const std::string &s );
+// bool isLowerAlphasOnly( const std::string &s );
 
-char toUpper( char ch );
-char toLower( char ch );
-std::string toUpper( std::string s );
-std::string toLower( std::string s );
-std::vector<std::string> toUpper( std::vector<std::string> v );
-std::vector<std::string> toLower( std::vector<std::string> v );
-std::set<std::string> toUpper( const std::set<std::string> &s );
-std::set<std::string> toLower( const std::set<std::string> &s );
+// char toUpper( char ch );
+// char toLower( char ch );
+// std::string toUpper( std::string s );
+// std::string toLower( std::string s );
+// std::vector<std::string> toUpper( std::vector<std::string> v );
+// std::vector<std::string> toLower( std::vector<std::string> v );
+// std::set<std::string> toUpper( const std::set<std::string> &s );
+// std::set<std::string> toLower( const std::set<std::string> &s );
 
 
 

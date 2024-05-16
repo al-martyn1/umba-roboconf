@@ -17,13 +17,13 @@ bool splitToPair( std::string str, std::string &first, std::string &second, char
     pos = str.find( ch, pos );
     if (pos==std::string::npos)
     {
-        first.assign(str, 0);
+        first.assign(str, 0u, str.npos);
         second.clear();
         return false;
     }
 
-    first.assign( str, 0, pos );
-    second.assign( str, pos+1 );
+    first.assign( str, 0u, pos );
+    second.assign( str, pos+1u, str.npos );
     return true;
 }
 
@@ -59,13 +59,13 @@ bool splitToPair( std::string str, std::string &first, std::string &second, cons
     pos = str.find( sep, pos );
     if (pos==std::string::npos)
     {
-        first.assign(str, 0);
+        first.assign(str, 0, str.npos);
         second.clear();
         return false;
     }
 
     first.assign( str, 0, pos );
-    second.assign( str, pos+sep.size() );
+    second.assign( str, pos+sep.size(), str.npos );
     return true;
 }
 
@@ -77,13 +77,13 @@ bool splitToPairFromEnd( std::string str, std::string &first, std::string &secon
     pos = str.rfind( sep, pos );
     if (pos==std::string::npos)
     {
-        first.assign(str, 0);
+        first.assign(str, 0, str.npos);
         second.clear();
         return false;
     }
 
     first.assign( str, 0, pos );
-    second.assign( str, pos+sep.size() );
+    second.assign( str, pos+sep.size(), str.npos );
     return true;
 }
 
@@ -187,7 +187,7 @@ bool splitToPairNotDecimalMinus( std::string str, std::string &first, std::strin
 
     if (vec.size()<2)
     {
-        first.assign(vec[0], 0);
+        first.assign(vec[0], 0, str.npos);
         second.clear();
         return false;
     }

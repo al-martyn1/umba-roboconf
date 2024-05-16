@@ -1444,6 +1444,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
     {
         ExpressionParsingResultItem resultItem;
         bool                        tplItemSeparator = false;
+        UMBA_USED(tplItemSeparator);
 
         if (*pTpl==';')
             ++pTpl;
@@ -1658,15 +1659,15 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                       }
                       break;
 
-                      // L   - Список, текстовые элементы вычитываем в вектор (не дочерный подсписок).
-                      // Останов по концу текущего списка или если встречается дочерний список.
+                      // L   - пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ).
+                      // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
             case 'L': resultItem.ruleType = ExpressionParsingRuleType::valueList;
                       {
                       }
                       break;
 
 
-                      // I   - Список, текстовые элементы вычитываем в вектор (чтение дочернего подсписка).
+                      // I   - пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ).
             case 'I': resultItem.ruleType = ExpressionParsingRuleType::innerList;
                       {
                           pTpl = ExpressionParsingRule_parseFlags( 'I', pTpl, resultItem.ruleFlags, "_+", file, line );

@@ -59,7 +59,7 @@
 
 #else
 
-    #define  DEBUG_WINCONHELPERS_WRITE_STR(str) str
+    #define  DEBUG_WINCONHELPERS_WRITE_STR(str)  /* str */ 
     #define  DEBUG_WINCONHELPERS_PRINTF( ... )
 
 #endif

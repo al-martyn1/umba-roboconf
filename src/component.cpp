@@ -166,7 +166,8 @@ bool ComponentInfo::isPackageAny() const
 {
 	if (package == "<ANY>" || package == "<any>" || package == "*")
 		return true;
-		return true;
+    else
+		return false; // Раньше тут возвращалось true
 }
 
 //-----------------------------------------------------------------------------

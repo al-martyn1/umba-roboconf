@@ -5,12 +5,12 @@
 
 
 //bool isSpace( char ch, const std::string& spaceChars = "\t\n\v\f\r ");
-bool isDigit( char ch);
-bool isUpper( char ch );
-bool isLower( char ch );
-void strAlphaStat( const std::string &s, size_t &nUppers, size_t &nLowers, size_t &nDigits, size_t &nOthers );
-bool isUpperAlphasOnly( const std::string &s );
-bool isLowerAlphasOnly( const std::string &s );
+// bool isDigit( char ch);
+// bool isUpper( char ch );
+// bool isLower( char ch );
+// void strAlphaStat( const std::string &s, size_t &nUppers, size_t &nLowers, size_t &nDigits, size_t &nOthers );
+// bool isUpperAlphasOnly( const std::string &s );
+// bool isLowerAlphasOnly( const std::string &s );
 
 
 //-----------------------------------------------------------------------------

@@ -14,6 +14,12 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#if defined(_MSC_VER)
+    //#pragma warning(disable:4668) // 
+#endif
+#include "../disable_warnings_begin.h"
+
+
 #include "compact_enc_det/compact_enc_det.h"
 
 #include <math.h>                       // for sqrt
@@ -24,11 +30,16 @@
 #include <memory>
 #include <string>                       // for string, operator==, etc
 
+#if defined(UNICODE)
+    #undef UNICODE
+#endif
+
 #include "compact_enc_det/compact_enc_det_hint_code.h"
 #include "util/string_util.h"
 #include "util/basictypes.h"
 #include "util/commandlineflags.h"
 #include "util/logging.h"
+
 
 using std::string;
 
@@ -5717,3 +5728,6 @@ Encoding CompactEncDet::TopEncodingOfCharsetHint(const char* name) {
 const char* CompactEncDet::Version(void) {
   return kVersion;
 }
+
+
+#include "../disable_warnings_end.h"

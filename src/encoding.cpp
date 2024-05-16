@@ -1,5 +1,5 @@
 #include "encoding.h"
-#include <rdlc-core/case.h>
+#include "rdlc-core/case.h"
 #include <vector>
 
 #include "compact_enc_det/compact_enc_det.h"

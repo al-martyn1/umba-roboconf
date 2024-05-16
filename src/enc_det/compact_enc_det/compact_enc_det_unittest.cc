@@ -14,17 +14,25 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "compact_enc_det/compact_enc_det.h"
-
 #include <stdio.h>                      // for fprintf, stderr, FILE, etc
 #include <string.h>                     // for strlen, NULL
 #include <string>                       // for string
 
+#if defined(UNICODE)
+    #undef UNICODE
+#endif
 
+#include "compact_enc_det/compact_enc_det.h"
+//
 #include "gtest/gtest.h"
 #include "util/basictypes.h"
 #include "util/commandlineflags.h"
 #include "util/varsetter.h"             // for VarSetter
+
+//#if defined(UNICODE)
+//    #undef UNICODE
+//ndif
+
 
 using std::string;
 

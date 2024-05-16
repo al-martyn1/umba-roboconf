@@ -14,10 +14,21 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "compact_enc_det/compact_enc_det_hint_code.h"
-
 #include <ctype.h>                      // for isalpha
 #include <string.h>                     // for NULL, memchr, strlen, etc
+
+
+#if defined(_MSC_VER)
+    //#pragma warning(disable:4668) // 
+#endif
+
+#include "../disable_warnings_begin.h"
+
+#if defined(UNICODE)
+    #undef UNICODE
+#endif
+
+#include "compact_enc_det/compact_enc_det_hint_code.h"
 
 #include "util/basictypes.h"            // for uint8, uint32
 #include "util/string_util.h"
@@ -167,3 +178,5 @@ string MakeChar8(const string& str) {
   }
   return res;
 }
+
+#include "../disable_warnings_end.h"
