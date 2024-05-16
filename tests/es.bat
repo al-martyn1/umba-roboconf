@@ -26,13 +26,13 @@
 
 %ROBOCONF% %VERBOSE% --make-cache ../data/nets/es.NET  net-cache\es.rbc_net
 
-%ROBOCONF% %VERBOSE% --make-dump --report=summary --local-lib-cache=lib-cache\es.rbc_libs --rules=rules\es.rul  net-cache\es.rbc_net  es_summary
+%ROBOCONF% %VERBOSE% --make-dump --report=summary --local-lib-cache=lib-cache\es.rbc_libs --rules=rules\es.rul  net-cache\es.rbc_net  es\summary.html
 @rem summary\jud_TriggersControl_v2_3_Driver
-%ROBOCONF% %VERBOSE% --make-dump --report=mcu     --local-lib-cache=lib-cache\es.rbc_libs                       net-cache\es.rbc_net  es_mcu
+%ROBOCONF% %VERBOSE% --make-dump --report=mcu     --local-lib-cache=lib-cache\es.rbc_libs                       net-cache\es.rbc_net  es\mcu.html
 @rem mcu\jud_TriggersControl_v2_3_Driver
-%ROBOCONF% %VERBOSE% --make-dump --report=periph  --local-lib-cache=lib-cache\es.rbc_libs --rules=rules\es.rul  net-cache\es.rbc_net  es_periph
+%ROBOCONF% %VERBOSE% --make-dump --report=periph  --local-lib-cache=lib-cache\es.rbc_libs --rules=rules\es.rul  net-cache\es.rbc_net  es\periph.html
 @rem periph\jud_TriggersControl_v2_3_Driver
-%ROBOCONF% %VERBOSE% --make-dump --report=h_conf  --local-lib-cache=lib-cache\es.rbc_libs --rules=rules\es.rul  net-cache\es.rbc_net  es_conf
+%ROBOCONF% %VERBOSE% --make-dump --report=h_conf  --local-lib-cache=lib-cache\es.rbc_libs --rules=rules\es.rul  net-cache\es.rbc_net  es\conf.h
 @rem h_conf\jud_TriggersControl_v2_3_Driver
 
 
