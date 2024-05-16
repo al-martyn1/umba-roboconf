@@ -93,6 +93,10 @@ std::vector<std::string> rules;
 bool noDefaultRules     = false;
 
 
+std::vector<std::string> componentAliasDbList;
+std::vector<std::string> datasheetAliasDbList;
+
+
 bool printInfoFlag      = false;
 bool printVersionNoFlag = false;
 
@@ -372,10 +376,29 @@ int safe_main(int argc, char* argv[])
         rbcOpts.resetEnabledMessages();
     }
 
+
+    std::string userName     = platformGetUserName();
+    if (userName.empty())
+        userName = "user";
+    std::string computerName = platformGetComputerName();
+    if (computerName.empty())
+        computerName = "PC";
+
+    bool hasUserOrComputerName = !userName.empty() || !computerName.empty();
+
+    std::string computerUser = computerName;
+    if (!userName.empty())
+    {
+        if (!computerUser.empty())
+            computerUser += "_";
+        computerUser += userName;
+    }
+
+
     if (!disableBuiltins)
     {
         {
-            std::string rbcOptsFileName = appendPath(progConfPath, std::string("/roboconf.options") );
+            std::string rbcOptsFileName = appendPath(progConfPath, std::string("/roboconf.options"));
             std::vector<std::string> opts;
             readOptionsFile(rbcOptsFileName, opts );
             for( const auto & o : opts)
@@ -384,93 +407,35 @@ int safe_main(int argc, char* argv[])
                 if (paRes)
                    return paRes<0 ? 1 : 0;
             }
+        }
 
-            /*
-            std::ifstream optFile(rbcOptsFileName.c_str());
-            if (!!optFile)
+        // Ключики для пользовательских баз добавлю потом
+        {
+            std::string aliasDbFileName = appendPath(progConfPath, std::string("/component-alias-db.txt"));
+            std::ifstream input(aliasDbFileName);
+            if (input)
             {
-                std::string optLine;
-                while( std::getline( optFile, optLine) )
-                {
-                    trim(optLine);
-                    if (optLine.empty())
-                        continue;
-           
-                    if (isComment( optLine ))
-                        continue;
-           
-                    int paRes = parseArg( optLine, 0, false, true );
-                    if (paRes)
-                    {
-                       LOG_ERR_OPT<<"error in options file '"<< rbcOptsFileName<<"'\n";
-                       return paRes<0 ? 1 : 0;
-                    }
-                }
-            
+                componentAliasDbList.emplace_back(aliasDbFileName);
             }
-            */
+        }
+        
+        {
+            std::string aliasDbFileName = appendPath(progConfPath, std::string("/datasheet-alias-db.txt"));
+            std::ifstream input(aliasDbFileName);
+            if (input)
+            {
+                datasheetAliasDbList.emplace_back(aliasDbFileName);
+            }
         }
         
 
+        if (!computerUser.empty())
         {
-            std::string rbcOptsFileName = appendPath( progConfPath, std::string("/roboconf.options") );
-            std::vector<std::string> opts;
-            readOptionsFile(rbcOptsFileName, opts );
-            for( const auto & o : opts)
-            {
-                int paRes = parseArg( o, &commandLineOptionCollector, false, false );
-                if (paRes)
-                   return paRes<0 ? 1 : 0;
-            }
-            /*
-            std::string rbcOptsFileName = progConfPath + std::string("/roboconf.options.user");
-            std::ifstream optFile(rbcOptsFileName.c_str());
-            if (!!optFile)
-            {
-                std::string optLine;
-                while( std::getline( optFile, optLine) )
-                {
-                    trim(optLine);
-                    if (optLine.empty())
-                        continue;
-           
-                    if (isComment( optLine ))
-                        continue;
-           
-                    int paRes = parseArg( optLine, 0, false, true );
-                    if (paRes)
-                    {
-                       LOG_ERR_OPT<<"error in options file '"<< rbcOptsFileName<<"'\n";
-                       return paRes<0 ? 1 : 0;
-                    }
-                }
-            
-            }
-            */
-        }
+            std::string computerUserFilenamePart = platformUserNameConvertToFilename(computerUser);
 
-        std::string userName     = platformGetUserName();
-        if (userName.empty())
-            userName = "user";
-        std::string computerName = platformGetComputerName();
-        if (computerName.empty())
-            computerName = "PC";
-        if (!userName.empty() || !computerName.empty())
-        {
-            std::string computerUser = computerName;
-            if (!userName.empty())
-            {
-                if (!computerUser.empty())
-                    computerUser += "_";
-                computerUser += userName;
-            }
-
-            std::string rbcOptsFileName = appendPath( progConfPath, std::string("/roboconf.options.") + platformUserNameConvertToFilename(computerUser) );
+            std::string rbcOptsFileName = appendPath( progConfPath, std::string("/roboconf.") + computerUserFilenamePart + ".options");
             std::vector<std::string> opts;
 
-            //std::string rbcOptsFileName = progConfPath + std::string("/roboconf.options.") + platformUserNameConvertToFilename(computerUser);
-            //std::ifstream optFile(rbcOptsFileName.c_str());
-            //if (!!optFile)
             if (readOptionsFile(rbcOptsFileName, opts ))
             {
                 for( const auto & o : opts)
@@ -479,25 +444,6 @@ int safe_main(int argc, char* argv[])
                     if (paRes)
                        return paRes<0 ? 1 : 0;
                 }
-                /*
-                std::string optLine;
-                while( std::getline( optFile, optLine) )
-                {
-                    trim(optLine);
-                    if (optLine.empty())
-                        continue;
-           
-                    if (isComment( optLine ))
-                        continue;
-           
-                    int paRes = parseArg( optLine, 0, false, true );
-                    if (paRes)
-                    {
-                       LOG_ERR_OPT<<"error in options file '"<< rbcOptsFileName<<"'\n";
-                       return paRes<0 ? 1 : 0;
-                    }
-                }
-                */
             }
             else
             {
@@ -507,10 +453,60 @@ int safe_main(int argc, char* argv[])
                     optFile<<"; Options file for "<<userName<<" at "<<computerName<<"\n";
                 }
             }
+
+            {
+                std::string aliasDbFileName = appendPath(progConfPath, std::string("/component-alias-db.") + computerUserFilenamePart + ".txt");
+                std::ifstream input(aliasDbFileName);
+                if (input)
+                {
+                    componentAliasDbList.emplace_back(aliasDbFileName);
+                }
+                else
+                {
+                    std::ofstream optFile(aliasDbFileName.c_str());
+                    if (!!optFile)
+                    {
+                        optFile<<"; Components alias file for "<<userName<<" at "<<computerName<<"\n";
+                        optFile<<";\n";
+                        optFile<<"; Use: \n";
+                        optFile<<";   BAD_COMPONENT_NAME -> CORRECT_COMPONENT_NAME\n";
+                        optFile<<"; or\n";
+                        optFile<<";   CORRECT_COMPONENT_NAME <- BAD_COMPONENT_NAME1,BAD_COMPONENT_NAME2,...\n";
+                    }
+                }
+            }
+            
+            {
+                std::string aliasDbFileName = appendPath(progConfPath, std::string("/datasheet-alias-db.") + computerUserFilenamePart + ".txt");
+                std::ifstream input(aliasDbFileName);
+                if (input)
+                {
+                    datasheetAliasDbList.emplace_back(aliasDbFileName);
+                }
+                else
+                {
+                    std::ofstream optFile(aliasDbFileName.c_str());
+                    if (!!optFile)
+                    {
+                        optFile<<"; Datasheet alias file for "<<userName<<" at "<<computerName<<"\n";
+                        optFile<<";\n";
+                        optFile<<"; Use:\n";
+                        optFile<<"; DATASHEET_FILE_NAME_WITHOUT_PATH.pdf (or other document format)\n";
+                        optFile<<";     DATASHEET/LOCATION/PATH/AND/FILENAME_1.pdf\n";
+                        optFile<<";     DATASHEET/LOCATION/PATH/AND/FILENAME_2.pdf\n";
+                        optFile<<";\n";
+                        optFile<<"; Note: datasheet file name at first line must be written without leading spaces\n";
+                        optFile<<";\n";
+                        optFile<<"; Note: local locations will be preffered over network locations (http/ftp)\n";
+                        optFile<<";\n";
+                        optFile<<"; Note: if there is no local datasheet copy found, document will not be copied to your project\n";
+                    }
+                }
+
+            }
+
         }
-    
-    
-    
+
     }
 
     for( const auto & a : args)
@@ -533,6 +529,33 @@ int safe_main(int argc, char* argv[])
         rules.insert( rules.begin(), std::string("default_power.rul") );
         rules.insert( rules.begin(), std::string("default_packages.rul") );
     }
+
+    /*
+    std::string rbcOptsFileName = progConfPath + std::string("/roboconf.options.user");
+    std::ifstream optFile(rbcOptsFileName.c_str());
+    if (!!optFile)
+    {
+        std::string optLine;
+        while( std::getline( optFile, optLine) )
+        {
+            trim(optLine);
+            if (optLine.empty())
+                continue;
+   
+            if (isComment( optLine ))
+                continue;
+   
+            int paRes = parseArg( optLine, 0, false, true );
+            if (paRes)
+            {
+               LOG_ERR_OPT<<"error in options file '"<< rbcOptsFileName<<"'\n";
+               return paRes<0 ? 1 : 0;
+            }
+        }
+    
+    }
+    */
+
 
     if (inputFilename.empty())
     {
