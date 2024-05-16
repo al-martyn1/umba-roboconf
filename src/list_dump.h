@@ -12,6 +12,7 @@ void dumpExpressionListSimpleShort( RoboconfOptions &rbcOpts, const char* msgId,
     auto s = & LOG_MSG(msgId);
 
     bool useLines = lst.size() > 10;
+    UMBA_USED(useLines);
 
     bool hasHeader = !lst.empty() && lst.front().isText();
 

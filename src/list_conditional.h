@@ -173,6 +173,7 @@ ConditionalTestResult testConditional(RoboconfOptions &rbcOpts
     const auto & mvv = readedVals[0].mapOfVectorsValue;
 
     bool conditionalFound = false;
+    UMBA_USED(conditionalFound);
 
     SimpleOptional<std::string>  matchValueType = parentMatchValueType;
     SimpleOptional<MatchType>    matchType      = parentMatchType     ;

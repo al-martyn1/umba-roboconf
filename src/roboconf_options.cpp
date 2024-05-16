@@ -264,6 +264,7 @@ RoboconfOptions::extractGroupingRules( expression_list_t & rulesList /* , const 
     groupingRules = ListConditional::extractConditionalLists( *this, groupingRules, std::map<std::string, std::string>() /* , "netlistType", netlistType */ );
 
     RoboconfOptions &rbcOpts = *this;
+    UMBA_USED(rbcOpts);
 
     //LOG_MSG("conf-dump-short-rules-cls")<<"--- Short component class detection rules (after parsing conditions)\n";
     //dumpExpressionListSimpleShort( rbcOpts, "conf-dump-short-rules-cls", componentClassRules );
