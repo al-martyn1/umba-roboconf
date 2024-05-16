@@ -1,18 +1,5 @@
-@if "%RBC_ROOT%"=="" goto ERR
-@if not exist %~dp0\out\msvc\Win32\Release\roboconf.exe goto EXE_ERR
+@if exist %~dp0\scripts\setup_local.bat @call %~dp0\scripts\setup_local.bat
 
-@copy /Y /B %~dp0\out\msvc\Win32\Release\roboconf.exe %RBC_ROOT%\bin\roboconf.exe
+@set RBC_ROOT=%LOCAL_RBC_ROOT%
 
-goto END
-
-:ERR
-@echo RBC_ROOT is not set
-goto END
-
-:EXE_ERR
-@echo Binaries not exist
-goto END
-
-
-:END
-
+@call %~dp0\scripts\deploy_binaries_impl.bat

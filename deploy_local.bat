@@ -1,9 +1,9 @@
-@if exist %~dp0\setup_local.bat @call %~dp0\setup_local.bat
+@if exist %~dp0\scripts\setup_local.bat @call %~dp0\scripts\setup_local.bat
 
 @set RBC_ROOT=%LOCAL_RBC_ROOT%
 
-@call %~dp0\create_distr_folderes.bat
-@call %~dp0\deploy_conf_impl.bat
-@call %~dp0\deploy_libs_impl.bat
-@call %~dp0\deploy_rules_impl.bat
-@call %~dp0\deploy_binaries.bat
+@call %~dp0\scripts\create_distr_folders_impl.bat
+@call %~dp0\scripts\deploy_conf_impl.bat
+@call %~dp0\scripts\deploy_libs_impl.bat
+@call %~dp0\scripts\deploy_rules_impl.bat
+@call %~dp0\scripts\deploy_binaries.bat

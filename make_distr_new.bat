@@ -5,7 +5,7 @@ if exist distr rd /Q /S distr
 if exist distr goto failed_remove_old
 
 @set RBC_ROOT=distr\umba-roboconf
-@call create_distr_folderes.bat
+@call scripts\create_distr_folders_impl.bat
 @call deploy_conf_impl.bat
 @call deploy_libs_impl.bat
 @call deploy_rules_impl.bat

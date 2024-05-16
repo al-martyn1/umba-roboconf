@@ -2,6 +2,6 @@
 
 @rem set RBC_ROOT=%LOCAL_RBC_ROOT%
 
-@call %~dp0\deploy_datasheets_impl.bat
+@call %~dp0\scripts\deploy_datasheets_impl.bat
 
 

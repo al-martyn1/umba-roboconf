@@ -1,6 +1,6 @@
 @if "%LOCAL_DATASHEETS_PATH%"=="" goto ERR
 
-xcopy /E /Y /I %~dp0\datasheets\*.*     %LOCAL_DATASHEETS_PATH%\
+xcopy /E /Y /I %~dp0\..\datasheets\*.*     %LOCAL_DATASHEETS_PATH%\
 
 goto END
 

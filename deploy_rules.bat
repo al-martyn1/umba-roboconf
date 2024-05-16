@@ -1,4 +1,4 @@
-@if exist %~dp0\setup_local.bat @call %~dp0\setup_local.bat
+@if exist %~dp0\scripts\setup_local.bat @call %~dp0\scripts\setup_local.bat
 
 @set RBC_ROOT=%LOCAL_RBC_ROOT%
 
