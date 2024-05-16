@@ -1,3 +1,52 @@
+(-- Странно, почему-то не всем назначилось. А не составные ли они? )
+(packageAssign (designator "U1" ) (package "LQFP176") )   (-- !!! no package type taken )
+(packageAssign (designator "U2" ) (package "TSSOP-48") )  (-- !!! no package type taken )
+(packageAssign (designator "U23") (package "SSOP24") )    (-- !!! no package type taken )
+(packageAssign (designator "U24") (package "MSOP8") )     (-- !!! no package type taken )
+(packageAssign (designator "U25") (package "VSSOP10") )   (-- !!! no package type taken )
+(packageAssign (designator "U26") (package "SO8") )
+(packageAssign (designator "U27") (package "MSOP8") )
+(packageAssign (designator "U28") (package "MSOP8") )     (-- !!! no package type taken )
+(packageAssign (designator "U29") (package "SOT23-5") )   (-- !!! no package type taken )
+(packageAssign (designator "U3" ) (package "MSOP8") )     (-- !!! no package type taken )
+(packageAssign (designator "U30") (package "MSOP8") )     (-- !!! no package type taken )
+(packageAssign (designator "U31") (package "SOT23") )
+(packageAssign (designator "U32") (package "SC-70-5") )
+(packageAssign (designator "U33") (package "WSON-8") )
+(packageAssign (designator "U34") (package "TDFN-10") )
+(packageAssign (designator "U4" ) (package "MSOP8") )     (-- !!! no package type taken )
+(packageAssign (designator "Q17") (package "D-PAK") )
+
+
+(componentClass (match designator  )  (matchTo "^U26" )  (set AA)      )
+(componentClass (match designator  )  (matchTo "^U27" )  (set AA)      )
+(componentClass (match designator  )  (matchTo "^U29" )  (set AA)      )
+(componentClass (match designator  )  (matchTo "^U31" )  (set AA)      )
+(componentClass (match designator  )  (matchTo "^U32" )  (set AA)      )
+(componentClass (match designator  )  (matchTo "^U33" )  (set AA)      )
+(componentClass (match designator  )  (matchTo "^U34" )  (set AA)      )
+(componentClass (match designator  )  (matchTo "^Y2"  )  (set QUARTZ)  )
+(componentClass (match designator  )  (matchTo "^Y2"  )  (set QUARTZ)  )
+
+
+(modify "mcuNet" replaceSingle "PF0\(UART8_nRxEN\)"  "$({P})MASTER_LINK_485_~RX_EN$({S})")
+(modify "mcuNet" replaceSingle "PF1\(UART8_TxEN\)"   "$({P})MASTER_LINK_485_TX_EN$({S})") 
+(modify "mcuNet" replaceSingle "PE1\(UART8_Tx\)"     "$({P})MASTER_LINK_485_RX$({S})")
+(modify "mcuNet" replaceSingle "PE0\(UART8_Rx\)"     "$({P})MASTER_LINK_485_TX$({S})") 
+
+
+(connect device "SN65HVD1780" as "DD"
+    ("RO"     to "X1.7")   (--  Receive data output to UART8_Rx )
+    ("R\E\" to "X1.5")   (--  Receiver enable low to UART8_nRxEN)
+    ("DI"     to "X1.8")   (--  Driver data input to UART8_Tx )
+    ("DE"     to "X1.6")   (--  Driver enable high UART8_TxEN)
+)
+
+
+
+
+
+
 (--modify "mcuNet" replaceSingle "MOTOR1_CURRENT"     "$({P})EXTRUDER_MOTOR_CURRENT$({S})")
 (--modify "mcuNet" replaceSingle "MOTOR1_nFAULT"        "$({P})EXTRUDER_MOTOR_~FAULT$({S})")
 (-- modify "mcuNet" replaceSingle "UART2_(R|T)X" "GANJUBUS_RS485_$({1})X")
