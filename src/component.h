@@ -108,6 +108,7 @@ struct ComponentInfo //-V730
     // net info
     std::string                designator;
     std::string                typeName;
+    std::string                typeNameOrg; // before making it canonical
     std::string                sheetName;
     ComponentClass             componentClass = ComponentClass::cc_UNKNOWN;
     unsigned                   assembly = 0;

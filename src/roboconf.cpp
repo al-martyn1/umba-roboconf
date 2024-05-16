@@ -40,7 +40,7 @@
 #include "list_dump.h"
 #include "platformGetUserName.h"
 
-
+#include "component_alias_db.h"
 
 
 
@@ -277,7 +277,7 @@ int safe_main(int argc, char* argv[])
 
 
         args.emplace_back("--make-dump");
-        args.emplace_back("--log-source-code-pos");
+        // args.emplace_back("--log-source-code-pos");
         args.emplace_back("-V=9");
         args.emplace_back("-V=-conf-dump-short-rules-cls");
         args.emplace_back("-V=-conf-dump-rules-cls");
@@ -704,6 +704,20 @@ int safe_main(int argc, char* argv[])
 
     if (projectName.empty())
         projectName = getNameFromFull( inputFilename );
+
+
+    {
+        ComponentAliasDb componentAliasDb;
+    
+        for(auto componentAliasDbFileName : componentAliasDbList)
+        {
+            componentAliasDb.parseDatabaseFile(componentAliasDbFileName, rbcOpts);
+        }
+
+        componentAliasDb.makeComponentTypesCanonical(allNets);
+    }
+    //std::map<std::string, NetlistInfo> allNets;
+
 
 
     if (makeNetlistCache)

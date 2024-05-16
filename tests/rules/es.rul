@@ -29,13 +29,13 @@
 (componentClass (match designator  )  (matchTo "^Y2"  )  (set QUARTZ)  )
 
 
-(modify "mcuNet" replaceSingle "PF0\(UART8_nRxEN\)"  "$({P})MASTER_LINK_485_~RX_EN$({S})")
-(modify "mcuNet" replaceSingle "PF1\(UART8_TxEN\)"   "$({P})MASTER_LINK_485_TX_EN$({S})") 
-(modify "mcuNet" replaceSingle "PE1\(UART8_Tx\)"     "$({P})MASTER_LINK_485_RX$({S})")
-(modify "mcuNet" replaceSingle "PE0\(UART8_Rx\)"     "$({P})MASTER_LINK_485_TX$({S})") 
+(modify "mcuNet" replaceSingle "PF0\(UART8_nRxEN\)"  "$({P})MASTER_LINK_RS485_~RX_EN$({S})")
+(modify "mcuNet" replaceSingle "PF1\(UART8_TxEN\)"   "$({P})MASTER_LINK_RS485_TX_EN$({S})") 
+(modify "mcuNet" replaceSingle "PE1\(UART8_Tx\)"     "$({P})MASTER_LINK_RS485_RX$({S})")
+(modify "mcuNet" replaceSingle "PE0\(UART8_Rx\)"     "$({P})MASTER_LINK_RS485_TX$({S})") 
 
 
-(connect device "SN65HVD1780" as "DD"
+(-- connect device "SN65HVD1780" as "DD"
     ("RO"     to "X1.7")   (--  Receive data output to UART8_Rx )
     ("R\E\" to "X1.5")   (--  Receiver enable low to UART8_nRxEN)
     ("DI"     to "X1.8")   (--  Driver data input to UART8_Tx )
