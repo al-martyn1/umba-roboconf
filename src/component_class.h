@@ -6,6 +6,7 @@
 
 #include "file_set.h"
 #include "parse.h"
+#include "netlist_component_atributes_map.h"
 
 
 class RoboconfOptions;
@@ -33,17 +34,32 @@ enum class ComponentClass
 };
 
 //-----------------------------------------------------------------------------
-const std::map< std::string, std::string >& getComponentClassNameAliasMap();
-const std::map< std::string, ComponentClass >& getComponentClassNameToIdMap();
-const std::map< ComponentClass, std::string >& getComponentClassIdToNameMap();
-const std::map< ComponentClass, std::string >& getComponentClassToDescriptionMap();
-const std::map< ComponentClass, std::string >& getComponentClassToDisplayStringMap();
+#if defined(ROBOCONF_COMPONENT_CLASS_NAME_MAPS_USE_UNORDERED_MAP)
+    using ComponentClassNameAliasMap   = std::unordered_map< std::string , std::string >;
+    using ComponentClassNameTokenMap   = std::unordered_map< std::string , ComponentClass >;
+    using ComponentClassTokenStringMap = std::unordered_map< ComponentClass, std::string >;
+#else
+    using ComponentClassNameAliasMap   = std::map< std::string , std::string >;
+    using ComponentClassNameTokenMap   = std::map< std::string , ComponentClass >;
+    using ComponentClassTokenStringMap = std::map< ComponentClass, std::string >;
+#endif
+
+//-----------------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------------
+const ComponentClassNameAliasMap& getComponentClassNameAliasMap();
+const ComponentClassNameTokenMap& getComponentClassNameToIdMap();
+const ComponentClassTokenStringMap& getComponentClassIdToNameMap();
+const ComponentClassTokenStringMap& getComponentClassToDescriptionMap();
+const ComponentClassTokenStringMap& getComponentClassToDisplayStringMap();
 std::string getComponentClassCanonicalName( std::string name );
 std::string getComponentClassCanonicalName( ComponentClass id );
 ComponentClass getComponentClassId( std::string name );
 std::string getComponentClassDescription( ComponentClass id );
 std::string getComponentClassDisplayString( ComponentClass id );
 
+//-----------------------------------------------------------------------------
 inline
 int getComponentClassWeight( ComponentClass cc )
 {
@@ -85,6 +101,7 @@ int getComponentClassWeight( ComponentClass cc )
 // (componentClass DD designator match "DD.*")
 struct ComponentClassDetectionRule //-V730
 {
+
     ComponentClass      targetId;
     std::string         checkField;
     std::string         checkMask;
@@ -93,7 +110,7 @@ struct ComponentClassDetectionRule //-V730
     FileSet::file_id_t  fileNo = (FileSet::file_id_t)-1;
     size_t              lineNo = 0;
 
-    ComponentClass detectClassId(RoboconfOptions &rbcOpts, unsigned *pAss, const std::map< std::string, std::string > &fields ) const;
+    ComponentClass detectClassId(RoboconfOptions &rbcOpts, unsigned *pAss, const NetlistComponentAttributesMap &fields ) const;
     ExpressionParsingResult extractRuleFromListItem( RoboconfOptions &rbcOpts, const expression_list_t &lst );
     ExpressionParsingResult extractRuleFromListItem( RoboconfOptions &rbcOpts, const ExpressionItem & rule );
 

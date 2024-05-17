@@ -238,7 +238,6 @@ void ComponentInfo::merge( RoboconfOptions &rbcOpts, const ComponentInfo &ci )
 //-----------------------------------------------------------------------------
 void ComponentInfo::matchPinFunctions( RoboconfOptions &rbcOpts )
 {
-    //std::map< unsigned, ComponentPinInfo > pins;
     for( auto &pinPair : pins )
     {
         ComponentPinInfo &pinInfo = pinPair.second;
@@ -336,13 +335,14 @@ bool ComponentInfo::checkTypeNameMatch( const std::string otherTypeNameMatchTo )
 //-----------------------------------------------------------------------------
 void ComponentInfo::detectComponentClass( RoboconfOptions &rbcOpts )
 {
-    std::map< std::string, std::string> fields;
+    //std::map< std::string, std::string> fields;
+    NetlistComponentAttributesMap fields;
     fields["designator"] = designator;
     detectComponentClass( rbcOpts, fields );
 }
 
 //-----------------------------------------------------------------------------
-void ComponentInfo::detectComponentClass( RoboconfOptions &rbcOpts, const std::map< std::string, std::string> &fields )
+void ComponentInfo::detectComponentClass( RoboconfOptions &rbcOpts, const NetlistComponentAttributesMap &fields )
 {
     //componentInfo.
 	componentClass = ComponentClass::cc_UNKNOWN;

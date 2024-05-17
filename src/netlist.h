@@ -473,7 +473,8 @@ bool netlistParseComponent_ACCEL_ASCII( RoboconfOptions &rbcOpts, const expressi
 
     unquoteTrimString( componentInfo.designator );
 
-    std::map< std::string, std::string > info;
+    //std::map< std::string, std::string > info;
+    NetlistComponentAttributesMap info;
 
     info["designator"] = componentInfo.designator;
 
@@ -533,7 +534,8 @@ bool netlistParseComponent_ACCEL_ASCII( RoboconfOptions &rbcOpts, const expressi
     if (componentInfo.componentClass == ComponentClass::cc_UNKNOWN)
         LOG_MSG("cls-chk-not-at-all")<<"component '"<<componentInfo.designator<<"': component class not detected\n";
 
-    std::map< std::string, std::string >::const_iterator infoIt = info.begin();
+    //std::map< std::string, std::string >::const_iterator infoIt = info.begin();
+    NetlistComponentAttributesMap::const_iterator infoIt = info.begin();
     for(; infoIt != info.end(); ++infoIt)
     {
         if (infoIt->first=="attrsheet")

@@ -19,6 +19,7 @@
 #include "ioUtils.h"
 
 #include "netlist_src_type.h"
+#include "netlist_component_atributes_map.h"
 
 //#include "icUtils.h"
 
@@ -180,7 +181,7 @@ struct ComponentInfo //-V730
     std::string getComponentClassString() const;
     void addPin( std::string pinNo, const std::string &pinFn );
     void detectComponentClass( RoboconfOptions &rbcOpts );
-    void detectComponentClass( RoboconfOptions &rbcOpts, const std::map< std::string, std::string> &fields );
+    void detectComponentClass( RoboconfOptions &rbcOpts, const NetlistComponentAttributesMap &fields );
 
     template< typename Iter >
     void addPin( std::string pinNo, Iter b, Iter e )

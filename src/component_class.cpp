@@ -6,118 +6,152 @@
 #include "rdlc-core/utils.h"
 
 
+//
+#include <type_traits>
+
+namespace
+{
+
+template<class T>
+struct remove_cvref
+{
+    using type = std::remove_cv_t<std::remove_reference_t<T>>;
+};		
+
+}
+
 
 //-----------------------------------------------------------------------------
-const std::map< std::string, std::string >&
-getComponentClassNameAliasMap()
+static
+ComponentClassNameAliasMap makeComponentClassNameAliasMap()
 {
-    static std::map< std::string, std::string > _;
-    if (!_.empty())
-        return _;
+    ComponentClassNameAliasMap m;
 
-    _["DD"]     = "DIGITAL_DEVICE";
-    _["DA"]     = "DIGITAL_ANALOG";
-    _["A"]      = "ANALOG";
-    _["AA"]     = "ANALOG";
-    _["R"]      = "RESISTOR";
-    _["C"]      = "CAPACITOR";
-    _["I"]      = "INDUCTOR";
-    _["T"]      = "TRANSISTOR";
-    _["VT"]     = "TRANSISTOR";
-    _["VD"]     = "DIODE";
-    _["L"]      = "LED";
-    _["H"]      = "HEADER";
-    _["Q"]      = "QUARTZ";
-    _["O"]      = "OPTOPAIR";
-    _["TEST"]   = "TESTPOINT";
-    _["POINT"]  = "TESTPOINT";
-    _["M"]      = "MOUNT";
-    _["J"]      = "JUMPER";
-    _["FU"]     = "FUSE";
-    //_[""] = "";
+    m["DD"]     = "DIGITAL_DEVICE";
+    m["DA"]     = "DIGITAL_ANALOG";
+    m["A"]      = "ANALOG";
+    m["AA"]     = "ANALOG";
+    m["R"]      = "RESISTOR";
+    m["C"]      = "CAPACITOR";
+    m["I"]      = "INDUCTOR";
+    m["T"]      = "TRANSISTOR";
+    m["VT"]     = "TRANSISTOR";
+    m["VD"]     = "DIODE";
+    m["L"]      = "LED";
+    m["H"]      = "HEADER";
+    m["Q"]      = "QUARTZ";
+    m["O"]      = "OPTOPAIR";
+    m["TEST"]   = "TESTPOINT";
+    m["POINT"]  = "TESTPOINT";
+    m["M"]      = "MOUNT";
+    m["J"]      = "JUMPER";
+    m["FU"]     = "FUSE";
+    //m[""] = "";
 
-    return _;
+    return m;
 }
 
 //-----------------------------------------------------------------------------
-const std::map< std::string, ComponentClass >&
-getComponentClassNameToIdMap()
+const ComponentClassNameAliasMap& getComponentClassNameAliasMap()
 {
-    static std::map< std::string, ComponentClass > _;
-    if (!_.empty())
-        return _;
-
-    _["DIGITAL_DEVICE"] = ComponentClass::cc_DD        ;
-    _["DIGITAL_ANALOG"] = ComponentClass::cc_DA        ;
-    _["ANALOG"]         = ComponentClass::cc_AA        ;
-    _["RESISTOR"]       = ComponentClass::cc_RESISTOR  ;
-    _["CAPACITOR"]      = ComponentClass::cc_CAPACITOR ;
-    _["INDUCTOR"]       = ComponentClass::cc_INDUCTOR  ;
-    _["TRANSISTOR"]     = ComponentClass::cc_TRANSISTOR;
-    _["DIODE"]          = ComponentClass::cc_DIODE     ;
-    _["LED"]            = ComponentClass::cc_LED       ;
-    _["HEADER"]         = ComponentClass::cc_HEADER    ;
-    _["QUARTZ"]         = ComponentClass::cc_QUARTZ    ;
-    _["OPTOPAIR"]       = ComponentClass::cc_OPTOPAIR  ;
-    _["TESTPOINT"]      = ComponentClass::cc_TESTPOINT ;
-    _["MOUNT"]          = ComponentClass::cc_MOUNT     ;
-    _["FUSE"]           = ComponentClass::cc_FUSE      ;
-    _["JUMPER"]         = ComponentClass::cc_JUMPER    ;
-    //_[""] = ;
-
-    return _;
+    static ComponentClassNameAliasMap m = makeComponentClassNameAliasMap();
+    return m;
 }
 
 //-----------------------------------------------------------------------------
-const std::map< ComponentClass, std::string >&
-getComponentClassIdToNameMap()
+static
+ComponentClassNameTokenMap makeComponentClassNameToIdMap()
 {
-    static std::map< ComponentClass, std::string > _;
-    if (!_.empty())
-        return _;
+    ComponentClassNameTokenMap m;
 
-    const std::map< std::string, ComponentClass > &m = getComponentClassNameToIdMap();
+    m["DIGITAL_DEVICE"] = ComponentClass::cc_DD        ;
+    m["DIGITAL_ANALOG"] = ComponentClass::cc_DA        ;
+    m["ANALOG"]         = ComponentClass::cc_AA        ;
+    m["RESISTOR"]       = ComponentClass::cc_RESISTOR  ;
+    m["CAPACITOR"]      = ComponentClass::cc_CAPACITOR ;
+    m["INDUCTOR"]       = ComponentClass::cc_INDUCTOR  ;
+    m["TRANSISTOR"]     = ComponentClass::cc_TRANSISTOR;
+    m["DIODE"]          = ComponentClass::cc_DIODE     ;
+    m["LED"]            = ComponentClass::cc_LED       ;
+    m["HEADER"]         = ComponentClass::cc_HEADER    ;
+    m["QUARTZ"]         = ComponentClass::cc_QUARTZ    ;
+    m["OPTOPAIR"]       = ComponentClass::cc_OPTOPAIR  ;
+    m["TESTPOINT"]      = ComponentClass::cc_TESTPOINT ;
+    m["MOUNT"]          = ComponentClass::cc_MOUNT     ;
+    m["FUSE"]           = ComponentClass::cc_FUSE      ;
+    m["JUMPER"]         = ComponentClass::cc_JUMPER    ;
+    //m[""] = ;
+
+    return m;
+}
+
+//-----------------------------------------------------------------------------
+const ComponentClassNameTokenMap& getComponentClassNameToIdMap()
+{
+    static ComponentClassNameTokenMap m = makeComponentClassNameToIdMap();
+    return m;
+}
+
+//-----------------------------------------------------------------------------
+static
+ComponentClassTokenStringMap makeComponentClassIdToNameMap()
+{
+    ComponentClassTokenStringMap mRes;
+
+    const ComponentClassNameTokenMap &m = getComponentClassNameToIdMap();
 
     for( const auto &p : m )
     {
-        _[p.second] = p.first;
+        mRes[p.second] = p.first;
     }
 
-    return _;
+    return mRes;
 }
 
 //-----------------------------------------------------------------------------
-const std::map< ComponentClass, std::string >&
-getComponentClassToDescriptionMap()
+const ComponentClassTokenStringMap& getComponentClassIdToNameMap()
 {
-    static std::map< ComponentClass, std::string > _;
-    if (!_.empty())
-        return _;
-
-    _[ComponentClass::cc_UNKNOWN   ] = "!!! Unknown component class !!!";
-    _[ComponentClass::cc_DD        ] = "Integrated circuit (digital)";
-    _[ComponentClass::cc_DA        ] = "Integrated circuit (digital-analog)";
-    _[ComponentClass::cc_AA        ] = "Integrated circuit (analog)";
-    _[ComponentClass::cc_RESISTOR  ] = "Resistor";
-    _[ComponentClass::cc_CAPACITOR ] = "Capacitor";
-    _[ComponentClass::cc_INDUCTOR  ] = "Inductor";
-    _[ComponentClass::cc_TRANSISTOR] = "Transistor";
-    _[ComponentClass::cc_DIODE     ] = "Diode";
-    _[ComponentClass::cc_LED       ] = "Led";
-    _[ComponentClass::cc_HEADER    ] = "Header";
-    _[ComponentClass::cc_QUARTZ    ] = "Quartz";
-    _[ComponentClass::cc_OPTOPAIR  ] = "Optopair";
-    _[ComponentClass::cc_TESTPOINT ] = "Testpoint";
-    _[ComponentClass::cc_MOUNT     ] = "Mount";
-    _[ComponentClass::cc_FUSE      ] = "Fuse";
-    _[ComponentClass::cc_JUMPER    ] = "Jumper";
-    //_[""] = ;
-
-    return _;
+    static ComponentClassTokenStringMap m = makeComponentClassIdToNameMap();
+    return m;
 }
 
 //-----------------------------------------------------------------------------
-const std::map< ComponentClass, std::string >& getComponentClassToDisplayStringMap()
+static
+ComponentClassTokenStringMap makeComponentClassToDescriptionMap()
+{
+    ComponentClassTokenStringMap m;
+
+    m[ComponentClass::cc_UNKNOWN   ] = "!!! Unknown component class !!!";
+    m[ComponentClass::cc_DD        ] = "Integrated circuit (digital)";
+    m[ComponentClass::cc_DA        ] = "Integrated circuit (digital-analog)";
+    m[ComponentClass::cc_AA        ] = "Integrated circuit (analog)";
+    m[ComponentClass::cc_RESISTOR  ] = "Resistor";
+    m[ComponentClass::cc_CAPACITOR ] = "Capacitor";
+    m[ComponentClass::cc_INDUCTOR  ] = "Inductor";
+    m[ComponentClass::cc_TRANSISTOR] = "Transistor";
+    m[ComponentClass::cc_DIODE     ] = "Diode";
+    m[ComponentClass::cc_LED       ] = "Led";
+    m[ComponentClass::cc_HEADER    ] = "Header";
+    m[ComponentClass::cc_QUARTZ    ] = "Quartz";
+    m[ComponentClass::cc_OPTOPAIR  ] = "Optopair";
+    m[ComponentClass::cc_TESTPOINT ] = "Testpoint";
+    m[ComponentClass::cc_MOUNT     ] = "Mount";
+    m[ComponentClass::cc_FUSE      ] = "Fuse";
+    m[ComponentClass::cc_JUMPER    ] = "Jumper";
+    //m[""] = ;
+
+    return m;
+}
+
+//-----------------------------------------------------------------------------
+const ComponentClassTokenStringMap& getComponentClassToDescriptionMap()
+{
+    static ComponentClassTokenStringMap m = makeComponentClassToDescriptionMap();
+    return m;
+}
+
+//-----------------------------------------------------------------------------
+const ComponentClassTokenStringMap& getComponentClassToDisplayStringMap()
 {
     return getComponentClassToDescriptionMap();
 /*
@@ -149,13 +183,13 @@ const std::map< ComponentClass, std::string >& getComponentClassToDisplayStringM
 //-----------------------------------------------------------------------------
 std::string getComponentClassCanonicalName( std::string name )
 {
-    const std::map< std::string, std::string > &ma = getComponentClassNameAliasMap();
+    const auto &ma = getComponentClassNameAliasMap();
 
     name = makeCppDefineName( name, false );
     
     while(true)
     {
-        std::map< std::string, std::string >::const_iterator it = ma.find(name);
+        typename remove_cvref<decltype(ma)>::type::const_iterator it = ma.find(name);
         if (it==ma.end())
             break;
         name = it->second;
@@ -167,9 +201,9 @@ std::string getComponentClassCanonicalName( std::string name )
 //-----------------------------------------------------------------------------
 std::string getComponentClassCanonicalName( ComponentClass id )
 {
-    const std::map< ComponentClass, std::string > &m = getComponentClassIdToNameMap();
+    const auto &m = getComponentClassIdToNameMap();
 
-    std::map< ComponentClass, std::string >::const_iterator it = m.find(id);
+    typename remove_cvref<decltype(m)>::type::const_iterator it = m.find(id);
 
     if (it==m.end())
         return std::string("UNKNOWN_CLASS");
@@ -182,9 +216,9 @@ ComponentClass getComponentClassId( std::string name )
 {
     name = getComponentClassCanonicalName(name);
 
-    const std::map< std::string, ComponentClass > &m = getComponentClassNameToIdMap();
+    const auto &m = getComponentClassNameToIdMap();
 
-    std::map< std::string, ComponentClass >::const_iterator it = m.find(name);
+    typename remove_cvref<decltype(m)>::type::const_iterator it = m.find(name);
 
     if (it==m.end())
         return ComponentClass::cc_UNKNOWN;
@@ -195,9 +229,9 @@ ComponentClass getComponentClassId( std::string name )
 //-----------------------------------------------------------------------------
 std::string getComponentClassDescription( ComponentClass id )
 {
-    const std::map< ComponentClass, std::string > &m = getComponentClassToDescriptionMap();
+    const auto &m = getComponentClassToDescriptionMap();
 
-    std::map< ComponentClass, std::string >::const_iterator it = m.find(id);
+    typename remove_cvref<decltype(m)>::type::const_iterator it = m.find(id);
 
     if (it==m.end())
         return std::string("??? Unknown component class id ???");
@@ -208,9 +242,9 @@ std::string getComponentClassDescription( ComponentClass id )
 //-----------------------------------------------------------------------------
 std::string getComponentClassDisplayString( ComponentClass id )
 {
-    const std::map< ComponentClass, std::string > &m = getComponentClassToDisplayStringMap();
+    const auto &m = getComponentClassToDisplayStringMap();
 
-    std::map< ComponentClass, std::string >::const_iterator it = m.find(id);
+    typename remove_cvref<decltype(m)>::type::const_iterator it = m.find(id);
 
     if (it==m.end())
         return std::string("??? Unknown component class id ???");
@@ -226,9 +260,9 @@ std::string getComponentClassDisplayString( ComponentClass id )
 
 
 //-----------------------------------------------------------------------------
-ComponentClass ComponentClassDetectionRule::detectClassId(RoboconfOptions &rbcOpts, unsigned *pAss, const std::map< std::string, std::string > &fields ) const
+ComponentClass ComponentClassDetectionRule::detectClassId(RoboconfOptions &rbcOpts, unsigned *pAss, const NetlistComponentAttributesMap &fields ) const
 {
-    std::map< std::string, std::string >::const_iterator fit = fields.find(checkField);
+    NetlistComponentAttributesMap::const_iterator fit = fields.find(checkField);
     if (fit==fields.end())
         return ComponentClass::cc_UNKNOWN;
 
