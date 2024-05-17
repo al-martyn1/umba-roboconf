@@ -5,15 +5,27 @@ if exist distr rd /Q /S distr
 if exist distr goto failed_remove_old
 
 @set RBC_ROOT=distr\umba-roboconf
-@call scripts\create_distr_folders_impl.bat
-@call deploy_conf_impl.bat
-@call deploy_libs_impl.bat
-@call deploy_rules_impl.bat
-@call deploy_binaries.bat
-@rem copy out\msvc\Win32\Release\roboconf.exe distr\umba-roboconf\bin\roboconf.exe
 
-distr\umba-roboconf\bin\roboconf.exe --help >distr\umba-roboconf\doc\readme.txt
-copy /Y doc\*.png distr\umba-roboconf\doc\
+
+@echo Creating folders
+@call scripts\create_distr_folders_impl.bat
+
+@echo Deploy binaries
+@rem copy out\msvc\Win32\Release\roboconf.exe distr\umba-roboconf\bin\roboconf.exe
+@call scripts\deploy_binaries_impl.bat
+
+@echo Deploy conf
+@call scripts\deploy_conf_impl.bat
+
+@echo Deploy libs
+@call scripts\deploy_libs_impl.bat
+
+@echo Deploy rules
+@call scripts\deploy_rules_impl.bat
+
+
+@distr\umba-roboconf\bin\roboconf.exe --help >distr\umba-roboconf\doc\readme.txt
+@copy /Y doc\*.png distr\umba-roboconf\doc\
 
 
 
@@ -87,6 +99,10 @@ echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtl_periph.rul    netl
 echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtl_periph.rul    netlists\vtl_periph.NET      vtl_periph_conf.h                    >> distr\umba-roboconf\samples\samples.bat
 
 
+@if exist %RBC_ROOT%\conf\component-alias-db.custom.txt                 @del %RBC_ROOT%\conf\component-alias-db.custom.txt
+@if exist %RBC_ROOT%\conf\roboconf.MARTINOV-PC_martinov.options         @del %RBC_ROOT%\conf\roboconf.MARTINOV-PC_martinov.options
+@if exist %RBC_ROOT%\conf\component-alias-db.MARTINOV-PC_martinov.txt   @del %RBC_ROOT%\conf\component-alias-db.MARTINOV-PC_martinov.txt
+@if exist %RBC_ROOT%\conf\datasheet-alias-db.MARTINOV-PC_martinov.txt   @del %RBC_ROOT%\conf\datasheet-alias-db.MARTINOV-PC_martinov.txt
 
 
 rem xcopy /E /Y /I ..\distr s:\rdlc
@@ -102,8 +118,10 @@ rem xcopy /E /Y /I ..\distr e:\rdlc
 @set ZIPDISTRNAME=%DISTR_NAME%_windows_%PLATFORM%_%CONFIGURATION%_%VERSION%.zip
 
 @cd %ZIP_TARGET_FOLDER%
-@echo Calling ZIP: zip %ZIPDISTRNAME% -r %ZIPDISTRNAME% %DISTR_NAME%
-@zip %ZIPDISTRNAME% -r %ZIPDISTRNAME% %DISTR_NAME%
+@rem echo Calling ZIP: zip %ZIPDISTRNAME% -r %ZIPDISTRNAME% %DISTR_NAME%
+@echo Calling ZIP: zip -r %ZIPDISTRNAME% %DISTR_NAME%
+@rem zip %ZIPDISTRNAME% -r %ZIPDISTRNAME% %DISTR_NAME%
+@zip -r %ZIPDISTRNAME% %DISTR_NAME%
 @rem move %ZIPDISTRNAME% ..\..
 @rem cd ..\..\..
 @cd ..
