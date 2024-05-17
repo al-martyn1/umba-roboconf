@@ -335,7 +335,6 @@ bool ComponentInfo::checkTypeNameMatch( const std::string otherTypeNameMatchTo )
 //-----------------------------------------------------------------------------
 void ComponentInfo::detectComponentClass( RoboconfOptions &rbcOpts )
 {
-    //std::map< std::string, std::string> fields;
     NetlistComponentAttributesMap fields;
     fields["designator"] = designator;
     detectComponentClass( rbcOpts, fields );

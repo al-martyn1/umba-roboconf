@@ -122,7 +122,7 @@ struct ComponentInfo //-V730
     #if defined(ROBOCONF_COMPONENT_INFO_PINS_USE_UNORDERED_MAP)
         using pins_map_type = std::unordered_map< std::string, ComponentPinInfo >;
     #else
-        using pins_map_type = std::map< std::string, ComponentPinInfo >;
+        using pins_map_type = std:: map< std::string, ComponentPinInfo >;
     #endif
 
     // net info
@@ -972,7 +972,6 @@ std::vector<std::string> generateComponentNames( std::string cmpName, const std:
 
 //-----------------------------------------------------------------------------
 bool componentParseList    ( RoboconfOptions &rbcOpts, const expression_list_t &lst, ComponentInfo &ci);
-//bool componentParseRoboconf( const std::vector<std::string> &lines, std::map<std::string, std::vector< ComponentInfo > > &components );
 bool componentParseRoboconf( RoboconfOptions &rbcOpts, const std::vector<std::string> &lines, std::vector< ComponentInfo > &components );
 /*
 //-----------------------------------------------------------------------------
@@ -995,7 +994,7 @@ bool componentsMerge( std::vector< ComponentInfo > &components, const ComponentI
 }
 
 //-----------------------------------------------------------------------------
-bool componentsMerge( std::map<std::string, std::vector< ComponentInfo > > &components, ComponentInfo ci, const std::string &typeName )
+bool componentsMerge( std:: map<std::string, std::vector< ComponentInfo > > &components, ComponentInfo ci, const std::string &typeName )
 {
     ci.typeName = typeName;
 
@@ -1011,7 +1010,6 @@ bool componentsMerge( std::map<std::string, std::vector< ComponentInfo > > &comp
 */
 //-----------------------------------------------------------------------------
 inline
-//bool componentReadCmp( std::istream &in, std::map<std::string, std::vector< ComponentInfo > > &components )
 bool componentReadCmp(RoboconfOptions &rbcOpts, FileSet::file_id_t fileNo, std::istream &in, std::vector< ComponentInfo > &components )
 {
 
@@ -1166,16 +1164,16 @@ std::string filterPinNameNegation( std::string str )
 
     std::string regexRes;
 
-    if ( regexpEvalString( regexRes, "n_([A-Z].*)", "~$({1})", res, std::map< std::string, std::string>()) )
+    if ( regexpEvalString( regexRes, "n_([A-Z].*)", "~$({1})", res, std:: map< std::string, std::string>()) )
        return regexRes;
 
-    if ( regexpEvalString( regexRes, "n([A-Z].*)", "~$({1})", res, std::map< std::string, std::string>()) )
+    if ( regexpEvalString( regexRes, "n([A-Z].*)", "~$({1})", res, std:: map< std::string, std::string>()) )
        return regexRes;
 
-    if ( regexpEvalString( regexRes, "(.*)_n", "~$({1})", res, std::map< std::string, std::string>()) )
+    if ( regexpEvalString( regexRes, "(.*)_n", "~$({1})", res, std:: map< std::string, std::string>()) )
        return regexRes;
 
-    if ( regexpEvalString( regexRes, "(.*)n", "~$({1})", res, std::map< std::string, std::string>()) )
+    if ( regexpEvalString( regexRes, "(.*)n", "~$({1})", res, std:: map< std::string, std::string>()) )
        return regexRes;
 
     return res;
@@ -1211,7 +1209,7 @@ enum class ComponentCmpListToken
 #if defined(ROBOCONF_COMPONENT_CMP_LIST_TOKENS_USE_UNORDERED_MAP)
     using ComponentCmpListTokenMap = std::unordered_map< std::string , ComponentCmpListToken >;
 #else
-    using ComponentCmpListTokenMap = std::map< std::string , ComponentCmpListToken >;
+    using ComponentCmpListTokenMap = std:: map< std::string , ComponentCmpListToken >;
 #endif
 
 //-----------------------------------------------------------------------------
@@ -1503,7 +1501,6 @@ bool componentParseList    (RoboconfOptions &rbcOpts, const expression_list_t &l
     return true;
 }
 
-//bool componentParseRoboconf( const std::vector<std::string> &lines, std::map<std::string, std::vector< ComponentInfo > > &components )
 inline
 bool componentParseRoboconf( RoboconfOptions &rbcOpts, const std::vector<std::string> &lines, std::vector< ComponentInfo > &components )
 {

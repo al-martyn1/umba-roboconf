@@ -200,7 +200,7 @@ public:
 
     void makeComponentTypesCanonical(RoboconfOptions &rbcOpts, NetlistInfo &nlInfo) const
     {
-        std::map< std::string, ComponentInfo >::iterator cit = nlInfo.components.begin();
+        typename NetlistInfo::components_map_type::iterator cit = nlInfo.components.begin();
         for(; cit!=nlInfo.components.end(); ++cit)
         {
             std::string componentTypeName = cit->second.typeName;

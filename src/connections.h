@@ -1495,7 +1495,7 @@ void connectionsListBuild_WalkTroughNets(RoboconfOptions &rbcOpts
         std::string dsgComponent, dsgPinNo;
         splitToPairFromEnd( dsgFrom, dsgComponent, dsgPinNo, "." );
 
-        std::map< std::string, ComponentInfo >::const_iterator cit = netlist.components.find(dsgComponent);
+        typename NetlistInfo::components_map_type::const_iterator cit = netlist.components.find(dsgComponent);
         if (cit == netlist.components.end())
         {
             // component not found
@@ -2101,7 +2101,7 @@ struct ExternalDeviceConnectInfo
         std::vector<ExternalDevicePinConnectInfo>::iterator pit = connectionPins.begin();
         for(; pit != connectionPins.end(); ++pit )
         {
-            std::map< std::string, ComponentInfo >::const_iterator netComponentIt = netlist.components.find(pit->connectTargetDeviceDesignator);
+            typename NetlistInfo::components_map_type::const_iterator netComponentIt = netlist.components.find(pit->connectTargetDeviceDesignator);
             if (netComponentIt == netlist.components.end())
                 return false;
 
@@ -2384,15 +2384,15 @@ bool connectExternalDevices( RoboconfOptions &rbcOpts, const std::vector< Extern
             std::string newDevicePinDesignator = makeFullDesignator( componentInfo.designator               , exconnPin.devicePinNo );
             std::string targetPinDesignator    = makeFullDesignator( exconnPin.connectTargetDeviceDesignator, exconnPin.connectTargetPinNo );
 
-            std::map< std::string, std::set<std::string> >::iterator designatorNetsIt = foundNetlist.designators.find(targetPinDesignator);
+            typename NetlistInfo::designators_map_type::iterator designatorNetsIt = foundNetlist.designators.find(targetPinDesignator);
             if (designatorNetsIt==foundNetlist.designators.end())
                 continue;
 
-            std::set<std::string>::iterator allDesignatorNetsIterator = designatorNetsIt->second.begin();
+            typename NetlistInfo::string_set_type::iterator allDesignatorNetsIterator = designatorNetsIt->second.begin();
             for(; allDesignatorNetsIterator != designatorNetsIt->second.end(); ++allDesignatorNetsIterator)
             {
                 const std::string &netConnected = *allDesignatorNetsIterator;
-                std::map< std::string, NetInfo >::iterator netIt = foundNetlist.nets.find(netConnected);
+                typename NetlistInfo::nets_map_type::iterator netIt = foundNetlist.nets.find(netConnected);
                 if (netIt == foundNetlist.nets.end())
                     continue;
 

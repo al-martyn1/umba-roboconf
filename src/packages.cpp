@@ -130,7 +130,7 @@ bool PackagesDb::applyAssignPackage( RoboconfOptions &rbcOpts, const PackageAssi
         return false;
     }
 
-    std::map< std::string, ComponentInfo >::iterator cit = net.components.find(rule.assignDesignator);
+    typename NetlistInfo::components_map_type::iterator cit = net.components.find(rule.assignDesignator);
     if (cit==net.components.end())
     {
         LOG_ERR_OBJ(rule)<<"assign package: designator '"<<rule.assignDesignator<<"' not found in netlist '"<<net.name<<"'\n";

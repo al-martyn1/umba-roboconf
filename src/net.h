@@ -23,8 +23,16 @@ struct NetNode
 
 struct NetInfo
 {
+
+    #if defined(ROBOCONF_NET_CLASSES_USE_UNORDERED_MAP)
+        using nodes_map_type = std::unordered_map< std::string, NetNode >;
+    #else
+        using nodes_map_type = std:: map< std::string, NetNode >;
+    #endif
+
+
     std::string                        name;
-    std::map<std::string, NetNode>     nodes;
+    nodes_map_type                     nodes;
     bool                               visited;
     std::string                        payload;
 
@@ -56,11 +64,24 @@ StreamType& operator<<( StreamType &s, const NetInfo &ni )
 
 struct NetlistInfo
 {
+    #if defined(ROBOCONF_NET_CLASSES_USE_UNORDERED_MAP)
+        using string_set_type      = std::unordered_set<std::string>;
+        using components_map_type  = std::unordered_map< std::string, ComponentInfo >;
+        using nets_map_type        = std::unordered_map< std::string, NetInfo >;
+        using designators_map_type = std::unordered_map< std::string, string_set_type >;
+    #else
+        using string_set_type      = std::set<std::string>;
+        using components_map_type  = std:: map< std::string, ComponentInfo >;
+        using nets_map_type        = std:: map< std::string, NetInfo >;
+        using designators_map_type = std:: map< std::string, string_set_type >;
+    #endif
+
+
     std::string                                     name;
     std::string                                     projectName;
-    std::map< std::string, ComponentInfo >          components;
-    std::map< std::string, NetInfo >                nets;
-    std::map< std::string, std::set<std::string> >  designators; // to nets
+    components_map_type                             components;
+    nets_map_type                                   nets;
+    designators_map_type                            designators; // to nets
 
     void clearDesignatorsMap()
     {
