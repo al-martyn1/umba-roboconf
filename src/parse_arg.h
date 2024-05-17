@@ -283,6 +283,12 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
             rbcOpts.logOptions.logSourceInfo = true;
             //generatorOptions.protocolVersion = 1;
         }
+        else if (opt.isOption("time") || opt.isOption('T') || opt.setDescription("Report time elapsed"))
+        {
+            if (hasHelpOption) return 0;
+
+            showTime = true;
+        }
 /*
         else if (opt.isOption("include") || opt.isOption('I'))
         {

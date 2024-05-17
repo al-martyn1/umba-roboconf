@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include=".\src\umba\time_service.cpp" />
     <ClCompile Include=".\src\roboconf.cpp" />
     <ClCompile Include="src\component.cpp" />
     <ClCompile Include="src\component_class.cpp" />

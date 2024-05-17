@@ -71,6 +71,7 @@ include_directories(
 
 
 set (ROBOCONF_COMMON_SOURCES
+    "${SRC_ROOT}/umba/time_service.cpp"
     "${SRC_ROOT}/component.cpp"
     "${SRC_ROOT}/component_class.cpp"
     "${SRC_ROOT}/encoding.cpp"

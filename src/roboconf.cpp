@@ -45,7 +45,7 @@
 
 #include "component_alias_db.h"
 
-
+#include "elapsed_timer.h"
 
 // https://en.wikipedia.org/wiki/Netlist
 // https://en.wikipedia.org/wiki/EDIF
@@ -70,6 +70,9 @@ umba::SimpleFormatter logErr(&cerrWriter);
 //RoboconfOptions    rbcOpts = RoboconfOptions( &logMsg, &logErr );
 RoboconfOptions             rbcOpts( &logMsg, &logErr );
 RoboconfOptionsConfigurator rbcOptsConfigurator(rbcOpts);
+
+
+bool                     showTime = false;
 
 bool                     quet = false;
 std::set<std::string>   argsNeedHelp;
@@ -187,6 +190,8 @@ int safe_main(int argc, char* argv[])
     using std::cout;
     using std::cerr;
 
+
+    auto elapsedTimer = ElapsedTimer(true); // стартует сразу
     
 
     CommandLineOptionCollectorImpl commandLineOptionCollector;
@@ -1025,6 +1030,11 @@ int safe_main(int argc, char* argv[])
 
     auto orderedAllNets = makeAllNetsOrderedMap(allNets);
     pGen->generateReport( rbcOpts, os, orderedAllNets, components, processingRules, connectionBuildingOptions );
+
+    if (showTime)
+    {
+        std::cout << "Time elapsed: " << elapsedTimer.getElapsed() << "ms\n";
+    }
 
 /*    
     for( auto n : allNets )
