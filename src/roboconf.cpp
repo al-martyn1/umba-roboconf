@@ -725,10 +725,10 @@ int safe_main(int argc, char* argv[])
     
         for(auto componentAliasDbFileName : componentAliasDbList)
         {
-            componentAliasDb.parseDatabaseFile(componentAliasDbFileName, rbcOpts);
+            componentAliasDb.parseDatabaseFile(rbcOpts, componentAliasDbFileName);
         }
 
-        componentAliasDb.makeComponentTypesCanonical(allNets);
+        componentAliasDb.makeComponentTypesCanonical(rbcOpts, allNets);
     }
     //std::map<std::string, NetlistInfo> allNets;
 

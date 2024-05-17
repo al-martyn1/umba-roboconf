@@ -154,7 +154,7 @@ public:
     
     }
 
-    void parseDatabaseFile(const std::string &fileName, RoboconfOptions &rbcOpts)
+    void parseDatabaseFile(RoboconfOptions &rbcOpts, const std::string &fileName)
     {
         FileSet::file_id_t fileNo = rbcOpts.usedFiles.getFileId(fileName);
 
@@ -198,7 +198,7 @@ public:
         return res;
     }
 
-    void makeComponentTypesCanonical(NetlistInfo &nlInfo) const
+    void makeComponentTypesCanonical(RoboconfOptions &rbcOpts, NetlistInfo &nlInfo) const
     {
         std::map< std::string, ComponentInfo >::iterator cit = nlInfo.components.begin();
         for(; cit!=nlInfo.components.end(); ++cit)
@@ -206,17 +206,18 @@ public:
             std::string componentTypeName = cit->second.typeName;
             if (findComponentCanonicalName(componentTypeName, cit->second.typeName))
             {
+                LOG_MSG("cmp-alias-db")<<"found canonical component name for '" << componentTypeName << "': '"<< cit->second.typeName <<"'\n";
                 cit->second.typeNameOrg = componentTypeName;
             }
         }
     }
 
-    void makeComponentTypesCanonical(all_nets_map_type &nets) const
+    void makeComponentTypesCanonical(RoboconfOptions &rbcOpts, all_nets_map_type &nets) const
     {
         typename all_nets_map_type::iterator nit = nets.begin();
         for(; nit!=nets.end(); ++nit)
         {
-            makeComponentTypesCanonical(nit->second);
+            makeComponentTypesCanonical(rbcOpts, nit->second);
         }
     }
 
