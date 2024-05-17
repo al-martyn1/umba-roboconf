@@ -1514,7 +1514,9 @@ void connectionsListBuild_WalkTroughNets(RoboconfOptions &rbcOpts
             //conn.dstComponentClassStr =  cit->second.getComponentClassString();
             //conn.dstComponentDescription =  cit->second.description;
 
-            std::map< std::string, ComponentPinInfo >::const_iterator pit = cit->second.pins.find(dsgPinNo);
+            //std::map< std::string, ComponentPinInfo >
+            typename ComponentInfo::pins_map_type::const_iterator pit = cit->second.pins.find(dsgPinNo);
+
             if (pit != cit->second.pins.end())
                 conn.dstPinInfo = pit->second;
 

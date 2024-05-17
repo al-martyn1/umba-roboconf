@@ -17,6 +17,9 @@
 
 //#include "icUtils.h"
 
+//
+#include "config.h"
+
 
 //-----------------------------------------------------------------------------
 std::vector<std::string> generateComponentNames( std::string cmpName, const std::string &cmpPackage = std::string(), const std::string &cmpUserSuffix = std::string() );
@@ -31,9 +34,15 @@ std::vector<std::string> generateComponentNames( std::string cmpName, const std:
 //-----------------------------------------------------------------------------
 struct ComponentPinInfo
 {
-    std::string                   pinNo;
-    std::set< std::string >       pinFunctions;
-    std::string                   pinDescription;
+    #if defined(ROBOCONF_COMPONENT_PIN_INFO_USE_UNORDERED_SET)
+        using set_type = std::set<std::string>;
+    #else
+        using set_type = std::unordered_set<std::string>;
+    #endif
+
+    std::string     pinNo;
+    set_type        pinFunctions;
+    std::string     pinDescription;
 
     void merge( const ComponentPinInfo &pi );
     bool isPinFunction( const std::string &fnName ) const;
@@ -105,6 +114,12 @@ enum class ComponentTypeNameMatchType
 //-----------------------------------------------------------------------------
 struct ComponentInfo //-V730
 {
+    #if defined(ROBOCONF_COMPONENT_INFO_PINS_USE_UNORDERED_MAP)
+        using pins_map_type = std::unordered_map< std::string, ComponentPinInfo >;
+    #else
+        using pins_map_type = std::map< std::string, ComponentPinInfo >;
+    #endif
+
     // net info
     std::string                designator;
     std::string                typeName;
@@ -120,7 +135,7 @@ struct ComponentInfo //-V730
 
     // net or lib info
     std::string                package;
-    std::map< std::string, ComponentPinInfo > pins;
+    pins_map_type              pins;
 
     // lib info
     std::vector<std::string>   allTypeNames;
@@ -481,6 +496,8 @@ bool componentExportToCmp( std::ostream &os, ComponentInfo &ci )
     {
         const ComponentPinInfo &pinInfo = p.second;
         os<<"    (pin \""<<pinInfo.pinNo<<"\" \""<<pinInfo.pinDescription<<"\" (";
+
+        // 
         for( auto pf : pinInfo.pinFunctions )
         {
             os<<"\""<<pf<<"\" ";
@@ -1186,50 +1203,62 @@ enum class ComponentCmpListToken
 }; // ComponentCmpListToken
 
 //-----------------------------------------------------------------------------
+#if defined(ROBOCONF_COMPONENT_CMP_LIST_TOKENS_USE_UNORDERED_MAP)
+    using ComponentCmpListTokenMap = std::unordered_map< std::string , ComponentCmpListToken >;
+#else
+    using ComponentCmpListTokenMap = std::map< std::string , ComponentCmpListToken >;
+#endif
+
+//-----------------------------------------------------------------------------
 inline
-const std::map< std::string , ComponentCmpListToken >&
-getComponentCmpListTokens()
+ComponentCmpListTokenMap makeComponentCmpListTokens()
 {
-    static std::map< std::string , ComponentCmpListToken > _;
-    if (!_.empty())
-        return _;
+    ComponentCmpListTokenMap m;
+    m["--"              ] = ComponentCmpListToken::tokenComment ;
+    m["//"              ] = ComponentCmpListToken::tokenComment ;
+    m["<any>"           ] = ComponentCmpListToken::tokenKeywordAny  ;
+    m["*"               ] = ComponentCmpListToken::tokenKeywordAny  ;
+    m["namematch"       ] = ComponentCmpListToken::tokenNameMatch ;
+    m["regex"           ] = ComponentCmpListToken::tokenRegex ;
+    m["simple"          ] = ComponentCmpListToken::tokenSimple ;
+    m["exact"           ] = ComponentCmpListToken::tokenExact ;
+    m["single"          ] = ComponentCmpListToken::tokenSingleChar ;
+    m["singlechar"      ] = ComponentCmpListToken::tokenSingleChar ;
+    m["any"             ] = ComponentCmpListToken::tokenAnyChar ;
+    m["anychar"         ] = ComponentCmpListToken::tokenAnyChar ;
+    m["description"     ] = ComponentCmpListToken::tokenDescription ;
+    m["purpose"         ] = ComponentCmpListToken::tokenPurpose     ;
+    m["assembly"        ] = ComponentCmpListToken::tokenAssembly    ;
+    m["datasheet"       ] = ComponentCmpListToken::tokenDatasheet   ;
+    m["refman"          ] = ComponentCmpListToken::tokenRefman      ;
+    m["errata"          ] = ComponentCmpListToken::tokenErrata      ;
+    m["package"         ] = ComponentCmpListToken::tokenPackage     ;
+    m["modules"         ] = ComponentCmpListToken::tokenModules     ;
+    m["headers"         ] = ComponentCmpListToken::tokenHeaders     ;
+    m["pin"             ] = ComponentCmpListToken::tokenPin         ;
+    m["partpins"        ] = ComponentCmpListToken::tokenPartPins    ;
+    m["internalnet"     ] = ComponentCmpListToken::tokenInternalNet ;
+    m["pinfunctionmatch"] = ComponentCmpListToken::tokenPinFunctionMatch ;
+    //m[""] = ComponentCmpListToken:: ;
 
-    _["--"              ] = ComponentCmpListToken::tokenComment ;
-    _["//"              ] = ComponentCmpListToken::tokenComment ;
-    _["<any>"           ] = ComponentCmpListToken::tokenKeywordAny  ;
-    _["*"               ] = ComponentCmpListToken::tokenKeywordAny  ;
-    _["namematch"       ] = ComponentCmpListToken::tokenNameMatch ;
-    _["regex"           ] = ComponentCmpListToken::tokenRegex ;
-    _["simple"          ] = ComponentCmpListToken::tokenSimple ;
-    _["exact"           ] = ComponentCmpListToken::tokenExact ;
-    _["single"          ] = ComponentCmpListToken::tokenSingleChar ;
-    _["singlechar"      ] = ComponentCmpListToken::tokenSingleChar ;
-    _["any"             ] = ComponentCmpListToken::tokenAnyChar ;
-    _["anychar"         ] = ComponentCmpListToken::tokenAnyChar ;
-    _["description"     ] = ComponentCmpListToken::tokenDescription ;
-    _["purpose"         ] = ComponentCmpListToken::tokenPurpose     ;
-    _["assembly"        ] = ComponentCmpListToken::tokenAssembly    ;
-    _["datasheet"       ] = ComponentCmpListToken::tokenDatasheet   ;
-    _["refman"          ] = ComponentCmpListToken::tokenRefman      ;
-    _["errata"          ] = ComponentCmpListToken::tokenErrata      ;
-    _["package"         ] = ComponentCmpListToken::tokenPackage     ;
-    _["modules"         ] = ComponentCmpListToken::tokenModules     ;
-    _["headers"         ] = ComponentCmpListToken::tokenHeaders     ;
-    _["pin"             ] = ComponentCmpListToken::tokenPin         ;
-    _["partpins"        ] = ComponentCmpListToken::tokenPartPins    ;
-    _["internalnet"     ] = ComponentCmpListToken::tokenInternalNet ;
-    _["pinfunctionmatch"] = ComponentCmpListToken::tokenPinFunctionMatch ;
-    //_[] = ComponentCmpListToken:: ;
-
-    return _;
+    return m;
 }
 
+//-----------------------------------------------------------------------------
+inline
+const ComponentCmpListTokenMap& getComponentCmpListTokens()
+{
+    static ComponentCmpListTokenMap m = makeComponentCmpListTokens();
+    return m;
+}
+
+//-----------------------------------------------------------------------------
 inline
 ComponentCmpListToken componentParseListGetToken( const std::string &name )
 {
-    const std::map< std::string , ComponentCmpListToken > &m = getComponentCmpListTokens();
+    const ComponentCmpListTokenMap &m = getComponentCmpListTokens();
 
-    std::map< std::string , ComponentCmpListToken >::const_iterator mit = m.find(toLower(name));
+    typename ComponentCmpListTokenMap::const_iterator mit = m.find(toLower(name));
     if (mit==m.end())
         return ComponentCmpListToken::tokenUnknown;
 
