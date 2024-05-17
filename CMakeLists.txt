@@ -57,7 +57,7 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   # using Visual Studio C++
 endif()
 
-set(PRJ_ROOT ${PROJECT_SOURCE_DIR}/..)
+set(PRJ_ROOT ${PROJECT_SOURCE_DIR})
 set(SRC_ROOT ${PRJ_ROOT}/src)
 set(LIBS_ROOT ${PRJ_ROOT}/_libs)
 
