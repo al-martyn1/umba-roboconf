@@ -3,6 +3,11 @@
 #include <utility>
 #include <sstream>
 
+//
+#include "config.h"
+//
+
+
 #include "rdlc-core/macros.h"
 #include "regexp.h"
 #include "csv.h"
@@ -18,7 +23,6 @@
 //#include "icUtils.h"
 
 //
-#include "config.h"
 
 
 //-----------------------------------------------------------------------------

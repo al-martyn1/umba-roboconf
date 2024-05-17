@@ -1,6 +1,13 @@
 #pragma once
 
+#include "config.h"
+
+//
+
 #include "component.h"
+
+#include "netlist_types.h"
+
 
 struct NetNode
 {
@@ -123,7 +130,7 @@ StreamType& operator<<( StreamType &s, const NetlistInfo &nl )
 */
 
 template < typename THanler >
-void traverseComponents( std::map<std::string, NetlistInfo> &nets, const THanler &handler, const std::set<ComponentClass> &classes, bool allowAssemblies = true )
+void traverseComponents( all_nets_map_type &nets, const THanler &handler, const std::set<ComponentClass> &classes, bool allowAssemblies = true )
 {
     for( auto & p : nets )
         p.second.traverseComponents( handler, classes, allowAssemblies );
@@ -152,14 +159,14 @@ struct ComponentTypesCollector
 }; // struct ComponentTypesCollector
 
 inline
-void collectComponentTypes( std::map<std::string, NetlistInfo> &nets, std::vector<ComponentTypePackage> &types, const std::set<ComponentClass> &classes, bool allowAssemblies = true )
+void collectComponentTypes( all_nets_map_type &nets, std::vector<ComponentTypePackage> &types, const std::set<ComponentClass> &classes, bool allowAssemblies = true )
 {
     traverseComponents( nets, ComponentTypesCollector(types), classes, allowAssemblies );
     makeUniqueVector(types);
 }
 
 inline
-void makeDesignatorsMap( std::map<std::string, NetlistInfo> &nets )
+void makeDesignatorsMap( all_nets_map_type &nets )
 {
     for( auto &netlistKV : nets )
     {

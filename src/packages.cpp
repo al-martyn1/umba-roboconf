@@ -143,13 +143,13 @@ bool PackagesDb::applyAssignPackage( RoboconfOptions &rbcOpts, const PackageAssi
 }
 
 //-----------------------------------------------------------------------------
-bool PackagesDb::applyDesignatorAssignments(RoboconfOptions &rbcOpts, std::map<std::string, NetlistInfo> &nets )
+bool PackagesDb::applyDesignatorAssignments(RoboconfOptions &rbcOpts, all_nets_map_type &nets )
 {
     bool totalRes = true;
     std::vector< PackageAssignRule >::const_iterator rit = assignRules.begin();
     for(; rit != assignRules.end(); ++rit)
     {
-        std::map<std::string, NetlistInfo>::iterator nit = nets.begin();
+        typename all_nets_map_type::iterator nit = nets.begin();
         for(; nit != nets.end(); ++nit )
         {
             bool res = true;

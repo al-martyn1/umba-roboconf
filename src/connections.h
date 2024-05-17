@@ -2239,7 +2239,7 @@ bool parseExternalConnectionsRules( RoboconfOptions &rbcOpts
                                   , std::vector< ExternalDeviceConnectInfo > &externalDeviceConnections
                                   , const std::vector< std::string > &localSearchPaths
                                   , const std::vector< std::string > &libSearchPaths
-                                  , const std::map<std::string, NetlistInfo> &allNets
+                                  , const all_nets_map_type &allNets
                                   )
 {
     expression_list_t::const_iterator rulit = processingRules.begin();
@@ -2330,8 +2330,8 @@ bool parseExternalConnectionsRules( RoboconfOptions &rbcOpts
 
 //-----------------------------------------------------------------------------
 inline
-bool connectExternalDevices(RoboconfOptions &rbcOpts, const std::vector< ExternalDeviceConnectInfo > &externalDeviceConnections
-                           , std::map<std::string, NetlistInfo> &netsConnectTo
+bool connectExternalDevices( RoboconfOptions &rbcOpts, const std::vector< ExternalDeviceConnectInfo > &externalDeviceConnections
+                           , all_nets_map_type &netsConnectTo
                            )
 {
     for ( auto exconn : externalDeviceConnections )

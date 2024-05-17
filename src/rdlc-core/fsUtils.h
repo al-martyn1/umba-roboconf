@@ -8,6 +8,7 @@
     #include <windows.h>
 #endif
 
+bool startsWithAndStrip( std::string &str, const std::string &prefix );
 
 
 //-----------------------------------------------------------------------------

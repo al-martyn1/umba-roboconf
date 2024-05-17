@@ -211,9 +211,9 @@ public:
         }
     }
 
-    void makeComponentTypesCanonical(std::map<std::string, NetlistInfo> &nets) const
+    void makeComponentTypesCanonical(all_nets_map_type &nets) const
     {
-        std::map<std::string, NetlistInfo>::iterator nit = nets.begin();
+        typename all_nets_map_type::iterator nit = nets.begin();
         for(; nit!=nets.end(); ++nit)
         {
             makeComponentTypesCanonical(nit->second);

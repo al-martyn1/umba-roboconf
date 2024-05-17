@@ -29,3 +29,4 @@ void addReportGenerator( std::map< std::string, IReportGenerator* > &reportGener
     }
 }
 
+

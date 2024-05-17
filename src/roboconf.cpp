@@ -18,6 +18,9 @@
 
 //std::map< std::string, std::string > globalVars;
 
+//
+#include "config.h"
+//
 #include "logerr.h"
 
 #include "rdlc-core/trims.h"
@@ -704,7 +707,7 @@ int safe_main(int argc, char* argv[])
 
 
     std::string projectName;
-    std::map<std::string, NetlistInfo> allNets;
+    all_nets_map_type allNets;
     if (!netlistRead(rbcOpts, rbcOpts.usedFiles.getFileId(inputFilename), input, projectName, allNets ))
     {
         return 2;
@@ -1020,7 +1023,8 @@ int safe_main(int argc, char* argv[])
         }
     }
 
-    pGen->generateReport( rbcOpts, os, allNets, components, processingRules, connectionBuildingOptions );
+    auto orderedAllNets = makeAllNetsOrderedMap(allNets);
+    pGen->generateReport( rbcOpts, os, orderedAllNets, components, processingRules, connectionBuildingOptions );
 
 /*    
     for( auto n : allNets )

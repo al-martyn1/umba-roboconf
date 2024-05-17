@@ -13,7 +13,7 @@
 #include "sys_paths.h"
 #include "cpp.h"
 
-bool startsWithAndStrip( std::string &str, const std::string &prefix );
+//bool startsWithAndStrip( std::string &str, const std::string &prefix );
 
 #include "fsUtils.h"
 #include "prog.h"

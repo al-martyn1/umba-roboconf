@@ -1,5 +1,8 @@
 #pragma once
 
+//
+#include "config.h"
+//
 
 #include "parse.h"
 #include "rdlc-core/trims.h"
@@ -12,17 +15,18 @@
 #include "list_dump.h"
 
 
-
+//
+#include "netlist_types.h"
 
 
 //-----------------------------------------------------------------------------
 bool netlistParseComponent_ACCEL_ASCII( RoboconfOptions &rbcOpts, const expression_list_t &lst, ComponentInfo &componentInfo );
 bool netlistParseNet_ACCEL_ASCII( const expression_list_t &lst, NetInfo &netInfo );
-bool netlistParseCache( RoboconfOptions &rbcOpts, std::vector<std::string> lines, std::string &projectName, std::map<std::string, NetlistInfo> &allNets );
+bool netlistParseCache( RoboconfOptions &rbcOpts, std::vector<std::string> lines, std::string &projectName, all_nets_map_type &allNets );
 
 //-----------------------------------------------------------------------------
 inline
-bool netlistParse_EDIF( RoboconfOptions &rbcOpts, const expression_list_t &netlist, std::map<std::string, NetlistInfo> &allNets )
+bool netlistParse_EDIF( RoboconfOptions &rbcOpts, const expression_list_t &netlist, all_nets_map_type &allNets )
 {
     using ListSimpleXPath::PathValues;
     using ListSimpleXPath::executeQuery;
@@ -613,7 +617,7 @@ bool netlistRead( RoboconfOptions &rbcOpts
                 , FileSet::file_id_t fileNo
                 , std::istream &in
                 , std::string &projectName
-                , std::map<std::string, NetlistInfo> &allNets
+                , all_nets_map_type &allNets
                 , NetlistSrcType netlistType = NetlistSrcType::netlistSrcType_Unknown
                 )
 {
@@ -858,7 +862,7 @@ bool netlistRead( RoboconfOptions &rbcOpts
 
 //-----------------------------------------------------------------------------
 inline
-bool netlistWritetCache( std::ostream &os, const std::string &projectName, const std::map<std::string, NetlistInfo> &allNets )
+bool netlistWritetCache( std::ostream &os, const std::string &projectName, const all_nets_map_type &allNets )
 {
     os<<"#!roboconf netlist --help \""<<projectName<<"\"\n";
     for( auto netlistPair : allNets )
@@ -906,7 +910,7 @@ bool netlistWritetCache( std::ostream &os, const std::string &projectName, const
 }
 
 inline
-bool netlistParseCache(RoboconfOptions &rbcOpts, std::vector<std::string> lines, std::string &projectName, std::map<std::string, NetlistInfo> &allNets )
+bool netlistParseCache(RoboconfOptions &rbcOpts, std::vector<std::string> lines, std::string &projectName, all_nets_map_type &allNets )
 {
     //std::string    projectName;
     NetlistInfo    curNetlist;
@@ -1086,5 +1090,19 @@ bool netlistParseCache(RoboconfOptions &rbcOpts, std::vector<std::string> lines,
     return true;
 }
 
+
+//----------------------------------------------------------------------------
+inline
+std::map<std::string, NetlistInfo> makeAllNetsOrderedMap(const all_nets_map_type &allNets)
+{
+    std::map<std::string, NetlistInfo> res;
+
+    for(const auto &netInfoPair : allNets)
+    {
+        res[netInfoPair.first] = netInfoPair.second;
+    }
+
+    return res;
+}
 
 

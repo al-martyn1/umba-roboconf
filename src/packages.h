@@ -6,8 +6,10 @@
 
 #include "parse.h"
 
+//
+#include "netlist_types.h"
 
-struct NetlistInfo;
+
 class RoboconfOptions;
 
 struct PackageInfo
@@ -60,7 +62,7 @@ public:
     std::string getCanonicalPackageName( std::string n ) const;
 
     bool applyAssignPackage( RoboconfOptions &rbcOpts, const PackageAssignRule &rule, NetlistInfo &net );
-    bool applyDesignatorAssignments( RoboconfOptions &rbcOpts, std::map<std::string, NetlistInfo> &nets );
+    bool applyDesignatorAssignments( RoboconfOptions &rbcOpts, all_nets_map_type &nets );
     bool extractPackages( RoboconfOptions &rbcOpts, expression_list_t & rulesList );
     bool extractDesignatorAssignments( RoboconfOptions &rbcOpts, expression_list_t & rulesList );
     ExpressionParsingResult extractDesignatorAssignment( RoboconfOptions &rbcOpts, const ExpressionItem & rule );
