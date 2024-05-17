@@ -1116,7 +1116,7 @@ bool pinFunctionIsContain( const std::string &longPinFunction, const std::string
 
 //-----------------------------------------------------------------------------
 inline
-bool pinFunctionIsContain( const std::string &longPinFunction, const std::set<std::string> &pinFunctionsFind )
+bool pinFunctionIsContain( const std::string &longPinFunction, const ComponentPinInfo::set_type &pinFunctionsFind )
 {
     auto pfnLongParts = pinFunctionNameSplit( toUpper(longPinFunction), true  /* removeNegations */ ); 
 
@@ -1131,7 +1131,7 @@ bool pinFunctionIsContain( const std::string &longPinFunction, const std::set<st
 
 //-----------------------------------------------------------------------------
 inline
-bool pinFunctionIsContain( const std::set<std::string> &longPinFunction, const std::set<std::string> &pinFunctionsFind )
+bool pinFunctionIsContain( const std::set<std::string> &longPinFunction, const ComponentPinInfo::set_type &pinFunctionsFind )
 {
     for( auto longName : longPinFunction )
     {

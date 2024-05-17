@@ -291,6 +291,10 @@ int safe_main(int argc, char* argv[])
 
         std::string rootPath = "..\\..\\..\\..";
 
+        #else 
+
+        std::string rootPath = ".";
+
         #endif
 
 

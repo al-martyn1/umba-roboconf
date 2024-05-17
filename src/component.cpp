@@ -241,9 +241,9 @@ void ComponentInfo::matchPinFunctions( RoboconfOptions &rbcOpts )
     for( auto &pinPair : pins )
     {
         ComponentPinInfo &pinInfo = pinPair.second;
-        std::set< std::string > res = pinInfo.pinFunctions; // copy oroginals
+        ComponentPinInfo::set_type res = pinInfo.pinFunctions; // copy oroginals
 
-        std::set< std::string > eraseFunctions;
+        ComponentPinInfo::set_type eraseFunctions;
 
         for( auto pfm : pinFunctionMatches )
         {
