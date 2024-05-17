@@ -1,1 +1,2 @@
-@set PATH=C:\Qt\Qt5.12.12\Tools\mingw730_32\bin;%PATH%
+@set QT_MINGW32_BIN_PATH=C:\Qt\Qt5.12.12\Tools\mingw730_32\bin
+@set PATH=%QT_MINGW32_BIN_PATH%;%PATH%
