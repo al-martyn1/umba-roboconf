@@ -99,4 +99,11 @@ target_link_libraries(roboconf ws2_32 iphlpapi shell32)
 #target_compile_definitions(umba-md-pp-view-console PRIVATE "UMBA_MD_PP_VIEW_CONSOLE")
 #https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html#target-usage-requirements
 
+#https://stackoverflow.com/questions/74071243/how-do-i-change-the-working-directory-for-debugging-in-vs-code-cmaketools
+#You can change the output directory for the executable using the RUNTIME_OUTPUT_DIRECTORY property. When debugging, the executable is run in that directory. 
+#set_target_properties(roboconf
+#                      PROPERTIES 
+#                      RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+#                     )
 
+#https://github.com/microsoft/vscode-cmake-tools/issues/53

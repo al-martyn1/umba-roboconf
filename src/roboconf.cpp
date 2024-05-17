@@ -271,9 +271,19 @@ int safe_main(int argc, char* argv[])
 
     if (umba::isDebuggerPresent())
     {
+        std::string cwd;
+        if (getCurrentDirectory(cwd))
+        {
+            std::cout << "Working Dir: " << cwd << "\n";
+        }
+
         args.clear();
 
-        std::string rootPath = ".";
+        #if defined(UMBA_GCC_COMPILER_USED)
+
+        std::string rootPath = "..\\..\\..\\..";
+
+        #endif
 
 
         args.emplace_back("--make-dump");
@@ -283,6 +293,7 @@ int safe_main(int argc, char* argv[])
         args.emplace_back("-V=-conf-dump-rules-cls");
         args.emplace_back("-V=-data-dump-short");
         args.emplace_back("-V=-net-chkstp-not-matched");
+        args.emplace_back("-V=-cls-chk-not-matched");
         args.emplace_back("--report=periph");
         args.emplace_back("--rules=" + rootPath + "/tests/es.rul");
         args.emplace_back(rootPath + "/data/nets/ES.NET");

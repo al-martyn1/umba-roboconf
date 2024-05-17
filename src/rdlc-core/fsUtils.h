@@ -280,6 +280,22 @@ bool setFileReadOnlyAttr( const std::string &file, bool bSet = true )
 }
 
 //-----------------------------------------------------------------------------
+inline
+bool getCurrentDirectory(std::string &cwd)
+{
+    char  ch = 0;
+    char *buf = &ch;
+    DWORD size = ::GetCurrentDirectoryA(1, buf);
+    if (!size) 
+       return false;
+    std::size_t allocSize = (size+1)*sizeof(char);
+    buf = (char*)_alloca(allocSize);
+    DWORD numCharsCopied = ::GetCurrentDirectoryA(size+1, buf);
+    cwd.assign(buf, 0, (std::size_t)numCharsCopied);
+    return true;
+}
+
+//-----------------------------------------------------------------------------
 /*
 inline
 RCODE setFileReadOnlyAttr( const std::wstring &file, bool bSet = true )
