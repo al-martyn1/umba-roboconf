@@ -1,0 +1,1 @@
+Dependencies - замена Dependency Walker - https://github.com/lucasg/Dependencies
