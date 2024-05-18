@@ -1,0 +1,70 @@
+SPI : SPI CLK SCK MISO MOSI
+I2C : I2C SDA SCL
+UART: RS485 RS422 UART RX TX
+CAN : CAN RX TX
+
+SCL/SPC I2C serial clock (SCL) / SPI serial port clock (SPC)
+3 VDDIO(2)
+2. Recommended 100 nF filter capacitor.
+Power supply for I/O pins
+4 SDA/SDI/SDO
+I
+2C serial data (SDA)
+SPI serial data input (SDI)
+3-wire interface serial data output (SDO)
+5 SDO_A/G
+SPI serial data output (SDO) for the accelerometer and gyroscope
+I
+2C least significant bit of the device address (SA0) for the accelerometer
+and gyroscope
+6 SDO_M SPI serial data output (SDO) for the magnetometer
+I
+2C least significant bit of the device address (SA0) for the magnetometer
+
+
+
+
+I2C - https://ru.wikipedia.org/wiki/I%C2%B2C
+      SCL SDA
+SPI - https://ru.wikipedia.org/wiki/Serial_Peripheral_Interface
+      MOSI — выход ведущего, вход ведомого (англ. Master Out Slave In). Служит для передачи данных от ведущего устройства ведомому.
+      MISO — вход ведущего, выход ведомого (англ. Master In Slave Out). Служит для передачи данных от ведомого устройства ведущему.
+      SCLK, CLK, SPC или SCK 
+      https://hubstub.ru/stm32/100-spi-stm32.html
+UART RX/RXD TX/TXD
+
+TIM/PWM PWM
+
+ADC ADC
+
+DAC DAC
+
+COMP
+
+GPIO GPIO
+
+SENSOR:SSI|PWM|QUADRATURE:ROTARY	
+SENSOR:I2C|SPI:9D_INERTIAL
+
+
+
+0) Для всех типов purpose - 
+   Пробуем замену:
+   LED   -> DRIVER:GPIO
+   SWITCH -> DRIVER:GPIO
+
+   Делаем глобально
+
+   
+
+1) Для сенсоров (purpose SENSOR)
+   извлекаем типы интерфейсов
+   Могут быть алиасы - RS485/RS422/RS232 - для UART (обработали глобально)
+
+2) Для каждого интерфейса нужно знать, какие сигналы используются
+   если все сигналы опциональные, то должен использоваться хотя бы один
+
+
+
+
+

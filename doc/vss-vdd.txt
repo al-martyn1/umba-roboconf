@@ -1,0 +1,42 @@
+https://radiokot.ru/articles/49/
+
+Биполярные транзисторы
+Vcc +
+Vee -
+
+Полевые транзисторы
+Vdd +
+Vss -
+для схем на полевых транзисторах (VDD - плюс, VSS — минус)
+
+
+Для схем с двух полярным питанием VCC и VDD могут интерпретироваться как наибольшее положительное, а VEE и VSS как самое отрицательное напряжение в схеме относительно земли.
+
+AGND - Аналоговая земля (минус питания)
+DGND - Цифровая земля (минус питания)
+
+VSSA, VDDA = 2.0 to 3.6 V: external analog power supplies for ADC, Reset blocks, RCs and PLL. In VDD range (ADC is limited at 2.4 V).
+
+https://radiokot.ru/forum/viewtopic.php?f=62&t=115191
+
+Аналоговое питание(VDDA/VSSA) - подключать обязательно, от них питается не только АЦП, но и генераторы.
+
+VBAT = 1.8 to 3.6 V: power supply for RTC, external clock 32 kHz oscillator and backup registers (through power switch) when VDD is not present.
+
+
+(pin "H1" "" ("VREF" "" "VREF_") ("POWER") )
+(pin "J1" "" ("VREFPLUS") ("POWER") )
+(pin "28" "" ("VSSA" "VREF_" "VSSA_VREF_") ("POWER") )
+(pin "29" "" ("VREFPLUS" "VREFBUF_OUT") ("MONOIO") )
+
+<Pin Name="VREF+" Position="G1" Type="Power"/>
+<Pin Name="VREF+" Position="G1" Type="Power"/>
+<Pin Name="VREF-" Position="20" Type="Power"/> STM32F100V(8-B)Tx.xml
+
+<Pin Name="VDDUSB" Position="G11" Type="Power"/>
+<Pin Name="DSIHOST_D1P" Position="G12" Type="MonoIO">
+    <Signal Name="DSIHOST_D1P"/>
+</Pin>
+
+
+ADC - http://forum.easyelectronics.ru/viewtopic.php?f=35&t=10609

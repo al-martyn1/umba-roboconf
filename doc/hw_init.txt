@@ -1,0 +1,102 @@
+Обычно используется что и как:
+
+
+GPIO_PinSourceXX - равно XX - номер пина
+#define GPIO_PinSource0            ((uint8_t)0x00)
+//...
+#define GPIO_PinSource15           ((uint8_t)0x0F)
+
+Номер совпадает с P(A|B|C|D|...)XX - названием пина 
+
+
+GPIO_Pin_10      - маска/значение пина - (1 << GPIO_PinSourceXX)
+
+
+-----
+Для GPIO нужно сделать define'ы вида:
+
+#define MOTOR2_IN1_GPIO       GPIOB
+#define MOTOR2_IN1_PIN        GPIO_Pin_5  - маска/значение пина
+                             
+#define MOTOR2_IN2_GPIO       GPIOB
+#define MOTOR2_IN2_PIN        GPIO_Pin_4  - маска/значение пина
+
+#define MOTOR2_nFAULT_GPIO    GPIOB
+#define MOTOR2_nFAULT_PIN     GPIO_Pin_6
+
+
+-----
+Для DAC нужно извлечь только его номер
+http://easystm32.ru/for-beginners/37-dac-stm32
+http://we.easyelectronics.ru/STM32/dac-v-stm32.html
+
+Остальное делается в коде
+
+define вида:
+#define MOTOR2_SPEED_DAC  1
+
+
+-----
+ADC - нужно извлечь GPIO и PIN
+Нужно извлечь номер канала ADC - ADC_Channel_7
+
+MOTOR2_CURRENT_SENSOR_ADC_GPIO       GPIOA
+MOTOR2_CURRENT_SENSOR_ADC_PIN        GPIO_Pin_7
+MOTOR2_CURRENT_SENSOR_ADC_CHANNEL    ADC_Channel_7
+
+
+
+(generatorInfo (name "h_conf")
+               (description "C-header config generator")
+               (defaultFileExtention "h")
+               (lineComment "//")
+               (commentStart "/*")
+               (commentEnd "*/")
+)
+
+(generator "h_conf" interface "GPIO:OUT"
+    (match "token|nettoken|..." to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})" set ( ("$(name)_GPIO"               to "GPIO$({1})")
+                                                                           ("$(name)_GPIO_PIN"           to "GPIO_Pin_$({2})")
+                                                                           ("$(name)_GPIO_PIN_DIRECTION" to "GPIO_DIRECTION_OUT" comment "only for info")
+                                                                         )
+    )
+)
+
+(generator "h_conf" interface "GPIO:IN"
+    (match "token|nettoken|..." to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})" set ( ("$(name)_GPIO"               to "GPIO$({1})")
+                                                                           ("$(name)_GPIO_PIN"           to "GPIO_Pin_$({2})")
+                                                                           ("$(name)_GPIO_PIN_DIRECTION" to "GPIO_DIRECTION_IN" comment "only for info")
+                                                                         )
+    )
+)
+
+(generator "h_conf" interface "ADC:.*"
+    (match "token|nettoken|..." to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})" set ( ("$(name)_ADC_GPIO"           to "GPIO$({1})")
+                                                                           ("$(name)_ADC_GPIO_PIN"       to "GPIO_Pin_$({2})")
+                                                                         )
+    )
+    (match "token|nettoken|..." to "ADC(\d{1,3})_IN(\d{1,2})"        set ( ("$(name)_ADC_CHANNEL"        to "ADC_Channel_$({2})")
+                                                                           ("$(name)_ADC"                to "ADC$({1})" comment "only for info")
+                                                                         )
+    )
+)
+
+(generator "h_conf" interface "DAC:.*"
+    (match "token|nettoken|..." to "DAC(\d{1,3})"                    set ( ("$(name)_DAC_CHANNEL"        to "$({1})")
+                                                                         )
+    )
+)
+
+
+-- interface name is conn.interfaceType<<":"<<conn.interfaceLineType
+
+
+
+
+
+
+(detect "PWM"
+    (and (match "token"   (any "PWM")    set "PWM:" )
+    )
+)
+
