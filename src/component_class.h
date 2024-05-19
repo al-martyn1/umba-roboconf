@@ -39,9 +39,9 @@ enum class ComponentClass
     using ComponentClassNameTokenMap   = std::unordered_map< std::string , ComponentClass >;
     using ComponentClassTokenStringMap = std::unordered_map< ComponentClass, std::string >;
 #else
-    using ComponentClassNameAliasMap   = std::map< std::string , std::string >;
-    using ComponentClassNameTokenMap   = std::map< std::string , ComponentClass >;
-    using ComponentClassTokenStringMap = std::map< ComponentClass, std::string >;
+    using ComponentClassNameAliasMap   = std:: map< std::string , std::string >;
+    using ComponentClassNameTokenMap   = std:: map< std::string , ComponentClass >;
+    using ComponentClassTokenStringMap = std:: map< ComponentClass, std::string >;
 #endif
 
 //-----------------------------------------------------------------------------

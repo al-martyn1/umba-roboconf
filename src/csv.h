@@ -6,10 +6,10 @@
 #include <vector>
 #include "rdlc-core/splits.h"
 
-typedef std::vector< std::string > csv_line_t;
+typedef std:: vector< std::string > csv_line_t;
 
 inline
-bool readCsv( std::istream &in, std::vector< csv_line_t > &csvLines, char sep = ';' )
+bool readCsv( std::istream &in, std:: vector< csv_line_t > &csvLines, char sep = ';' )
 {
     std::string line;
     while( std::getline( in, line ) )

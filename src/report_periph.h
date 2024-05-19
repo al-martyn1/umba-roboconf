@@ -33,8 +33,15 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
 
     // https://www.st.com/en/microcontrollers/stm32f303vd.html#design-scroll
     virtual
-    //bool generateReport( std::ostream &os, std::map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
-    bool generateReport( RoboconfOptions &rbcOpts, std::ostream &os, std::map<std::string, NetlistInfo> &nets, std::vector< ComponentInfo > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
+    //bool generateReport( std::ostream &os, std:: map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
+    bool generateReport( RoboconfOptions &rbcOpts
+                       , std::ostream &os
+                       , std::map<std::string, NetlistInfo> &nets
+                       , std::vector< ComponentInfo > libComponents
+                       , const expression_list_t &processingRules
+                       , const ConnectionBuildingOptions &opts
+                       , size_t &processedMcus
+                       ) override
     {
         std::string docTitle = "Peripherials - Roboconf";
 
@@ -61,7 +68,7 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
 
             findStartConnectionsDesignators( netlistInfo, "MCU" /* purpose */ , mcuDesignators );
 
-            size_t processedMcus = 0;
+            //size_t processedMcus = 0;
 
             for( auto curMcuD : mcuDesignators )
             {

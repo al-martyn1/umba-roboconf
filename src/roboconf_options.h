@@ -22,6 +22,9 @@
 
 #include "component_class.h"
 
+#include "string_set_type.h"
+#include "string_string_map_type.h"
+
 
 class RoboconfOptions;
 
@@ -34,7 +37,7 @@ struct ForceGroupingRule
 
     int                         ruleType;
     std::string                 groupName;
-    std::vector<std::string>    netlabels;
+    std:: vector<std::string>   netlabels;
 
     FileSet::file_id_t          fileNo = (FileSet::file_id_t)-1;
     size_t                      lineNo = (size_t)-1;
@@ -134,23 +137,26 @@ public:
 
     typedef  FileSet::file_id_t  file_id_t;
 
-    std::vector<std::string>                   includePaths;
-    std::vector<std::string>                   libPaths;
-    std::vector<std::string>                   datasheetPaths;
-    std::vector<std::string>                   rulesPaths;
+    std:: vector<std::string>                   includePaths;
+    std:: vector<std::string>                   libPaths;
+    std:: vector<std::string>                   datasheetPaths;
+    std:: vector<std::string>                   rulesPaths;
                                               
-    std::map< std::string, std::string >       globalVars;
-    FileSet                                    usedFiles;
-    MsgControl                                 warnControl;
-    PackagesDb                                 packagesDb;
-    LogOptions                                 logOptions;
-    DetailLevels                               msgDetailLevels;
-    std::string                                componentsClassDetectionRulesName;
-    std::vector< ComponentClassDetectionRule > componentsClassDetectionRules;
-    std::vector<ForceGroupingRule>             groupingRules;
+    string_string_map_type                      globalVars;
+    FileSet                                     usedFiles;
+    MsgControl                                  warnControl;
+    PackagesDb                                  packagesDb;
+    LogOptions                                  logOptions;
+    DetailLevels                                msgDetailLevels;
+    std::string                                 componentsClassDetectionRulesName;
+    std:: vector< ComponentClassDetectionRule > componentsClassDetectionRules;
+    std:: vector<ForceGroupingRule>             groupingRules;
+
+    bool                                        pauseOnError = false;
 
     std::string outputProlog;
     std::string outputEpilog;
+
 
 
     RoboconfOptions() : pMsgLog(0), pErrLog(0), nulWriter(), logNul(&nulWriter) {}
@@ -189,7 +195,7 @@ public:
     extractComponentClassDetectionRule( const expression_list_t & listRule );
 
     bool 
-    readComponentClassDetectionRules( const std::string &inputFilename, const std::vector<std::string> &rulesPaths, const std::string &netlistType );
+    readComponentClassDetectionRules( const std::string &inputFilename, const std:: vector<std::string> &rulesPaths, const std::string &netlistType );
 
 
     //--- Grouping rules parsing
@@ -204,7 +210,7 @@ public:
     extractGroupingRule( const expression_list_t & listRule );
 
     //bool 
-    //readGroupingRules( const std::string &inputFilename, const std::vector<std::string> &rulesPaths, const std::string &netlistType );
+    //readGroupingRules( const std::string &inputFilename, const std:: vector<std::string> &rulesPaths, const std::string &netlistType );
 
     /*
     ForceGroupingRule::noGroupingRules

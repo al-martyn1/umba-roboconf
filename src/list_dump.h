@@ -157,7 +157,7 @@ void dumpExpressionList( RoboconfOptions &rbcOpts, size_t lvl, StreamType & sa, 
 
 //-----------------------------------------------------------------------------
 inline
-void dumpExpressionListSimpleShort( RoboconfOptions &rbcOpts, const char* msgId, const std::vector<expression_list_t*> &pLsts )
+void dumpExpressionListSimpleShort( RoboconfOptions &rbcOpts, const char* msgId, const std:: vector<expression_list_t*> &pLsts )
 {
     for( auto p: pLsts )
     {
@@ -167,7 +167,7 @@ void dumpExpressionListSimpleShort( RoboconfOptions &rbcOpts, const char* msgId,
 
 //-----------------------------------------------------------------------------
 inline
-void dumpExpressionList( RoboconfOptions &rbcOpts, const char* msgId, const char* msg, const std::vector<expression_list_t*> &pLsts)
+void dumpExpressionList( RoboconfOptions &rbcOpts, const char* msgId, const char* msg, const std:: vector<expression_list_t*> &pLsts)
 {
     bool bFirst = true;
     for( auto p: pLsts )

@@ -14,8 +14,6 @@
 #include <iostream>
 #include <string>
 
-// std::vector<std::string> componentAliasDbList;
-// std::vector<std::string> datasheetAliasDbList;
 
 
 class ComponentAliasDb
@@ -78,7 +76,7 @@ class ComponentAliasDb
                 return;
             }
 
-            std::vector<std::string> bads;
+            std:: vector<std::string> bads; bads.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
             splitToVector(second, bads, ',');
             for(auto b : bads)
             {
@@ -203,6 +201,10 @@ public:
         typename NetlistInfo::components_map_type::iterator cit = nlInfo.components.begin();
         for(; cit!=nlInfo.components.end(); ++cit)
         {
+            // if (cit->second.designator == "U1" || cit->second.designator == "U1A")
+            // {
+            //     std::cout << "MCU\n";
+            // }
             std::string componentTypeName = cit->second.typeName;
             if (findComponentCanonicalName(componentTypeName, cit->second.typeName))
             {

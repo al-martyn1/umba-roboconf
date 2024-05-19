@@ -22,7 +22,7 @@
 //-----------------------------------------------------------------------------
 bool netlistParseComponent_ACCEL_ASCII( RoboconfOptions &rbcOpts, const expression_list_t &lst, ComponentInfo &componentInfo );
 bool netlistParseNet_ACCEL_ASCII( const expression_list_t &lst, NetInfo &netInfo );
-bool netlistParseCache( RoboconfOptions &rbcOpts, std::vector<std::string> lines, std::string &projectName, all_nets_map_type &allNets );
+bool netlistParseCache( RoboconfOptions &rbcOpts, std:: vector<std::string> lines, std::string &projectName, all_nets_map_type &allNets );
 
 //-----------------------------------------------------------------------------
 inline
@@ -31,7 +31,7 @@ bool netlistParse_EDIF( RoboconfOptions &rbcOpts, const expression_list_t &netli
     using ListSimpleXPath::PathValues;
     using ListSimpleXPath::executeQuery;
 
-    std::vector< expression_list_t* >   enumEdifQueryResults;
+    std:: vector< expression_list_t* >   enumEdifQueryResults; enumEdifQueryResults.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     
 #if 0
 
@@ -97,7 +97,7 @@ bool netlistParse_EDIF( RoboconfOptions &rbcOpts, const expression_list_t &netli
 
         std::string expected;
         std::string found;
-        std::vector< ExpressionParsingResultItem > readedVals;
+        std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
         ExpressionParsingResult
         ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "Ti:edif;V", edifIt, edifList.end()
@@ -115,7 +115,7 @@ bool netlistParse_EDIF( RoboconfOptions &rbcOpts, const expression_list_t &netli
 
         // Looking for the version
         //edifQueryResults.clear();
-        std::vector< expression_list_t* > queryResults;
+        std:: vector< expression_list_t* > queryResults; queryResults.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
         executeQuery( edifList, "edifVersion", &queryResults, caseIgnore );
         if (!queryResults.empty())
         {
@@ -169,7 +169,7 @@ bool netlistParse_EDIF( RoboconfOptions &rbcOpts, const expression_list_t &netli
     std::string expected;
     std::string found;
 
-    std::vector< ExpressionParsingResultItem > readedVals;
+    std:: vector< ExpressionParsingResultItem > readedVals;
 
     bool readFieldsRes = ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "Ti:edif;V", netlistIt, netlist.end()
                                            , readedVals, expected, found
@@ -483,7 +483,7 @@ bool netlistParseComponent_ACCEL_ASCII( RoboconfOptions &rbcOpts, const expressi
         if (it->isText())
             continue;
 
-        std::vector< std::string > v;
+        std:: vector< std::string > v; v.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
         if (readListToVector( it->itemList, v, true ) < 2)
             continue;
         //TODO:
@@ -591,7 +591,7 @@ bool netlistParseNet_ACCEL_ASCII( const expression_list_t &lst, NetInfo &netInfo
             continue;
 
         //const std::list<ExpressionItem> &nodeList = item->listItem;
-        std::vector< std::string > v;
+        std:: vector< std::string > v; v.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
         if (readListToVector( it->itemList, v ) < 3)
             continue;
 
@@ -624,13 +624,13 @@ bool netlistRead( RoboconfOptions &rbcOpts
                 )
 {
 
-    std::vector< std::string > lines;
+    std:: vector< std::string > lines; lines.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     std::string allText = readFileEncoded /* Safe */ ( in /*, std::string srcEnc = std::string(), std::string targetEnc = "UTF-8", std::string httpHint = std::string(), std::string metaHint = std::string() */ );
     std::string allTextTrimmed = allText; ltrim(allTextTrimmed);
     bool bForcedType = true;
 
-    //std::vector< std::string > lines;
+    //std:: vector< std::string > lines;
 
     std::string prefix;
 
@@ -773,6 +773,11 @@ bool netlistRead( RoboconfOptions &rbcOpts
 	    case NetlistSrcType::netlistSrcType_ACCEL_ASCII:
              {
                  expression_list_t netList;
+
+                 #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)                 
+                 netList.reserve(16*1024);
+                 #endif
+
 				 size_t lineNo = 0;
                  if (!readList(fileNo, lineNo, allText, netList ))
                  {
@@ -912,7 +917,7 @@ bool netlistWritetCache( std::ostream &os, const std::string &projectName, const
 }
 
 inline
-bool netlistParseCache(RoboconfOptions &rbcOpts, std::vector<std::string> lines, std::string &projectName, all_nets_map_type &allNets )
+bool netlistParseCache(RoboconfOptions &rbcOpts, std:: vector<std::string> lines, std::string &projectName, all_nets_map_type &allNets )
 {
     //std::string    projectName;
     NetlistInfo    curNetlist;
@@ -1022,7 +1027,7 @@ bool netlistParseCache(RoboconfOptions &rbcOpts, std::vector<std::string> lines,
         else if ( startsWithAndStrip( line, "pin") )
         {
             ltrim(line);
-            std::vector<std::string> vec;
+            std:: vector<std::string> vec; vec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
             splitToVector( line, vec, ' ' );
             auto it = vec.begin();
             if (it==vec.end())
@@ -1095,7 +1100,7 @@ bool netlistParseCache(RoboconfOptions &rbcOpts, std::vector<std::string> lines,
 
 //----------------------------------------------------------------------------
 inline
-std::map<std::string, NetlistInfo> makeAllNetsOrderedMap(const all_nets_map_type &allNets)
+std:: map<std::string, NetlistInfo> makeAllNetsOrderedMap(const all_nets_map_type &allNets)
 {
     std::map<std::string, NetlistInfo> res;
 

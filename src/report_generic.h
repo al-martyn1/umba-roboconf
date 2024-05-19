@@ -6,6 +6,8 @@
 #include "cpp.h"
 //#include "datasheet.h"
 
+#include "string_set_type.h"
+#include "string_string_map_type.h"
 
 enum ConnectionReportHandlerCallType
 {
@@ -64,14 +66,14 @@ template <typename THandler>
 bool processGeneratorRules( const expression_list_t & generatorRulesList
                           , const std::string &generatorName
                           , const Connection  &conn
-                          , std::map< std::string, std::string > vars
+                          , string_string_map_type vars
                           , const THandler &handler
                           );
 template <typename THandler>
 bool processGeneratorRule( const ExpressionItem & generatorRule
                           , const std::string &generatorName
                           , Connection  conn
-                          , std::map< std::string, std::string > vars
+                          , string_string_map_type vars
                           , const THandler &handler
                           );
 
@@ -199,13 +201,13 @@ struct GenericReportGenerator : public IReportGenerator
     }
 
 
-    bool isNameUsedInReport( const std::set<std::string> &usedNames, const std::string &name ) const
+    bool isNameUsedInReport( const string_set_type &usedNames, const std::string &name ) const
     {
         std::string valToFind = generatorInfo.ignoreNamesCase ? toLower(name) : name;
         return usedNames.find(valToFind)!=usedNames.end();
     }
 
-    void setNameUsedInReport( std::set<std::string> &usedNames, const std::string &name ) const
+    void setNameUsedInReport( string_set_type &usedNames, const std::string &name ) const
     {
         std::string valToSet = generatorInfo.ignoreNamesCase ? toLower(name) : name;
         usedNames.insert(valToSet);
@@ -213,11 +215,18 @@ struct GenericReportGenerator : public IReportGenerator
 
     // https://www.st.com/en/microcontrollers/stm32f303vd.html#design-scroll
     virtual
-    //bool generateReport( std::ostream &os, std::map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
-    bool generateReport( RoboconfOptions &rbcOpts, std::ostream &os, std::map<std::string, NetlistInfo> &nets, std::vector< ComponentInfo > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
+    //bool generateReport( std::ostream &os, std:: map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
+    bool generateReport( RoboconfOptions &rbcOpts
+                       , std::ostream &os
+                       , std::map<std::string, NetlistInfo> &nets
+                       , std::vector< ComponentInfo > libComponents
+                       , const expression_list_t &processingRules
+                       , const ConnectionBuildingOptions &opts
+                       , size_t &processedMcus
+                       ) override
     {
         
-        std::set<std::string> reportUsedNames;
+        string_set_type reportUsedNames;
 
         std::string docTitle = std::string( "Generator: ") + generatorInfo.name;
 
@@ -304,7 +313,7 @@ struct GenericReportGenerator : public IReportGenerator
 
                     for( auto& conn : connGrp.connections )
                     {
-                        std::map< std::string, std::string > vars;
+                        string_string_map_type vars;
                         auto self = this;
 
                         size_t connRulesCount = 0;
@@ -587,7 +596,7 @@ inline
 bool processGeneratorRules( const expression_list_t & generatorRulesList
                           , const std::string &generatorName
                           , const Connection  &conn
-                          , std::map< std::string, std::string > vars
+                          , string_string_map_type vars
                           , const THandler &handler
                           )
 {
@@ -605,7 +614,7 @@ inline
 bool processGeneratorRule( const ExpressionItem & generatorRule
                          , const std::string &generatorName
                          , Connection  conn
-                         , std::map< std::string, std::string > vars
+                         , string_string_map_type vars
                          , const THandler &handler
                          )
 {
@@ -727,7 +736,7 @@ bool processGeneratorRule( const ExpressionItem & generatorRule
             return false;
         }
 
-        std::set< std::string > tokens;
+        string_set_type tokens;
         if (tokenType == tokenType_netToken)
         {
             tokens = conn.getTokens();

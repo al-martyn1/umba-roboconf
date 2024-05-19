@@ -13,9 +13,10 @@ public:
         //rbcOpts.msgDetailLevels.addToDetailGroup( "search", "search" );
         //setDetailDescription
 
-        rbcOpts.msgDetailLevels.addToDetailGroup( "search-lib", "search-lib-log" );
-        rbcOpts.msgDetailLevels.addToDetailGroup( "search-lib", "search-lib-details" );
-        rbcOpts.msgDetailLevels.addToDetailGroup( "search-lib", "search-lib-summary" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "search-lib"     , "search-lib-log" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "search-lib"     , "search-lib-details" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "search-lib"     , "search-lib-summary" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "search-lib-success-grp", "search-lib-success" );
 
         rbcOpts.msgDetailLevels.addToDetailGroup( "datasheet", "datasheet-not-found" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "datasheet", "datasheet-location" );
@@ -62,12 +63,35 @@ public:
 
         rbcOpts.msgDetailLevels.addToDetailGroup( "netlist", "netlist-type" );
 
+        rbcOpts.msgDetailLevels.addToDetailGroup( "input", "input-brief" );
+
+        rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-done" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-cmp-convert" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-mk-net-cache" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-rul-parsing" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-ext-dev-conn" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-pkg-rul" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-grp-rul" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-pkg-dsg-asg" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-pkg-dsg-apl" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-cmp-als" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-sch-read" );
+        //rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "" );
+
+
         rbcOpts.msgDetailLevels.addToDetailGroup( "grp-dump", "grp-dump-bydsg" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "grp-dump", "grp-dump-clust" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "grp-dump", "grp-dump-bysrc" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "grp-dump", "grp-dump-fgrp" );
         
+        
+        rbcOpts.msgDetailLevels.addToDetailGroup( "1", "input" );
+
+        rbcOpts.msgDetailLevels.addToDetailGroup( "1", "timing" );
+
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "search" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "9", "search-lib" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "1", "search-lib-success-grp" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "datasheet" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "detect" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "net" );

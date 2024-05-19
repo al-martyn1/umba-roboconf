@@ -7,6 +7,8 @@
 
 #include "rdlc-core/macros.h"
 
+#include "string_set_type.h"
+#include "string_string_map_type.h"
 
 
 /*
@@ -41,7 +43,7 @@ bool regexpSimpleMatchUnsafe( const std::string &str, const std::string &expr )
 }
 
 inline
-bool regexpSimpleMatchUnsafe( const std::set<std::string> &strs, const std::string &expr )
+bool regexpSimpleMatchUnsafe( const string_set_type &strs, const std::string &expr )
 {
     std::regex r = std::regex(expr);
     for( const auto& s : strs )
@@ -56,7 +58,7 @@ bool regexpSimpleMatchUnsafe( const std::set<std::string> &strs, const std::stri
 
 //-----------------------------------------------------------------------------
 inline
-void smatchFillVars( const std::smatch &m, const std::string &text, std::map< std::string, std::string> &vars )
+void smatchFillVars( const std::smatch &m, const std::string &text, string_string_map_type &vars )
 {
     vars["{SOURCE}"] = text;
     vars["{R}"]      = text;
@@ -81,7 +83,7 @@ void smatchFillVars( const std::smatch &m, const std::string &text, std::map< st
 
 //-----------------------------------------------------------------------------
 inline
-bool regexpMatchFillVars( const std::string &rExpr, const std::string &text, std::map< std::string, std::string> &vars )
+bool regexpMatchFillVars( const std::string &rExpr, const std::string &text, string_string_map_type &vars )
 {
     std::smatch m;
     std::regex r = std::regex(rExpr);
@@ -93,7 +95,7 @@ bool regexpMatchFillVars( const std::string &rExpr, const std::string &text, std
 
 //-----------------------------------------------------------------------------
 inline
-bool regexpMatchFillVars( const std::string &rExpr, const std::set<std::string> &textSet, std::map< std::string, std::string> &vars )
+bool regexpMatchFillVars( const std::string &rExpr, string_set_type &textSet, string_string_map_type &vars )
 {
     
     std::regex r = std::regex(rExpr);
@@ -117,7 +119,7 @@ bool regexpEvalString( std::string &res
                      , const std::string &rExpr
                      , const std::string &targetTpl
                      , const std::string &text
-                     , std::map< std::string, std::string> vars
+                     , string_string_map_type vars
                      )
 {
     std::smatch m;
@@ -144,7 +146,7 @@ bool regexpEvalStrings( InsertIterType inserter
                       , const std::string &rExpr
                       , TplIterType b, TplIterType e
                       , const std::string &text
-                      , std::map< std::string, std::string> vars
+                      , string_string_map_type vars
                       )
 {
     std::smatch m;
@@ -172,7 +174,8 @@ bool regexCheck( const std::string &expr, std::string &err )
 {
     try
     {
-        std::regex_match( "***", std::regex(expr) );
+        auto res = std::regex_match( "***", std::regex(expr) );
+        UMBA_USED(res);
         return true;
     }
     catch(const std::exception &e)

@@ -31,13 +31,14 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
 
     // https://www.st.com/en/microcontrollers/stm32f303vd.html#design-scroll
     virtual
-    //bool generateReport( std::ostream &os, std::map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
+    //bool generateReport( std::ostream &os, std:: map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
     bool generateReport( RoboconfOptions &rbcOpts
                        , std::ostream &os
                        , std::map<std::string, NetlistInfo> &nets
                        , std::vector< ComponentInfo > libComponents
                        , const expression_list_t &processingRules
                        , const ConnectionBuildingOptions &opts
+                       , size_t &processedMcus
                        ) override
     {
         std::string docTitle = "Project summary - Roboconf";
@@ -61,7 +62,7 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
             NetlistInfo netlistInfo = nlIt.second; 
             os<<"<h1>"<<netlistInfo.projectName<<" - "<<netlistInfo.name<<"</h1>\n";
 
-            std::set<ComponentClass> reportComponentClasses;
+            std::unordered_set<ComponentClass> reportComponentClasses;
             reportComponentClasses.insert(ComponentClass::cc_DD         );
             reportComponentClasses.insert(ComponentClass::cc_DA         );
             reportComponentClasses.insert(ComponentClass::cc_AA         );

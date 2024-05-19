@@ -14,8 +14,15 @@ struct IReportGenerator
     std::vector<std::string> getReportCommandLineNames() = 0;
 
     virtual
-    bool generateReport( RoboconfOptions &rbcOpts, std::ostream &os, std::map<std::string, NetlistInfo> &nets, std::vector< ComponentInfo > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts) = 0;
-    //bool generateReport( std::ostream &os, std::map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts) = 0;
+    bool generateReport( RoboconfOptions &rbcOpts
+                       , std::ostream &os
+                       , std::map<std::string, NetlistInfo> &nets
+                       , std::vector< ComponentInfo > libComponents
+                       , const expression_list_t &processingRules
+                       , const ConnectionBuildingOptions &opts
+                       , size_t &processedMcus
+                       ) = 0;
+    //bool generateReport( std::ostream &os, std:: map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts) = 0;
 };
 
 

@@ -148,6 +148,6 @@ struct ConnectionsGroup
     std::string                  groupDesignator; // target designator for all of group items
     std::string                  groupTitle;      // target designator for all of group items
     ComponentInfo                dstComponentInfo;
-    std::vector< Connection >    connections;
+    std:: vector< Connection >    connections;
 */
 

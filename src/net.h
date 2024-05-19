@@ -70,7 +70,7 @@ struct NetlistInfo
         using nets_map_type        = std::unordered_map< std::string, NetInfo >;
         using designators_map_type = std::unordered_map< std::string, string_set_type >;
     #else
-        using string_set_type      = std::set<std::string>;
+        using string_set_type      = std:: set<std::string>;
         using components_map_type  = std:: map< std::string, ComponentInfo >;
         using nets_map_type        = std:: map< std::string, NetInfo >;
         using designators_map_type = std:: map< std::string, string_set_type >;
@@ -115,16 +115,27 @@ struct NetlistInfo
     }
 
     template < typename THanler >
-    void traverseComponents( const THanler &handler, const std::set<ComponentClass> &classes, bool allowAssemblies = true )
+    void traverseComponents( const THanler &handler, const std::unordered_set<ComponentClass> &classes, bool allowAssemblies = true )
     {
         for( auto & c : components )
         {
+            bool allowProcessComponent = true;
+            if (c.second.assembly && !allowAssemblies)
+            {
+                 allowProcessComponent = false;
+            }
+
+            if (!allowProcessComponent)
+                continue;
+
             if (classes.empty())
+            {
                 handler( c.second, *this );
+            }
             else if (classes.find(c.second.componentClass)!=classes.end())
+            {
                 handler( c.second, *this);
-            else if (allowAssemblies && c.second.assembly )
-                handler( c.second, *this);
+            }
         }
     }
 
@@ -151,7 +162,7 @@ StreamType& operator<<( StreamType &s, const NetlistInfo &nl )
 */
 
 template < typename THanler >
-void traverseComponents( all_nets_map_type &nets, const THanler &handler, const std::set<ComponentClass> &classes, bool allowAssemblies = true )
+void traverseComponents( all_nets_map_type &nets, const THanler &handler, const std::unordered_set<ComponentClass> &classes, bool allowAssemblies = true )
 {
     for( auto & p : nets )
         p.second.traverseComponents( handler, classes, allowAssemblies );
@@ -160,9 +171,9 @@ void traverseComponents( all_nets_map_type &nets, const THanler &handler, const 
 
 struct ComponentTypesCollector
 {
-    std::vector< ComponentTypePackage > &types;
+    std:: vector< ComponentTypePackage > &types;
 
-    ComponentTypesCollector(std::vector< ComponentTypePackage > &t ) : types( t ) {}
+    ComponentTypesCollector(std:: vector< ComponentTypePackage > &t ) : types( t ) {}
 
     void operator()( ComponentInfo &ci, NetlistInfo &netlistInfo ) const
     {
@@ -180,7 +191,7 @@ struct ComponentTypesCollector
 }; // struct ComponentTypesCollector
 
 inline
-void collectComponentTypes( all_nets_map_type &nets, std::vector<ComponentTypePackage> &types, const std::set<ComponentClass> &classes, bool allowAssemblies = true )
+void collectComponentTypes( all_nets_map_type &nets, std:: vector<ComponentTypePackage> &types, const std::unordered_set<ComponentClass> &classes, bool allowAssemblies = true )
 {
     traverseComponents( nets, ComponentTypesCollector(types), classes, allowAssemblies );
     makeUniqueVector(types);

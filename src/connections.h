@@ -5,9 +5,14 @@
 #include "incsearch.h"
 #include "designator.h"
 
+//
+#include "string_set_type.h"
+#include "string_string_map_type.h"
+
 //-----------------------------------------------------------------------------
 struct Connection //-V730
 {
+
     std::string        interfaceType;      // need to find by rules
     std::string        interfaceLineType;  // need to find by rules
     bool               interfaceDetected = false;
@@ -32,9 +37,9 @@ struct Connection //-V730
     //std::string        dstComponentClassStr;
     //std::string        dstComponentDescription;
 
-    std::vector< std::string> payloads;
+    std:: vector< std::string> payloads;
 
-    std::vector<Connection> extraDestinations;
+    std:: vector<Connection>   extraDestinations;
 
 /*
     conn.processedStrings["MCUNET"]      = conn.srcNetName;
@@ -42,24 +47,23 @@ struct Connection //-V730
     conn.processedStrings["UNITPURPOSE"] = conn.dstComponentInfo.purpose;
     conn.processedStrings["UNITCLASS"]   = conn.dstComponentInfo.getComponentClassString();
 */
-    std::map< std::string, std::string > processedStrings;
+    string_string_map_type    processedStrings;
+
+    string_set_type           mcuNetTokens;
+    string_set_type           mcuNetClasterNames;
+
+    int                       groupingRuleType;
+    std::string               forceGroupName;
 
 
-    std::set< std::string >              mcuNetTokens;
-    std::set< std::string >              mcuNetClasterNames;
-
-    int                                  groupingRuleType;
-    std::string                          forceGroupName;
-
-
-    std::set< std::string > getTokens() const
+    string_set_type getTokens() const
     {
         return mcuNetTokens;
     }
 
-    std::set< std::string > getSourceFunctions() const
+    string_set_type getSourceFunctions() const
     {
-        std::set< std::string > res;
+        string_set_type res;
         for( auto fn : srcPinInfo.pinFunctions )
         {
             trim(fn, "_-~");
@@ -68,9 +72,9 @@ struct Connection //-V730
         return res;
     }
 
-    std::set< std::string > getTargetFunctions() const
+    string_set_type getTargetFunctions() const
     {
-        std::set< std::string > res;
+        string_set_type res;
         for( auto fn : dstPinInfo.pinFunctions )
         {
             trim(fn, "_-~");
@@ -80,9 +84,9 @@ struct Connection //-V730
     }
 
 
-    std::set< std::string > getClasterNames( const std::set< std::string > &excludes = std::set< std::string >(), size_t minSizeLimit = 0 ) const
+    string_set_type getClasterNames( const string_set_type &excludes = string_set_type(), size_t minSizeLimit = 0 ) const
     {
-        std::set< std::string > resSet;
+        string_set_type resSet;
         for( auto n : mcuNetClasterNames )
         {
             if (n.size() < minSizeLimit)
@@ -99,14 +103,14 @@ struct Connection //-V730
     }
 
 
-    std::vector<std::string> getTitleParts()
+    std:: vector<std::string> getTitleParts()
     {
         return splitComponentName( processedStrings["MCUNET"], false, false );
     }
 
     void splitMcuNetMakeTokens( )
     {
-        std::vector<std::string> nameParts = splitComponentName( processedStrings["MCUNET"] );
+        std:: vector<std::string> nameParts = splitComponentName( processedStrings["MCUNET"], 0 );
         for( auto np : nameParts )
         {
             uint64_t u;
@@ -138,10 +142,10 @@ struct Connection //-V730
 
     }
         
-    std::string generateTitle( const std::set<std::string> &cmn, bool bCommon = true )
+    std::string generateTitle( const string_set_type &cmn, bool bCommon = true )
     {
         std::string res;
-        std::vector<std::string> titleParts = getTitleParts();
+        std:: vector<std::string> titleParts = getTitleParts();
         for( const auto& tp : titleParts )
         {
             if ( ( cmn.find(tp)!=cmn.end()) == bCommon )
@@ -172,9 +176,9 @@ struct Connection //-V730
 
 //-----------------------------------------------------------------------------
 inline
-std::set<std::string> makeStringSetIntersection( const std::set<std::string> &s1, const std::set<std::string> &s2)
+string_set_type makeStringSetIntersection( const string_set_type &s1, const string_set_type &s2)
 {
-    std::set<std::string> res;
+    string_set_type res;
     for( const auto& str : s1 )
     {
         if (s2.find(str)==s2.end())
@@ -213,8 +217,8 @@ struct CompareConnectionsBySrcNetNameWithIntsLess
 
     bool operator()( const Connection &c1, const Connection &c2 ) const
     {
-        std::vector<unsigned> v1 = readNumericParts( c1.srcNetName );
-        std::vector<unsigned> v2 = readNumericParts( c2.srcNetName );
+        std:: vector<unsigned> v1 = readNumericParts( c1.srcNetName );
+        std:: vector<unsigned> v2 = readNumericParts( c2.srcNetName );
         if (compareStrings)
         {
             if (v1.empty() || v2.empty())
@@ -238,8 +242,8 @@ struct CompareConnectionsBySrcNetNameWithIntsGreater
 
     bool operator()( const Connection &c1, const Connection &c2 ) const
     {
-        std::vector<unsigned> v1 = readNumericParts( c1.srcNetName );
-        std::vector<unsigned> v2 = readNumericParts( c2.srcNetName );
+        std:: vector<unsigned> v1 = readNumericParts( c1.srcNetName );
+        std:: vector<unsigned> v2 = readNumericParts( c2.srcNetName );
         if (compareStrings)
         {
             if (v1.empty() || v2.empty())
@@ -275,7 +279,7 @@ struct ConnectionsGroup //-V730
     std::string                  groupDesignator; // target designator for all of group items
     std::string                  groupTitle;      // target designator for all of group items
     ComponentInfo                dstComponentInfo;
-    std::vector< Connection >    connections;
+    std:: vector< Connection >   connections;
     bool                         ungroupped = false;
     bool                         forceNamed = false;;
 
@@ -292,7 +296,7 @@ struct ConnectionsGroup //-V730
 
     bool removeConnectionBySrcPinDesignator( const std::string &pd )
     {
-        std::vector< Connection >::iterator it = connections.begin();
+        std:: vector< Connection >::iterator it = connections.begin();
         for( ; it != connections.end(); ++it)
         {
             if (it->srcPinDesignator == pd)
@@ -306,7 +310,7 @@ struct ConnectionsGroup //-V730
 
     bool removeConnectionByDstPinDesignator( const std::string &pd )
     {
-        std::vector< Connection >::iterator it = connections.begin();
+        std:: vector< Connection >::iterator it = connections.begin();
         for( ; it != connections.end(); ++it)
         {
             if (it->dstPinDesignator == pd)
@@ -320,12 +324,12 @@ struct ConnectionsGroup //-V730
 
     
 
-    std::set<std::string> getCommonNameParts( const std::set< std::string > &excludes = std::set< std::string >(), size_t minSizeLimit = 0 ) const
+    string_set_type getCommonNameParts( const string_set_type &excludes = string_set_type(), size_t minSizeLimit = 0 ) const
     {
         if (connections.empty())
-            return std::set<std::string>();
+            return string_set_type();
 
-        std::set<std::string> intersection;
+        string_set_type intersection;
         bool bFirst = true;
 
         for( const auto& conn : connections )
@@ -422,8 +426,17 @@ StreamType& printSetConnHelperEx( StreamType &os, const std::set< SetItemType > 
 
 //-----------------------------------------------------------------------------
 inline
-void splitConnectionGroupByClasters( RoboconfOptions &rbcOpts, const ConnectionsGroup &connGrp, std::vector< ConnectionsGroup > &connGroupsPushTo, ConnectionsGroup &ungrouppedConns )
+void splitConnectionGroupByClasters( RoboconfOptions &rbcOpts, const ConnectionsGroup &connGrp, std:: vector< ConnectionsGroup > &connGroupsPushTo, ConnectionsGroup &ungrouppedConns )
 {
+    #if defined(ROBOCONF_STRING_STRING_MAP_USE_UNORDERED_MAP)
+        using size_t_set_type   = std::unordered_set<size_t>;
+        using intersections_map = std::unordered_map< string_set_type, size_t_set_type >;
+    #else
+        using size_t_set_type   = std:: set<size_t>;
+        using intersections_map = std:: map< string_set_type, size_t_set_type >;
+    #endif
+
+
     ConnectionsGroup newGroupTemplate;
     newGroupTemplate.groupDesignator  = connGrp.groupDesignator;
     newGroupTemplate.dstComponentInfo = connGrp.dstComponentInfo;
@@ -431,11 +444,12 @@ void splitConnectionGroupByClasters( RoboconfOptions &rbcOpts, const Connections
     // grp-dump-
     //LOG_MSG("net-dump-cmn")<<"--- Netlist: "<<netlist.second.name<<"\n";
 
-    std::set< std::string > excludes;
+    string_set_type excludes;
     size_t minSizeLimit = 3;
-    std::set<std::string> commonCore = connGrp.getCommonNameParts( excludes, minSizeLimit );
+    string_set_type commonCore = connGrp.getCommonNameParts( excludes, minSizeLimit );
 
-    std::map< std::set<std::string>, std::set<size_t> > allIntersections;
+    //std:: map< std::set<std::string>, std::set<size_t> > 
+    intersections_map allIntersections;
 
     size_t i = 0, size = connGrp.connections.size();
 
@@ -448,14 +462,15 @@ void splitConnectionGroupByClasters( RoboconfOptions &rbcOpts, const Connections
                 continue; // сами с собой пересечение не ищем - оно и так максимальное
             auto clasterI = connGrp.connections[i].getClasterNames(excludes, minSizeLimit);
             auto clasterJ = connGrp.connections[j].getClasterNames(excludes, minSizeLimit);
-            std::set<std::string> intrsc = makeStringSetIntersection(clasterI, clasterJ);
+            string_set_type intrsc = makeStringSetIntersection(clasterI, clasterJ);
             allIntersections[intrsc].insert(i);
             allIntersections[intrsc].insert(j);
         }
     }
 
     {
-        std::map< std::set<std::string>, std::set<size_t> > tmp;
+        //std:: map< std::set<std::string>, std::set<size_t> > 
+        intersections_map tmp;
         for( auto intrscKV : allIntersections ) 
         {
             // Почему-то я решил, что если все netlabel'ы входящие в данный компонент
@@ -474,7 +489,7 @@ void splitConnectionGroupByClasters( RoboconfOptions &rbcOpts, const Connections
         tmp.swap(allIntersections);
     }
 
-    std::set<size_t> usedConns;
+    size_t_set_type  usedConns;
     for( auto intrscKV : allIntersections ) 
     {
         ConnectionsGroup newGroup = newGroupTemplate;
@@ -501,9 +516,9 @@ void splitConnectionGroupByClasters( RoboconfOptions &rbcOpts, const Connections
 
 //-----------------------------------------------------------------------------
 inline
-std::vector< Connection >::iterator connectionsListFindConnectionBySrcPinDesignator( std::vector< Connection > &connList, const std::string &srcPinDesignator )
+std:: vector< Connection >::iterator connectionsListFindConnectionBySrcPinDesignator( std:: vector< Connection > &connList, const std::string &srcPinDesignator )
 {
-    std::vector< Connection >::iterator it = connList.begin();
+    std:: vector< Connection >::iterator it = connList.begin();
     for(; it != connList.end(); ++it)
     {
         if (it->srcPinDesignator == srcPinDesignator)
@@ -515,9 +530,9 @@ std::vector< Connection >::iterator connectionsListFindConnectionBySrcPinDesigna
 
 //-----------------------------------------------------------------------------
 inline
-void moveConnectionDuplicatesToExtra( std::vector< Connection > &connList )
+void moveConnectionDuplicatesToExtra( std:: vector< Connection > &connList )
 {
-    std::vector< Connection > tmp;
+    std:: vector< Connection > tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     
     for( const auto & conn : connList )
     {
@@ -547,13 +562,13 @@ void moveConnectionDuplicatesToExtra( std::vector< Connection > &connList )
 
 //-----------------------------------------------------------------------------
 inline
-void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std::vector< ConnectionsGroup > &connGroups, const std::vector< Connection > &conns )
+void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< ConnectionsGroup > &connGroups, const std:: vector< Connection > &conns )
 {
     //using std::endl;
     using namespace umba::omanip;
 
     // Группируем соединения по десигнатору назначения
-    std::map< std::string , std::vector<Connection> > connMap;
+    std::map< std::string , std:: vector<Connection> > connMap;
     for( auto conn : conns )
     {
         conn.splitMcuNetMakeTokens();
@@ -649,7 +664,7 @@ struct Connection //-V730
 
     // Раскидываем по группам, одновременно выделяя кластеры в отдельные группы 
     // (помимо группировки по таргет десигнаторам)
-    std::vector< ConnectionsGroup > connGroupsTmp;
+    std:: vector< ConnectionsGroup > connGroupsTmp;
 
     pUngrouppedConns = &connGroups[0];
     connGroupsTmp.emplace_back(*pUngrouppedConns);
@@ -730,7 +745,7 @@ struct Connection //-V730
     // 1) Нужно пробежаться по именованым группам, и выцепить пины, которые нужно ungroup
     // 2) Нужно пробежаться по безымянной группе и сгрупировать пины, которые нужно group
 
-    //std::map< std::string , std::vector<Connection> > connMap;
+    //std::map< std::string , std:: vector<Connection> > connMap;
 
     connMap.clear();
 
@@ -862,7 +877,7 @@ struct Connection //-V730
 /*
 
     std::string                  groupTitle;      // target designator for all of group items
-    std::vector< Connection >    connections;
+    std:: vector< Connection >    connections;
     //int                                  groupingRuleType;
     //std::string                          forceGroupName;
 
@@ -873,7 +888,7 @@ struct Connection //-V730
         struct GroupsConnections
         {
             std::set< size_t >          groupNums;
-            std::vector<Connection>     connections;
+            std:: vector<Connection>     connections;
             //ConnectionsGroup            group;
         };
 
@@ -1118,7 +1133,7 @@ struct ConnectionsGroup
     std::string                  groupDesignator; // target designator for all of group items
     std::string                  groupTitle;      // target designator for all of group items
     ComponentInfo                dstComponentInfo;
-    std::vector< Connection >    connections;
+    std:: vector< Connection >    connections;
     bool                         ungroupped = false;
 
 */
@@ -1171,7 +1186,7 @@ struct CommonNetInfo
 struct ConnectionBuildingOptions
 {
     //mutable std::map< std::string, CommonNetInfo > stopNets;
-    mutable std::vector<CommonNetInfo> stopNets;
+    mutable std:: vector<CommonNetInfo> stopNets;
 
 /*
     void addStopNet( const std::string &netName, const std::string &netDescription, int netGroundOption )
@@ -1331,7 +1346,7 @@ struct ConnectionBuildingOptions
         std::string expected;
         std::string found;
      
-        std::vector< ExpressionParsingResultItem > readedVals;
+        std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
      
         //(powerNet ground "SGND.*" "PGND.*" "AGND.*" "GND.*")
         //(powerNet plus  "+\d+.*" "+VCC.*")
@@ -1372,7 +1387,7 @@ struct CommonNetInfo
             descriptionPrefix = "Power (-) ";
         }
 
-        std::vector<std::string>::const_iterator vit = readedVals[2].vectorValue.begin();
+        std:: vector<std::string>::const_iterator vit = readedVals[2].vectorValue.begin();
         for( ; vit != readedVals[2].vectorValue.end(); ++vit)
         {
             stopNets.push_back( CommonNetInfo(*vit, descriptionPrefix, groundOption, readedVals[2].fileNo, readedVals[2].lineNo ) );
@@ -1413,7 +1428,7 @@ bool ConnectionGreaterBySheet( const Connection& c1, const Connection& c2 )
 
 //-----------------------------------------------------------------------------
 inline
-void groupConnectionsBySheet( std::vector< Connection > &conns )
+void groupConnectionsBySheet( std:: vector< Connection > &conns )
 {
     std::stable_sort( conns.begin(), conns.end(), ConnectionLessBySheet );
 }
@@ -1422,9 +1437,11 @@ void groupConnectionsBySheet( std::vector< Connection > &conns )
 
 //-----------------------------------------------------------------------------
 inline
-void findStartConnectionsDesignators( NetlistInfo netlist, const std::string &purpose, std::vector< std::string > &designators )
+void findStartConnectionsDesignators( NetlistInfo netlist, const std::string &purpose, std:: vector< std::string > &designators )
 {
-    netlist.traverseComponents( ComponentPurposeDesignatorsCollector(designators,purpose), std::set<ComponentClass>(), false );
+    std::unordered_set<ComponentClass> componentClasses;
+    componentClasses.insert(ComponentClass::cc_DD);
+    netlist.traverseComponents( ComponentPurposeDesignatorsCollector(designators,purpose), componentClasses, false );
 }
 
 //-----------------------------------------------------------------------------
@@ -1432,11 +1449,11 @@ inline
 void connectionsListBuild_WalkTroughNets(RoboconfOptions &rbcOpts
                                         , const ConnectionBuildingOptions buildingOptions
                                         , NetlistInfo netlist
-                                        , std::set<std::string> usedNets
-                                        , std::set<std::string> usedDsgs
+                                        , std::unordered_set<std::string> usedNets
+                                        , std::unordered_set<std::string> usedDsgs
                                         , const std::string &dsgFrom
                                         , Connection conn
-                                        , std::vector<Connection> &connectionList
+                                        , std:: vector<Connection> &connectionList
                                         )
 {
     auto netsDsgFromIt = netlist.designators.find(dsgFrom);
@@ -1530,7 +1547,7 @@ void connectionsListBuild_WalkTroughNets(RoboconfOptions &rbcOpts
 //-----------------------------------------------------------------------------
 
 inline
-void connectionsListBuild(RoboconfOptions &rbcOpts, const ConnectionBuildingOptions buildingOptions, NetlistInfo netlist, const std::string &startDesignator, std::vector<Connection> &connectionList )
+void connectionsListBuild(RoboconfOptions &rbcOpts, const ConnectionBuildingOptions buildingOptions, NetlistInfo netlist, const std::string &startDesignator, std:: vector<Connection> &connectionList )
 {
     auto componentKV = netlist.components.find( startDesignator );
     if (componentKV==netlist.components.end())
@@ -1555,7 +1572,7 @@ void connectionsListBuild(RoboconfOptions &rbcOpts, const ConnectionBuildingOpti
         
         conn.srcPinInfo    = pinInfo;
 
-        connectionsListBuild_WalkTroughNets( rbcOpts, buildingOptions, netlist, std::set<std::string>(), std::set<std::string>()
+        connectionsListBuild_WalkTroughNets( rbcOpts, buildingOptions, netlist, std::unordered_set<std::string>(), std::unordered_set<std::string>()
                                            , conn.srcPinDesignator, conn, connectionList
                                            );
 
@@ -1563,8 +1580,8 @@ void connectionsListBuild(RoboconfOptions &rbcOpts, const ConnectionBuildingOpti
 
     //return;
 
-    std::vector<Connection> tmpTargets;
-    std::vector<Connection> tmpNets;
+    std:: vector<Connection> tmpTargets; tmpTargets.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector<Connection> tmpNets; tmpNets.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     for( const auto& conn : connectionList )
     {
@@ -1634,7 +1651,7 @@ void connectionsListBuild(RoboconfOptions &rbcOpts, const ConnectionBuildingOpti
 
 //-----------------------------------------------------------------------------
 inline
-void connectionsListRemoveSameTargetDesignatorDuplicates( std::vector<Connection> &connectionList )
+void connectionsListRemoveSameTargetDesignatorDuplicates( std:: vector<Connection> &connectionList )
 {
     std::set< std::string > removedPinFunctions;
 
@@ -1643,7 +1660,7 @@ void connectionsListRemoveSameTargetDesignatorDuplicates( std::vector<Connection
     {
         std::set< std::string > rpfn; // local removedPinFunctions
 
-        std::vector<Connection> tmp;
+        std:: vector<Connection> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
         for( auto conn : connectionList )
         {
@@ -1666,7 +1683,7 @@ void connectionsListRemoveSameTargetDesignatorDuplicates( std::vector<Connection
     // remove dups, keep first
     if (connectionList.size()>1)
     {
-        std::vector<Connection>::iterator it = connectionList.begin();
+        std:: vector<Connection>::iterator it = connectionList.begin();
         ++it;
         for(; it != connectionList.end(); ++it)
         {
@@ -1686,14 +1703,14 @@ void connectionsListRemoveSameTargetDesignatorDuplicates( std::vector<Connection
 
 //-----------------------------------------------------------------------------
 inline
-void connectionsListRemoveSameSourceDesignatorDuplicates( std::vector<Connection> &connectionList )
+void connectionsListRemoveSameSourceDesignatorDuplicates( std:: vector<Connection> &connectionList )
 {
     std::set< std::string > removedPinFunctions;
 
     // Remove headers
     if (connectionList.size()>1)
     {
-        std::vector<Connection> tmp;
+        std:: vector<Connection> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
         std::set< std::string > rpfn; // local removedPinFunctions
 
@@ -1718,7 +1735,7 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std::vector<Connection
     // Remove ignored pins
     if (connectionList.size()>1)
     {
-        std::vector<Connection> tmp;
+        std:: vector<Connection> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
         for( auto conn : connectionList )
         {
@@ -1735,7 +1752,7 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std::vector<Connection
     // Remove too much payloaded pins
     if (connectionList.size()>1)
     {
-        std::vector<Connection> tmp;
+        std:: vector<Connection> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
         for( auto conn : connectionList )
         {
@@ -1752,13 +1769,13 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std::vector<Connection
 
     if (connectionList.size()>1)
     {
-        std::map< std::string, std::vector<Connection> > byTargetDessignator;
+        std::map< std::string, std:: vector<Connection> > byTargetDessignator;
         for( auto conn : connectionList )
         {
             byTargetDessignator[conn.dstComponentInfo.designator].emplace_back(conn);
         }
 
-        std::vector<Connection> tmp;
+        std:: vector<Connection> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
         for( auto &connKV : byTargetDessignator)
         {
@@ -1769,7 +1786,7 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std::vector<Connection
         /*
         for( auto conn : connectionList )
         {
-            std::vector<Connection> &v = byTargetDessignator[conn.dstComponentInfo.designator];
+            std:: vector<Connection> &v = byTargetDessignator[conn.dstComponentInfo.designator];
             tmp.insert( tmp.end(), v.begin(), v.end() );
         }
         */
@@ -1821,7 +1838,7 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std::vector<Connection
     std::string        dstComponentClassStr;
     std::string        dstComponentDescription;
 
-    std::vector< std::string> payloads;
+    std:: vector< std::string> payloads;
 
     std::map< std::string, std::string > processedStrings;
 
@@ -1829,9 +1846,9 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std::vector<Connection
 
 //-----------------------------------------------------------------------------
 inline
-void connectionsListRemoveMcuDuplicates( std::vector<Connection> &connectionList )
+void connectionsListRemoveMcuDuplicates( std:: vector<Connection> &connectionList )
 {
-    std::map< std::string, std::vector<Connection> > connMap;
+    std::map< std::string, std:: vector<Connection> > connMap;
 
     for( auto conn : connectionList )
     {
@@ -1843,7 +1860,7 @@ void connectionsListRemoveMcuDuplicates( std::vector<Connection> &connectionList
         connectionsListRemoveSameSourceDesignatorDuplicates( connKV.second );
     }
 
-    std::vector<Connection> res;
+    std:: vector<Connection> res; res.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     std::set<std::string>   usedDesignators;
     for( auto conn : connectionList )
     {
@@ -1866,7 +1883,7 @@ bool processConnectionModifyRules( RoboconfOptions &rbcOpts, Connection &conn, c
 
 //-----------------------------------------------------------------------------
 inline
-bool processConnectionModifyRules( RoboconfOptions &rbcOpts, std::vector<Connection> &connectionList, const expression_list_t &processingRules )
+bool processConnectionModifyRules( RoboconfOptions &rbcOpts, std:: vector<Connection> &connectionList, const expression_list_t &processingRules )
 {
     for( auto & conn : connectionList )
     {
@@ -1916,7 +1933,7 @@ bool processConnectionModifyRules(RoboconfOptions &rbcOpts, Connection &conn, co
 
 */
 
-    std::vector< std::string > readedVals;
+    std:: vector< std::string > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     std::string expected;
     std::string found;
     bool readFieldsRes = readListByTemplate( "Ti!:modify;V;Ti:replace,replaceSingle,toUpper,toLower"
@@ -1978,7 +1995,7 @@ bool processConnectionModifyRules(RoboconfOptions &rbcOpts, Connection &conn, co
     for( ; i!=maxIterations; ++i)
     {
         std::string strRes;
-        if (!regexpEvalString( strRes, readedVals[3] /* modifyRegex */ , readedVals[4] /* modifyReplace */ , whatIt->second, std::map< std::string, std::string>() ) )
+        if (!regexpEvalString( strRes, readedVals[3] /* modifyRegex */ , readedVals[4] /* modifyReplace */ , whatIt->second, string_string_map_type() ) )
             break;
         whatIt->second = strRes;
     }
@@ -2051,7 +2068,7 @@ struct ExternalDeviceConnectInfo
     std::string devicePackage;
     std::string designatorType;
 
-    std::vector<ExternalDevicePinConnectInfo> connectionPins;
+    std:: vector<ExternalDevicePinConnectInfo> connectionPins;
 
     std::string netlistName;
 
@@ -2095,10 +2112,10 @@ struct ExternalDeviceConnectInfo
 
     bool findAllTargetsInNetlist( const NetlistInfo &netlist )
     {
-        //std::map< std::string, std::vector<ExternalDevicePinConnectInfo> >::const_iterator btIt = connectionPinsByTarget.begin();
+        //std::map< std::string, std:: vector<ExternalDevicePinConnectInfo> >::const_iterator btIt = connectionPinsByTarget.begin();
         //for(; btIt != connectionPinsByTarget.begin();)
 
-        std::vector<ExternalDevicePinConnectInfo>::iterator pit = connectionPins.begin();
+        std:: vector<ExternalDevicePinConnectInfo>::iterator pit = connectionPins.begin();
         for(; pit != connectionPins.end(); ++pit )
         {
             typename NetlistInfo::components_map_type::const_iterator netComponentIt = netlist.components.find(pit->connectTargetDeviceDesignator);
@@ -2145,7 +2162,7 @@ bool parseExternalConnectionsRule( RoboconfOptions &rbcOpts, const ExpressionIte
     const expression_list_t &lst = rule.itemList;
     expression_list_t::const_iterator it = lst.begin();
 
-    std::vector< std::string > readedVals;
+    std:: vector< std::string > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     std::string expected;
     std::string found;
     bool readFieldsRes = readListByTemplate( "Ti!:connect;Ti!:device;V", it, lst.end()
@@ -2236,9 +2253,9 @@ bool parseExternalConnectionsRule( RoboconfOptions &rbcOpts, const ExpressionIte
 inline
 bool parseExternalConnectionsRules( RoboconfOptions &rbcOpts
                                   , const expression_list_t &processingRules
-                                  , std::vector< ExternalDeviceConnectInfo > &externalDeviceConnections
-                                  , const std::vector< std::string > &localSearchPaths
-                                  , const std::vector< std::string > &libSearchPaths
+                                  , std:: vector< ExternalDeviceConnectInfo > &externalDeviceConnections
+                                  , const std:: vector< std::string > &localSearchPaths
+                                  , const std:: vector< std::string > &libSearchPaths
                                   , const all_nets_map_type &allNets
                                   )
 {
@@ -2261,15 +2278,15 @@ bool parseExternalConnectionsRules( RoboconfOptions &rbcOpts
     //----------
     // find devices pin numbers
 
-    std::vector< ExternalDeviceConnectInfo >::iterator dcit = externalDeviceConnections.begin();
+    std:: vector< ExternalDeviceConnectInfo >::iterator dcit = externalDeviceConnections.begin();
     for(; dcit != externalDeviceConnections.end(); ++dcit)
     {
         if (!dcit->isComponentDefinitionRequired())
             continue;
 
-        std::vector<std::string> lookupNames = generateComponentNames( dcit->deviceName, dcit->devicePackage,  "user" ) ;
-        //std::map<std::string, std::vector< ComponentInfo > > deviceComponents;
-        std::vector< ComponentInfo > deviceComponents;
+        std:: vector<std::string> lookupNames = generateComponentNames( rbcOpts, dcit->deviceName, dcit->devicePackage,  "user" ) ;
+        //std::map<std::string, std:: vector< ComponentInfo > > deviceComponents;
+        std:: vector< ComponentInfo > deviceComponents;
 
         for( auto lookupName : lookupNames )
         {
@@ -2301,7 +2318,7 @@ bool parseExternalConnectionsRules( RoboconfOptions &rbcOpts
         }
 
         bool devTargetsGood = false;
-        //const std::map<std::string, NetlistInfo> &allNets
+        //const std:: map<std::string, NetlistInfo> &allNets
         for( const auto& netlistKV : allNets )
         {
             ExternalDeviceConnectInfo tmpExtDevice = *dcit;
@@ -2330,7 +2347,7 @@ bool parseExternalConnectionsRules( RoboconfOptions &rbcOpts
 
 //-----------------------------------------------------------------------------
 inline
-bool connectExternalDevices( RoboconfOptions &rbcOpts, const std::vector< ExternalDeviceConnectInfo > &externalDeviceConnections
+bool connectExternalDevices( RoboconfOptions &rbcOpts, const std:: vector< ExternalDeviceConnectInfo > &externalDeviceConnections
                            , all_nets_map_type &netsConnectTo
                            )
 {
@@ -2432,7 +2449,7 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
 */
     expression_list_t::const_iterator rulit = matchRules /* .itemList */ .begin();
 
-    std::vector< std::string > readedVals;
+    std:: vector< std::string > readedVals;
     std::string expected;
     std::string found;
     bool readFieldsRes = readListByTemplate( "Ti:match;V;L;Ti:set;S", rulit, matchRules.end()
@@ -2521,7 +2538,7 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
     }
     else if (setLineName.empty())
     {
-        std::set< std::string > tpfSet = connection.getTargetFunctions();
+        string_set_type tpfSet = connection.getTargetFunctions();
         if (tpfSet.find("IN")!=tpfSet.end())
            setLineName = "OUT";
         else if (tpfSet.find("OUT")!=tpfSet.end())
@@ -2533,7 +2550,7 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
 
     matchResult = bMatchAll;
 
-    std::set< std::string > tokens;
+    string_set_type tokens;
     if (tokenType == tokenType_netToken)
     {
         tokens = connection.getTokens();
@@ -2608,7 +2625,7 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
 
 //-----------------------------------------------------------------------------
 inline
-bool isAllConnectionsDetected( const std::vector< Connection > &connections )
+bool isAllConnectionsDetected( const std:: vector< Connection > &connections )
 {
     size_t processedCount = 0;
     for( auto &conn : connections )
@@ -2625,7 +2642,7 @@ bool isAllConnectionsDetected( const std::vector< Connection > &connections )
 inline
 bool connectionsDetectInterfacesProcessMatches( RoboconfOptions &rbcOpts
                                               , bool &matchResult, std::string detectingType, std::string targetPurposeType
-                                              , std::vector< Connection > &connections
+                                              , std:: vector< Connection > &connections
                                               , const expression_list_t &matchesList
                                               , bool operateVerbose
                                               )
@@ -2663,7 +2680,7 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
 
     matchResult = bMatchAll;
 
-    std::vector< Connection > connectionsTmp = connections;
+    std:: vector< Connection > connectionsTmp = connections; connections.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     for( ; matchIt != matchesList.end(); ++matchIt)
     {
@@ -2726,7 +2743,7 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
 //-----------------------------------------------------------------------------
 inline
 bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts
-                                , std::vector< Connection > &connections
+                                , std:: vector< Connection > &connections
                                 , const expression_list_t &processingRules
                                 , bool operateVerbose
                                 , std::string targetPurpose = std::string()
@@ -2751,7 +2768,7 @@ bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts
        splitToPair( targetInterfaces, targetInterfaces, targetValueType, ":" );
     trim(targetInterfaces);
 
-    std::vector< std::string > targetInterfacesVec;
+    std:: vector< std::string > targetInterfacesVec; targetInterfacesVec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     if (!targetInterfaces.empty())
         splitToVector( targetInterfaces, targetInterfacesVec, '|' );
     
@@ -2855,7 +2872,7 @@ bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts
         conn.interfaceDetected = true;
         conn.interfaceType      = "GPIO";
 
-        std::set< std::string > tpfSet = conn.getTargetFunctions();
+        string_set_type tpfSet = conn.getTargetFunctions();
         if (tpfSet.find("IN")!=tpfSet.end())
            conn.interfaceLineType = "OUT";
         else if (tpfSet.find("OUT")!=tpfSet.end())
@@ -2870,7 +2887,7 @@ bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts
 
 //-----------------------------------------------------------------------------
 inline
-bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts, std::vector< ConnectionsGroup > &connGroups, const expression_list_t &processingRules, bool operateVerbose )
+bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts, std:: vector< ConnectionsGroup > &connGroups, const expression_list_t &processingRules, bool operateVerbose )
 {
     for( auto &connGrp : connGroups )
     {
@@ -2889,12 +2906,12 @@ bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts, std::vector< Connecti
             LOG_MSG("detect-grp")<<"---\n";
             LOG_MSG("detect-grp")<<"Process detecting rules for unclassified items\n";
 
-            std::vector< Connection >::iterator connEndIt  = connGrp.connections.end();
-            std::vector< Connection >::iterator connIt     = connGrp.connections.begin();
+            std:: vector< Connection >::iterator connEndIt  = connGrp.connections.end();
+            std:: vector< Connection >::iterator connIt     = connGrp.connections.begin();
             if (connIt==connEndIt)
                 continue;
 
-            std::vector< Connection >::iterator connNextIt = connIt;
+            std:: vector< Connection >::iterator connNextIt = connIt;
             ++connNextIt;
 
             for(; connIt!=connEndIt; ++connIt)
@@ -2904,7 +2921,7 @@ bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts, std::vector< Connecti
                 LOG_MSG("detect-conn")<<"---\n";
                 LOG_MSG("detect-conn")<<"Process connection: "<< connIt->srcNetName<<"\n";
 
-                std::vector< Connection > tmp = std::vector< Connection >(connIt, connNextIt);
+                std:: vector< Connection > tmp = std:: vector< Connection >(connIt, connNextIt);
                 if (!connectionsDetectInterfaces(rbcOpts, tmp, processingRules, operateVerbose ))
                     return false;
                 *connIt = tmp[0];

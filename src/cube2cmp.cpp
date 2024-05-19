@@ -9,6 +9,10 @@
 #include <map>
 #include <set>
 
+//
+#include "config.h"
+//
+
 #include "rdlc-core/fsUtils.h"
 #include "ioUtils.h"
 
@@ -87,7 +91,7 @@ int main( int argc, char* argv[] )
     bool wgetAppnotes                    = false;
     bool wgetProgman                     = false;
     
-    std::vector<std::string> argvNames;
+    std:: vector<std::string> argvNames; argvNames.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     for( int argIdx = 1; argIdx<argc; ++argIdx)
     {
@@ -286,13 +290,13 @@ int main( int argc, char* argv[] )
 			throw std::runtime_error(std::string("Failed to parse CubeMX families.xml - missing root node"));
 		}
 
-        std::vector< CubeMcuInfo > mcus;
+        std:: vector< CubeMcuInfo > mcus; mcus.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
 		const pugi::xml_node &familiesNode = *(familiesDocRoot.begin());
 
         parseFamilies( mcus, familiesNode );
 
-        std::vector< CubeMcuInfo >::const_iterator mcuit = mcus.begin();
+        std:: vector< CubeMcuInfo >::const_iterator mcuit = mcus.begin();
         for(; mcuit != mcus.end(); ++mcuit )
         {
             std::string mcuFile = appendPath( appendPath( cubeMxRoot, "/db/mcu/" ), mcuit->name );
@@ -344,10 +348,10 @@ int main( int argc, char* argv[] )
                 if (cmdIt != cubeMcuDocs.end())
                 {
                     //const CubeMcuDocs &mcuDocs = cmdIt->second;
-                    std::map< std::string , std::vector<CubeDocFileInfo> >::const_iterator dit = cmdIt->second.docs.begin();
+                    std::map< std::string , std:: vector<CubeDocFileInfo> >::const_iterator dit = cmdIt->second.docs.begin();
                     for(; dit != cmdIt->second.docs.end(); ++dit)
                     {
-                        std::vector<CubeDocFileInfo>::const_iterator dvIt = dit->second.begin();
+                        std:: vector<CubeDocFileInfo>::const_iterator dvIt = dit->second.begin();
                         for(; dvIt != dit->second.end(); ++dvIt)
                         {
                             McuDocInfo mcuDocInfo = McuDocInfo(dvIt->docType, dvIt->url);

@@ -4,12 +4,18 @@
 #include "component.h"
 #include "net.h"
 
+//
+#include "string_set_type.h"
+#include "string_string_map_type.h"
+#include "string_string_set_map_type.h"
+
+
 
 struct ComponentDesignatorsCollector
 {
-    std::vector< std::string > &designators;
+    std:: vector< std::string > &designators;
 
-    ComponentDesignatorsCollector(std::vector< std::string > &d ) : designators( d ) {}
+    ComponentDesignatorsCollector(std:: vector< std::string > &d ) : designators( d ) {}
 
     void operator()( ComponentInfo &ci, const NetlistInfo &netlistInfo ) const
     {
@@ -27,10 +33,13 @@ struct ComponentDesignatorsCollector
 
 struct ComponentPurposeDesignatorsCollector
 {
-    std::vector< std::string > &designators;
-    std::string                purpose;
+    std:: vector< std::string > &designators;
+    std::string                 purpose;
 
-    ComponentPurposeDesignatorsCollector(std::vector< std::string > &d, const std::string &prp ) : designators( d ), purpose(prp) {}
+    ComponentPurposeDesignatorsCollector(std:: vector< std::string > &d, const std::string &prp ) : designators( d ), purpose(prp)
+    {
+        designators.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    }
 
     void operator()( ComponentInfo &ci, const NetlistInfo &netlistInfo ) const
     {
@@ -46,12 +55,12 @@ struct ComponentPurposeDesignatorsCollector
 
 struct ComponentTypesUpdater
 {
-    //const std::map<std::string, std::vector< ComponentInfo > > &components;
+    //const std:: map<std::string, std:: vector< ComponentInfo > > &components;
     RoboconfOptions &rbcOpts;
-    const std::vector< ComponentInfo > &components;
+    const std:: vector< ComponentInfo > &components;
 
-    //ComponentTypesUpdater( const std::map<std::string, std::vector< ComponentInfo > > &c ) : components(c) {}
-    ComponentTypesUpdater( RoboconfOptions &r, const std::vector< ComponentInfo > &c) : rbcOpts(r), components(c) {}
+    //ComponentTypesUpdater( const std:: map<std::string, std:: vector< ComponentInfo > > &c ) : components(c) {}
+    ComponentTypesUpdater( RoboconfOptions &r, const std:: vector< ComponentInfo > &c) : rbcOpts(r), components(c) {}
 
     void operator()( ComponentInfo &ci, const NetlistInfo &netlistInfo ) const
     {
@@ -73,11 +82,15 @@ struct ComponentTypesUpdater
         {
         }
 
+        if (ci.componentClass == ComponentClass::cc_DD)
+        {
+        }
+
         //UNDONE:???
         // merge checks package
         //bool checkTypeNameMatch( const std::string otherTypeNameMatchTo ) const
 /*
-        std::vector<std::string> candidates = generateComponentNames(typeName); //  &cmpPackage
+        std:: vector<std::string> candidates = generateComponentNames(typeName); //  &cmpPackage
         for( const auto& candidate : candidates)
         {
             auto cit = components.find( candidate );
@@ -93,7 +106,7 @@ struct ComponentTypesUpdater
 
 
 
-
+//! Обновляем неизвестные типы компонентов с использованием правил
 struct ComponentClassUpdater
 {
     RoboconfOptions &rbcOpts;
@@ -108,8 +121,51 @@ struct ComponentClassUpdater
         }
 
     }
+
 }; // struct ComponentClassUpdater
 
+
+
+
+
+//! Обновляем имя типа, если в имени типа последней частью идёт корпус. Также меняем подчеркивания на канонические минусы
+struct ComponentTypeAndPackageNormalizationUpdater
+{
+    RoboconfOptions &rbcOpts;
+
+    ComponentTypeAndPackageNormalizationUpdater( RoboconfOptions &r) : rbcOpts(r) {}
+
+    void operator()( ComponentInfo &ci, NetlistInfo &netlistInfo ) const
+    {
+        // Обновляем имя типа, если 
+        std::string foundPackageName;
+        auto normalizedTypeName = normalizeComponentName(rbcOpts, ci.typeName, &foundPackageName);
+        if (normalizedTypeName!=ci.typeName)
+        {
+            ci.typeNameOrg = ci.typeName;
+            ci.typeName    = normalizedTypeName;
+        }
+
+        // Если в нетилисте корпус не задан, но задан в имени компонента, то обновляем корпус
+        if (!foundPackageName.empty() && ci.package.empty())
+        {
+            ci.package = foundPackageName;
+        }
+
+// struct ComponentInfo //-V730
+// {
+//     // net info
+//     std::string                designator;
+//     std::string                typeName;
+//     std::string                typeNameOrg; // before making it canonical
+//     std::string                sheetName;
+//     ComponentClass             componentClass = ComponentClass::cc_UNKNOWN;
+//     unsigned                   assembly = 0;
+    // std::string                package;
+
+    }
+
+}; // struct ComponentTypeAndPackageNormalizationUpdater
 
 
 
@@ -173,10 +229,11 @@ struct ComponentPinMatchApplier
 struct ComponentPackageExistenceChecker
 {
     RoboconfOptions                                 &rbcOpts;
-    std::map<std::string, std::set<std::string> >   &componentsNoPackageDesignators;
+    //std:: map<std::string, std::set<std::string> >   
+    string_string_set_map_type                      &componentsNoPackageDesignators;
 
-    //ComponentPackageExistenceChecker( const std::map<std::string, std::vector< ComponentInfo > > &c ) : components(c) {}
-    ComponentPackageExistenceChecker( RoboconfOptions &r, std::map<std::string, std::set<std::string> > &dsgs ) : rbcOpts(r), componentsNoPackageDesignators(dsgs) {}
+    //ComponentPackageExistenceChecker( const std:: map<std::string, std:: vector< ComponentInfo > > &c ) : components(c) {}
+    ComponentPackageExistenceChecker( RoboconfOptions &r, string_string_set_map_type  /* std:: map<std::string, std::set<std::string> > */  &dsgs ) : rbcOpts(r), componentsNoPackageDesignators(dsgs) {}
 
     void operator()( ComponentInfo &ci, NetlistInfo &netlistInfo ) const
     {

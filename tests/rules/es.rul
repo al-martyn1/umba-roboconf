@@ -117,7 +117,7 @@
     ("SDA" to "X6.SDA")
     ("SCL" to "X6.SCL")
 
-(connect device "ENDSTOP" as "DD"
+(--connect device "ENDSTOP" as "DD"
     ("SWITCH" to "X2.SING")
 )
 

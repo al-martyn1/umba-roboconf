@@ -13,7 +13,7 @@ bool findDatasheet( RoboconfOptions &rbcOpts, const std::string &name, std::stri
         return true;
     }
 
-    std::vector<std::string> dshCheckedLocations;
+    std:: vector<std::string> dshCheckedLocations; dshCheckedLocations.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     std::ifstream dsStream;
     if ( !includeSearch( dsStream, name, foundName, makeIncVectorFromFileName(inputFilename), /* <= swap to change lookup order => */ rbcOpts.datasheetPaths, &dshCheckedLocations ) )
     {

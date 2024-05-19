@@ -88,7 +88,7 @@ void ComponentInfo::addPinsPart( const part_pins_t &part )
 }
 
 //-----------------------------------------------------------------------------
-void ComponentInfo::mergePinParts( const std::vector< part_pins_t > &partsDefOther)
+void ComponentInfo::mergePinParts( const std:: vector< part_pins_t > &partsDefOther)
 {
     for( auto p : partsDefOther )
     {
@@ -120,7 +120,7 @@ int ComponentInfo::getPinPartNo( std::string pinNo ) const
 }
 
 //-----------------------------------------------------------------------------
-std::vector< ComponentInfo::internal_net_t > ComponentInfo::getInternalNets() const
+std:: vector< ComponentInfo::internal_net_t > ComponentInfo::getInternalNets() const
 {
     /*
     if (designator=="R59")
@@ -141,7 +141,7 @@ std::vector< ComponentInfo::internal_net_t > ComponentInfo::getInternalNets() co
     tmpInet.emplace_back(std::string("1"));
     tmpInet.emplace_back(std::string("2"));
 
-    return std::vector< internal_net_t >( 1, tmpInet );
+    return std:: vector< internal_net_t >( 1, tmpInet );
 }
 
 //-----------------------------------------------------------------------------
@@ -290,7 +290,7 @@ void ComponentInfo::addPin( std::string pinNo, const std::string &pinFn )
 }
 
 //-----------------------------------------------------------------------------
-void ComponentInfo::addPin( std::string pinNo, const std::vector< std::string > &fns )
+void ComponentInfo::addPin( std::string pinNo, const std:: vector< std::string > &fns )
 {
     addPin(pinNo, fns.begin(), fns.end() );
 }
@@ -345,7 +345,7 @@ void ComponentInfo::detectComponentClass( RoboconfOptions &rbcOpts, const Netlis
 {
     //componentInfo.
 	componentClass = ComponentClass::cc_UNKNOWN;
-    std::vector< ComponentClassDetectionRule >::const_iterator ccdrIt = rbcOpts.componentsClassDetectionRules.begin();
+    std:: vector< ComponentClassDetectionRule >::const_iterator ccdrIt = rbcOpts.componentsClassDetectionRules.begin();
 
     for(; ccdrIt!=rbcOpts.componentsClassDetectionRules.end(); ++ccdrIt)
     {

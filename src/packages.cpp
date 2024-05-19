@@ -40,7 +40,7 @@ bool PackagesDb::generatePackageStdNameAndAlias( std::string &pkgName, std::stri
 //-----------------------------------------------------------------------------
 bool PackagesDb::isKnownPackage( const std::string &n ) const
 {
-    std::map< std::string, PackageInfo >::const_iterator it = packages.find( n );
+    package_info_map_type::const_iterator it = packages.find( toUpper(n) );
     if (it==packages.end())
         return false;
 
@@ -53,7 +53,7 @@ bool PackagesDb::addPackage( const PackageInfo &pi )
     if (isKnownPackage(pi.packageName))
         return false;
 
-    packages[pi.packageName] = pi;
+    packages[toUpper(pi.packageName)] = pi;
 
     return true;
 }
@@ -64,7 +64,7 @@ bool PackagesDb::addPackage( const std::string &n, unsigned np )
     if (isKnownPackage(n))
         return false;
 
-    packages[n] = PackageInfo(n,np);
+    packages[toUpper(n)] = PackageInfo(toUpper(n),np);
 
     return true;
 }
@@ -77,7 +77,7 @@ bool PackagesDb::addPackageAlias( const std::string &n, const std::string &a )
     if (!isKnownPackage(n))
         return false; // target canonical package is unknown
 
-    packages[a] = PackageInfo(a,n);
+    packages[toUpper(a)] = PackageInfo(toUpper(a),toUpper(n));
 
     return true;
 }
@@ -86,7 +86,7 @@ bool PackagesDb::addPackageAlias( const std::string &n, const std::string &a )
 bool PackagesDb::getCanonicalPackage( std::string n, PackageInfo &pi ) const
 {
     //if (n==)
-    std::map< std::string, PackageInfo >::const_iterator it = packages.find( n );
+    package_info_map_type::const_iterator it = packages.find( toUpper(n) );
     while(it!=packages.end())
     {
         if (it->second.aliasFor.empty())
@@ -96,7 +96,7 @@ bool PackagesDb::getCanonicalPackage( std::string n, PackageInfo &pi ) const
         }
 
         n = it->second.aliasFor;
-        it = packages.find( n );
+        it = packages.find( toUpper(n) );
     }
 
     return false;
@@ -146,7 +146,7 @@ bool PackagesDb::applyAssignPackage( RoboconfOptions &rbcOpts, const PackageAssi
 bool PackagesDb::applyDesignatorAssignments(RoboconfOptions &rbcOpts, all_nets_map_type &nets )
 {
     bool totalRes = true;
-    std::vector< PackageAssignRule >::const_iterator rit = assignRules.begin();
+    std:: vector< PackageAssignRule >::const_iterator rit = assignRules.begin();
     for(; rit != assignRules.end(); ++rit)
     {
         typename all_nets_map_type::iterator nit = nets.begin();
@@ -220,7 +220,7 @@ ExpressionParsingResult PackagesDb::extractDesignatorAssignment( RoboconfOptions
     std::string expected;
     std::string found;
 
-    std::vector< ExpressionParsingResultItem > readedVals;
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
 
 //(packageAssign (designator "DD1")
@@ -243,7 +243,7 @@ ExpressionParsingResult PackagesDb::extractDesignatorAssignment( RoboconfOptions
 
     bool designatorExists = false;
 
-    std::map< std::string, std::vector<std::string> >::const_iterator mvIt = readedVals[1].mapOfVectorsValue.begin();    // map of vectors
+    string_string_vector_map_type::const_iterator mvIt = readedVals[1].mapOfVectorsValue.begin();    // map of vectors
     for( ; mvIt != readedVals[1].mapOfVectorsValue.end(); ++mvIt)
     {
         if (mvIt->first=="designator")
@@ -307,7 +307,7 @@ ExpressionParsingResult PackagesDb::extractPackageFromRule( RoboconfOptions &rbc
     std::string expected;
     std::string found;
 
-    std::vector< ExpressionParsingResultItem > readedVals;
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     const expression_list_t &lst = rule.itemList;
     expression_list_t::const_iterator it = lst.begin();
@@ -332,7 +332,7 @@ ExpressionParsingResult PackagesDb::extractPackageFromList( RoboconfOptions &rbc
     std::string expected;
     std::string found;
 
-    std::vector< ExpressionParsingResultItem > readedVals;
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     // (package "SOT23-5" numPins 5 (SOT25 SC74A SOT753 SMT5 SOT23-5A SOT23-5B) )
     ExpressionParsingResult
@@ -401,7 +401,7 @@ ExpressionParsingResult PackagesDb::extractPackageAliasFromList( RoboconfOptions
     std::string expected;
     std::string found;
 
-    std::vector< ExpressionParsingResultItem > readedVals;
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
                                            // 0 1+
     ExpressionParsingResult
@@ -452,7 +452,7 @@ ExpressionParsingResult PackagesDb::extractPackageAliasFromList( RoboconfOptions
 //-----------------------------------------------------------------------------
 void PackagesDb::logKnownPackages( RoboconfOptions &rbcOpts ) const
 {
-    std::map< std::string , std::vector< std::string > >  aliases;
+    std::map< std::string , std:: vector< std::string > >  aliases;
     for( const auto &mp : packages )
     {
         if (!mp.second.aliasFor.empty())
@@ -465,7 +465,7 @@ void PackagesDb::logKnownPackages( RoboconfOptions &rbcOpts ) const
     {
         auto &s = LOG_MSG("pkg-known")<<ap.first;
         //if ( packages[ap.first].numPins>1)
-		std::map< std::string, PackageInfo >::const_iterator pkgIt = packages.find(ap.first);
+        package_info_map_type::const_iterator pkgIt = packages.find(ap.first);
         if ( pkgIt!=packages.end() && pkgIt->second.numPins>1 )
             s<<" (pins: "<<pkgIt->second.numPins<<")";
         //s<<": ";

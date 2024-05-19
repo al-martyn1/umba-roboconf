@@ -2,5 +2,5 @@
 
 @set RBC_ROOT=%LOCAL_RBC_ROOT%
 
-@call %~dp0\deploy_rules_impl.bat
+@call %~dp0\scripts\deploy_rules_impl.bat
 

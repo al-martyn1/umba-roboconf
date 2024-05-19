@@ -2,6 +2,10 @@
                 (conditional (matchTo "ACCEL") )
         (
 
+            (-- Detection by compRef)
+
+            (componentClass  (match compRef      )  (matchTo "^STM32.+" ) (set DD) )
+
             (-- Resistors assemly detection)
            
             (-- english xN)
@@ -28,7 +32,7 @@
             (componentClass (match originalName )  (matchTo ".*езисторная_сборка_х8.*" )  (set RESISTOR) (assembly 8 ) )
             (componentClass (match originalName )  (matchTo ".*езисторная_сборка_х16.*")  (set RESISTOR) (assembly 16) )
                                                                                                                        
-            (-- Common resistro assemlbies )                                             
+            (-- Common resistor assemlbies )                                             
                                                                                                                        
             (componentClass (match compRef      )  (matchTo ".*RESISTOR-X2.*"          )  (set RESISTOR) (assembly 2 ) )
             (componentClass (match compRef      )  (matchTo ".*RESISTOR-X4.*"          )  (set RESISTOR) (assembly 4 ) )

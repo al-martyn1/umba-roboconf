@@ -47,7 +47,7 @@ umba::SimpleFormatter& RoboconfOptions::getLogStream( LogEntryType et )
 //-----------------------------------------------------------------------------
 void RoboconfOptions::disableWarnings( const std::string &warnType )
 {
-    std::vector<std::string> vw;
+    std:: vector<std::string> vw; vw.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     char splitCh = contains( warnType, ",;" );
     if ( splitCh )
@@ -70,7 +70,7 @@ bool RoboconfOptions::isWarningAllowed(const std::string &warnType) const
 //-----------------------------------------------------------------------------
 void RoboconfOptions::enableMessages( const std::string &msgType )
 {
-    std::vector<std::string> vm;
+    std:: vector<std::string> vm; vm.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     char splitCh = contains( msgType, ",;" );
     if ( splitCh )
@@ -114,7 +114,7 @@ bool RoboconfOptions::extractComponentClassDetectionRules(expression_list_t & ru
 {
     rulesList.updateParentPtr(0);
 
-    std::vector< expression_list_t* > componentClassRules;
+    std:: vector< expression_list_t* > componentClassRules; componentClassRules.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     ListSimpleXPath::executeQuery( rulesList, "//componentClass", &componentClassRules, caseIgnore );
 
@@ -169,7 +169,7 @@ bool RoboconfOptions::extractComponentClassDetectionRules(expression_list_t & ru
 ExpressionParsingResult RoboconfOptions::extractComponentClassDetectionRule( const expression_list_t & listRule )
 //ExpressionParsingResult RoboconfOptions::extractComponentClassDetectionRule( const ExpressionItem & listRule )
 {
-    //std::vector< ComponentClassDetectionRule > componentsClassDetectionRules;
+    //std:: vector< ComponentClassDetectionRule > componentsClassDetectionRules;
     ComponentClassDetectionRule rule;
     auto res = rule.extractRuleFromListItem( *this, listRule );
     if (res==ExpressionParsingResult::success)
@@ -178,7 +178,7 @@ ExpressionParsingResult RoboconfOptions::extractComponentClassDetectionRule( con
 }
 
 //-----------------------------------------------------------------------------
-bool RoboconfOptions::readComponentClassDetectionRules( const std::string &inputFilename, const std::vector<std::string> &rulesPaths, const std::string &netlistType  )
+bool RoboconfOptions::readComponentClassDetectionRules( const std::string &inputFilename, const std:: vector<std::string> &rulesPaths, const std::string &netlistType  )
 {
     std::string lookupForName = "default_classes.rul";
 
@@ -252,7 +252,7 @@ RoboconfOptions::extractGroupingRules( expression_list_t & rulesList /* , const 
 {
     rulesList.updateParentPtr(0);
 
-    std::vector< expression_list_t* > groupingRules;
+    std:: vector< expression_list_t* > groupingRules; groupingRules.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     ListSimpleXPath::executeQuery( rulesList, "//forceGroup|forceUngroup|keepGroup", &groupingRules, caseIgnore );
 /*
@@ -320,7 +320,7 @@ RoboconfOptions::extractGroupingRule( const expression_list_t & listRule )
     std::string expected;
     std::string found;
    
-    std::vector< ExpressionParsingResultItem > readedVals;
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     ExpressionParsingResult
     ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "Ti!:keepGroup,forceGroup,forceUngroup;V_?;I"
@@ -379,7 +379,7 @@ struct ForceGroupingRule
 
     int                         ruleType;
     std::string                 groupName;
-    std::vector<std::string>    netlabels;
+    std:: vector<std::string>    netlabels;
 };
 */    
 int RoboconfOptions::checkGroupingRules( const std::string &grpName, const std::string &netName, std::string *pNewGrpName )

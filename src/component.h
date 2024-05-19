@@ -12,6 +12,7 @@
 #include "regexp.h"
 #include "csv.h"
 #include "rdlc-core/utils.h"
+#include "rdlc-core/splits.h"
 
 #include "component_class.h"
 #include "roboconf_options.h"
@@ -21,13 +22,19 @@
 #include "netlist_src_type.h"
 #include "netlist_component_atributes_map.h"
 
+#include "string_set_type.h"
+#include "string_string_map_type.h"
+
+
+#include "roboconf_options.h"
+
 //#include "icUtils.h"
 
 //
 
 
 //-----------------------------------------------------------------------------
-std::vector<std::string> generateComponentNames( std::string cmpName, const std::string &cmpPackage = std::string(), const std::string &cmpUserSuffix = std::string() );
+std:: vector<std::string> generateComponentNames( std::string cmpName, const std::string &cmpPackage = std::string(), const std::string &cmpUserSuffix = std::string() );
 
 //-----------------------------------------------------------------------------
 
@@ -40,9 +47,9 @@ std::vector<std::string> generateComponentNames( std::string cmpName, const std:
 struct ComponentPinInfo
 {
     #if defined(ROBOCONF_COMPONENT_PIN_INFO_USE_UNORDERED_SET)
-        using set_type = std::set<std::string>;
-    #else
         using set_type = std::unordered_set<std::string>;
+    #else
+        using set_type = std::set<std::string>;
     #endif
 
     std::string     pinNo;
@@ -143,23 +150,23 @@ struct ComponentInfo //-V730
     pins_map_type              pins;
 
     // lib info
-    std::vector<std::string>   allTypeNames;
+    std:: vector<std::string>  allTypeNames;
     std::string                description;
     std::string                purpose;
     std::string                datasheet;
     std::string                refman;
     std::string                errata;
-    std::vector<std::string>   modules;
-    std::vector<std::string>   headers;
+    std:: vector<std::string>  modules;
+    std:: vector<std::string>  headers;
 
-    typedef std::vector< std::string > internal_net_t;
-    std::vector< internal_net_t > internalNets;
+    typedef std:: vector< std::string > internal_net_t;
+    std:: vector< internal_net_t > internalNets;
 
-    typedef std::pair< std::string, std::vector< std::string > > pin_function_match_t;
-    std::vector< pin_function_match_t > pinFunctionMatches;
+    typedef std::pair< std::string, std:: vector< std::string > > pin_function_match_t;
+    std:: vector< pin_function_match_t > pinFunctionMatches;
 
     typedef std::set< std::string >  part_pins_t;
-    std::vector< part_pins_t >    partsDef;
+    std:: vector< part_pins_t >    partsDef;
 
    
 
@@ -168,10 +175,10 @@ struct ComponentInfo //-V730
     //bool detectComponentClassFromDesignator();
     bool findPinNoByFunction( const std::string &pinFn, std::string &pinNo ) const;
     void addPinsPart( const part_pins_t &part );
-    void mergePinParts( const std::vector< part_pins_t > &partsDefOther);
+    void mergePinParts( const std:: vector< part_pins_t > &partsDefOther);
     bool hasParts() const;
     int getPinPartNo( std::string pinNo ) const;
-    std::vector< internal_net_t > getInternalNets() const;
+    std:: vector< internal_net_t > getInternalNets() const;
     void addPinFunctionMatch( const pin_function_match_t & match);
     bool isPackageCompatible( RoboconfOptions &rbcOpts, const ComponentInfo &ci ) const;
     bool isPackageAny() const;
@@ -197,7 +204,7 @@ struct ComponentInfo //-V730
         pins[pinInfo.pinNo] = pinInfo;
     }
 
-    void addPin( std::string pinNo, const std::vector< std::string > &fns );
+    void addPin( std::string pinNo, const std:: vector< std::string > &fns );
     bool checkTypeNameMatch( const std::string otherTypeNameMatchTo ) const;
 
 
@@ -237,6 +244,63 @@ bool operator<( const ComponentTypePackage &cp1, const ComponentTypePackage &cp2
 
 
 
+
+//-----------------------------------------------------------------------------
+inline
+std::string normalizeComponentNameBasic(std::string cmpName)
+{
+    for(auto &ch : cmpName)
+    {
+        if (ch=='_')
+        {
+            ch = '-';
+        }
+        else if (ch>='a' && ch<='z')
+        {
+            ch = ch - 'a' + 'A';
+        }
+    }
+
+    return cmpName;
+}
+
+//-----------------------------------------------------------------------------
+inline
+std::string normalizeComponentName(RoboconfOptions &rbcOpts, std::string cmpName, std::string *pFoundPackageName)
+{
+    cmpName = normalizeComponentNameBasic(cmpName);
+
+    std::vector<std::string> nameParts;
+    splitToVector(cmpName, nameParts, '-');
+
+    if (nameParts.size()<2)
+        return cmpName;
+
+    auto lastPart = nameParts.back();
+    trim(lastPart, "- ");
+
+    if (rbcOpts.packagesDb.isKnownPackage(lastPart))
+    {
+        // Удаляем корпус из названия компонета
+        std:: vector<std::string>::iterator backIt = nameParts.end();
+        --backIt;
+        nameParts.erase(backIt, nameParts.end());
+
+        // Собираем имя компонента обратно
+        cmpName = mergeStrings(nameParts, std::string("-"), false);
+
+        // Сохраняем имя типа корпуса как каноническое
+        if (pFoundPackageName)
+        {
+            *pFoundPackageName = rbcOpts.packagesDb.getCanonicalPackageName(lastPart);
+        }
+    }
+
+    return cmpName;
+
+}
+
+//-----------------------------------------------------------------------------
 
 
 
@@ -279,15 +343,15 @@ StreamType& operator<<( StreamType &s, const ComponentInfo &ci )
 //-----------------------------------------------------------------------------
 struct ComponentImportOptions
 {
-    std::vector< std::string >   namesList;
+    std:: vector< std::string >  namesList;
     std::string                  description;
     std::string                  purpose;
     std::string                  datasheet;
     std::string                  refman;
     std::string                  errata;
     std::string                  package;
-    std::vector<std::string>     modules;
-    std::vector<std::string>     headers;
+    std:: vector<std::string>    modules;
+    std:: vector<std::string>    headers;
     std::string                  invalChars = "[]()/*";
 
     char                         csvSeparator = ',';
@@ -301,7 +365,7 @@ struct ComponentImportOptions
 inline
 bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const ComponentImportOptions &opts, ComponentInfo &ci /* , char sep = ';' */  )
 {
-    std::vector< csv_line_t > csvLines;
+    std:: vector< csv_line_t > csvLines; csvLines.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     if (!readCsv( in, csvLines, opts.csvSeparator ))
         return false;
 
@@ -331,7 +395,7 @@ bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const Co
 
     size_t nameIdx = (size_t)-1;
     size_t designatorIdx = (size_t)-1;
-    std::vector< csv_line_t > validLines;
+    std:: vector< csv_line_t > validLines; validLines.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     for( auto line : csvLines )
     {
         // пропускаем всю левую шляпу
@@ -413,7 +477,7 @@ bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const Co
         
         std::string strFunctions = line[nameIdx];
         strFunctions = replaceForbiddenChars( strFunctions, opts.invalChars, ' ');
-        std::vector<std::string> pinFunctionsTmp;
+        std:: vector<std::string> pinFunctionsTmp; pinFunctionsTmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
         splitToVector(strFunctions, pinFunctionsTmp, ' ');
         trim(pinFunctionsTmp);
         
@@ -522,7 +586,7 @@ bool componentExportToCmp( std::ostream &os, ComponentInfo &ci )
 
 //-----------------------------------------------------------------------------
 inline
-std::vector<std::string> splitComponentName( const std::string &name, bool keepSeps = true, bool splitAlsoDigits = true )
+std:: vector<std::string> splitComponentNamePart( const std::string &name, RoboconfOptions *pRbcOpts, bool keepSeps = true, bool splitAlsoDigits = true )
 {
 
     enum CharClass{
@@ -534,7 +598,7 @@ std::vector<std::string> splitComponentName( const std::string &name, bool keepS
 
     CharClass prevCharClass = charClassInitial;
 
-    std::vector<std::string> res;
+    std:: vector<std::string> res; res.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     std::string buf;
     char prevSep = 0;
 
@@ -596,9 +660,41 @@ std::vector<std::string> splitComponentName( const std::string &name, bool keepS
 
 //-----------------------------------------------------------------------------
 inline
-std::vector<std::string> generateComponentNamePartSingleX( const std::string &name, char ch = '_' )
+std:: vector<std::string> splitComponentName( const std::string &name, RoboconfOptions *pRbcOpts, bool keepSeps = true, bool splitAlsoDigits = true )
 {
-    std::vector<std::string> res;
+    std::vector<std::string> parts;
+    splitToVector(name, parts, '-');
+
+    std:: vector<std::string> resParts;
+
+    bool bFirst = true;
+    for(const auto &p : parts)
+    {
+        auto p_ = bFirst ? p : "-" + p;
+        bFirst = false;
+
+        if (pRbcOpts && pRbcOpts->packagesDb.isKnownPackage(p))
+        {
+            resParts.emplace_back(p_);
+        }
+        else
+        {
+            auto partParts = splitComponentNamePart(p_, pRbcOpts, keepSeps, splitAlsoDigits);
+            for(const auto &pp : partParts)
+            {
+                resParts.emplace_back(pp);
+            }
+        }
+    }
+
+    return resParts;
+}
+
+//-----------------------------------------------------------------------------
+inline
+std:: vector<std::string> generateComponentNamePartSingleX( const std::string &name, char ch = '_' )
+{
+    std:: vector<std::string> res; res.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     res.push_back( name );
 
     std::string::size_type i = 0, size = name.size();
@@ -625,13 +721,13 @@ std::vector<std::string> generateComponentNamePartSingleX( const std::string &na
 
 //-----------------------------------------------------------------------------
 inline
-std::vector<std::string> generateComponentNamePartXXX( std::string name, char ch = '_')
+std:: vector<std::string> generateComponentNamePartXXX( std::string name, char ch = '_')
 {
     //std::string nameBak = name;
 
-    //std::vector<std::string> tmp = generateComponentNamePartSingleX(name);
+    //std:: vector<std::string> tmp = generateComponentNamePartSingleX(name);
 
-    std::vector<std::string> res;
+    std:: vector<std::string> res; res.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     name = toUpper( name );
 
@@ -715,13 +811,13 @@ bool stringGreateByLen( const std::string &s1, const std::string &s2 )
 
 //-----------------------------------------------------------------------------
 inline
-std::vector<std::string> mergeComponentNameXXX( const std::string &prefix, const std::vector< std::vector<std::string> > &alts, size_t idx )
+std:: vector<std::string> mergeComponentNameXXX( const std::string &prefix, const std:: vector< std:: vector<std::string> > &alts, size_t idx )
 {
     if (idx>=alts.size())
-        return std::vector<std::string>();
+        return std:: vector<std::string>();
 
-    const std::vector<std::string> &vec = alts[idx];
-    std::vector<std::string> res;
+    const std:: vector<std::string> &vec = alts[idx];
+    std:: vector<std::string> res;
 
     for(  auto s : vec )
     {
@@ -737,23 +833,23 @@ std::vector<std::string> mergeComponentNameXXX( const std::string &prefix, const
 
 //-----------------------------------------------------------------------------
 inline
-std::vector<std::string> mergeComponentNameXXX( const std::vector< std::vector<std::string> > &alts )
+std:: vector<std::string> mergeComponentNameXXX( const std:: vector< std:: vector<std::string> > &alts )
 {
     return mergeComponentNameXXX( std::string(), alts, 0 );
 }
 
 //-----------------------------------------------------------------------------
 inline
-std::vector<std::string> generateComponentNamesSingleLen( const std::string &cmpName, const std::string &cmpPackage, const std::string &cmpUserSuffix )
+std:: vector<std::string> generateComponentNamesSingleLen(  RoboconfOptions &rbcOpts, const std::string &cmpName, const std::string &cmpPackage, const std::string &cmpUserSuffix )
 {
-    std::vector<std::string> nameParts = splitComponentName( cmpName );
+    std:: vector<std::string> nameParts = splitComponentName( cmpName, &rbcOpts );
 
-    std::vector< std::vector< std::string > > namePartsXXX;
+    std:: vector< std:: vector< std::string > > namePartsXXX; namePartsXXX.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     namePartsXXX.reserve(nameParts.size());
 
-    for( std::vector<std::string>::const_iterator it = nameParts.begin(); it != nameParts.end(); ++it )
+    for( std:: vector<std::string>::const_iterator it = nameParts.begin(); it != nameParts.end(); ++it )
     {
-        //std::vector< std::string > partSetX;
+        //std:: vector< std::string > partSetX;
         //if (it == nameParts.begin())
         //{
         //    partSetX.push_back(*it);
@@ -761,12 +857,12 @@ std::vector<std::string> generateComponentNamesSingleLen( const std::string &cmp
         //else
         //{
             std::string partName = *it;
-            std::vector<std::string> xxx = generateComponentNamePartXXX( partName, '_' );
+            std:: vector<std::string> xxx = generateComponentNamePartXXX( partName, '_' );
             //partSetX.insert(partSetX.end(), xxx.begin(), xxx.end());
             /*
             while( !partName.empty() && partName!="-" )
             {
-                std::vector<std::string> xxx = generateComponentNamePartXXX( partName, '_' );
+                std:: vector<std::string> xxx = generateComponentNamePartXXX( partName, '_' );
                 partSetX.insert(partSetX.end(), xxx.begin(), xxx.end());
                 partName.erase( partName.size() - 1 );
             }
@@ -777,14 +873,14 @@ std::vector<std::string> generateComponentNamesSingleLen( const std::string &cmp
         namePartsXXX.emplace_back(xxx);
     }
 
-    std::vector<std::string> lookupNames = mergeComponentNameXXX( namePartsXXX );
+    std:: vector<std::string> lookupNames = mergeComponentNameXXX( namePartsXXX );
     makeUniqueVector( lookupNames );
     //std::stable_sort( lookupNames.begin(), lookupNames.end(), stringGreateByLen );
 
     //if (cmpPackage.empty())
     //    return lookupNames;
 
-    std::vector<std::string> res;
+    std:: vector<std::string> res;
     
     size_t resReserve = lookupNames.size();
     if (!cmpPackage.empty())
@@ -830,11 +926,11 @@ std::vector<std::string> generateComponentNamesSingleLen( const std::string &cmp
 
 //-----------------------------------------------------------------------------
 inline
-std::vector<std::string> generateComponentNamesHelper( std::set<std::string> &usedNames, std::vector<std::string> names, const std::vector<std::string> &suffixes )
+std:: vector<std::string> generateComponentNamesHelper( std::set<std::string> &usedNames, std:: vector<std::string> names, const std:: vector<std::string> &suffixes )
 {
     for( const auto& sfx : suffixes )
     {
-        std::vector<std::string> tmp;
+        std:: vector<std::string> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
         for( const auto &n : names )
         {
@@ -858,7 +954,7 @@ std::vector<std::string> generateComponentNamesHelper( std::set<std::string> &us
         names.swap(tmp);
     }
 
-    //std::vector<std::string> tmp;
+    //std:: vector<std::string> tmp;
     makeUniqueVector(names);
 
     return names;
@@ -866,7 +962,7 @@ std::vector<std::string> generateComponentNamesHelper( std::set<std::string> &us
 
 //-----------------------------------------------------------------------------
 inline
-std::vector<std::string> generateComponentNamesHelper( const std::vector<std::string> &names, const std::vector<std::string> &suffixes )
+std:: vector<std::string> generateComponentNamesHelper( const std:: vector<std::string> &names, const std:: vector<std::string> &suffixes )
 {
     std::set<std::string> usedNames;
     return generateComponentNamesHelper( usedNames, names, suffixes );
@@ -874,39 +970,88 @@ std::vector<std::string> generateComponentNamesHelper( const std::vector<std::st
 
 //-----------------------------------------------------------------------------
 inline
-std::vector<std::string> generateComponentNamesHelper( const std::string &name, const std::vector<std::string> &suffixes )
+std:: vector<std::string> generateComponentNamesHelper( const std::string &name, const std:: vector<std::string> &suffixes )
 {
-    std::vector< std::string > names;
+    std:: vector< std::string > names; names.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     names.emplace_back(name);
     return generateComponentNamesHelper( names, suffixes );
 }
 
 //-----------------------------------------------------------------------------
+// Минимальная длина имени компонента - это такая длина, когда много левого не будет обнаруживаться
+// Пока идут латинские буквы - нормас, потом обычно числовой индекс и потом дальше что угодно может быть
+// Так вот, по минимум это буквенный префикс + одна цифра
 inline
-std::vector<std::string> generateComponentNames( std::string cmpName, const std::string &cmpPackage, const std::string &cmpUserSuffix )
+std::size_t calcComponentMinimalName(std::string name)
 {
-    if (cmpName.empty())
-        return std::vector<std::string>();
-
-    std::vector<std::string> suffixes;
-    suffixes.emplace_back(cmpPackage);
-    suffixes.emplace_back(cmpUserSuffix);
-
-    std::string::size_type minLen = 1;
+    std::size_t minLen = 0;
+    for(auto ch: name)
     {
-        std::vector<std::string> nameParts = splitComponentName( cmpName );
-        if (!nameParts.empty() && !nameParts[0].empty())
-            minLen = nameParts[0].size();
-        if (!minLen)
-            minLen = 1;
+        if ((ch>='a' && ch<='z') || (ch>='A' && ch<='Z'))
+        {
+            ++minLen;
+        }
+        else
+        {
+            break;
+        }
     }
 
-    std::vector< std::string > resNames;
+    if (minLen<name.size())
+       ++minLen;
+
+    return minLen;
+}
+
+//-----------------------------------------------------------------------------
+inline
+std:: vector<std::string> generateComponentNames( RoboconfOptions &rbcOpts, std::string cmpName, std::string cmpPackage, const std::string &cmpUserSuffix )
+{
+    if (cmpName.empty())
+        return std:: vector<std::string>();
+
+    cmpName = normalizeComponentNameBasic(cmpName);
+
+    std:: vector<std::string> suffixes; suffixes.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+
+    bool componentNameIncludesPackage = false;
+
+    std::string::size_type minLen = calcComponentMinimalName(cmpName);
+    if (!minLen)
+        minLen = 1;
+
+    {
+        std:: vector<std::string> nameParts = splitComponentName( cmpName, &rbcOpts );
+        if (nameParts.size()>1)
+        {
+            auto lastPart = nameParts.back();
+            ltrim(lastPart, "- ");
+            if (rbcOpts.packagesDb.isKnownPackage(lastPart))
+            {
+                componentNameIncludesPackage = true;
+                if (cmpPackage.empty())
+                    cmpPackage = lastPart;
+
+                // Удаляем корпус из названия компонета
+                std:: vector<std::string>::iterator backIt = nameParts.end();
+                --backIt;
+                nameParts.erase(backIt, nameParts.end());
+                cmpName = mergeStrings(nameParts, std::string(""), false);
+            }
+        }
+
+    }
+
+    suffixes.emplace_back(cmpPackage);
+
+    suffixes.emplace_back(cmpUserSuffix);
+
+    std:: vector< std::string > resNames; resNames.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     std::string tmpName = cmpName;
     while(tmpName.size() >= minLen)
     {
-        std::vector<std::string> names = generateComponentNamesHelper( tmpName, suffixes );
+        std:: vector<std::string> names = generateComponentNamesHelper( tmpName, suffixes );
         resNames.insert( resNames.end(), names.begin(), names.end() );
         tmpName.erase( tmpName.size()-1, 1 );
     }
@@ -915,7 +1060,7 @@ std::vector<std::string> generateComponentNames( std::string cmpName, const std:
 
 /*
     // put full name
-    std::vector< std::string > names;
+    std:: vector< std::string > names;
     names.emplace_back(cmpName);
 
     // generate masks only for 12- symbols in name
@@ -926,9 +1071,9 @@ std::vector<std::string> generateComponentNames( std::string cmpName, const std:
         names.emplace_back(cmpName);
     }
 
-    std::vector<std::string> nameParts = splitComponentName( cmpName );
+    std:: vector<std::string> nameParts = splitComponentName( cmpName );
     if (nameParts.empty())
-        return std::vector<std::string>();
+        return std:: vector<std::string>();
 
     size_t minSize = 0;
 
@@ -952,11 +1097,11 @@ std::vector<std::string> generateComponentNames( std::string cmpName, const std:
         names.emplace_back(cmpName);
     }
 
-    std::vector<std::string> res;
+    std:: vector<std::string> res;
 
     for( auto name : names )
     {
-        std::vector<std::string> tmp = generateComponentNamesSingleLen( name, cmpPackage, cmpUserSuffix );
+        std:: vector<std::string> tmp = generateComponentNamesSingleLen( name, cmpPackage, cmpUserSuffix );
         if (res.empty())
             res.reserve(tmp.size()*names.size());
         res.insert( res.end(), tmp.begin(), tmp.end() );
@@ -972,10 +1117,10 @@ std::vector<std::string> generateComponentNames( std::string cmpName, const std:
 
 //-----------------------------------------------------------------------------
 bool componentParseList    ( RoboconfOptions &rbcOpts, const expression_list_t &lst, ComponentInfo &ci);
-bool componentParseRoboconf( RoboconfOptions &rbcOpts, const std::vector<std::string> &lines, std::vector< ComponentInfo > &components );
+bool componentParseRoboconf( RoboconfOptions &rbcOpts, const std:: vector<std::string> &lines, std:: vector< ComponentInfo > &components );
 /*
 //-----------------------------------------------------------------------------
-bool componentsMerge( std::vector< ComponentInfo > &components, const ComponentInfo &ci )
+bool componentsMerge( std:: vector< ComponentInfo > &components, const ComponentInfo &ci )
 {
     unsigned mergeCount = 0;
     auto cit = components.begin();
@@ -994,7 +1139,7 @@ bool componentsMerge( std::vector< ComponentInfo > &components, const ComponentI
 }
 
 //-----------------------------------------------------------------------------
-bool componentsMerge( std:: map<std::string, std::vector< ComponentInfo > > &components, ComponentInfo ci, const std::string &typeName )
+bool componentsMerge( std:: map<std::string, std:: vector< ComponentInfo > > &components, ComponentInfo ci, const std::string &typeName )
 {
     ci.typeName = typeName;
 
@@ -1010,7 +1155,7 @@ bool componentsMerge( std:: map<std::string, std::vector< ComponentInfo > > &com
 */
 //-----------------------------------------------------------------------------
 inline
-bool componentReadCmp(RoboconfOptions &rbcOpts, FileSet::file_id_t fileNo, std::istream &in, std::vector< ComponentInfo > &components )
+bool componentReadCmp(RoboconfOptions &rbcOpts, FileSet::file_id_t fileNo, std::istream &in, std:: vector< ComponentInfo > &components )
 {
 
     NetlistSrcType netlistType = NetlistSrcType::netlistSrcType_Unknown;
@@ -1018,7 +1163,7 @@ bool componentReadCmp(RoboconfOptions &rbcOpts, FileSet::file_id_t fileNo, std::
     std::string allText = readFileEncoded /* Safe */ ( in /*, std::string srcEnc = std::string(), std::string targetEnc = "UTF-8", std::string httpHint = std::string(), std::string metaHint = std::string() */ );
     std::string allTextTrimmed = allText; ltrim(allTextTrimmed);
 
-    std::vector< std::string > lines;
+    std:: vector< std::string > lines; lines.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     if (startsWith( allTextTrimmed, "(componentDefinition" ) || startsWith( allTextTrimmed, "(--" ))
         netlistType = NetlistSrcType::netlistSrcType_ACCEL_ASCII;
@@ -1091,9 +1236,9 @@ std::string pinFunctionNameWithoutNegation( std::string fnName )
 
 //-----------------------------------------------------------------------------
 inline
-std::vector< std::string > pinFunctionNameSplit( const std::string &pinFunction, bool removeNegations = true )
+std:: vector< std::string > pinFunctionNameSplit( const std::string &pinFunction, bool removeNegations = true )
 {
-    std::vector<std::string> vec;
+    std:: vector<std::string> vec; vec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     splitToVector( pinFunction, vec, "_" );
     if (removeNegations)
     {
@@ -1164,16 +1309,16 @@ std::string filterPinNameNegation( std::string str )
 
     std::string regexRes;
 
-    if ( regexpEvalString( regexRes, "n_([A-Z].*)", "~$({1})", res, std:: map< std::string, std::string>()) )
+    if ( regexpEvalString( regexRes, "n_([A-Z].*)", "~$({1})", res, string_string_map_type()) )
        return regexRes;
 
-    if ( regexpEvalString( regexRes, "n([A-Z].*)", "~$({1})", res, std:: map< std::string, std::string>()) )
+    if ( regexpEvalString( regexRes, "n([A-Z].*)", "~$({1})", res, string_string_map_type()) )
        return regexRes;
 
-    if ( regexpEvalString( regexRes, "(.*)_n", "~$({1})", res, std:: map< std::string, std::string>()) )
+    if ( regexpEvalString( regexRes, "(.*)_n", "~$({1})", res, string_string_map_type()) )
        return regexRes;
 
-    if ( regexpEvalString( regexRes, "(.*)n", "~$({1})", res, std:: map< std::string, std::string>()) )
+    if ( regexpEvalString( regexRes, "(.*)n", "~$({1})", res, string_string_map_type()) )
        return regexRes;
 
     return res;
@@ -1502,7 +1647,7 @@ bool componentParseList    (RoboconfOptions &rbcOpts, const expression_list_t &l
 }
 
 inline
-bool componentParseRoboconf( RoboconfOptions &rbcOpts, const std::vector<std::string> &lines, std::vector< ComponentInfo > &components )
+bool componentParseRoboconf( RoboconfOptions &rbcOpts, const std:: vector<std::string> &lines, std:: vector< ComponentInfo > &components )
 {
     return false;
 }

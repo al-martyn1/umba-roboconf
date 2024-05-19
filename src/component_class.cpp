@@ -5,6 +5,11 @@
 #include "logerr.h"
 #include "rdlc-core/utils.h"
 
+//
+
+#include "string_set_type.h"
+#include "string_string_map_type.h"
+#include "string_string_vector_map_type.h"
 
 //
 #include <type_traits>
@@ -155,7 +160,7 @@ const ComponentClassTokenStringMap& getComponentClassToDisplayStringMap()
 {
     return getComponentClassToDescriptionMap();
 /*
-    static std::map< ComponentClass, std::string > _;
+    static std:: map< ComponentClass, std::string > _;
     if (!_.empty())
         return _;
 
@@ -309,7 +314,7 @@ ExpressionParsingResult ComponentClassDetectionRule::extractRuleFromListItem( Ro
     std::string expected;
     std::string found;
    
-    std::vector< ExpressionParsingResultItem > readedVals;
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     //(componentClass (set DD)        (assembly 4) designator match "DD.*" )
     //(componentClass (set HEADER)    (assembly 4) compRef match "HEADER.*" )
@@ -331,8 +336,12 @@ ExpressionParsingResult ComponentClassDetectionRule::extractRuleFromListItem( Ro
     lineNo = lst.lineNo;
     targetId = ComponentClass::cc_UNKNOWN;
 
-    std::map< std::string, std::vector<std::string> >::const_iterator it = readedVals[1].mapOfVectorsValue.begin();    // map of vectors
-    for( ; it != readedVals[1].mapOfVectorsValue.end(); ++it)
+    const auto & readedVals1       = readedVals[1];
+    const auto & mapOfVectorsValue = readedVals1.mapOfVectorsValue;
+
+    // std:: map< std::string, std:: vector<std::string> >
+    string_string_vector_map_type::const_iterator it = mapOfVectorsValue.begin();    // map of vectors
+    for( ; it != mapOfVectorsValue.end(); ++it)
     {
         if (it->first=="set")
         {

@@ -6,6 +6,10 @@
 #include <vector>
 #include <algorithm>
 
+//
+#include "config.h"
+//
+
 #include "pugixml/src/pugixml.hpp"
 #include "cpp.h"
 #include "rdlc-core/splits.h"
@@ -47,10 +51,10 @@ struct CubeMcuPeriphCountInfo
 //-----------------------------------------------------------------------------
 struct CubeMcuPinInfo
 {
-    std::string                name;
-    std::string                pos;
-    std::vector<std::string>   functions;
-    std::vector<std::string>   modes;
+    std::string                 name;
+    std::string                 pos;
+    std:: vector<std::string>   functions;
+    std:: vector<std::string>   modes;
 
 }; // struct CubeMcuPinInfo
 
@@ -70,8 +74,8 @@ struct CubeMcuInfo
     std::string                           rpnName;  // STM32F042G6
                                          
     CubeMcuCoreInfo                       coreInfo;
-    std::vector<CubeMcuPeriphCountInfo>   periphCounts;
-    std::vector<CubeMcuPinInfo>           pins;
+    std:: vector<CubeMcuPeriphCountInfo>  periphCounts;
+    std:: vector<CubeMcuPinInfo>          pins;
 
 
     //Name="STM32F030C6Tx" PackageName="LQFP48" RefName="STM32F030C6Tx" RPN="STM32F030C6">
@@ -96,10 +100,10 @@ struct CubeDocFileInfo
 
 struct CubeMcuDocs
 {
-    std::vector<std::string> refNames;
-    std::string              rpn;
+    std:: vector<std::string> refNames;
+    std::string               rpn;
 
-    std::map< std::string , std::vector<CubeDocFileInfo> >  docs;
+    std::map< std::string , std:: vector<CubeDocFileInfo> >  docs;
 
 }; // struct CubeMcuDocs
 
@@ -179,7 +183,7 @@ void expand_size( std::string & str, std::string::size_type sz, char expandCh = 
 }
 
 inline
-void expand_size( std::vector<std::string> &vec, std::vector<std::string>::size_type sz, std::string expandVal = std::string() )
+void expand_size( std:: vector<std::string> &vec, std:: vector<std::string>::size_type sz, std::string expandVal = std::string() )
 {
     if (vec.size() < sz)
         vec.resize( sz, expandVal );
@@ -206,7 +210,7 @@ std::string generateMaskForNameSet( const std::set<std::string> &s, bool minMaxO
     std::string maskMin;
     std::string maskMax;
 
-    std::vector<std::string> allChars;
+    std:: vector<std::string> allChars; allChars.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     std::string strAny;
 
@@ -419,7 +423,7 @@ public:
          if (docIt->second.empty())
              return false;
 
-         std::vector< std::string > sortedByLen = std::vector< std::string >( docIt->second.begin(), docIt->second.end() );
+         std:: vector< std::string > sortedByLen = std:: vector< std::string >( docIt->second.begin(), docIt->second.end() );
          std::stable_sort( sortedByLen.begin(), sortedByLen.end(), StringsLessByLen() );
 
          //resultMask = sortedByLen[0];
@@ -485,7 +489,7 @@ void printMcuDocInfoWgetBat( TStream &s, const McuDocInfo &mcuDocInfo, std::map<
 */
 //-----------------------------------------------------------------------------
 inline
-void parseMcu( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &mcuNode, const std::string &familyName, const std::string &subfamilyName )
+void parseMcu( std:: vector< CubeMcuInfo > &mcus, const pugi::xml_node &mcuNode, const std::string &familyName, const std::string &subfamilyName )
 {
     CubeMcuInfo cubeMcuInfo;
     cubeMcuInfo.family      = familyName;
@@ -567,7 +571,7 @@ void parseMcu( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &mcuNode, 
 
 //-----------------------------------------------------------------------------
 inline
-void parseSubFamily( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &subfamilyNode, const std::string &familyName, const std::string &subfamilyName )
+void parseSubFamily( std:: vector< CubeMcuInfo > &mcus, const pugi::xml_node &subfamilyNode, const std::string &familyName, const std::string &subfamilyName )
 {
     pugi::xml_node_iterator nit = subfamilyNode.begin();
 	for (; nit != subfamilyNode.end(); ++nit)
@@ -581,7 +585,7 @@ void parseSubFamily( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &sub
 
 //-----------------------------------------------------------------------------
 inline
-void parseSubFamily( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &subfamilyNode, const std::string &familyName )
+void parseSubFamily( std:: vector< CubeMcuInfo > &mcus, const pugi::xml_node &subfamilyNode, const std::string &familyName )
 {
     const pugi::xml_attribute &subfamilyAttrName = subfamilyNode.attribute("Name");
     if (!subfamilyAttrName)
@@ -591,7 +595,7 @@ void parseSubFamily( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &sub
 }
 
 inline
-void parseFamily( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &familyNode, const std::string &familyName )
+void parseFamily( std:: vector< CubeMcuInfo > &mcus, const pugi::xml_node &familyNode, const std::string &familyName )
 {
     pugi::xml_node_iterator nit = familyNode.begin();
 	for (; nit != familyNode.end(); ++nit)
@@ -611,7 +615,7 @@ void parseFamily( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &family
 
 //-----------------------------------------------------------------------------
 inline
-void parseFamily( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &familyNode )
+void parseFamily( std:: vector< CubeMcuInfo > &mcus, const pugi::xml_node &familyNode )
 {
     const pugi::xml_attribute &familyAttrName = familyNode.attribute("Name");
     if (!familyAttrName)
@@ -622,7 +626,7 @@ void parseFamily( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &family
 
 //-----------------------------------------------------------------------------
 inline
-void parseFamilies( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &familiesNode )
+void parseFamilies( std:: vector< CubeMcuInfo > &mcus, const pugi::xml_node &familiesNode )
 {
     pugi::xml_node_iterator nit = familiesNode.begin();
 	for (; nit != familiesNode.end(); ++nit)
@@ -646,7 +650,7 @@ void parseFamilies( std::vector< CubeMcuInfo > &mcus, const pugi::xml_node &fami
 
 //-----------------------------------------------------------------------------
 inline
-void  parseMcuPins(std::vector< CubeMcuPinInfo > &mcuPins, const pugi::xml_node &mcuNode, const std::string &mcuName, const std::string &mcuFileName)
+void  parseMcuPins(std:: vector< CubeMcuPinInfo > &mcuPins, const pugi::xml_node &mcuNode, const std::string &mcuName, const std::string &mcuFileName)
 {
     pugi::xml_node_iterator nit = mcuNode.begin();
     for (; nit != mcuNode.end(); ++nit)
@@ -715,10 +719,10 @@ void  parseMcuPins(std::vector< CubeMcuPinInfo > &mcuPins, const pugi::xml_node 
                 if (ioModesVecStr.empty())
                     continue;
 
-                std::vector<std::string> ioModesVec;
+                std:: vector<std::string> ioModesVec; ioModesVec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
                 splitToVector( ioModesVecStr, ioModesVec, ',' );
 
-                std::vector<std::string>::const_iterator mvIt = ioModesVec.begin();
+                std:: vector<std::string>::const_iterator mvIt = ioModesVec.begin();
                 for(; mvIt != ioModesVec.end(); ++mvIt)
                 {
                     if (mvIt->empty())
@@ -888,10 +892,10 @@ void writeCubeMcuInfo( StreamType &ofs, const CubeMcuInfo &mcuInfo
     std::map< std::string , CubeMcuDocs >::const_iterator cmdIt = cubeMcuDocs.find(mcuInfo.refName);
     if (cmdIt != cubeMcuDocs.end())
     {
-        std::map< std::string , std::vector<CubeDocFileInfo> >::const_iterator dit = cmdIt->second.docs.begin();
+        std::map< std::string , std:: vector<CubeDocFileInfo> >::const_iterator dit = cmdIt->second.docs.begin();
         for(; dit != cmdIt->second.docs.end(); ++dit)
         {
-            std::vector<CubeDocFileInfo>::const_iterator dvIt = dit->second.begin();
+            std:: vector<CubeDocFileInfo>::const_iterator dvIt = dit->second.begin();
             for(; dvIt != dit->second.end(); ++dvIt)
             {
                 ofs<<"    ("<<dvIt->docType<<" \""<<dvIt->url<<"\")\n";
@@ -899,20 +903,20 @@ void writeCubeMcuInfo( StreamType &ofs, const CubeMcuInfo &mcuInfo
         }
     }
 
-    std::vector<CubeMcuPeriphCountInfo>::const_iterator prpIt = mcuInfo.periphCounts.begin();
+    std:: vector<CubeMcuPeriphCountInfo>::const_iterator prpIt = mcuInfo.periphCounts.begin();
     for(; prpIt != mcuInfo.periphCounts.end(); ++prpIt)
     {
         ofs<<"    (nPeriphs \""<<makeCppDefineName(prpIt->name)<<"\" \""<<prpIt->itemsCount<<"\")\n";
     }
 
     ofs<<"    (nPins \""<<(unsigned)mcuInfo.pins.size()<<"\")\n";
-    std::vector<CubeMcuPinInfo>::const_iterator pinIt = mcuInfo.pins.begin();
+    std:: vector<CubeMcuPinInfo>::const_iterator pinIt = mcuInfo.pins.begin();
     for(; pinIt != mcuInfo.pins.end(); ++pinIt)
     {
         ofs<<"    (pin \""<<pinIt->pos<<"\" \"\" ";
 
         if (!pinIt->functions.empty())  ofs<<"(";
-        std::vector<std::string>::const_iterator it = pinIt->functions.begin();
+        std:: vector<std::string>::const_iterator it = pinIt->functions.begin();
         for(; it != pinIt->functions.end(); ++it)
         {
             if (it != pinIt->functions.begin())

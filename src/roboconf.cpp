@@ -47,6 +47,10 @@
 
 #include "elapsed_timer.h"
 
+#if defined(UMBA_MSVC_COMPILER_USED)
+#include <conio.h>
+#endif
+
 // https://en.wikipedia.org/wiki/Netlist
 // https://en.wikipedia.org/wiki/EDIF
 // https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%81%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD%D0%B8%D0%B9
@@ -72,11 +76,11 @@ RoboconfOptions             rbcOpts( &logMsg, &logErr );
 RoboconfOptionsConfigurator rbcOptsConfigurator(rbcOpts);
 
 
-bool                     showTime = false;
+bool                     showTime = true; // false;
 
 bool                     quet = false;
-std::set<std::string>   argsNeedHelp;
-bool                    hasHelpOption  = false;
+std::set<std::string>    argsNeedHelp;
+bool                     hasHelpOption  = false;
 
 
 std::string inputFilename;
@@ -170,7 +174,20 @@ int main(int argc, char* argv[])
    {
        try
        {
-           return safe_main(argc, argv);
+           int res = safe_main(argc, argv);
+           if (res!=0 && rbcOpts.pauseOnError)
+           {
+               #if defined(UMBA_MSVC_COMPILER_USED)
+       
+               LOG_MSG_OPT<<"Press any key to exit\n";
+               //fgetc(stdin);
+               //getchar();
+               _kbhit();
+
+               #endif
+           }
+
+           return res;
        }
        catch(const std::exception &e)
        {
@@ -185,13 +202,14 @@ int main(int argc, char* argv[])
    }
 
 int safe_main(int argc, char* argv[])
-   {
+{
     using std::cin;
     using std::cout;
     using std::cerr;
 
 
-    auto elapsedTimer = ElapsedTimer(true); // стартует сразу
+    auto elapsedTimerTotal = ElapsedTimer(true); // стартует сразу
+    auto elapsedTimerStep  = ElapsedTimer(true); // стартует сразу
     
 
     CommandLineOptionCollectorImpl commandLineOptionCollector;
@@ -277,7 +295,13 @@ int safe_main(int argc, char* argv[])
     // Под GCC мы собираем в VSCode, а там у CMakeTools нет возможности задать аргументы командной строки.
     // Хотя, можно и под MSVC явно задавать аргументы в коде
 
+    // #define RUN_UNDER_PERF_ANALYZER
+
+    #if defined(RUN_UNDER_PERF_ANALYZER)
+    rbcOpts.pauseOnError = true;
+    #else
     if (umba::isDebuggerPresent())
+    #endif
     {
         std::string cwd;
         if (getCurrentDirectory(cwd))
@@ -291,7 +315,7 @@ int safe_main(int argc, char* argv[])
 
         std::string rootPath = "..\\..\\..\\..";
 
-        #else 
+        #elif defined(UMBA_MSVC_COMPILER_USED)
 
         std::string rootPath = ".";
 
@@ -300,14 +324,18 @@ int safe_main(int argc, char* argv[])
 
         args.emplace_back("--make-dump");
         // args.emplace_back("--log-source-code-pos");
-        args.emplace_back("-V=9");
-        args.emplace_back("-V=-conf-dump-short-rules-cls");
-        args.emplace_back("-V=-conf-dump-rules-cls");
-        args.emplace_back("-V=-data-dump-short");
-        args.emplace_back("-V=-net-chkstp-not-matched");
-        args.emplace_back("-V=-cls-chk-not-matched");
+
+        args.emplace_back("-V=1");
+        //args.emplace_back("-V=1");
+
+        // args.emplace_back("-V=-conf-dump-short-rules-cls");
+        // args.emplace_back("-V=-conf-dump-rules-cls");
+        // args.emplace_back("-V=-data-dump-short");
+        // args.emplace_back("-V=-net-chkstp-not-matched");
+        // args.emplace_back("-V=-cls-chk-not-matched");
+
         args.emplace_back("--report=periph");
-        args.emplace_back("--rules=" + rootPath + "/tests/es.rul");
+        args.emplace_back("--rules=" + rootPath + "/tests/rules/es.rul");
         args.emplace_back(rootPath + "/data/nets/ES.NET");
         args.emplace_back(rootPath + "/tests/es/summary.html");
 
@@ -699,6 +727,11 @@ int safe_main(int argc, char* argv[])
 
         componentExportToCmp( os, ci );
 
+        if (showTime)
+        {
+            LOG_MSG("time-cmp-import")<< "Component import elapsed time: " << elapsedTimerTotal.getElapsed() << "\n";
+        }
+
         if (!quet)
         {
             cout<<"Export component from CSV: Done ('"<<outputName<<"')\n";
@@ -717,19 +750,28 @@ int safe_main(int argc, char* argv[])
 
     std::string projectName;
     all_nets_map_type allNets;
+
+    elapsedTimerStep.restart();
     if (!netlistRead(rbcOpts, rbcOpts.usedFiles.getFileId(inputFilename), input, projectName, allNets ))
     {
         return 2;
     }
-
-
     input.close();
+
+
+    if (showTime)
+    {
+        LOG_MSG("time-sch-read")<< "Reading schematic elapsed time: " << elapsedTimerStep.getElapsed() << "\n";
+        elapsedTimerStep.restart();
+    }
+
 
     if (projectName.empty())
         projectName = getNameFromFull( inputFilename );
 
-
+        
     {
+        elapsedTimerStep.restart();
         ComponentAliasDb componentAliasDb;
     
         for(auto componentAliasDbFileName : componentAliasDbList)
@@ -738,8 +780,32 @@ int safe_main(int argc, char* argv[])
         }
 
         componentAliasDb.makeComponentTypesCanonical(rbcOpts, allNets);
+
+        if (showTime)
+        {
+            LOG_MSG("time-cmp-als")<< "Processing component aliases elapsed time: " << elapsedTimerStep.getElapsed() << "\n";
+            elapsedTimerStep.restart();
+        }
+
     }
-    //std::map<std::string, NetlistInfo> allNets;
+    //std:: map<std::string, NetlistInfo> allNets;
+
+
+    {
+        LOG_MSG("input-brief")<< "Project: " << projectName << "\n";
+
+        all_nets_map_type::const_iterator it = allNets.begin();
+        for(; it!=allNets.end(); ++it)
+        {
+            LOG_MSG("input-brief")<< "  Net: " << it->first << "\n";
+
+            const NetlistInfo &nlInfo = it->second;
+            LOG_MSG("input-brief")<< "    Components: " << nlInfo.components.size() << "\n";
+            LOG_MSG("input-brief")<< "    Nets      : " << nlInfo.nets.size()       << "\n";
+            // designators_map_type                            designators; // to nets
+        }
+    }
+    
 
 
 
@@ -760,8 +826,16 @@ int safe_main(int argc, char* argv[])
 
         //bool 
         netlistWritetCache( os, projectName, allNets );
+
+        if (showTime)
+        {
+            LOG_MSG("time-mk-net-cache")<< "Making netlist cache elapsed time: " << elapsedTimerTotal.getElapsed() << "\n";
+        }
+
         return 0;
     }
+
+    elapsedTimerStep.restart();
 
 
     //----------
@@ -791,6 +865,12 @@ int safe_main(int argc, char* argv[])
         removeCommentExpressionLists( lst );
 
         processingRules.insert( processingRules.end(), lst.begin(), lst.end() );
+    }
+
+    if (showTime)
+    {
+        LOG_MSG("time-rul-parsing")<< "Parsing rules elapsed time: " << elapsedTimerStep.getElapsed() << "\n";
+        elapsedTimerStep.restart();
     }
 
     {
@@ -823,7 +903,7 @@ int safe_main(int argc, char* argv[])
 
 
 
-
+    elapsedTimerStep.restart();
 
     std::vector< ExternalDeviceConnectInfo > externalDeviceConnections;
     if (!parseExternalConnectionsRules(rbcOpts, processingRules, externalDeviceConnections, makeIncVectorFromFileName(inputFilename), rbcOpts.libPaths, allNets ))
@@ -838,27 +918,62 @@ int safe_main(int argc, char* argv[])
         return 3;
     }
 
+    if (showTime)
+    {
+        LOG_MSG("time-ext-dev-conn")<< "Connecting external devices elapsed time: " << elapsedTimerStep.getElapsed() << "\n";
+        elapsedTimerStep.restart();
+    }
 
-    if (!rbcOpts.packagesDb.extractPackages(rbcOpts, processingRules ))
-        return 4;
 
     if (!rbcOpts.extractGroupingRules( processingRules ))
         return 4;
 
+    if (showTime)
+    {
+        LOG_MSG("time-grp-rul")<< "Extracting grouping rules elapsed time: " << elapsedTimerStep.getElapsed() << "\n";
+        elapsedTimerStep.restart();
+    }
+
+
+    if (!rbcOpts.packagesDb.extractPackages(rbcOpts, processingRules ))
+        return 4;
+
+    if (showTime)
+    {
+        LOG_MSG("time-pkg-rul")<< "Extracting package rules elapsed time: " << elapsedTimerStep.getElapsed() << "\n";
+        elapsedTimerStep.restart();
+    }
+
+
     rbcOpts.packagesDb.logKnownPackages(rbcOpts);
+    elapsedTimerStep.restart();
 
     if (!rbcOpts.packagesDb.extractDesignatorAssignments(rbcOpts, processingRules ))
         return 4;
 
+    if (showTime)
+    {
+        LOG_MSG("time-pkg-dsg-asg")<< "Extracting packages designator assignments elapsed time: " << elapsedTimerStep.getElapsed() << "\n";
+        elapsedTimerStep.restart();
+    }
+
+
     if (!rbcOpts.packagesDb.applyDesignatorAssignments(rbcOpts, allNets ))
         return 5;
+
+    if (showTime)
+    {
+        LOG_MSG("time-pkg-dsg-apl")<< "Applying packages designator assignments elapsed time: " << elapsedTimerStep.getElapsed() << "\n";
+        elapsedTimerStep.restart();
+    }
+
 
     // processingRules
     // expression_list_t processingRules;
 
 
     //???
-    std::set<ComponentClass> importantComponentClasses;
+    std::unordered_set<ComponentClass> importantComponentClasses;
     importantComponentClasses.insert(ComponentClass::cc_DD         );
     importantComponentClasses.insert(ComponentClass::cc_DA         );
     importantComponentClasses.insert(ComponentClass::cc_AA         );
@@ -893,6 +1008,13 @@ int safe_main(int argc, char* argv[])
     //----------
 
     //if (libFiles.empty())
+    // Для всех извелеченных пар ComponentTypePackage из нетлистов
+    // Генерим имена файлов:
+    // 1. Если в имени компонента задан корпус, он отрезается, и используется тот, который найден в нет листе
+    // 2. Если в нетлисте нет корпуса, но он задан в имени компонента, используется корпус из имени
+    // 3. Минимальное имя - это первые a-zA-Z символы, +1 - обычно компоненты именуются: XYZNNNXZ, минималка будет XYZN
+    // 4. Имя файла генерируется от самого длинного до минимального посимволным обрезанием 
+
     {
         for( auto typePackage : types )
         {
@@ -900,7 +1022,7 @@ int safe_main(int argc, char* argv[])
             std::string packageCanonicalName;
             if (!rbcOpts.packagesDb.getCanonicalPackageName( typePackage.package, packageCanonicalName ))
                 packageCanonicalName = typePackage.package;
-            std::vector<std::string> lookupNames = generateComponentNames( typePackage.type, packageCanonicalName,  "user" ) ;
+            std::vector<std::string> lookupNames = generateComponentNames(rbcOpts, typePackage.type, packageCanonicalName, "user") ;
             libFiles.insert( libFiles.end(), lookupNames.begin(), lookupNames.end() );
         }
        
@@ -910,6 +1032,7 @@ int safe_main(int argc, char* argv[])
 
     //----------
 
+    // Из нагенеренных имен файлов пытаемся что-то прочитать в описания компонентов
     std::vector< ComponentInfo > components;
 
     // Read 
@@ -939,10 +1062,13 @@ int safe_main(int argc, char* argv[])
        
             readedNames.insert(libFileName);
 
-            LOG_MSG("search-lib-log")<<"+ found: "<<foundName<<"\n";
+            LOG_MSG("search-lib-success")<<"+ found: "<<foundName<<"\n";
 
             componentReadCmp(rbcOpts, rbcOpts.usedFiles.getFileId(foundName), libStream, components );
             libStream.close();
+
+            // Какого хуя я тут break сделал, нам же все компоненты надо найти
+            // break; // нашли, зачем ещё что-то продолжать?
         }
 
         if (verboseLibSearch)
@@ -966,14 +1092,17 @@ int safe_main(int argc, char* argv[])
 
     //----------
 
-    traverseComponents( allNets, ComponentClassUpdater(rbcOpts)             , std::set<ComponentClass>(), allowProcessAssemblies );
-    traverseComponents( allNets, ComponentTypesUpdater(rbcOpts, components) , importantComponentClasses, allowProcessAssemblies );
+    traverseComponents( allNets, ComponentTypeAndPackageNormalizationUpdater(rbcOpts), importantComponentClasses, allowProcessAssemblies );
 
-    std::map<std::string, std::set<std::string> >   componentsNoPackageDesignators;
+    traverseComponents( allNets, ComponentClassUpdater(rbcOpts)                      , std::unordered_set<ComponentClass>(), allowProcessAssemblies );
+    traverseComponents( allNets, ComponentTypesUpdater(rbcOpts, components)          , importantComponentClasses, allowProcessAssemblies );
+
+    // std::map<std::string, std::set<std::string> >   
+    string_string_set_map_type componentsNoPackageDesignators;
     traverseComponents( allNets, ComponentPackageExistenceChecker(rbcOpts, componentsNoPackageDesignators), importantComponentClasses, allowProcessAssemblies );
     
-    traverseComponents( allNets, ComponentInternalNetsPublisher()           , std::set<ComponentClass>(), true );
-    traverseComponents( allNets, ComponentPinMatchApplier(rbcOpts)          , std::set<ComponentClass>(), true );
+    traverseComponents( allNets, ComponentInternalNetsPublisher()                    , std::unordered_set<ComponentClass>(), true );
+    traverseComponents( allNets, ComponentPinMatchApplier(rbcOpts)                   , std::unordered_set<ComponentClass>(), true );
 
     makeDesignatorsMap(allNets);
 
@@ -986,14 +1115,14 @@ int safe_main(int argc, char* argv[])
         LOG_MSG("net-dump-cmps")<<"--- Components\n";
         for(auto ci : netlist.second.components)
         {
-            auto &s = LOG_MSG("net-dump-cmps")<<ci.second.designator<<" - "<<ci.second.typeName<<" - "<<ci.second.getClassDisplayString()<<" - assembly: ";
+            auto &s = LOG_MSG("net-dump-cmps")<<ci.second.designator<<": "<<ci.second.typeName<<"; "<<ci.second.getClassDisplayString()<<"; assembly: ";
 
             if (ci.second.assembly>1)
                 s<<ci.second.assembly;
             else
                 s<<"not";
 
-            s<<" - "<<ci.second.package<<" - "<<ci.second.sheetName<<"\n";
+            s<<"; "<<ci.second.package<<"; "<<ci.second.sheetName<<"\n";
 
 
             for( auto pi : ci.second.pins )
@@ -1033,11 +1162,17 @@ int safe_main(int argc, char* argv[])
     }
 
     auto orderedAllNets = makeAllNetsOrderedMap(allNets);
-    pGen->generateReport( rbcOpts, os, orderedAllNets, components, processingRules, connectionBuildingOptions );
+    size_t processedMcus = 0;
+    pGen->generateReport( rbcOpts, os, orderedAllNets, components, processingRules, connectionBuildingOptions, processedMcus );
+
+    if (!processedMcus)
+    {
+        LOG_ERR_OPT<<"No MCUs found\n";
+    }
 
     if (showTime)
     {
-        std::cout << "Time elapsed: " << elapsedTimer.getElapsed() << "ms\n";
+        LOG_MSG("time-done")<< "Total elapsed time: " << elapsedTimerTotal.getElapsed() << "\n";
     }
 
 /*    
@@ -1046,6 +1181,13 @@ int safe_main(int argc, char* argv[])
         cout<<n.second;
     }
 */
+
+    if (!processedMcus)
+    {
+        return 7;
+    }
+
     return 0;
-   }
+
+}
 

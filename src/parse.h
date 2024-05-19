@@ -7,6 +7,10 @@
 #include <set>
 #include <stdexcept>
 
+//
+#include "config.h"
+//
+
 #include "rdlc-core/isa.h"
 #include "rdlc-core/splits.h"
 #include "rdlc-core/case.h"
@@ -15,6 +19,11 @@
 #include "file_set.h"
 
 #include "ioUtils.h"
+
+#include "string_set_type.h"
+#include "string_string_map_type.h"
+#include "string_string_set_map_type.h"
+#include "string_string_vector_map_type.h"
 
 
 enum class ExpressionParsingResult
@@ -29,10 +38,10 @@ enum class ExpressionParsingResult
 //-----------------------------------------------------------------------------
 struct ExpressionItem
 {
-    //typedef std::vector<ExpressionItem> expression_list_t;
+    //typedef std:: vector<ExpressionItem> expression_list_t;
     struct expression_list_t
     {
-        std::vector<ExpressionItem> items;
+        std:: vector<ExpressionItem> items;
         FileSet::file_id_t          fileNo;
         size_t                      lineNo;
 
@@ -40,15 +49,23 @@ struct ExpressionItem
 
 
 
-        typedef std::vector<ExpressionItem>::iterator        iterator;
-        typedef std::vector<ExpressionItem>::const_iterator  const_iterator;
-        typedef std::vector<ExpressionItem>::reference       reference;
-        typedef std::vector<ExpressionItem>::const_reference const_reference;
-        typedef std::vector<ExpressionItem>::size_type       size_type;
+        typedef std:: vector<ExpressionItem>::iterator        iterator;
+        typedef std:: vector<ExpressionItem>::const_iterator  const_iterator;
+        typedef std:: vector<ExpressionItem>::reference       reference;
+        typedef std:: vector<ExpressionItem>::const_reference const_reference;
+        typedef std:: vector<ExpressionItem>::size_type       size_type;
         
-        expression_list_t() : items(), fileNo((FileSet::file_id_t)-1), lineNo(0), pParentItem(0) {}
+        expression_list_t() : items(), fileNo((FileSet::file_id_t)-1), lineNo(0), pParentItem(0)
+        {
+            #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+            items.reserve(16);
+            #else
+            #endif
+        }
 
-        expression_list_t(const expression_list_t &l) : items(l.items), fileNo(l.fileNo), lineNo(l.lineNo), pParentItem(l.pParentItem) {}
+        expression_list_t(const expression_list_t &l) : items(l.items), fileNo(l.fileNo), lineNo(l.lineNo), pParentItem(l.pParentItem)
+        {
+        }
 
         expression_list_t& operator=( expression_list_t l )
         {
@@ -59,6 +76,12 @@ struct ExpressionItem
         void clear() { items.clear(); }
         size_type size() const { return items.size(); }
         bool empty() const { return items.empty(); }
+
+        #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+        void reserve(std::size_t sz) { items.reserve(sz); }
+        #else
+        void reserve(std::size_t sz) { items.reserve(sz); }
+        #endif
 
         iterator begin() { return items.begin(); }
         iterator end()   { return items.end(); }
@@ -263,6 +286,13 @@ struct ExpressionItem
 typedef ExpressionItem::expression_list_t   expression_list_t;
 
 
+#if defined(ROBOCONF_PARSE_READ_LIST_EXPRESSION_LIST_STACK_USE_UNDERLYING_VECTOR)
+    using expression_list_stack_type = std:: stack< expression_list_t, std:: vector<expression_list_t> >;
+#else
+    using expression_list_stack_type = std:: stack< expression_list_t >;
+#endif
+
+
 
 
 
@@ -347,7 +377,7 @@ void ExpressionItem::removeCommentLists()
 
 //-----------------------------------------------------------------------------
 inline
-bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt, std::string::size_type &pos, expression_list_t &lst, std::stack< expression_list_t > &listStack )
+bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt, std::string::size_type &pos, expression_list_t &lst, expression_list_stack_type &listStack )
 {
     char quotSign = 0;
     std::string expr;
@@ -546,7 +576,7 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
 inline
 bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt, expression_list_t &lst )
 {
-    std::stack< expression_list_t > listStack;
+    expression_list_stack_type listStack;
     std::string::size_type pos = 0;
     return readList(fileNo, lineNo, txt, pos, lst, listStack );
 }
@@ -588,7 +618,7 @@ readListTextItem( const expression_list_t &lst, expression_list_t::const_iterato
 
 //-----------------------------------------------------------------------------
 inline
-size_t readListToVector( const expression_list_t &lst, std::vector< std::string > &v, bool bUnquote = true )
+size_t readListToVector( const expression_list_t &lst, std:: vector< std::string > &v, bool bUnquote = true )
 {
     expression_list_t::const_iterator it = lst.begin();
     std::string str;
@@ -699,7 +729,7 @@ inline
 bool readListByTemplate( const std::string &tpl
                        , expression_list_t::const_iterator &it
                        , const expression_list_t::const_iterator E
-                       , std::vector< std::string > &readTo
+                       , std:: vector< std::string > &readTo
                        , std::string &expected
                        , std::string &found
                        )
@@ -981,7 +1011,7 @@ bool readListByTemplate( const std::string &tpl
                 return false;
             }
 
-            std::vector< std::string  > values;
+            std:: vector< std::string  > values;
 
             if (it->isList())
             {
@@ -1081,31 +1111,31 @@ enum class ExpressionParsingRuleType
 //-----------------------------------------------------------------------------
 struct ExpressionParsingResultItem //-V730
 {
-    FileSet::file_id_t fileNo = (FileSet::file_id_t)-1;
-    size_t             lineNo = 0;
+    FileSet::file_id_t             fileNo = (FileSet::file_id_t)-1;
+    size_t                         lineNo = 0;
 
-    ExpressionParsingRuleType  ruleType;
+    ExpressionParsingRuleType      ruleType;
 
-    unsigned                   ruleFlags;
+    unsigned                       ruleFlags;
 
     // T
-    std::map< std::string, int > tokenIds;
-    std::map< int, std::string > tokenNames;
-    int                          tokenId;
-    std::string                  token;
-    std::set<std::string>        uncheckedTokens;
+    std::map< std::string, int >   tokenIds;
+    std::map< int, std::string >   tokenNames;
+    int                            tokenId;
+    std::string                    token;
+    std::set<std::string>          uncheckedTokens;
 
     // V
-    std::string                                          singleValue;
+    std::string                                 singleValue;
 
     // A, L, I
-    std::vector<std::string>                             vectorValue;
+    std:: vector<std::string>                   vectorValue;
 
     // E
-    std::vector< std::vector<std::string> >              vectorOfVectorsValue;    // vector of vectors
+    std:: vector< std:: vector<std::string> >   vectorOfVectorsValue;    // vector of vectors
     
     // M
-    std::map< std::string, std::vector<std::string> >    mapOfVectorsValue;    // map of vectors
+    string_string_vector_map_type               mapOfVectorsValue;    // map of vectors
 
 };
 
@@ -1431,7 +1461,7 @@ inline
 ExpressionParsingResult readListByTemplate( const char *pTpl
                        , expression_list_t::const_iterator &it
                        , const expression_list_t::const_iterator E
-                       , std::vector< ExpressionParsingResultItem > &readTo
+                       , std:: vector< ExpressionParsingResultItem > &readTo
                        , std::string &expected
                        , std::string &found
                        , const char* file
@@ -1742,7 +1772,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                           {
                               const expression_list_t &subLst = it->itemList;
                               expression_list_t::const_iterator subIt = subLst.begin();
-                              std::vector<std::string> vec;
+                              std:: vector<std::string> vec; vec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
                               for(; subIt != subLst.end(); ++subIt)
                               {
@@ -1930,7 +1960,7 @@ namespace ListSimpleXPath
 struct PathValues
 {
     std::string               name;
-    std::vector<std::string>  values;
+    std:: vector<std::string>  values;
 
 }; // struct PathValues
 
@@ -2001,7 +2031,7 @@ a//b   - все 'b', являющиеся детьми или потомками
 //-----------------------------------------------------------------------------
 // return true if start from root 
 inline
-bool parseQuery( std::string q, std::vector<XPathEntry> &xpathExpr, bool ci )
+bool parseQuery( std::string q, std:: vector<XPathEntry> &xpathExpr, bool ci )
 {
     if (q.empty())
         return false;
@@ -2019,7 +2049,7 @@ bool parseQuery( std::string q, std::vector<XPathEntry> &xpathExpr, bool ci )
         q.erase(0, 1);
     }
 
-    std::vector<std::string> pathParts;
+    std:: vector<std::string> pathParts;
     splitToVector( q, pathParts, '/' );
 
     bool fDescendant = false;
@@ -2044,7 +2074,7 @@ bool parseQuery( std::string q, std::vector<XPathEntry> &xpathExpr, bool ci )
 
 //-----------------------------------------------------------------------------
 inline
-void collectCandidates( expression_list_t &l, std::vector< expression_list_t* > &candyList, bool bRecurse )
+void collectCandidates( expression_list_t &l, std:: vector< expression_list_t* > &candyList, bool bRecurse )
 {
     for( auto &listEntry : l )
     {
@@ -2065,13 +2095,13 @@ void collectCandidates( expression_list_t &l, std::vector< expression_list_t* > 
 //-----------------------------------------------------------------------------
 template< typename XPathEntryIterator>
 inline
-size_t executeQuery( std::vector< expression_list_t* >   srcLists
+size_t executeQuery( std:: vector< expression_list_t* >   srcLists
                  , XPathEntryIterator b, XPathEntryIterator e
-                 , std::vector< expression_list_t* >   *pRes  = 0
+                 , std:: vector< expression_list_t* >   *pRes  = 0
                  , bool                                caseIgnore = true
                  )
 {
-    std::vector< expression_list_t* > resLists;
+    std:: vector< expression_list_t* > resLists; resLists.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     srcLists.swap(resLists);
 
     //b->axisType   AxisType::child    AxisType::descendant_or_child
@@ -2081,7 +2111,7 @@ size_t executeQuery( std::vector< expression_list_t* >   srcLists
         srcLists.clear();
         srcLists.swap(resLists);
 
-        std::vector< expression_list_t* > candyList;
+        std:: vector< expression_list_t* > candyList; candyList.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
         for( auto pLst : srcLists )
         {
@@ -2141,11 +2171,11 @@ size_t executeQuery( std::vector< expression_list_t* >   srcLists
 inline
 size_t executeQuery( const expression_list_t             &doc
                  , const std::string                   &query
-                 , std::vector< expression_list_t* >   *pRes  = 0
+                 , std:: vector< expression_list_t* >   *pRes  = 0
                  , bool                                 ci = true
                  )
 {
-    std::vector<XPathEntry> xpathExpr;
+    std:: vector<XPathEntry> xpathExpr; xpathExpr.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     bool fromRoot = parseQuery( query, xpathExpr, ci );
 
     expression_list_t *pInputList = (expression_list_t*)&doc;
@@ -2159,7 +2189,7 @@ size_t executeQuery( const expression_list_t             &doc
         }
     }
 
-    std::vector< expression_list_t* > srcLists;
+    std:: vector< expression_list_t* > srcLists; srcLists.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     srcLists.push_back(pInputList);
 
     return executeQuery( srcLists, xpathExpr.begin(), xpathExpr.end(), pRes, ci );

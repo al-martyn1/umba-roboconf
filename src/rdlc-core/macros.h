@@ -3,6 +3,8 @@
 #include <string>
 #include <map>
 #include <set>
+#include <unordered_map>
+#include <unordered_set>
 
 
 struct SimpleMacroNameSymbolsValidator
@@ -52,12 +54,12 @@ struct RegexMacroNameSymbolsValidator
 
 template< typename TNameCharChecker >
 std::string macroExpandString( const std::string &text
-                             , const std::map< std::string, std::string > &macros
+                             , const std::unordered_map< std::string, std::string > &macros
                              , const TNameCharChecker &nameCharChecker
                              , const std::string &syntax 
                              , const std::string &unknownPrefix
                              , const std::string &recursePrefix
-                             , const std::set<std::string> &usedMacros
+                             , const std::unordered_set<std::string> &usedMacros
                              )
 {
        std::string res;
@@ -135,7 +137,7 @@ std::string macroExpandString( const std::string &text
                                                    else
                                                    {
                                                            // known macro, expand it itself before insertion
-                                                           std::set<std::string> usedMacrosCopy = usedMacros;
+                                                           std::unordered_set<std::string> usedMacrosCopy = usedMacros;
                                                            usedMacrosCopy.insert(nameBuf);
                                                            res.append( macroExpandString( mit->second
                                                                                         , macros
@@ -199,6 +201,19 @@ std::string macroExpandString( const std::string &text
 
 template< typename TNameCharChecker = SimpleMacroNameSymbolsValidator >
 std::string macroExpandString( const std::string &text
+                             , const std::unordered_map< std::string, std::string > &macros
+                             , const TNameCharChecker &nameCharChecker = SimpleMacroNameSymbolsValidator()
+                             , const std::string &syntax = "$()"
+                             , const std::string &unknownPrefix = "<UNKNOWN>"
+                             , const std::string &recursePrefix = "<RECURSE>"
+                             )
+{
+       std::unordered_set<std::string> usedMacros;
+       return macroExpandString( text, macros, nameCharChecker, syntax, unknownPrefix, recursePrefix, usedMacros );
+}
+
+template< typename TNameCharChecker = SimpleMacroNameSymbolsValidator >
+std::string macroExpandString( const std::string &text
                              , const std::map< std::string, std::string > &macros
                              , const TNameCharChecker &nameCharChecker = SimpleMacroNameSymbolsValidator()
                              , const std::string &syntax = "$()"
@@ -206,9 +221,24 @@ std::string macroExpandString( const std::string &text
                              , const std::string &recursePrefix = "<RECURSE>"
                              )
 {
-       std::set<std::string> usedMacros;
-       return macroExpandString( text, macros, nameCharChecker, syntax, unknownPrefix, recursePrefix, usedMacros );
+       std::unordered_set<std::string> usedMacros;
+
+       std::unordered_map< std::string, std::string > uMacros;
+       for(const auto &kv : macros)
+       {
+           uMacros[kv.first] = kv.second;
+       }
+
+       return macroExpandString( text, uMacros, nameCharChecker, syntax, unknownPrefix, recursePrefix, usedMacros );
 }
+
+
+
+// std::string macroExpandString( const std::string &text
+//                              , const std::unordered_map< std::string, std::string > &macros
+
+
+
 
 /*
 

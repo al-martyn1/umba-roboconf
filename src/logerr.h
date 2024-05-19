@@ -14,6 +14,8 @@
 #include "rdlc-core/log.h"
 #include "roboconf_options.h"
 
+#include <stdio.h>
+
 inline
 umba::SimpleFormatter& startLogMessage( RoboconfOptions         &rbcOpts
                                       , LogEntryType            logEntryType
@@ -96,6 +98,15 @@ umba::SimpleFormatter& startLogMessage( RoboconfOptions         &rbcOpts
         }
 
         s<<normal<<" ";
+    }
+
+    //if (logEntryType==LogEntryType::err && rbcOpts.pauseOnError)
+    {
+        //#if defined(UMBA_MSVC_COMPILER_USED)
+
+        //getchar();
+
+        //#endif
     }
 
     return s;

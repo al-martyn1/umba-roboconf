@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <unordered_map>
 #include <vector>
 #include <string>
 
@@ -45,9 +46,16 @@ struct PackageAssignRule //-V730
 
 class PackagesDb
 {
-    std::map< std::string, PackageInfo >  packages;
-    std::vector< PackageAssignRule >      assignRules;
-    //PackageAssignRules                    assignRules
+
+    #if defined(ROBOCONF_PACKAGES_DB_USE_UNORDERED_MAP)
+        using package_info_map_type = std::unordered_map< std::string, PackageInfo >;
+    #else
+        using package_info_map_type = std::map< std::string, PackageInfo >;
+    #endif
+
+    package_info_map_type               packages;
+    std:: vector< PackageAssignRule >   assignRules;
+    //PackageAssignRules                 assignRules
 
 public:
 
