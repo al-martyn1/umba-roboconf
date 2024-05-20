@@ -121,15 +121,15 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
                 std::string target = "_blank";
 
                 if (!datasheetLink.empty())
-                    os<<makeIconLink( datasheetLink, iconLink, "Datasheet", "Datasheet", target );
+                    os<<" "<<makeIconLink( datasheetLink, iconLink, "Datasheet", "Datasheet", target );
                     //os << "<a title=\"Datasheet\" href=\"" << datasheetLink << "\"><img src=\"" << iconLink << "\" alt=\"Datasheet\"></a>";
 
                 if (!refmanLink.empty())
-                    os<<makeIconLink( refmanLink, iconLink, "Reference manual", "Reference manual", target );
+                    os<<" "<<makeIconLink( refmanLink, iconLink, "Reference manual", "Reference manual", target );
                     //os << "<a title=\"Reference manual\" href=\"" << refmanLink << "\"><img src=\"" << iconLink << "\" alt=\"Reference manual\"></a>";
 
                 if (!errataLink.empty())
-                    os<<makeIconLink( errataLink, iconLink, "Errata", "Errata", target );
+                    os<<" "<<makeIconLink( errataLink, iconLink, "Errata", "Errata", target );
                     //os << "<a title=\"Errata\" href=\"" << errataLink << "\"><img src=\"" << iconLink << "\" alt=\"Errata\"></a>";
                 
                 os<<"</td>";

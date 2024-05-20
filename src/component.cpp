@@ -164,7 +164,7 @@ void ComponentInfo::addPinFunctionMatch( const pin_function_match_t & match)
 //-----------------------------------------------------------------------------
 bool ComponentInfo::isPackageAny() const
 {
-	if (package == "<ANY>" || package == "<any>" || package == "*")
+	if ( /* package.empty() ||  */ package == "<ANY>" || package == "<any>" || package == "*")
 		return true;
     else
 		return false; // Раньше тут возвращалось true
@@ -173,7 +173,7 @@ bool ComponentInfo::isPackageAny() const
 //-----------------------------------------------------------------------------
 bool ComponentInfo::isPackageCompatible(RoboconfOptions &rbcOpts, const ComponentInfo &ci ) const
 {
-	if (isPackageAny())
+	if (package.empty() || isPackageAny())
 		return true;
 
 	if (rbcOpts.packagesDb.getCanonicalPackageName(package) == rbcOpts.packagesDb.getCanonicalPackageName(ci.package))
@@ -185,8 +185,8 @@ bool ComponentInfo::isPackageCompatible(RoboconfOptions &rbcOpts, const Componen
 //-----------------------------------------------------------------------------
 void ComponentInfo::merge( RoboconfOptions &rbcOpts, const ComponentInfo &ci )
 {
-    if (!isPackageCompatible(rbcOpts, ci))
-        return;
+    // if (!isPackageCompatible(rbcOpts, ci))
+    //     return;
 
     if (package.empty() || isPackageAny())
        package = ci.package;

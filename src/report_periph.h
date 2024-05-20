@@ -234,13 +234,13 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                             std::string target = "_blank";
                    
                             if (!datasheetLink.empty())
-                                os<<makeIconLink( datasheetLink, iconLink, "Datasheet", "Datasheet", target );
+                                os<<" "<<makeIconLink( datasheetLink, iconLink, "Datasheet", "Datasheet", target );
                            
                             if (!refmanLink.empty())
-                                os<<makeIconLink( refmanLink, iconLink, "Reference manual", "Reference manual", target );
+                                os<<" "<<makeIconLink( refmanLink, iconLink, "Reference manual", "Reference manual", target );
                            
                             if (!errataLink.empty())
-                                os<<makeIconLink( errataLink, iconLink, "Errata", "Errata", target );
+                                os<<" "<<makeIconLink( errataLink, iconLink, "Errata", "Errata", target );
                    
                             std::string dstComponentTypeModified = conn.processedStrings["UNITTYPE"];
                             if (conn.dstComponentInfo.typeName!=dstComponentTypeModified)
