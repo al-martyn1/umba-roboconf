@@ -1,8 +1,8 @@
 @if "%LOCAL_DATASHEETS_PATH%"=="" goto ERR
 
-xcopy /E /Y /I %~dp0\..\datasheets\*.*     %LOCAL_DATASHEETS_PATH%\
+@xcopy /E /Y /I %~dp0\..\datasheets\*.*     %LOCAL_DATASHEETS_PATH%\
 
-goto END
+@goto END
 
 :ERR
 @echo LOCAL_DATASHEETS_PATH is not set

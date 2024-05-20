@@ -1,4 +1,4 @@
-@call scripts\detect_compiled_path.bat
+@call %~dp0\scripts\detect_compiled_path.bat
 @echo RBC_COMPILED_BIN_PATH: %RBC_COMPILED_BIN_PATH%
 
 @if "%RBC_COMPILED_BIN_PATH%"=="" @goto ERR
@@ -9,7 +9,7 @@
 @call %~dp0\scripts\deploy_conf_impl.bat
 @call %~dp0\scripts\deploy_libs_impl.bat
 @call %~dp0\scripts\deploy_rules_impl.bat
-@call %~dp0\scripts\deploy_binaries.bat
+@rem call %~dp0\scripts\deploy_binaries.bat
 @goto END
 
 :ERR

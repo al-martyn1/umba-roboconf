@@ -1,8 +1,8 @@
 @if "%RBC_ROOT%"=="" goto ERR
 
-xcopy /E /Y /I %~dp0\..\conf\*.*     %RBC_ROOT%\conf
+@xcopy /E /Y /I %~dp0\..\conf\*.*     %RBC_ROOT%\conf
 
-goto END
+@goto END
 
 :ERR
 @echo RBC_ROOT is not set

@@ -61,6 +61,11 @@ set(PRJ_ROOT ${PROJECT_SOURCE_DIR})
 set(SRC_ROOT ${PRJ_ROOT}/src)
 set(LIBS_ROOT ${PRJ_ROOT}/_libs)
 
+if(WIN32)
+    cmake_path(CONVERT ${PRJ_ROOT} TO_NATIVE_PATH_LIST WIN32_PRJ_ROOT)
+endif()
+
+
 
 include_directories(
   "${LIBS_ROOT}"
@@ -95,6 +100,13 @@ add_executable(roboconf
     "${SRC_ROOT}/roboconf.cpp"
     )
 target_link_libraries(roboconf ws2_32 iphlpapi shell32)
+
+if(WIN32)
+  add_custom_command(TARGET roboconf
+                     POST_BUILD
+                     COMMAND cmd /c ${WIN32_PRJ_ROOT}\\deploy_for_debug.bat)
+endif()
+
 
 
 #target_compile_definitions(umba-md-pp-view-console PRIVATE "UMBA_MD_PP_VIEW_CONSOLE")
