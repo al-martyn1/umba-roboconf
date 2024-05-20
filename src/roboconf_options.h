@@ -195,7 +195,11 @@ public:
     extractComponentClassDetectionRule( const expression_list_t & listRule );
 
     bool 
-    readComponentClassDetectionRules( const std::string &inputFilename, const std:: vector<std::string> &rulesPaths, const std::string &netlistType );
+    readComponentClassDetectionRules( const std::string &inputFilename
+                                    , const std:: vector<std::string> &rulesPaths
+                                    , const std::string &netlistType
+                                    , bool readQuet
+                                    );
 
 
     //--- Grouping rules parsing

@@ -1034,16 +1034,19 @@ int safe_main(int argc, char* argv[])
 
     // Из нагенеренных имен файлов пытаемся что-то прочитать в описания компонентов
     std::vector< ComponentInfo > components;
+    std::set<std::string> readedLibFileNames;
 
-    // Read 
+    // Read components from library
+
+    auto updateComponentsFromLibrary = [&]()
     {
-        std::set<std::string> readedNames;
+        
        
         for( auto libFileName : libFiles)
         {
             LOG_MSG("search-lib-log")<<"Lookup for: "<<libFileName<<"\n";
             
-            if (readedNames.find(libFileName)!=readedNames.end())
+            if (readedLibFileNames.find(libFileName)!=readedLibFileNames.end())
                 continue;
        
             std::string fullName = libFileName + std::string(".cmp");
@@ -1060,7 +1063,7 @@ int safe_main(int argc, char* argv[])
                 continue;
             }
        
-            readedNames.insert(libFileName);
+            readedLibFileNames.insert(libFileName);
 
             LOG_MSG("search-lib-success")<<"+ found: "<<foundName<<"\n";
 
@@ -1071,12 +1074,16 @@ int safe_main(int argc, char* argv[])
             // break; // нашли, зачем ещё что-то продолжать?
         }
 
-        if (verboseLibSearch)
-        {
-            LOG_MSG("search-lib-summary")<<"Total lib files checked : "<<libFiles.size()<<"\n";
-            LOG_MSG("search-lib-summary")<<"Found unique lib files  : "<<readedNames.size()<<"\n";
-        }
+    };
 
+
+    updateComponentsFromLibrary();
+    //libFiles.clear();
+
+    if (verboseLibSearch)
+    {
+        LOG_MSG("search-lib-summary")<<"Total lib files checked : "<<libFiles.size()<<"\n";
+        LOG_MSG("search-lib-summary")<<"Found unique lib files  : "<<readedLibFileNames.size()<<"\n";
     }
 
 

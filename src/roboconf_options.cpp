@@ -178,8 +178,14 @@ ExpressionParsingResult RoboconfOptions::extractComponentClassDetectionRule( con
 }
 
 //-----------------------------------------------------------------------------
-bool RoboconfOptions::readComponentClassDetectionRules( const std::string &inputFilename, const std:: vector<std::string> &rulesPaths, const std::string &netlistType  )
+bool RoboconfOptions::readComponentClassDetectionRules( const std::string &inputFilename
+                                                      , const std:: vector<std::string> &rulesPaths
+                                                      , const std::string &netlistType
+                                                      , bool readQuet
+                                                      )
 {
+    readQuet = false;
+
     std::string lookupForName = "default_classes.rul";
 
     if (componentsClassDetectionRulesName.empty())
@@ -207,7 +213,10 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
     std::ifstream rulesStream;
     if ( !includeSearch( rulesStream, lookupForName, foundName, makeIncVectorFromFileName(inputFilename), /* <= swap to change lookup order => */ rulesPaths ) )
     {
-        LOG_ERR_OPT<<"component class detection rules file '"<<lookupForName<<"' not found (detect rules: '"<<componentsClassDetectionRulesName<<"')\n";
+        if (!readQuet)
+        {
+            LOG_ERR_OPT<<"component class detection rules file '"<<lookupForName<<"' not found (detect rules: '"<<componentsClassDetectionRulesName<<"')\n";
+        }
         if (componentsClassDetectionRulesName == "<default>")
             componentsClassDetectionRulesName.clear();
         return false;
@@ -222,7 +231,10 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
 	size_t lineNo = 0;
     if ( !readList(fileNo, lineNo, rulesStream, lst ) )
     {
-        LOG_ERR<<"failed to read rules file '"<<foundName<<"'\n";
+        if (!readQuet)
+        {
+            LOG_ERR<<"failed to read rules file '"<<foundName<<"'\n";
+        }
         return false;
     }
     rulesStream.close();

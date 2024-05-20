@@ -105,7 +105,7 @@ struct Connection //-V730
 
     std:: vector<std::string> getTitleParts()
     {
-        return splitComponentName( processedStrings["MCUNET"], false, false );
+        return splitComponentName( processedStrings["MCUNET"], 0, false, false );
     }
 
     void splitMcuNetMakeTokens( )

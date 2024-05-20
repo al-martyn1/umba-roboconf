@@ -764,7 +764,7 @@ bool netlistRead( RoboconfOptions &rbcOpts
     // inputFilename
     // rbcOpts.getFileName(fileNo)
 
-    if (!rbcOpts.readComponentClassDetectionRules( rbcOpts.getFileName(fileNo), rbcOpts.rulesPaths, getNetlistSrcTypeName(netlistType)) )
+    if (!rbcOpts.readComponentClassDetectionRules( rbcOpts.getFileName(fileNo), rbcOpts.rulesPaths, getNetlistSrcTypeName(netlistType), true /* readQuet */ ) )
         return false;
 
 
