@@ -610,6 +610,11 @@ int safe_main(int argc, char* argv[])
         rules.insert( rules.begin(), std::string("default.rul") );
         rules.insert( rules.begin(), std::string("default_power.rul") );
         rules.insert( rules.begin(), std::string("default_packages.rul") );
+
+        if (rbcOpts.componentsClassDetectionRulesFiles.empty())
+        {
+            rbcOpts.componentsClassDetectionRulesFiles.emplace_back("default_classes.rul");
+        }
     }
 
     /*
