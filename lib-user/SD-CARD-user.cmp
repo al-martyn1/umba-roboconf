@@ -2,6 +2,8 @@
     (description "Generic SD Card")
     (purpose "FLASH:SPI")
     (datasheet "https://ru.wikipedia.org/wiki/Secure_Digital")
+    (-- https://en.wikipedia.org/wiki/SD_card )
+    (-- https://habr.com/ru/articles/495400/ )
     (package "*")
     (pin "1" "SPI Card Select [CS] (Negative logic)" ("NC1" "NC-1BIT" "DAT3" "nCS" "IN" "GPIO") )
     (pin "2" "SPI Serial Data In [MOSI]" ("CMD" "DI" "IN" "GPIO" "MOSI") )
