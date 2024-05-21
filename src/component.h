@@ -35,6 +35,7 @@
 
 //-----------------------------------------------------------------------------
 std:: vector<std::string> generateComponentNames( std::string cmpName, const std::string &cmpPackage = std::string(), const std::string &cmpUserSuffix = std::string() );
+std::string filterPinNameNegation( std::string str );
 
 //-----------------------------------------------------------------------------
 
@@ -480,8 +481,14 @@ bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const Co
         std:: vector<std::string> pinFunctionsTmp; pinFunctionsTmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
         splitToVector(strFunctions, pinFunctionsTmp, ' ');
         trim(pinFunctionsTmp);
+
+        for(auto &pinFunc : pinFunctionsTmp)
+        {
+            pinFunc = filterPinNameNegation(pinFunc);
+        }
         
         pinFunctionsTmp.erase( std::remove(pinFunctionsTmp.begin(), pinFunctionsTmp.end(), std::string() ), pinFunctionsTmp.end() );
+
         pinInfo.pinFunctions.insert(pinFunctionsTmp.begin(), pinFunctionsTmp.end());
 
         //pinInfo.pinFunctions.erase( std::remove( pinInfo.pinFunctions.begin(), pinInfo.pinFunctions.end(), std::string() ), pinInfo.pinFunctions.end() );
@@ -1290,14 +1297,20 @@ bool pinFunctionIsContain( const std::set<std::string> &longPinFunction, const C
 inline
 std::string filterPinNameNegation( std::string str )
 {
+    bool hasTilde = false;
+
     std::string res;
     size_t bslCnt = 0;
     for( auto ch : str )
     {
         if (ch=='\\')
            bslCnt++;
-        else
-           res.append(1,ch);
+        else 
+        {
+            if (ch=='~')
+                hasTilde = true;
+            res.append(1,ch);
+        }
     }
 
     //int delta = ((int)res.size()) - ((int)bslCnt);
@@ -1305,7 +1318,9 @@ std::string filterPinNameNegation( std::string str )
     //   delta = -delta;
 
     if (bslCnt)
-        return std::string("~") + res;
+    {
+        return hasTilde ? res : std::string("~") + res;
+    }
 
     std::string regexRes;
 
