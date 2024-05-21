@@ -43,6 +43,8 @@ public:
         rbcOpts.msgDetailLevels.addToDetailGroup( "data-dump", "data-dump-short" );
 
 
+        rbcOpts.msgDetailLevels.addToDetailGroup( "cls-rul-files", "cls-rul-file-found" );
+
         //rbcOpts.msgDetailLevels.addToDetailGroup( "conf", "conf-dump" );
 
         rbcOpts.msgDetailLevels.addToDetailGroup( "net", "net-chkstp" );
@@ -86,8 +88,11 @@ public:
         
         
         rbcOpts.msgDetailLevels.addToDetailGroup( "1", "input" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "1", "cls-rul-files" );
 
         rbcOpts.msgDetailLevels.addToDetailGroup( "1", "timing" );
+
+        
 
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "search" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "search-lib" );

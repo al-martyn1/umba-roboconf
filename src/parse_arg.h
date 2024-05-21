@@ -424,13 +424,14 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
         {
             if (hasHelpOption) return 0;
 
-            if (!opt.hasArg())
+            if (!opt.hasArg() || opt.optArg.empty())
             {
                 LOG_ERR_OPT<<"class detection rules name not taken (--class-rules)\n";
                 return -1;
             }
 
-            rbcOpts.componentsClassDetectionRulesName = opt.optArg;
+            //rbcOpts.componentsClassDetectionRulesName = opt.optArg;
+            componentsClassDetectionRulesFiles.emplace_back(opt.optArg);
 
         }
         else if (opt.isOption("rules") /*  || opt.isOption('L') */ || opt.setParam("RULES") || opt.setDescription("Set rules") )

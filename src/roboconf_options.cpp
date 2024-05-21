@@ -186,6 +186,67 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
 {
     readQuet = false;
 
+    //TODO: !!!
+
+    /* Сейчас у нас можно задать только один файл с правилами детекта класса компонента.
+       То, что я пишу в кастомном .rul для классов, он не работает, на самом деле.
+       А вообще, надо бы вектор .rul файлов, при этом файлы, добавленные последними, обрабатываются первыми.
+       Так делаем для того, чтобы пользовательские правила срабатывали раньше предопределенных.
+       Также сделаем чтение не задаваемого явно файла с правилами, имеющим тот же путь и имя файла (без расширения),
+       что и входной NET-файл, для файла 'path/to/ne/file/file.NET' это будет 'path/to/ne/file/file-classes.rul'.
+       Текущий каталог не будет добавлять в пути поиска файлов.
+
+       Правила считываются в опции текущего RoboconfOptions - надо очищать при обработке новой сети
+
+     */
+
+    std:: vector<std::string> rulesFiles = componentsClassDetectionRulesFiles;
+    std::reverse(rulesFiles.begin(), rulesFiles.end());
+
+    //std::string getPath( const std::string &s )
+    //std::string getPathName( const std::string &s )
+
+    std::string implicitClassRulesFileName = getPathName(inputFilename) + "-classes.rul";
+
+    std::ifstream rulesStream;
+
+    expression_list_t allExpressionsList;
+
+
+    rulesStream.open( implicitClassRulesFileName.c_str() );
+    if (!!rulesStream)
+    {
+        LOG_MSG("cls-rul-file-found")<< "Found component class rules file: " << implicitClassRulesFileName << "\n";
+
+        FileSet::file_id_t fileNo = usedFiles.getFileId(implicitClassRulesFileName);
+        size_t lineNo = 0;
+        expression_list_t lst;
+        if ( !readList(fileNo, lineNo, rulesStream, lst ) )
+        {
+            //if (!readQuet)
+            {
+                LOG_ERR<<"failed to read rules file '"<<implicitClassRulesFileName<<"'\n";
+            }
+            return false;
+        }
+        rulesStream.close();
+        rulesStream.clear();
+
+        allExpressionsList = lst;
+    }
+
+    // Тут мы прочитали имплиситный файл рядом со входным, теперь читаем то, что задано через командную строку.
+    // Эти файлы мы будем читать в путях поиска правил, через includeSearch.
+
+    
+    //appendPath( )
+
+
+
+    //std:: vector<std::string>                   
+
+
+    #if 0
     std::string lookupForName = "default_classes.rul";
 
     if (componentsClassDetectionRulesName.empty())
@@ -256,6 +317,7 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
     //----------
 
     return extractComponentClassDetectionRules( lst, netlistType );
+    #endif
 }
 
 //-----------------------------------------------------------------------------
