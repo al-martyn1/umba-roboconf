@@ -104,6 +104,12 @@ struct ExpressionItem
         template<typename Iter>
         void insert( iterator pos, Iter b, Iter e ) { items.insert(pos, b, e); }
 
+        void append_expression_list(const expression_list_t &exprList)
+        {
+            insert(items.end(), exprList.items.begin(), exprList.items.end());
+        }
+        
+
 
         size_t getMaxNestedListLevel() const
         {

@@ -149,7 +149,7 @@ public:
     LogOptions                                  logOptions;
     DetailLevels                                msgDetailLevels;
     std:: vector<std::string>                   componentsClassDetectionRulesFiles;
-    std::string                                 componentsClassDetectionRulesName;  //!!!
+    //std::string                                 componentsClassDetectionRulesName;  //!!!
     std:: vector< ComponentClassDetectionRule > componentsClassDetectionRules;
     std:: vector<ForceGroupingRule>             groupingRules;
 

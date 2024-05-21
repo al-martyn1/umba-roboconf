@@ -200,50 +200,86 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
 
      */
 
-    std:: vector<std::string> rulesFiles = componentsClassDetectionRulesFiles;
-    std::reverse(rulesFiles.begin(), rulesFiles.end());
-
     //std::string getPath( const std::string &s )
     //std::string getPathName( const std::string &s )
 
-    std::string implicitClassRulesFileName = getPathName(inputFilename) + "-classes.rul";
-
-    std::ifstream rulesStream;
+    RoboconfOptions &rbcOpts = *this; // Для макросов логгирования
 
     expression_list_t allExpressionsList;
 
-
-    rulesStream.open( implicitClassRulesFileName.c_str() );
-    if (!!rulesStream)
     {
-        LOG_MSG("cls-rul-file-found")<< "Found component class rules file: " << implicitClassRulesFileName << "\n";
-
-        FileSet::file_id_t fileNo = usedFiles.getFileId(implicitClassRulesFileName);
-        size_t lineNo = 0;
-        expression_list_t lst;
-        if ( !readList(fileNo, lineNo, rulesStream, lst ) )
+        //std::string implicitClassRulesFileName = getPathName(inputFilename) + "-classes.rul";
+        std::string implicitClassRulesFileName = getPathName(inputFilename) + ".classes";
+        std::ifstream rulesStream;
+        rulesStream.open( implicitClassRulesFileName.c_str() );
+        if (!!rulesStream)
         {
-            //if (!readQuet)
+            LOG_MSG("cls-rul-file-found")<< "Found component class rules file: " << implicitClassRulesFileName << "\n";
+    
+            FileSet::file_id_t fileNo = usedFiles.getFileId(implicitClassRulesFileName);
+            size_t lineNo = 0;
+            expression_list_t lst;
+            if ( !readList(fileNo, lineNo, rulesStream, lst ) )
             {
-                LOG_ERR<<"failed to read rules file '"<<implicitClassRulesFileName<<"'\n";
+                //if (!readQuet)
+                {
+                    LOG_ERR<<"failed to read rules file '"<<implicitClassRulesFileName<<"'\n";
+                }
+                return false;
             }
-            return false;
+            rulesStream.close();
+            rulesStream.clear();
+    
+            allExpressionsList = lst;
         }
-        rulesStream.close();
-        rulesStream.clear();
-
-        allExpressionsList = lst;
     }
 
     // Тут мы прочитали имплиситный файл рядом со входным, теперь читаем то, что задано через командную строку.
     // Эти файлы мы будем читать в путях поиска правил, через includeSearch.
 
-    
-    //appendPath( )
+    std:: vector<std::string> rulesFiles = componentsClassDetectionRulesFiles;
+    std::reverse(rulesFiles.begin(), rulesFiles.end());
+
+    auto inputFileIncPathsVector = makeIncVectorFromFileName(inputFilename);
+
+    std:: vector<std::string>::const_iterator rfIt = rulesFiles.begin();
+    for(; rfIt!=rulesFiles.end(); rfIt++)
+    {
+        std::string foundName;
+        std::ifstream rulesStream;
+        if (!includeSearch( rulesStream, *rfIt, foundName, inputFileIncPathsVector, /* <= swap to change lookup order => */ rulesPaths ))
+        {
+            //if (!readQuet)
+            {
+                LOG_ERR_OPT<<"component class detection rules file '"<<*rfIt<<"' not found\n"; // " (detect rules: '"<<componentsClassDetectionRulesName<<"')\n";
+            }
+            // if (componentsClassDetectionRulesName == "<default>")
+            //     componentsClassDetectionRulesName.clear();
+            return false;
+        }
+
+        LOG_MSG("cls-rul-file-found")<< "Found component class rules file: " << *rfIt << "\n";
 
 
+        expression_list_t lst;
+        
+        FileSet::file_id_t fileNo = usedFiles.getFileId(foundName);
+        size_t lineNo = 0;
+        if ( !readList(fileNo, lineNo, rulesStream, lst ) )
+        {
+            //if (!readQuet)
+            {
+                LOG_ERR<<"failed to read rules file '"<<foundName<<"'\n";
+            }
+            return false;
+        }
+        rulesStream.close();
 
-    //std:: vector<std::string>                   
+        allExpressionsList.append_expression_list(lst);
+    }
+
+
+    removeCommentExpressionLists( allExpressionsList );
 
 
     #if 0
@@ -316,8 +352,12 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
 
     //----------
 
-    return extractComponentClassDetectionRules( lst, netlistType );
     #endif
+
+    componentsClassDetectionRules.clear(); // Очищаем то, что могло остаться от предыдущих цепей
+
+    return extractComponentClassDetectionRules( allExpressionsList, netlistType );
+    
 }
 
 //-----------------------------------------------------------------------------

@@ -431,7 +431,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
             }
 
             //rbcOpts.componentsClassDetectionRulesName = opt.optArg;
-            componentsClassDetectionRulesFiles.emplace_back(opt.optArg);
+            rbcOpts.componentsClassDetectionRulesFiles.emplace_back(opt.optArg);
 
         }
         else if (opt.isOption("rules") /*  || opt.isOption('L') */ || opt.setParam("RULES") || opt.setDescription("Set rules") )
