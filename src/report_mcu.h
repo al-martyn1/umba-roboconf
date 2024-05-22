@@ -111,6 +111,14 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
                 if (!processConnectionModifyRules( rbcOpts,  connectionList, processingRules ))
                     return false;
 
+                std::sort( connectionList.begin(), connectionList.end()
+                         , [](const Connection &c1, const Connection &c2)
+                           {
+                               return designatorPinNamesLess(c1.srcPinDesignator, c2.srcPinDesignator);
+                           }
+                         //  designatorPinNamesLess
+                         );
+
 
                 //groupConnectionsBySheet(connectionList);
 

@@ -72,10 +72,10 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
            
             std::vector< std::string > designators;
 
-            std::sort(designators.begin(), designators.end(), designatorPinNamesLess );
-           
             netlistInfo.traverseComponents( ComponentDesignatorsCollector(designators), reportComponentClasses, allowProcessAssemblies );
 
+            std::sort(designators.begin(), designators.end(), designatorPinNamesLess );
+           
             os<<"<table border=\"0\" cellspacing=\"2\" cellpadding=\"5\" >\n";
             os<<"<thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Purpose</th><th>Sheet</th><th>Description</th></tr></thead>\n";
             // << <th></th>

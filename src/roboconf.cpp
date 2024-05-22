@@ -359,10 +359,13 @@ int safe_main(int argc, char* argv[])
         // args.emplace_back("-V=-net-chkstp-not-matched");
         // args.emplace_back("-V=-cls-chk-not-matched");
 
-        args.emplace_back("--report=periph");
+        //args.emplace_back("--report=periph");
+        //args.emplace_back("--report=mcu");
+        args.emplace_back("--report=summary");
         args.emplace_back("--rules=" + rootPath + "/tests/rules/es.rul");
         args.emplace_back(rootPath + "/data/nets/ES.NET");
         args.emplace_back(rootPath + "/tests/es/summary.html");
+        //args.emplace_back(rootPath + "/tests/es/mcu.html");
 
         //args.emplace_back("");
     }
