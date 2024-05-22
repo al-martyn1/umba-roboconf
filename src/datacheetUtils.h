@@ -53,4 +53,41 @@ bool isDatacheetAbsFileName(std::string name)
     #endif
 }
 
+//----------------------------------------------------------------------------
+inline
+int compareDatasheetFilenamesNetworkOrLocal(const std::string &name1, const std::string &name2)
+{
+    bool n1 = isDatasheetNetworkLink(name1);
+    bool n2 = isDatasheetNetworkLink(name2);
+
+    if (n1==n2)
+        return 0;
+
+    if (!n1) // не сетевой - он меньше
+        return -1;
+
+    return 1;
+}
+
+//----------------------------------------------------------------------------
+inline
+bool datasheetFilenamesNetworkOrLocalLess(const std::string &name1, const std::string &name2)
+{
+    int cmp = compareDatasheetFilenamesNetworkOrLocal(name1, name2);
+    return cmp < 0;
+}
+
+
+// //----------------------------------------------------------------------------
+// template< typename T, typename Pred >
+// typename std::vector<T>::iterator
+//     insert_sorted( std::vector<T> & vec, T const& item, Pred pred )
+// {
+//     return vec.insert
+//         ( 
+//            std::upper_bound( vec.begin(), vec.end(), item, pred ),
+//            item 
+//         );
+// }
+
 
