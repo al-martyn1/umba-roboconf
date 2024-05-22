@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include "pinUtils.h"
 
 struct IReportGenerator
 {

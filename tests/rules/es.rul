@@ -37,7 +37,7 @@
 
 (connect device "SN65HVD1780" as "DD"
     ("RO"     to "X1.7")   (--  Receive data output to UART8_Rx )
-    ("R\E\" to "X1.5")   (--  Receiver enable low to UART8_nRxEN)
+    ("~RE"    to "X1.5")   (--  Receiver enable low to UART8_nRxEN)
     ("DI"     to "X1.8")   (--  Driver data input to UART8_Tx )
     ("DE"     to "X1.6")   (--  Driver enable high UART8_TxEN)
 )

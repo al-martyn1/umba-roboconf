@@ -68,6 +68,8 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
 
             findStartConnectionsDesignators( netlistInfo, "MCU" /* purpose */ , mcuDesignators );
 
+            std::sort(mcuDesignators.begin(), mcuDesignators.end(), designatorPinNamesLess );
+
             for( auto curMcuD : mcuDesignators )
             {
                 auto componentKV = netlistInfo.components.find(curMcuD);

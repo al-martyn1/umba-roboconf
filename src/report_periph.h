@@ -68,6 +68,8 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
 
             findStartConnectionsDesignators( netlistInfo, "MCU" /* purpose */ , mcuDesignators );
 
+            std::sort(mcuDesignators.begin(), mcuDesignators.end(), designatorPinNamesLess );
+
             //size_t processedMcus = 0;
 
             for( auto curMcuD : mcuDesignators )

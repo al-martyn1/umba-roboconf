@@ -71,6 +71,8 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
             bool allowProcessAssemblies = false;//true;
            
             std::vector< std::string > designators;
+
+            std::sort(designators.begin(), designators.end(), designatorPinNamesLess );
            
             netlistInfo.traverseComponents( ComponentDesignatorsCollector(designators), reportComponentClasses, allowProcessAssemblies );
 

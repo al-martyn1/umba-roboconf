@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27.0)
+cmake_minimum_required(VERSION 3.17.0)
 project(roboconf VERSION 0.9.0 LANGUAGES C CXX)
 #set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}\bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
@@ -62,7 +62,9 @@ set(SRC_ROOT ${PRJ_ROOT}/src)
 set(LIBS_ROOT ${PRJ_ROOT}/_libs)
 
 if(WIN32)
-    cmake_path(CONVERT ${PRJ_ROOT} TO_NATIVE_PATH_LIST WIN32_PRJ_ROOT)
+    # Not exist in 3.17
+    #cmake_path(CONVERT ${PRJ_ROOT} TO_NATIVE_PATH_LIST WIN32_PRJ_ROOT)
+    file(TO_NATIVE_PATH "${PRJ_ROOT}" WIN32_PRJ_ROOT)
 endif()
 
 
