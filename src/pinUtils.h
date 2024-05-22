@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 
 
@@ -134,7 +135,11 @@ int compareDesignatorPinNames(const std::string &name1, const std::string &name2
 inline
 bool designatorPinNamesLess(const std::string &name1, const std::string &name2)
 {
-    return compareDesignatorPinNames(name1, name2) < 0;
+    auto res = compareDesignatorPinNames(name1, name2);
+    
+    // std::cout << "Comparing '" << name1 << "' and '" << name2 << "': " << res << "\n";
+     
+    return res < 0;
 }
  
 

@@ -254,10 +254,15 @@ int safe_main(int argc, char* argv[])
         //  
         // UMBA_USED(cmp);
 
-        std:: vector<std::string> names        = { "U34", "Q17", "U23", "DD2", "U26", "U32", "U3", "DD1", "U25", "U31", "U33", "U2", "U1" };
-        std:: vector<std::string> sortedNames  = names;
-
-        std::sort(sortedNames.begin(), sortedNames.end(), designatorPinNamesLess );
+        // std:: vector<std::string> names        = { "U34", "Q17", "U23", "DD2", "U26", "U32", "U3", "DD1", "U25", "U31", "U33", "U2", "U1" };
+        // std:: vector<std::string> sortedNames  = names;
+        //  
+        // std::sort(sortedNames.begin(), sortedNames.end(), designatorPinNamesLess );
+        //  
+        // for(auto v: sortedNames)
+        // {
+        //     std::cout << v << "\n";
+        // }
 
     }
 
