@@ -1,0 +1,4 @@
+Зефир - опен сорц эмбед - https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+Devicetree - https://www.devicetree.org/
+Нужна чоколатка - https://chocolatey.org/install
+  https://docs.chocolatey.org/en-us/choco/setup#non-administrative-install
