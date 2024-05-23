@@ -1,14 +1,8 @@
 ; $INCLUDE$ - special value, which points to rdlc/include folder
-; --lib-path=$LIB$
-; --lib-path=$LIB_USER$
-;--lib-path=c:\roboconf\lib
-;--lib-path=c:\roboconf\lib-user
-;--lib-path=c:\roboconf\lib-cube
 --lib-path=$(RoboconfRoot)/lib
 --lib-path=$(RoboconfRoot)/lib-user
 --lib-path=$(RoboconfRoot)/lib-cube
 --lib-path=$(LibPath)
 --rules-path=$(RulesPath)
---datasheet-path=\\dep111\Releases\roboconf_datasheets
 --datasheet-path=$(RoboconfRoot)\datasheets
 ; --include=D:inc;E:\inc

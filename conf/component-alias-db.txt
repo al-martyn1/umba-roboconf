@@ -1,0 +1,10 @@
+# ->                               - error
+# STM32F429IIT6_LQFP176 ->         - error
+# -> STM32F429IIT6-LQFP176         - error
+
+; STM32F429IIT6_LQFP176 -> STM32F429II-LQFP176 - References to component STM32F429IIT6_LQFP176 will be replaced with STM32F429II-LQFP176
+; STM32F429II <- STM32F429IIT6_LQFP176, STM32F429II_LQFP176, STM32F429IIT6 - any of this component names will be replaced with STM32F429II
+
+; ADC_16B_100KSPS_DIF_ADS8867IDGS -> ADS8867IDGS
+; AMP_OP_AD8656ARM -> AD8656ARM
+
