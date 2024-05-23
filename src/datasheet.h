@@ -4,6 +4,10 @@
 inline
 bool findDatasheet( RoboconfOptions &rbcOpts, const std::string &name, std::string &foundName, bool quetMode = false )
 {
+
+    return rbcOpts.findDatasheet(name, foundName, quetMode);
+
+#if 0
     if (name.empty())
         return false;
 
@@ -13,7 +17,7 @@ bool findDatasheet( RoboconfOptions &rbcOpts, const std::string &name, std::stri
         return true;
     }
 
-    std:: vector<std::string> dshCheckedLocations; dshCheckedLocations.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector<std::string> dshCheckedLocations; // dshCheckedLocations.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     std::ifstream dsStream;
     if ( !includeSearch( dsStream, name, foundName, makeIncVectorFromFileName(inputFilename), /* <= swap to change lookup order => */ rbcOpts.datasheetPaths, &dshCheckedLocations ) )
     {
@@ -43,6 +47,7 @@ bool findDatasheet( RoboconfOptions &rbcOpts, const std::string &name, std::stri
     dsStream.close();
 
     return true;
+#endif
 }
 
 

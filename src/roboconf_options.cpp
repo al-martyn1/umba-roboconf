@@ -10,9 +10,119 @@
 #include "list_dump.h"
 #include "list_conditional.h"
 #include "rdlc-core/textUtils.h"
+#include "datacheetUtils.h"
+
+
+//-----------------------------------------------------------------------------
+bool RoboconfOptions::findDatasheet( const std::string &name, std::string &foundName, bool quetMode) const
+{
+    if (name.empty())
+        return false;
+
+    const RoboconfOptions &rbcOpts = *this;
+
+    std::vector<std::string> extraIncPath;
+    if (!isDatasheetNetworkLink(name))
+    {
+        extraIncPath = makeIncVectorFromFileName(name);
+    }
+
+    std::string lookFor = datasheetsDb.makeKeyFilename(name, true); // keep case
+
+    std::vector<std::string> aliasList = datasheetsDb.getLocalAliases(name);
+    if (!isDatasheetNetworkLink(lookFor))
+    {
+        aliasList.emplace_back(lookFor);
+    }
+
+    if (!quetMode)
+    {
+        LOG_MSG("datasheet-look-for") << "Datasheet  : '" << name << "\n";
+        auto &streamRef = LOG_MSG("datasheet-look-for");
+        streamRef << "Looking for: '"; // <<
+        bool bFirst = true;
+        for(auto alias : aliasList)
+        {
+            if (!bFirst)
+            {
+                streamRef << "', '";
+            }
+
+            bFirst = false;
+
+            streamRef << alias;
+        
+        }
+        streamRef << "'\n";
+
+    }
 
 
 
+    for(auto aliasName : aliasList) 
+    {
+        std::ifstream dsStream;
+        std:: vector<std::string> dshCheckedLocations; dshCheckedLocations.reserve(datasheetPaths.size());
+        if (includeSearch( dsStream, aliasName, foundName, extraIncPath, /* <= swap to change lookup order => */ datasheetPaths, &dshCheckedLocations ))
+        {
+            LOG_MSG("datasheet-found-local") << "Datasheet found at: '" << foundName << "'\n";
+            return true;
+        }
+
+        if (!quetMode)
+        {
+            //LOG_WARN_OPT("not-found") << "file '" << name << "' not found\n";
+            LOG_MSG("datasheet-not-found") << "Datasheet '" << aliasName << "' not found\n";
+            for( auto l : dshCheckedLocations)
+                LOG_MSG("datasheet-location") <<"  in '"<<l<<"'\n";
+        }
+
+    }
+
+    if (!quetMode)
+    {
+        //LOG_WARN_OPT("not-found") << "file '" << name << "' not found\n";
+        LOG_MSG("datasheet-not-found-local") << "Datasheet '" << name << "' not found in local storages\n";
+    }
+
+    //rbcOpts.msgDetailLevels.addToDetailGroup( "datasheet", "datasheet-aliases" );
+
+
+
+    // Not found in local paths
+
+    if (isDatasheetNetworkLink(name))
+    {
+        foundName = name;
+        if (!quetMode)
+        {
+            LOG_MSG("datasheet-found") << "Datasheet found at: '" << foundName << "'\n";
+        }
+        return true;
+    }
+
+    aliasList = datasheetsDb.getNetworkAliases(name);
+
+    if (aliasList.empty())
+    {
+        if (!quetMode)
+        {
+            //LOG_WARN_OPT("not-found") << "file '" << name << "' not found\n";
+            LOG_MSG("datasheet-not-found") << "Datasheet '" << name << "' not found\n";
+        }
+
+        return false;
+    }
+
+    foundName = aliasList[0];
+    if (!quetMode)
+    {
+        LOG_MSG("datasheet-found") << "Datasheet found at: '" << foundName << "'\n";
+    }
+
+    return true;
+
+}
 //-----------------------------------------------------------------------------
 std::string RoboconfOptions::macroExpandString( const std::string &text ) const
 {
@@ -20,13 +130,13 @@ std::string RoboconfOptions::macroExpandString( const std::string &text ) const
 }
 
 //-----------------------------------------------------------------------------
-umba::SimpleFormatter& RoboconfOptions::getNulStream( )
+umba::SimpleFormatter& RoboconfOptions::getNulStream( ) const
 {
-    return logNul;
+    return const_cast<umba::SimpleFormatter&>(logNul);
 }
 
 //-----------------------------------------------------------------------------
-umba::SimpleFormatter& RoboconfOptions::getLogStream( LogEntryType et )
+umba::SimpleFormatter& RoboconfOptions::getLogStream( LogEntryType et ) const
 {
     switch(et)
     {
@@ -41,7 +151,7 @@ umba::SimpleFormatter& RoboconfOptions::getLogStream( LogEntryType et )
                  return *pMsgLog;
     }
 
-    return logNul;
+    return const_cast<umba::SimpleFormatter&>(logNul);
 }
 
 //-----------------------------------------------------------------------------
@@ -188,22 +298,22 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
 
     //TODO: !!!
 
-    /* Сейчас у нас можно задать только один файл с правилами детекта класса компонента.
-       То, что я пишу в кастомном .rul для классов, он не работает, на самом деле.
-       А вообще, надо бы вектор .rul файлов, при этом файлы, добавленные последними, обрабатываются первыми.
-       Так делаем для того, чтобы пользовательские правила срабатывали раньше предопределенных.
-       Также сделаем чтение не задаваемого явно файла с правилами, имеющим тот же путь и имя файла (без расширения),
-       что и входной NET-файл, для файла 'path/to/ne/file/file.NET' это будет 'path/to/ne/file/file-classes.rul'.
-       Текущий каталог не будет добавлять в пути поиска файлов.
+    /* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
+       пїЅпїЅ, пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ .rul пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ.
+       пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ .rul пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
+       пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
+       пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ),
+       пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ NET-пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 'path/to/ne/file/file.NET' пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 'path/to/ne/file/file-classes.rul'.
+       пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
 
-       Правила считываются в опции текущего RoboconfOptions - надо очищать при обработке новой сети
+       пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ RoboconfOptions - пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
      */
 
     //std::string getPath( const std::string &s )
     //std::string getPathName( const std::string &s )
 
-    RoboconfOptions &rbcOpts = *this; // Для макросов логгирования
+    RoboconfOptions &rbcOpts = *this; // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
     expression_list_t allExpressionsList;
 
@@ -234,8 +344,8 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
         }
     }
 
-    // Тут мы прочитали имплиситный файл рядом со входным, теперь читаем то, что задано через командную строку.
-    // Эти файлы мы будем читать в путях поиска правил, через includeSearch.
+    // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
+    // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ includeSearch.
 
     std:: vector<std::string> rulesFiles = componentsClassDetectionRulesFiles;
     std::reverse(rulesFiles.begin(), rulesFiles.end());
@@ -354,7 +464,7 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
 
     #endif
 
-    componentsClassDetectionRules.clear(); // Очищаем то, что могло остаться от предыдущих цепей
+    componentsClassDetectionRules.clear(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
     return extractComponentClassDetectionRules( allExpressionsList, netlistType );
     

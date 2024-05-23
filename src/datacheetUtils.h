@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "rdlc-core/case.h"
+#include "rdlc-core/fsUtils.h"
 #include "rdlc-core/isa.h"
 
 
@@ -14,7 +15,7 @@ bool isDatasheetNetworkLink(std::string name)
 {
     name = toLower(name);
 
-    if (startsWith( name, "http://" ) || startsWith( name, "ftp://" ))
+    if (startsWith(name, "https://") || startsWith(name, "http://") || startsWith(name, "ftp://") || startsWith( name, "ftps://" ) || startsWith(name, "sftp://"))
         return true;
     
     return false;
@@ -38,19 +39,21 @@ bool isDatacheetAbsFileName(std::string name)
         if (startsWith( name, "\\\\" )) // network path
             return true;
 
-        if (name[1]==':') // abs - DRIVE:\
+        if (name[1]==':') // abs - DRIVE:/
             return true;
 
-        return false;
+        //return false;
 
     #else
 
         if (name[0]=='/')
             return true;
 
-        return false;
+        //return false;
 
     #endif
+
+    return false;
 }
 
 //----------------------------------------------------------------------------
@@ -76,6 +79,22 @@ bool datasheetFilenamesNetworkOrLocalLess(const std::string &name1, const std::s
     int cmp = compareDatasheetFilenamesNetworkOrLocal(name1, name2);
     return cmp < 0;
 }
+
+//----------------------------------------------------------------------------
+//! Возвращает тип файла - либо его расширение, либо, если это ссылка на википедию - строку "wikipedia"
+inline
+std::string detasheetGetFileType(const std::string &name)
+{
+    if (isDatasheetNetworkLink(name))
+    {
+        if (name.find("wikipedia.org")!=name.npos)
+            return "wikipedia";
+    }
+
+    std::string filenameOnly = getNameFromFull(name);
+    return getFileExtention(filenameOnly);
+}
+
 
 
 // //----------------------------------------------------------------------------

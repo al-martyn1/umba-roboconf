@@ -52,6 +52,8 @@ public:
 
     bool getEncodingInfo( size_t encNumber, std::string &name, std::string &description);
 
+    UINT getSystemCharMulticharCodePage() const;
+
 private:
 
     UINT tryGetCodePageByName( const std::string name );

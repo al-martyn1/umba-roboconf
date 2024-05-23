@@ -727,6 +727,12 @@ int safe_main(int argc, char* argv[])
         return 2;
     }
 
+    for(auto datasheetAliasDbFileName : datasheetAliasDbList)
+    {
+        rbcOpts.datasheetsDb.readDatabaseFile(datasheetAliasDbFileName);
+    }
+    // datasheetAliasDbList
+
 
     std::ofstream outputStream;
     //if (outputFinalName.emp)

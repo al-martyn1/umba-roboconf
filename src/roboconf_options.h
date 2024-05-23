@@ -22,6 +22,8 @@
 
 #include "component_class.h"
 
+#include "datacheetDb.h"
+
 #include "string_set_type.h"
 #include "string_string_map_type.h"
 
@@ -158,6 +160,9 @@ public:
     std::string outputProlog;
     std::string outputEpilog;
 
+    DatasheetsDb                                datasheetsDb;
+
+    bool findDatasheet( const std::string &name, std::string &foundName, bool quetMode = false ) const;
 
 
     RoboconfOptions() : pMsgLog(0), pErrLog(0), nulWriter(), logNul(&nulWriter) {}
@@ -167,8 +172,8 @@ public:
     void setErrStream( umba::SimpleFormatter *ps ) { pErrLog = ps; }
 
     std::string macroExpandString( const std::string &text ) const;
-    umba::SimpleFormatter& getNulStream( );
-    umba::SimpleFormatter& getLogStream( LogEntryType et );
+    umba::SimpleFormatter& getNulStream( ) const;
+    umba::SimpleFormatter& getLogStream( LogEntryType et ) const;
 
     //--- Warnings control
 

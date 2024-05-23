@@ -4,6 +4,10 @@
 #include "splits.h"
 #include "case.h"
 
+#include <array>
+#include <algorithm>
+#include <utility>
+
 //bool isSpace( char ch, const std::string& spaceChars = "\t\n\v\f\r ");
 // bool isDigit( char ch);
 // bool isUpper( char ch );
@@ -329,31 +333,56 @@ std::string textCompress( const std::string &text, const std::string &compressCh
 inline
 std::string textDetectLinefeed( const std::string &text )
 {
-    // CRLF most used
-    std::string::size_type pos = text.find('\n');
-    if (pos == text.npos)
+    std::string::size_type crlfPos = text.find("\r\n");
+    std::string::size_type lfPos   = text.find('\n');
+    std::string::size_type crPos   = text.find('\r');
+
+    struct PosAndLinefeed
     {
-        pos = text.find('\r');
-        if (pos != text.npos)
-            return "\r";
-        // no linefeeds found at all
+        std::string::size_type  pos;
+        std::string             lfStr;
+    };
+
+    std::array<PosAndLinefeed, 3> positions = { PosAndLinefeed{crlfPos, "\r\n"}, PosAndLinefeed{lfPos, "\n"}, PosAndLinefeed{crPos, "\r"} };
+    std::sort( positions.begin(), positions.end()
+             , [](const PosAndLinefeed &p1, const PosAndLinefeed &p2)
+               {
+                   return p1.pos<p2.pos;
+               }
+             );
+
+    if (positions[0].pos==std::string::npos)
+    {
         return "\r\n";
     }
 
-    if (pos==0)
-    {
-        if ((pos+1) != text.size() && text[pos+1]=='\r')
-            return "\n\r"; // MAC style
-        return "\n";
-    }
+    return positions[0].lfStr;
 
-    if (text[pos-1]=='\r')
-        return "\r\n";
-
-    if ((pos+1) != text.size() && text[pos+1]=='\r')
-        return "\n\r"; // MAC style
-
-    return "\n";
+    // // CRLF most used
+    // std::string::size_type pos = text.find('\n');
+    // if (pos == text.npos)
+    // {
+    //     pos = text.find('\r');
+    //     if (pos != text.npos)
+    //         return "\r";
+    //     // no linefeeds found at all
+    //     return "\r\n";
+    // }
+    //  
+    // if (pos==0)
+    // {
+    //     if ((pos+1) != text.size() && text[pos+1]=='\r')
+    //         return "\n\r"; // MAC style
+    //     return "\n";
+    // }
+    //  
+    // if (text[pos-1]=='\r')
+    //     return "\r\n";
+    //  
+    // if ((pos+1) != text.size() && text[pos+1]=='\r')
+    //     return "\n\r"; // MAC style
+    //  
+    // return "\n";
 }
 
 inline
@@ -368,8 +397,8 @@ inline
 void textSplitToLines( const std::string &text, std::vector<std::string> &lines, std::string &detectedLinefeed )
 {
     detectedLinefeed = textDetectLinefeed(text);
-    if (detectedLinefeed.empty())
-        throw std::runtime_error("BEBEBEBEBE");
+    // if (detectedLinefeed.empty())
+    //     throw std::runtime_error("BEBEBEBEBE");
 
     splitToVector( text, lines, detectedLinefeed.back() );
     rtrim(lines, "\r\n");

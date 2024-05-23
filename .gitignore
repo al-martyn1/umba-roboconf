@@ -51,3 +51,5 @@
 /subtree.bat
 /setup_local_datasheets.bat
 /.build
+/conf/roboconf.custom.options
+/conf/datasheet-alias-db.custom.txt

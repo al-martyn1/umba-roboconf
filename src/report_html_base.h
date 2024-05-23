@@ -2,6 +2,9 @@
 
 
 #include "reports.h"
+#include "datacheetUtils.h"
+#include "encoding.h"
+
 
 
 struct ReportHtmlBase : public IReportGenerator
@@ -144,15 +147,50 @@ table {
 }
 */
 
-    std::string makeTextLink( const std::string &url, const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
+    std::string prepareLinkUrl(std::string url) const
     {
+        // Из системной CP конвертируем в UTF-8
+
+        if (isDatasheetNetworkLink(url))
+            return url; // Для сетевого имени ничего не делаем
+
+
+        // Перекодируем из ANSI в UTF8
+        EncodingsApi* pEncApi = getEncodingsApi();
+        UINT sysCp = pEncApi->getSystemCharMulticharCodePage();
+        //std::string sysCpName = pEncApi->getCodePageName(sysCp);
+
+        // UINT cpSrc = pEncApi->getCodePageByName( srcEnc );
+        // if (!cpSrc)
+        //     throw std::runtime_error( std::string("Unknown or unsupported file encoding - ") + srcEnc );
+        //  
+        // UINT cpDst = pEncApi->getCodePageByName( targetEnc );
+        // if (!cpDst)
+        //     throw std::runtime_error( std::string("Unknown or unsupported target encoding - ") + targetEnc );
+    
+        url = pEncApi->convert(url, sysCp, pEncApi->cpid_UTF8 );
+
+        if (isDatacheetAbsFileName(url))
+        {
+            url = "file:///" + url;
+        }
+
+        return url;
+    }
+
+    std::string makeTextLink( std::string url, const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
+    {
+        url = prepareLinkUrl(url);
+
         if (title.empty())
             title = text;
         return std::string("<a ") + (target.empty() ? std::string() : std::string("target=\"")+target+std::string("\" ")) + std::string("title=\"") + title + std::string("\" href=\"") + url + std::string("\">") + text + std::string("</a>");
     }
 
-    std::string makeIconLink( const std::string &url, const std::string &iconUrl, const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
+    std::string makeIconLink( std::string url, const std::string &iconUrl, const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
     {
+        url = prepareLinkUrl(url);
+
         if (title.empty())
             title = text;
         return std::string("<a ") + (target.empty() ? std::string() : std::string("target=\"")+target+std::string("\" ")) + std::string("title=\"") + title + std::string("\" href=\"") + url + std::string("\"><img alt=\"") + text + std::string("\" src=\"") + iconUrl + std::string("\"/></a>");

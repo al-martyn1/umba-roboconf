@@ -2,10 +2,19 @@
 
 
 #include "datacheetUtils.h"
+#include "rdlc-core/textUtils.h"
+#include "ioUtils.h"
 
 #include <unordered_set>
+#include <unordered_map>
 #include <vector>
 #include <string>
+#include <iostream>
+#include <fstream>
+
+
+
+//----------------------------------------------------------------------------
 
 /*
 
@@ -19,7 +28,7 @@
        При этом хранить нужно в том порядке, что указан, но без дубликатов.
        Можно хранить set и vector - но это доп расходы памяти.
        Можно хранить map std::string -> index, при помощи этого мапа можно узнать индекс, но как по индексу получить строку?
-       Либо перебором мапы, либо заводим вторую мапу ibdex -> строка.
+       Либо перебором мапы, либо заводим вторую мапу index -> строка.
        Тоже херня какая-то.
        Ладно, не будем парится, заведем set и vector
 
@@ -32,6 +41,7 @@
 */
 
 
+//----------------------------------------------------------------------------
 class DatasheetAltNames
 {
     std::unordered_set<std::string>    alreadyAddedNames;
@@ -52,15 +62,172 @@ public:
 
     bool addName(const std::string &name)
     {
-    
+        if (alreadyAddedNames.find(name)!=alreadyAddedNames.end())
+            return false;
+
+        if (!isDatasheetNetworkLink(name))
+            namesLocal.emplace_back(name);
+        else
+            namesNetwork.emplace_back(name);
+
+        alreadyAddedNames.insert(name);
+
+        return true;
     }
 
     std::vector<std::string> getNames() const
     {
-    
+        std::vector<std::string> res = namesLocal; // локальные ресурсы - в начале
+        res.insert(res.end(), namesNetwork.begin(), namesNetwork.end());
+        return res;
     }
 
-    //bool n1 = isDatasheetNetworkLink(name1);
+    std::vector<std::string> getLocalNames() const
+    {
+        return namesLocal;
+    }
+
+    std::vector<std::string> getNetworkNames() const
+    {
+        return namesNetwork;
+    }
 
 
-}
+}; // class DatasheetAltNames
+
+//----------------------------------------------------------------------------
+
+
+
+
+//----------------------------------------------------------------------------
+class DatasheetsDb
+{
+
+    std::unordered_map<std::string, DatasheetAltNames>    allNames;
+
+protected:
+
+public:
+
+    static
+    std::string makeKeyFilename(const std::string &name, bool keepCase=false)
+    {
+        std::string filenameOnly = getNameFromFull(name);
+        std::string ext = getFileExtention(filenameOnly);
+
+        // Если нет расширения?
+        if (ext.empty())
+        {
+            // Если сетевое, то оставляем полное имя в качестве ключа
+            //if (!isDatasheetNetworkLink(name))
+            // Если не сетевое, то тоже самое
+            return name;
+        }
+
+        // Расширение есть, это либо локальный файл, либо в сети.
+        // В этом случае игнорируем регистр
+
+        //return toLower(filenameOnly);
+        return keepCase ? filenameOnly : toUpper(filenameOnly);
+    }
+
+
+    bool addAlias(const std::string &dsFilename, const std::string &dsAlias)
+    {
+        allNames[makeKeyFilename(dsFilename)].addName(dsAlias);
+        return true;
+    }
+
+    std::vector<std::string> getAliases(const std::string &dsFilename) const
+    {
+        std::unordered_map<std::string, DatasheetAltNames>::const_iterator it = allNames.find(makeKeyFilename(dsFilename));
+        if (it==allNames.end())
+            return std::vector<std::string>();
+        return it->second.getNames();
+    }
+    
+    std::vector<std::string> getLocalAliases(const std::string &dsFilename) const
+    {
+        std::unordered_map<std::string, DatasheetAltNames>::const_iterator it = allNames.find(makeKeyFilename(dsFilename));
+        if (it==allNames.end())
+            return std::vector<std::string>();
+        return it->second.getLocalNames();
+    }
+    
+    std::vector<std::string> getNetworkAliases(const std::string &dsFilename) const
+    {
+        std::unordered_map<std::string, DatasheetAltNames>::const_iterator it = allNames.find(makeKeyFilename(dsFilename));
+        if (it==allNames.end())
+            return std::vector<std::string>();
+        return it->second.getNetworkNames();
+    }
+
+
+    bool readDatabaseFile(std::istream &in)
+    {
+        EncodingsApi* pEncApi = getEncodingsApi();
+        UINT sysCp = pEncApi->getSystemCharMulticharCodePage();
+        std::string sysCpName = pEncApi->getCodePageName(sysCp);
+
+        std::string fileText = readFileEncoded(in, std::string() /* srcEnc */, sysCpName );
+
+        std::vector<std::string> lines;
+        std::string detectedLinefeed;
+        textSplitToLines( fileText, lines, detectedLinefeed );
+
+
+        std::string curDatasheet;
+
+        for(std::string line : lines)
+        {
+            std::string ltrimmedLine = line;
+            ltrim(ltrimmedLine);
+
+
+            if (ltrimmedLine.empty() || isComment(ltrimmedLine))
+                continue;
+
+            bool isKey = line[0]!=' ';
+            trim(line);
+
+            if (isKey)
+            {
+                curDatasheet = line;
+            }
+            else
+            {
+                if (!curDatasheet.empty())
+                {
+                    addAlias(curDatasheet, line);
+                }
+            }
+        }
+
+        return true;
+
+    }
+
+    bool readDatabaseFile(const std::string &fileName)
+    {
+        auto in = std::ifstream(fileName.c_str());
+        if (!in)
+            return false;
+
+        return readDatabaseFile(in);
+    }
+    
+
+}; // class DatasheetsDb
+
+
+
+
+
+
+
+
+
+
+
+

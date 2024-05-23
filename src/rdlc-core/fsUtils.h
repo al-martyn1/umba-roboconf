@@ -182,7 +182,7 @@ std::string getNameFromFull( const std::string &s )
         char ch = s[pos-1];
         if (isPathSep(ch)) // (ch=='\\' || ch=='/')
         {
-            return std::string( s, pos );
+            return std::string( s, pos, std::string::npos );
         }
     }
 

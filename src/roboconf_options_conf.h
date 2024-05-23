@@ -19,7 +19,12 @@ public:
         rbcOpts.msgDetailLevels.addToDetailGroup( "search-lib-success-grp", "search-lib-success" );
 
         rbcOpts.msgDetailLevels.addToDetailGroup( "datasheet", "datasheet-not-found" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "datasheet", "datasheet-not-found-local" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "datasheet", "datasheet-location" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "datasheet", "datasheet-look-for" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "datasheet", "datasheet-found-local" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "datasheet", "datasheet-found" );
+        //rbcOpts.msgDetailLevels.addToDetailGroup( "datasheet", "datasheet-aliases" );
 
         rbcOpts.msgDetailLevels.addToDetailGroup( "detect", "detect-grp"  );
         rbcOpts.msgDetailLevels.addToDetailGroup( "detect", "detect-ifs"  );

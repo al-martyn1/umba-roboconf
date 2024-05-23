@@ -460,5 +460,16 @@ EncodingsApi* getEncodingsApi()
     return &_;
 }
 
+UINT EncodingsApi::getSystemCharMulticharCodePage() const
+{
+    #if defined(WIN32) || defined(_WIN32)
 
+        return GetACP();
+
+    #else 
+
+        return cpid_UTF8;
+
+    #endif
+}
 

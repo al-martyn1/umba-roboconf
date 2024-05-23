@@ -17,7 +17,7 @@
 #include <stdio.h>
 
 inline
-umba::SimpleFormatter& startLogMessage( RoboconfOptions         &rbcOpts
+umba::SimpleFormatter& startLogMessage( const RoboconfOptions   &rbcOpts
                                       , LogEntryType            logEntryType
                                       , const std::string       &msgType
                                       , size_t fileNo, unsigned lineNo
