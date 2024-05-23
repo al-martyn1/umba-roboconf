@@ -162,6 +162,8 @@ public:
 
     DatasheetsDb                                datasheetsDb;
 
+    std::vector<ReportGenerationInfo>           reports;
+
     bool findDatasheet( const std::string &name, std::string &foundName, bool quetMode = false ) const;
 
 

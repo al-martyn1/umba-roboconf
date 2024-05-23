@@ -13,6 +13,8 @@ public:
         //rbcOpts.msgDetailLevels.addToDetailGroup( "search", "search" );
         //setDetailDescription
 
+        rbcOpts.msgDetailLevels.addToDetailGroup( "report-info"    , "report-generating" );
+
         rbcOpts.msgDetailLevels.addToDetailGroup( "search-lib"     , "search-lib-log" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "search-lib"     , "search-lib-details" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "search-lib"     , "search-lib-summary" );
@@ -97,7 +99,9 @@ public:
 
         rbcOpts.msgDetailLevels.addToDetailGroup( "1", "timing" );
 
-        
+        rbcOpts.msgDetailLevels.addToDetailGroup( "1", "timing" );
+
+        rbcOpts.msgDetailLevels.addToDetailGroup( "1", "report-info" );
 
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "search" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "search-lib" );

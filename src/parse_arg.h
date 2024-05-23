@@ -108,7 +108,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
 
             regexpTestTarget = opt.optArg;
         }
-        else if (opt.isOption("report") || opt.isOption('R') || opt.setParam("REPORT") || opt.setDescription("Set output type"))
+        else if (opt.isOption("report") || opt.isOption('R') || opt.setParam("REPORT[:FILE]") || opt.setDescription("Set output type"))
         {
             if (hasHelpOption) return 0;
 
@@ -118,7 +118,15 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                 return -1;
             }
 
-            reportType = opt.optArg;
+            std::string reportType, reportFile;
+            if (!splitToPair(opt.optArg, reportType, reportFile, ':'))
+            {
+                rbcOpts.reports.emplace_back(ReportGenerationInfo(reportType));
+            }
+            else
+            {
+                rbcOpts.reports.emplace_back(ReportGenerationInfo(reportType, reportFile));
+            }
         }
         else if (opt.isOption("csv-component") || opt.isOption('S') || opt.setParam("NAME") || opt.setDescription("Component"))
         {

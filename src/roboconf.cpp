@@ -85,7 +85,8 @@ bool                     hasHelpOption  = false;
 
 
 std::string inputFilename;
-std::string outputFilename;
+//std::string outputFilename;
+std::string outputPath;
 std::string localLibCacheFilename;
 
 bool disableBuiltins = false;
@@ -119,7 +120,7 @@ bool makeDump           = false;
 bool operateVerbose     = false;
 
 
-std::string reportType = "summary";
+//std::string reportType = "summary";
 std::string regexpTest;
 std::string regexpTestTarget;
 
@@ -712,13 +713,13 @@ int safe_main(int argc, char* argv[])
     }
 
 
-    if (outputFilename.empty())
-    {
-        //cerr<<"No output file name taken\n";
-        //return 1;
-        //outputFilename = getPathName( inputFilename );
-        //defaultOutputUsed = true;
-    }
+    // if (outputFilename.empty())
+    // {
+    //     //cerr<<"No output file name taken\n";
+    //     //return 1;
+    //     //outputFilename = getPathName( inputFilename );
+    //     //defaultOutputUsed = true;
+    // }
 
     std::ifstream input( inputFilename );
     if (!input)
@@ -733,7 +734,8 @@ int safe_main(int argc, char* argv[])
     }
     // datasheetAliasDbList
 
-
+    //!!!
+    //outputPath
     std::ofstream outputStream;
     //if (outputFinalName.emp)
     std::ostream &os = outputFilename.empty() ? std::cout : outputStream;
@@ -1126,15 +1128,46 @@ int safe_main(int argc, char* argv[])
     }
 
 
+    // 
     //----------
-    auto reportIt = reportGenerators.find(reportType);
-    if (reportIt == reportGenerators.end())
+    if (rbcOpts.reports.empty())
     {
-        LOG_ERR_OPT<<"unknow report type '"<<reportType<<"'\n";
+        rbcOpts.reports.emplace_back(ReportGenerationInfo("summary"));
+    }
+
+
+    std::size_t unknownReportsCount = 0;
+    for(auto &reportGenInfo : rbcOpts.reports)
+    {
+        reportGenInfo.configureOutputFile("", inputFilename); //!!!
+        auto reportIt = reportGenerators.find(reportGenInfo.reportType);
+        if (reportIt == reportGenerators.end())
+        {
+            LOG_ERR_OPT<<"unknow report type '"<<reportGenInfo.reportType<<"'\n";
+            //return 3;
+            ++unknownReportsCount;
+        }
+        else
+        {
+            reportGenInfo.pGen = reportIt->second;
+        }
+    }
+
+    if (unknownReportsCount>=rbcOpts.reports.size())
+    {
+        LOG_ERR_OPT<<"no known reports found to generate\n";
         return 3;
     }
 
-    IReportGenerator* pGen = reportIt->second;
+    // auto reportIt = reportGenerators.find(reportType);
+    // if (reportIt == reportGenerators.end())
+    // {
+    //     LOG_ERR_OPT<<"unknow report type '"<<reportType<<"'\n";
+    //     return 3;
+    // }
+    //  
+    // IReportGenerator* pGen = reportIt->second;
+
 
     //----------
 
@@ -1208,13 +1241,23 @@ int safe_main(int argc, char* argv[])
     }
 
     auto orderedAllNets = makeAllNetsOrderedMap(allNets);
-    size_t processedMcus = 0;
-    pGen->generateReport( rbcOpts, os, orderedAllNets, components, processingRules, connectionBuildingOptions, processedMcus );
 
-    if (!processedMcus)
+
+    for(auto &reportGenInfo : rbcOpts.reports)
     {
-        LOG_ERR_OPT<<"No MCUs found\n";
+        if (!reportGenInfo.pGen)
+            continue;
+
+        LOG_MSG("report-generating")<< "Generating report '" << reportGenInfo.reportType << "' to file '" << reportGenInfo.reportFile << "'\n";
+        
+        size_t processedMcus = 0;
+        reportGenInfo.pGen->generateReport( rbcOpts, os, orderedAllNets, components, processingRules, connectionBuildingOptions, processedMcus );
+        if (!processedMcus)
+        {
+            LOG_ERR_OPT<<"No MCUs found\n";
+        }
     }
+
 
     if (showTime)
     {
