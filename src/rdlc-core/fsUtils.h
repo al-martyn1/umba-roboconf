@@ -191,22 +191,43 @@ std::string getNameFromFull( const std::string &s )
 
 //-----------------------------------------------------------------------------
 inline
-std::string getFileName( const std::string &name )
+std::string getFileName( std::string name )
 {
-    std::string f, s;
-    splitToPair( getNameFromFull(name), f, s, '.' );
-    return f;
+    name = getNameFromFull(name);
+
+    std::string::size_type pos = name.size();
+    for( ; pos; --pos)
+    {
+        char ch = name[pos-1];
+        if (ch=='.')
+        {
+            return std::string( name, 0, pos-1 );
+        }
+    }
+
+    return name;
 }
 
 //-----------------------------------------------------------------------------
 inline
-std::string getFileExtention( const std::string &name )
+std::string getFileExtention( std::string name )
 {
-    std::string f, s;
-    splitToPair( getNameFromFull(name), f, s, '.' );
-    return s;
+    name = getNameFromFull(name);
+
+    std::string::size_type pos = name.size();
+    for( ; pos; --pos)
+    {
+        char ch = name[pos-1];
+        if (ch=='.')
+        {
+            return std::string( name, pos, std::string::npos );
+        }
+    }
+
+    return std::string();
 }
 
+//-----------------------------------------------------------------------------
 inline
 std::string appendExtention( std::string name, std::string ext )
 {

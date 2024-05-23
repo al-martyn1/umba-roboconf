@@ -108,6 +108,18 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
 
             regexpTestTarget = opt.optArg;
         }
+        else if (opt.isOption("output-path") || opt.setParam("PARH") || opt.setDescription("Set output path"))
+        {
+            if (hasHelpOption) return 0;
+
+            if (!opt.hasArg())
+            {
+                LOG_ERR_OPT<<"template not taken (--regexp-template)\n";
+                return -1;
+            }
+
+            rbcOpts.outputPath = opt.optArg;
+        }
         else if (opt.isOption("report") || opt.isOption('R') || opt.setParam("REPORT[:FILE]") || opt.setDescription("Set output type"))
         {
             if (hasHelpOption) return 0;
@@ -227,12 +239,12 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
             }
 
         }
-        else if (opt.isOption("make-cache") || opt.isOption('H') || opt.setDescription("Make net cache"))
-        {
-            if (hasHelpOption) return 0;
-
-            makeNetlistCache = true;
-        }
+        // else if (opt.isOption("make-cache") || opt.isOption('H') || opt.setDescription("Make net cache"))
+        // {
+        //     if (hasHelpOption) return 0;
+        //  
+        //     makeNetlistCache = true;
+        // }
         else if (opt.isOption("make-dump") || opt.setDescription("Make dump"))
         {
             if (hasHelpOption) return 0;
@@ -707,10 +719,10 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
     }
 
     
-    if (inputFilename.empty())
+    //if (inputFilename.empty())
         inputFilename = a;
-    else
-        outputFilename = a;
+    // else
+    //     outputFilename = a;
 
     return 0;
 

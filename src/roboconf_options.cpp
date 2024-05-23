@@ -464,7 +464,7 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
 
     #endif
 
-    componentsClassDetectionRules.clear(); // ������� ��, ��� ����� �������� �� ���������� �����
+    componentsClassDetectionRules.clear();
 
     return extractComponentClassDetectionRules( allExpressionsList, netlistType );
     

@@ -2,7 +2,6 @@
 --lib-path=$(RoboconfRoot)/lib
 --lib-path=$(RoboconfRoot)/lib-user
 --lib-path=$(RoboconfRoot)/lib-cube
---lib-path=$(LibPath)
---rules-path=$(RulesPath)
+--rules-path=$(RoboconfRoot)/rules
 --datasheet-path=$(RoboconfRoot)\datasheets
 ; --include=D:inc;E:\inc

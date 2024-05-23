@@ -112,7 +112,7 @@ std::vector<std::string> datasheetAliasDbList;
 bool printInfoFlag      = false;
 bool printVersionNoFlag = false;
 
-bool makeNetlistCache   = false;
+// bool makeNetlistCache   = false;
 bool showComponentsList = false;
 bool verboseLibSearch   = false;
 bool makeLibCache       = false;
@@ -239,9 +239,9 @@ int safe_main(int argc, char* argv[])
     rbcOpts.globalVars["RoboconfDatasheetPath"]  = "$(RoboconfRoot)/datasheets";
     rbcOpts.globalVars["RoboconfRulesPath"]  = "$(RoboconfRoot)/rules";
 
-    rbcOpts.globalVars["LibPath"]  = "$(RoboconfRoot)/lib";
-    rbcOpts.globalVars["RulesPath"]  = "$(RoboconfRoot)/rules";
-    rbcOpts.globalVars["DatasheetPath"]  = "$(RoboconfRoot)/datasheets";
+    //rbcOpts.globalVars["LibPath"]  = "$(RoboconfRoot)/lib";
+    //rbcOpts.globalVars["RulesPath"]  = "$(RoboconfRoot)/rules";
+    //rbcOpts.globalVars["DatasheetPath"]  = "$(RoboconfRoot)/datasheets";
 
     {
         // auto designatorPinParts = splitDesignatorPinName("U1.100");
@@ -362,10 +362,12 @@ int safe_main(int argc, char* argv[])
 
         //args.emplace_back("--report=periph");
         //args.emplace_back("--report=mcu");
-        args.emplace_back("--report=summary");
+        args.emplace_back("-R=summary");
+        args.emplace_back("-R=periph");
+        args.emplace_back("-R=mcu");
         args.emplace_back("--rules=" + rootPath + "/tests/rules/es.rul");
         args.emplace_back(rootPath + "/data/nets/ES.NET");
-        args.emplace_back(rootPath + "/tests/es/summary.html");
+        //args.emplace_back(rootPath + "/tests/es/summary.html");
         //args.emplace_back(rootPath + "/tests/es/mcu.html");
 
         //args.emplace_back("");
@@ -736,9 +738,6 @@ int safe_main(int argc, char* argv[])
 
     //!!!
     //outputPath
-    std::ofstream outputStream;
-    //if (outputFinalName.emp)
-    std::ostream &os = outputFilename.empty() ? std::cout : outputStream;
 
     if (!componentImportOptions.namesList.empty())
     {
@@ -754,17 +753,43 @@ int safe_main(int argc, char* argv[])
         std::string outputName = getFileName(inputFilename);
         // componentImportOptions.namesList[0]
 
-        if (!outputFilename.empty())
+        std::string outputPath = rbcOpts.outputPath;
+        std::string outputFullName;
+
+        std::ofstream outputStream;
+        std::ostream &os = outputPath=="-" ? std::cout : outputStream;
+
+
+        if (outputPath=="-")
         {
-            std::string outputFinalName = generateOutputFilename( inputFilename, outputFilename, outputName, "cmp" );
-            outputStream.open(outputFinalName);
+        }
+        else 
+        {
+            if (outputPath.empty())
+                outputPath = getPath(inputFilename);
+            outputFullName = appendPath(outputPath, outputName) + ".cmp";
+            outputStream.open(outputFullName.c_str());
 
             if (!outputStream)
             {
-                LOG_ERR_OPT<<"failed to open output file '"<<outputFinalName<<"'\n";
+                LOG_ERR_OPT<<"failed to open output file '"<<outputFullName<<"'\n";
                 return 2;
             }
         }
+        
+        //if (outputFinalName.emp)
+
+        // if (!outputFilename.empty())
+        // {
+        //     std::string outputFinalName = generateOutputFilename( inputFilename, outputFilename, outputName, "cmp" );
+        //     outputStream.open(outputFinalName);
+        //  
+        //     if (!outputStream)
+        //     {
+        //         LOG_ERR_OPT<<"failed to open output file '"<<outputFinalName<<"'\n";
+        //         return 2;
+        //     }
+        // }
 
         componentExportToCmp( os, ci );
 
@@ -850,33 +875,33 @@ int safe_main(int argc, char* argv[])
 
 
 
-    if (makeNetlistCache)
-    {
-
-        if (!outputFilename.empty())
-        {
-            std::string outputFinalName = generateOutputFilename( inputFilename, outputFilename, getFileName(projectName), "rbc_net" );
-            outputStream.open(outputFinalName);
-
-            if (!outputStream)
-            {
-                LOG_ERR_OPT<<"failed to open output file '"<<outputFinalName<<"'\n";
-                return 2;
-            }
-        }
-
-        //bool 
-        netlistWritetCache( os, projectName, allNets );
-
-        if (showTime)
-        {
-            LOG_MSG("time-mk-net-cache")<< "Making netlist cache elapsed time: " << elapsedTimerTotal.getElapsed() << "\n";
-        }
-
-        return 0;
-    }
-
-    elapsedTimerStep.restart();
+    // if (makeNetlistCache)
+    // {
+    //  
+    //     if (!outputFilename.empty())
+    //     {
+    //         std::string outputFinalName = generateOutputFilename( inputFilename, outputFilename, getFileName(projectName), "rbc_net" );
+    //         outputStream.open(outputFinalName);
+    //  
+    //         if (!outputStream)
+    //         {
+    //             LOG_ERR_OPT<<"failed to open output file '"<<outputFinalName<<"'\n";
+    //             return 2;
+    //         }
+    //     }
+    //  
+    //     //bool 
+    //     netlistWritetCache( os, projectName, allNets );
+    //  
+    //     if (showTime)
+    //     {
+    //         LOG_MSG("time-mk-net-cache")<< "Making netlist cache elapsed time: " << elapsedTimerTotal.getElapsed() << "\n";
+    //     }
+    //  
+    //     return 0;
+    // }
+    //  
+    // elapsedTimerStep.restart();
 
 
     //----------
@@ -1139,7 +1164,7 @@ int safe_main(int argc, char* argv[])
     std::size_t unknownReportsCount = 0;
     for(auto &reportGenInfo : rbcOpts.reports)
     {
-        reportGenInfo.configureOutputFile("", inputFilename); //!!!
+        reportGenInfo.configureOutputFile(rbcOpts.outputPath, inputFilename); //!!!
         auto reportIt = reportGenerators.find(reportGenInfo.reportType);
         if (reportIt == reportGenerators.end())
         {
@@ -1228,20 +1253,21 @@ int safe_main(int argc, char* argv[])
     connectionBuildingOptions.extractStopNets(rbcOpts, processingRules);
 
 
-    if (!outputFilename.empty())
-    {
-        std::string outputFinalName = generateOutputFilename( inputFilename, outputFilename, getFileName(projectName), pGen->getDefaultFileExt() );
-        outputStream.open(outputFinalName);
-
-        if (!outputStream)
-        {
-            LOG_ERR_OPT<<"failed to open output file '"<<outputFinalName<<"'\n";
-            return 4;
-        }
-    }
+    // if (!outputFilename.empty())
+    // {
+    //     std::string outputFinalName = generateOutputFilename( inputFilename, outputFilename, getFileName(projectName), pGen->getDefaultFileExt() );
+    //     outputStream.open(outputFinalName);
+    //  
+    //     if (!outputStream)
+    //     {
+    //         LOG_ERR_OPT<<"failed to open output file '"<<outputFinalName<<"'\n";
+    //         return 4;
+    //     }
+    // }
 
     auto orderedAllNets = makeAllNetsOrderedMap(allNets);
 
+    bool mcuFail = false;
 
     for(auto &reportGenInfo : rbcOpts.reports)
     {
@@ -1250,11 +1276,13 @@ int safe_main(int argc, char* argv[])
 
         LOG_MSG("report-generating")<< "Generating report '" << reportGenInfo.reportType << "' to file '" << reportGenInfo.reportFile << "'\n";
         
+        auto os = std::ofstream(reportGenInfo.reportFile.c_str());
         size_t processedMcus = 0;
         reportGenInfo.pGen->generateReport( rbcOpts, os, orderedAllNets, components, processingRules, connectionBuildingOptions, processedMcus );
         if (!processedMcus)
         {
             LOG_ERR_OPT<<"No MCUs found\n";
+            mcuFail = true;
         }
     }
 
@@ -1271,7 +1299,7 @@ int safe_main(int argc, char* argv[])
     }
 */
 
-    if (!processedMcus)
+    if (mcuFail)
     {
         return 7;
     }

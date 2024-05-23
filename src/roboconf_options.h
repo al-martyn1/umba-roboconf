@@ -24,6 +24,8 @@
 
 #include "datacheetDb.h"
 
+#include "report_gen_types.h"
+
 #include "string_set_type.h"
 #include "string_string_map_type.h"
 
@@ -143,6 +145,8 @@ public:
     std:: vector<std::string>                   libPaths;
     std:: vector<std::string>                   datasheetPaths;
     std:: vector<std::string>                   rulesPaths;
+
+    std::string                                 outputPath;
                                               
     string_string_map_type                      globalVars;
     FileSet                                     usedFiles;
