@@ -3,6 +3,6 @@
     (package "*")
     (description "Step-Down Converters with DCS-Control")
     (purpose "POWER:STEPDOWN")
-    (datasheet "tps62170.pdf")
+    (datasheet "tps6217x.pdf")
     
 

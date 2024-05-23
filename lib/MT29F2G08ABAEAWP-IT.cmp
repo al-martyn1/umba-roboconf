@@ -1,7 +1,7 @@
 (componentDefinition "MT29F2G08ABAEAWP-IT" "FLASH_NAND_2GB_MT29F2G08ABAEAWP-IT"
     (description "NAND Flash Memory")
     (purpose "FLASH")
-    (datasheet "MT29F2G08ABAEAWP-IT-chipdip-DOC011454851.pdf")
+    (datasheet "MT29F2G08ABAEAWP-IT.pdf")
     (package "*")
     (pin "1" "" ("NC" ) )
     (pin "10" "" ("NC" ) )

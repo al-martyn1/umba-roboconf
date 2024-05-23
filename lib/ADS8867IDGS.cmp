@@ -1,7 +1,7 @@
 (componentDefinition "ADS8867IDGS" "ADC_16B_100KSPS_DIF_ADS8867IDGS"
     (description "16-Bit, 100-kSPS, Serial Interface, microPower, Miniature, True-Differential Input, SAR Analog-to-Digital Converter")
     (purpose "SENSOR:SPI")
-    (datasheet "ads8867_100kSPS_Diff_DaisyChain.pdf")
+    (datasheet "ads8867.pdf")
     (package "*")
     (pin "1" "Positive reference input. This pin must be decoupled with a 10-uF or larger capacitor" ("REF" ) )
     (pin "10" "Digital interface power supply. This pin must be decoupled to GND with a 1-uF capacitor" ("DVDD" ) )
