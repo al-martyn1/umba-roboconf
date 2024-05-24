@@ -5,6 +5,7 @@
 #include "datacheetUtils.h"
 #include "encoding.h"
 
+#include <sstream>
 
 
 struct ReportHtmlBase : public IReportGenerator
@@ -178,13 +179,27 @@ table {
         return url;
     }
 
+    //<img alt="My Image" src="data:image/png;base64,iVBORwA<MoreBase64SringHere>" />
+
     std::string makeTextLink( std::string url, const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
     {
         url = prepareLinkUrl(url);
 
         if (title.empty())
             title = text;
-        return std::string("<a ") + (target.empty() ? std::string() : std::string("target=\"")+target+std::string("\" ")) + std::string("title=\"") + title + std::string("\" href=\"") + url + std::string("\">") + text + std::string("</a>");
+
+        std::ostringstream oss;
+        oss << "<a ";
+        if (!target.empty())
+        {
+            oss << "target=\"" << target << "\" ";
+        }
+        oss << "title=\"" << title << "\" ";
+        oss << "href=\""  << url << "\">";
+        oss << text << "</a>";
+
+        return oss.str();
+        
     }
 
     std::string makeIconLink( std::string url, const std::string &iconUrl, const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
@@ -193,7 +208,23 @@ table {
 
         if (title.empty())
             title = text;
-        return std::string("<a ") + (target.empty() ? std::string() : std::string("target=\"")+target+std::string("\" ")) + std::string("title=\"") + title + std::string("\" href=\"") + url + std::string("\"><img alt=\"") + text + std::string("\" src=\"") + iconUrl + std::string("\"/></a>");
+
+        std::ostringstream oss;
+        oss << "<a ";
+        if (!target.empty())
+        {
+            oss << "target=\"" << target << "\" ";
+        }
+        oss << "title=\"" << title << "\" ";
+        oss << "href=\""  << url << "\">";
+        oss << "<img alt=\"" << text << "\" ";
+        oss << "src=\"" << iconUrl << "\"/>";
+        oss << "</a>";
+
+        return oss.str();
+
+        // return std::string("<a ") + (target.empty() ? std::string() : std::string("target=\"")+target+std::string("\" ")) 
+        //      + std::string("title=\"") + title + std::string("\" href=\"") + url + std::string("\"><img alt=\"") + text + std::string("\" src=\"") + iconUrl + std::string("\"/></a>");
     }
 
 
