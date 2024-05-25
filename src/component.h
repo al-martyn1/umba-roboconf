@@ -277,6 +277,36 @@ std::string normalizeComponentName(RoboconfOptions &rbcOpts, std::string cmpName
     if (nameParts.size()<2)
         return cmpName;
 
+    std::string pkgCandi;
+    std::size_t partIdx = nameParts.size();
+    for(; partIdx!=1; --partIdx)
+    {
+        auto namePart = nameParts[partIdx-1];
+        trim(namePart, "- ");
+
+        if (pkgCandi.empty())
+        {
+            pkgCandi = namePart;
+        }
+        else
+        {
+            pkgCandi = namePart + "-" + pkgCandi;
+        }
+    
+        if (rbcOpts.packagesDb.isKnownPackage(pkgCandi))
+        {
+            if (pFoundPackageName)
+            {
+                *pFoundPackageName = rbcOpts.packagesDb.getCanonicalPackageName(pkgCandi);
+            }
+
+            nameParts.erase(nameParts.begin()+partIdx-1, nameParts.end());
+            cmpName = mergeStrings(nameParts, std::string("-"), false);
+            break;
+        }
+    }
+
+    #if 0
     auto lastPart = nameParts.back();
     trim(lastPart, "- ");
 
@@ -296,6 +326,7 @@ std::string normalizeComponentName(RoboconfOptions &rbcOpts, std::string cmpName
             *pFoundPackageName = rbcOpts.packagesDb.getCanonicalPackageName(lastPart);
         }
     }
+    #endif
 
     return cmpName;
 
