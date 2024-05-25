@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17.0)
-project(roboconf VERSION 0.9.0 LANGUAGES C CXX)
+project(umba-roboconf VERSION 0.9.0 LANGUAGES C CXX)
 #set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}\bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
@@ -97,14 +97,14 @@ add_compile_definitions("USE_UMBA_LOUT_COUT")
 
 
 
-add_executable(roboconf
+add_executable(umba-roboconf
     ${ROBOCONF_COMMON_SOURCES}
     "${SRC_ROOT}/roboconf.cpp"
     )
-target_link_libraries(roboconf ws2_32 iphlpapi shell32)
+target_link_libraries(umba-roboconf ws2_32 iphlpapi shell32)
 
 if(WIN32)
-  add_custom_command(TARGET roboconf
+  add_custom_command(TARGET umba-roboconf
                      POST_BUILD
                      COMMAND cmd /c ${WIN32_PRJ_ROOT}\\deploy_for_debug.bat)
 endif()
@@ -116,7 +116,7 @@ endif()
 
 #https://stackoverflow.com/questions/74071243/how-do-i-change-the-working-directory-for-debugging-in-vs-code-cmaketools
 #You can change the output directory for the executable using the RUNTIME_OUTPUT_DIRECTORY property. When debugging, the executable is run in that directory. 
-#set_target_properties(roboconf
+#set_target_properties(umba-roboconf
 #                      PROPERTIES 
 #                      RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 #                     )

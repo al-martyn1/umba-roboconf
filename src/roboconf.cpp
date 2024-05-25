@@ -480,7 +480,7 @@ int safe_main(int argc, char* argv[])
     if (!disableBuiltins)
     {
         {
-            std::string rbcOptsFileName = appendPath(progConfPath, std::string("/roboconf.options"));
+            std::string rbcOptsFileName = appendPath(progConfPath, std::string("/umba-roboconf.options"));
             std::vector<std::string> opts;
             readOptionsFile(rbcOptsFileName, opts );
             for( const auto & o : opts)
@@ -493,7 +493,7 @@ int safe_main(int argc, char* argv[])
 
         // Общий пользовательский файл (не входящий в дистр)
         {
-            std::string rbcOptsFileName = appendPath(progConfPath, std::string("/roboconf.custom.options"));
+            std::string rbcOptsFileName = appendPath(progConfPath, std::string("/umba-roboconf.custom.options"));
             std::vector<std::string> opts;
             readOptionsFile(rbcOptsFileName, opts );
             for( const auto & o : opts)
@@ -546,7 +546,7 @@ int safe_main(int argc, char* argv[])
         {
             std::string computerUserFilenamePart = platformUserNameConvertToFilename(computerUser);
 
-            std::string rbcOptsFileName = appendPath( progConfPath, std::string("/roboconf.") + computerUserFilenamePart + ".options");
+            std::string rbcOptsFileName = appendPath( progConfPath, std::string("/umba-roboconf.") + computerUserFilenamePart + ".options");
             std::vector<std::string> opts;
 
             if (readOptionsFile(rbcOptsFileName, opts ))
@@ -1281,7 +1281,7 @@ int safe_main(int argc, char* argv[])
         reportGenInfo.pGen->generateReport( rbcOpts, os, orderedAllNets, components, processingRules, connectionBuildingOptions, processedMcus );
         if (!processedMcus)
         {
-            LOG_ERR_OPT<<"No MCUs found\n";
+            LOG_ERR_OPT<<"No MCUs found (report '" << reportGenInfo.reportType << "')\n";
             mcuFail = true;
         }
     }
@@ -1301,6 +1301,7 @@ int safe_main(int argc, char* argv[])
 
     if (mcuFail)
     {
+        LOG_ERR_OPT<<"No MCUs found in some reports\n";
         return 7;
     }
 

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "roboconf", "roboconf.vcxproj", "{1AD5E13F-5523-4B62-A076-FCB301C3D86F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "umba-roboconf", "umba-roboconf.vcxproj", "{1AD5E13F-5523-4B62-A076-FCB301C3D86F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sm32_pa_gen", "sm32_pa_gen.vcxproj", "{439EF332-881C-4812-867C-77B4ABA9A5FE}"
 EndProject
