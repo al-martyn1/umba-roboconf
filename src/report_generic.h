@@ -225,7 +225,8 @@ struct GenericReportGenerator : public IReportGenerator
                        , size_t &processedMcus
                        ) override
     {
-        
+        processedMcus = 1; // Ќам в данном отчете MCU без надобности, мы их тут не обрабатываем, но чтобы наверху не ругались, говорим, что нашли
+
         string_set_type reportUsedNames;
 
         std::string docTitle = std::string( "Generator: ") + generatorInfo.name;

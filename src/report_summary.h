@@ -51,6 +51,8 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
                 docTitle = first->second.projectName + std::string(" - ") + docTitle;
         }
 
+        processedMcus = 1; // Нам в данном отчете MCU без надобности, мы их тут не обрабатываем, но чтобы наверху не ругались, говорим, что нашли
+
         os<<htmlDocType();
         os<<"<html>\n<head>\n<title>"<< docTitle << "</title>\n";
         //os<<;        
@@ -77,7 +79,7 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
             std::sort(designators.begin(), designators.end(), designatorPinNamesLess );
            
             os<<"<table border=\"0\" cellspacing=\"2\" cellpadding=\"5\" >\n";
-            os<<"<thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Purpose</th><th>Sheet</th><th>Description</th></tr></thead>\n";
+            os<<"<thead><tr><th>ID</th><th>Component Type</th><th>Package</th><th>Class</th><th>Purpose</th><th>Sheet</th><th>Description</th></tr></thead>\n";
             // << <th></th>
             os<<"<tbody>\n";
 
@@ -136,6 +138,13 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
                 
                 os<<"</td>";
 
+
+                os<<"<td>"<<component.package;
+                if (!rbcOpts.packagesDb.isKnownPackage(component.package))
+                {
+                    os<<" (Unknown)";
+                }
+                os<<"</td>";
 
                 os<<"<td>"<<component.getClassDisplayString()<<"</td>";
                 os<<"<td>"<<component.purpose<<"</td>";
