@@ -11,7 +11,7 @@ if exist distr goto failed_remove_old
 @call scripts\create_distr_folders_impl.bat
 
 @echo Deploy binaries
-@rem copy out\msvc\Win32\Release\roboconf.exe distr\umba-roboconf\bin\roboconf.exe
+@rem copy out\msvc\Win32\Release\umba-roboconf.exe distr\umba-roboconf\bin\umba-roboconf.exe
 @call scripts\deploy_binaries_impl.bat
 
 @echo Deploy conf
@@ -24,80 +24,42 @@ if exist distr goto failed_remove_old
 @call scripts\deploy_rules_impl.bat
 
 
-@distr\umba-roboconf\bin\roboconf.exe --help >distr\umba-roboconf\doc\readme.txt
+@distr\umba-roboconf\bin\umba-roboconf.exe --help >distr\umba-roboconf\doc\readme.txt
 @copy /Y doc\*.png distr\umba-roboconf\doc\
 
 
 
-copy /Y data\nets\main_board_master_MCU.NET distr\umba-roboconf\samples\netlists\vtx2_master.NET
-copy /Y data\nets\main_board_slave.NET      distr\umba-roboconf\samples\netlists\vtx2_slave.NET
-copy /Y data\nets\Hot-End_MCU.NET           distr\umba-roboconf\samples\netlists\vtx2_hotend.NET
-copy /Y data\nets\TVKO_MCU.NET              distr\umba-roboconf\samples\netlists\vtx2_tvko.NET
+@rem copy /Y data\nets\main_board_master_MCU.NET distr\umba-roboconf\samples\netlists\vtx2_master.NET
+@rem copy /Y data\nets\main_board_slave.NET      distr\umba-roboconf\samples\netlists\vtx2_slave.NET
+@rem copy /Y data\nets\Hot-End_MCU.NET           distr\umba-roboconf\samples\netlists\vtx2_hotend.NET
+@rem copy /Y data\nets\TVKO_MCU.NET              distr\umba-roboconf\samples\netlists\vtx2_tvko.NET
 
-copy /Y data\nets-vertel\vtl-MSensor.NET    distr\umba-roboconf\samples\netlists\vtl_msensor.NET
-copy /Y data\nets-vertel\vtl-main.NET       distr\umba-roboconf\samples\netlists\vtl_main.NET   
-copy /Y data\nets-vertel\vtl-periph.NET     distr\umba-roboconf\samples\netlists\vtl_periph.NET 
+@rem copy /Y data\nets-vertel\vtl-MSensor.NET    distr\umba-roboconf\samples\netlists\vtl_msensor.NET
+@rem copy /Y data\nets-vertel\vtl-main.NET       distr\umba-roboconf\samples\netlists\vtl_main.NET   
+@rem copy /Y data\nets-vertel\vtl-periph.NET     distr\umba-roboconf\samples\netlists\vtl_periph.NET 
 
-mkdir distr\umba-roboconf\samples\rules
-copy /Y rules\*.* distr\umba-roboconf\samples\rules
+@rem mkdir distr\umba-roboconf\samples\rules
+@rem copy /Y rules\*.* distr\umba-roboconf\samples\rules
 
-mkdir distr\umba-roboconf\samples\data
+@rem mkdir distr\umba-roboconf\samples\data
 
 
-echo rem Stub> distr\umba-roboconf\samples\copyConf.bat
-echo set ROBOCONF=bin\roboconf.exe> distr\umba-roboconf\samples\setTestConfig.bat
-echo set DATAROOT=data>> distr\umba-roboconf\samples\setTestConfig.bat
+@rem echo rem Stub> distr\umba-roboconf\samples\copyConf.bat
+@rem echo set ROBOCONF=bin\umba-roboconf.exe> distr\umba-roboconf\samples\setTestConfig.bat
+@rem echo set DATAROOT=data>> distr\umba-roboconf\samples\setTestConfig.bat
 
-copy /Y tests\teleshina.bat     distr\umba-roboconf\samples\teleshina.bat
-copy /Y tests\teleshina_log.bat distr\umba-roboconf\samples\teleshina_log.bat
+@rem copy /Y tests\teleshina.bat     distr\umba-roboconf\samples\teleshina.bat
+@rem copy /Y tests\teleshina_log.bat distr\umba-roboconf\samples\teleshina_log.bat
 
-rem mkdir distr\umba-roboconf\samples\data
-copy /Y data\Teleshina_Foot_Board.NET distr\umba-roboconf\samples\data\Teleshina_Foot_Board.NET
-copy /Y data\Teleshina_Hot_End.NET    distr\umba-roboconf\samples\data\Teleshina_Hot_End.NET   
-copy /Y data\Teleshina_Main_Board.NET distr\umba-roboconf\samples\data\Teleshina_Main_Board.NET
+@rem mkdir distr\umba-roboconf\samples\data
+@rem copy /Y data\Teleshina_Foot_Board.NET distr\umba-roboconf\samples\data\Teleshina_Foot_Board.NET
+@rem copy /Y data\Teleshina_Hot_End.NET    distr\umba-roboconf\samples\data\Teleshina_Hot_End.NET   
+@rem copy /Y data\Teleshina_Main_Board.NET distr\umba-roboconf\samples\data\Teleshina_Main_Board.NET
 
 
 
 echo rem Samples > distr\umba-roboconf\samples\samples.bat
 echo rem                                                                                                                                      >> distr\umba-roboconf\samples\samples.bat
-
-echo rem Vertex2 master                                                                                                                       >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtx2_master.NET     vtx2_master_summary.html             >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtx2_master.NET     vtx2_master_mcu.html                 >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtx2_master.rul   netlists\vtx2_master.NET     vtx2_master_periph.html              >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtx2_master.rul   netlists\vtx2_master.NET     vtx2_master_conf.h                   >> distr\umba-roboconf\samples\samples.bat
-
-echo rem Vertex2 slave                                                                                                                        >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtx2_slave.NET      vtx2_slave_summary.html              >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtx2_slave.NET      vtx2_slave_mcu.html                  >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtx2_slave.rul    netlists\vtx2_slave.NET      vtx2_slave_periph.html               >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtx2_slave.rul    netlists\vtx2_slave.NET      vtx2_slave_conf.h                    >> distr\umba-roboconf\samples\samples.bat
-
-echo rem Vertex2 hot end                                                                                                                      >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtx2_hotend.NET     vtx2_hotend_summary.html             >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtx2_hotend.NET     vtx2_hotend_mcu.html                 >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtx2_hotend.rul   netlists\vtx2_hotend.NET     vtx2_hotend_periph.html              >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtx2_hotend.rul   netlists\vtx2_hotend.NET     vtx2_hotend_conf.h                   >> distr\umba-roboconf\samples\samples.bat
-
-echo rem Vertex2 TVKO                                                                                                                         >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtx2_tvko.NET       vtx2_tvko_summary.html               >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtx2_tvko.NET       vtx2_tvko_mcu.html                   >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtx2_tvko.rul     netlists\vtx2_tvko.NET       vtx2_tvko_periph.html                >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtx2_tvko.rul     netlists\vtx2_tvko.NET       vtx2_tvko_conf.h                     >> distr\umba-roboconf\samples\samples.bat
-
-
-echo rem Vertex2 Teleshev main                                                                                                                >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtl_main.NET        vtl_main_summary.html                >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtl_main.NET        vtl_main_mcu.html                    >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtl_main.rul      netlists\vtl_main.NET        vtl_main_periph.html                 >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtl_main.rul      netlists\vtl_main.NET        vtl_main_conf.h                      >> distr\umba-roboconf\samples\samples.bat
-
-echo rem Vertex2 Teleshev periph                                                                                                              >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtl_periph.NET      vtl_periph_summary.html              >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtl_periph.NET      vtl_periph_mcu.html                  >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtl_periph.rul    netlists\vtl_periph.NET      vtl_periph_periph.html               >> distr\umba-roboconf\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtl_periph.rul    netlists\vtl_periph.NET      vtl_periph_conf.h                    >> distr\umba-roboconf\samples\samples.bat
-
 
 @if exist %RBC_ROOT%\conf\component-alias-db.custom.txt                 @del %RBC_ROOT%\conf\component-alias-db.custom.txt
 @if exist %RBC_ROOT%\conf\roboconf.MARTINOV-PC_martinov.options         @del %RBC_ROOT%\conf\roboconf.MARTINOV-PC_martinov.options
