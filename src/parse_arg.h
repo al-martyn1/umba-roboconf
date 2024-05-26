@@ -505,6 +505,24 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
 
             noDefaultRules = true;
         }
+        else if (opt.isOption("no-default-packages") || opt.setDescription("Disable default package rules"))
+        {
+            if (hasHelpOption) return 0;
+
+            noDefaultPackages = true;
+        }
+        else if (opt.isOption("no-default-classes") || opt.setDescription("Disable default component class rules"))
+        {
+            if (hasHelpOption) return 0;
+
+            noDefaultClasses = true;
+        }
+        else if (opt.isOption("no-default-power") || opt.setDescription("Disable default power rules"))
+        {
+            if (hasHelpOption) return 0;
+
+            noDefaultPower = true;
+        }
         else if (opt.isOption("no-builtin-options") || opt.setDescription("Disable builtin options"))
         {
             if (hasHelpOption) return 0;

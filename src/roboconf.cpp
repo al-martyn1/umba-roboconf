@@ -103,6 +103,9 @@ std::vector<std::string> rulesPaths;
 
 std::vector<std::string> rules;
 bool noDefaultRules     = false;
+bool noDefaultPackages  = false;
+bool noDefaultClasses   = false;
+bool noDefaultPower     = false;
 
 
 std::vector<std::string> componentAliasDbList;
@@ -365,6 +368,7 @@ int safe_main(int argc, char* argv[])
         args.emplace_back("-R=summary");
         args.emplace_back("-R=periph");
         args.emplace_back("-R=mcu");
+        args.emplace_back("--no-default-rules");
         args.emplace_back("--rules=" + rootPath + "/tests/rules/es.rul");
         args.emplace_back(rootPath + "/data/nets/ES.NET");
         //args.emplace_back(rootPath + "/tests/es/summary.html");
@@ -639,14 +643,27 @@ int safe_main(int argc, char* argv[])
     if (!noDefaultRules)
     {
         rules.insert( rules.begin(), std::string("default.rul") );
-        rules.insert( rules.begin(), std::string("default_power.rul") );
-        rules.insert( rules.begin(), std::string("default_packages.rul") );
-
-        if (rbcOpts.componentsClassDetectionRulesFiles.empty())
-        {
-            rbcOpts.componentsClassDetectionRulesFiles.emplace_back("default_classes.rul");
-        }
+        // if (rbcOpts.componentsClassDetectionRulesFiles.empty())
+        // {
+        //     rbcOpts.componentsClassDetectionRulesFiles.emplace_back("default_classes.rul");
+        // }
     }
+
+    if (!noDefaultPackages)
+    {
+        rules.insert( rules.begin(), std::string("default_packages.rul") );
+    }
+
+    if (!noDefaultClasses)
+    {
+        rbcOpts.componentsClassDetectionRulesFiles.emplace_back("default_classes.rul");
+    }
+
+    if (!noDefaultPower)
+    {
+        rules.insert( rules.begin(), std::string("default_power.rul") );
+    }
+
 
     /*
     std::string rbcOptsFileName = progConfPath + std::string("/roboconf.options.user");

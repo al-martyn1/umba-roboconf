@@ -1933,7 +1933,7 @@ bool processConnectionModifyRules(RoboconfOptions &rbcOpts, Connection &conn, co
 
 */
 
-    std:: vector< std::string > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< std::string > readedVals; readedVals.reserve(16);
     std::string expected;
     std::string found;
     bool readFieldsRes = readListByTemplate( "Ti!:modify;V;Ti:replace,replaceSingle,toUpper,toLower"
@@ -1948,7 +1948,9 @@ bool processConnectionModifyRules(RoboconfOptions &rbcOpts, Connection &conn, co
         return false;
     }
 
-    if (readedVals[0]!="modify")
+    const std::string verb = readedVals[0];
+
+    if (verb!="modify")
         return true;
 
     std::string whatModify = toUpper(readedVals[1]);
@@ -1962,17 +1964,23 @@ bool processConnectionModifyRules(RoboconfOptions &rbcOpts, Connection &conn, co
        return false;
     }
 
+
+    std::string &valWhichToModify = whatIt->second;
+
+    const std::string whatToDo = readedVals[2];
     //std::string modifyHow
-    if (readedVals[2]=="toupper")
+    if (whatToDo=="toupper")
     {
-        whatIt->second = toUpper(whatIt->second);
+        whatIt->second = toUpper(valWhichToModify);
         return true;
     }
-    else if (readedVals[2]=="tolower")
+    else if (whatToDo=="tolower")
     {
-        whatIt->second = toLower(whatIt->second);
+        whatIt->second = toLower(valWhichToModify);
         return true;
     }
+
+    // Processing here replace,replaceSingle
 
     readFieldsRes = readListByTemplate( "V;V;"
                                       , it, lst.end()
@@ -1986,16 +1994,18 @@ bool processConnectionModifyRules(RoboconfOptions &rbcOpts, Connection &conn, co
         return false;
     }
 
+    const std::string &matchExpression = readedVals[3];
+    const std::string &replaceText     = readedVals[4];
 
     // replace, replaceSingle
-    size_t i = 0, maxIterations = whatIt->second.size();
-    if (readedVals[2]=="replacesingle")
+    size_t i = 0, maxIterations = valWhichToModify.size();
+    if (whatToDo=="replacesingle")
         maxIterations = 1;
 
     for( ; i!=maxIterations; ++i)
     {
         std::string strRes;
-        if (!regexpEvalString( strRes, readedVals[3] /* modifyRegex */ , readedVals[4] /* modifyReplace */ , whatIt->second, string_string_map_type() ) )
+        if (!regexpEvalString( strRes, matchExpression, replaceText, valWhichToModify, string_string_map_type() ) )
             break;
         whatIt->second = strRes;
     }
