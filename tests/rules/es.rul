@@ -1,39 +1,44 @@
-(-- Странно, почему-то не всем назначилось. А не составные ли они? )
-(packageAssign (designator "U1" ) (package "LQFP176") )   (-- !!! no package type taken )
-(packageAssign (designator "U2" ) (package "TSSOP-48") )  (-- !!! no package type taken )
-(packageAssign (designator "U23") (package "SSOP24") )    (-- !!! no package type taken )
-(packageAssign (designator "U24") (package "MSOP8") )     (-- !!! no package type taken )
-(packageAssign (designator "U25") (package "VSSOP10") )   (-- !!! no package type taken )
+(// https://en.cppreference.com/w/cpp/regex/ecmascript )
+
+(-- packageAssign (designator "U1" ) (package "LQFP176") )
+(packageAssign (designator "U2" ) (package "TSSOP-48") )
+(packageAssign (designator "U23") (package "SSOP24") )
+(packageAssign (designator "U24") (package "MSOP8") )
+(packageAssign (designator "U25") (package "VSSOP10") )
 (packageAssign (designator "U26") (package "SO8") )
 (packageAssign (designator "U27") (package "MSOP8") )
-(packageAssign (designator "U28") (package "MSOP8") )     (-- !!! no package type taken )
-(packageAssign (designator "U29") (package "SOT23-5") )   (-- !!! no package type taken )
-(packageAssign (designator "U3" ) (package "MSOP8") )     (-- !!! no package type taken )
-(packageAssign (designator "U30") (package "MSOP8") )     (-- !!! no package type taken )
+(packageAssign (designator "U28") (package "MSOP8") )
+(packageAssign (designator "U29") (package "SOT23-5") )
+(packageAssign (designator "U3" ) (package "MSOP8") )
+(packageAssign (designator "U30") (package "MSOP8") )
 (packageAssign (designator "U31") (package "SOT23") )
 (packageAssign (designator "U32") (package "SC-70-5") )
 (packageAssign (designator "U33") (package "WSON-8") )
 (packageAssign (designator "U34") (package "TDFN-10") )
-(packageAssign (designator "U4" ) (package "MSOP8") )     (-- !!! no package type taken )
+(packageAssign (designator "U4" ) (package "MSOP8") )
 (packageAssign (designator "Q17") (package "D-PAK") )
 
+(// Заменяем круглые скобки на подчеркивания, потому что не удобно с ними)
+(modify "mcuNet" replaceSingle "\(" "$({P})_$({S})")
+(modify "mcuNet" replaceSingle "\)" "$({P})_$({S})")
 
-(componentClass (match designator  )  (matchTo "^U26" )  (set AA)      )
-(componentClass (match designator  )  (matchTo "^U27" )  (set AA)      )
-(componentClass (match designator  )  (matchTo "^U29" )  (set AA)      )
-(componentClass (match designator  )  (matchTo "^U31" )  (set AA)      )
-(componentClass (match designator  )  (matchTo "^U32" )  (set AA)      )
-(componentClass (match designator  )  (matchTo "^U33" )  (set AA)      )
-(componentClass (match designator  )  (matchTo "^U34" )  (set AA)      )
-(componentClass (match designator  )  (matchTo "^Y2"  )  (set QUARTZ)  )
-(componentClass (match designator  )  (matchTo "^Y2"  )  (set QUARTZ)  )
+(// После замены скобок удаляем ведущие и конечные подчёркивания, а также дублированные подчёркивания)
+(modify "mcuNet" replaceSingle "^(.*)_$"      "$({P})$({1})$({S})")
+(modify "mcuNet" replaceSingle "^_(.*)$"      "$({P})$({1})$({S})")
+(modify "mcuNet" replaceSingle "^(.*)__(.*)$" "$({P})$({1})_$({2})$({S})")
 
 
-(modify "mcuNet" replaceSingle "PF0\(UART8_nRxEN\)"  "$({P})MASTER_LINK_RS485_~RX_EN$({S})")
-(modify "mcuNet" replaceSingle "PF1\(UART8_TxEN\)"   "$({P})MASTER_LINK_RS485_TX_EN$({S})") 
-(modify "mcuNet" replaceSingle "PE1\(UART8_Tx\)"     "$({P})MASTER_LINK_RS485_RX$({S})")
-(modify "mcuNet" replaceSingle "PE0\(UART8_Rx\)"     "$({P})MASTER_LINK_RS485_TX$({S})") 
+(modify "mcuNet" replaceSingle "BMSEL(\d+)(.*)"  "$({P})BMSEL_$({1})$({2})$({S})")
+(modify "mcuNet" replaceSingle "BAT_MES(\d+)"    "$({P})BAT_MES_$({1})$({S})")
+(modify "mcuNet" replaceSingle "BAT_BAL(\d+)"    "$({P})BAT_BAL_$({1})$({S})")
+(-- modify "mcuNet" replace "(.+)_(\d+)(.*)" "$({1})$({2})$({3})")
 
+(modify "mcuNet" replaceSingle "PF0_UART8_nRxEN_"  "$({P})MASTER_LINK_485_~RX_EN$({S})")
+(modify "mcuNet" replaceSingle "PF1_UART8_TxEN_"   "$({P})MASTER_LINK_485_TX_EN$({S})") 
+(modify "mcuNet" replaceSingle "PE1_UART8_Tx_"     "$({P})MASTER_LINK_485_RX$({S})")
+(modify "mcuNet" replaceSingle "PE0_UART8_Rx_"     "$({P})MASTER_LINK_485_TX$({S})") 
+
+(// Допилить удаление PXN из имен цепей)
 
 (connect device "SN65HVD1780" as "DD"
     ("RO"     to "X1.7")   (--  Receive data output to UART8_Rx )
@@ -41,6 +46,18 @@
     ("DI"     to "X1.8")   (--  Driver data input to UART8_Tx )
     ("DE"     to "X1.6")   (--  Driver enable high UART8_TxEN)
 )
+
+(connect device "USD-CARD" as "DD"
+    ("DAT2"   to "H1.1")
+    ("~CS"    to "H1.2")
+    ("MOSI"   to "H1.3")
+    ("SCK"    to "H1.5")
+    ("MISO"   to "H1.7")
+    ("DAT1"   to "H1.8")
+)
+
+
+
 
 
 
@@ -70,6 +87,13 @@
     ("SCL" to "X14.SCL")
     ("SDA" to "X14.SDA")
 )
+
+
+
+
+
+
+
 
 (-- connect device "SERVO" as "DD"
     ("PWM" to "X7.Control_PWM")
@@ -117,7 +141,7 @@
     ("SDA" to "X6.SDA")
     ("SCL" to "X6.SCL")
 
-(--connect device "ENDSTOP" as "DD"
+(-- connect device "ENDSTOP" as "DD"
     ("SWITCH" to "X2.SING")
 )
 
