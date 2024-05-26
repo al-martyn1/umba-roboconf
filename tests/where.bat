@@ -1,1 +1,1 @@
-..\out\msvc\Win32\Debug\roboconf.exe --where
+..\.out\msvc\Win32\Debug\roboconf.exe --where

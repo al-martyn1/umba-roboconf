@@ -1,6 +1,7 @@
 /.vs
 /*.user
 /out
+/.out
 /src/log-roboconf.txt
 /src/xcopy.txt
 /src/alg.txt

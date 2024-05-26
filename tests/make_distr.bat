@@ -92,7 +92,7 @@ echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtl_periph.rul    netl
 
 
 
-copy ..\out\msvc\Win32\Release\roboconf.exe ..\distr\bin\roboconf.exe
+copy ..\.out\msvc\Win32\Release\roboconf.exe ..\distr\bin\roboconf.exe
 
 ..\distr\bin\roboconf.exe --help >..\distr\doc\readme.txt
 copy /Y ..\doc\*.png ..\distr\doc\

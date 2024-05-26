@@ -93,26 +93,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\out\msvc\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)\out\msvc\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\.out\msvc\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\.out\msvc\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);.\src;.\xlibs;.\src\sfmt\inc;.\xlibs\mem_pools\inc;.\src\enc_det</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\out\msvc\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)\out\msvc\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\.out\msvc\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\.out\msvc\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);.\src;.\xlibs;.\src\sfmt\inc;.\xlibs\mem_pools\inc;.\src\enc_det</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\out\msvc\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)\out\msvc\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\.out\msvc\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\.out\msvc\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);.\src;.\xlibs;.\src\sfmt\inc;.\xlibs\mem_pools\inc;.\src\enc_det</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\out\msvc\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)\out\msvc\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\.out\msvc\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\.out\msvc\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);.\src;.\xlibs;.\src\sfmt\inc;.\xlibs\mem_pools\inc;.\src\enc_det</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

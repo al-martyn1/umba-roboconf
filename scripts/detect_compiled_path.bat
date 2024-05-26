@@ -1,13 +1,13 @@
 
 :TRY_MSVC_RELEASE
-@if not exist %~dp0\..\out\msvc\Win32\Release\umba-roboconf.exe goto TRY_MSVC_DEBUG
-@set RBC_COMPILED_BIN_PATH=%~dp0\..\out\msvc\Win32\Release
+@if not exist %~dp0\..\.out\msvc\Win32\Release\umba-roboconf.exe goto TRY_MSVC_DEBUG
+@set RBC_COMPILED_BIN_PATH=%~dp0\..\.out\msvc\Win32\Release
 @goto DO_COPY
 
 
 :TRY_MSVC_DEBUG
-@if not exist %~dp0\..\out\msvc\Win32\Debug\umba-roboconf.exe goto TRY_GCC_V1_RELEASE
-@set RBC_COMPILED_BIN_PATH=%~dp0\..\out\msvc\Win32\Debug
+@if not exist %~dp0\..\.out\msvc\Win32\Debug\umba-roboconf.exe goto TRY_GCC_V1_RELEASE
+@set RBC_COMPILED_BIN_PATH=%~dp0\..\.out\msvc\Win32\Debug
 @goto DO_COPY
 
 

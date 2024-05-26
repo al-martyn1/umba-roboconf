@@ -1,2 +1,2 @@
-..\out\msvc\Win32\Debug\roboconf.exe --help 
+..\.out\msvc\Win32\Debug\roboconf.exe --help 
 rem > roboconf.txt

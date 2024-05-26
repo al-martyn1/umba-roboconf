@@ -11,7 +11,7 @@ if exist distr goto failed_remove_old
 @call scripts\create_distr_folders_impl.bat
 
 @echo Deploy binaries
-@rem copy out\msvc\Win32\Release\umba-roboconf.exe distr\umba-roboconf\bin\umba-roboconf.exe
+@rem copy .out\msvc\Win32\Release\umba-roboconf.exe distr\umba-roboconf\bin\umba-roboconf.exe
 @call scripts\deploy_binaries_impl.bat
 
 @echo Deploy conf
