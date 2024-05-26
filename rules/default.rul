@@ -1,5 +1,7 @@
 (-- ----------------- Global modify rules ----------------- )
 
+(// https://en.cppreference.com/w/cpp/regex/ecmascript )
+
 (-- remove 'MCU' prefix)
 (modify "mcuNet" replaceSingle "MCU_(.*)" "$({1})")
 
@@ -21,8 +23,10 @@
 (modify "mcuNet" replaceSingle "RS(\d+)U(\d+)_UART"  "$({P})RS485_UART$({2})$({S})")
 
 
+(// Плохая идея - автоматом приклеивать все числа)
+(// Схемотехник сам должен выбирать правильные имена - RS485 или BAT_SEL_X)
 (// glue numbers to it_s designators - 'BLA_BLA_SOMETHING_1_BLA_BLA' to 'BLA_BLA_SOMETHING1_BLA_BLA' )
-(modify "mcuNet" replace "(.+)_(\d+)(.*)" "$({1})$({2})$({3})")
+(-- modify "mcuNet" replace "(.+)_(\d+)(.*)" "$({1})$({2})$({3})")
 
 (modify "mcuNet" toUpper)
 (// modify "mcuNet" toLower)
