@@ -4,6 +4,7 @@
 #include "reports.h"
 #include "datacheetUtils.h"
 #include "encoding.h"
+#include "roboconf_options.h"
 
 #include <sstream>
 
@@ -148,7 +149,7 @@ table {
 }
 */
 
-    std::string prepareLinkUrl(std::string url) const
+    std::string prepareLinkUrl(RoboconfOptions &rbcOpts, std::string url) const
     {
         // Из системной CP конвертируем в UTF-8
 
@@ -181,9 +182,9 @@ table {
 
     //<img alt="My Image" src="data:image/png;base64,iVBORwA<MoreBase64SringHere>" />
 
-    std::string makeTextLink( std::string url, const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
+    std::string makeTextLink( RoboconfOptions &rbcOpts, std::string url, const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
     {
-        url = prepareLinkUrl(url);
+        url = prepareLinkUrl(rbcOpts, url);
 
         if (title.empty())
             title = text;
@@ -202,9 +203,9 @@ table {
         
     }
 
-    std::string makeIconLink( std::string url, const std::string &iconUrl, const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
+    std::string makeIconLink( RoboconfOptions &rbcOpts, std::string url /* , const std::string &iconUrl */ , const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
     {
-        url = prepareLinkUrl(url);
+        url = prepareLinkUrl(rbcOpts, url);
 
         if (title.empty())
             title = text;
@@ -217,8 +218,16 @@ table {
         }
         oss << "title=\"" << title << "\" ";
         oss << "href=\""  << url << "\">";
-        oss << "<img alt=\"" << text << "\" ";
-        oss << "src=\"" << iconUrl << "\"/>";
+
+        std::string iconData;
+        std::string foundName;
+        std::string foundData;
+        if (rbcOpts.findIcon(url, foundName, foundData, true /* quetMode */ ))
+        {
+            oss << "<img alt=\"" << text << "\" ";
+            oss << "src=\"" << iconData << "\"/>";
+        }
+
         oss << "</a>";
 
         return oss.str();

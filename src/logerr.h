@@ -127,11 +127,11 @@ umba::SimpleFormatter& startLogError( umba::SimpleFormatter &s, bool bWarning
 */
 
 // source parsing errors
-#define LOG_ERR                      startLogMessage( rbcOpts, LogEntryType::err , "err"    , fileNo, lineNo, __FILE__, __LINE__ )
-#define LOG_WARN(warnType)           startLogMessage( rbcOpts, LogEntryType::warn, warnType , fileNo, lineNo, __FILE__, __LINE__ )
+#define LOG_ERR                      startLogMessage( rbcOpts, LogEntryType::err , "err"    , fileNo, (unsigned)lineNo, __FILE__, __LINE__ )
+#define LOG_WARN(warnType)           startLogMessage( rbcOpts, LogEntryType::warn, warnType , fileNo, (unsigned)lineNo, __FILE__, __LINE__ )
 
-#define LOG_ERR_OBJ(obj)             startLogMessage( rbcOpts, LogEntryType::err , "err"    , (obj).fileNo, (obj).lineNo, __FILE__, __LINE__ )
-#define LOG_WARN_OBJ(warnType, obj)  startLogMessage( rbcOpts, LogEntryType::warn, warnType , (obj).fileNo, (obj).lineNo, __FILE__, __LINE__ )
+#define LOG_ERR_OBJ(obj)             startLogMessage( rbcOpts, LogEntryType::err , "err"    , (obj).fileNo, (unsigned)(obj).lineNo, __FILE__, __LINE__ )
+#define LOG_WARN_OBJ(warnType, obj)  startLogMessage( rbcOpts, LogEntryType::warn, warnType , (obj).fileNo, (unsigned)(obj).lineNo, __FILE__, __LINE__ )
 
 // options and other errors
 #define LOG_ERR_OPT                  startLogMessage( rbcOpts, LogEntryType::err , "err"    , (FileSet::file_id_t)-1, 0, __FILE__, __LINE__ )

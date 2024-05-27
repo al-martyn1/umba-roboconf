@@ -88,19 +88,19 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
                     findDatasheet( rbcOpts, componentKV->second.refman   , refmanLink     );
                     findDatasheet( rbcOpts, componentKV->second.errata   , errataLink     );
 
-                    std::string iconLink;
-                    findDatasheet(rbcOpts, "datasheet.gif", iconLink, true );
+                    //std::string iconLink;
+                    //findDatasheet(rbcOpts, "datasheet.gif", iconLink, true );
 
                     std::string target = "_blank";
 
                     if (!datasheetLink.empty())
-                        os<<"<div>Datasheet: "<<makeIconLink( datasheetLink, iconLink, "Datasheet", "Datasheet", target )<<"</div>\n";
+                        os<<"<div>Datasheet: "<<makeIconLink( rbcOpts, datasheetLink, "Datasheet", "Datasheet", target )<<"</div>\n";
                     
                     if (!refmanLink.empty())
-                        os<<"<div>Reference manual: "<<makeIconLink( refmanLink, iconLink, "Reference manual", "Reference manual", target )<<"<div>\n";
+                        os<<"<div>Reference manual: "<<makeIconLink( rbcOpts, refmanLink, "Reference manual", "Reference manual", target )<<"<div>\n";
                     
                     if (!errataLink.empty())
-                        os<<"<div>Errata: "<<makeIconLink( errataLink, iconLink, "Errata", "Errata", target )<<"<div>\n";
+                        os<<"<div>Errata: "<<makeIconLink( rbcOpts, errataLink, "Errata", "Errata", target )<<"<div>\n";
 
                 }
 
@@ -206,19 +206,19 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
                         findDatasheet(rbcOpts, conn.dstComponentInfo.refman   , refmanLink     );
                         findDatasheet(rbcOpts, conn.dstComponentInfo.errata   , errataLink     );
 
-                        std::string iconLink;
-                        findDatasheet(rbcOpts, "datasheet.gif", iconLink, true );
+                        // std::string iconLink;
+                        // findDatasheet(rbcOpts, "datasheet.gif", iconLink, true );
 
                         std::string target = "_blank";
 
                         if (!datasheetLink.empty())
-                            os<<" "<<makeIconLink( datasheetLink, iconLink, "Datasheet", "Datasheet", target );
+                            os<<" "<<makeIconLink(rbcOpts, datasheetLink, "Datasheet", "Datasheet", target );
                        
                         if (!refmanLink.empty())
-                            os<<" "<<makeIconLink( refmanLink, iconLink, "Reference manual", "Reference manual", target );
+                            os<<" "<<makeIconLink(rbcOpts, refmanLink, "Reference manual", "Reference manual", target );
                        
                         if (!errataLink.empty())
-                            os<<" "<<makeIconLink( errataLink, iconLink, "Errata", "Errata", target );
+                            os<<" "<<makeIconLink(rbcOpts, errataLink, "Errata", "Errata", target );
 
                         std::string dstComponentTypeModified = conn.processedStrings["UNITTYPE"];
                         if (conn.dstComponentInfo.typeName!=dstComponentTypeModified)

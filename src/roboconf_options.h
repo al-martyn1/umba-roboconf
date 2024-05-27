@@ -160,7 +160,8 @@ public:
     std:: vector<std::string>                   rulesPaths;
     std:: vector<std::string>                   iconsPaths;
 
-    mutable std::unordered_map<std::string, IconInfo>   icons;
+    mutable std::unordered_map<std::string, IconInfo>  icons;
+    std::unordered_map<std::string, std::string>       mimeTypes;
 
     std::string                                 outputPath;
                                               
@@ -186,7 +187,8 @@ public:
 
     bool findDatasheet( const std::string &name, std::string &foundName, bool quetMode = false ) const;
     bool findIcon( const std::string &datasheetName, std::string &foundName, std::string &foundData, bool quetMode = false ) const;
-
+    std::string getMimeTypeByFileName(const std::string &fileName) const;
+    std::string getMimeTypeByFileExt(const std::string &ext) const;
 
     RoboconfOptions() : pMsgLog(0), pErrLog(0), nulWriter(), logNul(&nulWriter) {}
     RoboconfOptions(umba::SimpleFormatter *pml, umba::SimpleFormatter *pel ) : pMsgLog(pml), pErrLog(pel), nulWriter(), logNul(&nulWriter) {}

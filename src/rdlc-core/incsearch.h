@@ -15,19 +15,22 @@ std::vector<std::string> makeIncVectorFromFileName( const std::string &pathFile 
 }
 
 inline
-bool includeSearch( std::ifstream &ifs, const std::string &includeFile, std::string &foundName, const std::vector<std::string> &paths)
+bool includeSearch( std::ifstream &ifs, const std::string &includeFile, std::string &foundName, const std::vector<std::string> &paths, bool binaryMode = false)
 {
     for( const auto &p : paths)
     {
         //if (p.empty())
         //    continue;
 
-        std::string fileName = p.empty() ? includeFile : p + std::string("\\") + includeFile;
+        std::string fileName = appendPath(p, includeFile);
 
         //using std::ios_base::iostate;
         //ifs.clear(eofbit|failbit|badbit);
         ifs.clear();
-        ifs.open( fileName.c_str() );
+        if (binaryMode)
+            ifs.open( fileName.c_str(), std::ios_base::in | std::ios_base::binary );
+        else
+            ifs.open( fileName.c_str() );
         if (!!ifs)
         {
             foundName = fileName;
@@ -39,11 +42,11 @@ bool includeSearch( std::ifstream &ifs, const std::string &includeFile, std::str
 }
 
 inline
-bool includeSearch( std::ifstream &ifs, const std::string &includeFile, std::string &foundName, const std::vector<std::string> &pathsFirst, const std::vector<std::string> &pathsSecond )
+bool includeSearch( std::ifstream &ifs, const std::string &includeFile, std::string &foundName, const std::vector<std::string> &pathsFirst, const std::vector<std::string> &pathsSecond, bool binaryMode = false )
 {
-    if (includeSearch( ifs, includeFile, foundName, pathsFirst ))
+    if (includeSearch( ifs, includeFile, foundName, pathsFirst, binaryMode))
         return true;
-    if (includeSearch( ifs, includeFile, foundName, pathsSecond ))
+    if (includeSearch( ifs, includeFile, foundName, pathsSecond, binaryMode ))
         return true;
     return false;
 }

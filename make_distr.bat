@@ -8,23 +8,26 @@ if exist distr goto failed_remove_old
 
 
 @echo Creating folders
-@call scripts\create_distr_folders_impl.bat
+@call %~dp0\scripts\create_distr_folders_impl.bat
 
 @echo Deploy binaries
 @rem copy .out\msvc\Win32\Release\umba-roboconf.exe distr\umba-roboconf\bin\umba-roboconf.exe
-@call scripts\deploy_binaries_impl.bat
+@call %~dp0\scripts\deploy_binaries_impl.bat
 
 @echo Deploy conf
-@call scripts\deploy_conf_impl.bat
+@call %~dp0\scripts\deploy_conf_impl.bat
 
 @echo Deploy libs
-@call scripts\deploy_libs_impl.bat
+@call %~dp0\scripts\deploy_libs_impl.bat
 
 @echo Deploy rules
-@call scripts\deploy_rules_impl.bat
+@call %~dp0\scripts\deploy_rules_impl.bat
+
+@echo Deploy rules
+@call %~dp0\scripts\deploy_icons_impl.bat
 
 
-@distr\umba-roboconf\bin\umba-roboconf.exe --help >distr\umba-roboconf\doc\readme.txt
+@%~dp0\distr\umba-roboconf\bin\umba-roboconf.exe --help >distr\umba-roboconf\doc\readme.txt
 @copy /Y doc\*.png distr\umba-roboconf\doc\
 
 

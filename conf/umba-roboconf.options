@@ -1,4 +1,22 @@
 ; $INCLUDE$ - special value, which points to rdlc/include folder
+
+--add-mime-type=ico:image/x-icon
+
+--icons-path=$(RoboconfRoot)/icons
+
+--icon=document:document.ico
+--icon=document-www:document-www.ico
+--icon=pdf:pdf.ico
+--icon=pdf-www:pdf-www.ico
+--icon=wikipedia:wikipedia.ico
+--icon=rtf:word.ico
+--icon=doc:word.ico
+--icon=docx:word.ico
+--icon=rtf-www:word-www.ico
+--icon=doc-www:word-www.ico
+--icon=docx-www:word-www.ico
+--icon=www:www.ico
+
 --lib-path=$(RoboconfRoot)/lib
 --lib-path=$(RoboconfRoot)/lib-user
 --lib-path=$(RoboconfRoot)/lib-cube

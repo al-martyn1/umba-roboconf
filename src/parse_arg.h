@@ -29,6 +29,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
     if (opt.isOption())
     {
         std::string errMsg;
+        std::string strVal;
         int intVal;
 
         if (opt.name.empty())
@@ -489,18 +490,49 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                 rbcOpts.icons[ii.type] = ii;
             }
         }
+        //--add-mime-type=ico:image/x-icon
+        else if ( opt.isOption("add-mime-type") || opt.setParam("EXT:MIMETYPE" /* , "" */ )
+               || opt.setDescription("Add mime type for autodetection by file extention."))
+        {
+            if (hasHelpOption) return 0;
 
+            if (!opt.getParamValue(strVal,errMsg))
+            {
+                LOG_ERR_OPT<<errMsg<<"\n";
+                return -1;
+            }
 
-            // std::string reportType, reportFile;
-            // if (!splitToPair(opt.optArg, reportType, reportFile, ':'))
-            // {
-            //     rbcOpts.reports.emplace_back(ReportGenerationInfo(reportType));
-            // }
-            // else
-            // {
-            //     rbcOpts.reports.emplace_back(ReportGenerationInfo(reportType, reportFile));
-            // }
+            std::string extListStr, mime;
+            if (!splitToPair(opt.optArg, extListStr, mime, ':'))
+            {
+                LOG_ERR_OPT<<"mime type not taken (--add-mime-type)\n";
+                return -1;
+            }
 
+            //rbcOpts.mimeTypes[ext] = mime;
+
+            std::vector<std::string> extList;
+            splitToVector(extListStr, extList, ',' );
+            //std::vector<std::string> extList = marty_cpp::simple_string_split(extListStr, std::string(","));
+
+            std::size_t cnt = 0;
+            for(auto ext: extList)
+            {
+                trim(ext);
+                ext = toLower(ext);
+                rbcOpts.mimeTypes[ext] = mime;
+                ++cnt;
+            }
+
+            if (!cnt)
+            {
+                LOG_ERR_OPT<<"no mime types taken (--add-mime-type)\n";
+                return -1;
+            }
+
+            return 0;
+
+        }
         else if (opt.isOption("class-rules") /*  || opt.isOption('L') */ || opt.setParam("CLASSES-FILE") || opt.setDescription("Set class detection rules file") )
         {
             if (hasHelpOption) return 0;

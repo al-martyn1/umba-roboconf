@@ -9,6 +9,8 @@
 @if not exist %RBC_ROOT%\lib              @mkdir %RBC_ROOT%\lib
 @if not exist %RBC_ROOT%\lib-user         @mkdir %RBC_ROOT%\lib-user
 @if not exist %RBC_ROOT%\rules            @mkdir %RBC_ROOT%\rules
+@if not exist %RBC_ROOT%\icons            @mkdir %RBC_ROOT%\icons
+
 
 goto END
 

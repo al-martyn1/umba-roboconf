@@ -11,18 +11,87 @@
 #include "list_conditional.h"
 #include "rdlc-core/textUtils.h"
 #include "datacheetUtils.h"
+#include "base64.h"
 
 
 //-----------------------------------------------------------------------------
-bool RoboconfOptions::findIcon( const std::string &datasheetName, std::string &foundName, std::string &foundData, bool quetMode = false ) const
+std::string RoboconfOptions::getMimeTypeByFileExt(const std::string &ext) const
+{
+    std::unordered_map<std::string, std::string>::const_iterator mit = mimeTypes.find(toLower(ext));
+    if (mit==mimeTypes.end())
+        return "application/octet-stream";
+
+    return mit->second;
+}
+
+//-----------------------------------------------------------------------------
+std::string RoboconfOptions::getMimeTypeByFileName(const std::string &fileName) const
+{
+    return getMimeTypeByFileExt(getFileExtention(fileName));
+}
+
+//-----------------------------------------------------------------------------
+bool RoboconfOptions::findIcon( const std::string &datasheetName, std::string &foundName, std::string &foundData, bool quetMode ) const
 {
     bool isLocalDocument = true;
-    std::string documentType = detasheetGetFileType(datasheetName, isLocalDocument);
+    std::string documentType = detasheetGetFileType(datasheetName, &isLocalDocument);
 
-    std::unordered_map<std::string, IconInfo>:const_iterator it = icons.find(documentType);
+    std::unordered_map<std::string, IconInfo>::iterator it = icons.find(documentType);
 
     if (it==icons.end())
-    {}
+    {
+        if (!isLocalDocument)
+            documentType = "document-www";
+        else
+            documentType = "document";
+
+        it = icons.find(documentType);
+        if (it==icons.end())
+        {
+            return false;
+        }
+    }
+
+    if (!it->second.dataBase64.empty())
+    {
+        foundName = it->second.fullFileName;
+        foundData = it->second.dataBase64;
+        return true;
+    }
+
+    std::ifstream iconStream;
+    std:: vector<std::string> dshCheckedLocations; dshCheckedLocations.reserve(datasheetPaths.size());
+    if (!includeSearch( iconStream, it->second.fileName, foundName, iconsPaths, true /* binary */ , &dshCheckedLocations ))
+    {
+        //LOG_MSG("datasheet-found-local") << "Datasheet found at: '" << foundName << "'\n";
+        return false;
+    }
+
+    iconStream.seekg(0, std::ios::end);
+    auto length = iconStream.tellg();
+    if (!length)
+        return false;
+
+    iconStream.seekg(0, std::ios::beg);
+    auto bytes = std::vector<char>((std::size_t)length, (char)0);
+    iconStream.read(&bytes[0], length);
+
+    it->second.fullFileName = foundName;
+
+    //data:image/jpeg;base64,
+    it->second.dataBase64 = "data:"
+                          + getMimeTypeByFileName(foundName) 
+                          + ";base64,"
+                          + base64_encode( (unsigned char*)bytes.data(), (unsigned int)bytes.size()
+                                         , false // !add_filling
+                                         , 0 // max_line_len
+                                         // getBase64StandartChars()
+                                         );
+    foundData = it->second.dataBase64;
+
+    return true;
+
+    //foundName = , std::string &foundData
 
 
 //     mutable std::unordered_map<std::string, IconInfo>   icons;
@@ -100,7 +169,7 @@ bool RoboconfOptions::findDatasheet( const std::string &name, std::string &found
     {
         std::ifstream dsStream;
         std:: vector<std::string> dshCheckedLocations; dshCheckedLocations.reserve(datasheetPaths.size());
-        if (includeSearch( dsStream, aliasName, foundName, extraIncPath, /* <= swap to change lookup order => */ datasheetPaths, &dshCheckedLocations ))
+        if (includeSearch( dsStream, aliasName, foundName, extraIncPath, /* <= swap to change lookup order => */ datasheetPaths, false /*not binary*/, &dshCheckedLocations ))
         {
             LOG_MSG("datasheet-found-local") << "Datasheet found at: '" << foundName << "'\n";
             return true;
