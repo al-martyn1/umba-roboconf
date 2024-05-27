@@ -14,6 +14,43 @@
 
 
 //-----------------------------------------------------------------------------
+bool RoboconfOptions::findIcon( const std::string &datasheetName, std::string &foundName, std::string &foundData, bool quetMode = false ) const
+{
+    bool isLocalDocument = true;
+    std::string documentType = detasheetGetFileType(datasheetName, isLocalDocument);
+
+    std::unordered_map<std::string, IconInfo>:const_iterator it = icons.find(documentType);
+
+    if (it==icons.end())
+    {}
+
+
+//     mutable std::unordered_map<std::string, IconInfo>   icons;
+//  
+// struct IconInfo
+// {
+//     std::string  type          ;
+//     std::string  fileName      ;
+//     std::string  fullFileName  ;
+//     std::string  dataBase64    ;
+// };
+
+// bool isDatasheetNetworkLink(std::string name)
+// bool isDatacheetAbsFileName(std::string name)
+//std::string detasheetGetFileType(const std::string &name, bool *pLocal=0)
+
+// document.ico
+// document-www.ico
+// pdf.ico
+// pdf-www.ico
+// wikipedia.ico
+// word.ico
+// word-www.ico
+// www.ico
+
+}
+
+//-----------------------------------------------------------------------------
 bool RoboconfOptions::findDatasheet( const std::string &name, std::string &foundName, bool quetMode) const
 {
     if (name.empty())

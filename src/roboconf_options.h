@@ -30,6 +30,9 @@
 #include "string_string_map_type.h"
 
 
+#include "base64.h"
+
+
 class RoboconfOptions;
 
 struct ForceGroupingRule
@@ -127,6 +130,16 @@ struct ForceGroupingRule
     }
 */
 
+struct IconInfo
+{
+    std::string  type          ;
+    std::string  fileName      ;
+    std::string  fullFileName  ;
+    std::string  dataBase64    ;
+};
+
+
+
 
 class RoboconfOptions
 {
@@ -145,6 +158,9 @@ public:
     std:: vector<std::string>                   libPaths;
     std:: vector<std::string>                   datasheetPaths;
     std:: vector<std::string>                   rulesPaths;
+    std:: vector<std::string>                   iconsPaths;
+
+    mutable std::unordered_map<std::string, IconInfo>   icons;
 
     std::string                                 outputPath;
                                               
@@ -169,6 +185,7 @@ public:
     std::vector<ReportGenerationInfo>           reports;
 
     bool findDatasheet( const std::string &name, std::string &foundName, bool quetMode = false ) const;
+    bool findIcon( const std::string &datasheetName, std::string &foundName, std::string &foundData, bool quetMode = false ) const;
 
 
     RoboconfOptions() : pMsgLog(0), pErrLog(0), nulWriter(), logNul(&nulWriter) {}

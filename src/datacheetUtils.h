@@ -83,16 +83,37 @@ bool datasheetFilenamesNetworkOrLocalLess(const std::string &name1, const std::s
 //----------------------------------------------------------------------------
 //! Возвращает тип файла - либо его расширение, либо, если это ссылка на википедию - строку "wikipedia"
 inline
-std::string detasheetGetFileType(const std::string &name)
+std::string detasheetGetFileType(const std::string &name, bool *pLocal=0)
 {
     if (isDatasheetNetworkLink(name))
     {
         if (name.find("wikipedia.org")!=name.npos)
+        {
+            if (pLocal)
+            {
+                *pLocal = false;
+            }
             return "wikipedia";
+        }
     }
 
     std::string filenameOnly = getNameFromFull(name);
-    return getFileExtention(filenameOnly);
+    std::string type = toLower(getFileExtention(filenameOnly));
+
+    bool bLocal = true;
+
+    if (isDatasheetNetworkLink(name))
+    {
+        bLocal = false;
+        type += "-www";
+    }
+
+    if (pLocal)
+    {
+        *pLocal = bLocal;
+    }
+
+    return type;
 }
 
 

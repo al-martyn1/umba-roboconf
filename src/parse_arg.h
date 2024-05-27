@@ -126,7 +126,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
 
             if (!opt.hasArg())
             {
-                LOG_ERR_OPT<<"LOG_ERR_OPTreport type not taken (--csv-component)\n";
+                LOG_ERR_OPT<<"report type not taken (--report)\n";
                 return -1;
             }
 
@@ -440,6 +440,67 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                 rbcOpts.rulesPaths.push_back(rulesPath);
             }
         }
+        else if (opt.isOption("icons-path") /*  || opt.isOption('L') */  || opt.setParam("PATH") || opt.setDescription("Rules path"))
+        {
+            if (hasHelpOption) return 0;
+
+            if (!opt.hasArg())
+            {
+                LOG_ERR_OPT<<"icons path not taken (--icons-path)\n";
+                return -1;
+            }
+
+            std::vector<std::string> pathList;
+            splitToVector(opt.optArg, pathList, ';' );
+            for( auto &iconsPath : pathList )
+            {
+                trim(iconsPath);
+
+                if (iconsPath.empty())
+                    continue;
+
+                iconsPath = rbcOpts.macroExpandString(iconsPath);
+                rbcOpts.iconsPaths.push_back(iconsPath);
+            }
+        }
+        else if (opt.isOption("icon")  /* || opt.isOption('R') */  || opt.setParam("TYPE:FILE.ICO") || opt.setDescription("Set icon for datasheet type TYPE"))
+        {
+            if (hasHelpOption) return 0;
+
+            if (!opt.hasArg())
+            {
+                LOG_ERR_OPT<<"icon type and file name not taken (--icon)\n";
+                return -1;
+            }
+
+            std::string iconType, iconFile;
+            if (!splitToPair(opt.optArg, iconType, iconFile, ':'))
+            {
+                LOG_ERR_OPT<<"icon file name not taken (--icon)\n";
+                return -1;
+                //rbcOpts.reports.emplace_back(ReportGenerationInfo(reportType));
+            }
+            else
+            {
+                IconInfo ii;
+                ii.type      = toLower(iconType);
+                ii.fileName  = iconFile;
+
+                rbcOpts.icons[ii.type] = ii;
+            }
+        }
+
+
+            // std::string reportType, reportFile;
+            // if (!splitToPair(opt.optArg, reportType, reportFile, ':'))
+            // {
+            //     rbcOpts.reports.emplace_back(ReportGenerationInfo(reportType));
+            // }
+            // else
+            // {
+            //     rbcOpts.reports.emplace_back(ReportGenerationInfo(reportType, reportFile));
+            // }
+
         else if (opt.isOption("class-rules") /*  || opt.isOption('L') */ || opt.setParam("CLASSES-FILE") || opt.setDescription("Set class detection rules file") )
         {
             if (hasHelpOption) return 0;
