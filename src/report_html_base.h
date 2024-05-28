@@ -231,6 +231,10 @@ table {
     {
         url = prepareLinkUrl(rbcOpts, url);
 
+        if (!title.empty())
+            title += " - ";
+        title += url;
+
         if (title.empty())
             title = text;
 
@@ -251,6 +255,10 @@ table {
     std::string makeIconLink( RoboconfOptions &rbcOpts, std::string url /* , const std::string &iconUrl */ , const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
     {
         url = prepareLinkUrl(rbcOpts, url);
+
+        if (!title.empty())
+            title += " - ";
+        title += url;
 
         if (title.empty())
             title = text;
