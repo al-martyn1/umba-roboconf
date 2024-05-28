@@ -203,7 +203,7 @@ int main(int argc, char* argv[])
            LOG_ERR_OPT<<"fatal error: unknown error"<<umba::omanip::endl;
        }
 
-       return 2;
+       return 100;
    }
 
 int safe_main(int argc, char* argv[])
@@ -762,7 +762,7 @@ int safe_main(int argc, char* argv[])
         if (!componentImportFromCsv(rbcOpts, input, componentImportOptions, ci /* , ';' */  /* sep */ ))
         {
             LOG_ERR_OPT<<"failed to import component from CSV\n";
-            return 2;
+            return 3;
         }
 
         input.close();
@@ -790,7 +790,7 @@ int safe_main(int argc, char* argv[])
             if (!outputStream)
             {
                 LOG_ERR_OPT<<"failed to open output file '"<<outputFullName<<"'\n";
-                return 2;
+                return 4;
             }
         }
         
@@ -837,7 +837,7 @@ int safe_main(int argc, char* argv[])
     elapsedTimerStep.restart();
     if (!netlistRead(rbcOpts, rbcOpts.usedFiles.getFileId(inputFilename), input, projectName, allNets ))
     {
-        return 2;
+        return 5;
     }
     input.close();
 
@@ -931,7 +931,7 @@ int safe_main(int argc, char* argv[])
         if ( !includeSearch( rulesStream, rulesFilename, foundName, makeIncVectorFromFileName(inputFilename), /* <= swap to change lookup order => */ rbcOpts.rulesPaths ) )
         {
             LOG_ERR_OPT<<"rules file '"<<rulesFilename<<"' not found\n";
-            return 3;
+            return 6;
         }
 
         expression_list_t lst;
@@ -941,7 +941,7 @@ int safe_main(int argc, char* argv[])
         if ( !readList(fileNo, lineNo, rulesStream, lst ) )
         {
             LOG_ERR<<"failed to read rules file '"<<rulesFilename<<"'\n";
-            return 3;
+            return 7;
         }
         rulesStream.close();
 
@@ -969,7 +969,7 @@ int safe_main(int argc, char* argv[])
     if (!extractCustomGenerators( processingRules, reportGenerators ))
     {
         LOG_ERR_OPT<<"failed to read custom generator rules\n";
-        return 3;
+        return 8;
     }
 
 
@@ -992,13 +992,13 @@ int safe_main(int argc, char* argv[])
     if (!parseExternalConnectionsRules(rbcOpts, processingRules, externalDeviceConnections, makeIncVectorFromFileName(inputFilename), rbcOpts.libPaths, allNets ))
     {
         LOG_ERR_OPT<<"error in 'connection' rules\n";
-        return 3;
+        return 9;
     }
 
     if (!connectExternalDevices( rbcOpts, externalDeviceConnections, allNets ))
     {
         LOG_ERR_OPT<<"failed to connect devices\n";
-        return 3;
+        return 10;
     }
 
     if (showTime)
@@ -1009,7 +1009,7 @@ int safe_main(int argc, char* argv[])
 
 
     if (!rbcOpts.extractGroupingRules( processingRules ))
-        return 4;
+        return 11;
 
     if (showTime)
     {
@@ -1019,7 +1019,7 @@ int safe_main(int argc, char* argv[])
 
 
     if (!rbcOpts.packagesDb.extractPackages(rbcOpts, processingRules ))
-        return 4;
+        return 12;
 
     if (showTime)
     {
@@ -1032,7 +1032,7 @@ int safe_main(int argc, char* argv[])
     elapsedTimerStep.restart();
 
     if (!rbcOpts.packagesDb.extractDesignatorAssignments(rbcOpts, processingRules ))
-        return 4;
+        return 13;
 
     if (showTime)
     {
@@ -1042,7 +1042,7 @@ int safe_main(int argc, char* argv[])
 
 
     if (!rbcOpts.packagesDb.applyDesignatorAssignments(rbcOpts, allNets ))
-        return 5;
+        return 14;
 
     if (showTime)
     {
@@ -1198,7 +1198,7 @@ int safe_main(int argc, char* argv[])
     if (unknownReportsCount>=rbcOpts.reports.size())
     {
         LOG_ERR_OPT<<"no known reports found to generate\n";
-        return 3;
+        return 15;
     }
 
     // auto reportIt = reportGenerators.find(reportType);
@@ -1319,7 +1319,7 @@ int safe_main(int argc, char* argv[])
     if (mcuFail)
     {
         LOG_ERR_OPT<<"No MCUs found in some reports\n";
-        return 7;
+        return 16;
     }
 
     return 0;
