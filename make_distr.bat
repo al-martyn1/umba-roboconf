@@ -23,7 +23,7 @@ if exist distr goto failed_remove_old
 @echo Deploy rules
 @call %~dp0\scripts\deploy_rules_impl.bat
 
-@echo Deploy rules
+@echo Deploy icons
 @call %~dp0\scripts\deploy_icons_impl.bat
 
 
