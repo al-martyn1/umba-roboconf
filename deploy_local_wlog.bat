@@ -1,0 +1,1 @@
+@call deploy_local.bat > deploy_local.log 2>&1

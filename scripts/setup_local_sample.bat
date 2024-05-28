@@ -1,1 +1,1 @@
-@set LOCAL_RBC_ROOT=C:\work\roboconf
+@set LOCAL_RBC_ROOT=C:\work\umba-roboconf

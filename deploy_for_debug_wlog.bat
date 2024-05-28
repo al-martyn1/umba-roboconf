@@ -1,0 +1,1 @@
+@call deploy_for_debug.bat > deploy_for_debug.log 2>&1

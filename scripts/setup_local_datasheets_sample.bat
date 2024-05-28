@@ -1,1 +1,1 @@
-@set LOCAL_DATASHEETS_PATH=C:\work\datasheets
+@set LOCAL_DATASHEETS_PATH=C:\work\umba-datasheets

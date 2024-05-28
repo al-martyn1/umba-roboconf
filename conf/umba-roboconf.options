@@ -1,21 +1,35 @@
 ; $INCLUDE$ - special value, which points to rdlc/include folder
 
 --add-mime-type=ico:image/x-icon
+--add-mime-type=png:image/png
 
 --icons-path=$(RoboconfRoot)/icons
 
---icon=document:document.ico
---icon=document-www:document-www.ico
---icon=pdf:pdf.ico
---icon=pdf-www:pdf-www.ico
---icon=wikipedia:wikipedia.ico
---icon=rtf:word.ico
---icon=doc:word.ico
---icon=docx:word.ico
---icon=rtf-www:word-www.ico
---icon=doc-www:word-www.ico
---icon=docx-www:word-www.ico
---icon=www:www.ico
+#--icon=document:document.ico
+#--icon=document-www:document-www.ico
+#--icon=pdf:pdf.ico
+#--icon=pdf-www:pdf-www.ico
+#--icon=wikipedia:wikipedia.ico
+#--icon=rtf:word.ico
+#--icon=doc:word.ico
+#--icon=docx:word.ico
+#--icon=rtf-www:word-www.ico
+#--icon=doc-www:word-www.ico
+#--icon=docx-www:word-www.ico
+#--icon=www:www.ico
+
+--icon=document:document-16.png
+--icon=document-www:document-www-16.png
+--icon=pdf:pdf-16.png
+--icon=pdf-www:pdf-www-16.png
+--icon=wikipedia:wikipedia-16.png
+--icon=rtf:word-16.png
+--icon=doc:word-16.png
+--icon=docx:word-16.png
+--icon=rtf-www:word-www-16.png
+--icon=doc-www:word-www-16.png
+--icon=docx-www:word-www-16.png
+--icon=www:www-16.png
 
 --lib-path=$(RoboconfRoot)/lib
 --lib-path=$(RoboconfRoot)/lib-user
