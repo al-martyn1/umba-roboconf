@@ -15,8 +15,9 @@
 
 
 (// AS5040_PWM3 -> AS5040U3_PWM ('U' from 'UNIT') )
-(modify "mcuNet" replaceSingle "([[:alpha:]]+\d{2,})_([[:alpha:]]+)(\d+)" "$({P})$({1})U$({3})_$({2})$({S})")
-(modify "mcuNet" replaceSingle "([[:alpha:]]+\d{2,})_([[:alpha:]]+)_(\d+)" "$({P})$({1})U$({3})_$({2})$({S})")
+(// Какое-то частное правило, ему тут не место)
+(// modify "mcuNet" replaceSingle "([[:alpha:]]+\d{2,})_([[:alpha:]]+)(\d+)" "$({P})$({1})U$({3})_$({2})$({S})")
+(// modify "mcuNet" replaceSingle "([[:alpha:]]+\d{2,})_([[:alpha:]]+)_(\d+)" "$({P})$({1})U$({3})_$({2})$({S})")
 
 (-- revert UART RS485 )
 (modify "mcuNet" replaceSingle "RS(\d+)U(\d+)_USART" "$({P})RS485_USART$({2})$({S})")
@@ -61,7 +62,7 @@
 (modify "mcuNet" replaceSingle "LED_ERR"   "LED_ERROR")
 (modify "mcuNet" replaceSingle "LED_GREEN" "LED_LINK")
 (modify "mcuNet" replaceSingle "LED_RED"   "LED_ERROR")
-(forceGroup "STATE_LEDS" ("LED_ERR" "LED_ERROR" "LED_LINK" "LED_WORK" "LED_OK" "LED_GOOD") )
+(forceGroup "STATE_LEDS" ("LED_ERR" "LED_ERROR" "LED_LINK" "LED_WORK" "LED_OK" "LED_GOOD" "LED\d+" "LED_\d+" ".*_LED\d+" ".*_LED_\d+" ".*_LED_.*") )
 
 (modify "unitPurpose" replaceSingle "^LED$"           "DRIVER:GPIO")
 (modify "unitPurpose" replaceSingle "^SWITCH$"        "DRIVER:GPIO")
