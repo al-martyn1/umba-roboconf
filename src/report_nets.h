@@ -33,6 +33,7 @@ struct NetsReportGenerator : public ReportHtmlBase // IReportGenerator
     virtual
     //bool generateReport( std::ostream &os, std:: map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
     bool generateReport( RoboconfOptions &rbcOpts
+                       , const std::string &reportName
                        , std::ostream &os
                        , std::map<std::string, NetlistInfo> &nets
                        , std::vector< ComponentInfo > libComponents
@@ -60,7 +61,7 @@ struct NetsReportGenerator : public ReportHtmlBase // IReportGenerator
         for( const auto& nlIt : nets )
         {
             NetlistInfo netlistInfo = nlIt.second; 
-            os<<"<h1>"<<netlistInfo.projectName<<" - "<<netlistInfo.name<<"</h1>\n";
+            os<<"<h1 class=\"screen-only\">"<<netlistInfo.projectName<<" - "<<netlistInfo.name<<"</h1>\n";
 
             std::vector< std::string > mcuDesignators;
 

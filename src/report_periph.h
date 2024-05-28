@@ -27,6 +27,7 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
     {
         std::vector<std::string> names;
         names.emplace_back( "periph" );
+        names.emplace_back( "periph-short" );
         return names;
     }
 
@@ -35,6 +36,7 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
     virtual
     //bool generateReport( std::ostream &os, std:: map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
     bool generateReport( RoboconfOptions &rbcOpts
+                       , const std::string &reportName
                        , std::ostream &os
                        , std::map<std::string, NetlistInfo> &nets
                        , std::vector< ComponentInfo > libComponents
@@ -43,7 +45,9 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                        , size_t &processedMcus
                        ) override
     {
-        std::string docTitle = "Peripherials - Roboconf";
+        bool shortReport = (reportName=="periph-short");
+
+        std::string docTitle = shortReport ? "Peripherials Short - Roboconf" : "Peripherials - Roboconf";
 
         if (!nets.empty())
         {
@@ -59,10 +63,12 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
         os<<"</head>\n";
         os<<htmlStyle();
 
+        std::size_t tableLineCount = 0;
+
         for( const auto& nlIt : nets )
         {
             NetlistInfo netlistInfo = nlIt.second; 
-            os<<"<h1>"<<netlistInfo.projectName<<" - "<<netlistInfo.name<<"</h1>\n";
+            os<<"<h1 class=\"screen-only\">"<<netlistInfo.projectName<<" - "<<netlistInfo.name<<"</h1>\n";
 
             std::vector< std::string > mcuDesignators;
 
@@ -96,13 +102,13 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                     std::string target = "_blank";
 
                     if (!datasheetLink.empty())
-                        os<<"<div>Datasheet: "<<makeIconLink( rbcOpts, datasheetLink, "Datasheet", "Datasheet", target )<<"</div>\n";
+                        os<<"<div class=\"screen-only\">Datasheet: "<<makeIconLink( rbcOpts, datasheetLink, "Datasheet", "Datasheet", target )<<"</div>\n";
                     
                     if (!refmanLink.empty())
-                        os<<"<div>Reference manual: "<<makeIconLink( rbcOpts, refmanLink, "Reference manual", "Reference manual", target )<<"<div>\n";
+                        os<<"<div class=\"screen-only\">Reference manual: "<<makeIconLink( rbcOpts, refmanLink, "Reference manual", "Reference manual", target )<<"</div>\n";
                     
                     if (!errataLink.empty())
-                        os<<"<div>Errata: "<<makeIconLink( rbcOpts, errataLink, "Errata", "Errata", target )<<"<div>\n";
+                        os<<"<div class=\"screen-only\">Errata: "<<makeIconLink( rbcOpts, errataLink, "Errata", "Errata", target )<<"</div>\n";
 
                 }
 
@@ -125,49 +131,76 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
 
                 //groupConnectionsBySheet(connectionList);
 
-                os<<"<table border=\"0\" cellspacing=\"2\" cellpadding=\"5\" class=\"w95p\">\n";
-                os<<"<thead><tr><th class=\"w3p\">Source Pin</th>"              /* 1 */
-                                "<th class=\"w20p\">Net</th>"                    /* 2 */
-                                "<th class=\"w30p\">Pin Functions</th>"          /* 3 */
+                std::string wpExtraSmall = shortReport ? "w12p" : "w5p";
+                std::string wpSmall      = shortReport ? "w15p" : "w10p";
+                std::string wpSmallPlus  = shortReport ? "w20p" : "w12p";
+                std::string wpNormal     = shortReport ? "w30p" : "w20p";
+                std::string wpNormalPlus = shortReport ? "w35p" : "w20p";
+                std::string wpUnitType   = shortReport ? "w35p" : "w12p";
+                std::string br           = shortReport ? " " : "<br/>";
+
+
+                os<<"<table border=\"0\" cellspacing=\"2\" cellpadding=\"5\" class=\"w100p\">\n";
+                os<<"<thead><tr><th class=\""<<wpExtraSmall<<"\">Source Pin</th>"              /* 1 */
+                                "<th class=\""<<wpSmall<<"\">Net</th>"                    /* 2 */
+                                ;
+
+                if (!shortReport)
+                {
+                    os<<"<th class=\"w25p\">Pin Functions</th>";          /* 3 */
+                }
+
+                os<<
                                 /*"<th class=\"w3p\">Pass through</th>"*/           /* 4 */
-                                "<th class=\"w3p\">Target</th>"                 /* 5 */
-                                "<th class=\"w3p\">Target Pin Function</th>"    /* 6 */
-                                "<th class=\"w3p\">Unit Class</th>"             /* 7 */
-                                "<th class=\"w10p\">Unit Purpose</th>"           /* 8 */
+                                "<th class=\""<<wpSmall<<"\">Target</th>"                 /* 5 */
+                                "<th class=\""<<wpSmall<<"\">Target Pin Function</th>"    /* 6 */
+                                "<th class=\""<<wpExtraSmall<<"\">Unit Class</th>"             /* 7 */
+                                "<th class=\""<<wpExtraSmall<<"\">Unit Purpose</th>"           /* 8 */
                                 /*"<th class=\"w10p\">Sheet</th>"*/                  /* 9 */
-                                "<th class=\"w10p\">Unit Type</th>"              /* 10 */
-                                "<th class=\"w30p\">Unit Description</th>"       /* 11 */
+                                "<th class=\""<<wpUnitType<<"\">Unit Type</th>";              /* 10 */
+
+                if (!shortReport)
+                {
+                    os<<"<th class=\"w30p\">Unit Description</th>";       /* 11 */
+                }
+
+                os<<
                                 /* << "<th></th>" */
                                 "</tr></thead>\n";
                 
                 os<<"<tbody>\n";
 
-
+                //shortReport
 
                 for( auto& connGrp : connGroups )
                 {
+                    tableLineCount = 0;
                     os<<"<tr>";
                     os<<"<th colspan=\"3\">"<< (connGrp.groupTitle.empty() ? connGrp.groupDesignator : connGrp.groupTitle) <<"</th>";  // 1
                     os<<"<tr>";
 
                     for( auto& conn : connGrp.connections )
                     {
-                        os<<"<tr>";
-                        os<<"<td>"<<conn.srcPinDesignator<<"<br/>("<<conn.interfaceType<<":"<<conn.interfaceLineType<<")"
+                        ++tableLineCount;
+                        os<<"<tr class="<<((tableLineCount%2)?"odd":"even")<< ">";
+                        os<<"<td>"<<conn.srcPinDesignator<<br<<"("<<conn.interfaceType<<":"<<conn.interfaceLineType<<")"
                                   <<"</td>";  // 1
                    
                         os<<"<td>"<<conn.srcNetName;
                         std::string srcNetNameModified = conn.processedStrings["MCUNET"];
                         if (conn.srcNetName!=srcNetNameModified)
                         {
-                            os<<"<br/>"<<srcNetNameModified;
+                            os<<br<<srcNetNameModified;
                         }
                         os<<"</td>"; // 2
                    
-                        os<<"<td>"; // 3
-                        for( auto pfn : conn.srcPinInfo.pinFunctions)
-                            os<<pfn<<" ";
-                        os<<"</td>";
+                        if (!shortReport)
+                        {
+                            os<<"<td>"; // 3
+                            for( auto pfn : conn.srcPinInfo.pinFunctions)
+                                os<<pfn<<" ";
+                            os<<"</td>";
+                        }
                         
                         /*
                         os<<"<td>"; // 4
@@ -183,12 +216,12 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                         else if (!conn.netStop)
                         {
                             os<<"<td>"<<conn.dstPinDesignator
-                                      <<"<br/>"
+                                      <<" " // br
                                       <<"("<<conn.dstComponentInfo.sheetName<<")";
 
                             for( auto extraConn : conn.extraDestinations )
                             {
-                                os<<"<br/>"<<extraConn.dstPinDesignator<<"<br/>("<<extraConn.dstComponentInfo.sheetName<<")";
+                                os<<br<<extraConn.dstPinDesignator<< " " /* br */ <<"("<<extraConn.dstComponentInfo.sheetName<<")";
                             }
                             os<<"</td>"; // 5 Pin or Net name
 
@@ -203,7 +236,7 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                             std::string dstComponentClassStrModified = conn.processedStrings["UNITCLASS"];
                             if (conn.dstComponentInfo.getComponentClassString() !=dstComponentClassStrModified)
                             {
-                                os<<"<br/>"<<dstComponentClassStrModified;
+                                os<<br<<dstComponentClassStrModified;
                             }
                             os<<"</td>"; // 7
                    
@@ -212,7 +245,7 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                             std::string dstComponentPurposeModified = conn.processedStrings["UNITPURPOSE"];
                             if (conn.dstComponentInfo.purpose!=dstComponentPurposeModified)
                             {
-                                os<<"<br/>"<<dstComponentPurposeModified;
+                                os<<br<<dstComponentPurposeModified;
                             }                        
                             os<<"</td>"; // 8
                    
@@ -247,13 +280,16 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                             std::string dstComponentTypeModified = conn.processedStrings["UNITTYPE"];
                             if (conn.dstComponentInfo.typeName!=dstComponentTypeModified)
                             {
-                                os<<"<br/>"<<dstComponentTypeModified;
+                                os<<br<<dstComponentTypeModified;
                             }                        
                    
                    
                             os << "</td>";
                    
-                            os<<"<td>"<<conn.dstComponentInfo.description<<"</td>";
+                            if (!shortReport)
+                            {
+                                os<<"<td>"<<conn.dstComponentInfo.description<<"</td>";
+                            }
                         }
                         else
                         {
@@ -263,7 +299,10 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                             os<<"<td></td>"; // 8
                             os<<"<td></td>"; // 9
                             os<<"<td></td>"; // 10
-                            os<<"<td class=\"w30p\">"<<conn.dstComponentInfo.description<<"</td>"; // 11
+                            if (!shortReport)
+                            {
+                                os<<"<td class=\"w30p\">"<<conn.dstComponentInfo.description<<"</td>"; // 11
+                            }
                             //os<<"<td>"<<conn.<<"</td>";
                         }
                    

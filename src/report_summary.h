@@ -33,6 +33,7 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
     virtual
     //bool generateReport( std::ostream &os, std:: map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
     bool generateReport( RoboconfOptions &rbcOpts
+                       , const std::string &reportName
                        , std::ostream &os
                        , std::map<std::string, NetlistInfo> &nets
                        , std::vector< ComponentInfo > libComponents
@@ -59,8 +60,11 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
         os<<"</head>\n";
         os<<htmlStyle();
 
+        std::size_t tableLineCount = 0;
+
         for( const auto& nlIt : nets )
         {
+            tableLineCount = 0;
             NetlistInfo netlistInfo = nlIt.second; 
             os<<"<h1>"<<netlistInfo.projectName<<" - "<<netlistInfo.name<<"</h1>\n";
 
@@ -118,7 +122,9 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
                     // refman present
                 }
 */
-                os<<"<tr>";
+                //os<<"<tr>";
+                ++tableLineCount;
+                os<<"<tr class="<<((tableLineCount%2)?"odd":"even")<< ">";
                 os<<"<td>"<<designator<<"</td>";
                 os<<"<td>"<<component.typeName<<" ";
 

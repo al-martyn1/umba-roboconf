@@ -16,13 +16,42 @@ struct ReportHtmlBase : public IReportGenerator
         return std::string("<!DOCTYPE html>\n<html>") + suf;
     }
 
+// https://habr.com/ru/articles/160997/
     std::string htmlStyle( const std::string &suf = "\n" ) const
     {
         return std::string("<style>\n"
+"@media print {\n"
+"td, th {\n"
+"  margin : 0;\n"
+"  padding: 0.3pt;"
+"}\n"
+
+".screen-only { display: none; }\n"
+"a.datasheet { display: none; }\n"
+".even {\n"
+"  background-color: #F4F4F4 /* #efeff2 */ ;\n"
+"}\n"
+".odd {\n"
+"  background-color: #FFFFFF;\n"
+"}\n"
+"body {\n"
+"  font-size: 9pt /* 55% */  /* 1.3rem */ ;\n"
+"}\n"
+"/*header { background: none; color: #000; }*/\n"
+"/*header img { -webkit-filter: invert(100%);*/\n"
+"/*filter: invert(100%); }*/\n"
+"}\n"
+"\n"
 "h1,h2,h3,h4 {\n\
     COLOR: #3570a0;\n\
 }\n\
-\n\
+\n"
+".even {\n"
+"  background-color: #F4F4F4 /* #efeff2 */ ;\n"
+"}\n"
+".odd {\n"
+"  background-color: #FFFFFF;\n"
+"}\n\
 body{\n\
     /*word-break: break-all;*/\n\
 }\n\
@@ -31,15 +60,19 @@ TH {\n\
     /*font-family: Verdana, Geneva, sans-serif;*/\n\
     background-color: #D4D4D4;\n\
 }\n\
-\n\
-th {\n\
+\n"
+"td, th {\n"
+"  margin : 0;\n"
+"  padding: 1pt;"
+"}\n"
+"th {\n\
     font-weight: bold;\n\
     text-align: -internal-center;\n\
 }\n\
 \n\
 TD {\n\
     /*font-family: Verdana, Geneva, sans-serif;*/\n\
-    background-color: #F4F4F4;\n\
+    /*background-color: #F4F4F4;*/\n\
 }\n\
 \n\
 td, th {\n\
@@ -49,7 +82,7 @@ td, th {\n\
 .warning, .warning TD {\n\
     background-color: #FFE4E4;\n\
     color: #FF5555;\n\
-    padding: 0.5em;\n\
+    padding: 1pt;\n\
     font-family: Verdana, Geneva, sans-serif;\n\
     text-align: justify;\n\
 }\n\
@@ -59,8 +92,17 @@ td, th {\n\
 .w5p {\n\
     width: 5% !important;\n\
 }\n\
+.w6p {\n\
+    width: 6% !important;\n\
+}\n\
+.w8p {\n\
+    width: 8% !important;\n\
+}\n\
 .w10p {\n\
     width: 10% !important;\n\
+}\n\
+.w12p {\n\
+    width: 12% !important;\n\
 }\n\
 .w15p {\n\
     width: 15% !important;\n\
@@ -70,6 +112,9 @@ td, th {\n\
 }\n\
 .w25p {\n\
     width: 25% !important;\n\
+}\n\
+.w28p {\n\
+    width: 28% !important;\n\
 }\n\
 .w30p {\n\
     width: 30% !important;\n\
@@ -211,7 +256,7 @@ table {
             title = text;
 
         std::ostringstream oss;
-        oss << "<a ";
+        oss << "<a class=\"datasheet\"";
         if (!target.empty())
         {
             oss << "target=\"" << target << "\" ";

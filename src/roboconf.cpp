@@ -1295,7 +1295,7 @@ int safe_main(int argc, char* argv[])
         
         auto os = std::ofstream(reportGenInfo.reportFile.c_str());
         size_t processedMcus = 0;
-        reportGenInfo.pGen->generateReport( rbcOpts, os, orderedAllNets, components, processingRules, connectionBuildingOptions, processedMcus );
+        reportGenInfo.pGen->generateReport( rbcOpts, reportGenInfo.reportType, os, orderedAllNets, components, processingRules, connectionBuildingOptions, processedMcus );
         if (!processedMcus)
         {
             LOG_ERR_OPT<<"No MCUs found (report '" << reportGenInfo.reportType << "')\n";

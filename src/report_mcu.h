@@ -35,6 +35,7 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
     virtual
     //bool generateReport( std::ostream &os, std:: map<std::string, NetlistInfo> &nets, std::map<std::string, std::vector< ComponentInfo > > libComponents, const expression_list_t &processingRules, const ConnectionBuildingOptions &opts ) override
     bool generateReport( RoboconfOptions &rbcOpts
+                       , const std::string &reportName
                        , std::ostream &os
                        , std::map<std::string, NetlistInfo> &nets
                        , std::vector< ComponentInfo > libComponents
@@ -59,10 +60,12 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
         os<<"</head>\n";
         os<<htmlStyle();
 
+        std::size_t tableLineCount = 0;
+
         for( const auto& nlIt : nets )
         {
             NetlistInfo netlistInfo = nlIt.second; 
-            os<<"<h1>"<<netlistInfo.projectName<<" - "<<netlistInfo.name<<"</h1>\n";
+            os<<"<h1 class=\"screen-only\">"<<netlistInfo.projectName<<" - "<<netlistInfo.name<<"</h1>\n";
 
             std::vector< std::string > mcuDesignators;
 
@@ -94,13 +97,13 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
                     std::string target = "_blank";
 
                     if (!datasheetLink.empty())
-                        os<<"<div>Datasheet: "<<makeIconLink( rbcOpts, datasheetLink, "Datasheet", "Datasheet", target )<<"</div>\n";
+                        os<<"<div class=\"screen-only\">Datasheet: "<<makeIconLink( rbcOpts, datasheetLink, "Datasheet", "Datasheet", target )<<"</div>\n";
                     
                     if (!refmanLink.empty())
-                        os<<"<div>Reference manual: "<<makeIconLink( rbcOpts, refmanLink, "Reference manual", "Reference manual", target )<<"<div>\n";
+                        os<<"<div class=\"screen-only\">Reference manual: "<<makeIconLink( rbcOpts, refmanLink, "Reference manual", "Reference manual", target )<<"</div>\n";
                     
                     if (!errataLink.empty())
-                        os<<"<div>Errata: "<<makeIconLink( rbcOpts, errataLink, "Errata", "Errata", target )<<"<div>\n";
+                        os<<"<div class=\"screen-only\">Errata: "<<makeIconLink( rbcOpts, errataLink, "Errata", "Errata", target )<<"</div>\n";
 
                 }
 
@@ -139,9 +142,12 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
                 
                 os<<"<tbody>\n";
 
+                tableLineCount = 0;
                 for( auto& conn : connectionList )
                 {
-                    os<<"<tr>";
+                    ++tableLineCount;
+                    os<<"<tr class="<<((tableLineCount%2)?"odd":"even")<< ">";
+                    //os<<"<tr>";
                     os<<"<td>"<<conn.srcPinDesignator<<"</td>";  // 1
 
                     os<<"<td>"<<conn.srcNetName;

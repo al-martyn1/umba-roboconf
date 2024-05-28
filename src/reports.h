@@ -19,6 +19,7 @@ struct IReportGenerator
 
     virtual
     bool generateReport( RoboconfOptions &rbcOpts
+                       , const std::string &reportName
                        , std::ostream &os
                        , std::map<std::string, NetlistInfo> &nets
                        , std::vector< ComponentInfo > libComponents
