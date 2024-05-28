@@ -87,6 +87,16 @@ public:
         rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "time-sch-read" );
         //rbcOpts.msgDetailLevels.addToDetailGroup( "timing", "" );
 
+        rbcOpts.msgDetailLevels.addToDetailGroup( "icons", "icons-doc"                );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "icons", "icons-doc-type"           );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "icons", "icons-unk-doc-type"       );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "icons", "icons-doc-type"           );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "icons", "icons-not-found-doc-type" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "icons", "icons-found"              );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "icons", "icons-icon-not-found"     );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "icons", "icons-file-empty"         );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "icons", "icons-icon-found"         );
+        //rbcOpts.msgDetailLevels.addToDetailGroup( "icons",  );
 
         rbcOpts.msgDetailLevels.addToDetailGroup( "grp-dump", "grp-dump-bydsg" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "grp-dump", "grp-dump-clust" );
@@ -112,6 +122,7 @@ public:
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "netlist" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "pkg" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "cls" );
+        rbcOpts.msgDetailLevels.addToDetailGroup( "9", "icons" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "conf-dump" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "conf-dump-short" );
         rbcOpts.msgDetailLevels.addToDetailGroup( "9", "data-dump" );

@@ -1048,11 +1048,17 @@ std:: vector<std::string> generateComponentNames( RoboconfOptions &rbcOpts, std:
     if (cmpName.empty())
         return std:: vector<std::string>();
 
-    cmpName = normalizeComponentNameBasic(cmpName);
+    //cmpName = normalizeComponentNameBasic(cmpName);
+    {
+        std::string cmpPackage2;
+        cmpName = normalizeComponentName(rbcOpts, cmpName, &cmpPackage2);
+        if (!cmpPackage2.empty() && cmpPackage.empty())
+            cmpPackage = cmpPackage2;
+    }
 
-    std:: vector<std::string> suffixes; suffixes.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector<std::string> suffixes; suffixes.reserve(16);
 
-    bool componentNameIncludesPackage = false;
+    //bool componentNameIncludesPackage = false;
 
     std::string::size_type minLen = calcComponentMinimalName(cmpName);
     if (!minLen)
@@ -1060,6 +1066,8 @@ std:: vector<std::string> generateComponentNames( RoboconfOptions &rbcOpts, std:
 
     {
         std:: vector<std::string> nameParts = splitComponentName( cmpName, &rbcOpts );
+
+        #if 0
         if (nameParts.size()>1)
         {
             auto lastPart = nameParts.back();
@@ -1077,14 +1085,16 @@ std:: vector<std::string> generateComponentNames( RoboconfOptions &rbcOpts, std:
                 cmpName = mergeStrings(nameParts, std::string(""), false);
             }
         }
+        #endif
 
     }
 
     suffixes.emplace_back(cmpPackage);
 
-    suffixes.emplace_back(cmpUserSuffix);
+    if (!cmpUserSuffix.empty())
+        suffixes.emplace_back(cmpUserSuffix);
 
-    std:: vector< std::string > resNames; resNames.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< std::string > resNames; resNames.reserve(1024);
 
     std::string tmpName = cmpName;
     while(tmpName.size() >= minLen)

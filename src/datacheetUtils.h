@@ -85,7 +85,8 @@ bool datasheetFilenamesNetworkOrLocalLess(const std::string &name1, const std::s
 inline
 std::string detasheetGetFileType(const std::string &name, bool *pLocal=0)
 {
-    if (isDatasheetNetworkLink(name))
+    bool isNetworkLink = isDatasheetNetworkLink(name);
+    if (isNetworkLink)
     {
         if (name.find("wikipedia.org")!=name.npos)
         {
@@ -102,10 +103,12 @@ std::string detasheetGetFileType(const std::string &name, bool *pLocal=0)
 
     bool bLocal = true;
 
-    if (isDatasheetNetworkLink(name))
+    if (isNetworkLink)
     {
         bLocal = false;
-        type += "-www";
+        if (!type.empty())
+            type += "-";
+        type += "www";
     }
 
     if (pLocal)

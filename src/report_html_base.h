@@ -221,8 +221,7 @@ table {
 
         std::string iconData;
         std::string foundName;
-        std::string foundData;
-        if (rbcOpts.findIcon(url, foundName, foundData, true /* quetMode */ ))
+        if (rbcOpts.findIcon(url, foundName, iconData, false /* !quetMode */ ))
         {
             oss << "<img alt=\"" << text << "\" ";
             oss << "src=\"" << iconData << "\"/>";

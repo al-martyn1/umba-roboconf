@@ -36,18 +36,53 @@ bool RoboconfOptions::findIcon( const std::string &datasheetName, std::string &f
     bool isLocalDocument = true;
     std::string documentType = detasheetGetFileType(datasheetName, &isLocalDocument);
 
+    const RoboconfOptions &rbcOpts = *this;
+
+    if (!quetMode)
+    {
+        LOG_MSG("icons-doc")      << "Document: '" << datasheetName << "\n";
+        LOG_MSG("icons-doc-type") << "Type    : '" << documentType << "\n";
+    }
+
     std::unordered_map<std::string, IconInfo>::iterator it = icons.find(documentType);
 
     if (it==icons.end())
     {
+        if (!quetMode)
+        {
+            LOG_MSG("icons-unk-doc-type") << "unknown document type, try generic document type\n";
+        }
+
         if (!isLocalDocument)
-            documentType = "document-www";
+        {
+            if (documentType=="" || documentType=="-www")
+            {
+                // has no extention
+                documentType = "www";
+            }
+            else
+            {
+                documentType = "document-www";
+            }
+        }
         else
+        {
             documentType = "document";
+        }
+
+        if (!quetMode)
+        {
+            LOG_MSG("icons-doc-type") << "Type    : '" << documentType << "\n";
+        }
+
 
         it = icons.find(documentType);
         if (it==icons.end())
         {
+            if (!quetMode)
+            {
+                LOG_MSG("icons-not-found-doc-type") << "Document type info not found\n";
+            }
             return false;
         }
     }
@@ -56,6 +91,12 @@ bool RoboconfOptions::findIcon( const std::string &datasheetName, std::string &f
     {
         foundName = it->second.fullFileName;
         foundData = it->second.dataBase64;
+
+        if (!quetMode)
+        {
+            LOG_MSG("icons-found") << "Found icon: '" << foundName << "', has data\n";
+        }
+
         return true;
     }
 
@@ -63,6 +104,10 @@ bool RoboconfOptions::findIcon( const std::string &datasheetName, std::string &f
     std:: vector<std::string> dshCheckedLocations; dshCheckedLocations.reserve(datasheetPaths.size());
     if (!includeSearch( iconStream, it->second.fileName, foundName, iconsPaths, true /* binary */ , &dshCheckedLocations ))
     {
+        if (!quetMode)
+        {
+            LOG_MSG("icons-icon-not-found") << "Icon not found, icon file: '" << it->second.fileName << "'\n";
+        }
         //LOG_MSG("datasheet-found-local") << "Datasheet found at: '" << foundName << "'\n";
         return false;
     }
@@ -70,7 +115,13 @@ bool RoboconfOptions::findIcon( const std::string &datasheetName, std::string &f
     iconStream.seekg(0, std::ios::end);
     auto length = iconStream.tellg();
     if (!length)
+    {
+        if (!quetMode)
+        {
+            LOG_MSG("icons-file-empty") << "Icon file is empty, icon file: '" << foundName << "'\n";
+        }
         return false;
+    }
 
     iconStream.seekg(0, std::ios::beg);
     auto bytes = std::vector<char>((std::size_t)length, (char)0);
@@ -88,6 +139,11 @@ bool RoboconfOptions::findIcon( const std::string &datasheetName, std::string &f
                                          // getBase64StandartChars()
                                          );
     foundData = it->second.dataBase64;
+
+    if (!quetMode)
+    {
+        LOG_MSG("icons-icon-found") << "Icon found, data: '" << foundData << "'\n";
+    }
 
     return true;
 

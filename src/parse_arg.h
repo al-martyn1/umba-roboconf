@@ -23,7 +23,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
     if (!opt.isHelpOption())
     {
         //pCol = 0;
-        opt.resetOptionInfoCollector();
+        //opt.resetOptionInfoCollector();
     }
 
     if (opt.isOption())
@@ -464,7 +464,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                 rbcOpts.iconsPaths.push_back(iconsPath);
             }
         }
-        else if (opt.isOption("icon")  /* || opt.isOption('R') */  || opt.setParam("TYPE:FILE.ICO") || opt.setDescription("Set icon for datasheet type TYPE"))
+        else if (opt.isOption("icon")  /* || opt.isOption('R') */  || opt.setParam("TYPE:FILE.ICO", std::string()) || opt.setDescription("Set icon for datasheet type TYPE"))
         {
             if (hasHelpOption) return 0;
 
@@ -491,14 +491,16 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
             }
         }
         //--add-mime-type=ico:image/x-icon
-        else if ( opt.isOption("add-mime-type") || opt.setParam("EXT:MIMETYPE" /* , "" */ )
+        else if ( opt.isOption("add-mime-type") || opt.setParam("EXT:MIMETYPE", std::string())
                || opt.setDescription("Add mime type for autodetection by file extention."))
         {
             if (hasHelpOption) return 0;
 
-            if (!opt.getParamValue(strVal,errMsg))
+            if (!opt.hasArg())
+            //if (!opt.getParamValue(strVal,errMsg))
             {
-                LOG_ERR_OPT<<errMsg<<"\n";
+                //LOG_ERR_OPT<<errMsg<<"\n";
+                LOG_ERR_OPT<<"extention and mime type not taken (--add-mime-type)\n";
                 return -1;
             }
 
