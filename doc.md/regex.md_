@@ -1,0 +1,5 @@
+# Регулярные выражения
+
+Регулярные выражения, там, где они используются, используют синтаксис
+[Modified ECMAScript regular expression grammar](https://en.cppreference.com/w/cpp/regex/ecmascript),
+принятый в C++ как синтаксис регулярных выражений по умолчанию.

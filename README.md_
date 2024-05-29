@@ -9,6 +9,6 @@ Title: Umba Roboconf
 # Условия использования
 
 
-
-
+#!insert{fail,doc,raise=0} doc.md/regex.md_
 #!insert{fail,doc,raise=0} doc.md/rules.md_
+
