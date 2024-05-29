@@ -138,7 +138,7 @@ Ti!:componentclass;M1$:set,assembly,match,matchTo
 ```
 
 
-connections.h:1356
+#// connections.h:1356
 Пример шаблона:
 ```
 Ti!:powerNet;Ti:ground,plus,minus;A+
@@ -164,9 +164,9 @@ Mi1$:-conditional,matchValue,matchCase,matchType,matchTo,-()
 Пример шаблона:
 ```
 netlist.h:103
-ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "Ti:edif;V
+Ti:edif;V
 netlist.h:125
-ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "Ti:edifVersion;V;V;V"
+Ti:edifVersion;V;V;V"
 ```
 
 Пример выражения, разбираемого данным шаблоном:
@@ -176,13 +176,13 @@ ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "Ti:edifVersion;V;V;V"
 Пример шаблона:
 ```
 packages.cpp:233
-    ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "Ti!:packageassign;M1+:designator,netlist,compare,package", it, lst.end()
+Ti!:packageassign;M1+:designator,netlist,compare,package
 packages.cpp:316
-ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "Ti!:package,packagealias", it, lst.end()
+Ti!:package,packagealias
 packages.cpp:339
-ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "V;Ti:numpins;V;A$"
+V;Ti:numpins;V;A$
 packages.cpp:408
-ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "V;A+$"
+V;A+$
 ```
 
 Пример выражения, разбираемого данным шаблоном:
@@ -192,7 +192,7 @@ ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "V;A+$"
 Пример шаблона:
 ```
 roboconf_options.cpp:712
-ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "Ti!:keepGroup,forceGroup,forceUngroup;V_?;I"
+Ti!:keepGroup,forceGroup,forceUngroup;V_?;I
 ```
 
 Пример выражения, разбираемого данным шаблоном:
