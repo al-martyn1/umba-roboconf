@@ -561,13 +561,86 @@ void moveConnectionDuplicatesToExtra( std:: vector< Connection > &connList )
 
 
 //-----------------------------------------------------------------------------
+
+// struct Connection //-V730
+// {
+//  
+//     std::string        interfaceType;      // need to find by rules
+//     std::string        interfaceLineType;  // need to find by rules
+//     bool               interfaceDetected = false;
+//  
+//  
+//     ComponentInfo      srcComponentInfo;
+//     std::string        srcPinDesignator;
+//     ComponentPinInfo   srcPinInfo;
+//     std::string        srcNetName;
+//  
+//  
+//     bool               netStop = false;
+//     int                netGroundType = 0;
+//     std::string        dstPinDesignator;
+//  
+//     ComponentInfo      dstComponentInfo;
+//     ComponentPinInfo   dstPinInfo;
+//     //std::string        dstComponentSheet;
+//     //std::string        dstComponentType;
+//     //std::string        dstComponentPurpose;
+//     //unsigned           dstComponentClass;
+//     //std::string        dstComponentClassStr;
+//     //std::string        dstComponentDescription;
+//  
+//     std:: vector< std::string> payloads;
+//  
+//     std:: vector<Connection>   extraDestinations;
+//  
+// /*
+//     conn.processedStrings["MCUNET"]      = conn.srcNetName;
+//     conn.processedStrings["UNITTYPE"]    = conn.dstComponentInfo.typeName;
+//     conn.processedStrings["UNITPURPOSE"] = conn.dstComponentInfo.purpose;
+//     conn.processedStrings["UNITCLASS"]   = conn.dstComponentInfo.getComponentClassString();
+// */
+//     string_string_map_type    processedStrings;
+//  
+//     string_set_type           mcuNetTokens;
+//     string_set_type           mcuNetClasterNames;
+//  
+//     int                       groupingRuleType;
+//     std::string               forceGroupName;
+
 inline
 void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< ConnectionsGroup > &connGroups, const std:: vector< Connection > &conns )
 {
     //using std::endl;
     using namespace umba::omanip;
 
-    // Группируем соединения по десигнатору назначения
+    // Группируем соединения по десигнатору назначения, складываем в map
+    // Тут мы кладём по основному десигнатору, но могут быть и дополнительные, не так ли?
+    // Особенно, когда мы подключаемся через разъём
+
+    // Вызывается из
+    // report_generic.h
+    // report_periph.h
+
+    // Там примерно такая последовательность
+    // connectionsListBuild( rbcOpts, opts, netlistInfo, curMcuD, connectionList );
+    // if (!processConnectionModifyRules( rbcOpts, connectionList, processingRules )) return;
+    // connectionsListRemoveMcuDuplicates( connectionList );
+    // std::vector< ConnectionsGroup > connGroups;
+    // splitConnectionsToGroupsByTarget( rbcOpts, connGroups, connectionList );
+
+    // У нас есть "важные" классы компонентов
+    // std::unordered_set<ComponentClass> importantComponentClasses;
+    // importantComponentClasses.insert(ComponentClass::cc_DD         );
+    // importantComponentClasses.insert(ComponentClass::cc_DA         );
+    // importantComponentClasses.insert(ComponentClass::cc_AA         );
+    // importantComponentClasses.insert(ComponentClass::cc_TRANSISTOR );
+
+    // Или завести мапу важности, где 0 - важно, 1 - не очень важно, 2 - неважно, 3 совсем не важно
+    // Если у нас есть extraDestinations...
+    // То что? Надо посмотреть в отладчике, что и как
+    
+
+
     std::map< std::string , std:: vector<Connection> > connMap;
     for( auto conn : conns )
     {
@@ -583,12 +656,16 @@ void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< C
         connGroups.emplace_back(ungrouppedConns);
     }
 
+    // LOG_MSG("grp-log-grp-dsg-start")<<"--------------------------------"<<endl;
+    // LOG_MSG("grp-log-grp-dsg-start")<<"Start groupping by target designator"<<endl;
+
     ConnectionsGroup *pUngrouppedConns = &connGroups[0];
 
     for( const auto& connKV : connMap )
     {
         if (connKV.second.size() <= 1)
         {
+            // Если по целевому десигнатору у нас найдено одно соединение, то это без классификации
             pUngrouppedConns->connections.insert( pUngrouppedConns->connections.end(), connKV.second.begin(), connKV.second.end() );
         }
         else
@@ -750,6 +827,9 @@ struct Connection //-V730
     connMap.clear();
 
     // Ungroup grouped
+    LOG_MSG("grp-log-fungrp-start")<<"--------------------------------"<<endl;
+    LOG_MSG("grp-log-fungrp-start")<<"Start force ungroupping"<<endl;
+
     bFirstGrp = true;
     for( auto &connGrp : connGroups )
     {
@@ -774,7 +854,18 @@ struct Connection //-V730
         }
     }
 
+// struct ConnectionsGroup //-V730
+// {
+//     std::string                  groupDesignator; // target designator for all of group items
+//     std::string                  groupTitle;      // target designator for all of group items
+//     ComponentInfo                dstComponentInfo;
+//     std:: vector< Connection >   connections;
+//     bool                         ungroupped = false;
+//     bool                         forceNamed = false;;
+    
     // Group ungrouped
+    LOG_MSG("grp-log-fgrp-start")<<"--------------------------------"<<endl;
+    LOG_MSG("grp-log-fgrp-start")<<"Start force groupping"<<endl;
     for( size_t connIdx = 0; connIdx!=pUngrouppedConns->connections.size(); )
     {
         auto conn = pUngrouppedConns->connections[connIdx];
