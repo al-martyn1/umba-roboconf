@@ -1483,7 +1483,10 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
         UMBA_USED(tplItemSeparator);
 
         if (*pTpl==';')
+        {
             ++pTpl;
+            continue;
+        }
 
         if (it!=E)
         {
