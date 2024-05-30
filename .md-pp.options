@@ -1,1 +1,3 @@
 --overwrite
+--processing-options=no-meta-data
+--processing-options=transliterate-generated-filenames
