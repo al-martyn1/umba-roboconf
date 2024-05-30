@@ -10,5 +10,5 @@ Title: Umba Roboconf
 
 
 #!insert{fail,doc,raise=0} doc.md/regex.md_
-#!insert{fail,doc,raise=0} doc.md/rules.md_
+#!insert{fail,doc,raise=0} doc.md/rul_rules_templates.md_
 
