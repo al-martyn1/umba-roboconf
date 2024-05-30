@@ -17,5 +17,6 @@ Language   : Russian
 
 
 #!insert{fail,doc,raise=0} doc.md/regex.md_
-#!insert{fail,doc,raise=0} doc.md/rul_rules_templates.md_
+#//!insert{fail,doc,raise=0} doc.md/rul_rules_templates.md_
+#!insert{fail,doc,raise=0} doc.md/rul_user_rules.md_
 
