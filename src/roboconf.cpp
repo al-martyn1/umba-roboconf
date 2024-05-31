@@ -365,10 +365,10 @@ int safe_main(int argc, char* argv[])
 
         //args.emplace_back("--report=periph");
         //args.emplace_back("--report=mcu");
-        args.emplace_back("-R=summary");
+        //args.emplace_back("-R=summary");
         args.emplace_back("-R=periph");
-        args.emplace_back("-R=mcu");
-        args.emplace_back("--no-default-rules");
+        //args.emplace_back("-R=mcu");
+        //args.emplace_back("--no-default-rules");
         args.emplace_back("--rules=" + rootPath + "/tests/rules/es.rul");
         args.emplace_back(rootPath + "/data/nets/ES.NET");
         //args.emplace_back(rootPath + "/tests/es/summary.html");

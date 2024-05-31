@@ -103,57 +103,71 @@ struct Connection //-V730
     }
 
 
+    //! Возвращает компоненты для заголовка. Для этого делит имя цепи на части, адаляяя разделители '-', но оставляя цифры прикрепленными к своим меткам
     std:: vector<std::string> getTitleParts()
     {
-        return splitComponentName( processedStrings["MCUNET"], 0, false, false );
+        return splitComponentName( processedStrings["MCUNET"], 0, false /* keepSeps */, false /* splitAlsoDigits */ );
     }
 
+    static
+    string_set_type makeSetFromNamePartsSkipNumbers(const std:: vector<std::string> &nameParts /* , bool skipNumbers */ )
+    {
+        string_set_type s;
+        for( auto np : nameParts )
+        {
+            uint64_t u;
+            trim( np, "_-~");
+
+            if (np.empty())
+                continue;
+
+            if (parseInteger( np, u, 10 ))
+                continue; // skip numbers
+
+            s.insert(toUpper(np));
+        }
+
+        return s;
+    }
+
+    //! Формирует токены имени сети - с отделением номеров от имён (SPI1->SPI), и токены для заголовка, без отделения цифр (SPI1->SPI1)
     void splitMcuNetMakeTokens( )
     {
-        std:: vector<std::string> nameParts = splitComponentName( processedStrings["MCUNET"], 0 );
-        for( auto np : nameParts )
-        {
-            uint64_t u;
-            trim( np, "_-~");
+        //TODO: !!! Добавил умолчательные аргументы. Надо разобраться, нужно ли отделять цифры от имён
+        mcuNetTokens       = makeSetFromNamePartsSkipNumbers( splitComponentName( processedStrings["MCUNET"], 0, true /* keepSeps */, true /* splitAlsoDigits */ ) );
 
-            if (np.empty())
-                continue;
-
-            if (parseInteger( np, u, 10 ))
-                continue; // skip numbers
-
-            mcuNetTokens.insert(toUpper(np));
-        }
-
-        nameParts = getTitleParts(); // splitComponentName( processedStrings["MCUNET"], false, false );
-        for( auto np : nameParts )
-        {
-            uint64_t u;
-            trim( np, "_-~");
-
-            if (np.empty())
-                continue;
-
-            if (parseInteger( np, u, 10 ))
-                continue; // skip numbers
-
-            mcuNetClasterNames.insert(toUpper(np));
-        }
-
+        // Делаем то же самое, но только в этот раз не отделяем приклеенные к именам цифры, удаляем только отдельно стоящие
+        mcuNetClasterNames = makeSetFromNamePartsSkipNumbers( getTitleParts() );
     }
-        
+
+    //! Генерирует заголовок из всех частей, сгенерированных ф-ей getTitleParts(), или только из частей, которые ещё содержатся в наборе cmn
     std::string generateTitle( const string_set_type &cmn, bool bCommon = true )
     {
         std::string res;
         std:: vector<std::string> titleParts = getTitleParts();
         for( const auto& tp : titleParts )
         {
-            if ( ( cmn.find(tp)!=cmn.end()) == bCommon )
+            // Тут, похоже, было неправильно - bCommon отвечал, добавлять ли часть в зависимости от того, нйдена или не найдена
+            // А надо - если bCommon==true, то добавльять только если найдена, иначе добавлять всегда
+
+            // if ( ( cmn.find(tp)!=cmn.end()) == bCommon )
+            // {
+            //     if (!res.empty())
+            //         res.append(1,'_');
+            //     res.append(tp);
+            // }
+
+            if (cmn.find(tp)==cmn.end())
             {
-                if (!res.empty())
-                    res.append(1,'_');
-                res.append(tp);
+                // Не найдена, проверяем, обязательно ли добавлять только то, что есть в наборе
+                if (bCommon)
+                    continue;
+                // Разрешено добалять всё
             }
+
+            if (!res.empty())
+                res.append(1,'_');
+            res.append(tp);
         }
 
         return res;
@@ -613,6 +627,13 @@ void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< C
     //using std::endl;
     using namespace umba::omanip;
 
+    // Тут мы делаем разбиения имён цепей на части, для последующих кластеризаций
+    for( auto conn : conns )
+    {
+        conn.splitMcuNetMakeTokens();
+    }
+
+
     // Группируем соединения по десигнатору назначения, складываем в map
     // Тут мы кладём по основному десигнатору, но могут быть и дополнительные, не так ли?
     // Особенно, когда мы подключаемся через разъём
@@ -644,7 +665,6 @@ void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< C
     std::map< std::string , std:: vector<Connection> > connMap;
     for( auto conn : conns )
     {
-        conn.splitMcuNetMakeTokens();
         connMap[ conn.dstComponentInfo.designator ].emplace_back( conn );
     }
 
@@ -763,9 +783,9 @@ struct Connection //-V730
             continue;
         }
 
-        if (connGrp.dstComponentInfo.componentClass!= ComponentClass::cc_HEADER
-           &&connGrp.dstComponentInfo.componentClass!= ComponentClass::cc_TESTPOINT
-           &&connGrp.dstComponentInfo.componentClass!= ComponentClass::cc_MOUNT
+        if ( connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_HEADER
+          && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_TESTPOINT
+          && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_MOUNT
            )
         {
             connGroupsTmp.emplace_back(connGrp);
@@ -1727,9 +1747,10 @@ void connectionsListBuild(RoboconfOptions &rbcOpts, const ConnectionBuildingOpti
     for( auto & conn : connectionList )
     {
         if ( conn.dstComponentInfo.purpose.empty()
-           && ( conn.dstComponentInfo.componentClass == ComponentClass::cc_HEADER
-             || conn.dstComponentInfo.componentClass == ComponentClass::cc_MOUNT
-             || conn.dstComponentInfo.componentClass == ComponentClass::cc_LED
+           && ( conn.dstComponentInfo.componentClass==ComponentClass::cc_HEADER
+             || conn.dstComponentInfo.componentClass==ComponentClass::cc_TESTPOINT
+             || conn.dstComponentInfo.componentClass==ComponentClass::cc_MOUNT
+             // || conn.dstComponentInfo.componentClass == ComponentClass::cc_LED //NOTE: !!! А почему это у нас LEDу ничего не задаётся?
               )
            )
         {
@@ -1807,7 +1828,10 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std:: vector<Connectio
 
         for( auto conn : connectionList )
         {
-            if (conn.dstComponentInfo.componentClass== ComponentClass::cc_HEADER || conn.dstComponentInfo.componentClass== ComponentClass::cc_MOUNT)
+            if ( conn.dstComponentInfo.componentClass==ComponentClass::cc_HEADER
+              || conn.dstComponentInfo.componentClass==ComponentClass::cc_TESTPOINT
+              || conn.dstComponentInfo.componentClass==ComponentClass::cc_MOUNT
+               )
             {
                 rpfn.insert( conn.dstPinInfo.pinFunctions.begin(), conn.dstPinInfo.pinFunctions.end() );
                 continue;
@@ -1898,8 +1922,13 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std:: vector<Connectio
     size_t headersCount = 0;
     for( const auto & conn : connectionList )
     {
-        if (conn.dstComponentInfo.componentClass== ComponentClass::cc_HEADER || conn.dstComponentInfo.componentClass== ComponentClass::cc_MOUNT)
+        if ( conn.dstComponentInfo.componentClass==ComponentClass::cc_HEADER 
+          || conn.dstComponentInfo.componentClass==ComponentClass::cc_TESTPOINT
+          || conn.dstComponentInfo.componentClass==ComponentClass::cc_MOUNT
+           )
+           {
             headersCount++;
+           }
     }
 
     if (headersCount==connectionList.size())

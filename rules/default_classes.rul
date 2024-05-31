@@ -68,6 +68,8 @@
             
             (componentClass (match compRef     )  (matchTo "^HEADER.+"   )  (set HEADER)    )
             (componentClass (match originalName)  (matchTo "^HEADER.+"   )  (set HEADER)    )
+            (componentClass (match compRef     )  (matchTo "^SOCKET.+"   )  (set HEADER)    )
+            (componentClass (match originalName)  (matchTo "^SOCKET.+"   )  (set HEADER)    )
             
             (-- Fuses )
             

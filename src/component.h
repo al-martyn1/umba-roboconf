@@ -880,10 +880,10 @@ std:: vector<std::string> mergeComponentNameXXX( const std:: vector< std:: vecto
 inline
 std:: vector<std::string> generateComponentNamesSingleLen(  RoboconfOptions &rbcOpts, const std::string &cmpName, const std::string &cmpPackage, const std::string &cmpUserSuffix )
 {
-    std:: vector<std::string> nameParts = splitComponentName( cmpName, &rbcOpts );
+    std:: vector<std::string> nameParts = splitComponentName( cmpName, &rbcOpts, true /* keepSeps */ , true /* splitAlsoDigits */ ); //TODO: !!! Добавил явно умолчательные аргументы. Надо разобраться, а точно ли тут нужно отделять цифры?  Вообще, они были такими всегда
 
-    std:: vector< std:: vector< std::string > > namePartsXXX; namePartsXXX.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
-    namePartsXXX.reserve(nameParts.size());
+    std:: vector< std:: vector< std::string > > namePartsXXX; namePartsXXX.reserve(16);
+    namePartsXXX.reserve(nameParts.capacity());
 
     for( std:: vector<std::string>::const_iterator it = nameParts.begin(); it != nameParts.end(); ++it )
     {
@@ -1064,30 +1064,6 @@ std:: vector<std::string> generateComponentNames( RoboconfOptions &rbcOpts, std:
     if (!minLen)
         minLen = 1;
 
-    {
-        std:: vector<std::string> nameParts = splitComponentName( cmpName, &rbcOpts );
-
-        #if 0
-        if (nameParts.size()>1)
-        {
-            auto lastPart = nameParts.back();
-            ltrim(lastPart, "- ");
-            if (rbcOpts.packagesDb.isKnownPackage(lastPart))
-            {
-                componentNameIncludesPackage = true;
-                if (cmpPackage.empty())
-                    cmpPackage = lastPart;
-
-                // Удаляем корпус из названия компонета
-                std:: vector<std::string>::iterator backIt = nameParts.end();
-                --backIt;
-                nameParts.erase(backIt, nameParts.end());
-                cmpName = mergeStrings(nameParts, std::string(""), false);
-            }
-        }
-        #endif
-
-    }
 
     suffixes.emplace_back(cmpPackage);
 
@@ -1105,60 +1081,6 @@ std:: vector<std::string> generateComponentNames( RoboconfOptions &rbcOpts, std:
     }
 
     return resNames;
-
-/*
-    // put full name
-    std:: vector< std::string > names;
-    names.emplace_back(cmpName);
-
-    // generate masks only for 12- symbols in name
-    // also put cutted name to be searched first
-    if (cmpName.size()>12)
-    {
-        cmpName.erase(12);
-        names.emplace_back(cmpName);
-    }
-
-    std:: vector<std::string> nameParts = splitComponentName( cmpName );
-    if (nameParts.empty())
-        return std:: vector<std::string>();
-
-    size_t minSize = 0;
-
-    switch(nameParts.size())
-    {
-        case 1:
-             minSize = nameParts[0].size();
-             break;
-        case 2:
-             minSize = nameParts[0].size() + (nameParts[1].size()+1)/2;
-             break;
-        default:
-             minSize = nameParts[0].size() + nameParts[1].size();
-    }
-
-    for(size_t i = minSize; i!=cmpName.size(); ++i)
-    {
-        if (cmpName.empty())
-            break;
-        cmpName.erase( cmpName.size()-1 );
-        names.emplace_back(cmpName);
-    }
-
-    std:: vector<std::string> res;
-
-    for( auto name : names )
-    {
-        std:: vector<std::string> tmp = generateComponentNamesSingleLen( name, cmpPackage, cmpUserSuffix );
-        if (res.empty())
-            res.reserve(tmp.size()*names.size());
-        res.insert( res.end(), tmp.begin(), tmp.end() );
-    }
-
-    makeUniqueVector(res);
-
-    return res;
-*/
 
 }
 
