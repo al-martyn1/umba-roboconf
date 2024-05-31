@@ -27,16 +27,43 @@
 (modify "mcuNet" replaceSingle "^_(.*)$"      "$({P})$({1})$({S})")
 (modify "mcuNet" replaceSingle "^(.*)__(.*)$" "$({P})$({1})_$({2})$({S})")
 
+(// Удаляем префикс из названия GPIO пина)
+(// modify "mcuNet" replaceSingle "^P([[:alpha:]]+\d+)_(.*)$"      "$({P})$({2})$({S})")
+(modify "mcuNet" replaceSingle "^P([A-J]{1,}\d+)_(.*)$"      "$({P})$({2})$({S})")
+
 
 (modify "mcuNet" replaceSingle "BMSEL(\d+)(.*)"  "$({P})BMSEL_$({1})$({2})$({S})")
 (modify "mcuNet" replaceSingle "BAT_MES(\d+)"    "$({P})BAT_MES_$({1})$({S})")
 (modify "mcuNet" replaceSingle "BAT_BAL(\d+)"    "$({P})BAT_BAL_$({1})$({S})")
 (-- modify "mcuNet" replace "(.+)_(\d+)(.*)" "$({1})$({2})$({3})")
 
-(modify "mcuNet" replaceSingle "PF0_UART8_nRxEN_"  "$({P})MASTER_LINK_485_~RX_EN$({S})")
-(modify "mcuNet" replaceSingle "PF1_UART8_TxEN_"   "$({P})MASTER_LINK_485_TX_EN$({S})") 
-(modify "mcuNet" replaceSingle "PE1_UART8_Tx_"     "$({P})MASTER_LINK_485_RX$({S})")
-(modify "mcuNet" replaceSingle "PE0_UART8_Rx_"     "$({P})MASTER_LINK_485_TX$({S})") 
+(modify "mcuNet" replaceSingle "UART8_~RXEN"  "$({P})MASTER_LINK_RS485_~RXEN$({S})")
+(modify "mcuNet" replaceSingle "UART8_TXEN"   "$({P})MASTER_LINK_RS485_TXEN$({S})") 
+(modify "mcuNet" replaceSingle "UART8_TX"     "$({P})MASTER_LINK_RS485_TX$({S})")
+(modify "mcuNet" replaceSingle "UART8_RX"     "$({P})MASTER_LINK_RS485_RX$({S})") 
+
+(modify "mcuNet" replaceSingle "I2C2_SCL"     "$({P})EEPROM_I2C2_SCL$({S})") 
+(modify "mcuNet" replaceSingle "I2C2_SDA"     "$({P})EEPROM_I2C2_SDA$({S})") 
+
+
+(// temperature sensor (temp sensor) - температурный датчик )
+(// thermal sensor (therm sensor) - термодатчик )
+(// Можно и так и так, но никак не term)
+(modify "mcuNet" replaceSingle "^DMUX_(.*)$"  "$({P})THERM_SENSOR_DMUX_$({1})$({S})")
+
+(modify "mcuNet" replaceSingle "^TSENS0$"     "$({P})THERM_SENSOR_MUX_VAL$({S})")
+
+(modify "mcuNet" replaceSingle "^TSENS1$"     "$({P})THERM_SENSOR_XS2_VAL$({S})")
+
+
+
+
+(// forceGroup "STATE_LEDS" ("LED_ERR" "LED_ERROR" "LED_LINK" "LED_WORK" "LED_OK" "LED_GOOD" "LED\d+" "LED_\d+" ".*_LED\d+" ".*_LED_\d+" ".*_LED_.*") )
+(///forceUngroup ("LED_YEL" "LED_ERROR" "LED_LINK"))
+(forceUngroup ("Led_yel" "Led_red" "Led_green"))
+
+
+
 
 (// Допилить удаление PXN из имен цепей)
 
@@ -54,6 +81,7 @@
     ("SCK"    to "H1.5")
     ("MISO"   to "H1.7")
     ("DAT1"   to "H1.8")
+    ("GND"    to "H1.9")
 )
 
 
