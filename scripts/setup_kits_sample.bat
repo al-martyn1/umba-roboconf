@@ -1,6 +1,7 @@
 @rem Set up correct paths to perform "Scan For Kits"
 @rem Then copy it to setup_kits_sample.bat
 @rem copy setup_kits_sample.bat setup_kits.bat
+@rem In VSCode press Ctrl+Shift+P and insert "CMake: Scan for Kits"
 @rem
 @set LLVM_CLANG_BIN=C:\\Program Files\\LLVM\\bin
 @set GCC_13_ARM_NONE_EABI_BIN=C:\Program Files (x86)\Arm GNU Toolchain arm-none-eabi\13.2 Rel1\bin
