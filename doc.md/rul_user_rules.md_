@@ -1,0 +1,12 @@
+# Пользовательские правила
+
+Пользовательские правила бывают:
+
+Ti!:keepGroup,forceGroup,forceUngroup;V_?;I
+
+(forceGroup "STATE_LEDS" ("LED_ERR" "LED_ERROR" "LED_LINK" "LED_WORK" "LED_OK" "LED_GOOD" "LED\d+" "LED_\d+" ".*_LED\d+" ".*_LED_\d+" ".*_LED_.*") )
+
+    static const int keepGroup    = 0;  // (keepGroup    "GroupName" (names) )
+    static const int forceGroup   = 1;  // (forceGroup   "GroupName" (names) )
+    static const int forceUngroup = 2;  // (forceUngroup "GroupName" (names) )
+
