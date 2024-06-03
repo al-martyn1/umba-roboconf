@@ -628,10 +628,11 @@ void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< C
     using namespace umba::omanip;
 
     // Тут мы делаем разбиения имён цепей на части, для последующих кластеризаций
-    for( auto conn : conns )
-    {
-        conn.splitMcuNetMakeTokens();
-    }
+    // Таки нельзя тут, вектор по константной ссылке получаем, его нельзя модифицировать
+    // for( auto &conn : conns )
+    // {
+    //     conn.splitMcuNetMakeTokens();
+    // }
 
 
     // Группируем соединения по десигнатору назначения, складываем в map
@@ -665,6 +666,7 @@ void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< C
     std::map< std::string , std:: vector<Connection> > connMap;
     for( auto conn : conns )
     {
+        conn.splitMcuNetMakeTokens(); // Тут мы делаем разбиения имён цепей на части, для последующих кластеризаций
         connMap[ conn.dstComponentInfo.designator ].emplace_back( conn );
     }
 
