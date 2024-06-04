@@ -12,24 +12,24 @@
 //-----------------------------------------------------------------------------
 struct Connection //-V730
 {
+    std::string        dstPinDesignator;
+
+    std::string        srcPinDesignator;
+    std::string        srcNetName;
+    ComponentInfo      srcComponentInfo;
+    ComponentPinInfo   srcPinInfo;
+
+    ComponentInfo      dstComponentInfo;
+    ComponentPinInfo   dstPinInfo;
 
     std::string        interfaceType;      // need to find by rules
     std::string        interfaceLineType;  // need to find by rules
     bool               interfaceDetected = false;
 
 
-    ComponentInfo      srcComponentInfo;
-    std::string        srcPinDesignator;
-    ComponentPinInfo   srcPinInfo;
-    std::string        srcNetName;
-
-
     bool               netStop = false;
     int                netGroundType = 0;
-    std::string        dstPinDesignator;
 
-    ComponentInfo      dstComponentInfo;
-    ComponentPinInfo   dstPinInfo;
     //std::string        dstComponentSheet;
     //std::string        dstComponentType;
     //std::string        dstComponentPurpose;
@@ -516,13 +516,17 @@ void splitConnectionGroupByClasters( RoboconfOptions &rbcOpts, const Connections
         }
 
         newGroup.groupTitle = newGroup.tryGenerateTitle();
-        connGroupsPushTo.emplace_back(newGroup);
+        if (!newGroup.connections.empty())
+        {
+            connGroupsPushTo.emplace_back(newGroup);
+        }
     }
 
     for( i = 0; i!=size; ++i)
     {
         if (usedConns.find(i)!=usedConns.end())
             continue;
+        //if ()
         ungrouppedConns.connections.emplace_back(connGrp.connections[i]);
     }
 
@@ -785,18 +789,42 @@ struct Connection //-V730
             continue;
         }
 
-        if ( connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_HEADER
-          && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_TESTPOINT
-          && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_MOUNT
-           )
+        if (connGrp.dstComponentInfo.componentClass==ComponentClass::cc_QUARTZ)
         {
-            connGroupsTmp.emplace_back(connGrp);
-            pUngrouppedConns = &connGroupsTmp[0];
+            // Кварц пропускаем
             continue;
         }
 
-        splitConnectionGroupByClasters( rbcOpts, connGrp, connGroupsTmp, *pUngrouppedConns );
-    
+        if ( connGrp.dstComponentInfo.componentClass==ComponentClass::cc_TESTPOINT
+          || connGrp.dstComponentInfo.componentClass==ComponentClass::cc_MOUNT
+           )
+        {
+            // Тест точки и маунт холы пропускаем
+            continue;
+        }
+
+        if (connGrp.dstComponentInfo.componentClass==ComponentClass::cc_HEADER)
+        {
+            // Кластеризуем хидеры
+            splitConnectionGroupByClasters( rbcOpts, connGrp, connGroupsTmp, *pUngrouppedConns );
+            continue;
+        }
+
+
+        // if ( connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_TESTPOINT
+        //   // && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_HEADER // А зачем я решил, что хидеры не надо кластерить по именам?
+        //   && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_MOUNT
+        //    )
+        // {
+        //     connGroupsTmp.emplace_back(connGrp);
+        //     pUngrouppedConns = &connGroupsTmp[0];
+        //     continue;
+        // }
+
+        // Остальное - кладём как есть
+
+        connGroupsTmp.emplace_back(connGrp);
+        pUngrouppedConns = &connGroupsTmp[0];
     }
 
     connGroupsTmp.swap(connGroups);
