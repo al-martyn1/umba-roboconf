@@ -5,6 +5,7 @@ if exist distr rd /Q /S distr
 if exist distr goto failed_remove_old
 
 @set RBC_ROOT=distr\umba-roboconf
+@set RBC_BUILD_DISTR_MODE=1
 
 
 @echo Creating folders
@@ -64,14 +65,12 @@ if exist distr goto failed_remove_old
 echo rem Samples > distr\umba-roboconf\samples\samples.bat
 echo rem                                                                                                                                      >> distr\umba-roboconf\samples\samples.bat
 
-@if exist %RBC_ROOT%\conf\component-alias-db.custom.txt                 @del %RBC_ROOT%\conf\component-alias-db.custom.txt
-@if exist %RBC_ROOT%\conf\roboconf.MARTINOV-PC_martinov.options         @del %RBC_ROOT%\conf\roboconf.MARTINOV-PC_martinov.options
-@if exist %RBC_ROOT%\conf\component-alias-db.MARTINOV-PC_martinov.txt   @del %RBC_ROOT%\conf\component-alias-db.MARTINOV-PC_martinov.txt
-@if exist %RBC_ROOT%\conf\datasheet-alias-db.MARTINOV-PC_martinov.txt   @del %RBC_ROOT%\conf\datasheet-alias-db.MARTINOV-PC_martinov.txt
+@if exist %RBC_ROOT%\conf\umba-roboconf.custom.options                       @del %RBC_ROOT%\conf\umba-roboconf.custom.options
+@if exist %RBC_ROOT%\conf\umba-roboconf.MARTINOV-PC_martinov.options         @del %RBC_ROOT%\conf\umba-roboconf.MARTINOV-PC_martinov.options
+@if exist %RBC_ROOT%\conf\component-alias-db.custom.txt                      @del %RBC_ROOT%\conf\component-alias-db.custom.txt
+@if exist %RBC_ROOT%\conf\component-alias-db.MARTINOV-PC_martinov.txt        @del %RBC_ROOT%\conf\component-alias-db.MARTINOV-PC_martinov.txt
+@if exist %RBC_ROOT%\conf\datasheet-alias-db.MARTINOV-PC_martinov.txt        @del %RBC_ROOT%\conf\datasheet-alias-db.MARTINOV-PC_martinov.txt
 
-
-rem xcopy /E /Y /I ..\distr s:\rdlc
-rem xcopy /E /Y /I ..\distr e:\rdlc
 
 
 @set ZIP_TARGET_FOLDER=distr
