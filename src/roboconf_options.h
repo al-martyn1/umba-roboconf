@@ -154,6 +154,8 @@ public:
 
     typedef  FileSet::file_id_t  file_id_t;
 
+    std::string                                 organization;
+
     std:: vector<std::string>                   includePaths;
     std:: vector<std::string>                   libPaths;
     std:: vector<std::string>                   datasheetPaths;

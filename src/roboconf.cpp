@@ -508,6 +508,31 @@ int safe_main(int argc, char* argv[])
             }
         }
 
+        if (!rbcOpts.organization.empty())
+        {
+            std::string rbcOptsFileName = appendPath( progConfPath, std::string("/umba-roboconf.") + rbcOpts.organization + ".options");
+            std::vector<std::string> opts;
+
+            if (readOptionsFile(rbcOptsFileName, opts ))
+            {
+                for( const auto & o : opts)
+                {
+                    int paRes = parseArg( o, &commandLineOptionCollector, false, false );
+                    if (paRes)
+                       return paRes<0 ? 1 : 0;
+                }
+            }
+            else
+            {
+                std::ofstream optFile(rbcOptsFileName.c_str());
+                if (!!optFile)
+                {
+                    optFile<<"; Options file for "<<rbcOpts.organization<<" organization\n";
+                }
+            }
+        }
+        
+
         // Ключики для пользовательских баз добавлю потом
         {
             std::string aliasDbFileName = appendPath(progConfPath, std::string("/component-alias-db.txt"));

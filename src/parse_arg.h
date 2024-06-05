@@ -581,6 +581,20 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                 rules.push_back(rfName);
             }
         }
+        else if (opt.isOption("organization") /*  || opt.isOption('L') */ || opt.setParam("ORGANIZATION") || opt.setDescription("Set organization name for organization custom files") )
+        {
+            if (hasHelpOption) return 0;
+
+            if (!opt.hasArg() || opt.optArg.empty())
+            {
+                LOG_ERR_OPT<<"organization name not taken (--organization)\n";
+                return -1;
+            }
+
+            //rbcOpts.componentsClassDetectionRulesName = opt.optArg;
+            rbcOpts.organization = opt.optArg;
+
+        }
         else if (opt.isOption("local-lib-cache") || opt.setParam("FILE") || opt.setDescription("Set lib cache file"))
         {
             if (hasHelpOption) return 0;
