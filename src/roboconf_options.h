@@ -50,7 +50,7 @@ struct ForceGroupingRule
     size_t                      lineNo = (size_t)-1;
 
 
-
+    //! Возвращает true, если str (второй параметр) подходит под маску regexStr (третий параметр)
     bool checkMatch( RoboconfOptions &rbcOpts, const std::string &str, const std::string &regexStr ) const;
 
     std::string prepareRegex( std::string str )
@@ -256,7 +256,28 @@ public:
     ForceGroupingRule::forceUngroup   
     */
 
+    /*! \brief Пробегается по заданным групповым правилам keepGroup/forceGroup/forceUngroup для заданного имени цепи
+
+        Для каждого правила keepGroup/forceGroup/forceUngroup вызывается метод check/
+
+
+     */
     int checkGroupingRules( const std::string &grpName, const std::string &netName, std::string *pNewGrpName = 0 );
+
+#if 0
+int RoboconfOptions::checkGroupingRules( const std::string &grpName, const std::string &netName, std::string *pNewGrpName )
+{
+    for( const auto &rule : groupingRules )
+    {
+        auto res = rule.check( *this, grpName, netName, pNewGrpName);
+        if (res==ForceGroupingRule::noGroupingRules)
+            continue;
+        return res;
+    }
+
+    return ForceGroupingRule::noGroupingRules;
+}
+#endif
 
     void readPrologEpilog( std::string fileName, std::string &readTo )
     {

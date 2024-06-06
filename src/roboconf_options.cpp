@@ -782,22 +782,28 @@ int RoboconfOptions::checkGroupingRules( const std::string &grpName, const std::
 }
 
 //-----------------------------------------------------------------------------
+/*! \brief
+
+*/
 int ForceGroupingRule::check( RoboconfOptions &rbcOpts, const std::string &grpName, const std::string &netName, std::string *pNewGrpName ) const
 {
     bool bCheckGroup = false;
 
-    if (ruleType==keepGroup)
-        bCheckGroup = true;
-    else if (ruleType==forceGroup)
-        bCheckGroup = false; // name is taken for new group, not for check
-    else if (ruleType==forceUngroup)
+    if (ruleType==keepGroup)         // Для правила типа keepGroup надо проверять существующее имя группы
         bCheckGroup = true;
 
-    if (this->groupName.empty())
+    else if (ruleType==forceGroup)   // Для правила типа forceGroup значение существующего имени группы игнорируется
+        bCheckGroup = false; // name is taken for new group, not for check
+
+    else if (ruleType==forceUngroup) // Для правила типа forceUngroup надо проверять существующее имя группы
+        bCheckGroup = true;
+
+    if (this->groupName.empty()) // Если у правила нет списка регулярок для проверки, то проверки производить не надо
         bCheckGroup = false;
 
     if (bCheckGroup)
     {
+        // checkMatch возвращает true, если str (второй параметр) подходит под маску regexStr (третий параметр)
         if (!checkMatch( rbcOpts, grpName, this->groupName )) // group must match if taken
             return ForceGroupingRule::noGroupingRules;
     }

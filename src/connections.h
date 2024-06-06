@@ -707,6 +707,8 @@ void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< C
         }
     }
 
+    connMap.clear();
+
     LOG_MSG("grp-dump-bydsg")<<"Connections by target designator - initial (1)\n";
     for( const auto &logGrp : connGroups )
     {
@@ -767,68 +769,72 @@ struct Connection //-V730
 
     // Раскидываем по группам, одновременно выделяя кластеры в отдельные группы 
     // (помимо группировки по таргет десигнаторам)
-    std:: vector< ConnectionsGroup > connGroupsTmp;
-
-    pUngrouppedConns = &connGroups[0];
-    connGroupsTmp.emplace_back(*pUngrouppedConns);
-    pUngrouppedConns = &connGroupsTmp[0];
-
-    bool bFirstGrp = true;
-    for( auto connGrp : connGroups )
     {
-        if (bFirstGrp)
+        std:: vector< ConnectionsGroup > connGroupsTmp;
+    
+        pUngrouppedConns = &connGroups[0];
+        connGroupsTmp.emplace_back(*pUngrouppedConns);
+        pUngrouppedConns = &connGroupsTmp[0];
+    
+        bool bFirstGrp = true;
+        for( auto connGrp : connGroups )
         {
-            bFirstGrp = false;
-            continue;
-        }
-
-        if (connGrp.connections.empty())
-        {
+            if (bFirstGrp)
+            {
+                bFirstGrp = false;
+                continue;
+            }
+    
+            if (connGrp.connections.empty())
+            {
+                connGroupsTmp.emplace_back(connGrp);
+                pUngrouppedConns = &connGroupsTmp[0];
+                continue;
+            }
+    
+            if (connGrp.dstComponentInfo.componentClass==ComponentClass::cc_QUARTZ)
+            {
+                // Кварц пропускаем
+                continue;
+            }
+    
+            if ( connGrp.dstComponentInfo.componentClass==ComponentClass::cc_TESTPOINT
+              || connGrp.dstComponentInfo.componentClass==ComponentClass::cc_MOUNT
+               )
+            {
+                // Тест точки и маунт холы пропускаем
+                continue;
+            }
+    
+            if (connGrp.dstComponentInfo.componentClass==ComponentClass::cc_HEADER)
+            {
+                // Кластеризуем хидеры
+                splitConnectionGroupByClasters( rbcOpts, connGrp, connGroupsTmp, *pUngrouppedConns );
+                continue;
+            }
+    
+    
+            // if ( connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_TESTPOINT
+            //   // && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_HEADER // А зачем я решил, что хидеры не надо кластерить по именам?
+            //   && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_MOUNT
+            //    )
+            // {
+            //     connGroupsTmp.emplace_back(connGrp);
+            //     pUngrouppedConns = &connGroupsTmp[0];
+            //     continue;
+            // }
+    
+            // Остальное - кладём как есть
+    
             connGroupsTmp.emplace_back(connGrp);
             pUngrouppedConns = &connGroupsTmp[0];
-            continue;
         }
-
-        if (connGrp.dstComponentInfo.componentClass==ComponentClass::cc_QUARTZ)
-        {
-            // Кварц пропускаем
-            continue;
-        }
-
-        if ( connGrp.dstComponentInfo.componentClass==ComponentClass::cc_TESTPOINT
-          || connGrp.dstComponentInfo.componentClass==ComponentClass::cc_MOUNT
-           )
-        {
-            // Тест точки и маунт холы пропускаем
-            continue;
-        }
-
-        if (connGrp.dstComponentInfo.componentClass==ComponentClass::cc_HEADER)
-        {
-            // Кластеризуем хидеры
-            splitConnectionGroupByClasters( rbcOpts, connGrp, connGroupsTmp, *pUngrouppedConns );
-            continue;
-        }
-
-
-        // if ( connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_TESTPOINT
-        //   // && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_HEADER // А зачем я решил, что хидеры не надо кластерить по именам?
-        //   && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_MOUNT
-        //    )
-        // {
-        //     connGroupsTmp.emplace_back(connGrp);
-        //     pUngrouppedConns = &connGroupsTmp[0];
-        //     continue;
-        // }
-
-        // Остальное - кладём как есть
-
-        connGroupsTmp.emplace_back(connGrp);
-        pUngrouppedConns = &connGroupsTmp[0];
+    
+        connGroupsTmp.swap(connGroups);
+    
     }
 
-    connGroupsTmp.swap(connGroups);
-    connGroupsTmp.clear();
+    //connGroupsTmp.clear();
     pUngrouppedConns = &connGroups[0];
 
     LOG_MSG("grp-dump-clust")<<"Connections by target designator - clastered (2)\n";
@@ -846,6 +852,8 @@ struct Connection //-V730
             LOG_MSG("grp-dump-clust")<<"    "<<conn.dstPinDesignator<<" / "<<conn.srcNetName<<" / "<<conn.dstComponentInfo.typeName<<" (src designator: "<<conn.srcPinDesignator<<")\n";
         }
     }
+
+    
 
     /*
     if (!ungrouppedConns.connections.empty())
@@ -867,6 +875,8 @@ struct Connection //-V730
         connGrp.updateConnectionsGroupingOptions( rbcOpts );
     }
 
+
+
     //ConnectionsGroup ungrouppedConnsTmp;
 
     // 1) Нужно пробежаться по именованым группам, и выцепить пины, которые нужно ungroup
@@ -874,32 +884,33 @@ struct Connection //-V730
 
     //std::map< std::string , std:: vector<Connection> > connMap;
 
-    connMap.clear();
 
     // Ungroup grouped
     LOG_MSG("grp-log-fungrp-start")<<"--------------------------------"<<endl;
     LOG_MSG("grp-log-fungrp-start")<<"Start force ungroupping"<<endl;
 
-    bFirstGrp = true;
-    for( auto &connGrp : connGroups )
     {
-        if (bFirstGrp)
+        bool bFirstGrp = true;
+        for( auto &connGrp : connGroups )
         {
-            bFirstGrp = false;
-            continue;
-        }
-
-        for( size_t connIdx = 0; connIdx!=connGrp.connections.size(); )
-        {
-            auto conn = connGrp.connections[connIdx];
-            if (conn.groupingRuleType==ForceGroupingRule::forceUngroup)
+            if (bFirstGrp)
             {
-                pUngrouppedConns->connections.push_back(conn);
-                connGrp.connections.erase(pUngrouppedConns->connections.begin()+connIdx);
+                bFirstGrp = false;
+                continue;
             }
-            else
+    
+            for( size_t connIdx = 0; connIdx!=connGrp.connections.size(); )
             {
-                ++connIdx;
+                auto conn = connGrp.connections[connIdx];
+                if (conn.groupingRuleType==ForceGroupingRule::forceUngroup)
+                {
+                    pUngrouppedConns->connections.push_back(conn);
+                    connGrp.connections.erase(pUngrouppedConns->connections.begin()+connIdx);
+                }
+                else
+                {
+                    ++connIdx;
+                }
             }
         }
     }
@@ -1239,34 +1250,37 @@ struct Connection //-V730
         std::stable_sort( connGroups.begin()+1, connGroups.end(), ConnectionGroupLessByTitle );
     //ConnectionGroupGreaterByTitle
 
-    connGroupsTmp.clear();
+    // connGroupsTmp.clear();
 
     // Merge groups with same names
-    for( const auto & grp : connGroups )
     {
-        if (grp.connections.empty()) // also remove empty groups
-            continue;
-
-        //const ConnectionsGroup &grp = connGroups[grpNo];
-        bool bAppended = false;
-        for( auto & grpTmp : connGroupsTmp )
+        std:: vector< ConnectionsGroup > connGroupsTmp;
+        for( const auto & grp : connGroups )
         {
-            if (grpTmp.groupTitle == grp.groupTitle)
+            if (grp.connections.empty()) // also remove empty groups
+                continue;
+    
+            //const ConnectionsGroup &grp = connGroups[grpNo];
+            bool bAppended = false;
+            for( auto & grpTmp : connGroupsTmp )
             {
-                bAppended = true;
-                grpTmp.connections.insert( grpTmp.connections.end(), grp.connections.begin(), grp.connections.end() );
-                break;
+                if (grpTmp.groupTitle == grp.groupTitle)
+                {
+                    bAppended = true;
+                    grpTmp.connections.insert( grpTmp.connections.end(), grp.connections.begin(), grp.connections.end() );
+                    break;
+                }
+            }
+    
+            if (!bAppended)
+            {
+                connGroupsTmp.push_back(grp);
             }
         }
+    
+        connGroupsTmp.swap(connGroups);
 
-        if (!bAppended)
-        {
-            connGroupsTmp.push_back(grp);
-        }
     }
-
-    connGroupsTmp.swap(connGroups);
-
 /*
 
 struct ConnectionsGroup
