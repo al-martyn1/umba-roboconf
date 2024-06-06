@@ -32,9 +32,9 @@
 (modify "mcuNet" replaceSingle "^P([A-J]{1,}\d+)_(.*)$"      "$({P})$({2})$({S})")
 
 
-(modify "mcuNet" replaceSingle "BMSEL(\d+)(.*)"  "$({P})BMSEL_$({1})$({2})$({S})")
+(modify "mcuNet" replaceSingle "BMSEL(\d+)(.*)"  "$({P})ADDR_SELECTOR_$({1})$({2})$({S})")
 (modify "mcuNet" replaceSingle "BAT_MES(\d+)"    "$({P})BAT_MES_$({1})$({S})")
-(modify "mcuNet" replaceSingle "BAT_BAL(\d+)"    "$({P})BAT_BAL_$({1})$({S})")
+(modify "mcuNet" replaceSingle "BAT_BAL(\d+)"    "$({P})BAT_BAL_CTRL_$({1})$({S})")
 (-- modify "mcuNet" replace "(.+)_(\d+)(.*)" "$({1})$({2})$({3})")
 
 (modify "mcuNet" replaceSingle "UART8_~RXEN"  "$({P})MASTER_LINK_RS485_~RXEN$({S})")
@@ -45,15 +45,22 @@
 (modify "mcuNet" replaceSingle "I2C2_SCL"     "$({P})EEPROM_I2C2_SCL$({S})") 
 (modify "mcuNet" replaceSingle "I2C2_SDA"     "$({P})EEPROM_I2C2_SDA$({S})") 
 
+(modify "mcuNet" replaceSingle "ONFANBM" "COOLER_CTRL")
+
+(modify "mcuNet" replaceSingle "TAMP1" "WUPBAT")
+
+ 
+
+
 
 (// temperature sensor (temp sensor) - температурный датчик )
 (// thermal sensor (therm sensor) - термодатчик )
 (// Можно и так и так, но никак не term)
-(modify "mcuNet" replaceSingle "^DMUX_(.*)$"  "$({P})THERM_SENSOR_DMUX_$({1})$({S})")
+(modify "mcuNet" replaceSingle "^DMUX_(.*)$"  "$({P})THERM_SENSOR_MUX_$({1})$({S})")
 
-(modify "mcuNet" replaceSingle "^TSENS0$"     "$({P})THERM_SENSOR_MUX_VAL$({S})")
+(modify "mcuNet" replaceSingle "^TSENS0$"     "$({P})THERM_SENSOR_BATCELLS_MUX_VAL$({S})")
 
-(modify "mcuNet" replaceSingle "^TSENS1$"     "$({P})THERM_SENSOR_XS2_VAL$({S})")
+(modify "mcuNet" replaceSingle "^TSENS1$"     "$({P})THERM_SENSOR_SYSTEM_VAL$({S})")
 
 
 
