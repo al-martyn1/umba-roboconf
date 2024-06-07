@@ -1628,7 +1628,7 @@ struct CommandLineOptionInfo
                 else
                     descExtraOss<<", initial value: ";
 
-                    descExtraOss<<initVal;
+                descExtraOss<<initVal;
             }
 
             if (optInfo.hasDefVal && optInfo.paramOptional)

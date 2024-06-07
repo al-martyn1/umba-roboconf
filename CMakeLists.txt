@@ -6,8 +6,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # Полезные ключики GCC - https://codeforces.com/blog/entry/15547?locale=ru
 
-#add_compile_definitions("_WIN32" "WIN32" "_UNICODE" "UNICODE")
-add_compile_definitions("_WIN32" "WIN32" "CONSOLE" "_CONSOLE")
+#add_compile_definitions("WIN32_LEAN_AND_MEAN" "_WIN32" "WIN32" "_UNICODE" "UNICODE")
+add_compile_definitions("WIN32_LEAN_AND_MEAN" "_WIN32" "WIN32" "CONSOLE" "_CONSOLE")
 
 #add_link_options("-municode")
 add_link_options("-mconsole")
@@ -57,6 +57,9 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   # using Visual Studio C++
 endif()
 
+# add_compile_options(-pg)
+# add_link_options(-pg)
+
 set(PRJ_ROOT ${PROJECT_SOURCE_DIR})
 set(SRC_ROOT ${PRJ_ROOT}/src)
 set(LIBS_ROOT ${PRJ_ROOT}/_libs)
@@ -96,9 +99,21 @@ set (ROBOCONF_COMMON_SOURCES
 add_compile_definitions("USE_UMBA_LOUT_COUT")
 
 
+if(EXISTS "${PRJ_ROOT}/tracy/public/TracyClient.cpp")
+    set(TRACY_SOURCES "${PRJ_ROOT}/tracy/public/TracyClient.cpp")
+    add_compile_definitions("TRACY_ENABLE")
+    #add_subdirectory(${PRJ_ROOT}/tracy)
+    include_directories("${PRJ_ROOT}/tracy")
+    include_directories("${PRJ_ROOT}/tracy/public/tracy")
+    add_compile_definitions("_WIN32_WINNT=0x0602")
+    add_compile_definitions("WINVER=0x0602")
+    link_libraries("Dbghelp")
+endif()
+
 
 add_executable(umba-roboconf
     ${ROBOCONF_COMMON_SOURCES}
+    ${TRACY_SOURCES}
     "${SRC_ROOT}/roboconf.cpp"
     )
 target_link_libraries(umba-roboconf ws2_32 iphlpapi shell32)

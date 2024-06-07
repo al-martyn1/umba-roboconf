@@ -2,6 +2,12 @@
 #include "umba/simple_formatter.h"
 #include "umba/debug_helpers.h"
 
+#if defined(TRACY_ENABLE)
+    // https://github.com/wolfpld/tracy?tab=readme-ov-file
+    // https://luxeengine.com/integrating-tracy-profiler-in-cpp/
+    #include "Tracy.hpp"
+#endif
+
 #include <exception>
 #include <stdexcept>
 
@@ -212,6 +218,9 @@ int safe_main(int argc, char* argv[])
     using std::cout;
     using std::cerr;
 
+
+    static const char* const tl_main = "Main";
+    FrameMarkStart(tl_main);
 
     auto elapsedTimerTotal = ElapsedTimer(true); // стартует сразу
     auto elapsedTimerStep  = ElapsedTimer(true); // стартует сразу
@@ -1346,6 +1355,8 @@ int safe_main(int argc, char* argv[])
         LOG_ERR_OPT<<"No MCUs found in some reports\n";
         return 16;
     }
+
+    FrameMarkEnd(tl_main);
 
     return 0;
 
