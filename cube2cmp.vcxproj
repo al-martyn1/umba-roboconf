@@ -26,6 +26,11 @@
       <!--AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions-->
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)\tracy\public\tracy;$(SolutionDir)\tracy;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include=".\src\umba\time_service.cpp" />
     <ClCompile Include=".\src\cube2cmp.cpp" />
