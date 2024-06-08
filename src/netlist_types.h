@@ -5,6 +5,10 @@
 //
 //#include "net.h"
 
+//
+#include "tracy_tracing.h"
+
+
 
 struct NetlistInfo;
 

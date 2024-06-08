@@ -7,6 +7,11 @@
 #include "csv.h"
 #include "roboconf_options.h"
 
+//
+#include "tracy_tracing.h"
+
+
+
 //-----------------------------------------------------------------------------
 //struct ComponentPinInfo
 

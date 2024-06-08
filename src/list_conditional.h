@@ -1,5 +1,9 @@
 #pragma once
 
+//
+#include "tracy_tracing.h"
+
+
 /*
     (conditional (matchValue "mcu")(matchCase i|ignore|c|s|case|sensitive)(matchType exact|regex|prefix)(matchTo "STM32") )
     (conditional (matchValue "netlistType")(matchType exact|regex|prefix)(matchTo "") )

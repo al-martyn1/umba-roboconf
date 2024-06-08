@@ -13,6 +13,9 @@
 #include "datacheetUtils.h"
 #include "base64.h"
 
+//
+#include "tracy_tracing.h"
+
 
 //-----------------------------------------------------------------------------
 std::string RoboconfOptions::getMimeTypeByFileExt(const std::string &ext) const
@@ -636,6 +639,8 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
 bool 
 RoboconfOptions::extractGroupingRules( expression_list_t & rulesList /* , const std::string &netlistType */  )
 {
+    UmbaTracyTraceScope();
+    
     rulesList.updateParentPtr(0);
 
     std:: vector< expression_list_t* > groupingRules; groupingRules.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);

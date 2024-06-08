@@ -12,6 +12,11 @@
 
 #include "rdlc-core/fsUtils.h"
 
+//
+#include "tracy_tracing.h"
+
+
+
 /*
 readFile, readFileSafe - чем отличаются, не понятно. Видимо когда-то отличались
 UPD: Переделал - теперь readFile позволяет прочитать пустой файл

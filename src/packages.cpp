@@ -7,6 +7,11 @@
 #include "packages.h"
 #include "roboconf_options.h"
 
+//
+#include "tracy_tracing.h"
+
+
+
 //-----------------------------------------------------------------------------
 bool PackagesDb::generatePackageStdNameAndAlias( std::string &pkgName, std::string &pkgAlias )
 {
@@ -124,6 +129,8 @@ std::string PackagesDb::getCanonicalPackageName( std::string n ) const
 //-----------------------------------------------------------------------------
 bool PackagesDb::applyAssignPackage( RoboconfOptions &rbcOpts, const PackageAssignRule &rule, NetlistInfo &net )
 {
+    UmbaTracyTraceScope();
+    
     if (!isKnownPackage( rule.packageName ))
     {
         LOG_ERR_OBJ(rule)<<"assign package: package '"<<rule.packageName<<"' unknown\n";
@@ -145,6 +152,8 @@ bool PackagesDb::applyAssignPackage( RoboconfOptions &rbcOpts, const PackageAssi
 //-----------------------------------------------------------------------------
 bool PackagesDb::applyDesignatorAssignments(RoboconfOptions &rbcOpts, all_nets_map_type &nets )
 {
+    UmbaTracyTraceScope();
+
     bool totalRes = true;
     std:: vector< PackageAssignRule >::const_iterator rit = assignRules.begin();
     for(; rit != assignRules.end(); ++rit)
@@ -189,6 +198,8 @@ bool PackagesDb::applyDesignatorAssignments(RoboconfOptions &rbcOpts, all_nets_m
 // (packageAlias "SOIC23" ("SOIC23-5" "SOIC23-5B") )
 bool PackagesDb::extractPackages(RoboconfOptions &rbcOpts, expression_list_t & rulesList )
 {
+    UmbaTracyTraceScope();
+
     return processExpressionList( rulesList, true /* erase */
                                 , [this, &rbcOpts]( const ExpressionItem & rule )
                                   {
@@ -200,6 +211,8 @@ bool PackagesDb::extractPackages(RoboconfOptions &rbcOpts, expression_list_t & r
 //-----------------------------------------------------------------------------
 bool PackagesDb::extractDesignatorAssignments(RoboconfOptions &rbcOpts, expression_list_t & rulesList )
 {
+    UmbaTracyTraceScope();
+
     return processExpressionList(rulesList, true /* erase */
         , [this, &rbcOpts](const ExpressionItem & rule)
     {
@@ -211,6 +224,8 @@ bool PackagesDb::extractDesignatorAssignments(RoboconfOptions &rbcOpts, expressi
 //-----------------------------------------------------------------------------
 ExpressionParsingResult PackagesDb::extractDesignatorAssignment( RoboconfOptions &rbcOpts, const ExpressionItem & rule )
 {
+    UmbaTracyTraceScope();
+    
     if (rule.isText())
         return ExpressionParsingResult::skip; // simple skip unknow text item
 

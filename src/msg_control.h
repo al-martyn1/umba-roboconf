@@ -5,6 +5,9 @@
 #include <vector>
 #include <string>
 
+//
+#include "tracy_tracing.h"
+
 
 class MsgControl
 {

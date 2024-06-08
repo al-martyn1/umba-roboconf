@@ -14,6 +14,10 @@
 //
 #include <type_traits>
 
+//
+#include "tracy_tracing.h"
+
+
 namespace
 {
 

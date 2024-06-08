@@ -9,6 +9,11 @@
 #include "string_set_type.h"
 #include "string_string_map_type.h"
 
+//
+#include "tracy_tracing.h"
+
+
+
 enum ConnectionReportHandlerCallType
 {
       ConnectionReportHandlerCallType_Values
@@ -226,6 +231,8 @@ struct GenericReportGenerator : public IReportGenerator
                        , size_t &processedMcus
                        ) override
     {
+        UmbaTracyTraceScope();
+
         processedMcus = 1; // Ќам в данном отчете MCU без надобности, мы их тут не обрабатываем, но чтобы наверху не ругались, говорим, что нашли
 
         string_set_type reportUsedNames;

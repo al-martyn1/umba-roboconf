@@ -4,6 +4,9 @@
 #include "rdlc-core/fsUtils.h"
 #include "report_gen_types.h"
 
+//
+#include "tracy_tracing.h"
+
 
 
 struct IReportGenerator

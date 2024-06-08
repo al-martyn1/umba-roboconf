@@ -8,6 +8,10 @@
 
 #include "netlist_types.h"
 
+//
+#include "tracy_tracing.h"
+
+
 
 struct NetNode
 {
@@ -164,6 +168,8 @@ StreamType& operator<<( StreamType &s, const NetlistInfo &nl )
 template < typename THanler >
 void traverseComponents( all_nets_map_type &nets, const THanler &handler, const std::unordered_set<ComponentClass> &classes, bool allowAssemblies = true )
 {
+    UmbaTracyTraceScope();
+    
     for( auto & p : nets )
         p.second.traverseComponents( handler, classes, allowAssemblies );
 }
@@ -193,6 +199,8 @@ struct ComponentTypesCollector
 inline
 void collectComponentTypes( all_nets_map_type &nets, std:: vector<ComponentTypePackage> &types, const std::unordered_set<ComponentClass> &classes, bool allowAssemblies = true )
 {
+    UmbaTracyTraceScope();
+
     traverseComponents( nets, ComponentTypesCollector(types), classes, allowAssemblies );
     makeUniqueVector(types);
 }
@@ -200,6 +208,8 @@ void collectComponentTypes( all_nets_map_type &nets, std:: vector<ComponentTypeP
 inline
 void makeDesignatorsMap( all_nets_map_type &nets )
 {
+    UmbaTracyTraceScope();
+    
     for( auto &netlistKV : nets )
     {
         netlistKV.second.makeDesignatorsMap();

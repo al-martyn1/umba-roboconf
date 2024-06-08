@@ -9,6 +9,9 @@
 #include "string_string_map_type.h"
 #include "string_string_set_map_type.h"
 
+//
+#include "tracy_tracing.h"
+
 
 
 struct ComponentDesignatorsCollector

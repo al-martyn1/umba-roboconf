@@ -3,6 +3,9 @@
 #include <map>
 #include <string>
 
+//
+#include "tracy_tracing.h"
+
 
 //-----------------------------------------------------------------------------
 inline

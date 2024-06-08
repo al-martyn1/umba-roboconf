@@ -8,6 +8,10 @@
 
 #include <sstream>
 
+//
+#include "tracy_tracing.h"
+
+
 
 struct ReportHtmlBase : public IReportGenerator
 {

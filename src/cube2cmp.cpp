@@ -27,6 +27,9 @@
 #include "rapidjson-master/include/rapidjson/reader.h"
 #include "rapidjson-master/include/rapidjson/stringbuffer.h"
 
+//
+#include "tracy_tracing.h"
+
 
 using namespace rapidjson;
 

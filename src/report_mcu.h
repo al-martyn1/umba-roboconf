@@ -4,6 +4,9 @@
 #include "report_html_base.h"
 //#include "datasheet.h"
 
+//
+#include "tracy_tracing.h"
+
 
 
 
@@ -44,6 +47,8 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
                        , size_t &processedMcus
                        ) override
     {
+        UmbaTracyTraceScope();
+
         std::string docTitle = "MCU connections - Roboconf";
 
         if (!nets.empty())

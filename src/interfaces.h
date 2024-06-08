@@ -4,6 +4,11 @@
 
 #include "connections.h"
 
+//
+#include "tracy_tracing.h"
+
+
+
 struct CommInterfaceLineInfo
 {
     bool            manda; // mandatory

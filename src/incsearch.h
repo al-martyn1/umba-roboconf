@@ -5,6 +5,10 @@
 #include <fstream>
 #include "rdlc-core/fsUtils.h"
 
+//
+#include "tracy_tracing.h"
+
+
 inline
 std::vector<std::string> makeIncVectorFromFileName( const std::string &pathFile )
 {

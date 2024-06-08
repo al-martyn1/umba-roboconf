@@ -4,6 +4,9 @@
 #include "report_html_base.h"
 //#include "datasheet.h"
 
+//
+#include "tracy_tracing.h"
+
 
 
 
@@ -45,6 +48,8 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                        , size_t &processedMcus
                        ) override
     {
+        UmbaTracyTraceScope();
+
         bool shortReport = (reportName=="periph-short");
 
         std::string docTitle = shortReport ? "Peripherials Short - Roboconf" : "Peripherials - Roboconf";

@@ -29,6 +29,9 @@
 #include "string_set_type.h"
 #include "string_string_map_type.h"
 
+//
+#include "tracy_tracing.h"
+
 
 #include "base64.h"
 

@@ -18,6 +18,10 @@
 //
 #include "netlist_types.h"
 
+//
+#include "tracy_tracing.h"
+
+
 
 //-----------------------------------------------------------------------------
 bool netlistParseComponent_ACCEL_ASCII( RoboconfOptions &rbcOpts, const expression_list_t &lst, ComponentInfo &componentInfo );
@@ -623,7 +627,8 @@ bool netlistRead( RoboconfOptions &rbcOpts
                 , NetlistSrcType netlistType = NetlistSrcType::netlistSrcType_Unknown
                 )
 {
-
+    UmbaTracyTraceScope();
+    
     std:: vector< std::string > lines; lines.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
     std::string allText = readFileEncoded /* Safe */ ( in /*, std::string srcEnc = std::string(), std::string targetEnc = "UTF-8", std::string httpHint = std::string(), std::string metaHint = std::string() */ );

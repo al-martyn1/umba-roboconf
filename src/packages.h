@@ -10,6 +10,10 @@
 //
 #include "netlist_types.h"
 
+//
+#include "tracy_tracing.h"
+
+
 
 class RoboconfOptions;
 

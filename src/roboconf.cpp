@@ -2,16 +2,13 @@
 #include "umba/simple_formatter.h"
 #include "umba/debug_helpers.h"
 
-#if defined(TRACY_ENABLE)
-    // https://github.com/wolfpld/tracy?tab=readme-ov-file
-    // https://luxeengine.com/integrating-tracy-profiler-in-cpp/
-    #include "Tracy.hpp"
-#endif
+#include "tracy_tracing.h"
 
 #include <exception>
 #include <stdexcept>
 
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <string>
 #include <vector>
@@ -54,8 +51,10 @@
 
 #include "elapsed_timer.h"
 
-#if defined(UMBA_MSVC_COMPILER_USED)
-#include <conio.h>
+
+// MinGW also supports conio.h/_kbhit
+#if defined(_WIN32) || defined(_WIN32) // (UMBA_MSVC_COMPILER_USED)
+    #include <conio.h>
 #endif
 
 // https://en.wikipedia.org/wiki/Netlist
@@ -185,15 +184,25 @@ int main(int argc, char* argv[])
    {
        try
        {
+           #if defined(TRACY_ENABLE)
+               // std::cout << "Start 'tracy' tracing and press any key continue" << std::endl;
+               // while(!_kbhit()) {}
+               // _getch();
+           #endif
+
            int res = safe_main(argc, argv);
            if (res!=0 && rbcOpts.pauseOnError)
            {
                #if defined(UMBA_MSVC_COMPILER_USED)
        
-               LOG_MSG_OPT<<"Press any key to exit\n";
+               std::cout << "Press any key to exit" << std::endl;
                //fgetc(stdin);
                //getchar();
-               _kbhit();
+               //_kbhit();
+               // getch()
+
+               while(!_kbhit()) {}
+               _getch();
 
                #endif
            }
@@ -219,8 +228,13 @@ int safe_main(int argc, char* argv[])
     using std::cerr;
 
 
-    static const char* const tl_main = "Main";
-    FrameMarkStart(tl_main);
+    //static const char* const tl_main = "Main";
+    //FrameMarkStart
+    //ZoneScoped(tl_main);
+    //ZoneNamed(tl_main, true);
+    //ZoneNamedN(tracy_src_loc, tl_main, true);
+    //ZoneScoped;
+    UmbaTracyTraceScope();
 
     auto elapsedTimerTotal = ElapsedTimer(true); // стартует сразу
     auto elapsedTimerStep  = ElapsedTimer(true); // стартует сразу
@@ -1157,7 +1171,7 @@ int safe_main(int argc, char* argv[])
 
     auto updateComponentsFromLibrary = [&]()
     {
-        
+        UmbaTracyTraceScope();
        
         for( auto libFileName : libFiles)
         {
@@ -1356,7 +1370,7 @@ int safe_main(int argc, char* argv[])
         return 16;
     }
 
-    FrameMarkEnd(tl_main);
+    //FrameMarkEnd(tl_main);
 
     return 0;
 

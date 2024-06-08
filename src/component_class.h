@@ -8,6 +8,9 @@
 #include "parse.h"
 #include "netlist_component_atributes_map.h"
 
+//
+#include "tracy_tracing.h"
+
 
 class RoboconfOptions;
 

@@ -4,6 +4,9 @@
 #include "report_html_base.h"
 #include "datasheet.h"
 
+//
+#include "tracy_tracing.h"
+
 
 
 struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
@@ -42,6 +45,8 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
                        , size_t &processedMcus
                        ) override
     {
+        UmbaTracyTraceScope();
+
         std::string docTitle = "Project summary - Roboconf";
 
         if (!nets.empty())

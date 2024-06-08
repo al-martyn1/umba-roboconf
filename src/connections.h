@@ -9,6 +9,11 @@
 #include "string_set_type.h"
 #include "string_string_map_type.h"
 
+//
+#include "tracy_tracing.h"
+
+
+
 //-----------------------------------------------------------------------------
 struct Connection //-V730
 {
@@ -628,6 +633,8 @@ void moveConnectionDuplicatesToExtra( std:: vector< Connection > &connList )
 inline
 void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< ConnectionsGroup > &connGroups, const std:: vector< Connection > &conns )
 {
+    UmbaTracyTraceScope();
+    
     //using std::endl;
     using namespace umba::omanip;
 
@@ -1482,6 +1489,8 @@ struct ConnectionBuildingOptions
 
     bool extractStopNets(RoboconfOptions &rbcOpts, expression_list_t & rulesList )
     {
+        UmbaTracyTraceScope();
+
         return processExpressionList(rulesList, true /* erase */
             , [this, &rbcOpts](const ExpressionItem & rule)
         {
@@ -1492,6 +1501,8 @@ struct ConnectionBuildingOptions
 
     ExpressionParsingResult extractStopNet( RoboconfOptions &rbcOpts, const ExpressionItem & rule )
     {
+        UmbaTracyTraceScope();
+
         if (rule.isText())
             return ExpressionParsingResult::skip; // simple skip unknow text item
      
@@ -1594,6 +1605,8 @@ void groupConnectionsBySheet( std:: vector< Connection > &conns )
 inline
 void findStartConnectionsDesignators( NetlistInfo netlist, const std::string &purpose, std:: vector< std::string > &designators )
 {
+    UmbaTracyTraceScope();
+
     std::unordered_set<ComponentClass> componentClasses;
     componentClasses.insert(ComponentClass::cc_DD);
     netlist.traverseComponents( ComponentPurposeDesignatorsCollector(designators,purpose), componentClasses, false );
@@ -1611,6 +1624,8 @@ void connectionsListBuild_WalkTroughNets(RoboconfOptions &rbcOpts
                                         , std:: vector<Connection> &connectionList
                                         )
 {
+    UmbaTracyTraceScope();
+    
     auto netsDsgFromIt = netlist.designators.find(dsgFrom);
 
     if (netsDsgFromIt==netlist.designators.end())
@@ -1704,6 +1719,8 @@ void connectionsListBuild_WalkTroughNets(RoboconfOptions &rbcOpts
 inline
 void connectionsListBuild(RoboconfOptions &rbcOpts, const ConnectionBuildingOptions buildingOptions, NetlistInfo netlist, const std::string &startDesignator, std:: vector<Connection> &connectionList )
 {
+    UmbaTracyTraceScope();
+    
     auto componentKV = netlist.components.find( startDesignator );
     if (componentKV==netlist.components.end())
         return;
@@ -1809,6 +1826,8 @@ void connectionsListBuild(RoboconfOptions &rbcOpts, const ConnectionBuildingOpti
 inline
 void connectionsListRemoveSameTargetDesignatorDuplicates( std:: vector<Connection> &connectionList )
 {
+    UmbaTracyTraceScope();
+
     std::set< std::string > removedPinFunctions;
 
     // keep dst with same pin functions
@@ -1861,6 +1880,8 @@ void connectionsListRemoveSameTargetDesignatorDuplicates( std:: vector<Connectio
 inline
 void connectionsListRemoveSameSourceDesignatorDuplicates( std:: vector<Connection> &connectionList )
 {
+    UmbaTracyTraceScope();
+
     std::set< std::string > removedPinFunctions;
 
     // Remove headers
@@ -2012,6 +2033,8 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std:: vector<Connectio
 inline
 void connectionsListRemoveMcuDuplicates( std:: vector<Connection> &connectionList )
 {
+    UmbaTracyTraceScope();
+
     std::map< std::string, std:: vector<Connection> > connMap;
 
     for( auto conn : connectionList )
@@ -2049,6 +2072,8 @@ bool processConnectionModifyRules( RoboconfOptions &rbcOpts, Connection &conn, c
 inline
 bool processConnectionModifyRules( RoboconfOptions &rbcOpts, std:: vector<Connection> &connectionList, const expression_list_t &processingRules )
 {
+    UmbaTracyTraceScope();
+
     for( auto & conn : connectionList )
     {
         if (!processConnectionModifyRules( rbcOpts, conn, processingRules ))
@@ -2061,6 +2086,8 @@ bool processConnectionModifyRules( RoboconfOptions &rbcOpts, std:: vector<Connec
 inline
 bool processConnectionModifyRules( RoboconfOptions &rbcOpts, Connection &conn, const expression_list_t &processingRules )
 {
+    UmbaTracyTraceScope();
+
     conn.processedStrings["MCUNET"]      = conn.srcNetName;
     conn.processedStrings["UNITTYPE"]    = conn.dstComponentInfo.typeName;
     conn.processedStrings["UNITPURPOSE"] = conn.dstComponentInfo.purpose;
@@ -2080,6 +2107,8 @@ bool processConnectionModifyRules( RoboconfOptions &rbcOpts, Connection &conn, c
 inline
 bool processConnectionModifyRules(RoboconfOptions &rbcOpts, Connection &conn, const ExpressionItem & rule /* modifyRule */ )
 {
+    UmbaTracyTraceScope();
+
     if (rule.isText())
         return true;
 
@@ -2328,6 +2357,8 @@ struct ExternalDeviceConnectInfo
 inline
 bool parseExternalConnectionsRule( RoboconfOptions &rbcOpts, const ExpressionItem & rule, ExternalDeviceConnectInfo &externalDeviceConnectInfo, bool &bReaded )
 {
+    UmbaTracyTraceScope();
+
     bReaded = false;
 
     if (rule.isText())
@@ -2433,6 +2464,8 @@ bool parseExternalConnectionsRules( RoboconfOptions &rbcOpts
                                   , const all_nets_map_type &allNets
                                   )
 {
+    UmbaTracyTraceScope();
+
     expression_list_t::const_iterator rulit = processingRules.begin();
     for( ; rulit != processingRules.end(); ++rulit)
     {
@@ -2525,6 +2558,8 @@ bool connectExternalDevices( RoboconfOptions &rbcOpts, const std:: vector< Exter
                            , all_nets_map_type &netsConnectTo
                            )
 {
+    UmbaTracyTraceScope();
+    
     for ( auto exconn : externalDeviceConnections )
     {
         if (exconn.netlistName.empty())
@@ -2616,6 +2651,8 @@ bool connectionsDetectInterfacesProcessSingleMatchOnConnection( RoboconfOptions 
                                                               , bool operateVerbose
                                                               )
 {
+    UmbaTracyTraceScope();
+
 /*
 and (match "token" (any "TXD{0,1}") set ("TX") )
     (match "token" (all "RXD{0,1}") set ("RX") )
@@ -2821,6 +2858,8 @@ bool connectionsDetectInterfacesProcessMatches( RoboconfOptions &rbcOpts
                                               , bool operateVerbose
                                               )
 {
+    UmbaTracyTraceScope();
+
 /*
 and (match "token" (any "TXD{0,1}") set ("TX") )
     (match "token" (all "RXD{0,1}") set ("RX") )
@@ -2923,6 +2962,8 @@ bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts
                                 , std::string targetPurpose = std::string()
                                 )
 {
+    UmbaTracyTraceScope();
+
     std::string targetPurposeType;
     std::string targetInterfaces;
     std::string targetValueType;
@@ -3063,6 +3104,8 @@ bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts
 inline
 bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts, std:: vector< ConnectionsGroup > &connGroups, const expression_list_t &processingRules, bool operateVerbose )
 {
+    UmbaTracyTraceScope();
+    
     for( auto &connGrp : connGroups )
     {
         if (!connGrp.ungroupped)
