@@ -11,3 +11,6 @@
 @set GCC_62_MINGW32=C:\MinGW\bin
 
 @set PATH=%LLVM_CLANG_BIN%;%GCC_13_ARM_NONE_EABI_BIN%;%GCC_13_W64_DEVKIT_BIN%;%GCC_73_32_QT%;%GCC_73_64_QT%;%GCC_62_MINGW32%;%PATH%
+
+@rem     "keep": true,
+@rem     "isTrusted": true
