@@ -6,6 +6,7 @@
 #include <stack>
 #include <set>
 #include <stdexcept>
+#include <utility>
 
 //
 #include "config.h"
@@ -24,6 +25,13 @@
 #include "string_string_map_type.h"
 #include "string_string_set_map_type.h"
 #include "string_string_vector_map_type.h"
+
+//
+#include "umba_inline_attrs.h"
+
+//
+#include "tracy_tracing.h"
+
 
 
 enum class ExpressionParsingResult
@@ -57,19 +65,21 @@ struct ExpressionItem
         
         expression_list_t() : items(), fileNo((FileSet::file_id_t)-1), lineNo(0), pParentItem(0)
         {
-            #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
-            items.reserve(16);
-            #else
-            #endif
+            // #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+            items.reserve(32);
+            // #else
+            // #endif
         }
 
         expression_list_t(const expression_list_t &l) : items(l.items), fileNo(l.fileNo), lineNo(l.lineNo), pParentItem(l.pParentItem)
         {
+            items.reserve(32);
         }
 
         expression_list_t& operator=( expression_list_t l )
         {
             l.swap(*this);
+            items.reserve(32);
             return *this;
         }
 
@@ -77,11 +87,11 @@ struct ExpressionItem
         size_type size() const { return items.size(); }
         bool empty() const { return items.empty(); }
 
-        #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+        // #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
         void reserve(std::size_t sz) { items.reserve(sz); }
-        #else
-        void reserve(std::size_t sz) { items.reserve(sz); }
-        #endif
+        //#else
+        //void reserve(std::size_t sz) { items.reserve(sz); }
+        //#endif
 
         iterator begin() { return items.begin(); }
         iterator end()   { return items.end(); }
@@ -94,6 +104,13 @@ struct ExpressionItem
         const_reference back()  const { return items.back(); }
 
         void push_back( const ExpressionItem &i ) { items.push_back(i); }
+
+
+        template <typename... Args>
+        void emplace_back(Args&&... args)
+        {
+            items.emplace_back(std::forward<Args>(args)...);
+        }
 
         reference operator[]( size_type idx ) { return items.operator[](idx); }
         const_reference operator[]( size_type idx ) const { return items.operator[](idx); }
@@ -283,9 +300,14 @@ struct ExpressionItem
     void removeCommentLists();
 
 
-    ExpressionItem() : itemText(), itemList(), fileNo(0), lineNo(0) {}
+    ExpressionItem() : itemText(), itemList(), fileNo(0), lineNo(0)
+    {
+        itemList.reserve(32);
+    }
+
     ExpressionItem( const std::string &str, FileSet::file_id_t fn, size_t ln ) : itemText(str), itemList(), fileNo(fn), lineNo(ln) {}
     ExpressionItem( const expression_list_t &lst, FileSet::file_id_t fn, size_t ln) : itemText(), itemList(lst), fileNo(fn), lineNo(ln) {}
+    ExpressionItem( expression_list_t &&lst, FileSet::file_id_t fn, size_t ln) : itemText(), itemList(std::move(lst)), fileNo(fn), lineNo(ln) {}
 
 };
 
@@ -306,6 +328,8 @@ typedef ExpressionItem::expression_list_t   expression_list_t;
 template <typename Handler>
 bool processExpressionList( expression_list_t &lst, bool bErase, const Handler &handler )
 {
+    UmbaTracyTraceScope();
+    
     bool totalRes = true;
     for( size_t i = 0; i!=lst.size(); )
     {
@@ -351,6 +375,8 @@ bool isCommentExpressionList( const expression_list_t &lst )
 inline
 void removeCommentExpressionLists( expression_list_t &lst )
 {
+    UmbaTracyTraceScope();
+    
     expression_list_t::size_type i = 0;
     for(; i < lst.size(); )
     {
@@ -382,9 +408,35 @@ void ExpressionItem::removeCommentLists()
 }
 
 //-----------------------------------------------------------------------------
+//UMBA_ATTR_FORCE_INLINE
+inline
+void readList_push_back_ExpressionItem(expression_list_t &lst, const std::string &expr, FileSet::file_id_t fileNo, size_t &lineNo)
+{
+    UmbaTracyTraceScope();
+    //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+    lst.emplace_back( expr, fileNo, lineNo );
+}
+
+//-----------------------------------------------------------------------------
+//UMBA_ATTR_FORCE_INLINE
+inline
+void readList_push_back_ExpressionItem(expression_list_t &lst, expression_list_t &&lstToPush, FileSet::file_id_t fileNo, size_t &lineNo)
+{
+    UmbaTracyTraceScope();
+    //lst.push_back( ExpressionItem(std::move(lstToPush), fileNo, lineNo) );
+    lst.emplace_back( std::move(lstToPush), fileNo, lineNo );
+}
+
+//-----------------------------------------------------------------------------
+//UMBA_ATTR_FORCE_FLATTEN
 inline
 bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt, std::string::size_type &pos, expression_list_t &lst, expression_list_stack_type &listStack )
 {
+    UmbaTracyTraceScope();
+
+
+    lst.reserve(16);
+
     char quotSign = 0;
     std::string expr;
     bool bReadComment = false;
@@ -418,7 +470,8 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
 
                     if (!expr.empty())
                     {
-                        lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                        readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                        //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
                         expr.clear();
                     }
                     
@@ -434,7 +487,8 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
                         lst.clear();
                     }
                    
-                    lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
+                    readList_push_back_ExpressionItem(lst, std::move(tmpLst), fileNo, lineNo);
+                    // lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
 
                     bReadComment = false;
                 }
@@ -465,13 +519,15 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
                     {
                         bReadComment = true;
                         braceLevel = 1;
-                        lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                        readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                        //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
                         expr.clear();
                         //expr.append(1, ch);
                     }
                     else
                     {
-                        lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                        readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                        //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
                         expr.clear();
                     }
                 }
@@ -493,7 +549,8 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
                 // start quoting
                 if (!expr.empty())
                 {
-                    lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                    readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                    //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
                     expr.clear();
                 }
 
@@ -510,7 +567,8 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
         {
             if (!expr.empty())
             {
-                lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
                 expr.clear();
             }
 
@@ -528,7 +586,8 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
         {
             if (!expr.empty())
             {
-                lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
                 expr.clear();
             }
 
@@ -546,7 +605,8 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
                 lst.lineNo = lineNo;
             }
 
-            lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
+            readList_push_back_ExpressionItem(lst, std::move(tmpLst), fileNo, lineNo);
+            //lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
 
             pos++;
             continue;
@@ -562,7 +622,8 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
 
     if (!expr.empty())
     {
-        lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+        readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+        //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
         expr.clear();
     }
 
@@ -572,7 +633,8 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
         expression_list_t tmpLst = lst;
         lst.swap(listStack.top());
         listStack.pop();
-        lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
+        readList_push_back_ExpressionItem(lst, std::move(tmpLst), fileNo, lineNo);
+        //lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
     }
 
     return true;
@@ -582,6 +644,8 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
 inline
 bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt, expression_list_t &lst )
 {
+    UmbaTracyTraceScope();
+
     expression_list_stack_type listStack;
     std::string::size_type pos = 0;
     return readList(fileNo, lineNo, txt, pos, lst, listStack );
@@ -591,6 +655,8 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
 inline
 bool readList(FileSet::file_id_t fileNo, size_t &lineNo, std::istream &in, expression_list_t &lst )
 {
+    UmbaTracyTraceScope();
+
     std::string allText = readFileEncoded( in );
 /*
     allText.reserve( 10000 );
@@ -611,6 +677,8 @@ inline
 bool
 readListTextItem( const expression_list_t &lst, expression_list_t::const_iterator &it, std::string &rdTo, bool bUnquote = false /* for compatibility */ )
 {
+    UmbaTracyTraceScope();
+
     if (it==lst.end())
         return false;
     if (!it->isText())
