@@ -2,4 +2,4 @@
 @if not exist summary   mkdir summary
 @if not exist mcu       mkdir mcu
 @if not exist periph    mkdir periph
-@if not exist h_conf    mkdir h_conf
+@if not exist umba_periph_config    mkdir umba_periph_config

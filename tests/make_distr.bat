@@ -57,38 +57,38 @@ echo rem Vertex2 master                                                         
 echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtx2_master.NET     vtx2_master_summary.html             >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtx2_master.NET     vtx2_master_mcu.html                 >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtx2_master.rul   netlists\vtx2_master.NET     vtx2_master_periph.html              >> ..\distr\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtx2_master.rul   netlists\vtx2_master.NET     vtx2_master_conf.h                   >> ..\distr\samples\samples.bat
+echo ..\bin\roboconf.exe  --report=umba_periph_config   --rules=rules\vtx2_master.rul   netlists\vtx2_master.NET     vtx2_master_conf.h                   >> ..\distr\samples\samples.bat
 
 echo rem Vertex2 slave                                                                                                                        >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtx2_slave.NET      vtx2_slave_summary.html              >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtx2_slave.NET      vtx2_slave_mcu.html                  >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtx2_slave.rul    netlists\vtx2_slave.NET      vtx2_slave_periph.html               >> ..\distr\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtx2_slave.rul    netlists\vtx2_slave.NET      vtx2_slave_conf.h                    >> ..\distr\samples\samples.bat
+echo ..\bin\roboconf.exe  --report=umba_periph_config   --rules=rules\vtx2_slave.rul    netlists\vtx2_slave.NET      vtx2_slave_conf.h                    >> ..\distr\samples\samples.bat
 
 echo rem Vertex2 hot end                                                                                                                      >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtx2_hotend.NET     vtx2_hotend_summary.html             >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtx2_hotend.NET     vtx2_hotend_mcu.html                 >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtx2_hotend.rul   netlists\vtx2_hotend.NET     vtx2_hotend_periph.html              >> ..\distr\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtx2_hotend.rul   netlists\vtx2_hotend.NET     vtx2_hotend_conf.h                   >> ..\distr\samples\samples.bat
+echo ..\bin\roboconf.exe  --report=umba_periph_config   --rules=rules\vtx2_hotend.rul   netlists\vtx2_hotend.NET     vtx2_hotend_conf.h                   >> ..\distr\samples\samples.bat
 
 echo rem Vertex2 TVKO                                                                                                                         >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtx2_tvko.NET       vtx2_tvko_summary.html               >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtx2_tvko.NET       vtx2_tvko_mcu.html                   >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtx2_tvko.rul     netlists\vtx2_tvko.NET       vtx2_tvko_periph.html                >> ..\distr\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtx2_tvko.rul     netlists\vtx2_tvko.NET       vtx2_tvko_conf.h                     >> ..\distr\samples\samples.bat
+echo ..\bin\roboconf.exe  --report=umba_periph_config   --rules=rules\vtx2_tvko.rul     netlists\vtx2_tvko.NET       vtx2_tvko_conf.h                     >> ..\distr\samples\samples.bat
 
 
 echo rem Vertex2 Teleshev main                                                                                                                >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtl_main.NET        vtl_main_summary.html                >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtl_main.NET        vtl_main_mcu.html                    >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtl_main.rul      netlists\vtl_main.NET        vtl_main_periph.html                 >> ..\distr\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtl_main.rul      netlists\vtl_main.NET        vtl_main_conf.h                      >> ..\distr\samples\samples.bat
+echo ..\bin\roboconf.exe  --report=umba_periph_config   --rules=rules\vtl_main.rul      netlists\vtl_main.NET        vtl_main_conf.h                      >> ..\distr\samples\samples.bat
 
 echo rem Vertex2 Teleshev periph                                                                                                              >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=summary                                  netlists\vtl_periph.NET      vtl_periph_summary.html              >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=mcu                                      netlists\vtl_periph.NET      vtl_periph_mcu.html                  >> ..\distr\samples\samples.bat
 echo ..\bin\roboconf.exe  --report=periph   --rules=rules\vtl_periph.rul    netlists\vtl_periph.NET      vtl_periph_periph.html               >> ..\distr\samples\samples.bat
-echo ..\bin\roboconf.exe  --report=h_conf   --rules=rules\vtl_periph.rul    netlists\vtl_periph.NET      vtl_periph_conf.h                    >> ..\distr\samples\samples.bat
+echo ..\bin\roboconf.exe  --report=umba_periph_config   --rules=rules\vtl_periph.rul    netlists\vtl_periph.NET      vtl_periph_conf.h                    >> ..\distr\samples\samples.bat
 
 
 

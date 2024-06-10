@@ -32,8 +32,8 @@
 @rem mcu\jud_TriggersControl_v2_3_Driver
 %ROBOCONF% %VERBOSE% --make-dump --report=periph  --local-lib-cache=lib-cache\es.rbc_libs --rules=rules\es.rul  net-cache\es.rbc_net  es\periph.html
 @rem periph\jud_TriggersControl_v2_3_Driver
-%ROBOCONF% %VERBOSE% --make-dump --report=h_conf  --local-lib-cache=lib-cache\es.rbc_libs --rules=rules\es.rul  net-cache\es.rbc_net  es\conf.h
-@rem h_conf\jud_TriggersControl_v2_3_Driver
+%ROBOCONF% %VERBOSE% --make-dump --report=umba_periph_config  --local-lib-cache=lib-cache\es.rbc_libs --rules=rules\es.rul  net-cache\es.rbc_net  es\conf.h
+@rem umba_periph_config\jud_TriggersControl_v2_3_Driver
 
 
 
@@ -44,4 +44,4 @@
 @rem rem --rules=rules\vtx2_master.rul
 @rem set RULES_IN=
 @rem roboconf.exe  %LOGLVL% --report=periph  %RULES_IN%    doc\schematic\ES-4007-BMCL-CPU_R.1.0.NET     doc.generated\ES-4007-BMCL-CPU_R_1_0_periph.html > periph.log 2>&1
-@rem roboconf.exe  %LOGLVL% --report=h_conf  %RULES_IN%    doc\schematic\ES-4007-BMCL-CPU_R.1.0.NET     src\periph_config.h > periph_config.log 2>&1
+@rem roboconf.exe  %LOGLVL% --report=umba_periph_config  %RULES_IN%    doc\schematic\ES-4007-BMCL-CPU_R.1.0.NET     src\periph_config.h > periph_config.log 2>&1

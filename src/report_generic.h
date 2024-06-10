@@ -432,7 +432,7 @@ bool extractCustomGenerator( const ExpressionItem & generatorInfoRule, std::map<
     expression_list_t::const_iterator it = lst.begin();
 
 #if 0
-(generatorInfo (name "h_conf")
+(generatorInfo (name "umba_periph_config")
                (description "C-header config generator")
                (defaultFileExtention "h")
                (lineComment "//")
@@ -635,7 +635,7 @@ bool processGeneratorRule( const ExpressionItem & generatorRule
     expression_list_t::const_iterator it = lst.begin();
 
 #if 0
-(generator "h_conf" interface "GPIO:OUT"
+(generator "umba_periph_config" interface "GPIO:OUT"
     (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  set ( ("$(NET)_GPIO"               to "GPIO$({1})")
                                                                   ("$(NET)_GPIO_PIN"           to "GPIO_Pin_$({2})")
                                                                   ("$(NET)_GPIO_PIN_DIRECTION" to "GPIO_DIRECTION_OUT" comment "only for info")
@@ -682,7 +682,7 @@ bool processGeneratorRule( const ExpressionItem & generatorRule
         return true;
 
 #if 0
-(generator "h_conf" interface "GPIO:OUT"
+(generator "umba_periph_config" interface "GPIO:OUT"
     (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  set ( ("$(NET_NAME)_GPIO"               to "GPIO$({1})")
                                                                   ("$(NET_NAME)_GPIO_PIN"           to "GPIO_Pin_$({2})")
                                                                   ("$(NET_NAME)_GPIO_PIN_DIRECTION" to "GPIO_DIRECTION_OUT" comment "only for info")
@@ -777,7 +777,7 @@ bool processGeneratorRule( const ExpressionItem & generatorRule
             continue;
 
 #if 0
-(generator "h_conf" interface "GPIO:OUT"
+(generator "umba_periph_config" interface "GPIO:OUT"
     (match "function" to "P(A|B|C|D|E|F|G|H|I|J)(\d{1,2})"  set ( ("$(NET_NAME)_GPIO"               to "GPIO$({1})")
                                                                   ("$(NET_NAME)_GPIO_PIN"           to "GPIO_Pin_$({2})")
                                                                   ("$(NET_NAME)_GPIO_PIN_DIRECTION" to "GPIO_DIRECTION_OUT" comment "only for info")
