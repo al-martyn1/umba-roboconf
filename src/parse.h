@@ -65,21 +65,24 @@ struct ExpressionItem
         
         expression_list_t() : items(), fileNo((FileSet::file_id_t)-1), lineNo(0), pParentItem(0)
         {
-            // #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
-            items.reserve(32);
-            // #else
-            // #endif
+            #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+                items.reserve(32);
+            #endif
         }
 
         expression_list_t(const expression_list_t &l) : items(l.items), fileNo(l.fileNo), lineNo(l.lineNo), pParentItem(l.pParentItem)
         {
-            items.reserve(32);
+            #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+                items.reserve(32);
+            #endif
         }
 
         expression_list_t& operator=( expression_list_t l )
         {
             l.swap(*this);
-            items.reserve(32);
+            #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+                items.reserve(32);
+            #endif
             return *this;
         }
 
@@ -302,7 +305,9 @@ struct ExpressionItem
 
     ExpressionItem() : itemText(), itemList(), fileNo(0), lineNo(0)
     {
-        itemList.reserve(32);
+        #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+            itemList.reserve(32);
+        #endif
     }
 
     ExpressionItem( const std::string &str, FileSet::file_id_t fn, size_t ln ) : itemText(str), itemList(), fileNo(fn), lineNo(ln) {}
