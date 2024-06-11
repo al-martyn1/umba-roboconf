@@ -57,3 +57,4 @@
 /conf/umba-roboconf.custom.options
 /tracy
 /doc/tracy
+*.user
