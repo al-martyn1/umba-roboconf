@@ -38,11 +38,11 @@
 
 #pragma once
 
-#include "umba/x_detect_environment.h"
-#include "umba/preprocessor.h"
-#include "umba/assert.h"
-#include "umba/autolock.h"
-#include "umba/stl.h"
+#include "x_detect_environment.h"
+#include "preprocessor.h"
+#include "assert.h"
+#include "autolock.h"
+#include "stl.h"
 
 
 

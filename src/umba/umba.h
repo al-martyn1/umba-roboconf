@@ -3,7 +3,8 @@
 
 #pragma once
 
-#include "umba/assert.h"
-#include "umba/autolock.h"
-#include "umba/critical_section.h"
-#include "umba/preprocessor.h"
+#include "preprocessor.h"
+//
+#include "assert.h"
+#include "autolock.h"
+#include "critical_section.h"

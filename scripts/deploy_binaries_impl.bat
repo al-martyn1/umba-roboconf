@@ -1,6 +1,8 @@
 @if "%RBC_ROOT%"=="" goto ERR_RBC_ROOT
 
-@call %~dp0detect_compiled_path.bat
+@call %~dp0\detect_compiled_path.bat
+
+echo RBC_COMPILED_BIN_PATH: %RBC_COMPILED_BIN_PATH%
 
 
 :DO_COPY

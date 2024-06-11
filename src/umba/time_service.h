@@ -5,8 +5,8 @@
 
 #pragma once
 
-#include "umba/x_detect_environment.h"
-#include "umba/preprocessor.h"
+#include "x_detect_environment.h"
+#include "preprocessor.h"
 #include <stdint.h>
 
 
