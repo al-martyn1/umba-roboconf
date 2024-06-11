@@ -698,7 +698,7 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
     {
         #if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
             readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
-        #lse
+        #else
             lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
         #endif
         expr.clear();

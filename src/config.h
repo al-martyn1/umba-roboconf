@@ -34,21 +34,30 @@
 
 #define ROBOCONF_PACKAGES_DB_USE_UNORDERED_MAP
 
-// #define ROBOCONF_READ_LIST_USE_MOVE_SEMANTICS
-// #define ROBOCONF_READ_LIST_USE_MOVE_SEMANTICS_FORCE_MOVE
-// #define ROBOCONF_READ_LIST_USE_FORCE_INLINE
-// #define ROBOCONF_READ_LIST_USE_FORCE_FLATTEN
-// #define ROBOCONF_READ_LIST_USE_EMPLACE_BACK
-// #define ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS
 
-// Вот это просаживает производительность
+//----------------------------------------------------------------------------
+// РћРїС‚РёРјРёР·Р°С†РёСЏ readList
+
+// Mutual exlusive options
+////#define ROBOCONF_READ_LIST_USE_MOVE_SEMANTICS
+//#define ROBOCONF_READ_LIST_USE_MOVE_SEMANTICS_FORCE_MOVE
+
+//#define ROBOCONF_READ_LIST_USE_FORCE_INLINE
+//#define ROBOCONF_READ_LIST_USE_FORCE_FLATTEN
+//#define ROBOCONF_READ_LIST_USE_EMPLACE_BACK
+#define ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS   /* Р’ РёС‚РѕРіРµ С‚РѕР»СЊРєРѕ СЌС‚Рѕ РЅРµРїР»РѕС…Рѕ РїРѕРґРЅСЏР»Рѕ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚СЊ */
+
+// Р’РѕС‚ СЌС‚Рѕ РїСЂРѕСЃР°Р¶РёРІР°РµС‚ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚СЊ
 // #define ROBOCONF_EXPRESSION_LIST_RESERVE
 
 
+//----------------------------------------------------------------------------
 
 
 
-// // unordered_set не работает в качестве ключа для map (нет operator< для std::set). В 20м стандарте вроде убирают эту возможность вообще.
+
+
+// // unordered_set РЅРµ СЂР°Р±РѕС‚Р°РµС‚ РІ РєР°С‡РµСЃС‚РІРµ РєР»СЋС‡Р° РґР»СЏ map (РЅРµС‚ operator< РґР»СЏ std::set). Р’ 20Рј СЃС‚Р°РЅРґР°СЂС‚Рµ РІСЂРѕРґРµ СѓР±РёСЂР°СЋС‚ СЌС‚Сѓ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІРѕРѕР±С‰Рµ.
 // // #define ROBOCONF_STRING_SET_TYPE_USE_UNORDERED_SET
 
 
