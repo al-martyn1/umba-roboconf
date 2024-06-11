@@ -15,6 +15,17 @@
 
 
 //-----------------------------------------------------------------------------
+struct ConnectionInterfaceInfo
+{
+    std::string        interfaceType;      // need to find by rules
+    std::string        interfaceLineType;  // need to find by rules
+    bool               interfaceDetected = false;
+
+}; // struct ConnectionInterfaceInfo
+
+
+
+
 struct Connection //-V730
 {
     std::string        dstPinDesignator;
@@ -59,6 +70,23 @@ struct Connection //-V730
 
     int                       groupingRuleType;
     std::string               forceGroupName;
+
+
+    void updateInterfaceInfo(const ConnectionInterfaceInfo& info)
+    {
+        interfaceType     = info.interfaceType    ;
+        interfaceLineType = info.interfaceLineType;
+        interfaceDetected = info.interfaceDetected;
+    }
+
+    ConnectionInterfaceInfo getInterfaceInfo() const
+    {
+        ConnectionInterfaceInfo info;
+        info.interfaceType     = interfaceType    ;
+        info.interfaceLineType = interfaceLineType;
+        info.interfaceDetected = interfaceDetected;
+        return info;
+    }
 
 
     string_set_type getTokens() const
@@ -1411,6 +1439,8 @@ struct ConnectionBuildingOptions
 
     bool isStopNet(RoboconfOptions &rbcOpts, const std::string &netName) const
     {
+        UmbaTracyTraceScope();
+
         if (netName.empty())
            return true;
 
@@ -1445,6 +1475,8 @@ struct ConnectionBuildingOptions
 
     std::string getStopNetDescription(const std::string &netName) const
     {
+        UmbaTracyTraceScope();
+
         if (netName.empty())
            return std::string("<EMPTY>");
 
@@ -1468,6 +1500,8 @@ struct ConnectionBuildingOptions
 
     int getStopNetGroundOption(const std::string &netName) const
     {
+        UmbaTracyTraceScope();
+
         for( const auto &netInfo : stopNets )
         {
             try
@@ -1614,9 +1648,9 @@ void findStartConnectionsDesignators( NetlistInfo netlist, const std::string &pu
 
 //-----------------------------------------------------------------------------
 inline
-void connectionsListBuild_WalkTroughNets(RoboconfOptions &rbcOpts
-                                        , const ConnectionBuildingOptions buildingOptions
-                                        , NetlistInfo netlist
+void connectionsListBuild_WalkTroughNets( RoboconfOptions &rbcOpts
+                                        , const ConnectionBuildingOptions &buildingOptions
+                                        , const NetlistInfo               &netlist
                                         , std::unordered_set<std::string> usedNets
                                         , std::unordered_set<std::string> usedDsgs
                                         , const std::string &dsgFrom
@@ -2643,10 +2677,14 @@ bool connectExternalDevices( RoboconfOptions &rbcOpts, const std:: vector< Exter
 }
 
 //-----------------------------------------------------------------------------
+//! Обновляет данные в connection только если возвращает true
 inline
-bool connectionsDetectInterfacesProcessSingleMatchOnConnection( RoboconfOptions &rbcOpts
-                                                              , bool &matchResult, std::string detectingType, std::string targetPurposeType
-                                                              , Connection &connection
+bool connectionsDetectInterfacesProcessSingleMatchOnConnection( RoboconfOptions         &rbcOpts
+                                                              , bool                    &matchResult
+                                                              , const std::string       &detectingType
+                                                              , const std::string       &targetPurposeType
+                                                              , const Connection        &connection
+                                                              , ConnectionInterfaceInfo &foundConnectionInterfaceInfo
                                                               , const expression_list_t &matchRules
                                                               , bool operateVerbose
                                                               )
@@ -2797,16 +2835,16 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
             {
                 matchResult = matchResult && matchRes;
                 if (!matchResult)
-                    return true;
+                    return true; // тут всё правильно
             }
             else
             {
                 matchResult = matchResult || matchRes;
                 if (matchResult)
                 {
-                    connection.interfaceType      = setTypeName;
-                    connection.interfaceLineType  = setLineName;
-                    connection.interfaceDetected  = true;
+                    foundConnectionInterfaceInfo.interfaceType      = setTypeName;
+                    foundConnectionInterfaceInfo.interfaceLineType  = setLineName;
+                    foundConnectionInterfaceInfo.interfaceDetected  = true;
                     return true;
                 }
             }
@@ -2825,9 +2863,9 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
 
     if (matchResult)
     {
-        connection.interfaceType      = setTypeName;
-        connection.interfaceLineType  = setLineName;
-        connection.interfaceDetected  = true;
+        foundConnectionInterfaceInfo.interfaceType      = setTypeName;
+        foundConnectionInterfaceInfo.interfaceLineType  = setLineName;
+        foundConnectionInterfaceInfo.interfaceDetected  = true;
     }
 
     return true;
@@ -2838,6 +2876,8 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
 inline
 bool isAllConnectionsDetected( const std:: vector< Connection > &connections )
 {
+    UmbaTracyTraceScope();
+
     size_t processedCount = 0;
     for( auto &conn : connections )
     {
@@ -2850,15 +2890,42 @@ bool isAllConnectionsDetected( const std:: vector< Connection > &connections )
 }
 
 //-----------------------------------------------------------------------------
+    // void updateInterfaceInfo(const ConnectionInterfaceInfo& info)
+    // {
+    //     interfaceType     = info.interfaceType    ;
+    //     interfaceLineType = info.interfaceLineType;
+    //     interfaceDetected = info.interfaceDetected;
+    // }
+
+// ConnectionInterfaceInfo &foundConnectionInterfaceInfo
+
 inline
-bool connectionsDetectInterfacesProcessMatches( RoboconfOptions &rbcOpts
-                                              , bool &matchResult, std::string detectingType, std::string targetPurposeType
-                                              , std:: vector< Connection > &connections
-                                              , const expression_list_t &matchesList
-                                              , bool operateVerbose
+bool connectionsDetectInterfacesProcessMatches( RoboconfOptions            &rbcOpts
+                                              , bool                       &matchResult
+                                              , const std::string          detectingType
+                                              , const std::string          targetPurposeType
+                                              , std:: vector< Connection > &connectionsMut    // mutable vector
+                                              , const expression_list_t    &matchesList
+                                              , bool                        operateVerbose
                                               )
 {
     UmbaTracyTraceScope();
+
+    constexpr std::size_t maxNumConnectionsCanBeProcessed = 512;
+    ConnectionInterfaceInfo   connectionsInterfaceInfo[maxNumConnectionsCanBeProcessed]; // Ни в одной группе не может быть столько соединений, мало у каких процов вообще есть столько пинов
+
+    auto updateMutConnections = [&]()
+    {
+        for(std::size_t idx=0; idx!=connectionsMut.size(); ++idx)
+        {
+            if (!connectionsInterfaceInfo[idx].interfaceDetected)
+                continue;
+            connectionsMut[idx].updateInterfaceInfo(connectionsInterfaceInfo[idx]);
+        }
+    };
+    // constexpr std::size_t maxNumConnectionsCanBeProcessed = 512;
+    // ConnectionInterfaceInfo   сonnectionsInterfaceInfo[maxNumConnectionsCanBeProcessed]; // Ни в одной группе не может быть столько соединений, мало у каких процов вообще есть столько пинов
+
 
 /*
 and (match "token" (any "TXD{0,1}") set ("TX") )
@@ -2868,22 +2935,32 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
     expression_list_t::const_iterator matchIt = matchesList.begin();
 
     std::string ruleName;
-    if (!readListTextItem( matchesList, matchIt, ruleName, false /* dont unquote */  ))
     {
-        LOG_ERR_OBJ(matchesList) << "Invalid 'detect \""<<detectingType<<"\"' processing rule\n";
-        return false;
-    }
+        // UmbaTracyTraceScope(); // не нужно - тут время практически не тратится
 
-    if (toLower(ruleName)!="and" && toLower(ruleName)!="&&" && toLower(ruleName)!="or" && toLower(ruleName)!="||")
-    {
-        LOG_ERR_OBJ(matchesList) << "Invalid 'detect \""<<detectingType<<"\"' processing rule - invalid operation (nor AND nor OR not found)\n";
-        return false;
-    }
+        if (connectionsMut.size() >= maxNumConnectionsCanBeProcessed)
+        {
+            LOG_ERR_OBJ(matchesList) << "Too much namber of connections\n";
+            return false;
+        }
 
-    if (isAllConnectionsDetected(connections))
-    {
-        matchResult = true;
-        return true;
+        if (!readListTextItem( matchesList, matchIt, ruleName, false /* dont unquote */  ))
+        {
+            LOG_ERR_OBJ(matchesList) << "Invalid 'detect \""<<detectingType<<"\"' processing rule\n";
+            return false;
+        }
+    
+        if (toLower(ruleName)!="and" && toLower(ruleName)!="&&" && toLower(ruleName)!="or" && toLower(ruleName)!="||")
+        {
+            LOG_ERR_OBJ(matchesList) << "Invalid 'detect \""<<detectingType<<"\"' processing rule - invalid operation (nor AND nor OR not found)\n";
+            return false;
+        }
+    
+        // if (isAllConnectionsDetected(connections))
+        // {
+        //     matchResult = true;
+        //     return true;
+        // }
     }
 
 
@@ -2893,10 +2970,40 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
 
     matchResult = bMatchAll;
 
-    std:: vector< Connection > connectionsTmp = connections; connections.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+
+    // std:: vector< Connection > connectionsTmp;
+    // {
+    //     UmbaTracyTraceScope();
+    //     // Сделали отдельный скоуп для приравнивания, хотим замерять, сколько тут времени тратится
+    //     connectionsTmp = connections; //connections.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    //  
+    //     //LOG_MSG("detect-conn")
+    //     std::cout << "Number of connections: " << connections.size() << "\n";
+    // }
+
+    const std:: vector< Connection > &connections = connectionsMut; // Делаем константную ссылку, чтобы компилятор нам дал по рукам, если захотим модифицировать
+
+    bool allConnectionsAlreadyDetected = true;
+
+    for(std::size_t idx=0; idx!=connections.size(); ++idx)
+    {
+        allConnectionsAlreadyDetected = allConnectionsAlreadyDetected && connectionsMut[idx].interfaceDetected;
+        connectionsInterfaceInfo[idx] = connectionsMut[idx].getInterfaceInfo();
+    }
+
+    if (allConnectionsAlreadyDetected)
+    {
+        matchResult = true;
+        return true;
+    }
+
+
+    //ConnectionInterfaceInfo getInterfaceInfo()
+     
 
     for( ; matchIt != matchesList.end(); ++matchIt)
     {
+        // UmbaTracyTraceScope(); // не нужно - тут время практически не тратится
         if (matchIt->isText())
         {
             LOG_ERR_OBJ(matchesList) << "Invalid 'detect \""<<detectingType<<"\"' processing rule - match expression list expected, found text item: '"<<matchIt->itemText<<"'\n";
@@ -2905,17 +3012,36 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
 
         bool ruleMatched = false;
 
-        size_t processedCount = 0;
-        for( auto &conn : connectionsTmp )
+        //std::size_t idx = (std::size_t)-1;
+        std::size_t processedCount = 0;
+        for(std::size_t idx=0; idx!=connections.size(); ++idx)
+        //for( auto &conn : connectionsTmp )
         {
-            if (conn.interfaceDetected)
+            // UmbaTracyTraceScope(); // не нужно - тут время практически не тратится
+            if (connectionsInterfaceInfo[idx].interfaceDetected)
                 continue;
+
+            const auto &conn = connections[idx];
+            //++idx;
+
             processedCount++;
 
-            if (!connectionsDetectInterfacesProcessSingleMatchOnConnection( rbcOpts, ruleMatched, detectingType, targetPurposeType, conn, matchIt->itemList, operateVerbose ))
+
+            // Тут conn обновляется, но только если матч прошел без ошибок и ruleMatched также равно true
+            // Обновляются поля
+            // connection.interfaceType      = setTypeName;
+            // connection.interfaceLineType  = setLineName;
+            // connection.interfaceDetected  = true;
+
+            if (!connectionsDetectInterfacesProcessSingleMatchOnConnection( rbcOpts, ruleMatched, detectingType, targetPurposeType, conn, connectionsInterfaceInfo[idx], matchIt->itemList, operateVerbose ))
             {
                 return false;
             }
+
+            // if (ruleMatched && conn.interfaceDetected)
+            // {
+            //     //std::cout << "  Updated connection[" << idx << "]\n";
+            // }
 
             if (ruleMatched)
                 break;
@@ -2927,18 +3053,23 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
         {
             matchResult = matchResult && ruleMatched;
             if (!matchResult)
-                return true;
+            {
+                //std::cout << "  Rule not matched\n";
+                return true; // тут всё правильно
+            }
         }
         else
         {
             matchResult = matchResult || ruleMatched;
             if (matchResult)
             {
-                connections = connectionsTmp;
+                //connections = connectionsTmp;
+                //connections.swap(connectionsTmp);
+                //std::cout << "  Rule matched\n";
+                updateMutConnections();
                 return true;
             }
         }
-
 
         if (!processedCount)
             break;
@@ -2947,7 +3078,14 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
 
     if (matchResult)
     {
-        connections = connectionsTmp;
+        //connections = connectionsTmp;
+        //connections.swap(connectionsTmp);
+        //std::cout << "  Rule matched\n";
+        updateMutConnections();
+    }
+    else
+    {
+        //std::cout << "  Rule not matched\n";
     }
 
     return true;
@@ -2957,7 +3095,7 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
 inline
 bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts
                                 , std:: vector< Connection > &connections
-                                , const expression_list_t &processingRules
+                                , const expression_list_t    &processingRules
                                 , bool operateVerbose
                                 , std::string targetPurpose = std::string()
                                 )
@@ -2983,7 +3121,7 @@ bool connectionsDetectInterfaces(RoboconfOptions &rbcOpts
        splitToPair( targetInterfaces, targetInterfaces, targetValueType, ":" );
     trim(targetInterfaces);
 
-    std:: vector< std::string > targetInterfacesVec; targetInterfacesVec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< std::string > targetInterfacesVec; // targetInterfacesVec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     if (!targetInterfaces.empty())
         splitToVector( targetInterfaces, targetInterfacesVec, '|' );
     

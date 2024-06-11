@@ -484,7 +484,6 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
 {
     UmbaTracyTraceScope();
 
-
     lst.reserve(16);
 
     char quotSign = 0;
@@ -774,6 +773,8 @@ readListTextItem( const expression_list_t &lst, expression_list_t::const_iterato
 inline
 size_t readListToVector( const expression_list_t &lst, std:: vector< std::string > &v, bool bUnquote = true )
 {
+    UmbaTracyTraceScope();
+
     expression_list_t::const_iterator it = lst.begin();
     std::string str;
     while( readListTextItem(lst, it, str) )
@@ -888,6 +889,8 @@ bool readListByTemplate( const std::string &tpl
                        , std::string &found
                        )
 {
+    UmbaTracyTraceScope();
+
     size_t pos = 0, size = tpl.size();
 
     enum EntryType
@@ -1622,6 +1625,8 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                        , int line
                        )
 {
+    UmbaTracyTraceScope();
+
     readTo.clear();
 
     while(*pTpl)
