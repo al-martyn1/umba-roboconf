@@ -65,21 +65,24 @@ struct ExpressionItem
         
         expression_list_t() : items(), fileNo((FileSet::file_id_t)-1), lineNo(0), pParentItem(0)
         {
-            // #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
-            items.reserve(32);
-            // #else
-            // #endif
+            #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+                items.reserve(32);
+            #endif
         }
 
         expression_list_t(const expression_list_t &l) : items(l.items), fileNo(l.fileNo), lineNo(l.lineNo), pParentItem(l.pParentItem)
         {
-            items.reserve(32);
+            #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+                items.reserve(32);
+            #endif
         }
 
         expression_list_t& operator=( expression_list_t l )
         {
             l.swap(*this);
-            items.reserve(32);
+            #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+                items.reserve(32);
+            #endif
             return *this;
         }
 
@@ -302,12 +305,21 @@ struct ExpressionItem
 
     ExpressionItem() : itemText(), itemList(), fileNo(0), lineNo(0)
     {
-        itemList.reserve(32);
+        #if defined(ROBOCONF_EXPRESSION_LIST_RESERVE)
+            itemList.reserve(32);
+        #endif
     }
 
     ExpressionItem( const std::string &str, FileSet::file_id_t fn, size_t ln ) : itemText(str), itemList(), fileNo(fn), lineNo(ln) {}
-    ExpressionItem( const expression_list_t &lst, FileSet::file_id_t fn, size_t ln) : itemText(), itemList(lst), fileNo(fn), lineNo(ln) {}
+    //ExpressionItem( const expression_list_t &lst, FileSet::file_id_t fn, size_t ln) : itemText(), itemList(lst), fileNo(fn), lineNo(ln) {}
+
+    #if defined(ROBOCONF_READ_LIST_USE_MOVE_SEMANTICS)
+    ExpressionItem( expression_list_t &&lst, FileSet::file_id_t fn, size_t ln) : itemText(), itemList(lst), fileNo(fn), lineNo(ln) {}
+    #elif defined(ROBOCONF_READ_LIST_USE_MOVE_SEMANTICS_FORCE_MOVE)
     ExpressionItem( expression_list_t &&lst, FileSet::file_id_t fn, size_t ln) : itemText(), itemList(std::move(lst)), fileNo(fn), lineNo(ln) {}
+    #else
+    ExpressionItem( const expression_list_t &lst, FileSet::file_id_t fn, size_t ln) : itemText(), itemList(lst), fileNo(fn), lineNo(ln) {}
+    #endif
 
 };
 
@@ -418,18 +430,56 @@ void readList_push_back_ExpressionItem(expression_list_t &lst, const std::string
 }
 
 //-----------------------------------------------------------------------------
-//UMBA_ATTR_FORCE_INLINE
-inline
-void readList_push_back_ExpressionItem(expression_list_t &lst, expression_list_t &&lstToPush, FileSet::file_id_t fileNo, size_t &lineNo)
-{
-    UmbaTracyTraceScope();
-    //lst.push_back( ExpressionItem(std::move(lstToPush), fileNo, lineNo) );
-    lst.emplace_back( std::move(lstToPush), fileNo, lineNo );
-}
-
+#if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
+    #if defined(ROBOCONF_READ_LIST_USE_FORCE_INLINE)
+        #define READLIST_PUSH_BACK_EXPRESSIONITEM_INLINE   UMBA_ATTR_FORCE_INLINE
+    #else
+        #define READLIST_PUSH_BACK_EXPRESSIONITEM_INLINE   inline
+    #endif
+    
+    //UMBA_ATTR_FORCE_INLINE
+    #if defined(ROBOCONF_READ_LIST_USE_MOVE_SEMANTICS)
+    READLIST_PUSH_BACK_EXPRESSIONITEM_INLINE
+    void readList_push_back_ExpressionItem(expression_list_t &lst, expression_list_t &&lstToPush, FileSet::file_id_t fileNo, size_t &lineNo)
+    {
+        UmbaTracyTraceScope();
+        #if defined(ROBOCONF_READ_LIST_USE_EMPLACE_BACK)
+            lst.emplace_back( lstToPush, fileNo, lineNo );
+        #else
+            lst.push_back( ExpressionItem(lstToPush, fileNo, lineNo) );
+        #endif
+    }
+    #elif defined(ROBOCONF_READ_LIST_USE_MOVE_SEMANTICS_FORCE_MOVE)
+    READLIST_PUSH_BACK_EXPRESSIONITEM_INLINE
+    void readList_push_back_ExpressionItem(expression_list_t &lst, expression_list_t &&lstToPush, FileSet::file_id_t fileNo, size_t &lineNo)
+    {
+        UmbaTracyTraceScope();
+        #if defined(ROBOCONF_READ_LIST_USE_EMPLACE_BACK)
+            lst.emplace_back( std::move(lstToPush), fileNo, lineNo );
+        #else
+            lst.push_back( ExpressionItem(std::move(lstToPush), fileNo, lineNo) );
+        #endif
+    }
+    #else
+    READLIST_PUSH_BACK_EXPRESSIONITEM_INLINE
+    void readList_push_back_ExpressionItem(expression_list_t &lst, const expression_list_t &lstToPush, FileSet::file_id_t fileNo, size_t &lineNo)
+    {
+        UmbaTracyTraceScope();
+        #if defined(ROBOCONF_READ_LIST_USE_EMPLACE_BACK)
+            lst.emplace_back( lstToPush, fileNo, lineNo );
+        #else
+            //lst.emplace_back( ExpressionItem(std::move(lstToPush), fileNo, lineNo) );
+            lst.emplace_back( lstToPush, fileNo, lineNo );
+        #endif
+    }
+    #endif
+#endif
 //-----------------------------------------------------------------------------
-//UMBA_ATTR_FORCE_FLATTEN
+#if defined(ROBOCONF_READ_LIST_USE_FORCE_FLATTEN)
+UMBA_ATTR_FORCE_FLATTEN
+#else
 inline
+#endif
 bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt, std::string::size_type &pos, expression_list_t &lst, expression_list_stack_type &listStack )
 {
     UmbaTracyTraceScope();
@@ -470,8 +520,11 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
 
                     if (!expr.empty())
                     {
-                        readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
-                        //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                        #if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
+                            readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                        #else
+                            lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                        #endif
                         expr.clear();
                     }
                     
@@ -487,8 +540,11 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
                         lst.clear();
                     }
                    
-                    readList_push_back_ExpressionItem(lst, std::move(tmpLst), fileNo, lineNo);
-                    // lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
+                    #if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
+                        readList_push_back_ExpressionItem(lst, std::move(tmpLst), fileNo, lineNo);
+                    #else
+                        lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
+                    #endif
 
                     bReadComment = false;
                 }
@@ -519,15 +575,21 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
                     {
                         bReadComment = true;
                         braceLevel = 1;
-                        readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
-                        //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                        #if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
+                            readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                        #else
+                            lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                        #endif
                         expr.clear();
                         //expr.append(1, ch);
                     }
                     else
                     {
-                        readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
-                        //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                        #if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
+                            readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                        #else
+                            lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                        #endif
                         expr.clear();
                     }
                 }
@@ -549,8 +611,11 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
                 // start quoting
                 if (!expr.empty())
                 {
-                    readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
-                    //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                    #if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
+                        readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                    #else
+                        lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                    #endif
                     expr.clear();
                 }
 
@@ -567,8 +632,11 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
         {
             if (!expr.empty())
             {
-                readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
-                //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                #if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
+                    readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                #else
+                    lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                #endif
                 expr.clear();
             }
 
@@ -586,8 +654,11 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
         {
             if (!expr.empty())
             {
-                readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
-                //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                #if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
+                    readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+                #else
+                    lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+                #endif
                 expr.clear();
             }
 
@@ -605,8 +676,11 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
                 lst.lineNo = lineNo;
             }
 
-            readList_push_back_ExpressionItem(lst, std::move(tmpLst), fileNo, lineNo);
-            //lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
+            #if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
+                readList_push_back_ExpressionItem(lst, std::move(tmpLst), fileNo, lineNo);
+            #else
+                lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
+            #endif
 
             pos++;
             continue;
@@ -622,8 +696,11 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
 
     if (!expr.empty())
     {
-        readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
-        //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+        #if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
+            readList_push_back_ExpressionItem(lst, expr, fileNo, lineNo);
+        #lse
+            lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+        #endif
         expr.clear();
     }
 
@@ -633,8 +710,11 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
         expression_list_t tmpLst = lst;
         lst.swap(listStack.top());
         listStack.pop();
-        readList_push_back_ExpressionItem(lst, std::move(tmpLst), fileNo, lineNo);
-        //lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
+        #if defined(ROBOCONF_READ_LIST_EXPRESSIONS_PUSH_BACK_AS_FUNCTIONS)
+            readList_push_back_ExpressionItem(lst, std::move(tmpLst), fileNo, lineNo);
+        #else
+            lst.push_back(ExpressionItem(tmpLst, fileNo, lineNo));
+        #endif
     }
 
     return true;
