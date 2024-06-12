@@ -44,7 +44,6 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
                        , std::vector< ComponentInfo > libComponents
                        , const expression_list_t &processingRules
                        , const ConnectionBuildingOptions &opts
-                       , size_t &processedMcus
                        ) override
     {
         UmbaTracyTraceScope();
@@ -66,6 +65,8 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
         os<<htmlStyle();
 
         std::size_t tableLineCount = 0;
+
+        size_t processedMcus = 0;
 
         for( const auto& nlIt : nets )
         {

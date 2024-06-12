@@ -4,8 +4,10 @@
 inline
 bool findDatasheet( RoboconfOptions &rbcOpts, const std::string &name, std::string &foundName, bool quetMode = false )
 {
-    UmbaTracyTraceScope();
-    
+    #if defined(ROBOCONF_TRACY_TRACE_ALL)
+        UmbaTracyTraceScope();
+    #endif
+
     return rbcOpts.findDatasheet(name, foundName, quetMode);
 
 #if 0

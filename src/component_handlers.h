@@ -10,6 +10,8 @@
 #include "string_string_set_map_type.h"
 
 //
+#include "net.h"
+//
 #include "tracy_tracing.h"
 
 
@@ -44,7 +46,7 @@ struct ComponentPurposeDesignatorsCollector
         designators.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     }
 
-    void operator()( ComponentInfo &ci, const NetlistInfo &netlistInfo ) const
+    void operator()( const ComponentInfo &ci, const NetlistInfo &netlistInfo ) const
     {
         if (ci.purpose==purpose)
         {
@@ -116,7 +118,7 @@ struct ComponentClassUpdater
 
     ComponentClassUpdater( RoboconfOptions &r) : rbcOpts(r) {}
 
-    void operator()( ComponentInfo &ci, NetlistInfo &netlistInfo ) const
+    void operator()( ComponentInfo &ci, const NetlistInfo &netlistInfo ) const
     {
         if (ci.componentClass==ComponentClass::cc_UNKNOWN)
         {
@@ -138,7 +140,7 @@ struct ComponentTypeAndPackageNormalizationUpdater
 
     ComponentTypeAndPackageNormalizationUpdater( RoboconfOptions &r) : rbcOpts(r) {}
 
-    void operator()( ComponentInfo &ci, NetlistInfo &netlistInfo ) const
+    void operator()( ComponentInfo &ci, const NetlistInfo &netlistInfo ) const
     {
         // Обновляем имя типа, если 
         std::string foundPackageName;

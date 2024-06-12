@@ -56,6 +56,11 @@
 
 
 
+//----------------------------------------------------------------------------
+// #define ROBOCONF_TRACY_TRACE_ALL
+
+
+
 
 // // unordered_set не работает в качестве ключа для map (нет operator< для std::set). В 20м стандарте вроде убирают эту возможность вообще.
 // // #define ROBOCONF_STRING_SET_TYPE_USE_UNORDERED_SET

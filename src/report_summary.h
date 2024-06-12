@@ -42,7 +42,6 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
                        , std::vector< ComponentInfo > libComponents
                        , const expression_list_t &processingRules
                        , const ConnectionBuildingOptions &opts
-                       , size_t &processedMcus
                        ) override
     {
         UmbaTracyTraceScope();
@@ -57,7 +56,8 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
                 docTitle = first->second.projectName + std::string(" - ") + docTitle;
         }
 
-        processedMcus = 1; // Нам в данном отчете MCU без надобности, мы их тут не обрабатываем, но чтобы наверху не ругались, говорим, что нашли
+        // size_t processedMcus = 0;
+        // processedMcus = 1; // Нам в данном отчете MCU без надобности, мы их тут не обрабатываем, но чтобы наверху не ругались, говорим, что нашли
 
         os<<htmlDocType();
         os<<"<html>\n<head>\n<title>"<< docTitle << "</title>\n";

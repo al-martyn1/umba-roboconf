@@ -84,6 +84,7 @@ set (ROBOCONF_COMMON_SOURCES
     "${SRC_ROOT}/umba/time_service.cpp"
     "${SRC_ROOT}/component.cpp"
     "${SRC_ROOT}/component_class.cpp"
+    "${SRC_ROOT}/net.cpp"
     "${SRC_ROOT}/encoding.cpp"
     "${SRC_ROOT}/enc_det/compact_enc_det/compact_enc_det.cc"
     "${SRC_ROOT}/enc_det/compact_enc_det/compact_enc_det_hint_code.cc"

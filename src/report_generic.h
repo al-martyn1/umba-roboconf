@@ -228,12 +228,11 @@ struct GenericReportGenerator : public IReportGenerator
                        , std::vector< ComponentInfo > libComponents
                        , const expression_list_t &processingRules
                        , const ConnectionBuildingOptions &opts
-                       , size_t &processedMcus
                        ) override
     {
         UmbaTracyTraceScope();
 
-        processedMcus = 1; // Ќам в данном отчете MCU без надобности, мы их тут не обрабатываем, но чтобы наверху не ругались, говорим, что нашли
+        //processedMcus = 1; // Ќам в данном отчете MCU без надобности, мы их тут не обрабатываем, но чтобы наверху не ругались, говорим, что нашли
 
         string_set_type reportUsedNames;
 
@@ -268,19 +267,24 @@ struct GenericReportGenerator : public IReportGenerator
             }
 
 
-            std::vector< std::string > mcuDesignators;
+            // std::vector< std::string > mcuDesignators;
+            //  
+            // findStartConnectionsDesignators( netlistInfo, "MCU" /* purpose */ , mcuDesignators );
 
-            findStartConnectionsDesignators( netlistInfo, "MCU" /* purpose */ , mcuDesignators );
+            //size_t processedMcus = 0;
 
-            size_t processedMcus = 0;
-
-            for( auto curMcuD : mcuDesignators )
+            for( auto curMcuD : netlistInfo.mcuDesignators )
             {
                 auto componentKV = netlistInfo.components.find(curMcuD);
                 if (componentKV == netlistInfo.components.end())
                     continue;
 
-                processedMcus++;
+                typename NetlistInfo::mcu_connections_map_type::const_iterator mcuCit = netlistInfo.mcuConnectionsInfoMap.find(curMcuD);
+                if (mcuCit==netlistInfo.mcuConnectionsInfoMap.end())
+                    continue;
+
+
+                //processedMcus++;
 
                 if (shortCommentStart(os))
                 {
@@ -290,6 +294,8 @@ struct GenericReportGenerator : public IReportGenerator
                 }
 
 
+                //------------
+                #if 0
                 std::vector<Connection> connectionList;
                 connectionsListBuild( rbcOpts, opts, netlistInfo, curMcuD, connectionList );
 
@@ -307,9 +313,12 @@ struct GenericReportGenerator : public IReportGenerator
                     return false;
 
                 //groupConnectionsBySheet(connectionList);
+                #endif
+                //------------
 
 
-                for( auto& connGrp : connGroups )
+                //for( auto& connGrp : connGroups )
+                for( const auto& connGrp : mcuCit->second.connectionGroups) // connGroups )
                 {
                     if (shortCommentStart(os))
                     {
@@ -320,7 +329,7 @@ struct GenericReportGenerator : public IReportGenerator
 
                     size_t grpRulesCount = 0;
 
-                    for( auto& conn : connGrp.connections )
+                    for( const auto& conn : connGrp.connections )
                     {
                         string_string_map_type vars;
                         auto self = this;
@@ -393,10 +402,10 @@ struct GenericReportGenerator : public IReportGenerator
 
             } // for( auto curMcuD : mcuDesignators )
 
-            if (!processedMcus)
-            {
-                //os<<"<div class=\"warning\">No MCU found in this netlist</div>\n";
-            }
+            // if (!processedMcus)
+            // {
+            //     //os<<"<div class=\"warning\">No MCU found in this netlist</div>\n";
+            // }
 
         } // for( const auto& nlIt : nets )
 

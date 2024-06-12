@@ -639,8 +639,10 @@ bool RoboconfOptions::readComponentClassDetectionRules( const std::string &input
 bool 
 RoboconfOptions::extractGroupingRules( expression_list_t & rulesList /* , const std::string &netlistType */  )
 {
-    UmbaTracyTraceScope();
-    
+    #if defined(ROBOCONF_TRACY_TRACE_ALL)
+        UmbaTracyTraceScope();
+    #endif
+
     rulesList.updateParentPtr(0);
 
     std:: vector< expression_list_t* > groupingRules; groupingRules.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);

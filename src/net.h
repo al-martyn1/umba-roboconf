@@ -7,6 +7,10 @@
 #include "component.h"
 
 #include "netlist_types.h"
+//
+#include "connections_types.h"
+//
+#include "pinUtils.h"
 
 //
 #include "tracy_tracing.h"
@@ -66,18 +70,78 @@ StreamType& operator<<( StreamType &s, const NetInfo &ni )
 }
 */
 
+
+
+struct NetlistInfo;
+
+void findStartConnectionsDesignators( const NetlistInfo &netlist, const std::string &purpose, std:: vector< std::string > &designators );
+
+
+
+struct McuConnectionsInfo
+{
+    std::string                           mcuDesignator;
+    std::vector<Connection>               connectionList;
+    std::vector< ConnectionsGroup >       connectionGroups;
+
+    void buildConnectionList( RoboconfOptions &rbcOpts
+                            , const ConnectionBuildingOptions &buildingOptions
+                            , const NetlistInfo &netlist
+                            , const std::string &mcuDesignator_
+                            );
+    // {
+    //     mcuDesignator = mcuDesignator_;
+    //     connectionList.clear();
+    //     connectionsListBuild( rbcOpts, buildingOptions, netlist, mcuDesignator, connectionList);
+    // }
+
+    bool processConnectionModifyRules( RoboconfOptions &rbcOpts
+                                     , const expression_list_t &processingRules
+                                     );
+    // {
+    //     bool res = processConnectionModifyRules(rbcOpts, connectionList, processingRules);
+    //     if (res)
+    //     {
+    //         connectionsListRemoveMcuDuplicates( connectionList );
+    //     }
+    //  
+    //     return res;
+    // }
+
+    void splitConnectionsToGroups( RoboconfOptions &rbcOpts );
+    // {
+    //     connectionGroups.clear();
+    //     splitConnectionsToGroupsByTarget( rbcOpts, connectionGroups, connectionList );
+    // }
+
+    bool detectConnectionsInterfaces( RoboconfOptions &rbcOpts
+                                    , const expression_list_t &processingRules
+                                    , bool operateVerbose
+                                    //, std::string targetPurpose = std::string()
+                                    );
+    // {
+    //     return connectionsDetectInterfaces( rbcOpts, connectionGroups, processingRules, operateVerbose, targetPurpose );
+    // }
+
+
+}; // struct McuConnectionsInfo
+
+
+
 struct NetlistInfo
 {
     #if defined(ROBOCONF_NET_CLASSES_USE_UNORDERED_MAP)
-        using string_set_type      = std::unordered_set<std::string>;
-        using components_map_type  = std::unordered_map< std::string, ComponentInfo >;
-        using nets_map_type        = std::unordered_map< std::string, NetInfo >;
-        using designators_map_type = std::unordered_map< std::string, string_set_type >;
+        using string_set_type           = std::unordered_set<std::string>;
+        using components_map_type       = std::unordered_map< std::string, ComponentInfo >;
+        using nets_map_type             = std::unordered_map< std::string, NetInfo >;
+        using designators_map_type      = std::unordered_map< std::string, string_set_type >;
+        using mcu_connections_map_type  = std::unordered_map< std::string, McuConnectionsInfo >;
     #else
-        using string_set_type      = std:: set<std::string>;
-        using components_map_type  = std:: map< std::string, ComponentInfo >;
-        using nets_map_type        = std:: map< std::string, NetInfo >;
-        using designators_map_type = std:: map< std::string, string_set_type >;
+        using string_set_type           = std:: set<std::string>;
+        using components_map_type       = std:: map< std::string, ComponentInfo >;
+        using nets_map_type             = std:: map< std::string, NetInfo >;
+        using designators_map_type      = std:: map< std::string, string_set_type >;
+        using mcu_connections_map_type  = std:: map< std::string, McuConnectionsInfo >;
     #endif
 
 
@@ -86,6 +150,85 @@ struct NetlistInfo
     components_map_type                             components;
     nets_map_type                                   nets;
     designators_map_type                            designators; // to nets
+
+
+    std::vector< std::string >                      mcuDesignators;
+    mcu_connections_map_type                        mcuConnectionsInfoMap;
+
+    void findStartConnectionsDesignators()
+    {
+        mcuDesignators.clear();
+        ::findStartConnectionsDesignators( *this, "MCU" /* purpose */ , mcuDesignators );
+        std::sort(mcuDesignators.begin(), mcuDesignators.end(), designatorPinNamesLess );
+    }
+
+    bool buildMcuConnectionLists( RoboconfOptions &rbcOpts
+                                , const ConnectionBuildingOptions &buildingOptions
+                                , const expression_list_t &processingRules
+                                , bool operateVerbose
+                                , std::size_t *pProcessedMcus=0
+                                , std::string targetPurpose = std::string()
+                                )
+    {
+        if (pProcessedMcus)
+        {
+            *pProcessedMcus = 0;
+        }
+        // std::size_t processedMcus = 0;
+
+        for( auto curMcuDesignator : mcuDesignators )
+        {
+            auto componentKV =  /* netlistInfo. */ components.find(curMcuDesignator);
+            if (componentKV ==  /* netlistInfo. */ components.end())
+                continue;
+
+            if (pProcessedMcus)
+            {
+                std::size_t &processedMcus = *pProcessedMcus;
+                ++processedMcus;
+            }
+
+            McuConnectionsInfo mcuConnectionsInfo;
+            mcuConnectionsInfo.buildConnectionList(rbcOpts, buildingOptions, *this, curMcuDesignator);
+            if (!mcuConnectionsInfo.processConnectionModifyRules(rbcOpts, processingRules))
+            {
+                return false;
+            }
+
+            mcuConnectionsInfo.splitConnectionsToGroups( rbcOpts );
+
+            if (!mcuConnectionsInfo.detectConnectionsInterfaces(rbcOpts, processingRules, operateVerbose/*, targetPurpose*/))
+            {
+                return false;
+            }
+
+            mcuConnectionsInfoMap[curMcuDesignator] = mcuConnectionsInfo;
+        }
+
+        return true;
+    }
+    
+
+                // RoboconfOptions &rbcOpts
+                       // , const expression_list_t &processingRules
+                       // , const ConnectionBuildingOptions &opts
+
+                // std::vector<Connection> connectionList;
+                // connectionsListBuild( rbcOpts, opts, netlistInfo, curMcuD, connectionList );
+                //  
+                // if (!processConnectionModifyRules( rbcOpts, connectionList, processingRules ))
+                //     return false;
+                //  
+                // connectionsListRemoveMcuDuplicates( connectionList );
+                //  
+                //  
+                // std::vector< ConnectionsGroup > connGroups;
+                // splitConnectionsToGroupsByTarget( rbcOpts, connGroups, connectionList );
+                //  
+                //  
+                // if (!connectionsDetectInterfaces( rbcOpts, connGroups, processingRules, operateVerbose ))
+                //     return false;
+
 
     void clearDesignatorsMap()
     {
@@ -143,6 +286,31 @@ struct NetlistInfo
         }
     }
 
+    template < typename THanler >
+    void traverseComponents( const THanler &handler, const std::unordered_set<ComponentClass> &classes, bool allowAssemblies = true ) const
+    {
+        for( const auto & c : components )
+        {
+            bool allowProcessComponent = true;
+            if (c.second.assembly && !allowAssemblies)
+            {
+                 allowProcessComponent = false;
+            }
+
+            if (!allowProcessComponent)
+                continue;
+
+            if (classes.empty())
+            {
+                handler( c.second, *this );
+            }
+            else if (classes.find(c.second.componentClass)!=classes.end())
+            {
+                handler( c.second, *this);
+            }
+        }
+    }
+
 
 
 }; // struct NetlistInfo
@@ -168,8 +336,10 @@ StreamType& operator<<( StreamType &s, const NetlistInfo &nl )
 template < typename THanler >
 void traverseComponents( all_nets_map_type &nets, const THanler &handler, const std::unordered_set<ComponentClass> &classes, bool allowAssemblies = true )
 {
-    UmbaTracyTraceScope();
-    
+    #if defined(ROBOCONF_TRACY_TRACE_ALL)
+        UmbaTracyTraceScope();
+    #endif
+
     for( auto & p : nets )
         p.second.traverseComponents( handler, classes, allowAssemblies );
 }
@@ -199,7 +369,9 @@ struct ComponentTypesCollector
 inline
 void collectComponentTypes( all_nets_map_type &nets, std:: vector<ComponentTypePackage> &types, const std::unordered_set<ComponentClass> &classes, bool allowAssemblies = true )
 {
-    UmbaTracyTraceScope();
+    #if defined(ROBOCONF_TRACY_TRACE_ALL)
+        UmbaTracyTraceScope();
+    #endif
 
     traverseComponents( nets, ComponentTypesCollector(types), classes, allowAssemblies );
     makeUniqueVector(types);
@@ -208,7 +380,9 @@ void collectComponentTypes( all_nets_map_type &nets, std:: vector<ComponentTypeP
 inline
 void makeDesignatorsMap( all_nets_map_type &nets )
 {
-    UmbaTracyTraceScope();
+    #if defined(ROBOCONF_TRACY_TRACE_ALL)
+        UmbaTracyTraceScope();
+    #endif
     
     for( auto &netlistKV : nets )
     {

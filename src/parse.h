@@ -340,7 +340,9 @@ typedef ExpressionItem::expression_list_t   expression_list_t;
 template <typename Handler>
 bool processExpressionList( expression_list_t &lst, bool bErase, const Handler &handler )
 {
-    UmbaTracyTraceScope();
+    #if defined(ROBOCONF_TRACY_TRACE_ALL)
+        UmbaTracyTraceScope();
+    #endif
     
     bool totalRes = true;
     for( size_t i = 0; i!=lst.size(); )
@@ -424,7 +426,10 @@ void ExpressionItem::removeCommentLists()
 inline
 void readList_push_back_ExpressionItem(expression_list_t &lst, const std::string &expr, FileSet::file_id_t fileNo, size_t &lineNo)
 {
-    UmbaTracyTraceScope();
+    #if defined(ROBOCONF_TRACY_TRACE_ALL)
+        UmbaTracyTraceScope();
+    #endif
+
     //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
     lst.emplace_back( expr, fileNo, lineNo );
 }
@@ -723,7 +728,9 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
 inline
 bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt, expression_list_t &lst )
 {
-    UmbaTracyTraceScope();
+    #if defined(ROBOCONF_TRACY_TRACE_ALL)
+        UmbaTracyTraceScope();
+    #endif
 
     expression_list_stack_type listStack;
     std::string::size_type pos = 0;
@@ -734,7 +741,9 @@ bool readList(FileSet::file_id_t fileNo, size_t &lineNo, const std::string &txt,
 inline
 bool readList(FileSet::file_id_t fileNo, size_t &lineNo, std::istream &in, expression_list_t &lst )
 {
-    UmbaTracyTraceScope();
+    #if defined(ROBOCONF_TRACY_TRACE_ALL)
+        UmbaTracyTraceScope();
+    #endif
 
     std::string allText = readFileEncoded( in );
 /*
@@ -756,7 +765,9 @@ inline
 bool
 readListTextItem( const expression_list_t &lst, expression_list_t::const_iterator &it, std::string &rdTo, bool bUnquote = false /* for compatibility */ )
 {
-    UmbaTracyTraceScope();
+    #if defined(ROBOCONF_TRACY_TRACE_ALL)
+        UmbaTracyTraceScope();
+    #endif
 
     if (it==lst.end())
         return false;
@@ -773,7 +784,9 @@ readListTextItem( const expression_list_t &lst, expression_list_t::const_iterato
 inline
 size_t readListToVector( const expression_list_t &lst, std:: vector< std::string > &v, bool bUnquote = true )
 {
-    UmbaTracyTraceScope();
+    #if defined(ROBOCONF_TRACY_TRACE_ALL)
+        UmbaTracyTraceScope();
+    #endif
 
     expression_list_t::const_iterator it = lst.begin();
     std::string str;

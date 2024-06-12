@@ -45,7 +45,6 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                        , std::vector< ComponentInfo > libComponents
                        , const expression_list_t &processingRules
                        , const ConnectionBuildingOptions &opts
-                       , size_t &processedMcus
                        ) override
     {
         UmbaTracyTraceScope();
@@ -75,18 +74,22 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
             NetlistInfo netlistInfo = nlIt.second; 
             os<<"<h1 class=\"screen-only\">"<<netlistInfo.projectName<<" - "<<netlistInfo.name<<"</h1>\n";
 
-            std::vector< std::string > mcuDesignators;
+            // std::vector< std::string > mcuDesignators;
+            //  
+            // findStartConnectionsDesignators( netlistInfo, "MCU" /* purpose */ , mcuDesignators );
+            //  
+            // std::sort(mcuDesignators.begin(), mcuDesignators.end(), designatorPinNamesLess );
 
-            findStartConnectionsDesignators( netlistInfo, "MCU" /* purpose */ , mcuDesignators );
+            size_t processedMcus = 0;
 
-            std::sort(mcuDesignators.begin(), mcuDesignators.end(), designatorPinNamesLess );
-
-            //size_t processedMcus = 0;
-
-            for( auto curMcuD : mcuDesignators )
+            for( auto curMcuD : netlistInfo.mcuDesignators )
             {
                 auto componentKV = netlistInfo.components.find(curMcuD);
                 if (componentKV == netlistInfo.components.end())
+                    continue;
+
+                typename NetlistInfo::mcu_connections_map_type::const_iterator mcuCit = netlistInfo.mcuConnectionsInfoMap.find(curMcuD);
+                if (mcuCit==netlistInfo.mcuConnectionsInfoMap.end())
                     continue;
 
                 processedMcus++;
@@ -117,7 +120,8 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
 
                 }
 
-
+                //------------
+                #if 0
                 std::vector<Connection> connectionList;
                 connectionsListBuild( rbcOpts, opts, netlistInfo, curMcuD, connectionList );
 
@@ -133,8 +137,10 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
 
                 if (!connectionsDetectInterfaces( rbcOpts, connGroups, processingRules, operateVerbose ))
                     return false;
-
+                #endif
                 //groupConnectionsBySheet(connectionList);
+                //------------
+
 
                 std::string wpExtraSmall = shortReport ? "w12p" : "w5p";
                 std::string wpSmall      = shortReport ? "w15p" : "w10p";
@@ -177,14 +183,14 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
 
                 //shortReport
 
-                for( auto& connGrp : connGroups )
+                for( const auto& connGrp : mcuCit->second.connectionGroups) // connGroups )
                 {
                     tableLineCount = 0;
                     os<<"<tr>";
                     os<<"<th colspan=\"3\">"<< (connGrp.groupTitle.empty() ? connGrp.groupDesignator : connGrp.groupTitle) <<"</th>";  // 1
                     os<<"<tr>";
 
-                    for( auto& conn : connGrp.connections )
+                    for( const auto& conn : connGrp.connections )
                     {
                         ++tableLineCount;
                         os<<"<tr class="<<((tableLineCount%2)?"odd":"even")<< ">";
@@ -192,7 +198,7 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                                   <<"</td>";  // 1
                    
                         os<<"<td>"<<conn.srcNetName;
-                        std::string srcNetNameModified = conn.processedStrings["MCUNET"];
+                        std::string srcNetNameModified = conn.getProcessedString("MCUNET");
                         if (conn.srcNetName!=srcNetNameModified)
                         {
                             os<<br<<srcNetNameModified;
@@ -238,7 +244,7 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                    
                    
                             os<<"<td>"<<conn.dstComponentInfo.getComponentClassString();
-                            std::string dstComponentClassStrModified = conn.processedStrings["UNITCLASS"];
+                            std::string dstComponentClassStrModified = conn.getProcessedString("UNITCLASS");
                             if (conn.dstComponentInfo.getComponentClassString() !=dstComponentClassStrModified)
                             {
                                 os<<br<<dstComponentClassStrModified;
@@ -247,7 +253,7 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                    
                    
                             os<<"<td>"<<conn.dstComponentInfo.purpose;
-                            std::string dstComponentPurposeModified = conn.processedStrings["UNITPURPOSE"];
+                            std::string dstComponentPurposeModified = conn.getProcessedString("UNITPURPOSE");
                             if (conn.dstComponentInfo.purpose!=dstComponentPurposeModified)
                             {
                                 os<<br<<dstComponentPurposeModified;
@@ -282,7 +288,7 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                             if (!errataLink.empty())
                                 os<<" "<<makeIconLink(rbcOpts, errataLink, "Errata", "Errata", target );
                    
-                            std::string dstComponentTypeModified = conn.processedStrings["UNITTYPE"];
+                            std::string dstComponentTypeModified = conn.getProcessedString("UNITTYPE");
                             if (conn.dstComponentInfo.typeName!=dstComponentTypeModified)
                             {
                                 os<<br<<dstComponentTypeModified;
@@ -316,7 +322,7 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
 
                 } // for( auto& connGrp : connGroups )
 
-            } // for( auto curMcuD : mcuDesignators )
+            } // for( auto curMcuD : netlistInfo.mcuDesignators )
 
             if (!processedMcus)
             {

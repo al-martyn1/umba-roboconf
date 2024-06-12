@@ -228,12 +228,6 @@ int safe_main(int argc, char* argv[])
     using std::cerr;
 
 
-    //static const char* const tl_main = "Main";
-    //FrameMarkStart
-    //ZoneScoped(tl_main);
-    //ZoneNamed(tl_main, true);
-    //ZoneNamedN(tracy_src_loc, tl_main, true);
-    //ZoneScoped;
     UmbaTracyTraceScope();
 
     auto elapsedTimerTotal = ElapsedTimer(true); // стартует сразу
@@ -265,80 +259,8 @@ int safe_main(int argc, char* argv[])
     rbcOpts.globalVars["RoboconfDatasheetPath"]  = "$(RoboconfRoot)/datasheets";
     rbcOpts.globalVars["RoboconfRulesPath"]  = "$(RoboconfRoot)/rules";
 
-    //rbcOpts.globalVars["LibPath"]  = "$(RoboconfRoot)/lib";
-    //rbcOpts.globalVars["RulesPath"]  = "$(RoboconfRoot)/rules";
-    //rbcOpts.globalVars["DatasheetPath"]  = "$(RoboconfRoot)/datasheets";
-
-    {
-        // auto designatorPinParts = splitDesignatorPinName("U1.100");
-        // UMBA_USED(designatorPinParts);
-        //  
-        // int
-        // cmp = compareDesignatorPinNames("U1.100", "U1.1");
-        // cmp = compareDesignatorPinNames("aaa", "aaaa");
-        // cmp = compareDesignatorPinNames("aaa", "aaa");
-        // cmp = compareDesignatorPinNames("bb", "bb");
-        //  
-        // UMBA_USED(cmp);
-
-        // std:: vector<std::string> names        = { "U34", "Q17", "U23", "DD2", "U26", "U32", "U3", "DD1", "U25", "U31", "U33", "U2", "U1" };
-        // std:: vector<std::string> sortedNames  = names;
-        //  
-        // std::sort(sortedNames.begin(), sortedNames.end(), designatorPinNamesLess );
-        //  
-        // for(auto v: sortedNames)
-        // {
-        //     std::cout << v << "\n";
-        // }
-
-    }
 
 
-/*
-    std::string exeFullName = getProgExeName();
-    if (!exeFullName.empty())
-    {
-        progBinPath = getPath( exeFullName );
-        bool isExeFolderBin = false;
-
-        if (!progBinPath.empty())
-        {
-            std::string exeFolder = toLower(getFileName( progBinPath ));
-            if (exeFolder=="bin" || exeFolder=="debug" || exeFolder=="release")
-                isExeFolderBin = true;
-        }
-
-        if (isExeFolderBin)
-        {
-            progRootPath    = getPath( progBinPath );
-        }
-        else
-        {
-            progRootPath    = progBinPath;
-        }
-
-        progConfPath      = progRootPath + std::string("/conf");
-        progIncludePath   = progRootPath + std::string("/include");
-        progLibPath       = progRootPath + std::string("/lib");
-        progUserLibPath   = progRootPath + std::string("/lib-user");
-        progDatasheetPath = progRootPath + std::string("/datasheets");
-        progRulesPath     = progRootPath + std::string("/rules");
-
-
-        rbcOpts.globalVars["RoboconfBin"]  = progBinPath;
-        rbcOpts.globalVars["RoboconfRoot"] = progRootPath;
-        rbcOpts.globalVars["RoboconfConfPath"] = "$(RoboconfRoot)/conf";
-        rbcOpts.globalVars["RoboconfLibPath"]  = "$(RoboconfRoot)/lib";
-        rbcOpts.globalVars["RoboconfLibUserPath"]  = "$(RoboconfRoot)/lib-user";
-        rbcOpts.globalVars["RoboconfDatasheetPath"]  = "$(RoboconfRoot)/datasheets";
-        rbcOpts.globalVars["RoboconfRulesPath"]  = "$(RoboconfRoot)/rules";
-
-        rbcOpts.globalVars["LibPath"]  = "$(RoboconfRoot)/lib";
-        rbcOpts.globalVars["RulesPath"]  = "$(RoboconfRoot)/rules";
-        rbcOpts.globalVars["DatasheetPath"]  = "$(RoboconfRoot)/datasheets";
-
-    }
-*/    
 
     std::vector<std::string> args = prepareArgs( argc, &argv[0] );
 
@@ -369,7 +291,7 @@ int safe_main(int argc, char* argv[])
 
         #elif defined(UMBA_MSVC_COMPILER_USED)
 
-        std::string rootPath = ".";
+        std::string rootPath = "..";
 
         #endif
 
@@ -399,10 +321,9 @@ int safe_main(int argc, char* argv[])
 
         //args.emplace_back("");
     }
-
-
-
     // #endif
+
+
 
     hasHelpOption = argsFilterForHelpOption( args, argsNeedHelp /* , { "wiki", "bash", "clink" } */ );
 
@@ -421,35 +342,6 @@ int safe_main(int argc, char* argv[])
             disableBuiltinRulesPath = true;
         else if (opt.isSomeKindOfQuet() && !hasHelpOption)
             quet = true;
-        else if (opt.isWhereOption())
-        {
-            LOG_MSG_OPT<<exeFullName<<"\n";
-            return 0;
-        }
-    }
-/*
-    for( int argNo = 1; argNo<argc; ++argNo)
-    {
-        std::string a = argv[argNo];
-        CommandLineOption opt(a);
-        if (a.empty())
-            continue;
-     
-        if (!opt.isOption())
-            continue;
-
-        if (opt.isOption("no-builtin-options"))
-            disableBuiltins = true;
-        //else if (opt.isOption("no-builtin-includes"))
-        //    disableBuiltinIncludes = true;
-        else if (opt.isOption("no-builtin-lib-paths"))
-            disableBuiltinLibPath = true;
-        else if (opt.isOption("no-builtin-rules-paths"))
-            disableBuiltinRulesPath = true;
-        //else if (opt.isOption("quet") || opt.isOption('q'))
-        //    quet = true;
-        //else if (opt.isOption("verbose") || opt.isOption('V'))
-        //    operateVerbose = true;
         //else if (opt.isOption("build-info"))
         //{
         //    printNameVersion();
@@ -467,13 +359,12 @@ int safe_main(int argc, char* argv[])
         //    printHelp();
         //    return 0;
         //}
-        else if (opt.isOption("where"))
+        else if (opt.isWhereOption())
         {
-            std::cout<<exeFullName<<"\n";
+            LOG_MSG_OPT<<exeFullName<<"\n";
             return 0;
         }
     }
-*/
 
     if (!quet)
     {
@@ -680,14 +571,7 @@ int safe_main(int argc, char* argv[])
         if (paRes)
            return paRes<0 ? 1 : 0;
     }
-/*
-    for( int argNo = 1; argNo<argc; ++argNo)
-    {
-        int paRes = parseArg( argv[argNo], &commandLineOptionCollector, false, false );
-        if (paRes)
-           return paRes<0 ? 1 : 0;
-    }
-*/
+
     if (!noDefaultRules)
     {
         rules.insert( rules.begin(), std::string("default.rul") );
@@ -711,33 +595,6 @@ int safe_main(int argc, char* argv[])
     {
         rules.insert( rules.begin(), std::string("default_power.rul") );
     }
-
-
-    /*
-    std::string rbcOptsFileName = progConfPath + std::string("/roboconf.options.user");
-    std::ifstream optFile(rbcOptsFileName.c_str());
-    if (!!optFile)
-    {
-        std::string optLine;
-        while( std::getline( optFile, optLine) )
-        {
-            trim(optLine);
-            if (optLine.empty())
-                continue;
-   
-            if (isComment( optLine ))
-                continue;
-   
-            int paRes = parseArg( optLine, 0, false, true );
-            if (paRes)
-            {
-               LOG_ERR_OPT<<"error in options file '"<< rbcOptsFileName<<"'\n";
-               return paRes<0 ? 1 : 0;
-            }
-        }
-    
-    }
-    */
 
 
     if (inputFilename.empty())
@@ -939,36 +796,6 @@ int safe_main(int argc, char* argv[])
     
 
 
-
-    // if (makeNetlistCache)
-    // {
-    //  
-    //     if (!outputFilename.empty())
-    //     {
-    //         std::string outputFinalName = generateOutputFilename( inputFilename, outputFilename, getFileName(projectName), "rbc_net" );
-    //         outputStream.open(outputFinalName);
-    //  
-    //         if (!outputStream)
-    //         {
-    //             LOG_ERR_OPT<<"failed to open output file '"<<outputFinalName<<"'\n";
-    //             return 2;
-    //         }
-    //     }
-    //  
-    //     //bool 
-    //     netlistWritetCache( os, projectName, allNets );
-    //  
-    //     if (showTime)
-    //     {
-    //         LOG_MSG("time-mk-net-cache")<< "Making netlist cache elapsed time: " << elapsedTimerTotal.getElapsed() << "\n";
-    //     }
-    //  
-    //     return 0;
-    // }
-    //  
-    // elapsedTimerStep.restart();
-
-
     //----------
     expression_list_t processingRules;
     for( auto rulesFilename : rules )
@@ -1019,19 +846,6 @@ int safe_main(int argc, char* argv[])
         LOG_ERR_OPT<<"failed to read custom generator rules\n";
         return 8;
     }
-
-
-///-----------------
-/*
-    std::map< std::string, IReportGenerator* > reportGenerators;
-
-    addReportGenerator( reportGenerators, new SummaryReportGenerator() );
-    addReportGenerator( reportGenerators, new McuReportGenerator() );
-    addReportGenerator( reportGenerators, new PeriphReportGenerator() );
-*/
-///-----------------
-
-
 
 
     elapsedTimerStep.restart();
@@ -1249,16 +1063,6 @@ int safe_main(int argc, char* argv[])
         return 15;
     }
 
-    // auto reportIt = reportGenerators.find(reportType);
-    // if (reportIt == reportGenerators.end())
-    // {
-    //     LOG_ERR_OPT<<"unknow report type '"<<reportType<<"'\n";
-    //     return 3;
-    // }
-    //  
-    // IReportGenerator* pGen = reportIt->second;
-
-
     //----------
 
     traverseComponents( allNets, ComponentTypeAndPackageNormalizationUpdater(rbcOpts), importantComponentClasses, allowProcessAssemblies );
@@ -1330,9 +1134,69 @@ int safe_main(int argc, char* argv[])
     //     }
     // }
 
+    bool mcuFail = false;
+
     auto orderedAllNets = makeAllNetsOrderedMap(allNets);
 
-    bool mcuFail = false;
+    for(auto &netKv : orderedAllNets)
+    {
+        netKv.second.findStartConnectionsDesignators();
+
+        size_t processedMcus = 0;
+        if (!netKv.second.buildMcuConnectionLists(rbcOpts, connectionBuildingOptions, processingRules, true /*operateVerbose*/, &processedMcus ))
+        {
+            LOG_ERR_OPT<<"Something goes wrong while building MCU connection lists\n";
+            return 16;
+        }
+
+        if (!processedMcus)
+        {
+            LOG_ERR_OPT<<"No MCUs found\n"; // (report '" << reportGenInfo.reportType << "')\n";
+            mcuFail = true;
+        }
+
+
+    }
+
+                // RoboconfOptions &rbcOpts
+                       // , const expression_list_t &processingRules
+                       // , const ConnectionBuildingOptions &opts
+
+                // std::vector<Connection> connectionList;
+                // connectionsListBuild( rbcOpts, opts, netlistInfo, curMcuD, connectionList );
+                //  
+                // if (!processConnectionModifyRules( rbcOpts, connectionList, processingRules ))
+                //     return false;
+                //  
+                // connectionsListRemoveMcuDuplicates( connectionList );
+                //  
+                //  
+                // std::vector< ConnectionsGroup > connGroups;
+                // splitConnectionsToGroupsByTarget( rbcOpts, connGroups, connectionList );
+                //  
+                //  
+                // if (!connectionsDetectInterfaces( rbcOpts, connGroups, processingRules, operateVerbose ))
+                //     return false;
+
+    
+                // std::vector<Connection> connectionList;
+                // connectionsListBuild( rbcOpts, opts, netlistInfo, curMcuD, connectionList );
+                //  
+                // if (!processConnectionModifyRules( rbcOpts, connectionList, processingRules ))
+                //     return false;
+                //  
+                // connectionsListRemoveMcuDuplicates( connectionList );
+                //  
+                //  
+                // std::vector< ConnectionsGroup > connGroups;
+                // splitConnectionsToGroupsByTarget( rbcOpts, connGroups, connectionList );
+                //  
+                //  
+                // if (!connectionsDetectInterfaces( rbcOpts, connGroups, processingRules, operateVerbose ))
+                //     return false;
+
+
+    // periph
 
     for(auto &reportGenInfo : rbcOpts.reports)
     {
@@ -1342,13 +1206,13 @@ int safe_main(int argc, char* argv[])
         LOG_MSG("report-generating")<< "Generating report '" << reportGenInfo.reportType << "' to file '" << reportGenInfo.reportFile << "'\n";
         
         auto os = std::ofstream(reportGenInfo.reportFile.c_str());
-        size_t processedMcus = 0;
-        reportGenInfo.pGen->generateReport( rbcOpts, reportGenInfo.reportType, os, orderedAllNets, components, processingRules, connectionBuildingOptions, processedMcus );
-        if (!processedMcus)
-        {
-            LOG_ERR_OPT<<"No MCUs found (report '" << reportGenInfo.reportType << "')\n";
-            mcuFail = true;
-        }
+        //size_t processedMcus = 0;
+        reportGenInfo.pGen->generateReport( rbcOpts, reportGenInfo.reportType, os, orderedAllNets, components, processingRules, connectionBuildingOptions );
+        // if (!processedMcus)
+        // {
+        //     LOG_ERR_OPT<<"No MCUs found (report '" << reportGenInfo.reportType << "')\n";
+        //     mcuFail = true;
+        // }
     }
 
 
@@ -1366,8 +1230,8 @@ int safe_main(int argc, char* argv[])
 
     if (mcuFail)
     {
-        LOG_ERR_OPT<<"No MCUs found in some reports\n";
-        return 16;
+        LOG_ERR_OPT<<"No MCUs found\n"; //  in some reports
+        return 17;
     }
 
     //FrameMarkEnd(tl_main);

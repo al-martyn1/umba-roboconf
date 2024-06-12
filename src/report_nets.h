@@ -42,7 +42,6 @@ struct NetsReportGenerator : public ReportHtmlBase // IReportGenerator
                        , std::vector< ComponentInfo > libComponents
                        , const expression_list_t &processingRules
                        , const ConnectionBuildingOptions &opts
-                       , size_t &processedMcus
                        ) override
     {
         UmbaTracyTraceScope();
