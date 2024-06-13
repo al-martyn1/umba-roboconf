@@ -348,6 +348,9 @@ void moveConnectionDuplicatesToExtra( std:: vector< Connection > &connList )
 //     int                       groupingRuleType;
 //     std::string               forceGroupName;
 
+
+//void splitConnectionsToGroupsByTarget_mcuNetMakeTokens( const std:: vector< Connection > &conns,  )
+
 inline
 void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< ConnectionsGroup > &connGroups, const std:: vector< Connection > &conns )
 {
@@ -392,7 +395,7 @@ void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< C
     
 
 
-    std::map< std::string , std:: vector<Connection> > connMap;
+    std::unordered_map< std::string , std:: vector<Connection> > connMap;
     for( auto conn : conns )
     {
         conn.splitMcuNetMakeTokens(); // Тут мы делаем разбиения имён цепей на части, для последующих кластеризаций
@@ -764,13 +767,13 @@ struct Connection //-V730
     {
         struct GroupsConnections
         {
-            std::set< size_t >          groupNums;
-            std:: vector<Connection>     connections;
+            std::unordered_set< size_t >   groupNums;
+            std:: vector<Connection>       connections;
             //ConnectionsGroup            group;
         };
 
         // Группируем по пину проца - хотя такое не часто бывает
-        std::map< std::string, GroupsConnections >  bySourceDesignators;
+        std::unordered_map< std::string, GroupsConnections >  bySourceDesignators;
        
         for( size_t grpNo = 0; grpNo != connGroups.size(); ++grpNo )
         {
@@ -791,7 +794,7 @@ struct Connection //-V730
 
 
         // Проверяем, есть ли src десигнаторы с более чем одним подключенным таргетом
-        std::map< std::string, GroupsConnections >::iterator bsdIt = bySourceDesignators.begin();
+        std::unordered_map< std::string, GroupsConnections >::iterator bsdIt = bySourceDesignators.begin();
         for(; bsdIt != bySourceDesignators.end(); ++bsdIt)
         {
             if (bsdIt->second.connections.size()<2) //!!! Was bag - groupNums instead of connections
@@ -1305,20 +1308,21 @@ void connectionsListRemoveSameTargetDesignatorDuplicates( std:: vector<Connectio
         UmbaTracyTraceScope();
     #endif
 
-    std::set< std::string > removedPinFunctions;
+    std::unordered_set< std::string > removedPinFunctions;
 
     // keep dst with same pin functions
     if (connectionList.size()>1)
     {
-        std::set< std::string > rpfn; // local removedPinFunctions
+        //std::unordered_set< std::string > rpfn; // local removedPinFunctions
 
-        std:: vector<Connection> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector<Connection> tmp; tmp.reserve(connectionList.size());  // tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
 
         for( auto conn : connectionList )
         {
             if ( !pinFunctionIsContain( conn.processedStrings["MCUNET"], conn.dstPinInfo.pinFunctions ) )
             {
-                rpfn.insert( conn.dstPinInfo.pinFunctions.begin(), conn.dstPinInfo.pinFunctions.end() );
+                //rpfn.insert( conn.dstPinInfo.pinFunctions.begin(), conn.dstPinInfo.pinFunctions.end() );
+                removedPinFunctions.insert( conn.dstPinInfo.pinFunctions.begin(), conn.dstPinInfo.pinFunctions.end() );
                 continue;
             }
 
@@ -1328,7 +1332,7 @@ void connectionsListRemoveSameTargetDesignatorDuplicates( std:: vector<Connectio
         if (!tmp.empty())
         {
             connectionList.swap(tmp);
-            removedPinFunctions.insert( rpfn.begin(), rpfn.end() );
+            //removedPinFunctions.insert( rpfn.begin(), rpfn.end() );
         }
     }
 
@@ -1512,7 +1516,7 @@ void connectionsListRemoveMcuDuplicates( std:: vector<Connection> &connectionLis
 {
     UmbaTracyTraceScope();
 
-    std::map< std::string, std:: vector<Connection> > connMap;
+    std::unordered_map< std::string, std:: vector<Connection> > connMap;
 
     for( auto conn : connectionList )
     {
@@ -1524,7 +1528,7 @@ void connectionsListRemoveMcuDuplicates( std:: vector<Connection> &connectionLis
         connectionsListRemoveSameSourceDesignatorDuplicates( connKV.second );
     }
 
-    std:: vector<Connection> res; res.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector<Connection> res; res.reserve(connectionList.size()); // res.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     std::set<std::string>   usedDesignators;
     for( auto conn : connectionList )
     {
