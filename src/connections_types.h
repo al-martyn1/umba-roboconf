@@ -153,6 +153,8 @@ struct Connection //-V730
     static
     string_set_type makeSetFromNamePartsSkipNumbers(const std:: vector<std::string> &nameParts /* , bool skipNumbers */ )
     {
+        UmbaTracyTraceScope();
+
         string_set_type s;
         for( auto np : nameParts )
         {
@@ -174,6 +176,7 @@ struct Connection //-V730
     //! Формирует токены имени сети - с отделением номеров от имён (SPI1->SPI), и токены для заголовка, без отделения цифр (SPI1->SPI1)
     void splitMcuNetMakeTokens( )
     {
+        UmbaTracyTraceScope();
         //TODO: !!! Добавил умолчательные аргументы. Надо разобраться, нужно ли отделять цифры от имён
         mcuNetTokens       = makeSetFromNamePartsSkipNumbers( splitComponentName( processedStrings["MCUNET"], 0, true /* keepSeps */, true /* splitAlsoDigits */ ) );
 
@@ -184,6 +187,7 @@ struct Connection //-V730
     //! Генерирует заголовок из всех частей, сгенерированных ф-ей getTitleParts(), или только из частей, которые ещё содержатся в наборе cmn
     std::string generateTitle( const string_set_type &cmn, bool bCommon = true )
     {
+        UmbaTracyTraceScope();
         std::string res;
         std:: vector<std::string> titleParts = getTitleParts();
         for( const auto& tp : titleParts )
@@ -323,6 +327,7 @@ struct ConnectionsGroup //-V730
 
     std::string tryGenerateTitle( )
     {
+        UmbaTracyTraceScope();
         if (connections.empty())
             return std::string();
 

@@ -349,7 +349,95 @@ void moveConnectionDuplicatesToExtra( std:: vector< Connection > &connList )
 //     std::string               forceGroupName;
 
 
-//void splitConnectionsToGroupsByTarget_mcuNetMakeTokens( const std:: vector< Connection > &conns,  )
+inline
+void splitConnectionsToGroupsByTarget_mcuNetMakeTokensAndPutToGroupMap( const std:: vector< Connection > &conns, std::unordered_map< std::string , std:: vector<Connection> > &connMap )
+{
+    UmbaTracyTraceScope();
+    for( auto conn : conns )
+    {
+        conn.splitMcuNetMakeTokens(); // Тут мы делаем разбиения имён цепей на части, для последующих кластеризаций
+        connMap[ conn.dstComponentInfo.designator ].emplace_back( conn );
+    }
+}
+
+inline
+ConnectionsGroup* splitConnectionsToGroupsByTarget_splitToGroupsSimple(std:: vector< ConnectionsGroup > &connGroups, const std::unordered_map< std::string , std:: vector<Connection> > &connMap)
+{
+    UmbaTracyTraceScope();
+
+    // В негруппированное помещаем соединения, которые в одиночестве идут на таргет десигнатор
+    {
+        ConnectionsGroup ungrouppedConns;
+        ungrouppedConns.groupTitle = "Unclassified";
+        ungrouppedConns.ungroupped = true;
+        connGroups.emplace_back(ungrouppedConns);
+    }
+
+    ConnectionsGroup *pUngrouppedConns = &connGroups[0];
+
+    for( const auto& connKV : connMap )
+    {
+        if (connKV.second.size() <= 1)
+        {
+            // Если по целевому десигнатору у нас найдено одно соединение, то это без классификации
+            pUngrouppedConns->connections.insert( pUngrouppedConns->connections.end(), connKV.second.begin(), connKV.second.end() );
+        }
+        else
+        {
+            ConnectionsGroup grp;
+            grp.groupDesignator  = connKV.second[0].dstComponentInfo.designator;
+            grp.dstComponentInfo = connKV.second[0].dstComponentInfo;
+            grp.connections      = connKV.second;
+            grp.groupTitle       = grp.tryGenerateTitle( );
+
+            connGroups.emplace_back(grp);
+            pUngrouppedConns = &connGroups[0];
+        }
+    }
+
+    return pUngrouppedConns;
+}
+
+inline
+void splitConnectionsToGroupsByTarget_logGrpDumpBydsg(RoboconfOptions &rbcOpts, const std:: vector< ConnectionsGroup > &connGroups)
+{
+    UmbaTracyTraceScope();
+
+    using namespace umba::omanip;
+
+    LOG_MSG("grp-dump-bydsg")<<"Connections by target designator - initial (1)\n";
+    for( const auto &logGrp : connGroups )
+    {
+        // logGrp.dstComponentInfo - ComponentInfo
+
+        std::string emptyStr = "";
+        if (logGrp.connections.empty())
+            emptyStr = " - empty";
+
+        LOG_MSG("grp-dump-bydsg")<<"Group: "<<logGrp.groupDesignator<<" - "<<logGrp.groupTitle<<emptyStr<<"\n";
+
+        for( const auto &conn : logGrp.connections )
+        {
+            LOG_MSG("grp-dump-bydsg")<<"    "<<conn.dstPinDesignator<<" / "<<conn.srcNetName<<" / "<<conn.dstComponentInfo.typeName<<" (src designator: "<<conn.srcPinDesignator<<")\n";
+        }
+    }
+
+    /*
+    if (!ungrouppedConns.connections.empty())
+    {
+        LOG_MSG("grp-dump-bydsg")<<"Group: Ungrouped\n";
+
+        for( const auto &conn : ungrouppedConns.connections )
+        {
+            LOG_MSG("grp-dump-bydsg")<<"    "<<conn.dstPinDesignator<<" / "<<conn.srcNetName<<" / "<<conn.dstComponentInfo.typeName<<" (src designator: "<<conn.srcPinDesignator<<")\n";
+        }
+    }
+    */
+
+    LOG_MSG("grp-dump-bydsg")<<"--------------------------------"<<endl;
+
+}
+
 
 inline
 void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< ConnectionsGroup > &connGroups, const std:: vector< Connection > &conns )
@@ -396,77 +484,14 @@ void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< C
 
 
     std::unordered_map< std::string , std:: vector<Connection> > connMap;
-    for( auto conn : conns )
-    {
-        conn.splitMcuNetMakeTokens(); // Тут мы делаем разбиения имён цепей на части, для последующих кластеризаций
-        connMap[ conn.dstComponentInfo.designator ].emplace_back( conn );
-    }
+    splitConnectionsToGroupsByTarget_mcuNetMakeTokensAndPutToGroupMap(conns, connMap);
 
-    // В негруппированное помещаем соединения, которые в одиночестве идут на таргет десигнатор
-    {
-        ConnectionsGroup ungrouppedConns;
-        ungrouppedConns.groupTitle = "Unclassified";
-        ungrouppedConns.ungroupped = true;
-        connGroups.emplace_back(ungrouppedConns);
-    }
-
-    // LOG_MSG("grp-log-grp-dsg-start")<<"--------------------------------"<<endl;
-    // LOG_MSG("grp-log-grp-dsg-start")<<"Start groupping by target designator"<<endl;
-
-    ConnectionsGroup *pUngrouppedConns = &connGroups[0];
-
-    for( const auto& connKV : connMap )
-    {
-        if (connKV.second.size() <= 1)
-        {
-            // Если по целевому десигнатору у нас найдено одно соединение, то это без классификации
-            pUngrouppedConns->connections.insert( pUngrouppedConns->connections.end(), connKV.second.begin(), connKV.second.end() );
-        }
-        else
-        {
-            ConnectionsGroup grp;
-            grp.groupDesignator  = connKV.second[0].dstComponentInfo.designator;
-            grp.dstComponentInfo = connKV.second[0].dstComponentInfo;
-            grp.connections      = connKV.second;
-            grp.groupTitle       = grp.tryGenerateTitle( );
-
-            connGroups.emplace_back(grp);
-            pUngrouppedConns = &connGroups[0];
-        }
-    }
-
+    ConnectionsGroup *pUngrouppedConns = splitConnectionsToGroupsByTarget_splitToGroupsSimple(connGroups, connMap);
+    
     connMap.clear();
 
-    LOG_MSG("grp-dump-bydsg")<<"Connections by target designator - initial (1)\n";
-    for( const auto &logGrp : connGroups )
-    {
-        // logGrp.dstComponentInfo - ComponentInfo
+    splitConnectionsToGroupsByTarget_logGrpDumpBydsg(rbcOpts, connGroups);
 
-        std::string emptyStr = "";
-        if (logGrp.connections.empty())
-            emptyStr = " - empty";
-
-        LOG_MSG("grp-dump-bydsg")<<"Group: "<<logGrp.groupDesignator<<" - "<<logGrp.groupTitle<<emptyStr<<"\n";
-
-        for( const auto &conn : logGrp.connections )
-        {
-            LOG_MSG("grp-dump-bydsg")<<"    "<<conn.dstPinDesignator<<" / "<<conn.srcNetName<<" / "<<conn.dstComponentInfo.typeName<<" (src designator: "<<conn.srcPinDesignator<<")\n";
-        }
-    }
-
-    /*
-    if (!ungrouppedConns.connections.empty())
-    {
-        LOG_MSG("grp-dump-bydsg")<<"Group: Ungrouped\n";
-
-        for( const auto &conn : ungrouppedConns.connections )
-        {
-            LOG_MSG("grp-dump-bydsg")<<"    "<<conn.dstPinDesignator<<" / "<<conn.srcNetName<<" / "<<conn.dstComponentInfo.typeName<<" (src designator: "<<conn.srcPinDesignator<<")\n";
-        }
-    }
-    */
-
-    LOG_MSG("grp-dump-bydsg")<<"--------------------------------"<<endl;
 
 /*
 struct Connection //-V730
