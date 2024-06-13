@@ -279,6 +279,14 @@ std::string getAppArchitectureName()
 
             res = "IA64";
 
+        #elif defined(_M_ARM64)
+
+            res = "ARM64";
+
+        #elif defined(_M_ARM)
+
+            res = "ARM";
+
         #else 
 
             res = std::string("Unknown Architecture");
