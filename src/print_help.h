@@ -1,6 +1,9 @@
 #pragma once
 
 #include "umba/umba.h"
+//
+#include "umba/compiler_info.h"
+
 
 // https://stackoverflow.com/questions/11697820/how-to-use-date-and-time-predefined-macros-in-as-two-integers-then-stri
 void printOnlyVersion()
@@ -13,13 +16,28 @@ void printNameVersion( const std::string &indent = "" )
     std::cout<<indent<<"Robot Configuration Extraction Tool version ";
     printOnlyVersion();
 
-    #if defined(UMBA_MSVC_COMPILER_USED)
-        std::cout << "Built with MSVC\n";
-    #elif defined(UMBA_GCC_COMPILER_USED)
-        std::cout << "Built with GCC\n";
-    #else
-        std::cout << "Built with unknown compiler\n";
-    #endif
+    std::cout << umba::getAppPlatformArchitecture() <<"\n";
+
+    std::string compilerFullInfoString = umba::getCompilerNameVersionString();
+    {
+        std::string compilerSimulateFullInfoString = umba::getCompilerSimulateNameVersionString();
+        if (!compilerSimulateFullInfoString.empty())
+        {
+            compilerFullInfoString += " (as ";
+            compilerFullInfoString += compilerSimulateFullInfoString;
+            compilerFullInfoString += ")";
+        }
+    }
+
+    std::cout << "Built with " << compilerFullInfoString <<" compiler\n";
+
+    // #if defined(UMBA_MSVC_COMPILER_USED)
+    //     std::cout << "Built with MSVC\n";
+    // #elif defined(UMBA_GCC_COMPILER_USED)
+    //     std::cout << "Built with GCC\n";
+    // #else
+    //     std::cout << "Built with unknown compiler\n";
+    // #endif
 
     //<<rdlcVersion<<"\n";
 }

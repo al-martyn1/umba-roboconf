@@ -5,6 +5,7 @@
     #error "Only for C++"
 #endif
 
+#include <string>
 
 /*
 
@@ -34,5 +35,25 @@ ARCHITECTURE_ID (целевая, видимо) - IA64/ARM64EC/x64/X86/ARM64/ARMV
 
 */
 
+
+//----------------------------------------------------------------------------
+namespace umba {
+
+
+
+//----------------------------------------------------------------------------
+std::string getCompilerName();
+std::string getCompilerVersionString();
+std::string getCompilerInternalVersionString();
+std::string getCompilerNameVersionString();
+std::string getCompilerSimulateName();
+std::string getCompilerSimulateVersionString();
+std::string getCompilerSimulateNameVersionString();
+std::string getAppPlatformName();
+std::string getAppArchitectureName();
+std::string getAppPlatformArchitecture();
+
+
+} // namespace umba
 
 
