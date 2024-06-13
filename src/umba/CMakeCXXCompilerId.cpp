@@ -575,7 +575,7 @@ char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";
 #  define ARCHITECTURE_ID "x64"
 
 # elif defined(_M_IX86)
-#  define ARCHITECTURE_ID "X86"
+#  define ARCHITECTURE_ID "x86"
 
 # elif defined(_M_ARM64)
 #  define ARCHITECTURE_ID "ARM64"
