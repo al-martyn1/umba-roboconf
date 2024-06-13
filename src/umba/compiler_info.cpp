@@ -225,6 +225,32 @@ std::string getAppPlatformName()
     if (res.empty())
         res = std::string("Unknown Platform");
 
+    if (res=="MinGW")
+    {
+        res = "Windows-MinGW";
+    }
+    else if (res=="MSYS")
+    {
+        res = "Windows-MSYS";
+    }
+    else if (res=="Cygwin")
+    {
+        res = "Windows-Cygwin";
+    }
+    //else 
+
+
+
+// #elif defined(__MINGW32__)
+// # define PLATFORM_ID "MinGW"
+//  
+// #elif defined(__APPLE__)
+// # define PLATFORM_ID "Darwin"
+//  
+// #elif defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
+// # define PLATFORM_ID "Windows"
+
+
     return res;
 }
 
@@ -240,7 +266,26 @@ std::string getAppArchitectureName()
     #endif
 
     if (res.empty())
-        res = std::string("Unknown Architecture");;
+    {
+        #if defined(__x86_64) || defined(_M_AMD64) || defined(_M_X64) // || defined() || defined()
+
+            res = "x64";
+
+        #elif defined(_X86_) || defined(_M_IX86) // || defined() || defined() || defined() || defined()
+
+            res = "x86";
+
+        #elif defined(_M_IA64)
+
+            res = "IA64";
+
+        #else 
+
+            res = std::string("Unknown Architecture");
+
+        #endif
+    }
+
 
     return res;
 }
