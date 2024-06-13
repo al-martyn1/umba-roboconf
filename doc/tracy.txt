@@ -1,0 +1,5 @@
+Profiling/Benchmarking Tools - https://hackingcpp.com/cpp/tools/profilers.html
+
+Integrating Tracy Profiler in C++ - https://luxeengine.com/integrating-tracy-profiler-in-cpp/
+Tracy Profiler on github - https://github.com/wolfpld/tracy/blob/master/README.md
+Tracy Profiler The user manual - https://github.com/wolfpld/tracy/releases/latest/download/tracy.pdf
