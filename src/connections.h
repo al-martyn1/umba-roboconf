@@ -353,10 +353,32 @@ inline
 void splitConnectionsToGroupsByTarget_mcuNetMakeTokensAndPutToGroupMap( const std:: vector< Connection > &conns, std::unordered_map< std::string , std:: vector<Connection> > &connMap )
 {
     UmbaTracyTraceScope();
+
     for( auto conn : conns )
     {
-        conn.splitMcuNetMakeTokens(); // Тут мы делаем разбиения имён цепей на части, для последующих кластеризаций
-        connMap[ conn.dstComponentInfo.designator ].emplace_back( conn );
+        {
+            //UmbaTracyTraceScope();
+
+            // Тут практически не тратится время
+
+            // 0.0194s (0.01939s) from 2.68s
+            conn.splitMcuNetMakeTokens(); // Тут мы делаем разбиения имён цепей на части, для последующих кластеризаций
+        }
+        {
+            //UmbaTracyTraceScope();
+
+            // Вот тут основное время функции, 2.95s from 3.16s
+            //connMap[ conn.dstComponentInfo.designator ].emplace_back( conn );
+
+            // reserve(8u)   - 2.54s from 2.72s, 3.16/2.72 = 1.16 - 16% ускорили на ровном месте
+            // reserve(32u)  - 2.51s from 2.68s, 3.16/2.68 = 1.18
+            auto &grpConnsVec = connMap[ conn.dstComponentInfo.designator ];
+
+            // Редко когда группы бывают такими большими - к одному периферийному чипу или разъему обычно ведёт меньше цепей
+            // в микроконтроллерных устройствах 16/24 контакта разъёмы обычно, не больше, и то половина не с MCU
+            grpConnsVec. reserve(32u); //!!>P Обычно к перифке тянется гораздо меньше цепей
+            grpConnsVec. emplace_back( conn ); //!!>P up
+        }
     }
 }
 
@@ -365,33 +387,63 @@ ConnectionsGroup* splitConnectionsToGroupsByTarget_splitToGroupsSimple(std:: vec
 {
     UmbaTracyTraceScope();
 
+    connGroups. reserve(256u); //!!>P 256 групп по периферийным чипам/разъёмам хватит на всех - даже современный PC-проц вряд ли имеет столько внешней периферии
+    // А нам места не жалко, потом копировать жалко, при увеличении вектора
+
     // В негруппированное помещаем соединения, которые в одиночестве идут на таргет десигнатор
     {
         ConnectionsGroup ungrouppedConns;
+        ungrouppedConns.connections. reserve(256u); //!!>P Неклассифицированных соединений может быть довольно много, особенно на ранних этапах разбора
         ungrouppedConns.groupTitle = "Unclassified";
         ungrouppedConns.ungroupped = true;
-        connGroups.emplace_back(ungrouppedConns);
+        connGroups. emplace_back(ungrouppedConns); //!!>P
     }
 
     ConnectionsGroup *pUngrouppedConns = &connGroups[0];
+    //pUngrouppedConns->connections. reserve(256u); //!!>P Неклассифицированных соединений может быть довольно много, особенно на ранних этапах разбора
 
     for( const auto& connKV : connMap )
     {
         if (connKV.second.size() <= 1)
         {
+            //UmbaTracyTraceScope();
+
             // Если по целевому десигнатору у нас найдено одно соединение, то это без классификации
             pUngrouppedConns->connections.insert( pUngrouppedConns->connections.end(), connKV.second.begin(), connKV.second.end() );
         }
         else
         {
-            ConnectionsGroup grp;
-            grp.groupDesignator  = connKV.second[0].dstComponentInfo.designator;
-            grp.dstComponentInfo = connKV.second[0].dstComponentInfo;
-            grp.connections      = connKV.second;
-            grp.groupTitle       = grp.tryGenerateTitle( );
+            //UmbaTracyTraceScope(); // Самый жор тут
 
-            connGroups.emplace_back(grp);
-            pUngrouppedConns = &connGroups[0];
+            // Стартовали пристально разглядывать на: 3.06s from 3.16s
+
+            ConnectionsGroup grp;
+
+            {
+                //UmbaTracyTraceScope();
+                grp.groupDesignator  = connKV.second[0].dstComponentInfo.designator;
+            }
+            {
+                //UmbaTracyTraceScope();
+                grp.dstComponentInfo = connKV.second[0].dstComponentInfo;
+            }
+            {
+                //UmbaTracyTraceScope(); // жор тут
+                grp.connections      = connKV.second;
+            }
+            {
+                //UmbaTracyTraceScope();
+                grp.groupTitle       = grp.tryGenerateTitle( );
+            }
+            {
+                //UmbaTracyTraceScope(); // жор тут
+                //connGroups.emplace_back(grp);
+                connGroups. emplace_back(std::move(grp)); //!!>P grp больше не нужна, можно перемещать. !!!! - вот это вау, сразу раз в 15 тут ускорились
+            }
+            {
+                //UmbaTracyTraceScope();
+                pUngrouppedConns = &connGroups[0];
+            }
         }
     }
 

@@ -227,7 +227,6 @@ int safe_main(int argc, char* argv[])
     using std::cout;
     using std::cerr;
 
-
     UmbaTracyTraceScope();
 
     auto elapsedTimerTotal = ElapsedTimer(true); // стартует сразу
