@@ -318,7 +318,7 @@ ExpressionParsingResult ComponentClassDetectionRule::extractRuleFromListItem( Ro
     std::string expected;
     std::string found;
    
-    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_TEXT_LIST_VECTOR_RESERVE_SIZE);
 
     //(componentClass (set DD)        (assembly 4) designator match "DD.*" )
     //(componentClass (set HEADER)    (assembly 4) compRef match "HEADER.*" )

@@ -336,7 +336,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                     incPath = progIncludePath;
                 }
 
-                includePaths.push_back(incPath);
+                includePaths.emplace_back(incPath);
             }
         }
 */
@@ -369,7 +369,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                     libPath = progDatasheetPath;
                 }
                 */
-                rbcOpts.datasheetPaths.push_back(libPath);
+                rbcOpts.datasheetPaths.emplace_back(libPath);
             }
         }
         else if (opt.isOption("lib-path") || opt.isOption('L') || opt.setParam("PATH") || opt.setDescription("Lib path"))
@@ -405,7 +405,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                     libPath = progUserLibPath;
                 }
                 */
-                rbcOpts.libPaths.push_back(libPath);
+                rbcOpts.libPaths.emplace_back(libPath);
             }
         }
         else if (opt.isOption("rules-path") /*  || opt.isOption('L') */  || opt.setParam("PATH") || opt.setDescription("Rules path"))
@@ -438,7 +438,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                 }
                 */
 
-                rbcOpts.rulesPaths.push_back(rulesPath);
+                rbcOpts.rulesPaths.emplace_back(rulesPath);
             }
         }
         else if (opt.isOption("icons-path") /*  || opt.isOption('L') */  || opt.setParam("PATH") || opt.setDescription("Rules path"))
@@ -461,7 +461,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                     continue;
 
                 iconsPath = rbcOpts.macroExpandString(iconsPath);
-                rbcOpts.iconsPaths.push_back(iconsPath);
+                rbcOpts.iconsPaths.emplace_back(iconsPath);
             }
         }
         else if (opt.isOption("icon")  /* || opt.isOption('R') */  || opt.setParam("TYPE:FILE.ICO", std::string()) || opt.setDescription("Set icon for datasheet type TYPE"))
@@ -569,7 +569,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                 splitToVector( opt.optArg, rulesList, splitCh );
             }
             else
-                rulesList.push_back(opt.optArg);
+                rulesList.emplace_back(opt.optArg);
 
             for( auto &rfName : rulesList )
             {
@@ -578,7 +578,7 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
                 if (rfName.empty())
                     continue;
 
-                rules.push_back(rfName);
+                rules.emplace_back(rfName);
             }
         }
         else if (opt.isOption("organization") /*  || opt.isOption('L') */ || opt.setParam("ORGANIZATION") || opt.setDescription("Set organization name for organization custom files") )

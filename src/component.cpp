@@ -163,7 +163,8 @@ void ComponentInfo::addPinFunctionMatch( const pin_function_match_t & match)
         }
     }
 
-    pinFunctionMatches.push_back( match );
+    pinFunctionMatches.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
+    pinFunctionMatches.emplace_back( match );
 }
 
 //-----------------------------------------------------------------------------

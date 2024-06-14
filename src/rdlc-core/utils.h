@@ -1,6 +1,7 @@
 #pragma once
 
 #include <set>
+#include <unordered_set>
 
 #include "splits.h"
 #include "isa.h"
@@ -19,9 +20,19 @@ int charToDigit( char ch )
 }
 
 inline
+bool isCharNumeralSystemDigit(char ch, int ss = 10)
+{
+    int d = charToDigit(ch);
+    if (d<0 || d>=ss)
+        return false;
+    return true;
+}
+
+inline
 bool readNumericPart( const std::string &str, std::string::size_type &pos, unsigned &i, int ss = 10 )
 {
-    for(; pos!=str.size() && ((charToDigit(str[pos])<0) || (charToDigit(str[pos])>=ss)); ++pos )
+    // пропускаем не цифры
+    for(; pos!=str.size() && !isCharNumeralSystemDigit(str[pos], ss) /* ((charToDigit(str[pos])<0) || (charToDigit(str[pos])>=ss)) */ ; ++pos )
     {
     }
 
@@ -46,7 +57,8 @@ bool readNumericPart( const std::string &str, std::string::size_type &pos, unsig
 inline
 bool readNumericPart( const std::string &str, std::string::size_type &pos, uint64_t &i, int ss = 10 )
 {
-    for(; pos!=str.size() && ((charToDigit(str[pos])<0) || (charToDigit(str[pos])>=ss)); ++pos )
+    // пропускаем не цифры
+    for(; pos!=str.size() && !isCharNumeralSystemDigit(str[pos], ss) /* ((charToDigit(str[pos])<0) || (charToDigit(str[pos])>=ss)) */ ; ++pos )
     {
     }
 
@@ -258,6 +270,7 @@ size_t findContainerValsMaxLen( const T &t )
 template< typename TVal >
 void makeUniqueVector( std::vector< TVal > &v )
 {
+    //std::unordered_set<TVal> s;
     std::set<TVal> s;
     std::vector< TVal > res;
 

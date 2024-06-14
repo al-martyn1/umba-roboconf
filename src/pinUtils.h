@@ -27,7 +27,7 @@ std:: vector<std::string> splitDesignatorPinName(const std::string &name)
 
     CharClass prevCharClass = charClassInitial;
 
-    std:: vector<std::string> res; res.reserve(4);
+    std:: vector<std::string> res; res.reserve(8);
     std::string buf;
     char prevSep = 0;
 
@@ -58,7 +58,7 @@ std:: vector<std::string> splitDesignatorPinName(const std::string &name)
 
         if (prevCharClass!=charClassSep && prevCharClass!=charClass && !buf.empty())
         {
-            res.push_back(buf);
+            res.emplace_back(buf);
             buf.clear();
         }
 
@@ -81,7 +81,7 @@ std:: vector<std::string> splitDesignatorPinName(const std::string &name)
 
     if (!buf.empty())
     {
-        res.push_back(buf);
+        res.emplace_back(buf);
     }
 
     return res;
@@ -89,15 +89,12 @@ std:: vector<std::string> splitDesignatorPinName(const std::string &name)
 
 //-----------------------------------------------------------------------------
 inline
-int compareDesignatorPinNames(const std::string &name1, const std::string &name2)
+int compareDesignatorPinNames(const std:: vector<std::string> &vecName1, const std:: vector<std::string> &vecName2)
 {
-    std:: vector<std::string> v1 = splitDesignatorPinName(name1);
-    std:: vector<std::string> v2 = splitDesignatorPinName(name2);
+    std:: vector<std::string>::const_iterator it1 = vecName1.begin();
+    std:: vector<std::string>::const_iterator it2 = vecName2.begin();
 
-    std:: vector<std::string>::const_iterator it1 = v1.begin();
-    std:: vector<std::string>::const_iterator it2 = v2.begin();
-
-    for(; it1!=v1.end() && it2!=v2.end(); ++it1, ++it2)
+    for(; it1!=vecName1.end() && it2!=vecName2.end(); ++it1, ++it2)
     {
         try
         {
@@ -122,16 +119,23 @@ int compareDesignatorPinNames(const std::string &name1, const std::string &name2
         }
     }
 
-    if (it1==v1.end() && it2==v2.end()) // оба закончились - равны
+    if (it1==vecName1.end() && it2==vecName2.end()) // оба закончились - равны
         return 0;
 
     // Который короче, тот и меньше
 
-    if (it1==v1.end()) // первый закончился, а второй - ещё нет
+    if (it1==vecName1.end()) // первый закончился, а второй - ещё нет
         return -1;
 
     return 1;
 
+}
+
+//-----------------------------------------------------------------------------
+inline
+int compareDesignatorPinNames(const std::string &name1, const std::string &name2)
+{
+    return compareDesignatorPinNames(splitDesignatorPinName(name1), splitDesignatorPinName(name2));
 }
 
 //-----------------------------------------------------------------------------

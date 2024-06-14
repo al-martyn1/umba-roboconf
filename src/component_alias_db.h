@@ -79,7 +79,7 @@ class ComponentAliasDb
                 return;
             }
 
-            std:: vector<std::string> bads; bads.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+            std:: vector<std::string> bads; bads.reserve(ROBOCONF_TEXT_LIST_VECTOR_RESERVE_SIZE);
             splitToVector(second, bads, ',');
             for(auto b : bads)
             {

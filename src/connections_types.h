@@ -10,6 +10,8 @@
 #include "string_set_type.h"
 #include "string_string_map_type.h"
 
+#include "pinUtils.h"
+
 //
 #include "tracy_tracing.h"
 
@@ -31,6 +33,7 @@ struct Connection //-V730
 
     std::string        srcPinDesignator;
     std::string        srcNetName;
+    std:: vector<std::string>   srcNetNamePartsForCompare;
     ComponentInfo      srcComponentInfo;
     ComponentPinInfo   srcPinInfo;
 
@@ -70,6 +73,13 @@ struct Connection //-V730
     int                       groupingRuleType;
     std::string               forceGroupName;
 
+    void splitSrcNetNameForCompare()
+    {
+        srcNetNamePartsForCompare = splitDesignatorPinName(srcNetName);
+    }
+    // std::string        srcNetName;
+    // std:: vector<std::string>   srcNetNamePartsForCompare;
+    // //std:: vector<std::string> splitDesignatorPinName(const std::string &name)
 
     std::string getProcessedString(const std::string &id) const
     {
@@ -558,7 +568,7 @@ struct ConnectionBuildingOptions
         std::string expected;
         std::string found;
      
-        std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
      
         //(powerNet ground "SGND.*" "PGND.*" "AGND.*" "GND.*")
         //(powerNet plus  "+\d+.*" "+VCC.*")
@@ -602,7 +612,7 @@ struct CommonNetInfo
         std:: vector<std::string>::const_iterator vit = readedVals[2].vectorValue.begin();
         for( ; vit != readedVals[2].vectorValue.end(); ++vit)
         {
-            stopNets.push_back( CommonNetInfo(*vit, descriptionPrefix, groundOption, readedVals[2].fileNo, readedVals[2].lineNo ) );
+            stopNets.emplace_back( CommonNetInfo(*vit, descriptionPrefix, groundOption, readedVals[2].fileNo, readedVals[2].lineNo ) );
         }
      
      

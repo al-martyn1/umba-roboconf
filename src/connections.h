@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <unordered_set>
 
 #include "incsearch.h"
 #include "designator.h"
@@ -9,6 +10,8 @@
 #include "string_set_type.h"
 #include "string_string_map_type.h"
 
+//
+#include "pinUtils.h"
 //
 #include "connections_types.h"
 //
@@ -48,19 +51,18 @@ struct CompareConnectionsBySrcNetNameWithIntsLess
 
     bool operator()( const Connection &c1, const Connection &c2 ) const
     {
-        std:: vector<unsigned> v1 = readNumericParts( c1.srcNetName );
-        std:: vector<unsigned> v2 = readNumericParts( c2.srcNetName );
-        if (compareStrings)
+        bool stringMode = compareStrings;
+        if (c1.srcNetNamePartsForCompare.empty() || c2.srcNetNamePartsForCompare.empty())
+            stringMode = true;
+
+        if (stringMode)
         {
-            if (v1.empty() || v2.empty())
+            //if (v1.empty() || v2.empty())
                 return c1.srcNetName < c2.srcNetName;
         }
-        int ires = compareUnsignedVectors( v1, v2 );
-        if (compareStrings)
-        {
-            if (ires==0) 
-                return c1.srcNetName < c2.srcNetName;
-        }
+
+        int ires = compareDesignatorPinNames(c1.srcNetNamePartsForCompare, c2.srcNetNamePartsForCompare);
+
         return ires < 0;
     }
 };
@@ -73,19 +75,18 @@ struct CompareConnectionsBySrcNetNameWithIntsGreater
 
     bool operator()( const Connection &c1, const Connection &c2 ) const
     {
-        std:: vector<unsigned> v1 = readNumericParts( c1.srcNetName );
-        std:: vector<unsigned> v2 = readNumericParts( c2.srcNetName );
-        if (compareStrings)
+        bool stringMode = compareStrings;
+        if (c1.srcNetNamePartsForCompare.empty() || c2.srcNetNamePartsForCompare.empty())
+            stringMode = true;
+
+        if (stringMode)
         {
-            if (v1.empty() || v2.empty())
+            //if (v1.empty() || v2.empty())
                 return c1.srcNetName > c2.srcNetName;
         }
-        int ires = compareUnsignedVectors( v1, v2 );
-        if (compareStrings)
-        {
-            if (ires==0)
-                return c1.srcNetName > c2.srcNetName;
-        }
+
+        int ires = compareDesignatorPinNames(c1.srcNetNamePartsForCompare, c2.srcNetNamePartsForCompare);
+
         return ires > 0;
     }
 };
@@ -257,38 +258,78 @@ void splitConnectionGroupByClasters( RoboconfOptions &rbcOpts, const Connections
 
 //-----------------------------------------------------------------------------
 inline
-std:: vector< Connection >::iterator connectionsListFindConnectionBySrcPinDesignator( std:: vector< Connection > &connList, const std::string &srcPinDesignator )
+std:: vector< Connection >::iterator connectionsListFindConnectionBySrcPinDesignator( std:: vector< Connection >::iterator b, std:: vector< Connection >::iterator e, const std::string &srcPinDesignator )
 {
-    std:: vector< Connection >::iterator it = connList.begin();
-    for(; it != connList.end(); ++it)
+    //UmbaTracyTraceScope();
+
+    std:: vector< Connection >::iterator it = b;
+    for(; it != e; ++it)
     {
         if (it->srcPinDesignator == srcPinDesignator)
             return it;
     }
 
-    return connList.end();
+    return e;
+}
+
+//-----------------------------------------------------------------------------
+inline
+std:: vector< Connection >::iterator connectionsListFindConnectionBySrcPinDesignator( std:: vector< Connection > &connList, const std::string &srcPinDesignator )
+{
+    //UmbaTracyTraceScope();
+    return connectionsListFindConnectionBySrcPinDesignator(connList.begin(), connList.end(), srcPinDesignator);
 }
 
 //-----------------------------------------------------------------------------
 inline
 void moveConnectionDuplicatesToExtra( std:: vector< Connection > &connList )
 {
-    std:: vector< Connection > tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    UmbaTracyTraceScope();
+
+    // Чтобы добиться такого же поведения, как и было реализовано, надо
+    // двигаться от начала одним итератором
+    // для него пробегаться от +1 до конца вектора и искать такие же десигнаторы
+    // если найден - помещать у экстра,
+    // если не найден - инкрементируем текущий.
+
+    std:: vector< Connection >::iterator it = connList.begin();
+
+    for(; it!=connList.end(); ++it)
+    {
+        std:: vector< Connection >::iterator sameDsgIt = connectionsListFindConnectionBySrcPinDesignator(it+1, connList.end(), it->srcPinDesignator);
+        while(sameDsgIt!=connList.end())
+        {
+            it->extraDestinations.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
+            it->extraDestinations.emplace_back(std::move(*sameDsgIt));
+            connList.erase(sameDsgIt);
+            sameDsgIt = connectionsListFindConnectionBySrcPinDesignator(it+1, connList.end(), it->srcPinDesignator);
+        }
+    }
+
+
+#if 0
+    std:: vector< Connection > tmp; tmp.reserve(connList.size());
     
     for( const auto & conn : connList )
     {
+        // Если в результирующем векторе не нашли conn.srcPinDesignator, то добавляем данный Connection в вектор
         auto it = connectionsListFindConnectionBySrcPinDesignator(tmp, conn.srcPinDesignator);
         if (it==tmp.end())
         {
+            //tmp.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
             tmp.emplace_back(conn);
         }
+        // Иначе помещаем его в extra
         else
         {
+            it->extraDestinations.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
             it->extraDestinations.emplace_back(conn);
         }
     }
 
     tmp.swap(connList);
+
+#endif
 
 }
 
@@ -350,14 +391,14 @@ void moveConnectionDuplicatesToExtra( std:: vector< Connection > &connList )
 
 
 inline
-void splitConnectionsToGroupsByTarget_mcuNetMakeTokensAndPutToGroupMap( const std:: vector< Connection > &conns, std::unordered_map< std::string , std:: vector<Connection> > &connMap )
+void splitConnectionsToGroupsByTarget_mcuNetMakeTokensAndPutToGroupMap( std::unordered_map< std::string , std:: vector<Connection> > &connMap, const std:: vector< Connection > &conns )
 {
     UmbaTracyTraceScope();
 
-    for( auto conn : conns )
+    for( auto conn : conns ) // Нам нужна копия, ничего не поделать
     {
         {
-            //UmbaTracyTraceScope();
+            UmbaTracyTraceScope();
 
             // Тут практически не тратится время
 
@@ -365,7 +406,7 @@ void splitConnectionsToGroupsByTarget_mcuNetMakeTokensAndPutToGroupMap( const st
             conn.splitMcuNetMakeTokens(); // Тут мы делаем разбиения имён цепей на части, для последующих кластеризаций
         }
         {
-            //UmbaTracyTraceScope();
+            UmbaTracyTraceScope();
 
             // Вот тут основное время функции, 2.95s from 3.16s
             //connMap[ conn.dstComponentInfo.designator ].emplace_back( conn );
@@ -377,7 +418,7 @@ void splitConnectionsToGroupsByTarget_mcuNetMakeTokensAndPutToGroupMap( const st
             // Редко когда группы бывают такими большими - к одному периферийному чипу или разъему обычно ведёт меньше цепей
             // в микроконтроллерных устройствах 16/24 контакта разъёмы обычно, не больше, и то половина не с MCU
             grpConnsVec. reserve(32u); //!!>P Обычно к перифке тянется гораздо меньше цепей
-            grpConnsVec. emplace_back( conn ); //!!>P up
+            grpConnsVec. emplace_back( std::move(conn) ); //!!>P Вот тут хорошо сэкономили, раз в сто, наверное
         }
     }
 }
@@ -396,7 +437,7 @@ ConnectionsGroup* splitConnectionsToGroupsByTarget_splitToGroupsSimple(std:: vec
         ungrouppedConns.connections. reserve(256u); //!!>P Неклассифицированных соединений может быть довольно много, особенно на ранних этапах разбора
         ungrouppedConns.groupTitle = "Unclassified";
         ungrouppedConns.ungroupped = true;
-        connGroups. emplace_back(ungrouppedConns); //!!>P
+        connGroups. emplace_back(std::move(ungrouppedConns)); //!!>P ungrouppedConns не нужна, перемещаем
     }
 
     ConnectionsGroup *pUngrouppedConns = &connGroups[0];
@@ -414,35 +455,28 @@ ConnectionsGroup* splitConnectionsToGroupsByTarget_splitToGroupsSimple(std:: vec
         else
         {
             //UmbaTracyTraceScope(); // Самый жор тут
-
             // Стартовали пристально разглядывать на: 3.06s from 3.16s
 
             ConnectionsGroup grp;
 
-            {
-                //UmbaTracyTraceScope();
+            {   //UmbaTracyTraceScope();
                 grp.groupDesignator  = connKV.second[0].dstComponentInfo.designator;
             }
-            {
-                //UmbaTracyTraceScope();
+            {   //UmbaTracyTraceScope();
                 grp.dstComponentInfo = connKV.second[0].dstComponentInfo;
             }
-            {
-                //UmbaTracyTraceScope(); // жор тут
+            {   //UmbaTracyTraceScope(); // жор тут
                 grp.connections      = connKV.second;
             }
-            {
-                //UmbaTracyTraceScope();
+            {   //UmbaTracyTraceScope();
                 grp.groupTitle       = grp.tryGenerateTitle( );
             }
-            {
-                //UmbaTracyTraceScope(); // жор тут
+            {   //UmbaTracyTraceScope(); // жор тут
                 //connGroups.emplace_back(grp);
                 connGroups. emplace_back(std::move(grp)); //!!>P grp больше не нужна, можно перемещать. !!!! - вот это вау, сразу раз в 15 тут ускорились
             }
-            {
-                //UmbaTracyTraceScope();
-                pUngrouppedConns = &connGroups[0];
+            {   //UmbaTracyTraceScope();
+                pUngrouppedConns = &connGroups[0]; // На каждом шаге берем указатель заново, так как могла произойти переалокация и адрес мог изменится
             }
         }
     }
@@ -536,7 +570,7 @@ void splitConnectionsToGroupsByTarget( RoboconfOptions &rbcOpts, std:: vector< C
 
 
     std::unordered_map< std::string , std:: vector<Connection> > connMap;
-    splitConnectionsToGroupsByTarget_mcuNetMakeTokensAndPutToGroupMap(conns, connMap);
+    splitConnectionsToGroupsByTarget_mcuNetMakeTokensAndPutToGroupMap(connMap, conns);
 
     ConnectionsGroup *pUngrouppedConns = splitConnectionsToGroupsByTarget_splitToGroupsSimple(connGroups, connMap);
     
@@ -575,6 +609,7 @@ struct Connection //-V730
     // Раскидываем по группам, одновременно выделяя кластеры в отдельные группы 
     // (помимо группировки по таргет десигнаторам)
     {
+        UmbaTracyTraceScope();
         std:: vector< ConnectionsGroup > connGroupsTmp;
     
         pUngrouppedConns = &connGroups[0];
@@ -617,17 +652,6 @@ struct Connection //-V730
                 splitConnectionGroupByClasters( rbcOpts, connGrp, connGroupsTmp, *pUngrouppedConns );
                 continue;
             }
-    
-    
-            // if ( connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_TESTPOINT
-            //   // && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_HEADER // А зачем я решил, что хидеры не надо кластерить по именам?
-            //   && connGrp.dstComponentInfo.componentClass!=ComponentClass::cc_MOUNT
-            //    )
-            // {
-            //     connGroupsTmp.emplace_back(connGrp);
-            //     pUngrouppedConns = &connGroupsTmp[0];
-            //     continue;
-            // }
     
             // Остальное - кладём как есть
     
@@ -675,9 +699,12 @@ struct Connection //-V730
 
 
     //pUngrouppedConns->updateConnectionsGroupingOptions( rbcOpts );
-    for( auto &connGrp : connGroups )
     {
-        connGrp.updateConnectionsGroupingOptions( rbcOpts );
+        UmbaTracyTraceScope();
+        for( auto &connGrp : connGroups )
+        {
+            connGrp.updateConnectionsGroupingOptions( rbcOpts );
+        }
     }
 
 
@@ -695,6 +722,7 @@ struct Connection //-V730
     LOG_MSG("grp-log-fungrp-start")<<"Start force ungroupping"<<endl;
 
     {
+        UmbaTracyTraceScope();
         bool bFirstGrp = true;
         for( auto &connGrp : connGroups )
         {
@@ -709,7 +737,7 @@ struct Connection //-V730
                 auto conn = connGrp.connections[connIdx];
                 if (conn.groupingRuleType==ForceGroupingRule::forceUngroup)
                 {
-                    pUngrouppedConns->connections.push_back(conn);
+                    pUngrouppedConns->connections.emplace_back(conn);
                     connGrp.connections.erase(pUngrouppedConns->connections.begin()+connIdx);
                 }
                 else
@@ -732,73 +760,82 @@ struct Connection //-V730
     // Group ungrouped
     LOG_MSG("grp-log-fgrp-start")<<"--------------------------------"<<endl;
     LOG_MSG("grp-log-fgrp-start")<<"Start force groupping"<<endl;
-    for( size_t connIdx = 0; connIdx!=pUngrouppedConns->connections.size(); )
     {
-        auto conn = pUngrouppedConns->connections[connIdx];
-        if (conn.groupingRuleType==ForceGroupingRule::forceGroup)
+        UmbaTracyTraceScope();
+        for( size_t connIdx = 0; connIdx!=pUngrouppedConns->connections.size(); )
         {
-            std::string grpName = conn.forceGroupName;
-            //if (grpName.empty())
-            //    grpName = "GROUP_AUTO";
-            connMap[grpName].push_back( conn );
-            pUngrouppedConns->connections.erase(pUngrouppedConns->connections.begin()+connIdx);
-        }
-        else
-        {
-            ++connIdx;
+            auto conn = pUngrouppedConns->connections[connIdx];
+            if (conn.groupingRuleType==ForceGroupingRule::forceGroup)
+            {
+                std::string grpName = conn.forceGroupName;
+                //if (grpName.empty())
+                //    grpName = "GROUP_AUTO";
+                connMap[grpName].emplace_back( conn );
+                pUngrouppedConns->connections.erase(pUngrouppedConns->connections.begin()+connIdx);
+            }
+            else
+            {
+                ++connIdx;
+            }
         }
     }
 
     // Create new groups
-    for( const auto& connKV : connMap )
     {
-        if (connKV.second.size() < 1)
+        UmbaTracyTraceScope();
+        for( const auto& connKV : connMap )
         {
-            continue;
-        }
-        else
-        {
-            bool foundExistingGroup = false;
-            for( auto &grp : connGroups )
+            if (connKV.second.size() < 1)
             {
-                if (grp.groupTitle==connKV.first)
+                continue;
+            }
+            else
+            {
+                bool foundExistingGroup = false;
+                for( auto &grp : connGroups )
                 {
-                    grp.connections.insert( grp.connections.end(), connKV.second.begin(), connKV.second.end() );
-                    foundExistingGroup = true;
-                    break;
+                    if (grp.groupTitle==connKV.first)
+                    {
+                        grp.connections.insert( grp.connections.end(), connKV.second.begin(), connKV.second.end() );
+                        foundExistingGroup = true;
+                        break;
+                    }
                 }
+    
+                if (!foundExistingGroup)
+                {
+                    ConnectionsGroup grp;
+                    grp.groupDesignator  = connKV.second[0].dstComponentInfo.designator;
+                    grp.dstComponentInfo = connKV.second[0].dstComponentInfo;
+                    grp.connections      = connKV.second;
+                    grp.groupTitle       = connKV.first; // grp.tryGenerateTitle( );
+                    if (grp.groupTitle.empty())
+                        grp.groupTitle = grp.tryGenerateTitle();
+                    grp.forceNamed       = true;
+                    connGroups.emplace_back(grp);
+                    pUngrouppedConns = &connGroups[0];
+                }
+    
             }
-
-            if (!foundExistingGroup)
-            {
-                ConnectionsGroup grp;
-                grp.groupDesignator  = connKV.second[0].dstComponentInfo.designator;
-                grp.dstComponentInfo = connKV.second[0].dstComponentInfo;
-                grp.connections      = connKV.second;
-                grp.groupTitle       = connKV.first; // grp.tryGenerateTitle( );
-                if (grp.groupTitle.empty())
-                    grp.groupTitle = grp.tryGenerateTitle();
-                grp.forceNamed       = true;
-                connGroups.emplace_back(grp);
-                pUngrouppedConns = &connGroups[0];
-            }
-
         }
     }
 
     LOG_MSG("grp-dump-fgrp")<<"Connections by target designator - force grouped/ungrouped\n";
-    for( const auto &logGrp : connGroups )
     {
-        std::string emptyStr = "";
-        if (logGrp.connections.empty())
-            emptyStr = " - empty";
-
-        LOG_MSG("grp-dump-fgrp")<<"Group: "<<logGrp.groupDesignator<<" - "<<logGrp.groupTitle<<emptyStr<<"\n";
-        // logGrp.dstComponentInfo - ComponentInfo
-
-        for( const auto &conn : logGrp.connections )
+        UmbaTracyTraceScope();
+        for( const auto &logGrp : connGroups )
         {
-            LOG_MSG("grp-dump-fgrp")<<"    "<<conn.dstPinDesignator<<" / "<<conn.srcNetName<<" / "<<conn.dstComponentInfo.typeName<<" (src designator: "<<conn.srcPinDesignator<<")\n";
+            std::string emptyStr = "";
+            if (logGrp.connections.empty())
+                emptyStr = " - empty";
+    
+            LOG_MSG("grp-dump-fgrp")<<"Group: "<<logGrp.groupDesignator<<" - "<<logGrp.groupTitle<<emptyStr<<"\n";
+            // logGrp.dstComponentInfo - ComponentInfo
+    
+            for( const auto &conn : logGrp.connections )
+            {
+                LOG_MSG("grp-dump-fgrp")<<"    "<<conn.dstPinDesignator<<" / "<<conn.srcNetName<<" / "<<conn.dstComponentInfo.typeName<<" (src designator: "<<conn.srcPinDesignator<<")\n";
+            }
         }
     }
 
@@ -842,6 +879,8 @@ struct Connection //-V730
 
 
     {
+        UmbaTracyTraceScope();
+
         struct GroupsConnections
         {
             std::unordered_set< size_t >   groupNums;
@@ -859,8 +898,11 @@ struct Connection //-V730
             for( const auto & conn : grp.connections )
             {
                 bySourceDesignators[conn.srcPinDesignator].groupNums.insert(grpNo);
-                //bySourceDesignators[conn.srcPinDesignator].group.connections.push_back(conn);
-                bySourceDesignators[conn.srcPinDesignator].connections.push_back(conn);
+                //bySourceDesignators[conn.srcPinDesignator].group.connections.emplace_back(conn);
+                
+                auto &vec = bySourceDesignators[conn.srcPinDesignator].connections;
+                vec.reserve(grp.connections.size());
+                vec.emplace_back(conn);
             }
         }
         // Бага - не классифицированные пины не обрабатываются
@@ -894,7 +936,6 @@ struct Connection //-V730
                 //LOG_MSG("grp-dump-bysrc")<<"Multiple connected source designators\n";
                 LOG_MSG("grp-dump-bysrc")<<"From groups:\n";
 
-                //std::ostringstream oss;
                 for( auto gi : bsdIt->second.groupNums )
                 {
                     const ConnectionsGroup &grp = connGroups[gi];
@@ -960,7 +1001,7 @@ struct Connection //-V730
                     for( const auto & conn : bsdIt->second.connections )
                     {
                         if (connGroups[grpNo].removeConnectionByDstPinDesignator( conn.dstPinDesignator ))
-                            connGroups[primaryGrpNo].connections.push_back(conn);
+                            connGroups[primaryGrpNo].connections.emplace_back(conn);
                     }
                 }
             }
@@ -1043,10 +1084,13 @@ struct Connection //-V730
 
     // extraDestinations
 
-    for( auto & grp : connGroups )
     {
-        std::stable_sort( grp.connections.begin(), grp.connections.end(), CompareConnectionsByDstComponentWeightGreater() );
-        moveConnectionDuplicatesToExtra( grp.connections );
+        UmbaTracyTraceScope();
+        for( auto & grp : connGroups )
+        {
+            std::stable_sort( grp.connections.begin(), grp.connections.end(), CompareConnectionsByDstComponentWeightGreater() );
+            moveConnectionDuplicatesToExtra( grp.connections );
+        }
     }
 
     //CompareConnectionsByDstComponentWeightGreater
@@ -1059,6 +1103,8 @@ struct Connection //-V730
 
     // Merge groups with same names
     {
+        UmbaTracyTraceScope();
+
         std:: vector< ConnectionsGroup > connGroupsTmp;
         for( const auto & grp : connGroups )
         {
@@ -1079,7 +1125,7 @@ struct Connection //-V730
     
             if (!bAppended)
             {
-                connGroupsTmp.push_back(grp);
+                connGroupsTmp.emplace_back(grp);
             }
         }
     
@@ -1102,9 +1148,17 @@ struct ConnectionsGroup
 
     //connGroups.emplace_back(ungrouppedConns);
 
-    for( auto &grp : connGroups )
     {
-        stable_sort( grp.connections.begin(), grp.connections.end(), CompareConnectionsBySrcNetNameWithIntsLess() );
+        UmbaTracyTraceScope();
+        // !!! А что будет, если не сортировать?
+        // Имена цепей в группах будут абы как
+        for( auto &grp : connGroups )
+        {
+            for (auto &conn: grp.connections)
+                conn.splitSrcNetNameForCompare();
+
+            stable_sort( grp.connections.begin(), grp.connections.end(), CompareConnectionsBySrcNetNameWithIntsLess() );
+        }
     }
 
 }
@@ -1196,12 +1250,14 @@ void connectionsListBuild_WalkTroughNets( RoboconfOptions &rbcOpts
             //conn.dstComponentDescription = buildingOptions.getStopNetDescription(netName);
             conn.netStop                 = true;
             conn.netGroundType           = buildingOptions.getStopNetGroundOption(netName);
-            connectionList.emplace_back(conn);
+            connectionList. reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE); //!!>P
+            connectionList. emplace_back(std::move(conn)); //!!>P
             return;
         }
 
         if (usedNets.find(netName)!=usedNets.end())
             continue; // visited
+
         usedNets.insert(netName);
 
         dsgProcessedNetCount++;
@@ -1257,7 +1313,8 @@ void connectionsListBuild_WalkTroughNets( RoboconfOptions &rbcOpts
             if (pit != cit->second.pins.end())
                 conn.dstPinInfo = pit->second;
 
-            connectionList.emplace_back(conn);
+            connectionList. reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE); //!!>P
+            connectionList.emplace_back(std::move(conn));
         }
 
     }
@@ -1292,9 +1349,9 @@ void connectionsListBuild( RoboconfOptions &rbcOpts
         conn.srcComponentInfo = componentInfo;
 
         {
-            std::stringstream tmp;
-            tmp<<startDesignator<<"."<<pinInfo.pinNo;
-            conn.srcPinDesignator = tmp.str();
+            conn.srcPinDesignator = startDesignator;
+            conn.srcPinDesignator.append(1u, '.');
+            conn.srcPinDesignator.append(pinInfo.pinNo);
         }
         
         conn.srcPinInfo    = pinInfo;
@@ -1307,8 +1364,8 @@ void connectionsListBuild( RoboconfOptions &rbcOpts
 
     //return;
 
-    std:: vector<Connection> tmpTargets; tmpTargets.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
-    std:: vector<Connection> tmpNets; tmpNets.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector<Connection> tmpTargets; tmpTargets.reserve(connectionList.size());
+    std:: vector<Connection> tmpNets   ; tmpNets.reserve(connectionList.size());
 
     for( const auto& conn : connectionList )
     {
@@ -1319,10 +1376,12 @@ void connectionsListBuild( RoboconfOptions &rbcOpts
             if (conn.dstComponentInfo.componentClass== ComponentClass::cc_QUARTZ)
                 continue;                              // skip filter QUARTZs
 
-            tmpTargets.emplace_back(conn);
+            tmpTargets.emplace_back(std::move(conn)); //!!>P Место уже зарезервированно
         }
         else
-            tmpNets.emplace_back(conn);
+        {
+            tmpNets.emplace_back(std::move(conn)); //!!>P Место уже зарезервированно
+        }
     }
 
     connectionList.clear();
@@ -1331,7 +1390,7 @@ void connectionsListBuild( RoboconfOptions &rbcOpts
     {
         if (netConn.netGroundType!=CommonNetInfo::NET_GROUND_OPTION_GND && netConn.netGroundType!=CommonNetInfo::NET_GROUND_OPTION_VCC_PLUS)
         {
-            connectionList.emplace_back(netConn); // connection to unrecognized common
+            connectionList.emplace_back(std::move(netConn)); //!!>P
             continue;
         }
 
@@ -1392,7 +1451,7 @@ void connectionsListRemoveSameTargetDesignatorDuplicates( std:: vector<Connectio
     {
         //std::unordered_set< std::string > rpfn; // local removedPinFunctions
 
-        std:: vector<Connection> tmp; tmp.reserve(connectionList.size());  // tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector<Connection> tmp; tmp.reserve(connectionList.size());
 
         for( auto conn : connectionList )
         {
@@ -1403,7 +1462,7 @@ void connectionsListRemoveSameTargetDesignatorDuplicates( std:: vector<Connectio
                 continue;
             }
 
-            tmp.push_back(conn);
+            tmp.emplace_back(std::move(conn)); //!!>P
         }
 
         if (!tmp.empty())
@@ -1445,9 +1504,10 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std:: vector<Connectio
     // Remove headers
     if (connectionList.size()>1)
     {
-        std:: vector<Connection> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector<Connection> tmp;
+        tmp.reserve(connectionList.size());
 
-        std::set< std::string > rpfn; // local removedPinFunctions
+        std::unordered_set<std::string> rpfn; // local removedPinFunctions
 
         for( auto conn : connectionList )
         {
@@ -1459,8 +1519,8 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std:: vector<Connectio
                 rpfn.insert( conn.dstPinInfo.pinFunctions.begin(), conn.dstPinInfo.pinFunctions.end() );
                 continue;
             }
-
-            tmp.push_back(conn);
+            
+            tmp.emplace_back(std::move(conn)); //!!>P
         }
 
         if (!tmp.empty())
@@ -1473,31 +1533,35 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std:: vector<Connectio
     // Remove ignored pins
     if (connectionList.size()>1)
     {
-        std:: vector<Connection> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector<Connection> tmp;
+        tmp.reserve(connectionList.size());
 
         for( auto conn : connectionList )
         {
             if ( conn.dstPinInfo.isPinFunction("PINTYPE_IGNORE") )
                 continue;
 
-            tmp.push_back(conn);
+            tmp.emplace_back(std::move(conn)); //!!>P
         }
 
         if (!tmp.empty())
+        {
             connectionList.swap(tmp);
+        }
     }
 
     // Remove too much payloaded pins
     if (connectionList.size()>1)
     {
-        std:: vector<Connection> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector<Connection> tmp;
+        tmp.reserve(connectionList.size());
 
         for( auto conn : connectionList )
         {
             if ( conn.payloads.size()>1 )
                 continue;
 
-            tmp.push_back(conn);
+            tmp.emplace_back(std::move(conn)); //!!>P
         }
 
         if (!tmp.empty())
@@ -1507,13 +1571,17 @@ void connectionsListRemoveSameSourceDesignatorDuplicates( std:: vector<Connectio
 
     if (connectionList.size()>1)
     {
-        std::map< std::string, std:: vector<Connection> > byTargetDessignator;
+        std::unordered_map< std::string, std:: vector<Connection> > byTargetDessignator;
+
         for( auto conn : connectionList )
         {
-            byTargetDessignator[conn.dstComponentInfo.designator].emplace_back(conn);
+            auto &newVec = byTargetDessignator[conn.dstComponentInfo.designator];
+            newVec.reserve(connectionList.size());
+            newVec.emplace_back(std::move(conn)); //!!>P
         }
 
-        std:: vector<Connection> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector<Connection> tmp;
+        tmp.reserve(connectionList.size());
 
         for( auto &connKV : byTargetDessignator)
         {
@@ -1597,7 +1665,10 @@ void connectionsListRemoveMcuDuplicates( std:: vector<Connection> &connectionLis
 
     for( auto conn : connectionList )
     {
-        connMap[conn.srcPinDesignator].emplace_back(conn);
+        //connMap[conn.srcPinDesignator].emplace_back(conn);
+        auto &vec = connMap[conn.srcPinDesignator];
+        vec.reserve(ROBOCONF_GENERIC_VECTOR_RESERVE_SIZE);
+        vec.emplace_back(std::move(conn));
     }
 
     for( auto &connKV : connMap )
@@ -1605,12 +1676,13 @@ void connectionsListRemoveMcuDuplicates( std:: vector<Connection> &connectionLis
         connectionsListRemoveSameSourceDesignatorDuplicates( connKV.second );
     }
 
-    std:: vector<Connection> res; res.reserve(connectionList.size()); // res.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
-    std::set<std::string>   usedDesignators;
+    std:: vector<Connection> res; res.reserve(connectionList.size());
+    std::unordered_set<std::string>   usedDesignators;
     for( auto conn : connectionList )
     {
         if ( usedDesignators.find(conn.srcPinDesignator)!=usedDesignators.end() )
             continue;
+
         usedDesignators.insert(conn.srcPinDesignator);
 
         //if (!connMap[conn.srcPinDesignator].empty())
@@ -1931,7 +2003,7 @@ bool parseExternalConnectionsRule( RoboconfOptions &rbcOpts, const ExpressionIte
     const expression_list_t &lst = rule.itemList;
     expression_list_t::const_iterator it = lst.begin();
 
-    std:: vector< std::string > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< std::string > readedVals; readedVals.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
     std::string expected;
     std::string found;
     bool readFieldsRes = readListByTemplate( "Ti!:connect;Ti!:device;V", it, lst.end()
@@ -2515,7 +2587,7 @@ and (match "token" (any "TXD{0,1}") set ("TX") )
     // {
     //     UmbaTracyTraceScope();
     //     // Сделали отдельный скоуп для приравнивания, хотим замерять, сколько тут времени тратится
-    //     connectionsTmp = connections; //connections.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    //     connectionsTmp = connections; //connections.reserve();
     //  
     //     //LOG_MSG("detect-conn")
     //     std::cout << "Number of connections: " << connections.size() << "\n";
@@ -2663,7 +2735,7 @@ bool connectionsDetectInterfaces( RoboconfOptions &rbcOpts
        splitToPair( targetInterfaces, targetInterfaces, targetValueType, ":" );
     trim(targetInterfaces);
 
-    std:: vector< std::string > targetInterfacesVec; // targetInterfacesVec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< std::string > targetInterfacesVec; targetInterfacesVec.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
     if (!targetInterfaces.empty())
         splitToVector( targetInterfaces, targetInterfacesVec, '|' );
     

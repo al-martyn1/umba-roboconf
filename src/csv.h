@@ -21,7 +21,7 @@ bool readCsv( std::istream &in, std:: vector< csv_line_t > &csvLines, char sep =
     {
         csv_line_t csvLine;
         splitToVector( line, csvLine, sep );
-        csvLines.push_back(csvLine);
+        csvLines.emplace_back(csvLine);
     }
 
     return true;

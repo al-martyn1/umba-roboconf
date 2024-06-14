@@ -94,7 +94,7 @@ int main( int argc, char* argv[] )
     bool wgetAppnotes                    = false;
     bool wgetProgman                     = false;
     
-    std:: vector<std::string> argvNames; argvNames.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector<std::string> argvNames;
 
     for( int argIdx = 1; argIdx<argc; ++argIdx)
     {
@@ -132,7 +132,7 @@ int main( int argc, char* argv[] )
             return 1;
         }
         else
-            argvNames.push_back(argStr);
+            argvNames.emplace_back(argStr);
     }
 
     if (argvNames.size()<2)
@@ -247,13 +247,13 @@ int main( int argc, char* argv[] )
                 for (SizeType s = 0; s < subpackages.Size(); s++) // rapidjson uses SizeType instead of size_t.
                 {
                     std::string refname = subpackages[s]["refname"].GetString();
-                    docs.refNames.push_back(refname);
+                    docs.refNames.emplace_back(refname);
                     //Value& subPkg = subpackages[s];
                 }
             }
 
             if (docs.refNames.empty())
-                docs.refNames.push_back(mcuFnD[i]["name"].GetString());
+                docs.refNames.emplace_back(mcuFnD[i]["name"].GetString());
             //docs.refName = mcuFnD[i]["name"].GetString(); // STM8AL3L68Tx
             docs.rpn     = mcuFnD[i]["RPN"].GetString();  // STM8AL3L68
             Value& docFiles = mcuFnD[i]["files"];
@@ -263,7 +263,7 @@ int main( int argc, char* argv[] )
                 std::map< std::string , CubeDocFileInfo >::const_iterator cdfiIt = cubeDocFileInfos.find(fileId);
                 if (cdfiIt != cubeDocFileInfos.end())
                 {
-                    docs.docs[ cdfiIt->second.docType ].push_back(cdfiIt->second); 
+                    docs.docs[ cdfiIt->second.docType ].emplace_back(cdfiIt->second); 
                 }
             }
 
@@ -293,7 +293,7 @@ int main( int argc, char* argv[] )
 			throw std::runtime_error(std::string("Failed to parse CubeMX families.xml - missing root node"));
 		}
 
-        std:: vector< CubeMcuInfo > mcus; mcus.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector< CubeMcuInfo > mcus; mcus.reserve(4096u);
 
 		const pugi::xml_node &familiesNode = *(familiesDocRoot.begin());
 

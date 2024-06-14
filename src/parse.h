@@ -431,6 +431,7 @@ void readList_push_back_ExpressionItem(expression_list_t &lst, const std::string
     #endif
 
     //lst.push_back( ExpressionItem(expr, fileNo, lineNo) );
+    lst.reserve(ROBOCONF_GENERIC_VECTOR_RESERVE_SIZE);
     lst.emplace_back( expr, fileNo, lineNo );
 }
 
@@ -447,10 +448,13 @@ void readList_push_back_ExpressionItem(expression_list_t &lst, const std::string
     READLIST_PUSH_BACK_EXPRESSIONITEM_INLINE
     void readList_push_back_ExpressionItem(expression_list_t &lst, expression_list_t &&lstToPush, FileSet::file_id_t fileNo, size_t &lineNo)
     {
-        UmbaTracyTraceScope();
         #if defined(ROBOCONF_READ_LIST_USE_EMPLACE_BACK)
+            UmbaTracyTraceScope();
+            lst.reserve(ROBOCONF_GENERIC_VECTOR_RESERVE_SIZE);
             lst.emplace_back( lstToPush, fileNo, lineNo );
         #else
+            UmbaTracyTraceScope();
+            lst.reserve(ROBOCONF_GENERIC_VECTOR_RESERVE_SIZE);
             lst.push_back( ExpressionItem(lstToPush, fileNo, lineNo) );
         #endif
     }
@@ -458,10 +462,13 @@ void readList_push_back_ExpressionItem(expression_list_t &lst, const std::string
     READLIST_PUSH_BACK_EXPRESSIONITEM_INLINE
     void readList_push_back_ExpressionItem(expression_list_t &lst, expression_list_t &&lstToPush, FileSet::file_id_t fileNo, size_t &lineNo)
     {
-        UmbaTracyTraceScope();
         #if defined(ROBOCONF_READ_LIST_USE_EMPLACE_BACK)
+            UmbaTracyTraceScope();
+            lst.reserve(ROBOCONF_GENERIC_VECTOR_RESERVE_SIZE);
             lst.emplace_back( std::move(lstToPush), fileNo, lineNo );
         #else
+            UmbaTracyTraceScope();
+            lst.reserve(ROBOCONF_GENERIC_VECTOR_RESERVE_SIZE);
             lst.push_back( ExpressionItem(std::move(lstToPush), fileNo, lineNo) );
         #endif
     }
@@ -469,11 +476,14 @@ void readList_push_back_ExpressionItem(expression_list_t &lst, const std::string
     READLIST_PUSH_BACK_EXPRESSIONITEM_INLINE
     void readList_push_back_ExpressionItem(expression_list_t &lst, const expression_list_t &lstToPush, FileSet::file_id_t fileNo, size_t &lineNo)
     {
-        UmbaTracyTraceScope();
         #if defined(ROBOCONF_READ_LIST_USE_EMPLACE_BACK)
+            UmbaTracyTraceScope();
+            lst.reserve(ROBOCONF_GENERIC_VECTOR_RESERVE_SIZE);
             lst.emplace_back( lstToPush, fileNo, lineNo );
         #else
+            UmbaTracyTraceScope();
             //lst.emplace_back( ExpressionItem(std::move(lstToPush), fileNo, lineNo) );
+            lst.reserve(ROBOCONF_GENERIC_VECTOR_RESERVE_SIZE);
             lst.emplace_back( lstToPush, fileNo, lineNo );
         #endif
     }
@@ -794,7 +804,7 @@ size_t readListToVector( const expression_list_t &lst, std:: vector< std::string
     {
         if (bUnquote)
             unquoteTrimString( str );
-        v.push_back(str);
+        v.emplace_back(str);
     }
     return v.size();
 }
@@ -1688,7 +1698,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
 
                           if (resultItem.tokenIds.empty())
                           {
-                              readTo.push_back(resultItem);
+                              readTo.emplace_back(resultItem);
                               // allowed tokens set not found
                               //return true;
                           }
@@ -1699,7 +1709,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                               if (tit == resultItem.tokenIds.end())
                               {
                                   // token not found
-                                  readTo.push_back(resultItem);
+                                  readTo.emplace_back(resultItem);
                                   if (resultItem.ruleFlags&ExpressionParsingRuleFlags::good_stop_flag)
                                   {
                                       ++it;
@@ -1712,7 +1722,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                               else
                               {
                                   resultItem.tokenId = tit->second;
-                                  readTo.push_back(resultItem);
+                                  readTo.emplace_back(resultItem);
                               }
                           }
                       }
@@ -1742,7 +1752,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                                   return ExpressionParsingResult::success;
                               }
 
-                              readTo.push_back(resultItem);
+                              readTo.emplace_back(resultItem);
 
                               skipIncrement = true;
                           }
@@ -1750,7 +1760,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                           {
                               if (resultItem.ruleFlags&ExpressionParsingRuleFlags::optional_item_flag)
                               {
-                                  readTo.push_back(resultItem);
+                                  readTo.emplace_back(resultItem);
                                   skipIncrement = true;
                               }
                               else
@@ -1772,7 +1782,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                               }
                              
                               resultItem.singleValue = str;
-                              readTo.push_back(resultItem);
+                              readTo.emplace_back(resultItem);
                           }
                       }
                       break;
@@ -1794,7 +1804,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                                   return ExpressionParsingResult::failed;
                               }
 
-                              readTo.push_back(resultItem); // push with empty vector
+                              readTo.emplace_back(resultItem); // push with empty vector
                               return ExpressionParsingResult::success;
                           }
                           else if (!it->isList())
@@ -1808,8 +1818,8 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                                   return ExpressionParsingResult::failed;
                               }
 
-                              resultItem.vectorValue.push_back(str);
-                              readTo.push_back(resultItem);
+                              resultItem.vectorValue.emplace_back(str);
+                              readTo.emplace_back(resultItem);
                           }
                           else // sublist
                           {
@@ -1836,7 +1846,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                                       }
                                   }
                                  
-                                  resultItem.vectorValue.push_back(str);
+                                  resultItem.vectorValue.emplace_back(str);
                               }
 
                               if (resultItem.vectorValue.empty() && (resultItem.ruleFlags&ExpressionParsingRuleFlags::one_more_item_flag)==0)
@@ -1846,7 +1856,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                                   return ExpressionParsingResult::failed;
                               }
 
-                              readTo.push_back(resultItem);
+                              readTo.emplace_back(resultItem);
                           }
 
                           if (resultItem.ruleFlags&ExpressionParsingRuleFlags::stops_on_eol_only)
@@ -1885,7 +1895,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                                   return ExpressionParsingResult::failed;
                               }
 
-                              readTo.push_back(resultItem); // push with empty vector
+                              readTo.emplace_back(resultItem); // push with empty vector
                               return ExpressionParsingResult::success;
                           }
                           else if (!it->isList())
@@ -1922,7 +1932,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                                       }
                                   }
                                  
-                                  resultItem.vectorValue.push_back(str);
+                                  resultItem.vectorValue.emplace_back(str);
                               }
 
                               if (resultItem.vectorValue.empty() && (resultItem.ruleFlags&ExpressionParsingRuleFlags::one_more_item_flag)==0)
@@ -1932,7 +1942,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                                   return ExpressionParsingResult::failed;
                               }
 
-                              readTo.push_back(resultItem);
+                              readTo.emplace_back(resultItem);
                           }
 
                       }
@@ -1947,7 +1957,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                           {
                               const expression_list_t &subLst = it->itemList;
                               expression_list_t::const_iterator subIt = subLst.begin();
-                              std:: vector<std::string> vec; vec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+                              std:: vector<std::string> vec; vec.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
 
                               for(; subIt != subLst.end(); ++subIt)
                               {
@@ -1955,7 +1965,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                                   {
                                       if (resultItem.uncheckedTokens.find("()")!=resultItem.uncheckedTokens.end())
                                       {
-                                          vec.push_back("()");
+                                          vec.emplace_back("()");
                                       }
                                       else
                                       {
@@ -1996,7 +2006,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                                           }
                                       }
                                      
-                                      vec.push_back(str);
+                                      vec.emplace_back(str);
                                   }
                              
                               }
@@ -2085,7 +2095,7 @@ ExpressionParsingResult readListByTemplate( const char *pTpl
                               return ExpressionParsingResult::failed;
                           }
 
-                          readTo.push_back(resultItem);
+                          readTo.emplace_back(resultItem);
 
                           //while(it!=E && it->isList())
                           --it;
@@ -2239,7 +2249,7 @@ bool parseQuery( std::string q, std:: vector<XPathEntry> &xpathExpr, bool ci )
         {
             unquoteTrimString(p);
             AxisType at = fDescendant ? AxisType::descendant_or_child : AxisType::child;
-            xpathExpr.push_back( XPathEntry(at, p, ci) );
+            xpathExpr.emplace_back( XPathEntry(at, p, ci) );
             fDescendant = false;
         }
     }
@@ -2256,7 +2266,7 @@ void collectCandidates( expression_list_t &l, std:: vector< expression_list_t* >
         if (listEntry.isText())
             continue;
 
-        candyList.push_back( &listEntry.itemList );
+        candyList.emplace_back( &listEntry.itemList );
 
         if (bRecurse)
            collectCandidates( listEntry.itemList, candyList, true );
@@ -2276,7 +2286,7 @@ size_t executeQuery( std:: vector< expression_list_t* >   srcLists
                  , bool                                caseIgnore = true
                  )
 {
-    std:: vector< expression_list_t* > resLists; resLists.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< expression_list_t* > resLists; resLists.reserve(srcLists.size());
     srcLists.swap(resLists);
 
     //b->axisType   AxisType::child    AxisType::descendant_or_child
@@ -2286,7 +2296,7 @@ size_t executeQuery( std:: vector< expression_list_t* >   srcLists
         srcLists.clear();
         srcLists.swap(resLists);
 
-        std:: vector< expression_list_t* > candyList; candyList.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector< expression_list_t* > candyList; candyList.reserve(resLists.size());
 
         for( auto pLst : srcLists )
         {
@@ -2306,7 +2316,7 @@ size_t executeQuery( std:: vector< expression_list_t* >   srcLists
                 lstName = lst[0].itemText;
 
             if (b->isNameMatched(lstName))
-                resLists.push_back(pLst); // &subLst
+                resLists.emplace_back(pLst); // &subLst
 
             /*
             expression_list_t::iterator it = lst.begin();
@@ -2326,7 +2336,7 @@ size_t executeQuery( std:: vector< expression_list_t* >   srcLists
                     lstName = subLst[0].itemText;
 
                 if (b->isNameMatched(lstName))
-                    resLists.push_back(&subLst);
+                    resLists.emplace_back(&subLst);
             }
             */
             ++candyNo;
@@ -2350,7 +2360,7 @@ size_t executeQuery( const expression_list_t             &doc
                  , bool                                 ci = true
                  )
 {
-    std:: vector<XPathEntry> xpathExpr; xpathExpr.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector<XPathEntry> xpathExpr; xpathExpr.reserve(ROBOCONF_MIN_LINES_VECTOR_RESERVE_SIZE);
     bool fromRoot = parseQuery( query, xpathExpr, ci );
 
     expression_list_t *pInputList = (expression_list_t*)&doc;
@@ -2364,8 +2374,8 @@ size_t executeQuery( const expression_list_t             &doc
         }
     }
 
-    std:: vector< expression_list_t* > srcLists; srcLists.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
-    srcLists.push_back(pInputList);
+    std:: vector< expression_list_t* > srcLists; srcLists.reserve(ROBOCONF_GENERIC_VECTOR_RESERVE_SIZE);
+    srcLists.emplace_back(pInputList);
 
     return executeQuery( srcLists, xpathExpr.begin(), xpathExpr.end(), pRes, ci );
 }

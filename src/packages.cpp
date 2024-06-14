@@ -245,7 +245,7 @@ ExpressionParsingResult PackagesDb::extractDesignatorAssignment( RoboconfOptions
     std::string expected;
     std::string found;
 
-    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
 
 
 //(packageAssign (designator "DD1")
@@ -312,13 +312,13 @@ ExpressionParsingResult PackagesDb::extractDesignatorAssignment( RoboconfOptions
             for( const auto &v : mvIt->second)
             {
                 packageAssignRule.assignDesignator = v;
-                assignRules.push_back(packageAssignRule);
+                assignRules.emplace_back(packageAssignRule);
             }
             //packageAssignRule.assignDesignator = mvIt->second[0];
             //designatorExists = true;
         }
     }
-    //assignRules.push_back(packageAssignRule);
+    //assignRules.emplace_back(packageAssignRule);
 
     return ExpressionParsingResult::success;
 }
@@ -332,7 +332,7 @@ ExpressionParsingResult PackagesDb::extractPackageFromRule( RoboconfOptions &rbc
     std::string expected;
     std::string found;
 
-    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
 
     const expression_list_t &lst = rule.itemList;
     expression_list_t::const_iterator it = lst.begin();
@@ -357,7 +357,7 @@ ExpressionParsingResult PackagesDb::extractPackageFromList( RoboconfOptions &rbc
     std::string expected;
     std::string found;
 
-    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
 
     // (package "SOT23-5" numPins 5 (SOT25 SC74A SOT753 SMT5 SOT23-5A SOT23-5B) )
     ExpressionParsingResult
@@ -426,7 +426,7 @@ ExpressionParsingResult PackagesDb::extractPackageAliasFromList( RoboconfOptions
     std::string expected;
     std::string found;
 
-    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
 
                                            // 0 1+
     ExpressionParsingResult
@@ -482,7 +482,7 @@ void PackagesDb::logKnownPackages( RoboconfOptions &rbcOpts ) const
     {
         if (!mp.second.aliasFor.empty())
         {
-            aliases[mp.second.aliasFor].push_back(mp.first);
+            aliases[mp.second.aliasFor].emplace_back(mp.first);
         }
     }
 

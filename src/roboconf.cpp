@@ -927,7 +927,7 @@ int safe_main(int argc, char* argv[])
 
     std::vector<ComponentTypePackage> types;
 
-    //types.push_back(ComponentTypePackage("AMS_AS5145-341457"));
+    //types.emplace_back(ComponentTypePackage("AMS_AS5145-341457"));
 
     collectComponentTypes( allNets, types, importantComponentClasses, allowProcessAssemblies );
 
@@ -986,7 +986,7 @@ int safe_main(int argc, char* argv[])
     {
         UmbaTracyTraceScope();
        
-        for( auto libFileName : libFiles)
+        for( const auto &libFileName : libFiles)
         {
             LOG_MSG("search-lib-log")<<"Lookup for: "<<libFileName<<"\n";
             

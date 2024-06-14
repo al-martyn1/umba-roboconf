@@ -400,7 +400,7 @@ struct ComponentImportOptions
 inline
 bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const ComponentImportOptions &opts, ComponentInfo &ci /* , char sep = ';' */  )
 {
-    std:: vector< csv_line_t > csvLines; csvLines.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< csv_line_t > csvLines; csvLines.reserve(ROBOCONF_MIN_LINES_VECTOR_RESERVE_SIZE);
     if (!readCsv( in, csvLines, opts.csvSeparator ))
         return false;
 
@@ -430,7 +430,7 @@ bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const Co
 
     size_t nameIdx = (size_t)-1;
     size_t designatorIdx = (size_t)-1;
-    std:: vector< csv_line_t > validLines; validLines.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< csv_line_t > validLines; validLines.reserve(csvLines.size());
     for( auto line : csvLines )
     {
         // пропускаем всю левую шляпу
@@ -490,7 +490,7 @@ bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const Co
         }
         else
         {
-            validLines.push_back(line);
+            validLines.emplace_back(std::move(line));
         }
     }
 
@@ -512,7 +512,7 @@ bool componentImportFromCsv(RoboconfOptions &rbcOpts, std::istream &in, const Co
         
         std::string strFunctions = line[nameIdx];
         strFunctions = replaceForbiddenChars( strFunctions, opts.invalChars, ' ');
-        std:: vector<std::string> pinFunctionsTmp; pinFunctionsTmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector<std::string> pinFunctionsTmp; pinFunctionsTmp.reserve(ROBOCONF_TEXT_LIST_VECTOR_RESERVE_SIZE);
         splitToVector(strFunctions, pinFunctionsTmp, ' ');
         trim(pinFunctionsTmp);
 
@@ -639,7 +639,7 @@ std:: vector<std::string> splitComponentNamePart( const std::string &name, Roboc
 
     CharClass prevCharClass = charClassInitial;
 
-    std:: vector<std::string> res; res.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector<std::string> res; res.reserve(ROBOCONF_COMP_PARTS_VECTOR_RESERVE_SIZE);
     std::string buf;
     char prevSep = 0;
 
@@ -670,7 +670,7 @@ std:: vector<std::string> splitComponentNamePart( const std::string &name, Roboc
 
         if (prevCharClass!=charClassSep && prevCharClass!=charClass && !buf.empty())
         {
-            res.push_back(buf);
+            res.emplace_back(buf);
             buf.clear();
         }
 
@@ -693,7 +693,7 @@ std:: vector<std::string> splitComponentNamePart( const std::string &name, Roboc
 
     if (!buf.empty())
     {
-        res.push_back(buf);
+        res.emplace_back(std::move(buf));
     }
 
     return res;
@@ -735,8 +735,8 @@ std:: vector<std::string> splitComponentName( const std::string &name, RoboconfO
 inline
 std:: vector<std::string> generateComponentNamePartSingleX( const std::string &name, char ch = '_' )
 {
-    std:: vector<std::string> res; res.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
-    res.push_back( name );
+    std:: vector<std::string> res; res.reserve(ROBOCONF_COMP_PARTS_VECTOR_RESERVE_SIZE);
+    res.emplace_back( name );
 
     std::string::size_type i = 0, size = name.size();
     
@@ -755,7 +755,7 @@ std:: vector<std::string> generateComponentNamePartSingleX( const std::string &n
         //    continue;
         std::string tmp = name;
         tmp[size-1-i] = ch;
-        res.push_back(tmp);
+        res.emplace_back(tmp);
     }
     return res;
 }
@@ -768,7 +768,8 @@ std:: vector<std::string> generateComponentNamePartXXX( std::string name, char c
 
     //std:: vector<std::string> tmp = generateComponentNamePartSingleX(name);
 
-    std:: vector<std::string> res; res.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector<std::string> res;
+    // res.reserve(ROBOCONF_COMP_PARTS_VECTOR_RESERVE_SIZE); // не нужно, резервируется вычисляемым значением
 
     name = toUpper( name );
 
@@ -794,10 +795,10 @@ std:: vector<std::string> generateComponentNamePartXXX( std::string name, char c
             pos--;
         }
 
-        if (res.empty())
-            res.reserve(maxVal);
+        //if (res.empty())
+        res.reserve(maxVal); 
 
-        res.emplace_back(tmpName);
+        res.emplace_back(std::move(tmpName));
     }
 
     std::sort( res.begin(), res.end() );
@@ -815,7 +816,7 @@ std:: vector<std::string> generateComponentNamePartXXX( std::string name, char c
 
     if (i==size)
     {
-        //res.push_back( nameBak );
+        //res.emplace_back( nameBak );
         return res;
     }
 
@@ -826,7 +827,7 @@ std:: vector<std::string> generateComponentNamePartXXX( std::string name, char c
         //if (name[size-1-i]=='-')
         //    continue;
         name[size-1-i  ] = ch; // +1
-        res.push_back(name);
+        res.emplace_back(name);
     }
 
     return res;
@@ -893,7 +894,7 @@ std:: vector<std::string> generateComponentNamesSingleLen(  RoboconfOptions &rbc
         //std:: vector< std::string > partSetX;
         //if (it == nameParts.begin())
         //{
-        //    partSetX.push_back(*it);
+        //    partSetX.emplace_back(*it);
         //}
         //else
         //{
@@ -909,8 +910,8 @@ std:: vector<std::string> generateComponentNamesSingleLen(  RoboconfOptions &rbc
             }
             */
         //}
-        //namePartsXXX.push_back(partSetX);
-        //namePartsXXX.push_back(xxx);
+        //namePartsXXX.emplace_back(partSetX);
+        //namePartsXXX.emplace_back(xxx);
         namePartsXXX.emplace_back(xxx);
     }
 
@@ -937,15 +938,15 @@ std:: vector<std::string> generateComponentNamesSingleLen(  RoboconfOptions &rbc
         {
             if (!cmpUserSuffix.empty())
             {
-                res.emplace_back( n + std::string("-") + cmpPackage );
-                res.emplace_back( n + std::string("-") + cmpPackage + std::string("-") + cmpUserSuffix );
+                res.emplace_back( std::move(n + std::string("-") + cmpPackage) );
+                res.emplace_back( std::move(n + std::string("-") + cmpPackage + std::string("-") + cmpUserSuffix) );
                 res.emplace_back( n );
-                res.emplace_back( n + std::string("-") + cmpUserSuffix );
+                res.emplace_back( std::move(n + std::string("-") + cmpUserSuffix) );
             }
             else
             {
-                res.emplace_back( n + std::string("-") + cmpPackage );
-                res.emplace_back( n );
+                res.emplace_back( std::move(n + std::string("-") + cmpPackage) );
+                res.emplace_back( std::move(n) );
             }
         }
         else // cmpPackage - empty
@@ -953,11 +954,11 @@ std:: vector<std::string> generateComponentNamesSingleLen(  RoboconfOptions &rbc
             if (!cmpUserSuffix.empty())
             {
                 res.emplace_back( n );
-                res.emplace_back( n + std::string("-") + cmpUserSuffix );
+                res.emplace_back( std::move(n + std::string("-") + cmpUserSuffix) );
             }
             else
             {
-                res.emplace_back( n );
+                res.emplace_back( std::move(n) );
             }
         }
     }
@@ -967,11 +968,12 @@ std:: vector<std::string> generateComponentNamesSingleLen(  RoboconfOptions &rbc
 
 //-----------------------------------------------------------------------------
 inline
-std:: vector<std::string> generateComponentNamesHelper( std::set<std::string> &usedNames, std:: vector<std::string> names, const std:: vector<std::string> &suffixes )
+std:: vector<std::string> generateComponentNamesHelper(  /* std::set<std::string> &usedNames,  */ std:: vector<std::string> names, const std:: vector<std::string> &suffixes )
 {
     for( const auto& sfx : suffixes )
     {
-        std:: vector<std::string> tmp; tmp.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector<std::string> tmp;
+        tmp.reserve(names.size());
 
         for( const auto &n : names )
         {
@@ -987,7 +989,7 @@ std:: vector<std::string> generateComponentNamesHelper( std::set<std::string> &u
 
             //if (usedNames.find(newName)==usedNames.end())
             {
-                tmp.emplace_back(newName);
+                tmp.emplace_back(std::move(newName));
             //    usedNames.insert(newName);
             }
         }
@@ -1002,18 +1004,18 @@ std:: vector<std::string> generateComponentNamesHelper( std::set<std::string> &u
 }
 
 //-----------------------------------------------------------------------------
-inline
-std:: vector<std::string> generateComponentNamesHelper( const std:: vector<std::string> &names, const std:: vector<std::string> &suffixes )
-{
-    std::set<std::string> usedNames;
-    return generateComponentNamesHelper( usedNames, names, suffixes );
-}
+// inline
+// std:: vector<std::string> generateComponentNamesHelper( const std:: vector<std::string> &names, const std:: vector<std::string> &suffixes )
+// {
+//     std::set<std::string> usedNames;
+//     return generateComponentNamesHelper( usedNames, names, suffixes );
+// }
 
 //-----------------------------------------------------------------------------
 inline
 std:: vector<std::string> generateComponentNamesHelper( const std::string &name, const std:: vector<std::string> &suffixes )
 {
-    std:: vector< std::string > names; names.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< std::string > names;
     names.emplace_back(name);
     return generateComponentNamesHelper( names, suffixes );
 }
@@ -1136,7 +1138,7 @@ bool componentReadCmp(RoboconfOptions &rbcOpts, FileSet::file_id_t fileNo, std::
     std::string allText = readFileEncoded /* Safe */ ( in /*, std::string srcEnc = std::string(), std::string targetEnc = "UTF-8", std::string httpHint = std::string(), std::string metaHint = std::string() */ );
     std::string allTextTrimmed = allText; ltrim(allTextTrimmed);
 
-    std:: vector< std::string > lines; lines.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< std::string > lines; lines.reserve(ROBOCONF_MIN_LINES_VECTOR_RESERVE_SIZE);
 
     if (startsWith( allTextTrimmed, "(componentDefinition" ) || startsWith( allTextTrimmed, "(--" ))
         netlistType = NetlistSrcType::netlistSrcType_ACCEL_ASCII;
@@ -1211,7 +1213,7 @@ std::string pinFunctionNameWithoutNegation( std::string fnName )
 inline
 std:: vector< std::string > pinFunctionNameSplit( const std::string &pinFunction, bool removeNegations = true )
 {
-    std:: vector<std::string> vec; vec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector<std::string> vec; vec.reserve(ROBOCONF_TEXT_LIST_VECTOR_RESERVE_SIZE);
     splitToVector( pinFunction, vec, "_" );
     if (removeNegations)
     {
@@ -1411,7 +1413,7 @@ bool componentParseList    (RoboconfOptions &rbcOpts, const expression_list_t &l
     while(readListTextItem( lst, it, str, true ))
     {
         //ci.allTypeNames.push_back( toUpper(str) );
-        ci.allTypeNames.push_back( str );
+        ci.allTypeNames.emplace_back( str );
     }
 
     if (ci.allTypeNames.empty())
@@ -1544,14 +1546,14 @@ bool componentParseList    (RoboconfOptions &rbcOpts, const expression_list_t &l
         {
             while(readListTextItem( subList, subIt, str, true ))
             {
-                ci.modules.push_back(str);
+                ci.modules.emplace_back(str);
             }
         }
         else if (sublistHeaderToken==ComponentCmpListToken::tokenHeaders)
         {
             while(readListTextItem( subList, subIt, str, true ))
             {
-                ci.headers.push_back(str);
+                ci.headers.emplace_back(str);
             }
         }
         else if (sublistHeaderToken==ComponentCmpListToken::tokenPin)
@@ -1603,10 +1605,10 @@ bool componentParseList    (RoboconfOptions &rbcOpts, const expression_list_t &l
             while(readListTextItem( subList, subIt, str, true ))
             {
                 //net.push_back( (unsigned)parseIntegerTolerant( str, 10 ) );
-                net.push_back( str );
+                net.emplace_back( str );
             }
 
-            ci.internalNets.push_back( net );
+            ci.internalNets.emplace_back( net );
         }
         else if (sublistHeaderToken==ComponentCmpListToken::tokenPinFunctionMatch)
         {

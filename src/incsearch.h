@@ -32,7 +32,7 @@ bool includeSearch( std::ifstream &ifs, const std::string &includeFile, std::str
         //std::string fileName = p.empty() ? includeFile : p + std::string("\\") + includeFile;
         std::string fileName = appendPath(p, includeFile);
         if (pCheckedFiles)
-            pCheckedFiles->push_back(fileName);
+            pCheckedFiles->emplace_back(fileName);
 
         //using std::ios_base::iostate;
         //ifs.clear(eofbit|failbit|badbit);

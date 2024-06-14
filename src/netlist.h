@@ -35,7 +35,7 @@ bool netlistParse_EDIF( RoboconfOptions &rbcOpts, const expression_list_t &netli
     using ListSimpleXPath::PathValues;
     using ListSimpleXPath::executeQuery;
 
-    std:: vector< expression_list_t* >   enumEdifQueryResults; enumEdifQueryResults.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< expression_list_t* >   enumEdifQueryResults; //enumEdifQueryResults.reserve();
     
 #if 0
 
@@ -101,7 +101,7 @@ bool netlistParse_EDIF( RoboconfOptions &rbcOpts, const expression_list_t &netli
 
         std::string expected;
         std::string found;
-        std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
 
         ExpressionParsingResult
         ROBOCONF_PARSE_READ_LIST_BY_TEMPLATE( "Ti:edif;V", edifIt, edifList.end()
@@ -119,7 +119,7 @@ bool netlistParse_EDIF( RoboconfOptions &rbcOpts, const expression_list_t &netli
 
         // Looking for the version
         //edifQueryResults.clear();
-        std:: vector< expression_list_t* > queryResults; queryResults.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector< expression_list_t* > queryResults; queryResults.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
         executeQuery( edifList, "edifVersion", &queryResults, caseIgnore );
         if (!queryResults.empty())
         {
@@ -487,7 +487,7 @@ bool netlistParseComponent_ACCEL_ASCII( RoboconfOptions &rbcOpts, const expressi
         if (it->isText())
             continue;
 
-        std:: vector< std::string > v; v.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector< std::string > v; v.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
         if (readListToVector( it->itemList, v, true ) < 2)
             continue;
         //TODO:
@@ -595,7 +595,7 @@ bool netlistParseNet_ACCEL_ASCII( const expression_list_t &lst, NetInfo &netInfo
             continue;
 
         //const std::list<ExpressionItem> &nodeList = item->listItem;
-        std:: vector< std::string > v; v.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector< std::string > v; v.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
         if (readListToVector( it->itemList, v ) < 3)
             continue;
 
@@ -629,7 +629,7 @@ bool netlistRead( RoboconfOptions &rbcOpts
 {
     UmbaTracyTraceScope();
     
-    std:: vector< std::string > lines; lines.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< std::string > lines; lines.reserve(ROBOCONF_LINES_VECTOR_RESERVE_SIZE);
 
     std::string allText = readFileEncoded /* Safe */ ( in /*, std::string srcEnc = std::string(), std::string targetEnc = "UTF-8", std::string httpHint = std::string(), std::string metaHint = std::string() */ );
     std::string allTextTrimmed = allText; ltrim(allTextTrimmed);
@@ -1032,7 +1032,7 @@ bool netlistParseCache(RoboconfOptions &rbcOpts, std:: vector<std::string> lines
         else if ( startsWithAndStrip( line, "pin") )
         {
             ltrim(line);
-            std:: vector<std::string> vec; vec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+            std:: vector<std::string> vec; vec.reserve(ROBOCONF_TEXT_LIST_VECTOR_RESERVE_SIZE);
             splitToVector( line, vec, ' ' );
             auto it = vec.begin();
             if (it==vec.end())

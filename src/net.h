@@ -355,13 +355,13 @@ struct ComponentTypesCollector
     {
         if (ci.componentClass==ComponentClass::cc_RESISTOR && ci.assembly)
         {
-            std::ostringstream oss;
-            oss<<"RESISTOR_X"<<ci.assembly;
-            types.push_back(ComponentTypePackage(oss.str()));
+            std::string typeName = "RESISTOR_X";
+            typeName.append(std::to_string(ci.assembly));
+            types.emplace_back(ComponentTypePackage(typeName));
         }
         else
         {
-            types.push_back(ComponentTypePackage(ci.typeName, ci.package));
+            types.emplace_back(ComponentTypePackage(ci.typeName, ci.package));
         }
     }
 }; // struct ComponentTypesCollector

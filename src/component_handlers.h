@@ -26,11 +26,11 @@ struct ComponentDesignatorsCollector
     {
         if (ci.componentClass== ComponentClass::cc_RESISTOR && ci.assembly)
         {
-            designators.push_back( ci.designator );
+            designators.emplace_back( ci.designator );
         }
         else
         { //-V523
-            designators.push_back( ci.designator );
+            designators.emplace_back( ci.designator );
         }
     }
 }; // struct ComponentTypesCollector
@@ -43,14 +43,14 @@ struct ComponentPurposeDesignatorsCollector
 
     ComponentPurposeDesignatorsCollector(std:: vector< std::string > &d, const std::string &prp ) : designators( d ), purpose(prp)
     {
-        designators.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
     }
 
     void operator()( const ComponentInfo &ci, const NetlistInfo &netlistInfo ) const
     {
         if (ci.purpose==purpose)
         {
-            designators.push_back( ci.designator );
+            designators.reserve(ROBOCONF_MIN_LINES_VECTOR_RESERVE_SIZE);
+            designators.emplace_back( ci.designator );
         }
     }
 }; // struct ComponentPurposeDesignatorsCollector
@@ -72,9 +72,8 @@ struct ComponentTypesUpdater
         std::string typeName = ci.typeName;
         if (ci.componentClass == ComponentClass::cc_RESISTOR && ci.assembly)
         {
-            std::ostringstream oss;
-            oss << "RESISTOR_X" << ci.assembly;
-            typeName = oss.str();
+            typeName = "RESISTOR_X";
+            typeName.append(std::to_string(ci.assembly));
         }
 
         for( const auto & candy : components )
@@ -187,20 +186,27 @@ struct ComponentInternalNetsPublisher
         unsigned netNo = 0;
         for( auto in : internalNets )
         {
-            std::ostringstream ossNetName;
-            ossNetName<<ci.designator<<"_INTERNAL_NET_"<< netNo++;
+            // std::ostringstream ossNetName;
+            // ossNetName<<ci.designator<<"_INTERNAL_NET_"<< netNo++;
+            std::string tmpNetName = ci.designator;
+            tmpNetName.append("_INTERNAL_NET_");
+            tmpNetName.append(std::to_string(netNo++));
 
             NetInfo netInfo;
-            netInfo.name = ossNetName.str();
+            netInfo.name = tmpNetName;
             netInfo.payload = ci.designator;
 
             for( auto inn : in )
             {
                 NetNode netNode;
                 netNode.targetDesignator = ci.designator;
-                std::ostringstream ossTdf;
-                ossTdf<<ci.designator<<"."<<inn;
-                netNode.targetDesignatorFull = ossTdf.str();
+
+                // std::ostringstream ossTdf;
+                // ossTdf<<ci.designator<<"."<<inn;
+                std::string tmpDsgFull = ci.designator;
+                tmpDsgFull.append(inn);
+
+                netNode.targetDesignatorFull = tmpDsgFull; // ossTdf.str();
                 netNode.targetPin = inn;
                 netInfo.nodes[netNode.targetDesignatorFull] = netNode;
             }
@@ -245,9 +251,12 @@ struct ComponentPackageExistenceChecker
         std::string typeName = ci.typeName;
         if (ci.componentClass == ComponentClass::cc_RESISTOR && ci.assembly)
         {
-            std::ostringstream oss;
-            oss << "RESISTOR_X" << ci.assembly;
-            typeName = oss.str();
+            // std::ostringstream oss;
+            // oss << "RESISTOR_X" << ci.assembly;
+            // typeName = oss.str();
+            typeName = "RESISTOR_X";
+            typeName.append(std::to_string(ci.assembly));
+
         }
 
         if (ci.package.empty())

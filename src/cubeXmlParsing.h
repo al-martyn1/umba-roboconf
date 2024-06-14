@@ -213,7 +213,7 @@ std::string generateMaskForNameSet( const std::set<std::string> &s, bool minMaxO
     std::string maskMin;
     std::string maskMax;
 
-    std:: vector<std::string> allChars; allChars.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector<std::string> allChars; allChars.reserve(1024u);
 
     std::string strAny;
 
@@ -564,11 +564,11 @@ void parseMcu( std:: vector< CubeMcuInfo > &mcus, const pugi::xml_node &mcuNode,
             const pugi::xml_node &periphNode = *nit;
             std::string periphName = periphNode.attribute("Type").as_string();
             unsigned    nperiph    = periphNode.attribute("MaxOccurs").as_uint();
-            cubeMcuInfo.periphCounts.push_back( CubeMcuPeriphCountInfo( periphName, nperiph ) );
+            cubeMcuInfo.periphCounts.emplace_back( CubeMcuPeriphCountInfo( periphName, nperiph ) );
         }
     }
 
-    mcus.push_back(cubeMcuInfo);
+    mcus.emplace_back(cubeMcuInfo);
 
 }
 
@@ -693,14 +693,14 @@ void  parseMcuPins(std:: vector< CubeMcuPinInfo > &mcuPins, const pugi::xml_node
             std::string pinName, pinExtFn;
             if (splitToPair( pinInfo.name, pinName, pinExtFn, '_' ))
             {
-                pinInfo.functions.push_back(pinName);
-                pinInfo.functions.push_back(pinExtFn);
-                pinInfo.functions.push_back(pinInfo.name);
+                pinInfo.functions.emplace_back(pinName);
+                pinInfo.functions.emplace_back(pinExtFn);
+                pinInfo.functions.emplace_back(pinInfo.name);
                 pinInfo.name = pinName;
             }
             else
             {
-                pinInfo.functions.push_back(pinInfo.name);
+                pinInfo.functions.emplace_back(pinInfo.name);
             }
 
             pugi::xml_node_iterator pit = pinNode.begin();
@@ -714,7 +714,7 @@ void  parseMcuPins(std:: vector< CubeMcuPinInfo > &mcuPins, const pugi::xml_node
                 std::string signalName = signalNode.attribute("Name").as_string();
                 if (signalName!="GPIO")
                 {
-                    pinInfo.functions.push_back(makeCppDefineName(signalName));
+                    pinInfo.functions.emplace_back(makeCppDefineName(signalName));
                     continue;
                 }
 
@@ -722,7 +722,7 @@ void  parseMcuPins(std:: vector< CubeMcuPinInfo > &mcuPins, const pugi::xml_node
                 if (ioModesVecStr.empty())
                     continue;
 
-                std:: vector<std::string> ioModesVec; ioModesVec.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+                std:: vector<std::string> ioModesVec; ioModesVec.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
                 splitToVector( ioModesVecStr, ioModesVec, ',' );
 
                 std:: vector<std::string>::const_iterator mvIt = ioModesVec.begin();
@@ -733,19 +733,19 @@ void  parseMcuPins(std:: vector< CubeMcuPinInfo > &mcuPins, const pugi::xml_node
 
                     if (*mvIt == "Input")
                     {
-                        pinInfo.modes.push_back("IN");
+                        pinInfo.modes.emplace_back("IN");
                     }
                     else if (*mvIt == "Output")
                     {
-                        pinInfo.modes.push_back("OUT");
+                        pinInfo.modes.emplace_back("OUT");
                     }
                     else if (*mvIt == "Power")
                     {
-                        pinInfo.modes.push_back("PWR");
+                        pinInfo.modes.emplace_back("PWR");
                     }
                     else
                     {
-                        pinInfo.modes.push_back( makeCppDefineName(*mvIt) );
+                        pinInfo.modes.emplace_back( makeCppDefineName(*mvIt) );
                     }
 
                 } // for(; mvIt != ioModesVec.end(); ++mvIt)
@@ -755,71 +755,71 @@ void  parseMcuPins(std:: vector< CubeMcuPinInfo > &mcuPins, const pugi::xml_node
             if (pinInfo.modes.empty())
             {
                 if (pinType=="Power")
-                    pinInfo.modes.push_back( "PWR" );
+                    pinInfo.modes.emplace_back( "PWR" );
                 else
-                    pinInfo.modes.push_back( makeCppDefineName(pinType) );
+                    pinInfo.modes.emplace_back( makeCppDefineName(pinType) );
             }
 
             if (pinInfo.name=="VCC")
             {
-                pinInfo.modes.push_back( "PWR_PLUS" );
+                pinInfo.modes.emplace_back( "PWR_PLUS" );
             }
             else if (pinInfo.name=="VEE")
             {
                 //pinInfo.modes.push_back( "PWR_BP_MINUS (-- Bipolar power minus)" );
-                pinInfo.modes.push_back( "PWR_GND" );
+                pinInfo.modes.emplace_back( "PWR_GND" );
             }
             else if (pinInfo.name=="VDD")
             {
-                pinInfo.modes.push_back( "PWR_PLUS" );
+                pinInfo.modes.emplace_back( "PWR_PLUS" );
             }
             else if (pinInfo.name=="VDDUSB")
             {
                 // <Pin Name="VDDUSB" Position="G11" Type="Power"/>
-                pinInfo.modes.push_back( "PWR_PLUS_USB" );
+                pinInfo.modes.emplace_back( "PWR_PLUS_USB" );
             }
             else if (pinInfo.name=="VSS")
             {
-                pinInfo.modes.push_back( "PWR_GND" );
+                pinInfo.modes.emplace_back( "PWR_GND" );
             }
             else if (pinInfo.name=="VDDA")
             {
-                pinInfo.modes.push_back( "PWR_PLUS_ANALOG" );
+                pinInfo.modes.emplace_back( "PWR_PLUS_ANALOG" );
             }
             else if (pinInfo.name=="VSSA")
             {
-                pinInfo.modes.push_back( "PWR_GND_ANALOG" );
-                pinInfo.modes.push_back( "PWR_GND" );
+                pinInfo.modes.emplace_back( "PWR_GND_ANALOG" );
+                pinInfo.modes.emplace_back( "PWR_GND" );
             }
             else if (pinInfo.name=="AGND")
             {
-                pinInfo.modes.push_back( "PWR_GND_ANALOG" );
-                pinInfo.modes.push_back( "PWR_GND" );
+                pinInfo.modes.emplace_back( "PWR_GND_ANALOG" );
+                pinInfo.modes.emplace_back( "PWR_GND" );
             }
             else if (pinInfo.name=="DGND")
             {
-                pinInfo.modes.push_back( "PWR_GND" );
-                pinInfo.modes.push_back( "PWR_GND" );
+                pinInfo.modes.emplace_back( "PWR_GND" );
+                pinInfo.modes.emplace_back( "PWR_GND" );
             }
             else if (pinInfo.name=="VBAT")
             {
-                pinInfo.modes.push_back( "PWR_PLUS_BAT" );
-                pinInfo.modes.push_back( "PWR_PLUS_RTC" );
+                pinInfo.modes.emplace_back( "PWR_PLUS_BAT" );
+                pinInfo.modes.emplace_back( "PWR_PLUS_RTC" );
             }
             else if (pinInfo.name=="VREF+" || pinInfo.name=="VREFPLUS" || pinInfo.name=="VREF")
             {
-                pinInfo.modes.push_back( "PWR_PLUS_REF" );
+                pinInfo.modes.emplace_back( "PWR_PLUS_REF" );
             }
             else if (pinInfo.name=="VREF-" || pinInfo.name=="VREFMINUS" || pinInfo.name=="VREF_")
             {
-                pinInfo.modes.push_back( "PWR_GND_REF" );
-                pinInfo.modes.push_back( "PWR_GND" );
+                pinInfo.modes.emplace_back( "PWR_GND_REF" );
+                pinInfo.modes.emplace_back( "PWR_GND" );
             }
             // VDDIO2
             else if (pinInfo.name=="VDDIO2")
             {
-                pinInfo.modes.push_back( "PWR_PLUS_IO2" );
-                pinInfo.modes.push_back( "PWR_PLUS" );
+                pinInfo.modes.emplace_back( "PWR_PLUS_IO2" );
+                pinInfo.modes.emplace_back( "PWR_PLUS" );
             }
             // VREF problem??? STM32L4S5ZI-LQFP144.cmp
 //            else if (pinInfo.name=="")
@@ -833,7 +833,7 @@ void  parseMcuPins(std:: vector< CubeMcuPinInfo > &mcuPins, const pugi::xml_node
 
 
 
-            mcuPins.push_back( pinInfo );
+            mcuPins.emplace_back( pinInfo );
 
 
         }

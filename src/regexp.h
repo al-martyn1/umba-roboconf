@@ -83,9 +83,11 @@ void smatchFillVars( const std::smatch &m, const std::string &text, string_strin
 
     for(size_t i = 1; i<m.size(); ++i)
 	{
-        std::ostringstream oss;
-        oss<<"{"<<i<<"}";
-        vars[oss.str()] = m.str(i);
+        std::string tmp = "{";
+        tmp.append(std::to_string(i));
+        tmp.append("}");
+        //vars[oss.str()] = m.str(i);
+        vars[tmp] = m.str(i);
     }
 }
 

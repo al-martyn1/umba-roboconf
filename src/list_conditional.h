@@ -126,7 +126,7 @@ ConditionalTestResult testConditional(RoboconfOptions &rbcOpts
 
     std::string expected;
     std::string found;
-    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
 
     /*
     (conditional (matchValue "mcu")(matchCase i|ignore|c|s|case|sensitive)(matchType exact|regex|prefix)(matchTo "STM32") )
@@ -430,12 +430,12 @@ extractConditionalLists( RoboconfOptions &rbcOpts
         matchValues[toLower(kv.first)] = kv.second;
     }
 
-    std:: vector< expression_list_t* > resLists; resLists.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< expression_list_t* > resLists; resLists.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
 
     std::string expected;
     std::string found;
    
-    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+    std:: vector< ExpressionParsingResultItem > readedVals; readedVals.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
 
     bool hasErrors = false;
 
@@ -453,7 +453,7 @@ extractConditionalLists( RoboconfOptions &rbcOpts
         if (!readedVals.empty())
             listUnderConditionName = readedVals[0].token;
 
-        std:: vector< expression_list_t* > parents; parents.reserve(ROBOCONF_COMMON_VECTOR_RESERVE_SIZE);
+        std:: vector< expression_list_t* > parents; parents.reserve(ROBOCONF_SMALL_LIST_VECTOR_RESERVE_SIZE);
         bool parentsGood = true;
         expression_list_t *pParent = lst.getParentList();
 
@@ -478,7 +478,7 @@ extractConditionalLists( RoboconfOptions &rbcOpts
 
             if (bAdd)
             {
-                parents.push_back( pParent );
+                parents.emplace_back( pParent );
             }
 
             pParent = pParent->getParentList(); // parentLst.
@@ -521,7 +521,7 @@ extractConditionalLists( RoboconfOptions &rbcOpts
         if (!hasErrors)
         {
             if (conditionalRes)
-                resLists.push_back(pList);
+                resLists.emplace_back(pList);
         }
     }
 
