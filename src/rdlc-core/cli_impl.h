@@ -631,12 +631,12 @@ struct CommandLineOption
     std::string getHelpOptionsString() const
     {
         return
-        "-h\n"
-        "-?\n"
-        "--help\n"
-        "    Show this help.\n"
-        "    See also RTC RFC010 for details (http://wiki.dep111.rtc.local/rfcrtc:rfcrtc010).\n";
-
+            "-h\n"
+            "-?\n"
+            "--help\n"
+            "    Show this help.\n"
+            //"    See also RTC RFC010 for details (http://wiki.dep111.rtc.local/rfcrtc:rfcrtc010).\n";
+            ;
     }
 
     bool isOption( std::string optLongName ) const
