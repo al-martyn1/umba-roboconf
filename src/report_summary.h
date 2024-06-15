@@ -65,6 +65,8 @@ struct SummaryReportGenerator : public ReportHtmlBase // IReportGenerator
         os<<"</head>\n";
         os<<htmlStyle();
 
+        os<<makeRoboconfInfoDiv()<<"\n";
+
         std::size_t tableLineCount = 0;
 
         for( const auto& nlIt : nets )

@@ -64,6 +64,8 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
         os<<"</head>\n";
         os<<htmlStyle();
 
+        os<<makeRoboconfInfoDiv()<<"\n";
+
         std::size_t tableLineCount = 0;
 
         size_t processedMcus = 0;

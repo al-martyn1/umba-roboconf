@@ -10,6 +10,9 @@
 #include "string_string_map_type.h"
 
 //
+#include "report_html_base.h"
+
+//
 #include "tracy_tracing.h"
 
 
@@ -105,7 +108,7 @@ struct GenericReportGeneratorInfo
 
 
 
-struct GenericReportGenerator : public IReportGenerator
+struct GenericReportGenerator : public ReportHtmlBase // IReportGenerator
 {
     GenericReportGeneratorInfo generatorInfo;
 
@@ -244,6 +247,13 @@ struct GenericReportGenerator : public IReportGenerator
 
             if (!first->second.projectName.empty())
                 docTitle = first->second.projectName + std::string(" - ") + docTitle;
+        }
+
+        if (shortCommentStart(os))
+        {
+            os<<makeRoboconfInfo();
+            shortCommentEnd(os);
+            os<<"\n";
         }
 
         if (shortCommentStart(os))

@@ -5,6 +5,8 @@
 #include "datacheetUtils.h"
 #include "encoding.h"
 #include "roboconf_options.h"
+#include "umba/compiler_info.h"
+
 
 #include <sstream>
 
@@ -27,7 +29,7 @@ struct ReportHtmlBase : public IReportGenerator
 "@media print {\n"
 "td, th {\n"
 "  margin : 0;\n"
-"  padding: 0.3pt;"
+"  padding: 0.3pt;\n"
 "}\n"
 
 ".screen-only { display: none; }\n"
@@ -44,12 +46,18 @@ struct ReportHtmlBase : public IReportGenerator
 "/*header { background: none; color: #000; }*/\n"
 "/*header img { -webkit-filter: invert(100%);*/\n"
 "/*filter: invert(100%); }*/\n"
-"}\n"
+"} /* media */\n"
 "\n"
 "h1,h2,h3,h4 {\n\
     COLOR: #3570a0;\n\
 }\n\
 \n"
+".tiny {"
+"font-size: 50%;"
+"\n}"
+".small {"
+"font-size: 70%;"
+"\n}"
 ".even {\n"
 "  background-color: #F4F4F4 /* #efeff2 */ ;\n"
 "}\n"
@@ -197,6 +205,75 @@ table {
     border-color: grey;
 }
 */
+
+//     std::cout<<roboconfVersion<<"\n";
+// }
+//  
+// void printNameVersion( const std::string &indent = "" )
+// {
+//     std::cout<<indent<<"Robot Configuration Extraction Tool version ";
+//     printOnlyVersion();
+//  
+//     std::cout << umba::getAppPlatformArchitecture() <<"\n";
+//  
+//     std::string compilerFullInfoString = umba::getCompilerNameVersionString();
+//     {
+//         std::string compilerSimulateFullInfoString = umba::getCompilerSimulateNameVersionString();
+//         if (!compilerSimulateFullInfoString.empty())
+//         {
+//             compilerFullInfoString += " (as ";
+//             compilerFullInfoString += compilerSimulateFullInfoString;
+//             compilerFullInfoString += ")";
+//         }
+//     }
+//  
+//     std::cout << "Built with " << compilerFullInfoString <<" compiler\n";
+//  
+//     std::cout<< "Built at "<<roboconfBuildDate<<" "<<roboconfBuildTime<<"\n";
+
+
+// .screen-only
+// tiny
+
+    std::string makeRoboconfInfo()
+    {
+        std::ostringstream oss;
+        oss << "Umba-Roboconf v" << roboconfVersion;
+
+        auto platformArch = umba::getAppPlatformArchitecture();
+        if (!platformArch.empty())
+        {
+            oss << " " << platformArch;
+        }
+
+        auto compilerFullInfoString = umba::getCompilerNameVersionString();
+        if (!compilerFullInfoString.empty())
+        {
+            auto compilerSimulateFullInfoString = umba::getCompilerSimulateNameVersionString();
+            if (!compilerSimulateFullInfoString.empty())
+            {
+                compilerFullInfoString += " (as ";
+                compilerFullInfoString += compilerSimulateFullInfoString;
+                compilerFullInfoString += ")";
+            }
+
+            oss << " " << compilerFullInfoString;
+        }
+
+        oss << " " << roboconfBuildDate << " " << roboconfBuildTime;
+
+        return oss.str();
+    }
+
+    std::string makeRoboconfInfoDiv()
+    {
+        std::ostringstream oss;
+        oss << "<div class=\"screen-only small\">"; // tiny
+        oss << makeRoboconfInfo();
+        oss << "</div>";
+        return oss.str();
+    }
+
 
     std::string prepareLinkUrl(RoboconfOptions &rbcOpts, std::string url) const
     {

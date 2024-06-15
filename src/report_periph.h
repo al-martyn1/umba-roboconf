@@ -67,6 +67,8 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
         os<<"</head>\n";
         os<<htmlStyle();
 
+        os<<makeRoboconfInfoDiv()<<"\n";
+
         std::size_t tableLineCount = 0;
 
         for( const auto& nlIt : nets )
@@ -94,7 +96,7 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
 
                 processedMcus++;
 
-                os<<"<h2>MCU "<<curMcuD<<" "<<componentKV->second.typeName<<" peripherals</h2>\n";
+                os<<"<h2>MCU "<<curMcuD<<" "<<componentKV->second.typeName<<" peripherials" << (shortReport?" (short)":"") << "</h2>\n";
 
                 {
                     std::string datasheetLink;
@@ -142,6 +144,8 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                 //------------
 
 
+
+
                 std::string wpExtraSmall = shortReport ? "w12p" : "w5p";
                 std::string wpSmall      = shortReport ? "w15p" : "w10p";
                 std::string wpSmallPlus  = shortReport ? "w20p" : "w12p";
@@ -183,7 +187,16 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
 
                 //shortReport
 
-                for( const auto& connGrp : mcuCit->second.connectionGroups) // connGroups )
+
+                std::vector< ConnectionsGroup > groups = mcuCit->second.connectionGroups;
+                std::vector< ConnectionsGroup >::iterator grpIt = groups.begin();
+                if (grpIt!=groups.end())
+                    ++grpIt;
+
+                std::stable_sort(grpIt, groups.end(), ConnectionGroupLessByTitle);
+
+
+                for( const auto& connGrp : groups) // connGroups )
                 {
                     tableLineCount = 0;
                     os<<"<tr>";

@@ -62,6 +62,8 @@ struct NetsReportGenerator : public ReportHtmlBase // IReportGenerator
         os<<"</head>\n";
         os<<htmlStyle();
 
+        os<<makeRoboconfInfoDiv()<<"\n";
+
         for( const auto& nlIt : nets )
         {
             NetlistInfo netlistInfo = nlIt.second; 
