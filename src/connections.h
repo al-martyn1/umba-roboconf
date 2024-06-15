@@ -734,11 +734,11 @@ struct Connection //-V730
     
             for( size_t connIdx = 0; connIdx!=connGrp.connections.size(); )
             {
-                auto conn = connGrp.connections[connIdx];
+                const auto &conn = connGrp.connections[connIdx];
                 if (conn.groupingRuleType==ForceGroupingRule::forceUngroup)
                 {
                     pUngrouppedConns->connections.emplace_back(conn);
-                    connGrp.connections.erase(pUngrouppedConns->connections.begin()+connIdx);
+                    connGrp.connections.erase(connGrp.connections.begin()+connIdx);
                 }
                 else
                 {
@@ -764,7 +764,7 @@ struct Connection //-V730
         UmbaTracyTraceScope();
         for( size_t connIdx = 0; connIdx!=pUngrouppedConns->connections.size(); )
         {
-            auto conn = pUngrouppedConns->connections[connIdx];
+            const auto &conn = pUngrouppedConns->connections[connIdx];
             if (conn.groupingRuleType==ForceGroupingRule::forceGroup)
             {
                 std::string grpName = conn.forceGroupName;
