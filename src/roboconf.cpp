@@ -298,6 +298,8 @@ int safe_main(int argc, char* argv[])
         args.emplace_back("--make-dump");
         // args.emplace_back("--log-source-code-pos");
 
+        // args.emplace_back("--where");
+
         args.emplace_back("-V=1");
         //args.emplace_back("-V=1");
 
@@ -310,7 +312,7 @@ int safe_main(int argc, char* argv[])
         //args.emplace_back("--report=periph");
         //args.emplace_back("--report=mcu");
         //args.emplace_back("-R=summary");
-        args.emplace_back("-R=periph");
+        args.emplace_back("-R=periph-short");
         //args.emplace_back("-R=mcu");
         //args.emplace_back("--no-default-rules");
         args.emplace_back("--rules=" + rootPath + "/tests/rules/es.rul");
