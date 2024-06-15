@@ -31,6 +31,8 @@ void printNameVersion( const std::string &indent = "" )
 
     std::cout << "Built with " << compilerFullInfoString <<" compiler\n";
 
+    std::cout<< "Built at "<<roboconfBuildDate<<" "<<roboconfBuildTime<<"\n";
+
     // #if defined(UMBA_MSVC_COMPILER_USED)
     //     std::cout << "Built with MSVC\n";
     // #elif defined(UMBA_GCC_COMPILER_USED)
