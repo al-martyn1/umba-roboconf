@@ -27,7 +27,7 @@ umba::SimpleFormatter& startLogMessage( const RoboconfOptions   &rbcOpts
     if (logEntryType==LogEntryType::warn && !rbcOpts.isWarningAllowed(msgType))
         return rbcOpts.getNulStream();
 
-    if (logEntryType==LogEntryType::msg && !rbcOpts.isMessageAllowed(msgType))
+    if (logEntryType==LogEntryType::msg && (!rbcOpts.isMessageAllowed(msgType) && msgType!="msg"))
         return rbcOpts.getNulStream();
 
 
