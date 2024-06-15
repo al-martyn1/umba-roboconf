@@ -575,7 +575,7 @@ char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";
 #  define ARCHITECTURE_ID "x64"
 
 # elif defined(_M_IX86)
-#  define ARCHITECTURE_ID "X86"
+#  define ARCHITECTURE_ID "x86"
 
 # elif defined(_M_ARM64)
 #  define ARCHITECTURE_ID "ARM64"
@@ -604,7 +604,7 @@ char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";
 #  define ARCHITECTURE_ID "I86"
 
 # elif defined(_M_IX86)
-#  define ARCHITECTURE_ID "X86"
+#  define ARCHITECTURE_ID "x86"
 
 # else /* unknown architecture */
 #  define ARCHITECTURE_ID ""
@@ -659,7 +659,7 @@ char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";
 #  define ARCHITECTURE_ID "x64"
 
 # elif defined(__i386__)
-#  define ARCHITECTURE_ID "X86"
+#  define ARCHITECTURE_ID "x86"
 
 # else /* unknown architecture */
 #  define ARCHITECTURE_ID ""
