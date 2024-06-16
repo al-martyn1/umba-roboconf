@@ -3,13 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "umba-roboconf", ".msvc2022\umba-roboconf.vcxproj", "{1AD5E13F-5523-4B62-A076-FCB301C3D86F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_all", ".msvc2022\_all.vcxproj", "{D66975DB-7E59-4BE8-AD8D-C13E9B858F44}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1AD5E13F-5523-4B62-A076-FCB301C3D86F} = {1AD5E13F-5523-4B62-A076-FCB301C3D86F}
+		{439EF332-881C-4812-867C-77B4ABA9A5FE} = {439EF332-881C-4812-867C-77B4ABA9A5FE}
+		{45CB12E1-D6C7-4BC5-BD01-BE95CD84D389} = {45CB12E1-D6C7-4BC5-BD01-BE95CD84D389}
+		{F27E8D8D-C2EA-4534-B127-A125D82CD59F} = {F27E8D8D-C2EA-4534-B127-A125D82CD59F}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sm32_pa_gen", ".msvc2022\sm32_pa_gen.vcxproj", "{439EF332-881C-4812-867C-77B4ABA9A5FE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_umba-roboconf-only", ".msvc2022\_umba-roboconf-only.vcxproj", "{8F230312-18E4-4D9F-A077-A9A3BE86DD16}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1AD5E13F-5523-4B62-A076-FCB301C3D86F} = {1AD5E13F-5523-4B62-A076-FCB301C3D86F}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cube2cmp", ".msvc2022\cube2cmp.vcxproj", "{45CB12E1-D6C7-4BC5-BD01-BE95CD84D389}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "enc_det_test", ".msvc2022\enc_det_test.vcxproj", "{F27E8D8D-C2EA-4534-B127-A125D82CD59F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sm32_pa_gen", ".msvc2022\sm32_pa_gen.vcxproj", "{439EF332-881C-4812-867C-77B4ABA9A5FE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "umba-roboconf", ".msvc2022\umba-roboconf.vcxproj", "{1AD5E13F-5523-4B62-A076-FCB301C3D86F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +64,22 @@ Global
 		{F27E8D8D-C2EA-4534-B127-A125D82CD59F}.Release|x64.Build.0 = Release|x64
 		{F27E8D8D-C2EA-4534-B127-A125D82CD59F}.Release|x86.ActiveCfg = Release|Win32
 		{F27E8D8D-C2EA-4534-B127-A125D82CD59F}.Release|x86.Build.0 = Release|Win32
+		{D66975DB-7E59-4BE8-AD8D-C13E9B858F44}.Debug|x64.ActiveCfg = Debug|x64
+		{D66975DB-7E59-4BE8-AD8D-C13E9B858F44}.Debug|x64.Build.0 = Debug|x64
+		{D66975DB-7E59-4BE8-AD8D-C13E9B858F44}.Debug|x86.ActiveCfg = Debug|Win32
+		{D66975DB-7E59-4BE8-AD8D-C13E9B858F44}.Debug|x86.Build.0 = Debug|Win32
+		{D66975DB-7E59-4BE8-AD8D-C13E9B858F44}.Release|x64.ActiveCfg = Release|x64
+		{D66975DB-7E59-4BE8-AD8D-C13E9B858F44}.Release|x64.Build.0 = Release|x64
+		{D66975DB-7E59-4BE8-AD8D-C13E9B858F44}.Release|x86.ActiveCfg = Release|Win32
+		{D66975DB-7E59-4BE8-AD8D-C13E9B858F44}.Release|x86.Build.0 = Release|Win32
+		{8F230312-18E4-4D9F-A077-A9A3BE86DD16}.Debug|x64.ActiveCfg = Debug|x64
+		{8F230312-18E4-4D9F-A077-A9A3BE86DD16}.Debug|x64.Build.0 = Debug|x64
+		{8F230312-18E4-4D9F-A077-A9A3BE86DD16}.Debug|x86.ActiveCfg = Debug|Win32
+		{8F230312-18E4-4D9F-A077-A9A3BE86DD16}.Debug|x86.Build.0 = Debug|Win32
+		{8F230312-18E4-4D9F-A077-A9A3BE86DD16}.Release|x64.ActiveCfg = Release|x64
+		{8F230312-18E4-4D9F-A077-A9A3BE86DD16}.Release|x64.Build.0 = Release|x64
+		{8F230312-18E4-4D9F-A077-A9A3BE86DD16}.Release|x86.ActiveCfg = Release|Win32
+		{8F230312-18E4-4D9F-A077-A9A3BE86DD16}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
