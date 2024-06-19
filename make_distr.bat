@@ -81,11 +81,14 @@ echo rem                                                                        
 @rem if exist distr rd /Q /S distr 
 @set ZIPDISTRNAME=%DISTR_NAME%_windows_%PLATFORM%_%CONFIGURATION%_%VERSION%.zip
 
+@rem set ZIP=zip
+@set ZIP=7z
+
 @cd %ZIP_TARGET_FOLDER%
-@rem echo Calling ZIP: zip %ZIPDISTRNAME% -r %ZIPDISTRNAME% %DISTR_NAME%
-@echo Calling ZIP: zip -r %ZIPDISTRNAME% %DISTR_NAME%
-@rem zip %ZIPDISTRNAME% -r %ZIPDISTRNAME% %DISTR_NAME%
-@zip -r %ZIPDISTRNAME% %DISTR_NAME%
+@rem echo Calling ZIP: %ZIP% %ZIPDISTRNAME% -r %ZIPDISTRNAME% %DISTR_NAME%
+@echo Calling ZIP: %ZIP% a -r %ZIPDISTRNAME% %DISTR_NAME%
+@rem %ZIP% a -r %ZIPDISTRNAME% %DISTR_NAME%
+@%ZIP% a -r %ZIPDISTRNAME% %DISTR_NAME%
 @rem move %ZIPDISTRNAME% ..\..
 @rem cd ..\..\..
 @cd ..
