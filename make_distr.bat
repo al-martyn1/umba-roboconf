@@ -94,6 +94,7 @@ echo rem                                                                        
 @cd ..
 @rem echo RD_ROOT = %RD_ROOT%
 @rem rd /S /Q %RD_ROOT%
+if exist ..\releases copy /Y /B distr\%ZIPDISTRNAME% ..\releases\%ZIPDISTRNAME%
 
 
 
