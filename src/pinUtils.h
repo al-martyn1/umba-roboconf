@@ -5,6 +5,8 @@
 #include <iostream>
 
 //
+#include "umba/parse_utils.h"
+//
 #include "tracy_tracing.h"
 
 
@@ -149,5 +151,83 @@ bool designatorPinNamesLess(const std::string &name1, const std::string &name2)
     return res < 0;
 }
  
+//-----------------------------------------------------------------------------
+//! Порты GPIO щбозначаются обычно как PNXX, или PYXX, где N - буква номера порта, Y - цифра (или две) номера порта, XX - одна или две цифры номера разряда порта. Начинается обычно с буквы P
+template<typename IterType> inline
+bool isGpioPinFunction(IterType b, IterType e)
+{
+    if (b==e)
+        return false;
+
+    if (*b!='P')
+        return false;
+
+    ++b;
+    if (b==e)
+        return false;
+
+    bool secondIsDigit = umba::parse_utils::isDigit(*b, 10);
+    // Не цифра, и не заглавная буква (hex цифры в верхнем регистре тоже подходят)
+    if ( !secondIsDigit && *b<'A' && *b>'Z' )
+        return false;
+
+    ++b;
+    if (b==e)
+    {
+        // Строка закончилась
+        if (secondIsDigit)
+        {
+            // Строка вида PX - это единственный порт, с несколькими пинами, обозначенными цифрами
+            // Других разумных вариантов для такой фукции пина нет
+            return true;
+        }
+        
+        // Строка вида PN- это единственный порт, с несколькими пинами, обозначенными заглавными буквами
+        // Других разумных вариантов для такой фукции пина нет
+        // PA/PB/PC/PD/PE/PF - это может быть либо hex цифра единственного 16ти-разрядного порта
+        // Или это может быть обозначение пина латинской буквой A-Z единственного порта
+        return true;
+    }
+
+    for(; b!=e; ++b)
+    {
+        if (!umba::parse_utils::isDigit(*b, 10)) // Если на позиции 2+ не цифра, то это какое-то странное обозначение для GPIO-пина, и мы его за таковой не считаем
+            return false;
+    }
+
+    return true;
+
+}
+
+inline
+bool isGpioPinFunction(const std::string &pinFn)
+{
+    return isGpioPinFunction(pinFn.begin(), pinFn.end());
+}
+
+//-----------------------------------------------------------------------------
+//! Переносит GPIO-пин функцию на первую позицию вектора, остальное сортирует по алфавиту. Если обосрёмся и не найдём GPIO имя, или ложно найдём - ну, ничего и страшного, но в большинстве случаев должно прокатывать
+template<typename IterType> inline
+void sortPinFunctionsVector(IterType b, IterType e)
+{
+    for(IterType it = b; it!=e; ++it)
+    {
+        if(isGpioPinFunction(*it))
+        {
+            std::swap(*b, *it);
+            ++b; // сортировка начинается не сначала - первой идёт GPIO-пин функция
+            break;
+        }
+    }
+
+    std::sort(b, e);
+}
+
+inline
+void sortPinFunctionsVector(std::vector<std::string> &pinFunctionsVector)
+{
+    return sortPinFunctionsVector(pinFunctionsVector.begin(), pinFunctionsVector.end());
+}
+
 
 

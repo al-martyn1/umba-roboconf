@@ -5,6 +5,8 @@
 //#include "datasheet.h"
 
 //
+#include "pinUtils.h"
+//
 #include "tracy_tracing.h"
 
 
@@ -70,6 +72,8 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
         os<<makeRoboconfInfoDiv()<<"\n";
 
         std::size_t tableLineCount = 0;
+
+        std::vector<std::string> tmpStringVector; tmpStringVector.reserve(64);
 
         for( const auto& nlIt : nets )
         {
@@ -210,18 +214,38 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
                         os<<"<td>"<<conn.srcPinDesignator<<br<<"("<<conn.interfaceType<<":"<<conn.interfaceLineType<<")"
                                   <<"</td>";  // 1
                    
-                        os<<"<td>"<<conn.srcNetName;
+                        os<<"<td>";
+
+                        // Старый порядок - вначале оригинальная цепь
+                        // os<<conn.srcNetName;
+                        // std::string srcNetNameModified = conn.getProcessedString("MCUNET");
+                        // if (conn.srcNetName!=srcNetNameModified)
+                        // {
+                        //     os<<br<<srcNetNameModified;
+                        // }
+
+                        // Новый порядок порядок - вначале новая цепь
                         std::string srcNetNameModified = conn.getProcessedString("MCUNET");
+                        os<<srcNetNameModified;
                         if (conn.srcNetName!=srcNetNameModified)
                         {
-                            os<<br<<srcNetNameModified;
+                            os<<br<<conn.srcNetName;
                         }
+
                         os<<"</td>"; // 2
                    
                         if (!shortReport)
                         {
                             os<<"<td>"; // 3
-                            for( auto pfn : conn.srcPinInfo.pinFunctions)
+                            // У нас теперь используются unordered set/map'ы, и набор пин-функций - не исключение.
+                            // А надо - сортированное
+                            tmpStringVector.clear();
+                            tmpStringVector.insert(tmpStringVector.end(), conn.srcPinInfo.pinFunctions.begin(), conn.srcPinInfo.pinFunctions.end());
+                            // Переносит GPIO-пин функцию на первую позицию вектора, остальное сортирует по алфавиту. Если обосрёмся и не найдём GPIO имя, 
+                            // или ложно найдём - ну, ничего и страшного, но в большинстве случаев должно прокатывать
+                            sortPinFunctionsVector(tmpStringVector);
+                            //std::sort(tmpStringVector.begin(), tmpStringVector.end());
+                            for( auto pfn : tmpStringVector /* conn.srcPinInfo.pinFunctions */ )
                                 os<<pfn<<" ";
                             os<<"</td>";
                         }
