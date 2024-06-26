@@ -53,7 +53,7 @@ struct ForceGroupingRule
     size_t                      lineNo = (size_t)-1;
 
 
-    //! Возвращает true, если str (второй параметр) подходит под маску regexStr (третий параметр)
+    //! пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ true, пїЅпїЅпїЅпїЅ str (пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ) пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ regexStr (пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
     bool checkMatch( RoboconfOptions &rbcOpts, const std::string &str, const std::string &regexStr ) const;
 
     std::string prepareRegex( std::string str )
@@ -183,8 +183,9 @@ public:
 
     bool                                        pauseOnError = false;
 
-    std::string outputProlog;
-    std::string outputEpilog;
+    std::string                                 outputProlog;
+    std::string                                 outputEpilog;
+    bool                                        fileLinksUnixMode = false; // Default is Windows
 
     DatasheetsDb                                datasheetsDb;
 
@@ -259,9 +260,9 @@ public:
     ForceGroupingRule::forceUngroup   
     */
 
-    /*! \brief Пробегается по заданным групповым правилам keepGroup/forceGroup/forceUngroup для заданного имени цепи
+    /*! \brief пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ keepGroup/forceGroup/forceUngroup пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
-        Для каждого правила keepGroup/forceGroup/forceUngroup вызывается метод check/
+        пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ keepGroup/forceGroup/forceUngroup пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ check/
 
 
      */

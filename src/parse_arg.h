@@ -608,6 +608,14 @@ int parseArg( std::string a, ICommandLineOptionCollector *pCol, bool fBuiltin, b
             localLibCacheFilename = opt.optArg;
         
         }
+
+        else if (opt.isOption("report-unix-filelinks") || opt.setDescription("Set unix style paths in reports for file links"))
+        {
+            if (hasHelpOption) return 0;
+
+            rbcOpts.fileLinksUnixMode = true;
+        }
+
         else if (opt.isOption("no-default-rules") || opt.setDescription("Disable default rules"))
         {
             if (hasHelpOption) return 0;

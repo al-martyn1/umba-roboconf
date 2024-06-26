@@ -274,8 +274,41 @@ table {
         return oss.str();
     }
 
+        // //rbcOpts.fileLinksUnixMode = true;
+        //  
 
-    std::string prepareLinkUrl(RoboconfOptions &rbcOpts, std::string url) const
+    static
+    std::string escapeBackSlashes(const std::string &url)
+    {
+        std::string resStr;
+        for(auto ch : url)
+        {
+            if (ch=='\\')
+                resStr.append(1, ch); // duplicate shash
+             resStr.append(1, ch);
+        }
+
+        return resStr;
+    }
+
+    static
+    std::string prepareFileLink(RoboconfOptions &rbcOpts, std::string url)
+    {
+        if (isDatasheetNetworkLink(url))
+            return std::string(); // Для сетевого имени (HTTP etc) - пустая строка
+
+        // Перекодируем из ANSI в UTF8
+        EncodingsApi* pEncApi = getEncodingsApi();
+        UINT sysCp = pEncApi->getSystemCharMulticharCodePage();
+        url = pEncApi->convert(url, sysCp, pEncApi->cpid_UTF8 );
+
+        url = changePathSeparators(url, rbcOpts.fileLinksUnixMode ? '/' : '\\' );
+
+        return escapeBackSlashes(url);
+    }
+
+    static
+    std::string prepareLinkUrl(RoboconfOptions &rbcOpts, std::string url)
     {
         // Из системной CP конвертируем в UTF-8
 
@@ -310,6 +343,7 @@ table {
 
     std::string makeTextLink( RoboconfOptions &rbcOpts, std::string url, const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
     {
+        std::string fileLink = prepareFileLink(rbcOpts, url);
         url = prepareLinkUrl(rbcOpts, url);
 
         if (!title.empty())
@@ -327,7 +361,25 @@ table {
         }
         oss << "title=\"" << title << "\" ";
         oss << "href=\""  << url << "\">";
-        oss << text << "</a>";
+        oss << text;
+        oss << "</a>";
+
+        if (!fileLink.empty())
+        {
+            oss << "<sup><a target=\"_blank\" title=\"Local file path, click to copy\"";
+            //onclick=''
+            oss << " href=\"" << fileLink << "\"";
+            //oss << " href=\"""\"";
+            oss << " onclick=\"";
+                oss << "navigator.clipboard.writeText('" << fileLink << "');";
+                oss << "alert('Path "<<fileLink<<" copied to clipboard');";
+                oss << "return false;";
+                oss << " \"";
+            oss << ">L</a></sup>";
+
+            // navigator.clipboard.writeText(copyText.value);
+            // alert("Copied the text: " + copyText.value);
+        }
 
         return oss.str();
         
@@ -335,6 +387,7 @@ table {
 
     std::string makeIconLink( RoboconfOptions &rbcOpts, std::string url /* , const std::string &iconUrl */ , const std::string &text, std::string title = std::string(), std::string target = std::string() ) const
     {
+        std::string fileLink = prepareFileLink(rbcOpts, url);
         url = prepareLinkUrl(rbcOpts, url);
 
         if (!title.empty())
@@ -362,6 +415,23 @@ table {
         }
 
         oss << "</a>";
+
+        if (!fileLink.empty())
+        {
+            oss << "<sup><a target=\"_blank\" title=\"Local file path, click to copy\"";
+            //onclick=''
+            oss << " href=\"" << fileLink << "\"";
+            //oss << " href=\"""\"";
+            oss << " onclick=\"";
+                oss << "navigator.clipboard.writeText('" << fileLink << "');";
+                oss << "alert('Path "<<fileLink<<" copied to clipboard');";
+                oss << "return false;";
+                oss << " \"";
+            oss << ">L</a></sup>";
+
+            // navigator.clipboard.writeText(copyText.value);
+            // alert("Copied the text: " + copyText.value);
+        }
 
         return oss.str();
 

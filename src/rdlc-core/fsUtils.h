@@ -90,6 +90,21 @@ std::string makeSimpleCanonicalFilename( const std::string &fileName )
 
 //-----------------------------------------------------------------------------
 inline
+std::string changePathSeparators( std::string fileName, char newPathSep )
+{
+    for( auto &ch : fileName)
+    {
+        if (isPathSep(ch))
+        {
+            ch = newPathSep;
+        }
+    }
+
+    return fileName;
+}
+
+//-----------------------------------------------------------------------------
+inline
 std::string appendPath( const std::string &p, std::string f )
 {
     if (p.empty())
