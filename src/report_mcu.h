@@ -48,15 +48,17 @@ struct McuReportGenerator : public ReportHtmlBase // IReportGenerator
     {
         UmbaTracyTraceScope();
 
-        std::string docTitle = "MCU connections - Roboconf";
+        std::string docTitle = "MCU connections";
 
         if (!nets.empty())
         {
             auto first = nets.begin();
 
             if (!first->second.projectName.empty())
-                docTitle = first->second.projectName + std::string(" - ") + docTitle;
+                docTitle = std::string(" - ") + first->second.projectName;
         }
+        docTitle += std::string(" - Roboconf");
+        
 
         os<<htmlDocType();
         os<<"<html>\n<head>\n<title>"<< docTitle << "</title>\n";
