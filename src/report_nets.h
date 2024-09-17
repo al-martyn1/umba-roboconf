@@ -46,15 +46,16 @@ struct NetsReportGenerator : public ReportHtmlBase // IReportGenerator
     {
         UmbaTracyTraceScope();
 
-        std::string docTitle = "Project summary - Roboconf";
+        std::string docTitle = "Project summary";
 
         if (!nets.empty())
         {
             auto first = nets.begin();
 
             if (!first->second.projectName.empty())
-                docTitle = first->second.projectName + std::string(" - ") + docTitle;
+                docTitle = std::string(" - ") + first->second.projectName;
         }
+        docTitle += std::string(" - Roboconf");
 
         os<<htmlDocType();
         os<<"<html>\n<head>\n<title>"<< docTitle << "</title>\n";

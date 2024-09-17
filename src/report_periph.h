@@ -53,15 +53,16 @@ struct PeriphReportGenerator : public ReportHtmlBase // IReportGenerator
 
         bool shortReport = (reportName=="periph-short");
 
-        std::string docTitle = shortReport ? "Peripherials Short - Roboconf" : "Peripherials - Roboconf";
+        std::string docTitle = shortReport ? "Peripherials Short" : "Peripherials";
 
         if (!nets.empty())
         {
             auto first = nets.begin();
 
             if (!first->second.projectName.empty())
-                docTitle = first->second.projectName + std::string(" - ") + docTitle;
+                docTitle = std::string(" - ") + first->second.projectName;
         }
+        docTitle += std::string(" - Roboconf");
 
         os<<htmlDocType();
         os<<"<html lang=\"en\">\n<head>\n<title>"<< docTitle << "</title>\n";
