@@ -52,9 +52,18 @@
 (modify "mcuNet" replace "(.*)\.(.*)" "$({P})$({1})$({2})$({S})")
 
 
-(modify "mcuNet" replaceSingle "LED_ERR"   "LED_ERROR")
-(modify "mcuNet" replaceSingle "LED_GREEN" "LED_LINK")
-(modify "mcuNet" replaceSingle "LED_RED"   "LED_ERROR")
+(modify "mcuNet" replaceSingle "LED_ERR2"     "LED_ERROR2")
+(modify "mcuNet" replaceSingle "LED_GREEN2"   "LED_LINK2")
+(modify "mcuNet" replaceSingle "LED_RED2"     "LED_ERROR2")
+(modify "mcuNet" replaceSingle "LED_YELLOW2"  "LED_NOTICE2")
+(modify "mcuNet" replaceSingle "LED_YEL2"     "LED_NOTICE2")
+(modify "mcuNet" replaceSingle "LED_ERR"     "LED_ERROR")
+(modify "mcuNet" replaceSingle "LED_GREEN"   "LED_LINK")
+(modify "mcuNet" replaceSingle "LED_RED"     "LED_ERROR")
+(modify "mcuNet" replaceSingle "LED_YELLOW"  "LED_NOTICE")
+(modify "mcuNet" replaceSingle "LED_YEL"     "LED_NOTICE")
+(forceGroup "STATE_LEDS"  ("LED_ERR" "LED_ERROR" "LED_LINK" "LED_NOTICE" "LED_WORK" "LED_OK" "LED_GOOD" "LED\d+" "LED_\d+" ".*_LED\d+" ".*_LED_\d+" ".*_LED_.*") )
+(forceGroup "STATE_LEDS2" ("LED_ERR2" "LED_ERROR2" "LED_LINK2" "LED_NOTICE2" "LED_WORK2" "LED_OK2" "LED_GOOD2") )
 
 (modify "unitPurpose" replaceSingle "^LED$"           "DRIVER:GPIO")
 (modify "unitPurpose" replaceSingle "^SWITCH$"        "DRIVER:GPIO")
